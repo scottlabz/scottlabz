@@ -2,6 +2,7 @@
 <html>
 	<head>
 
+			<link rel="preconnect" href="https://www.googletagmanager.com">
 			<!-- Google tag (gtag.js) -->
 			<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY6CT6TLNL"></script>
 			<script>
@@ -16,14 +17,28 @@
 		<meta name="description" content="Modern digital infrastructure, secure web software, precision telemetry, and trustworthy analytics platforms built for performance.">
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="canonical" href="https://scottlabz.com/" />
+
+		<script type="application/ld+json">
+		{
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"name": "Scott Labz",
+		"url": "https://scottlabz.com/",
+		"logo": "https://scottlabz.com/images/scottlabz-clear.png",
+		"description": "Scott Labz is an analytics engineering firm delivering trustworthy, enterprise-grade data infrastructure."
+		}
+		</script>
+
 		<meta property="og:title" content="Scott Labz | Analytics Engineering &amp; Digital Platforms" />
 		<meta property="og:description" content="Modern digital infrastructure, secure web software, precision telemetry, and trustworthy analytics platforms built for performance." />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://scottlabz.com/" />
 		<meta property="og:image" content="https://scottlabz.com/images/banner.jpg" />
+		
 		<link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
@@ -38,6 +53,7 @@
 		<link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
 		<link rel="manifest" href="images/favicon/manifest.json">
+		
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
 			<meta name="theme-color" content="#ffffff">
@@ -352,6 +368,29 @@
 			<script src="assets/js/breakpoints.min.js" defer></script>
 			<script src="assets/js/util.js" defer></script>
 			<script src="assets/js/main.js" defer></script>
+
+			<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				// Find all elements on the page with the class 'button'
+				document.querySelectorAll('.button').forEach(item => {
+				
+				// Attach a click listener to each button
+				item.addEventListener('click', event => {
+					
+					// Ensure the dataLayer array exists before pushing to it
+					window.dataLayer = window.dataLayer || [];
+					
+					// Push the custom event and context into the dataLayer
+					window.dataLayer.push({
+					'event': 'cta_click',
+					'button_text': event.target.innerText,
+					'target_section': event.target.getAttribute('href')
+					});
+					
+				});
+				});
+			});
+			</script>
 
 	</body>
 </html>
