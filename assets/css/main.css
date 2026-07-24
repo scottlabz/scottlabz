@@ -8859,3 +8859,7 @@ img[src*="scottlabz-clear"] {
 [data-theme="dark"] .gallery.style2 h6 {
   color: #facc15 !important;
 }
+
+[data-theme="dark"] img.logo {
+  filter: brightness(0) saturate(100%) invert(84%) sepia(51%) saturate(948%) hue-rotate(359deg) brightness(101%) contrast(104%) !important;
+}
