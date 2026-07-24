@@ -18,9 +18,27 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
+<script>
+  (function() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
+
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="canonical" href="https://scottlabz.com/accessibility.html" />
+
+		<style>
+		  [data-theme="dark"] strong {
+		    color: #ffffff !important;
+		  }
+		</style>
 
 		<meta property="og:title" content="Accessibility Statement | Scott Labz" />
 		<meta property="og:description" content="Scott Labz Accessibility Statement detailing WCAG 2.1 Level AA conformance, accessibility measures, and usability commitments." />
@@ -47,6 +65,43 @@
 		<meta name="theme-color" content="#ffffff">
 	</head>
 	<body class="is-preload">
+      <!-- Compact Theme Toggle Button (Floating Top Left) -->
+      <div id="themeToggle" onclick="
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        document.getElementById('themeIcon').textContent = next === 'dark' ? '☀️' : '🌙';
+      " style="
+        position: fixed !important;
+        top: 20px !important;
+        left: 20px !important;
+        z-index: 2147483647 !important;
+        width: 40px !important;
+        height: 40px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: #ffffff !important;
+        color: #111111 !important;
+        border: 2px solid rgba(0, 0, 0, 0.15) !important;
+        border-radius: 50% !important;
+        cursor: pointer !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+        user-select: none !important;
+      ">
+        <span id="themeIcon" style="font-size: 1.2rem !important; line-height: 1 !important;">🌙</span>
+      </div>
+
+      <script>
+        (function() {
+          const currentTheme = document.documentElement.getAttribute("data-theme");
+          const icon = document.getElementById("themeIcon");
+          if (icon) {
+            icon.textContent = currentTheme === "dark" ? "☀️" : "🌙";
+          }
+        })();
+      </script>
 
 		<!-- Wrapper -->
 			<div id="wrapper" class="divided">
@@ -154,31 +209,29 @@
 			<script src="assets/js/util.js" defer></script>
 			<script src="assets/js/main.js" defer></script>
 
-			<!-- Back to Top Button -->
-			<button id="backToTop" onclick="scrollToTop()" aria-label="Back to top" style="
-			display: none;
-			position: fixed;
-			bottom: 24px;
-			right: 24px;
-			z-index: 99;
-			">↑ Top</button>
-
-			<script>
-			(function() {
-				const topBtn = document.getElementById("backToTop");
-				window.addEventListener("scroll", function() {
-				if (window.scrollY > 300) {
-					topBtn.style.display = "block";
-				} else {
-					topBtn.style.display = "none";
-				}
-				});
-			})();
-
-			function scrollToTop() {
-				window.scrollTo({ top: 0, behavior: 'smooth' });
-			}
-			</script>
-
-	</body>
+      <!-- Back to Top Button -->
+      <button id="backToTop" onclick="scrollToTop()" aria-label="Back to top" style="
+         display: none;
+         position: fixed;
+         bottom: 24px;
+         right: 24px;
+         z-index: 99;
+         ">↑ Top</button>
+      <script>
+         (function() {
+         	const topBtn = document.getElementById("backToTop");
+         	window.addEventListener("scroll", function() {
+         	if (window.scrollY > 300) {
+         		topBtn.style.display = "block";
+         	} else {
+         		topBtn.style.display = "none";
+         	}
+         	});
+         })();
+         
+         function scrollToTop() {
+         	window.scrollTo({ top: 0, behavior: 'smooth' });
+         }
+      </script>
+   </body>
 </html>

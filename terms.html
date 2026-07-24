@@ -47,7 +47,15 @@
 			<meta name="theme-color" content="#ffffff">
 	</head>
 	<body class="is-preload">
-
+      <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme" style="
+         position: fixed;
+         top: 14px;
+         left: 14px;
+         z-index: 10000;
+         cursor: pointer;
+         ">
+      <span id="themeIcon">🌙</span>
+      </button>
 		<!-- Wrapper -->
 			<div id="wrapper" class="divided">
 
@@ -181,31 +189,55 @@
 			<script src="assets/js/util.js" defer></script>
 			<script src="assets/js/main.js" defer></script>
 
-			<!-- Back to Top Button -->
-			<button id="backToTop" onclick="scrollToTop()" aria-label="Back to top" style="
-			display: none;
-			position: fixed;
-			bottom: 24px;
-			right: 24px;
-			z-index: 99;
-			">↑ Top</button>
-
-			<script>
-			(function() {
-				const topBtn = document.getElementById("backToTop");
-				window.addEventListener("scroll", function() {
-				if (window.scrollY > 300) {
-					topBtn.style.display = "block";
-				} else {
-					topBtn.style.display = "none";
-				}
-				});
-			})();
-
-			function scrollToTop() {
-				window.scrollTo({ top: 0, behavior: 'smooth' });
-			}
-			</script>
-
-	</body>
+      <!-- Back to Top Button -->
+      <button id="backToTop" onclick="scrollToTop()" aria-label="Back to top" style="
+         display: none;
+         position: fixed;
+         bottom: 24px;
+         right: 24px;
+         z-index: 99;
+         ">↑ Top</button>
+      <script>
+         (function() {
+         	const topBtn = document.getElementById("backToTop");
+         	window.addEventListener("scroll", function() {
+         	if (window.scrollY > 300) {
+         		topBtn.style.display = "block";
+         	} else {
+         		topBtn.style.display = "none";
+         	}
+         	});
+         })();
+         
+         function scrollToTop() {
+         	window.scrollTo({ top: 0, behavior: 'smooth' });
+         }
+      </script>
+      <script>
+         document.addEventListener("DOMContentLoaded", () => {
+           const toggleBtn = document.getElementById("themeToggle");
+           const themeIcon = document.getElementById("themeIcon");
+         
+           function updateUI() {
+             const currentTheme = document.documentElement.getAttribute("data-theme");
+             if (themeIcon) {
+               themeIcon.textContent = currentTheme === "dark" ? "☀️" : "🌙";
+             }
+           }
+         
+           updateUI();
+         
+           if (toggleBtn) {
+             toggleBtn.addEventListener("click", () => {
+               const currentTheme = document.documentElement.getAttribute("data-theme");
+               const newTheme = currentTheme === "dark" ? "light" : "dark";
+               
+               document.documentElement.setAttribute("data-theme", newTheme);
+               localStorage.setItem("theme", newTheme);
+               updateUI();
+             });
+           }
+         });
+      </script>
+   </body>
 </html>

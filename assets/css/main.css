@@ -84,6 +84,130 @@ input, select, textarea {
       font-weight: 500;
     }
 
+/* ==========================================
+   1. GLOBAL THEME VARIABLES
+   ========================================== */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --header-color: #111111;
+  --link-color: #0066cc;
+  --yellow-accent: #facc15;
+  --card-bg: #f9f9f9;
+  --border-color: #e5e5e5;
+}
+
+[data-theme="dark"] {
+  --bg-color: #0d0d0d;
+  --text-color: #e5e5e5;
+  --header-color: #facc15;
+  --link-color: #facc15;
+  --card-bg: #1a1a1a;
+  --border-color: #333333;
+}
+
+/* ==========================================
+   2. SITE-WIDE BASE & OVERRIDES
+   ========================================== */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Force Dark Mode Hard Overrides Across Elements */
+[data-theme="dark"] body,
+[data-theme="dark"] main,
+[data-theme="dark"] section,
+[data-theme="dark"] header,
+[data-theme="dark"] footer,
+[data-theme="dark"] div,
+[data-theme="dark"] nav,
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] span,
+[data-theme="dark"] .card {
+  background-color: #0d0d0d !important;
+  color: #e5e5e5 !important;
+}
+
+/* Force Headers & Links to Crisp Yellow in Dark Mode */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] a,
+[data-theme="dark"] a:visited,
+[data-theme="dark"] .site-title,
+[data-theme="dark"] .nav-link {
+  color: #facc15 !important;
+}
+
+[data-theme="dark"] a:hover {
+  color: #fef08a !important;
+  text-decoration: underline;
+}
+
+/* ==========================================
+   3. LOGO RECOLOR (YELLOW IN DARK MODE)
+   ========================================== */
+img[src*="scottlabz-clear"] {
+  background: transparent !important;
+  transition: filter 0.25s ease;
+}
+
+[data-theme="dark"] img[src*="scottlabz-clear"] {
+  filter: 
+    brightness(0) 
+    drop-shadow(0px 0px 0.5px #facc15)
+    drop-shadow(0px 0px 0.5px #facc15)
+    drop-shadow(0px 0px 0.5px #facc15)
+    drop-shadow(0px 0px 0.5px #facc15)
+    drop-shadow(0px 0px 0.5px #facc15)
+    drop-shadow(0px 0px 0.5px #facc15)
+    !important;
+}
+
+/* ==========================================
+   4. UI BUTTON STYLING (TOGGLE & TOP BUTTON)
+   ========================================== */
+.theme-toggle-btn {
+  background: #f0f0f0;
+  color: #111111;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .theme-toggle-btn {
+  background: #1a1a1a !important;
+  color: #facc15 !important;
+}
+
+#backToTop {
+  border: 1px solid #e5e5e5;
+  background-color: #ffffff;
+  color: #111111;
+  transition: all 0.25s ease;
+}
+
+[data-theme="dark"] #backToTop {
+  background-color: #1a1a1a !important;
+  color: #facc15 !important;
+  border-color: #333333 !important;
+}
+
+[data-theme="dark"] #backToTop:hover {
+  background-color: #262626 !important;
+  color: #fef08a !important;
+}
+
 /* Basic */
 
 	@-ms-viewport {
@@ -8613,3 +8737,125 @@ input, select, textarea {
 			#wrapper.divided > .invert:first-child {
 				box-shadow: none !important;
 			}
+
+/* Scott Labz */
+
+/* =========================================================
+   CONDENSED SITE STYLES (DARK MODE & CUSTOM FIXES)
+   ========================================================= */
+
+/* 1. Alternating Main Sections */
+[data-theme="dark"] #wrapper > section:nth-of-type(odd),
+[data-theme="dark"] footer.wrapper:nth-of-type(odd) { background-color: #0d0d0d !important; }
+[data-theme="dark"] #wrapper > section:nth-of-type(even),
+[data-theme="dark"] footer.wrapper:nth-of-type(even) { background-color: #1a1a1a !important; }
+
+/* 2. Strip Inner Backgrounds & Overlays */
+[data-theme="dark"] #wrapper > section *,
+[data-theme="dark"] #wrapper > section .content,
+[data-theme="dark"] #wrapper > section .inner,
+[data-theme="dark"] #wrapper > section .image,
+[data-theme="dark"] .spotlight .content,
+[data-theme="dark"] .spotlight .content::before,
+[data-theme="dark"] .spotlight .content::after {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* 3. High-Visibility Buttons (Yellow -> White Hover) */
+[data-theme="dark"] .button:not(.smooth-scroll-middle):not([href^="#"]),
+[data-theme="dark"] a.button:not(.smooth-scroll-middle):not([href^="#"]),
+[data-theme="dark"] input[type="submit"].button {
+  background-color: transparent !important;
+  color: #facc15 !important;
+  border: 2px solid #facc15 !important;
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.2) !important;
+  transition: all 0.25s ease-in-out !important;
+}
+
+[data-theme="dark"] .button:not(.smooth-scroll-middle):not([href^="#"]):hover,
+[data-theme="dark"] a.button:not(.smooth-scroll-middle):not([href^="#"]):hover,
+[data-theme="dark"] input[type="submit"].button:hover {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6) !important;
+}
+
+[data-theme="dark"] .smooth-scroll-middle,
+[data-theme="dark"] a[href^="#"].button {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* 4. Borderless Compact Toggle Button */
+.theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #111111 !important;
+  width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  backdrop-filter: blur(8px) !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: transform 0.2s ease !important;
+}
+
+.theme-toggle-btn #themeIcon {
+  font-size: 1.15rem !important;
+  line-height: 1 !important;
+}
+
+[data-theme="dark"] .theme-toggle-btn {
+  background: rgba(26, 26, 26, 0.95) !important;
+  color: #facc15 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover {
+  background: #262626 !important;
+  transform: scale(1.08);
+}
+
+/* 5. Scalable Data Precision Grid Lines */
+[data-theme="dark"] #scalable-precision .items.style1 > section {
+  background-color: transparent !important;
+  border-color: #ffffff !important;
+}
+
+[data-theme="dark"] #scalable-precision .items.style1 > section::before,
+[data-theme="dark"] #scalable-precision .items.style1 > section::after {
+  background-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* 6. Gallery Image Thumbnail Hover Opacity */
+.gallery article img {
+  transition: opacity 0.3s ease-in-out !important;
+}
+
+.gallery article:hover img.image,
+.gallery article:hover .image {
+  background-color: rgba(10, 10, 10, 0.92) !important;
+}
+
+.gallery article:hover img {
+  opacity: 0.25 !important;
+}
+
+/* 7. Specific Gallery Headings (Yellow) */
+[data-theme="dark"] .gallery.style2 h1,
+[data-theme="dark"] .gallery.style2 h2,
+[data-theme="dark"] .gallery.style2 h3,
+[data-theme="dark"] .gallery.style2 h4,
+[data-theme="dark"] .gallery.style2 h5,
+[data-theme="dark"] .gallery.style2 h6 {
+  color: #facc15 !important;
+}
