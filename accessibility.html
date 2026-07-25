@@ -64,33 +64,15 @@
 		<meta name="theme-color" content="#ffffff">
 	</head>
 	<body class="is-preload">
-      <!-- Compact Theme Toggle Button (Floating Top Left) -->
-      <div id="themeToggle" onclick="
-        const current = document.documentElement.getAttribute('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-        document.getElementById('themeIcon').textContent = next === 'dark' ? '☀️' : '🌙';
-      " style="
-        position: fixed !important;
-        top: 20px !important;
-        left: 20px !important;
-        z-index: 2147483647 !important;
-        width: 40px !important;
-        height: 40px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background: #ffffff !important;
-        color: #111111 !important;
-        border: 2px solid rgba(0, 0, 0, 0.15) !important;
-        border-radius: 50% !important;
-        cursor: pointer !important;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
-        user-select: none !important;
-      ">
-        <span id="themeIcon" style="font-size: 1.2rem !important; line-height: 1 !important;">🌙</span>
-      </div>
+      <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme" style="
+         position: fixed;
+         top: 14px;
+         left: 14px;
+         z-index: 10000;
+         cursor: pointer;
+         ">
+      <span id="themeIcon">🌙</span>
+      </button>
 
       <script>
         (function() {
