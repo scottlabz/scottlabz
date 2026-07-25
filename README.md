@@ -6,6 +6,6 @@ Building and operating modern digital infrastructure, secure software, and enter
 ---
 
 * 🔭 **Core Capabilities:** Analytics Engineering, Measurement Architecture, Custom Software & Web Platforms
-* 🛠️ **Tech Stack:** SQL | Python | JavaScript | Git | Bash | Databricks
+* 🛠️ **Tech Stack:** SQL | Python | JavaScript | Git | Bash
 * 🔒 **Principles:** Stability, Security, Scalability, and Precision
 * 📬 **Contact:** info@scottlabz.com
