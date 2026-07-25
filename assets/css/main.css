@@ -8863,3 +8863,9 @@ img[src*="scottlabz-clear"] {
 [data-theme="dark"] img.logo {
   filter: brightness(0) saturate(100%) invert(84%) sepia(51%) saturate(948%) hue-rotate(359deg) brightness(101%) contrast(104%) !important;
 }
+
+@media screen and (min-width: 768px) {
+    .footer-columns {
+        flex-direction: row !important;
+    }
+}
