@@ -8870,6 +8870,6 @@ img[src*="scottlabz-clear"] {
     }
 }
 
-[data-theme="dark"] #capabilities strong {
-   color: #ffffff !important;
+[data-theme="dark"] strong {
+      color: #ffffff !important;
 }

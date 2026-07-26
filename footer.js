@@ -44,6 +44,8 @@ class ScottFooter extends HTMLElement {
                         <li><a href="security.html">ISMS Standard</a></li>
                         <li><a href="vdp.html">Vulnerability Disclosure</a></li>
                         <li><a href="dpa.html">Data Processing Agreement</a></li>
+                        <li><a href="disclaimer.html">Operational Disclaimers</a></li>
+                        <li><a href="provenance.html">Data Provenance</a></li>
                         <li><a href="https://stats.uptimerobot.com/XTnbfmM7Fi" target="_blank" rel="noopener noreferrer">System Status</a></li>
                         <li><a href="https://securityheaders.com/?q=scottlabz.com&followRedirects=on" target="_blank" rel="noopener noreferrer" style="border-bottom: none; opacity: 0.8; transition: opacity 0.2s;">Edge Security</a></li>
                      </ul>
@@ -59,6 +61,7 @@ class ScottFooter extends HTMLElement {
                         <li><a href="accessibility.html">Accessibility Statement</a></li>
                         <li><a href="ai-policy.html">AI Governance Policy</a></li>
                         <li><a href="telemetry.html">Telemetry Policy</a></li>
+                        <li><a href="service-policy.html">Service Policy</a></li>
                      </ul>
                </div>
 
