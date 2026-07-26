@@ -156,6 +156,10 @@
          vertical-align: middle;
          margin-right: 0.05em;
          }
+         /* Mobile Back-to-Home Container (Hidden on Desktop) */
+         .mobile-back-home {
+         display: none;
+         }
          @media screen and (max-width: 840px) {
          .about-container {
          flex-direction: column;
@@ -165,9 +169,24 @@
          position: static;
          flex: none;
          width: 100%;
-         border-bottom: 1px solid rgba(160, 160, 160, 0.2);
-         padding-bottom: 1.5rem;
-         margin-bottom: 1rem;
+         border-bottom: none;
+         padding-bottom: 0;
+         margin-bottom: 0;
+         }
+         /* Hide the first column with the logo in mobile view */
+         .sidebar-logo {
+         display: none;
+         }
+         .about-sidebar .desktop-back-link {
+         display: none;
+         }
+         /* Show and style the mobile back-to-home button at the bottom */
+         .mobile-back-home {
+         display: block;
+         margin-top: 3rem;
+         padding-top: 2rem;
+         border-top: 1px solid rgba(160, 160, 160, 0.2);
+         text-align: center;
          }
          }
       </style>
@@ -192,7 +211,7 @@
                   <img src="images/scottlabz-clear.png" alt="Scott Labz Logo">
                   </a>
                </div>
-               <div style="margin-bottom: 2rem;">
+               <div class="desktop-back-link" style="margin-bottom: 2rem;">
                   <a href="index.html" class="button small">← Back to Main</a>
                </div>
             </aside>
@@ -266,6 +285,10 @@
                      </div>
                   </div>
                </section>
+               <!-- Mobile Back to Home (Appears at bottom of content on small screens) -->
+               <div class="mobile-back-home">
+                  <a href="index.html" class="button">← Back to Main</a>
+               </div>
             </main>
          </div>
          <!-- Footer -->
