@@ -6,14 +6,14 @@
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
       <script>
-      (function() {
-         const savedTheme = localStorage.getItem('theme');
-         if (savedTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-         } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-         }
-      })();
+         (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+               document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+               document.documentElement.setAttribute('data-theme', 'light');
+            }
+         })();
       </script>
       <link rel="stylesheet" href="assets/css/main.css" />
       <noscript>
@@ -32,10 +32,8 @@
          ">
       <span id="themeIcon">🌙</span>
       </button>
-      
       <!-- Wrapper -->
       <div id="wrapper" class="divided">
-         
          <!-- Header / Hero -->
          <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
             <div class="content">
@@ -49,7 +47,6 @@
                <img src="images/services.jpg" alt="Scott Labz granular services specification layout" style="object-position: top;" />
             </div>
          </section>
-
          <!-- Services Content Section -->
          <section class="wrapper style1 align-center" id="services-content">
             <div class="inner" style="max-width: 1300px; text-align: left;">
@@ -57,13 +54,10 @@
                   <h2>Comprehensive Engineering Capabilities</h2>
                   <p>Here is how we help businesses streamline and scale. By taking a flexible, independent approach to your data and web presence, we help you eliminate operational drag, build for the long term, and ensure your tools are truly working for your bottom line.</p>
                </header>
-
                <div style="display: flex; flex-direction: column; gap: 6rem;">
-                  
                   <!-- Service Block 1 -->
                   <div style="background: rgba(160, 160, 160, 0.08); padding: 3.5rem; border-radius: 8px; border: 1px solid rgba(160, 160, 160, 0.2); box-shadow: 0 4px 30px rgba(0,0,0,0.03);">
                      <h3 style="border-bottom: 2px solid rgba(160, 160, 160, 0.2); padding-bottom: 1.5rem; margin-bottom: 2.5rem; font-size: 1.8rem; color: var(--heading-color);"><i class="fas fa-database" style="margin-right: 0.75rem;"></i>1. Enterprise Data Infrastructure &amp; Measurement Architecture</h3>
-                     
                      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem;">
                         <!-- Sub-service 1.1 -->
                         <div style="display: flex; flex-direction: column;">
@@ -76,7 +70,6 @@
                            </ul>
                            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #888; border-top: 1px solid rgba(160,160,160,0.2); padding-top: 1rem;">Core Tech: <span style="color: var(--text-color);">JavaScript, Server-Side Tagging, Edge Computing, Browser APIs</span></div>
                         </div>
-
                         <!-- Sub-service 1.2 -->
                         <div style="display: flex; flex-direction: column;">
                            <h4 style="margin-bottom: 1rem; font-size: 1.25rem;"><i class="fas fa-sync-alt" style="margin-right: 0.5rem;"></i>Automated Audit &amp; Reconciliation Pipelines</h4>
@@ -88,7 +81,6 @@
                            </ul>
                            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #888; border-top: 1px solid rgba(160,160,160,0.2); padding-top: 1rem;">Core Tech: <span style="color: var(--text-color);">Python, SQL, Shell Scripting, Workflow Orchestration, Headless Browsers</span></div>
                         </div>
-
                         <!-- Sub-service 1.3 -->
                         <div style="display: flex; flex-direction: column;">
                            <h4 style="margin-bottom: 1rem; font-size: 1.25rem;"><i class="fas fa-shield-alt" style="margin-right: 0.5rem;"></i>Governance &amp; Warehouse Engineering</h4>
@@ -102,11 +94,9 @@
                         </div>
                      </div>
                   </div>
-
                   <!-- Service Block 2 -->
                   <div style="background: rgba(160, 160, 160, 0.08); padding: 3.5rem; border-radius: 8px; border: 1px solid rgba(160, 160, 160, 0.2); box-shadow: 0 4px 30px rgba(0,0,0,0.03);">
                      <h3 style="border-bottom: 2px solid rgba(160, 160, 160, 0.2); padding-bottom: 1.5rem; margin-bottom: 2.5rem; font-size: 1.8rem; color: var(--heading-color);"><i class="fas fa-laptop-code" style="margin-right: 0.75rem;"></i>2. Custom eCommerce &amp; Full-Stack Web Development</h3>
-                     
                      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem;">
                         <!-- Sub-service 2.1 -->
                         <div style="display: flex; flex-direction: column;">
@@ -119,7 +109,6 @@
                            </ul>
                            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #888; border-top: 1px solid rgba(160,160,160,0.2); padding-top: 1rem;">Core Tech: <span style="color: var(--text-color);">Component-Based UI, Server-Side Rendering, GraphQL/REST, Distributed CDNs</span></div>
                         </div>
-
                         <!-- Sub-service 2.2 -->
                         <div style="display: flex; flex-direction: column;">
                            <h4 style="margin-bottom: 1rem; font-size: 1.25rem;"><i class="fas fa-network-wired" style="margin-right: 0.5rem;"></i>Omni-Channel Retail Synchronization</h4>
@@ -131,7 +120,6 @@
                            </ul>
                            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #888; border-top: 1px solid rgba(160,160,160,0.2); padding-top: 1rem;">Core Tech: <span style="color: var(--text-color);">REST APIs, Webhooks, Message Queues, Enterprise ERP/POS Integrations</span></div>
                         </div>
-
                         <!-- Sub-service 2.3 -->
                         <div style="display: flex; flex-direction: column;">
                            <h4 style="margin-bottom: 1rem; font-size: 1.25rem;"><i class="fas fa-bolt" style="margin-right: 0.5rem;"></i>Core Web Vitals &amp; Optimization</h4>
@@ -145,11 +133,9 @@
                         </div>
                      </div>
                   </div>
-
                   <!-- Service Block 3 -->
                   <div style="background: rgba(160, 160, 160, 0.08); padding: 3.5rem; border-radius: 8px; border: 1px solid rgba(160, 160, 160, 0.2); box-shadow: 0 4px 30px rgba(0,0,0,0.03);">
                      <h3 style="border-bottom: 2px solid rgba(160, 160, 160, 0.2); padding-bottom: 1.5rem; margin-bottom: 2.5rem; font-size: 1.8rem; color: var(--heading-color);"><i class="fas fa-chart-pie" style="margin-right: 0.75rem;"></i>3. Executive Analytics &amp; Strategic Advisory</h3>
-                     
                      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem;">
                         <!-- Sub-service 3.1 -->
                         <div style="display: flex; flex-direction: column;">
@@ -162,7 +148,6 @@
                            </ul>
                            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #888; border-top: 1px solid rgba(160,160,160,0.2); padding-top: 1rem;">Core Tech: <span style="color: var(--text-color);">Enterprise BI Platforms, Headless Semantic Architectures, Advanced SQL</span></div>
                         </div>
-
                         <!-- Sub-service 3.2 -->
                         <div style="display: flex; flex-direction: column;">
                            <h4 style="margin-bottom: 1rem; font-size: 1.25rem;"><i class="fas fa-comments" style="margin-right: 0.5rem;"></i>Technical Translation &amp; Alignment</h4>
@@ -174,7 +159,6 @@
                            </ul>
                            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #888; border-top: 1px solid rgba(160,160,160,0.2); padding-top: 1rem;">Core Tech: <span style="color: var(--text-color);">Financial Operations Frameworks, Cloud Cost Management, Systems Architecture</span></div>
                         </div>
-
                         <!-- Sub-service 3.3 -->
                         <div style="display: flex; flex-direction: column;">
                            <h4 style="margin-bottom: 1rem; font-size: 1.25rem;"><i class="fas fa-cogs" style="margin-right: 0.5rem;"></i>Practice Maturity &amp; Data Operations</h4>
@@ -188,11 +172,9 @@
                         </div>
                      </div>
                   </div>
-
                   <!-- Service Block 4 -->
                   <div style="background: rgba(160, 160, 160, 0.08); padding: 3.5rem; border-radius: 8px; border: 1px solid rgba(160, 160, 160, 0.2); box-shadow: 0 4px 30px rgba(0,0,0,0.03);">
                      <h3 style="border-bottom: 2px solid rgba(160, 160, 160, 0.2); padding-bottom: 1.5rem; margin-bottom: 2.5rem; font-size: 1.8rem; color: var(--heading-color);"><i class="fas fa-flask" style="margin-right: 0.75rem;"></i>4. Testing Programs &amp; User Experience Optimization</h3>
-                     
                      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem;">
                         <!-- Sub-service 4.1 -->
                         <div style="display: flex; flex-direction: column;">
@@ -205,7 +187,6 @@
                            </ul>
                            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #888; border-top: 1px solid rgba(160,160,160,0.2); padding-top: 1rem;">Core Tech: <span style="color: var(--text-color);">Feature Flagging Architectures, Server-Side Experimentation, Edge Middleware</span></div>
                         </div>
-
                         <!-- Sub-service 4.2 -->
                         <div style="display: flex; flex-direction: column;">
                            <h4 style="margin-bottom: 1rem; font-size: 1.25rem;"><i class="fas fa-users" style="margin-right: 0.5rem;"></i>Behavioral Telemetry &amp; Funnel Optimization</h4>
@@ -217,7 +198,6 @@
                            </ul>
                            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #888; border-top: 1px solid rgba(160,160,160,0.2); padding-top: 1rem;">Core Tech: <span style="color: var(--text-color);">Event-Driven Analytics Suites, Cloud Warehouse Exports, Qualitative Replay Engines</span></div>
                         </div>
-                        
                         <!-- Sub-service 4.3 (Added for grid symmetry) -->
                         <div style="display: flex; flex-direction: column;">
                            <h4 style="margin-bottom: 1rem; font-size: 1.25rem;"><i class="fas fa-magic" style="margin-right: 0.5rem;"></i>Algorithmic Personalization</h4>
@@ -231,9 +211,7 @@
                         </div>
                      </div>
                   </div>
-
                </div>
-
                <!-- Call to Action Box -->
                <div style="margin-top: 6rem; padding: 4rem 2rem; background: rgba(160, 160, 160, 0.08); border-radius: 8px; text-align: center; border: 1px solid rgba(160, 160, 160, 0.2);">
                   <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Ready to modernize your data stack and web infrastructure?</h3>
@@ -242,79 +220,12 @@
                      <li><a href="https://www.linkedin.com/company/scottlabz" target="_blank" rel="noopener noreferrer" class="button big wide alt">Get in Touch</a></li>
                   </ul>
                </div>
-
             </div>
          </section>
-
          <!-- Footer -->
-         <footer class="wrapper style1 align-center">
-            <div class="inner" style="max-width: 1200px; margin: 0 auto; padding: 3rem 1rem;">
-            
-            <!-- Multi-Column Container -->
-            <div class="footer-columns" style="display: flex; flex-direction: row; flex-wrap: wrap; text-align: left; gap: 3rem; margin-bottom: 3rem; justify-content: space-between;">
-                  
-               <!-- Column 1: Brand / Bio -->
-               <div style="flex: 1; min-width: 250px;">
-                     <div class="logo-wrapper" style="margin-bottom: 1rem;">
-                        <a href="index.html" style="border-bottom: none;">
-                        <span class="h3"><img src="images/scottlabz-clear.png" alt="S" class="logo" style="height: 1.2em; vertical-align: middle;">cott Labz</span>
-                        </a>
-                     </div>
-                     <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 1rem; line-height: 1.6;">
-                        Enterprise data architecture, telemetry tracking, and measurement systems engineered for absolute data integrity and clear visibility.
-                     </p>
-                     <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem 0; font-size: 0.9rem; line-height: 1.8;">
-                        <li>
-                        <a href="services.html" style="border-bottom: none;">
-                        <span class="h3"><img src="images/scottlabz-clear.png" alt="S" class="logo" style="height: 1.2em; vertical-align: middle;">ervices</span>
-                        </a>
-                        </li>
-                     </ul>
-                     <ul class="icons" style="justify-content: flex-start;">
-                        <li><a href="https://github.com/scottlabz" target="_blank" rel="noopener noreferrer" class="icon brands style2 fa-github"><span class="label">Code Repositories</span></a></li>
-                        <li><a href="https://www.linkedin.com/company/scottlabz" target="_blank" rel="noopener noreferrer" class="icon brands style2 fa-linkedin"><span class="label">Professional Network</span></a></li>
-                     </ul>
-               </div>
-
-               <!-- Column 2: Governance & Security -->
-               <div style="flex: 1; min-width: 200px;">
-                     <h4 style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Security & Trust</h4>
-                     <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 2;">
-                        <li><a href="security.html" style="border-bottom: none; opacity: 0.8; transition: opacity 0.2s;">Information Security Standard</a></li>
-                        <li><a href="vdp.html" style="border-bottom: none; opacity: 0.8; transition: opacity 0.2s;">Vulnerability Disclosure</a></li>
-                        <li><a href="https://stats.uptimerobot.com/XTnbfmM7Fi" target="_blank" rel="noopener noreferrer" style="border-bottom: none; opacity: 0.8; transition: opacity 0.2s;">System Uptime Status</a></li>
-                        <li><a href="https://securityheaders.com/?q=scottlabz.com&followRedirects=on" target="_blank" rel="noopener noreferrer" style="border-bottom: none; opacity: 0.8; transition: opacity 0.2s;">Edge Security</a></li>
-                     </ul>
-               </div>
-
-               <!-- Column 3: Legal & Compliance -->
-               <div style="flex: 1; min-width: 200px;">
-                     <h4 style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Legal & Compliance</h4>
-                     <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 2;">
-                        <li><a href="privacy.html" style="border-bottom: none; opacity: 0.8; transition: opacity 0.2s;">Privacy Policy</a></li>
-                        <li><a href="terms.html" style="border-bottom: none; opacity: 0.8; transition: opacity 0.2s;">Terms of Service</a></li>
-                        <li><a href="cookies.html" style="border-bottom: none; opacity: 0.8; transition: opacity 0.2s;">Data Processing Policy</a></li>
-                        <li><a href="accessibility.html" style="border-bottom: none; opacity: 0.8; transition: opacity 0.2s;">Accessibility Statement</a></li>
-                        <li><a href="ai-policy.html" style="border-bottom: none; opacity: 0.8; transition: opacity 0.2s;">AI Governance Policy</a></li>
-                        <li><a href="telemetry.html" style="border-bottom: none; opacity: 0.8; transition: opacity 0.2s;">Telemetry Policy</a></li>
-                     </ul>
-               </div>
-
-            </div>
-
-            <!-- Bottom Copyright Bar -->
-            <div style="border-top: 1px solid rgba(160, 160, 160, 0.2); padding-top: 2rem; font-size: 0.9rem; text-align: left; width: 100%; box-sizing: border-box; opacity: 0.7;">
-               <p style="margin-bottom: 0; word-break: break-word;">
-                  &copy; <span id="currentYear"></span> Scott Labz, LLC. All rights reserved. <i class="fas fa-dragon"></i>
-               </p>
-            </div>
-            
-            <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
-            </div>
-         </footer>
-
+         <script src="footer.js" defer></script>
+         <scott-footer description="Enterprise data architecture, telemetry tracking, and measurement systems engineered for absolute data integrity and clear visibility."></scott-footer>
       </div>
-
       <!-- Scripts -->
       <script src="assets/js/jquery.min.js" defer></script>
       <script src="assets/js/jquery.scrollex.min.js" defer></script>
@@ -323,7 +234,6 @@
       <script src="assets/js/breakpoints.min.js" defer></script>
       <script src="assets/js/util.js" defer></script>
       <script src="assets/js/main.js" defer></script>
-      
       <!-- Back to Top Button -->
       <button id="backToTop" onclick="scrollToTop()" aria-label="Back to top" style="
          display: none;

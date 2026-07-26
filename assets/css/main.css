@@ -8869,3 +8869,9 @@ img[src*="scottlabz-clear"] {
         flex-direction: row !important;
     }
 }
+
+body.is-dark #capabilities strong,
+.is-dark #capabilities strong,
+[data-theme="dark"] #capabilities strong {
+   color: #ffffff !important;
+}
