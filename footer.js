@@ -25,8 +25,10 @@ class ScottFooter extends HTMLElement {
                      <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem 0; font-size: 0.9rem; line-height: 1.8;">
                         <li>
                         <span class="h3"><a href="services.html"><img src="images/scottlabz-clear.png" alt="S" class="logo" style="height: 1.2em; vertical-align: middle;">ervices</a></span>
-                        &nbsp;&nbsp; | &nbsp;&nbsp;
+                        &nbsp; | &nbsp;
                         <span class="h3"><a href="about.html">About Us</a></span>
+                        &nbsp; | &nbsp;
+                        <span class="h3"><a href="faq.html">FAQ</a></span>
                         </li>
                      </ul>
                      <ul class="icons" style="justify-content: flex-start;">
