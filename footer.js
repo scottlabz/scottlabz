@@ -42,6 +42,7 @@ class ScottFooter extends HTMLElement {
                      <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.8;">
                         <li><a href="security.html">ISMS Standard</a></li>
                         <li><a href="vdp.html">Vulnerability Disclosure</a></li>
+                        <li><a href="dpa.html">Data Processing Agreement</a></li>
                         <li><a href="https://stats.uptimerobot.com/XTnbfmM7Fi" target="_blank" rel="noopener noreferrer">System Status</a></li>
                         <li><a href="https://securityheaders.com/?q=scottlabz.com&followRedirects=on" target="_blank" rel="noopener noreferrer" style="border-bottom: none; opacity: 0.8; transition: opacity 0.2s;">Edge Security</a></li>
                      </ul>
