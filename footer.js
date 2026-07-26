@@ -24,15 +24,14 @@ class ScottFooter extends HTMLElement {
                      </p>
                      <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem 0; font-size: 0.9rem; line-height: 1.8;">
                         <li>
-                        <a href="services.html" style="border-bottom: none;">
-                        <span class="h3"><img src="images/scottlabz-clear.png" alt="S" class="logo" style="height: 1.2em; vertical-align: middle;">ervices</span>
-                        </a>
+                        <span class="h3"><a href="services.html"><img src="images/scottlabz-clear.png" alt="S" class="logo" style="height: 1.2em; vertical-align: middle;">ervices</a></span>
+                        &nbsp;&nbsp; | &nbsp;&nbsp;
+                        <span class="h3"><a href="about.html">About Us</a></span>
                         </li>
                      </ul>
                      <ul class="icons" style="justify-content: flex-start;">
                         <li><a href="https://github.com/scottlabz" target="_blank" rel="noopener noreferrer" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
                         <li><a href="https://www.linkedin.com/company/scottlabz" target="_blank" rel="noopener noreferrer" class="icon brands style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                        <li><a href="about.html" class="icon solid style2 fa-users"><span class="label">About Us</span></a></li>
                      </ul>
                </div>
 
