@@ -2,7 +2,7 @@ class ScottFooter extends HTMLElement {
    connectedCallback() {
       // Read the unique description attribute from the tag, or use a default
       const customDesc = this.getAttribute('description') || 
-         'Enterprise analytics, digital infrastructure, and full-stack data architecture.';
+         'Modern analytics, scalable data platforms, and custom web development.';
 
       this.innerHTML = `
       <hr style="opacity: 0.2; max-width: 1200px; margin: 0 auto 2rem auto;" />

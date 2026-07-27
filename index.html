@@ -1,419 +1,604 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-   <head>
-      <link rel="preconnect" href="https://www.googletagmanager.com">
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY6CT6TLNL"></script>
+
+<head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY6CT6TLNL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "G-MY6CT6TLNL");
+    </script>
+    <title>Scott Labz | Analytics Engineering &amp; Digital Platforms</title>
+    <meta name="description" content="Modern digital infrastructure, secure web software, precision telemetry, and trustworthy analytics platforms built for performance." />
       <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'G-MY6CT6TLNL');
+      if (!sessionStorage.getItem("landingSeen")) {
+         sessionStorage.setItem("landingSeen", "true");
+         window.location.replace("/landing.html");
+      }
       </script>
-      <title>Scott Labz | Analytics Engineering &amp; Digital Platforms</title>
-      <meta name="description" content="Modern digital infrastructure, secure web software, precision telemetry, and trustworthy analytics platforms built for performance.">
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
-      <script>
-         (function() {
-         	const savedTheme = localStorage.getItem('theme');
-         	if (savedTheme === 'dark') {
-         	document.documentElement.setAttribute('data-theme', 'dark');
-         	} else {
-         	document.documentElement.setAttribute('data-theme', 'light');
-         	}
-         })();
-      </script>
-      <link rel="stylesheet" href="assets/css/main.css" />
-      <noscript>
-         <link rel="stylesheet" href="assets/css/noscript.css" />
-      </noscript>
-      <link rel="canonical" href="https://scottlabz.com/" />
-      <script type="application/ld+json">
-         {
-         "@context": "https://schema.org",
-         "@type": "Organization",
-         "name": "Scott Labz",
-         "url": "https://scottlabz.com/",
-         "logo": "https://scottlabz.com/images/scottlabz-clear.png",
-         "description": "Scott Labz is an analytics engineering firm delivering trustworthy, enterprise-grade data infrastructure.",
-         "sameAs": [
-         	"https://github.com/scottlabz",
-         	"https://www.linkedin.com/company/scottlabz",
-            "https://www.linkedin.com/in/scotttaylor369"
-         ]
-         }
-      </script>
-      <meta property="og:title" content="Scott Labz | Analytics Engineering &amp; Digital Platforms" />
-      <meta property="og:description" content="Modern digital infrastructure, secure web software, precision telemetry, and trustworthy analytics platforms built for performance." />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://scottlabz.com/" />
-      <meta property="og:image" content="https://scottlabz.com/images/banner.jpg" />
-      <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
-      <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
-      <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
-      <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
-      <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
-      <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
-      <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
-      <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
-      <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
-      <link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-      <link rel="manifest" href="images/favicon/manifest.json">
-      <meta name="msapplication-TileColor" content="#ffffff">
-      <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
-      <meta name="theme-color" content="#ffffff">
-   </head>
-   <body class="is-preload">
-      <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme" style="
-         position: fixed;
-         top: 14px;
-         left: 14px;
-         z-index: 10000;
-         cursor: pointer;
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme === "dark") {
+                document.documentElement.setAttribute("data-theme", "dark");
+            } else {
+                document.documentElement.setAttribute("data-theme", "light");
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <link rel="canonical" href="https://scottlabz.com/" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Scott Labz",
+            "url": "https://scottlabz.com/",
+            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+            "description": "Scott Labz is an analytics engineering firm delivering trustworthy, enterprise-grade data infrastructure.",
+            "sameAs": [
+                "https://github.com/scottlabz",
+                "https://www.linkedin.com/company/scottlabz",
+                "https://www.linkedin.com/in/scotttaylor369"
+            ]
+        }
+    </script>
+    <meta property="og:title" content="Scott Labz | Analytics Engineering &amp; Digital Platforms" />
+    <meta property="og:description" content="Modern digital infrastructure, secure web software, precision telemetry, and trustworthy analytics platforms built for performance." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://scottlabz.com/" />
+    <meta property="og:image" content="https://scottlabz.com/images/banner.jpg" />
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="images/favicon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+</head>
+
+<body class="is-preload">
+    <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme" style="
+            position: fixed;
+            top: 14px;
+            left: 14px;
+            z-index: 10000;
+            cursor: pointer;
          ">
-      <span id="themeIcon">🌙</span>
-      </button>
-      <!-- Wrapper -->
-      <div id="wrapper" class="divided">
-         <!-- One -->
-         <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+        <span id="themeIcon">🌙</span>
+    </button>
+    <!-- Wrapper -->
+    <div id="wrapper" class="divided">
+        <!-- One -->
+        <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
             <div class="content">
-               <h1><img src="images/scottlabz-clear.png" alt="S" class="logo">cott Labz</h1>
-               <p class="major">Scott Labz is an analytics engineering firm delivering trustworthy, enterprise-grade data infrastructure and custom ecommerce web development. Bridging the modern data and web stack to fix broken metrics, align reporting systems, and run statistically sound optimization programs.</p>
-               <ul class="actions stacked">
-                  <li><a href="#first" class="button big wide smooth-scroll-middle">Get Started</a></li>
-               </ul>
+                <h1>
+                    <img src="images/scottlabz-clear.png" alt="S" class="logo" />cott Labz
+                </h1>
+                <p class="major">
+                    Scott Labz helps businesses build reliable analytics, modern
+                    data platforms, and custom web solutions that support better
+                    decisions.<br /><br />
+                    We improve tracking accuracy, unify reporting, and deliver
+                    digital solutions that improve efficiency, visibility, and
+                    performance.
+                </p>
+                <ul class="actions stacked">
+                    <li>
+                        <a href="#first" class="button big wide smooth-scroll-middle">Get Started</a>
+                    </li>
+                </ul>
             </div>
             <div class="image">
-               <img src="images/banner.jpg" alt="Scott Labz enterprise analytics engineering and modern data infrastructure" />
+                <img src="images/banner.jpg" alt="Scott Labz enterprise analytics engineering and modern data infrastructure" />
             </div>
-         </section>
-         <!-- Two -->
-         <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+        </section>
+        <!-- Two -->
+        <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
             <div class="content">
-               <h2>Measurement Architecture &amp; Web Ecosystems</h2>
-               <dl>
-                  <dt><span class="fweight">Enterprise Telemetry &amp; Measurement</span></dt>
-                  <dd>
-                     <p>Standardized tracking frameworks to ensure reliable, accurate data collection across every digital touchpoint.</p>
-                  </dd>
-                  <dt><span class="fweight">Audit &amp; Reconciliation Pipelines</span></dt>
-                  <dd>
-                     <p>Automated checks to catch anomalies early, guarantee data integrity, and eliminate blind spots.</p>
-                  </dd>
-                  <dt><span class="fweight">Governance Frameworks</span></dt>
-                  <dd>
-                     <p>Rigorous data quality protocols that build trust in analytics across the entire organization.</p>
-                  </dd>
-               </dl>
-               <ul class="actions stacked">
-                  <li><a href="#second" class="button big wide smooth-scroll-middle">Learn More</a></li>
-               </ul>
+                <h2>Measure</h2>
+                <h3>Analytics &amp; Data Solutions</h3>
+                <dl>
+                    <dt><span class="fweight">Analytics Implementation</span></dt>
+                    <dd>
+                        <p>
+                            Design and implement reliable analytics that accurately
+                            capture user interactions across websites, applications,
+                            and digital platforms.
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="fweight">Data Quality & Validation</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            Monitor, validate, and troubleshoot data collection to
+                            ensure your reporting is accurate, consistent, and
+                            trusted.
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="fweight">Reporting & Data Integration</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            Connect data from multiple sources into unified
+                            dashboards and reporting solutions that deliver
+                            actionable business insights.
+                        </p>
+                    </dd>
+                </dl>
+                <ul class="actions stacked">
+                    <li>
+                        <a href="#second" class="button big wide smooth-scroll-middle">Learn More</a>
+                    </li>
+                </ul>
             </div>
             <div class="image">
-               <img src="images/spotlight01.jpg" alt="Measurement architecture, telemetry frameworks, and audit pipelines" />
+                <img src="images/spotlight01.jpg" alt="Measurement architecture, telemetry frameworks, and audit pipelines" />
             </div>
-         </section>
-         <!-- Three -->
-         <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="second">
+        </section>
+        <!-- Three -->
+        <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="second">
             <div class="content">
-               <h2>Executive Analytics &amp; Strategic Advisory</h2>
-               <dl>
-                  <dt><span class="fweight">Actionable Reporting & Dashboards</span></dt>
-                  <dd>
-                     <p>Transformation of raw, complex technical outputs into executive-ready dashboards that drive decision-making.</p>
-                  </dd>
-                  <dt><span class="fweight">Data Translation &amp; Strategy</span></dt>
-                  <dd>
-                     <p>Alignment between technical data engineering efforts and high-level business goals to maximize ROI.</p>
-                  </dd>
-                  <dt><span class="fweight">Scalable Data Practice</span></dt>
-                  <dd>
-                     <p>Guidance on structuring workflows, modern toolstacks, and analytics processes built for long-term growth.</p>
-                  </dd>
-               </dl>
-               <ul class="actions stacked">
-                  <li><a href="#third" class="button big wide smooth-scroll-middle">Learn More</a></li>
-               </ul>
+                <h2>Build</h2>
+                <h3>Web Development & Digital Solutions</h3>
+                <dl>
+                    <dt>
+                        <span class="fweight">Custom Website Development</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            Create modern, responsive websites that are fast,
+                            accessible, and built to support your business
+                            objectives.
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="fweight">Web Applications & Integrations</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            Develop scalable web applications and integrate APIs,
+                            third-party services, and business systems into a
+                            seamless digital experience.
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="fweight">Performance & Scalability</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            Build secure, maintainable solutions optimized for
+                            speed, reliability, and long-term growth.
+                        </p>
+                    </dd>
+                </dl>
+                <ul class="actions stacked">
+                    <li>
+                        <a href="#third" class="button big wide smooth-scroll-middle">Learn More</a>
+                    </li>
+                </ul>
             </div>
             <div class="image">
-               <img src="images/spotlight02.jpg" alt="Executive reporting dashboards and strategic data translation advisory" />
+                <img src="images/spotlight02.jpg" alt="Executive reporting dashboards and strategic data translation advisory" />
             </div>
-         </section>
-         <!-- Four -->
-         <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="third">
+        </section>
+        <!-- Four -->
+        <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="third">
             <div class="content">
-               <h2>Experimentation &amp; Web Optimization</h2>
-               <dl>
-                  <dt><span class="fweight">A/B/n Program Management</span></dt>
-                  <dd>
-                     <p>Structured testing methodologies to measure campaign impact, test feature rollouts, and minimize release risks.</p>
-                  </dd>
-                  <dt><span class="fweight">eCommerce Performance</span></dt>
-                  <dd>
-                     <p>Analytics-driven optimization designed to identify conversion bottlenecks, enhance user journeys, and grow revenue.</p>
-                  </dd>
-                  <dt><span class="fweight">Full-Ecosystem Telemetry</span></dt>
-                  <dd>
-                     <p>Seamless integration across web, app, and backend systems for a single, unified view of customer interactions.</p>
-                  </dd>
-               </dl>
-               <ul class="actions stacked">
-                  <li><a href="#fourth" class="button big wide smooth-scroll-middle">Learn More</a></li>
-               </ul>
+                <h2>Improve</h2>
+                <h3>Optimization & Continuous Improvement</h3>
+                <dl>
+                    <dt><span class="fweight">User Behavior Analysis</span></dt>
+                    <dd>
+                        <p>
+                            Analyze user journeys and behavioral data to uncover
+                            opportunities for improving digital experiences and
+                            business outcomes.
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="fweight">Experimentation & Validation</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            Test new ideas, features, and experiences using
+                            structured experimentation to make confident,
+                            data-driven decisions.
+                        </p>
+                    </dd>
+                    <dt><span class="fweight">Performance Optimization</span></dt>
+                    <dd>
+                        <p>
+                            Continuously refine websites and applications through
+                            measurement, monitoring, and iterative improvements that
+                            enhance usability and engagement.
+                        </p>
+                    </dd>
+                </dl>
+                <ul class="actions stacked">
+                    <li>
+                        <a href="#fourth" class="button big wide smooth-scroll-middle">Learn More</a>
+                    </li>
+                </ul>
             </div>
             <div class="image">
-               <img src="images/spotlight03.jpg" alt="A/B/n testing experimentation and eCommerce performance optimization" />
+                <img src="images/spotlight03.jpg" alt="A/B/n testing experimentation and eCommerce performance optimization" />
             </div>
-         </section>
-         <!-- Five -->
-         <section class="wrapper style1 align-center" id="fourth">
+        </section>
+        <!-- Five -->
+        <section class="wrapper style1 align-center" id="fourth">
             <div class="inner">
-               <h2>Tailored Digital Platforms</h2>
-               <p>Building modern web applications and eCommerce ecosystems that bridge elegant design with robust technical infrastructure. Custom development practices prioritize clean code, modular architecture, and seamless third-party API integrations to power complex digital operations. Every platform build is engineered to eliminate performance bottlenecks, protect user data, and deliver a frictionless journey across every device.</p>
+                <h2>Tailored Digital Platforms</h2>
+                <p>
+                    We design and build digital platforms that combine thoughtful
+                    user experiences with reliable engineering foundations. From
+                    custom websites and web applications to complex integrations,
+                    our approach focuses on scalable architecture, clean
+                    development practices, and seamless connections between the
+                    tools your business relies on. Every solution is built for
+                    speed, security, and long-term adaptability.
+                </p>
             </div>
             <!-- Gallery -->
             <div class="gallery style2 medium lightbox onscroll-fade-in">
-               <article>
-                  <img src="images/gallery/thumbs/01.jpg" class="image" alt="Hawkeye Fan Shop - Official University of Iowa Athletic Department storefront" />
-                  <div class="caption">
-                     <h3>Hawkeye Fan Shop</h3>
-                     <p>The Official University of Iowa Athletic Department</p>
-                     <ul class="actions fixed">
-                        <li><a href="https://www.hawkeyefanshop.com/" target="_blank"><span class="button small">Details</span></a></li>
-                     </ul>
-                  </div>
-               </article>
-               <article>
-                  <img src="images/gallery/thumbs/02.jpg" class="image" alt="The Black and Gold Shop - Official retailer of University of Iowa Hawkeyes" />
-                  <div class="caption">
-                     <h3>The Black &amp; Gold Shop</h3>
-                     <p>The Official Retailer of The University of Iowa Hawkeyes</p>
-                     <ul class="actions fixed">
-                        <li><a href="https://theblackandgoldshop.com/" target="_blank"><span class="button small">Details</span></a></li>
-                     </ul>
-                  </div>
-               </article>
-               <article>
-                  <img src="images/gallery/thumbs/03.jpg" class="image" alt="Retail platform engineering connecting digital commerce and physical stores" />
-                  <div class="caption">
-                     <h3>Retail Platform Engineering</h3>
-                     <p>Connecting digital commerce and physical store operations into one unified system.</p>
-                  </div>
-               </article>
-               <article>
-                  <img src="images/gallery/thumbs/04.jpg" class="image" alt="Omni-channel retail systems synchronizing in-store and online inventory" />
-                  <div class="caption">
-                     <h3>Omni-Channel Retail Systems</h3>
-                     <p>Synchronizing in-store inventory and online platforms for seamless customer fulfillment.</p>
-                  </div>
-               </article>
-               <article>
-                  <img src="images/gallery/thumbs/05.jpg" class="image" alt="Gameday merchandise setups and venue retail operations" />
-                  <div class="caption">
-                     <h3>Gameday Merchandise Setups</h3>
-                     <p>Stocking official Hawkeye apparel at strategic venue locations to maximize impulse stadium purchases.</p>
-                  </div>
-               </article>
-               <article>
-                  <img src="images/gallery/thumbs/06.jpg" class="image" alt="Stadium retail telemetry and rapid point-of-sale terminal systems" />
-                  <div class="caption">
-                     <h3>Stadium Retail Telemetry</h3>
-                     <p>Deploying rapid point-of-sale systems to keep line wait times low during peak game moments.</p>
-                  </div>
-               </article>
-               <article>
-                  <img src="images/gallery/thumbs/07.jpg" class="image" alt="University of Iowa stadium community and gameday fan experience" />
-                  <div class="caption">
-                     <h3>The Fan Experience</h3>
-                     <p>Riding every win, loss, and iconic stadium moment alongside a dedicated community.</p>
-                  </div>
-               </article>
-               <article>
-                  <img src="images/gallery/thumbs/08.jpg" class="image" alt="High-capacity mobile gameday fan shops and concourse retail pop-ups" />
-                  <div class="caption">
-                     <h3>Gameday Fan Shops</h3>
-                     <p>Positioning high-capacity mobile retail pop-ups across concourses for seamless in-game merchandise sales.</p>
-                  </div>
-               </article>
-               <article>
-                  <img src="images/gallery/thumbs/09.jpg" class="image" alt="Visiting locker room logistics and sideline gameday venue execution" />
-                  <div class="caption">
-                     <h3>Visiting Locker Room Logistics</h3>
-                     <p>Structuring away venue operations and sideline setups for seamless gameday execution.</p>
-                  </div>
-               </article>
-               <article>
-                  <img src="images/gallery/thumbs/10.jpg" class="image" alt="Neighborhood retail logistics and local community shop operations" />
-                  <div class="caption">
-                     <h3>Neighborhood Retail Logistics</h3>
-                     <p>Optimizing small-town shop operations to keep local spending circulating within the community.</p>
-                  </div>
-               </article>
-               <article>
-                  <img src="images/gallery/thumbs/11.jpg" class="image" alt="University of Iowa Hawkeyes gameday fan culture and team traditions" />
-                  <div class="caption">
-                     <h3>Gameday Fan Culture</h3>
-                     <p>Embracing team traditions, lifelong loyalty, and the shared energy of game day.</p>
-                  </div>
-               </article>
-               <article>
-                  <img src="images/gallery/thumbs/12.jpg" class="image" alt="Local Main Street storefronts integrated with modern point-of-sale systems" />
-                  <div class="caption">
-                     <h3>Local Main Street Storefronts</h3>
-                     <p>Connecting independent town shops to unified inventory and modern point-of-sale systems.</p>
-                  </div>
-               </article>
+                <article>
+                    <img src="images/gallery/thumbs/01.jpg" class="image" alt="Hawkeye Fan Shop - Official University of Iowa Athletic Department storefront" />
+                    <div class="caption">
+                        <h3>Hawkeye Fan Shop</h3>
+                        <p>The Official University of Iowa Athletic Department</p>
+                        <ul class="actions fixed">
+                            <li>
+                                <a href="https://www.hawkeyefanshop.com/" target="_blank"><span class="button small">Details</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/gallery/thumbs/02.jpg" class="image" alt="The Black and Gold Shop - Official retailer of University of Iowa Hawkeyes" />
+                    <div class="caption">
+                        <h3>The Black &amp; Gold Shop</h3>
+                        <p>
+                            The Official Retailer of The University of Iowa Hawkeyes
+                        </p>
+                        <ul class="actions fixed">
+                            <li>
+                                <a href="https://theblackandgoldshop.com/" target="_blank"><span class="button small">Details</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/gallery/thumbs/03.jpg" class="image" alt="Retail platform engineering connecting digital commerce and physical stores" />
+                    <div class="caption">
+                        <h3>Retail Technology</h3>
+                        <p>
+                            Connecting online and in-store systems to create a
+                            better shopping experience.
+                        </p>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/gallery/thumbs/04.jpg" class="image" alt="Omni-channel retail systems synchronizing in-store and online inventory" />
+                    <div class="caption">
+                        <h3>Connected Inventory</h3>
+                        <p>
+                            Keeping inventory accurate across stores, warehouses,
+                            and online channels.
+                        </p>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/gallery/thumbs/05.jpg" class="image" alt="Gameday merchandise setups and venue retail operations" />
+                    <div class="caption">
+                        <h3>Gameday Retail</h3>
+                        <p>
+                            Bringing team merchandise closer to fans on game day.
+                        </p>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/gallery/thumbs/06.jpg" class="image" alt="Stadium retail telemetry and rapid point-of-sale terminal systems" />
+                    <div class="caption">
+                        <h3>Fast Checkout</h3>
+                        <p>
+                            Helping fans spend less time in line and more time
+                            enjoying the game.
+                        </p>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/gallery/thumbs/07.jpg" class="image" alt="University of Iowa stadium community and gameday fan experience" />
+                    <div class="caption">
+                        <h3>Game Day</h3>
+                        <p>
+                            The traditions, excitement, and community that make
+                            every game unforgettable.
+                        </p>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/gallery/thumbs/08.jpg" class="image" alt="High-capacity mobile gameday fan shops and concourse retail pop-ups" />
+                    <div class="caption">
+                        <h3>Mobile Fan Shops</h3>
+                        <p>
+                            Making official merchandise easy to find throughout the
+                            stadium.
+                        </p>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/gallery/thumbs/09.jpg" class="image" alt="Visiting locker room logistics and sideline gameday venue execution" />
+                    <div class="caption">
+                        <h3>Behind the Scenes</h3>
+                        <p>
+                            The planning and coordination that keep game day running
+                            smoothly.
+                        </p>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/gallery/thumbs/10.jpg" class="image" alt="Neighborhood retail logistics and local community shop operations" />
+                    <div class="caption">
+                        <h3>Local Business</h3>
+                        <p>
+                            Supporting small businesses with modern tools and
+                            efficient operations.
+                        </p>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/gallery/thumbs/11.jpg" class="image" alt="University of Iowa Hawkeyes gameday fan culture and team traditions" />
+                    <div class="caption">
+                        <h3>Fan Traditions</h3>
+                        <p>
+                            Celebrating the moments and traditions that bring
+                            generations of fans together.
+                        </p>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/gallery/thumbs/12.jpg" class="image" alt="Local Main Street storefronts integrated with modern point-of-sale systems" />
+                    <div class="caption">
+                        <h3>Main Street</h3>
+                        <p>
+                            Helping independent retailers embrace modern technology
+                            while staying true to their communities.
+                        </p>
+                    </div>
+                </article>
             </div>
-         </section>
-         <!-- Six -->
-         <section id="scalable-precision" class="wrapper style1 align-center">
+        </section>
+        <!-- Six -->
+        <section id="scalable-precision" class="wrapper style1 align-center">
             <div class="inner">
-               <h2>Scalable Data Precision</h2>
-               <p>Purpose-built analytics infrastructure engineered to deliver relentless accuracy, speed, and clarity across all modern digital touchpoints. Robust auditing frameworks and cross-platform reconciliation routines systematically identify and eliminate tracking gaps at the source before corrupting core business metrics. By aligning advanced analytics engineering directly with high-level operational goals, technical assets are transformed into dependable instruments that power confident, long-term business decisions.</p>
-               <div class="items style1 medium onscroll-fade-in">
-                  <section>
-                     <span class="icon style2 major fa-building"></span>
-                     <h3>Architecture</h3>
-                     <p>Designing enterprise data structures and measurement systems built for scale, reliability, and long-term maintainability.</p>
-                  </section>
-                  <section>
-                     <span class="icon solid style2 major fa-satellite-dish"></span>
-                     <h3>Telemetry</h3>
-                     <p>Configuring end-to-end event tracking across web and application ecosystems to capture granular customer behavior.</p>
-                  </section>
-                  <section>
-                     <span class="icon solid style2 major fa-school"></span>
-                     <h3>Governance</h3>
-                     <p>Establishing rigorous data quality protocols and automated validation routines to ensure total accuracy across platforms.</p>
-                  </section>
-                  <section>
-                     <span class="icon solid style2 major fa-tools"></span>
-                     <h3>Auditing</h3>
-                     <p>Conducting comprehensive diagnostic reviews of existing tracking setups to identify missing, duplicate, or corrupted data.</p>
-                  </section>
-                  <section>
-                     <span class="icon solid style2 major fa-search"></span>
-                     <h3>Reconciliation</h3>
-                     <p>Comparing cross-platform datasets to resolve discrepancies between analytics tools, ad platforms, and internal backend systems.</p>
-                  </section>
-                  <section>
-                     <span class="icon style2 major fa-star"></span>
-                     <h3>Experimentation</h3>
-                     <p>Structuring robust A/B and multivariate testing environments to validate feature releases and measure true business impact.</p>
-                  </section>
-                  <section>
-                     <span class="icon solid style2 major fa-key"></span>
-                     <h3>Optimization</h3>
-                     <p>Analyzing digital touchpoints to remove conversion friction, improve site performance, and maximize customer lifetime value.</p>
-                  </section>
-                  <section>
-                     <span class="icon solid style2 major fa-chart-bar"></span>
-                     <h3>Analytics</h3>
-                     <p>Transforming raw data pipelines into intuitive, executive-ready dashboards that highlight key performance drivers.</p>
-                  </section>
-                  <section>
-                     <span class="icon solid style2 major fa-code-branch"></span>
-                     <h3>Engineering</h3>
-                     <p>Building clean, maintainable SQL and Python data transformations that feed reliable metrics directly to reporting layers.</p>
-                  </section>
-                  <section>
-                     <span class="icon solid style2 major fa-comments"></span>
-                     <h3>Translation</h3>
-                     <p>Bridging the gap between complex technical data outputs and strategic business objectives for executive decision-making.</p>
-                  </section>
-                  <section>
-                     <span class="icon solid style2 major fa-lightbulb"></span>
-                     <h3>Strategy</h3>
-                     <p>Developing long-term data roadmaps aligned with organizational goals, modern toolstacks, and evolving industry standards.</p>
-                  </section>
-                  <section>
-                     <span class="icon solid style2 major fa-users"></span>
-                     <h3>Advisory</h3>
-                     <p>Providing ongoing technical leadership and guidance to mature internal analytics practices and streamline workflows.</p>
-                  </section>
-               </div>
+                <h2>Scalable Data Precision</h2>
+                <p>
+                    We build analytics foundations designed to deliver accurate,
+                    reliable data across every digital experience. Through
+                    thoughtful tracking architecture, data validation, and quality
+                    monitoring, we identify issues early and ensure reporting
+                    remains trustworthy. By connecting analytics systems with
+                    business objectives, we help organizations turn complex data
+                    into clear insights and confident decisions.
+                </p>
+                <div class="items style1 medium">
+                    <section>
+                        <span class="icon style2 major fa-building"></span>
+                        <h3>Architecture</h3>
+                        <p>
+                            Designing scalable analytics and data systems that
+                            create a reliable foundation for measurement, reporting,
+                            and future growth.
+                        </p>
+                    </section>
+                    <section>
+                        <span class="icon solid style2 major fa-satellite-dish"></span>
+                        <h3>Tracking</h3>
+                        <p>
+                            Implementing structured event tracking across websites
+                            and applications to capture meaningful user behavior and
+                            digital interactions.
+                        </p>
+                    </section>
+                    <section>
+                        <span class="icon solid style2 major fa-school"></span>
+                        <h3>Data Quality</h3>
+                        <p>
+                            Building validation processes and monitoring systems
+                            that identify issues early and ensure analytics remain
+                            accurate and trustworthy.
+                        </p>
+                    </section>
+                    <section>
+                        <span class="icon solid style2 major fa-tools"></span>
+                        <h3>Auditing</h3>
+                        <p>
+                            Reviewing existing analytics implementations to uncover
+                            tracking gaps, inconsistencies, and opportunities to
+                            improve data reliability.
+                        </p>
+                    </section>
+                    <section>
+                        <span class="icon solid style2 major fa-plug"></span>
+                        <h3>Data Integration</h3>
+                        <p>
+                            Connecting analytics platforms, marketing systems, and
+                            internal data sources to create a consistent view of
+                            performance.
+                        </p>
+                    </section>
+                    <section>
+                        <span class="icon style2 major fa-star"></span>
+                        <h3>Experimentation</h3>
+                        <p>
+                            Developing testing frameworks that help teams validate
+                            ideas, measure outcomes, and make informed product
+                            decisions.
+                        </p>
+                    </section>
+                    <section>
+                        <span class="icon solid style2 major fa-key"></span>
+                        <h3>Optimization</h3>
+                        <p>
+                            Analyzing digital experiences to identify opportunities
+                            for improving performance, usability, and customer
+                            engagement.
+                        </p>
+                    </section>
+                    <section>
+                        <span class="icon solid style2 major fa-chart-bar"></span>
+                        <h3>Analytics</h3>
+                        <p>
+                            Transforming complex datasets into clear dashboards,
+                            reports, and insights that help teams understand what
+                            matters.
+                        </p>
+                    </section>
+                    <section>
+                        <span class="icon solid style2 major fa-code-branch"></span>
+                        <h3>Data Engineering</h3>
+                        <p>
+                            Building scalable SQL and Python data workflows that
+                            transform raw information into reliable metrics and
+                            reporting solutions.
+                        </p>
+                    </section>
+                    <section>
+                        <span class="icon solid style2 major fa-lightbulb"></span>
+                        <h3>Data Strategy</h3>
+                        <p>
+                            Aligning analytics capabilities, technology investments,
+                            and measurement practices with broader business
+                            objectives.
+                        </p>
+                    </section>
+                    <section>
+                        <span class="icon solid style2 major fa-road"></span>
+                        <h3>Roadmaps</h3>
+                        <p>
+                            Creating long-term data strategies that support evolving
+                            business needs, modern platforms, and continuous
+                            improvement.
+                        </p>
+                    </section>
+                    <section>
+                        <span class="icon solid style2 major fa-users"></span>
+                        <h3>Advisory</h3>
+                        <p>
+                            Providing technical guidance and strategic support to
+                            improve analytics maturity, processes, and operational
+                            efficiency.
+                        </p>
+                    </section>
+                </div>
             </div>
-         </section>
-         <!-- Footer -->
-         <script src="footer.js" defer></script>
-         <scott-footer></scott-footer>
-      </div>
-      <!-- Scripts -->
-      <script src="assets/js/jquery.min.js" defer></script>
-      <script src="assets/js/jquery.scrollex.min.js" defer></script>
-      <script src="assets/js/jquery.scrolly.min.js" defer></script>
-      <script src="assets/js/browser.min.js" defer></script>
-      <script src="assets/js/breakpoints.min.js" defer></script>
-      <script src="assets/js/util.js" defer></script>
-      <script src="assets/js/main.js" defer></script>
-      <script>
-         document.addEventListener("DOMContentLoaded", () => {
-         	document.querySelectorAll('.button').forEach(item => {
-         	item.addEventListener('click', event => {
-         		window.dataLayer = window.dataLayer || [];
-         		window.dataLayer.push({
-         		'event': 'cta_click',
-         		'button_text': event.target.innerText,
-         		'target_section': event.target.getAttribute('href')
-         		});
-         	});
-         	});
-         });
-      </script>
-      <!-- Back to Top Button -->
-      <button id="backToTop" onclick="scrollToTop()" aria-label="Back to top" style="
-         display: none;
-         position: fixed;
-         bottom: 24px;
-         right: 24px;
-         z-index: 99;
-         ">↑ Top</button>
-      <script>
-         (function() {
-         	const topBtn = document.getElementById("backToTop");
-         	window.addEventListener("scroll", function() {
-         	if (window.scrollY > 300) {
-         		topBtn.style.display = "block";
-         	} else {
-         		topBtn.style.display = "none";
-         	}
-         	});
-         })();
-         
-         function scrollToTop() {
-         	window.scrollTo({ top: 0, behavior: 'smooth' });
-         }
-      </script>
-      <script>
-         document.addEventListener("DOMContentLoaded", () => {
-           const toggleBtn = document.getElementById("themeToggle");
-           const themeIcon = document.getElementById("themeIcon");
-         
-           function updateUI() {
-             const currentTheme = document.documentElement.getAttribute("data-theme");
-             if (themeIcon) {
-               themeIcon.textContent = currentTheme === "dark" ? "☀️" : "🌙";
-             }
-           }
-         
-           updateUI();
-         
-           if (toggleBtn) {
-             toggleBtn.addEventListener("click", () => {
-               const currentTheme = document.documentElement.getAttribute("data-theme");
-               const newTheme = currentTheme === "dark" ? "light" : "dark";
-               
-               document.documentElement.setAttribute("data-theme", newTheme);
-               localStorage.setItem("theme", newTheme);
-               updateUI();
-             });
-           }
-         });
-      </script>
-   </body>
+        </section>
+        <!-- Footer -->
+        <script src="footer.js" defer></script>
+        <scott-footer></scott-footer>
+    </div>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".button").forEach((item) => {
+                item.addEventListener("click", (event) => {
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        event: "cta_click",
+                        button_text: event.target.innerText,
+                        target_section: event.target.getAttribute("href"),
+                    });
+                });
+            });
+        });
+    </script>
+    <!-- Back to Top Button -->
+    <button id="backToTop" onclick="scrollToTop()" aria-label="Back to top" style="
+            display: none;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 99;
+         ">
+        ↑ Top
+    </button>
+    <script>
+        (function() {
+            const topBtn = document.getElementById("backToTop");
+            window.addEventListener("scroll", function() {
+                if (window.scrollY > 300) {
+                    topBtn.style.display = "block";
+                } else {
+                    topBtn.style.display = "none";
+                }
+            });
+        })();
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleBtn = document.getElementById("themeToggle");
+            const themeIcon = document.getElementById("themeIcon");
+
+            function updateUI() {
+                const currentTheme =
+                    document.documentElement.getAttribute("data-theme");
+                if (themeIcon) {
+                    themeIcon.textContent = currentTheme === "dark" ? "☀️" : "🌙";
+                }
+            }
+
+            updateUI();
+
+            if (toggleBtn) {
+                toggleBtn.addEventListener("click", () => {
+                    const currentTheme =
+                        document.documentElement.getAttribute("data-theme");
+                    const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+                    document.documentElement.setAttribute("data-theme", newTheme);
+                    localStorage.setItem("theme", newTheme);
+                    updateUI();
+                });
+            }
+        });
+    </script>
+</body>
+
 </html>
