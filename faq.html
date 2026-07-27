@@ -1,209 +1,335 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html>
-   <head>
-      <link rel="preconnect" href="https://www.googletagmanager.com">
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY6CT6TLNL"></script>
-      <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'G-MY6CT6TLNL');
-      </script>
-      <title>Frequently Asked Questions | Scott Labz</title>
-      <meta name="description" content="Detailed technical FAQs covering data engineering methodologies, analytics architecture design, infrastructure decoupling, and agnostic technology standards.">
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
-      <script>
-         (function() {
-         	const savedTheme = localStorage.getItem('theme');
-         	if (savedTheme === 'dark') {
-         	document.documentElement.setAttribute('data-theme', 'dark');
-         	} else {
-         	document.documentElement.setAttribute('data-theme', 'light');
-         	}
-         })();
-      </script>
-      <link rel="stylesheet" href="assets/css/main.css" />
-      <noscript>
-         <link rel="stylesheet" href="assets/css/noscript.css" />
-      </noscript>
-      <link rel="canonical" href="https://scottlabz.com/faq.html" />
-      <script type="application/ld+json">
-         {
-         "@context": "https://schema.org",
-         "@type": "FAQPage",
-         "mainEntity": [
-           {
-             "@type": "Question",
-             "name": "What is your architectural philosophy regarding data and analytics systems?",
-             "acceptedAnswer": {
-               "@type": "Answer",
-               "text": "We advocate for decoupled, modular data architectures that emphasize strict data typing, schema evolution control, and idempotent pipeline design to eliminate downstream breakage."
-             }
-           },
-           {
-             "@type": "Question",
-             "name": "How do you approach telemetry and event collection across web properties?",
-             "acceptedAnswer": {
-               "@type": "Answer",
-               "text": "Telemetry frameworks are engineered using deterministic event schemas, first-party routing to mitigate ad-blocker loss, and robust validation layers to ensure high data fidelity before ingestion."
-             }
-           },
-           {
-             "@type": "Question",
-             "name": "Are your solutions tied to specific cloud vendors or SaaS tools?",
-             "acceptedAnswer": {
-               "@type": "Answer",
-               "text": "No. We build vendor-agnostic infrastructure leveraging standard query languages, version-controlled scripting, and portable containerization to prevent platform lock-in."
-             }
-           },
-           {
-             "@type": "Question",
-             "name": "What quality and testing standards are applied to data pipelines?",
-             "acceptedAnswer": {
-               "@type": "Answer",
-               "text": "We enforce continuous integration workflows, automated data assertion testing for freshness and uniqueness, and rigorous code reviews prior to production deployment."
-             }
-           },
-           {
-             "@type": "Question",
-             "name": "How do you manage data governance and security compliance?",
-             "acceptedAnswer": {
-               "@type": "Answer",
-               "text": "Security is integrated at the protocol level, enforcing strict least-privilege access patterns, cryptographic protection for data in transit and at rest, and formalized data processing boundaries."
-             }
-           }
-         ]
-         }
-      </script>
-      <meta property="og:title" content="Frequently Asked Questions | Scott Labz" />
-      <meta property="og:description" content="Detailed technical FAQs covering data engineering methodologies, analytics architecture design, infrastructure decoupling, and agnostic technology standards." />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://scottlabz.com/faq.html" />
-      <meta property="og:image" content="https://scottlabz.com/images/banner.jpg" />
-      <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
-      <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
-      <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
-      <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
-      <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
-      <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
-      <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
-      <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
-      <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
-      <link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-      <link rel="manifest" href="images/favicon/manifest.json">
-      <meta name="msapplication-TileColor" content="#ffffff">
-      <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
-      <meta name="theme-color" content="#ffffff">
-   </head>
-   <body class="is-preload">
-      <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme" style="
-         position: fixed;
-         top: 14px;
-         left: 14px;
-         z-index: 10000;
-         cursor: pointer;
-         ">
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-MY6CT6TLNL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-MY6CT6TLNL");
+    </script>
+    <title>Frequently Asked Questions | Scott Labz</title>
+    <meta
+      name="description"
+      content="Detailed technical FAQs covering data engineering methodologies, analytics architecture design, infrastructure decoupling, and agnostic technology standards." />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=yes" />
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+      <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <link rel="canonical" href="https://scottlabz.com/faq.html" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is your architectural philosophy regarding data and analytics systems?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We advocate for decoupled, modular data architectures that emphasize strict data typing, schema evolution control, and idempotent pipeline design to eliminate downstream breakage."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you approach telemetry and event collection across web properties?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Telemetry frameworks are engineered using deterministic event schemas, first-party routing to mitigate ad-blocker loss, and robust validation layers to ensure high data fidelity before ingestion."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are your solutions tied to specific cloud vendors or SaaS tools?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. We build vendor-agnostic infrastructure leveraging standard query languages, version-controlled scripting, and portable containerization to prevent platform lock-in."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What quality and testing standards are applied to data pipelines?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We enforce continuous integration workflows, automated data assertion testing for freshness and uniqueness, and rigorous code reviews prior to production deployment."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you manage data governance and security compliance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Security is integrated at the protocol level, enforcing strict least-privilege access patterns, cryptographic protection for data in transit and at rest, and formalized data processing boundaries."
+            }
+          }
+        ]
+      }
+    </script>
+    <meta
+      property="og:title"
+      content="Frequently Asked Questions | Scott Labz" />
+    <meta
+      property="og:description"
+      content="Detailed technical FAQs covering data engineering methodologies, analytics architecture design, infrastructure decoupling, and agnostic technology standards." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://scottlabz.com/faq.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/banner.jpg" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="images/favicon/apple-icon-57x57.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="images/favicon/apple-icon-60x60.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="images/favicon/apple-icon-72x72.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="images/favicon/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="images/favicon/apple-icon-114x114.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="images/favicon/apple-icon-120x120.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="images/favicon/apple-icon-144x144.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="images/favicon/apple-icon-152x152.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/favicon/apple-icon-180x180.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="images/favicon/android-icon-192x192.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon/favicon-32x32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="images/favicon/favicon-96x96.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="images/favicon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="images/favicon/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body class="is-preload">
+    <button
+      id="themeToggle"
+      class="theme-toggle-btn"
+      aria-label="Toggle Theme"
+      style="
+        position: fixed;
+        top: 14px;
+        left: 14px;
+        z-index: 10000;
+        cursor: pointer;
+      ">
       <span id="themeIcon">🌙</span>
-      </button>
-      <!-- Wrapper -->
-      <div id="wrapper" class="divided">
-         <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-            <div class="content">
-               <div class="logo-wrapper" style="margin-bottom: 1.5rem;">
-                  <a href="index.html" style="border-bottom: none;">
-                  <span class="h2"><img src="images/scottlabz-clear.png" alt="S" class="logo">cott Labz</span>
-                  </a>
-               </div>
-               <h1>Frequently Asked Questions</h1>
-               <span class="icon solid style2 major fa-question-circle"></span>
-               <div class="faq-item" style="margin-bottom: 2rem;">
-                  <h2>What is your architectural philosophy regarding data and analytics systems?</h2>
-                  <p>We advocate for decoupled, modular architectures that separate storage, computation, and presentation layers. Systems are engineered with an emphasis on strict data typing, schema evolution control, and idempotent transformation pipelines to prevent downstream failures and ensure long-term maintainability across enterprise data estates.</p>
-               </div>
-               <div class="faq-item" style="margin-bottom: 2rem;">
-                  <h2>How do you approach telemetry collection and event tracking infrastructure?</h2>
-                  <p>Telemetry pipelines are designed around deterministic event schemas and first-party routing architectures. By utilizing modular script injection and robust validation layers at the ingestion boundary, we maximize data fidelity, reduce signal loss from client-side blocking, and maintain high compliance with privacy protocols.</p>
-               </div>
-               <div class="faq-item" style="margin-bottom: 2rem;">
-                  <h2>Are your infrastructure and analytics solutions tied to specific proprietary vendors?</h2>
-                  <p>No. Our frameworks are built using technology-agnostic standards—relying on portable query languages, version-controlled scripting, standardized API protocols, and containerized runtime environments. This prevents vendor lock-in and allows analytics logic to migrate smoothly across diverse cloud and on-premise ecosystems.</p>
-               </div>
-               <div class="faq-item" style="margin-bottom: 2rem;">
-                  <h2>What quality assurance and testing methodologies are applied to data pipelines?</h2>
-                  <p>We treat data workflows with the same rigorous testing standards as traditional software engineering. This includes continuous integration workflows, automated data assertion checks for schema drift, null constraints, row-count anomalies, and primary key uniqueness before promoting changes to production environments.</p>
-               </div>
-               <div class="faq-item" style="margin-bottom: 2rem;">
-                  <h2>How is security and data governance implemented across the technical stack?</h2>
-                  <p>Security is enforced through defense-in-depth principles. This encompasses least-privilege access control matrices, encryption standards for data in transit and at rest, automated dependency auditing, and strict adherence to data processing boundaries and information security management systems.</p>
-               </div>
-            </div>
-         </section>
-         <!-- Footer -->
-         <script src="footer.js" defer></script>
-         <scott-footer description="Answers to common technical, architectural, and operational questions regarding Scott Labz engineering standards, telemetry frameworks, and system design philosophies."></scott-footer>
-      </div>
-      <!-- Scripts -->
-      <script src="assets/js/jquery.min.js" defer></script>
-      <script src="assets/js/jquery.scrollex.min.js" defer></script>
-      <script src="assets/js/jquery.scrolly.min.js" defer></script>
-      <script src="assets/js/browser.min.js" defer></script>
-      <script src="assets/js/breakpoints.min.js" defer></script>
-      <script src="assets/js/util.js" defer></script>
-      <script src="assets/js/main.js" defer></script>
-      <!-- Back to Top Button -->
-      <button id="backToTop" onclick="scrollToTop()" aria-label="Back to top" style="
-         display: none;
-         position: fixed;
-         bottom: 24px;
-         right: 24px;
-         z-index: 99;
-         ">↑ Top</button>
-      <script>
-         (function() {
-         	const topBtn = document.getElementById("backToTop");
-         	window.addEventListener("scroll", function() {
-         	if (window.scrollY > 300) {
-         		topBtn.style.display = "block";
-         	} else {
-         		topBtn.style.display = "none";
-         	}
-         	});
-         })();
-         
-         function scrollToTop() {
-         	window.scrollTo({ top: 0, behavior: 'smooth' });
-         }
-      </script>
-      <script>
-         document.addEventListener("DOMContentLoaded", () => {
-           const toggleBtn = document.getElementById("themeToggle");
-           const themeIcon = document.getElementById("themeIcon");
-         
-           function updateUI() {
-             const currentTheme = document.documentElement.getAttribute("data-theme");
-             if (themeIcon) {
-               themeIcon.textContent = currentTheme === "dark" ? "☀️" : "🌙";
-             }
-           }
-         
-           updateUI();
-         
-           if (toggleBtn) {
-             toggleBtn.addEventListener("click", () => {
-               const currentTheme = document.documentElement.getAttribute("data-theme");
-               const newTheme = currentTheme === "dark" ? "light" : "dark";
-               
-               document.documentElement.setAttribute("data-theme", newTheme);
-               localStorage.setItem("theme", newTheme);
-               updateUI();
-             });
-           }
-         });
-      </script>
-   </body>
+    </button>
+    <!-- Wrapper -->
+    <div id="wrapper" class="divided">
+      <section
+        class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+        <div class="content">
+          <div class="logo-wrapper" style="margin-bottom: 1.5rem">
+            <a href="index.html" style="border-bottom: none">
+              <span class="h2"
+                ><img
+                  src="images/scottlabz-clear.png"
+                  alt="S"
+                  class="logo" />cott Labz</span
+              >
+            </a>
+          </div>
+          <h1>Frequently Asked Questions</h1>
+          <span class="icon solid style2 major fa-question-circle"></span>
+          <div class="faq-item" style="margin-bottom: 2rem">
+            <h2>
+              What is your architectural philosophy regarding data and analytics
+              systems?
+            </h2>
+            <p>
+              We advocate for decoupled, modular architectures that separate
+              storage, computation, and presentation layers. Systems are
+              engineered with an emphasis on strict data typing, schema
+              evolution control, and idempotent transformation pipelines to
+              prevent downstream failures and ensure long-term maintainability
+              across enterprise data estates.
+            </p>
+          </div>
+          <div class="faq-item" style="margin-bottom: 2rem">
+            <h2>
+              How do you approach telemetry collection and event tracking
+              infrastructure?
+            </h2>
+            <p>
+              Telemetry pipelines are designed around deterministic event
+              schemas and first-party routing architectures. By utilizing
+              modular script injection and robust validation layers at the
+              ingestion boundary, we maximize data fidelity, reduce signal loss
+              from client-side blocking, and maintain high compliance with
+              privacy protocols.
+            </p>
+          </div>
+          <div class="faq-item" style="margin-bottom: 2rem">
+            <h2>
+              Are your infrastructure and analytics solutions tied to specific
+              proprietary vendors?
+            </h2>
+            <p>
+              No. Our frameworks are built using technology-agnostic
+              standards—relying on portable query languages, version-controlled
+              scripting, standardized API protocols, and containerized runtime
+              environments. This prevents vendor lock-in and allows analytics
+              logic to migrate smoothly across diverse cloud and on-premise
+              ecosystems.
+            </p>
+          </div>
+          <div class="faq-item" style="margin-bottom: 2rem">
+            <h2>
+              What quality assurance and testing methodologies are applied to
+              data pipelines?
+            </h2>
+            <p>
+              We treat data workflows with the same rigorous testing standards
+              as traditional software engineering. This includes continuous
+              integration workflows, automated data assertion checks for schema
+              drift, null constraints, row-count anomalies, and primary key
+              uniqueness before promoting changes to production environments.
+            </p>
+          </div>
+          <div class="faq-item" style="margin-bottom: 2rem">
+            <h2>
+              How is security and data governance implemented across the
+              technical stack?
+            </h2>
+            <p>
+              Security is enforced through defense-in-depth principles. This
+              encompasses least-privilege access control matrices, encryption
+              standards for data in transit and at rest, automated dependency
+              auditing, and strict adherence to data processing boundaries and
+              information security management systems.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Footer -->
+      <script src="footer.js" defer></script>
+      <scott-footer
+        description="Answers to common technical, architectural, and operational questions regarding Scott Labz engineering standards, telemetry frameworks, and system design philosophies."></scott-footer>
+    </div>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <!-- Back to Top Button -->
+    <button
+      id="backToTop"
+      onclick="scrollToTop()"
+      aria-label="Back to top"
+      style="
+        display: none;
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 99;
+      ">
+      ↑ Top
+    </button>
+    <script>
+      (function () {
+        const topBtn = document.getElementById("backToTop");
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 300) {
+            topBtn.style.display = "block";
+          } else {
+            topBtn.style.display = "none";
+          }
+        });
+      })();
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.getElementById("themeToggle");
+        const themeIcon = document.getElementById("themeIcon");
+
+        function updateUI() {
+          const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+          if (themeIcon) {
+            themeIcon.textContent = currentTheme === "dark" ? "☀️" : "🌙";
+          }
+        }
+
+        updateUI();
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener("click", () => {
+            const currentTheme =
+              document.documentElement.getAttribute("data-theme");
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+            document.documentElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+            updateUI();
+          });
+        }
+      });
+    </script>
+  </body>
 </html>

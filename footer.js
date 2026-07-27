@@ -1,10 +1,11 @@
 class ScottFooter extends HTMLElement {
-   connectedCallback() {
-      // Read the unique description attribute from the tag, or use a default
-      const customDesc = this.getAttribute('description') || 
-         'Modern analytics, scalable data platforms, and custom web development.';
+  connectedCallback() {
+    // Read the unique description attribute from the tag, or use a default
+    const customDesc =
+      this.getAttribute("description") ||
+      "Modern analytics, scalable data platforms, and custom web development.";
 
-      this.innerHTML = `
+    this.innerHTML = `
       <hr style="opacity: 0.2; max-width: 1200px; margin: 0 auto 2rem auto;" />
          <footer class="wrapper style1 align-center">
             <div class="inner" style="max-width: 1100px; margin: 0 auto; padding: 2rem 1rem;">
@@ -77,12 +78,12 @@ class ScottFooter extends HTMLElement {
             </div>
          </footer>
       `;
-      
-      const yearSpan = this.querySelector('#footer-year');
-      if (yearSpan) {
-         yearSpan.textContent = new Date().getFullYear();
-      }
-   }
+
+    const yearSpan = this.querySelector("#footer-year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  }
 }
 
-customElements.define('scott-footer', ScottFooter);
+customElements.define("scott-footer", ScottFooter);

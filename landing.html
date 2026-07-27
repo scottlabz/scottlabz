@@ -1,114 +1,149 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html>
-   <head>
-      <title>Scott Labz</title>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-      <link rel="stylesheet" href="assets/css/main.css" />
-      <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-      <script>
-         (function() {
-         	const savedTheme = localStorage.getItem('theme');
-         	if (savedTheme === 'dark') {
-         	document.documentElement.setAttribute('data-theme', 'dark');
-         	} else {
-         	document.documentElement.setAttribute('data-theme', 'light');
-         	}
-         })();
-      </script>
-      <style>
-         body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-         }
-         .bare-container {
-            max-width: 600px;
-            margin: auto;
-            padding: 2rem;
-            width: 100%;
-            box-sizing: border-box;
-         }
-         .bare-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 4rem;
-         }
-      </style>
-   </head>
-   <body class="is-preload">
-
-      <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme" style="
-         position: fixed;
-         top: 14px;
-         right: 14px;
-         z-index: 10000;
-         cursor: pointer;
-         ">
+  <head>
+    <title>Scott Labz</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      .bare-container {
+        max-width: 600px;
+        margin: auto;
+        padding: 2rem;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .bare-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4rem;
+      }
+    </style>
+  </head>
+  <body class="is-preload">
+    <button
+      id="themeToggle"
+      class="theme-toggle-btn"
+      aria-label="Toggle Theme"
+      style="
+        position: fixed;
+        top: 14px;
+        right: 14px;
+        z-index: 10000;
+        cursor: pointer;
+      ">
       <span id="themeIcon">🌙</span>
-      </button>
+    </button>
 
-      <div class="bare-container">
-               <div class="logo-wrapper" style="margin-bottom: 1.5rem;">
-                  <a href="index.html" style="border-bottom: none;">
-                  <span class="h2"><img src="images/scottlabz-clear.png" alt="S" class="logo">cott Labz</span>
-                  </a>
-               </div>
-         <main>
-            <h1 style="font-size: 2rem; margin-bottom: 1rem; line-height: 1.2;">
-               Measure. Build. Improve.
-            </h1>
-            
-            <p style="font-size: 1rem; opacity: 0.8; margin-bottom: 2rem; line-height: 1.5;">
-               Building scalable applications, trusted data, and better digital experiences.
-            </p>
-
-               <ul class="actions">
-                  <li><a href="index.html" class="button big primary wide">Enter Site</a></li>
-               </ul>
-         </main>
+    <div class="bare-container">
+      <div class="logo-wrapper" style="margin-bottom: 1.5rem">
+        <a href="index.html" style="border-bottom: none">
+          <span class="h2"
+            ><img src="images/scottlabz-clear.png" alt="S" class="logo" />cott
+            Labz</span
+          >
+        </a>
       </div>
+      <main>
+        <h1 style="font-size: 2rem; margin-bottom: 1rem; line-height: 1.2">
+          Measure. Build. Improve.
+        </h1>
 
-      <footer style="text-align: center; padding: 1.5rem; font-size: 0.8rem; margin-top: auto;">
-         &copy; 2026 <img src="images/scottlabz-clear.png" alt="S" style="height: 1.1em; vertical-align: middle; margin-right: 0.05em;" />cott Labz LLC
-      </footer>
+        <p
+          style="
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+          ">
+          Building scalable applications, trusted data, and better digital
+          experiences.
+        </p>
 
-      <!-- Scripts -->
-      <script src="assets/js/jquery.min.js" defer></script>
-      <script src="assets/js/jquery.scrollex.min.js" defer></script>
-      <script src="assets/js/jquery.scrolly.min.js" defer></script>
-      <script src="assets/js/browser.min.js" defer></script>
-      <script src="assets/js/breakpoints.min.js" defer></script>
-      <script src="assets/js/util.js" defer></script>
-      <script src="assets/js/main.js" defer></script>
-      <script>
-         document.addEventListener("DOMContentLoaded", () => {
-           const toggleBtn = document.getElementById("themeToggle");
-           const themeIcon = document.getElementById("themeIcon");
-         
-           function updateUI() {
-             const currentTheme = document.documentElement.getAttribute("data-theme");
-             if (themeIcon) {
-               themeIcon.textContent = currentTheme === "dark" ? "☀️" : "🌙";
-             }
-           }
-         
-           updateUI();
-         
-           if (toggleBtn) {
-             toggleBtn.addEventListener("click", () => {
-               const currentTheme = document.documentElement.getAttribute("data-theme");
-               const newTheme = currentTheme === "dark" ? "light" : "dark";
-               
-               document.documentElement.setAttribute("data-theme", newTheme);
-               localStorage.setItem("theme", newTheme);
-               updateUI();
-             });
-           }
-         });
-      </script>
-   </body>
+        <ul class="actions">
+          <li>
+            <a href="index.html" class="button big primary wide">Enter Site</a>
+          </li>
+        </ul>
+      </main>
+    </div>
+
+    <footer
+      style="
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 0.8rem;
+        margin-top: auto;
+      ">
+      &copy; 2026
+      <img
+        src="images/scottlabz-clear.png"
+        alt="S"
+        style="
+          height: 1.1em;
+          vertical-align: middle;
+          margin-right: 0.05em;
+        " />cott Labz LLC
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.getElementById("themeToggle");
+        const themeIcon = document.getElementById("themeIcon");
+
+        function updateUI() {
+          const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+          if (themeIcon) {
+            themeIcon.textContent = currentTheme === "dark" ? "☀️" : "🌙";
+          }
+        }
+
+        updateUI();
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener("click", () => {
+            const currentTheme =
+              document.documentElement.getAttribute("data-theme");
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+            document.documentElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+            updateUI();
+          });
+        }
+      });
+    </script>
+  </body>
 </html>
