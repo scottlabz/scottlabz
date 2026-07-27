@@ -1,11 +1,11 @@
 ### Scott Labz
 
-**Independent Technology Venture**  
-Building and operating modern digital infrastructure, secure software, and enterprise analytics pipelines—with a relentless focus on stability, security, and long-term performance.
+**Independent Technology & Analytics Studio**  
+Helping organizations build faster websites, cleaner data, and modern digital platforms through practical engineering and thoughtful architecture.
 
 ---
 
-* 🔭 **Core Capabilities:** Analytics Engineering, Measurement Architecture, Custom Software & Web Platforms
-* 🛠️ **Tech Stack:** SQL | Python | JavaScript | Git | Bash
-* 🔒 **Principles:** Stability, Security, Scalability, and Precision
-* 📬 **Contact:** info@scottlabz.com
+- ⚡ **Capabilities:** Web Applications • Analytics Engineering • Data Infrastructure • Measurement Strategy
+- 🛠️ **Technology:** SQL • Python • JavaScript • Git • Bash
+- 🧭 **Guiding Principles:** Build simply. Measure accurately. Scale confidently.
+- 📬 **Contact:** info@scottlabz.com

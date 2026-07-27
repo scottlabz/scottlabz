@@ -2,19 +2,20 @@
 <html>
   <head>
     <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-MY6CT6TLNL"></script>
+    <!-- Google Tag Manager -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-MY6CT6TLNL");
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
     </script>
+    <!-- End Google Tag Manager -->
     <title>Disclaimer | Scott Labz</title>
     <meta
       name="description"
@@ -23,26 +24,13 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no" />
-    <script>
-      (function () {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme === "dark") {
-          document.documentElement.setAttribute("data-theme", "dark");
-        } else {
-          document.documentElement.setAttribute("data-theme", "light");
-        }
-      })();
-    </script>
+
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript>
       <link rel="stylesheet" href="assets/css/noscript.css" />
     </noscript>
     <link rel="canonical" href="https://scottlabz.com/disclaimer.html" />
-    <style>
-      [data-theme="dark"] strong {
-        color: #ffffff !important;
-      }
-    </style>
+
     <meta property="og:title" content="Disclaimer | Scott Labz" />
     <meta
       property="og:description"
@@ -126,16 +114,7 @@
       ">
       <span id="themeIcon">🌙</span>
     </button>
-    <script>
-      (function () {
-        const currentTheme =
-          document.documentElement.getAttribute("data-theme");
-        const icon = document.getElementById("themeIcon");
-        if (icon) {
-          icon.textContent = currentTheme === "dark" ? "☀️" : "🌙";
-        }
-      })();
-    </script>
+
     <!-- Wrapper -->
     <div id="wrapper" class="divided">
       <!-- One -->
@@ -229,71 +208,5 @@
       <scott-footer
         description="Enterprise-grade security standards, risk management protocols, and infrastructure protection guidelines."></scott-footer>
     </div>
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js" defer></script>
-    <script src="assets/js/jquery.scrollex.min.js" defer></script>
-    <script src="assets/js/jquery.scrolly.min.js" defer></script>
-    <script src="assets/js/browser.min.js" defer></script>
-    <script src="assets/js/breakpoints.min.js" defer></script>
-    <script src="assets/js/util.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const toggleBtn = document.getElementById("themeToggle");
-        const themeIcon = document.getElementById("themeIcon");
-
-        function updateUI() {
-          const currentTheme =
-            document.documentElement.getAttribute("data-theme");
-          if (themeIcon) {
-            themeIcon.textContent = currentTheme === "dark" ? "☀️" : "🌙";
-          }
-        }
-
-        updateUI();
-
-        if (toggleBtn) {
-          toggleBtn.addEventListener("click", () => {
-            const currentTheme =
-              document.documentElement.getAttribute("data-theme");
-            const newTheme = currentTheme === "dark" ? "light" : "dark";
-
-            document.documentElement.setAttribute("data-theme", newTheme);
-            localStorage.setItem("theme", newTheme);
-            updateUI();
-          });
-        }
-      });
-    </script>
-    <!-- Back to Top Button -->
-    <button
-      id="backToTop"
-      onclick="scrollToTop()"
-      aria-label="Back to top"
-      style="
-        display: none;
-        position: fixed;
-        bottom: 24px;
-        right: 24px;
-        z-index: 99;
-      ">
-      ↑ Top
-    </button>
-    <script>
-      (function () {
-        const topBtn = document.getElementById("backToTop");
-        window.addEventListener("scroll", function () {
-          if (window.scrollY > 300) {
-            topBtn.style.display = "block";
-          } else {
-            topBtn.style.display = "none";
-          }
-        });
-      })();
-
-      function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    </script>
   </body>
 </html>

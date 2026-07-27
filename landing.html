@@ -1,6 +1,21 @@
 <!doctype html>
 <html>
   <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
     <title>Scott Labz</title>
     <meta charset="utf-8" />
     <meta
@@ -22,16 +37,7 @@
     <noscript
       ><link rel="stylesheet" href="assets/css/noscript.css"
     /></noscript>
-    <script>
-      (function () {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme === "dark") {
-          document.documentElement.setAttribute("data-theme", "dark");
-        } else {
-          document.documentElement.setAttribute("data-theme", "light");
-        }
-      })();
-    </script>
+
     <style>
       body {
         margin: 0;
@@ -120,42 +126,5 @@
           margin-right: 0.05em;
         " />cott Labz LLC
     </footer>
-
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js" defer></script>
-    <script src="assets/js/jquery.scrollex.min.js" defer></script>
-    <script src="assets/js/jquery.scrolly.min.js" defer></script>
-    <script src="assets/js/browser.min.js" defer></script>
-    <script src="assets/js/breakpoints.min.js" defer></script>
-    <script src="assets/js/util.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const toggleBtn = document.getElementById("themeToggle");
-        const themeIcon = document.getElementById("themeIcon");
-
-        function updateUI() {
-          const currentTheme =
-            document.documentElement.getAttribute("data-theme");
-          if (themeIcon) {
-            themeIcon.textContent = currentTheme === "dark" ? "☀️" : "🌙";
-          }
-        }
-
-        updateUI();
-
-        if (toggleBtn) {
-          toggleBtn.addEventListener("click", () => {
-            const currentTheme =
-              document.documentElement.getAttribute("data-theme");
-            const newTheme = currentTheme === "dark" ? "light" : "dark";
-
-            document.documentElement.setAttribute("data-theme", newTheme);
-            localStorage.setItem("theme", newTheme);
-            updateUI();
-          });
-        }
-      });
-    </script>
   </body>
 </html>
