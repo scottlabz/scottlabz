@@ -77,6 +77,52 @@ class ScottFooter extends HTMLElement {
                
             </div>
          </footer>
+
+<!-- Back to Top Button -->
+<button
+  id="backToTop"
+  onclick="scrollToTop()"
+  aria-label="Back to top"
+  style="
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 99;
+  ">
+  ↑ Top
+</button>
+
+<script>
+(function () {
+  var topBtn = document.getElementById("backToTop");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 300) {
+      topBtn.style.display = "block";
+    } else {
+      topBtn.style.display = "none";
+    }
+  });
+})();
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+</script>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+
       `;
 
     const yearSpan = this.querySelector("#footer-year");
