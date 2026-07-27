@@ -26,7 +26,7 @@ class ScottFooter extends HTMLElement {
                         <li>
                         <span class="h3"><a href="services.html"><img src="images/scottlabz-clear.png" alt="S" class="logo" style="height: 1.2em; vertical-align: middle;">ervices</a></span>
                         &nbsp; | &nbsp;
-                        <span class="h3"><a href="about.html">About Us</a></span>
+                        <span class="h3"><a href="about.html">About</a></span>
                         &nbsp; | &nbsp;
                         <span class="h3"><a href="faq.html">FAQ</a></span>
                         </li>
