@@ -153,12 +153,6 @@ class ScottFooter extends HTMLElement {
       </button>
     `;
 
-    /*
-       Dynamic Script Loader
-       Scripts inserted through innerHTML do not execute,
-       so we load them manually here.
-    */
-
     const loadScript = (src) => {
       return new Promise((resolve, reject) => {
         // Prevent duplicate loading
