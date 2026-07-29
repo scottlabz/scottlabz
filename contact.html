@@ -150,14 +150,23 @@
               Send us a message and we will respond promptly.
             </p>
             <!-- CSP refresh -->
+
+            <script>
+              window.addEventListener("load", function () {
+                console.log("Window loaded");
+                console.log("StaticForms object:", window.StaticForms);
+              });
+            </script>
+
             <div id="my-form"></div>
 
-            <script
-              src="https://www.staticforms.dev/scripts/staticforms.js"
-              defer></script>
+            <script src="https://www.staticforms.dev/scripts/staticforms.js"></script>
 
-            <script defer>
-              window.addEventListener("load", function () {
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                console.log("DOM ready");
+                console.log(StaticForms);
+
                 StaticForms.render(
                   document.getElementById("my-form"),
                   "sf_e0c2b97ffa49abe733d6765e",
