@@ -160,17 +160,22 @@
 
             <div id="my-form"></div>
 
+            <!-- Load the script -->
             <script src="https://www.staticforms.dev/scripts/staticforms.js"></script>
 
             <script>
               document.addEventListener("DOMContentLoaded", function () {
-                console.log("DOM ready");
-                console.log(StaticForms);
+                // Ensure the element exists before rendering
+                const formContainer = document.getElementById("my-form");
 
-                StaticForms.render(
-                  document.getElementById("my-form"),
-                  "sf_e0c2b97ffa49abe733d6765e",
-                );
+                if (formContainer) {
+                  StaticForms.render(
+                    formContainer,
+                    "sf_e0c2b97ffa49abe733d6765e", // Your API Key
+                  );
+                } else {
+                  console.error("Form container #my-form not found.");
+                }
               });
             </script>
           </div>
