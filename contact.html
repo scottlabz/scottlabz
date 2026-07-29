@@ -102,9 +102,63 @@
         margin-bottom: 1rem;
       }
 
-      #my-form button {
-        background-color: rgba(30, 58, 95, 0.3) !important;
-        padding: 0px 20px !important;
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      label {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #1e3a5f;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.95rem 1rem;
+        font-size: 1rem;
+        font-family: inherit;
+
+        color: #0f172a;
+        background: #ffffff !important;
+
+        border: 2px solid #dbe3ec;
+        border-radius: 10px;
+
+        box-sizing: border-box;
+
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        color: #94a3b8;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #1e3a5f;
+        box-shadow: 0 0 0 4px rgba(30, 58, 95, 0.15);
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      button:active {
+        transform: translateY(0);
       }
     </style>
   </head>
@@ -164,7 +218,7 @@
                 placeholder="Your Message"
                 required></textarea>
 
-              <button type="submit">Send Message</button>
+              <button type="submit">Submit</button>
             </form>
           </div>
         </section>
