@@ -37,10 +37,6 @@ class ScottFooter extends HTMLElement {
                   <span class="h3">
                     <a href="about.html">About</a>
                   </span>
-                  &nbsp; | &nbsp;
-                  <span class="h3">
-                    <a href="faq.html">FAQ</a>
-                  </span>
                 </li>
               </ul>
 
@@ -62,61 +58,41 @@ class ScottFooter extends HTMLElement {
                      <span class="label">LinkedIn</span>
                   </a>
                 </li>
+
+                 <li>
+                  <a href="contact.html"
+                     class="icon style2 fa-envelope">
+                     <span class="label">Contact Us</span>
+                  </a>
+                </li>
               </ul>
             </div>
-
 
             <!-- Security -->
             <div style="width:100%;">
               <h4 style="font-size:.9rem;text-transform:uppercase;">
-                Security & Trust
+                SOLUTIONS
               </h4>
 
               <ul style="list-style:none;padding:0;font-size:.85rem;line-height:1.8;">
-                <li><a href="security.html">ISMS Standard</a></li>
-                <li><a href="vdp.html">Vulnerability Disclosure</a></li>
-                <li><a href="dpa.html">Data Processing Agreement</a></li>
-                <li><a href="disclaimer.html">Operational Disclaimers</a></li>
-                <li><a href="provenance.html">Data Provenance</a></li>
-
-                <li>
-                  <a href="https://stats.uptimerobot.com/XTnbfmM7Fi"
-                     target="_blank"
-                     rel="noopener noreferrer">
-                     System Status
-                  </a>
-                </li>
-
-                <li>
-                  <a href="https://securityheaders.com/?q=scottlabz.com&followRedirects=on"
-                     target="_blank"
-                     rel="noopener noreferrer">
-                     Edge Security
-                  </a>
-                </li>
+                <li><a href="analytics-data.html">Analytics &amp; Data</a></li>
+                <li><a href="web-digital.html">Web &amp; Digital</a></li>
               </ul>
             </div>
-
 
             <!-- Legal -->
             <div style="width:100%;">
               <h4 style="font-size:.9rem;text-transform:uppercase;">
-                Legal
+                GOVERNANCE
               </h4>
 
               <ul style="list-style:none;padding:0;font-size:.85rem;line-height:1.8;">
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="terms.html">Terms & Conditions</a></li>
-                <li><a href="cookies.html">Cookies Policy</a></li>
-                <li><a href="accessibility.html">Accessibility Statement</a></li>
-                <li><a href="ai-policy.html">AI Governance Policy</a></li>
-                <li><a href="telemetry.html">Telemetry Policy</a></li>
-                <li><a href="service-policy.html">Service Policy</a></li>
+                <li><a href="security-trust.html">Security &amp; Trust</a></li>
+                <li><a href="legal.html">Legal &amp; Policies</a></li>
               </ul>
             </div>
 
           </div>
-
 
           <div style="
             border-top:1px solid rgba(160,160,160,.2);
@@ -135,7 +111,6 @@ class ScottFooter extends HTMLElement {
 
         </div>
       </footer>
-
 
       <!-- Back To Top -->
       <button
