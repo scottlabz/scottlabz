@@ -150,19 +150,18 @@
               Send us a message and we will respond promptly.
             </p>
 
-            <form action="https://api.staticforms.dev/submit" method="POST">
-              <input
-                type="hidden"
-                name="apiKey"
-                value="sf_e0c2b97ffa49abe733d6765e" />
-              <!-- your own inputs -->
+            <form action="https://formspree.io/f/xjgnzkdz" method="POST">
+              <label>
+                Your email:
+                <input type="email" name="email" />
+              </label>
+              <label>
+                Your message:
+                <textarea name="message"></textarea>
+              </label>
+              <!-- your other form fields go here -->
+              <button type="submit">Send</button>
             </form>
-            <script src="https://www.staticforms.dev/scripts/staticforms.js"></script>
-            <script>
-              document.addEventListener("DOMContentLoaded", function () {
-                StaticForms.attach(document.querySelector("form"));
-              });
-            </script>
           </div>
         </section>
       </main>
