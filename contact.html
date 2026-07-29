@@ -158,24 +158,19 @@
               });
             </script>
 
-            <div id="my-form"></div>
-
-            <!-- Load the script -->
-            <script src="https://www.staticforms.dev/scripts/staticforms.js"></script>
-
+            <form action="https://api.staticforms.dev/submit" method="POST">
+              <input
+                type="hidden"
+                name="apiKey"
+                value="sf_e0c2b97ffa49abe733d6765e" />
+              <!-- your own inputs -->
+            </form>
+            <script
+              src="https://www.staticforms.dev/scripts/staticforms.js"
+              defer></script>
             <script>
               document.addEventListener("DOMContentLoaded", function () {
-                // Ensure the element exists before rendering
-                const formContainer = document.getElementById("my-form");
-
-                if (formContainer) {
-                  StaticForms.render(
-                    formContainer,
-                    "sf_e0c2b97ffa49abe733d6765e", // Your API Key
-                  );
-                } else {
-                  console.error("Form container #my-form not found.");
-                }
+                StaticForms.attach(document.querySelector("form"));
               });
             </script>
           </div>
