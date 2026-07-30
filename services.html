@@ -41,22 +41,41 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Services",
-        "name": "Scott Labz",
-        "serviceType": "Web Development, Digital Infrastructure, and Analytics Solutions",
-        "provider": {
+        "@type": "CollectionPage",
+        "@id": "https://scottlabz.com/services.html",
+        "url": "https://scottlabz.com/services.html",
+        "name": "Services | ScottLabz",
+        "description": "Explore consulting services in analytics, web and digital, and technology solutions designed to help your business grow with confidence.",
+        "about": {
           "@type": "Organization",
-          "name": "Scott Labz",
-          "url": "https://scottlabz.com/services.html",
+          "@id": "https://scottlabz.com/",
+          "name": "ScottLabz",
+          "url": "https://scottlabz.com/",
           "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+          "image": "https://scottlabz.com/images/scottlabz-clear.png",
           "sameAs": [
             "https://github.com/scottlabz",
             "https://www.linkedin.com/company/scottlabz",
             "https://www.linkedin.com/in/scotttaylor369"
           ]
         },
-        "description": "Explore consulting services in analytics, web and digital, and technology solutions designed to help your business grow with confidence.",
-        "areaServed": "Worldwide"
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "Service",
+              "position": 1,
+              "name": "Web Development and Digital Solutions",
+              "url": "https://scottlabz.com/web-digital.html"
+            },
+            {
+              "@type": "Service",
+              "position": 2,
+              "name": "Analytics and Data Solutions",
+              "url": "https://scottlabz.com/analytics-data.html"
+            }
+          ]
+        }
       }
     </script>
 
