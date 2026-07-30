@@ -1,0 +1,1 @@
+!function(){const t=document.head;if(document.documentElement.lang="en-US",!t.querySelector('meta[http-equiv="content-language"]')){const e=document.createElement("meta");e.setAttribute("http-equiv","content-language"),e.setAttribute("content","en-US"),t.appendChild(e)}}();
