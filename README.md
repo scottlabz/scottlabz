@@ -1,12 +1,24 @@
-### Scott Labz
+# Scott Labz
 
-**Independent Technology & Analytics Studio**  
-Helping organizations build high-performing websites, trusted data, and scalable digital platforms through practical engineering and thoughtful architecture.
+**Independent Technology & Analytics Studio**
 
----
+Web development, analytics engineering, and digital infrastructure solutions.
 
-- ⚡ **Capabilities** : Web Applications • Analytics Engineering • Data Infrastructure • Measurement Strategy
+## Services
 
-- 🛠️ **Core Technologies** : Python • SQL • JavaScript • Git • Bash
+- Web Development
+- Analytics Implementation
+- Data Quality
+- Reporting & Insights
 
-- 🧭 **Philosophy** : Build with purpose. Measure with precision. Scale with confidence.
+## Security
+
+Security-first development practices:
+
+- Responsible disclosure
+- Privacy-focused analytics
+- Secure deployment practices
+
+## License
+
+![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
