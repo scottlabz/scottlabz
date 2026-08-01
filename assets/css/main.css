@@ -8951,3 +8951,18 @@ body.is-preload .items.onload-fade-in > * > .inner {
     flex-direction: row !important;
   }
 }
+
+@media screen and (max-width: 736px) {
+  .footer-columns {
+    text-align: center !important;
+    gap: 1.5rem !important;
+  }
+
+  .footer-columns ul {
+    text-align: center;
+  }
+
+  .icons {
+    justify-content: center !important;
+  }
+}
