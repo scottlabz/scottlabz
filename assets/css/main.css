@@ -8946,23 +8946,46 @@ body.is-preload .items.onload-fade-in > * > .inner {
   opacity: 0.25 !important;
 }
 
-@media screen and (min-width: 768px) {
+/* Footer */
+
+.footer-columns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: left;
+  gap: 2rem;
+}
+
+/* Tablet */
+
+@media screen and (max-width: 900px) {
   .footer-columns {
-    flex-direction: row !important;
+    gap: 1.5rem;
+  }
+
+  .footer-columns > div {
+    min-width: 45% !important;
   }
 }
 
-@media screen and (max-width: 736px) {
+/* Mobile */
+
+@media screen and (max-width: 600px) {
   .footer-columns {
-    text-align: center !important;
-    gap: 1.5rem !important;
+    flex-direction: column;
+    gap: 2rem;
   }
 
-  .footer-columns ul {
-    text-align: center;
+  .footer-columns > div {
+    width: 100%;
+    min-width: 100% !important;
   }
 
-  .icons {
-    justify-content: center !important;
+  .footer-columns h4 {
+    margin-bottom: 0.75rem;
+  }
+
+  footer .icons {
+    justify-content: flex-start !important;
   }
 }
