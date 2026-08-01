@@ -19,6 +19,9 @@ Security-first development practices:
 - Privacy-focused analytics
 - Secure deployment practices
 
-## License
+## Licenses
 
 [![License](https://img.shields.io/github/license/scottlabz/scottlabz)](LICENSE)
+[![Security Policy](https://img.shields.io/badge/security-policy-blue)](SECURITY.md)
+[![Website](https://img.shields.io/badge/website-scottlabz.com-blue)](https://scottlabz.com)
+[![Last Commit](https://img.shields.io/github/last-commit/scottlabz/scottlabz)](https://github.com/scottlabz/scottlabz)
