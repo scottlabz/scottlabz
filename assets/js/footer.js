@@ -17,7 +17,7 @@ class ScottFooter extends HTMLElement {
               <div class="logo-wrapper" style="margin-bottom: 0.75rem;">
                 <a href="index.html" style="border-bottom: none;">
                   <span class="h3">
-                    <img src="/images/scottlabz-clear.png" alt="S" class="logo" style="height:1.2em;vertical-align:middle;">cott Labz
+                    <img src="https://scottlabz.com/images/scottlabz-clear.png" alt="S" class="logo" style="height:1.2em;vertical-align:middle;">cott Labz
                   </span>
                 </a>
               </div>
@@ -32,7 +32,7 @@ class ScottFooter extends HTMLElement {
 
                   <span class="h3">
                   <a href="services.html">
-                  <img src="/images/scottlabz-clear.png" alt="S" class="logo" style="height: 1.2em; vertical-align: middle;">ervices</a>
+                  <img src="https://scottlabz.com/images/scottlabz-clear.png" alt="S" class="logo" style="height: 1.2em; vertical-align: middle;">ervices</a>
                   </span>
 
                   &nbsp; | &nbsp;
