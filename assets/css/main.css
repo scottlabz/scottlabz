@@ -8989,3 +8989,9 @@ body.is-preload .items.onload-fade-in > * > .inner {
     justify-content: flex-start !important;
   }
 }
+
+.case-study-button {
+  background-color: #3b5f85;
+  border-color: #3b5f85;
+  color: #ffffff !important;
+}
