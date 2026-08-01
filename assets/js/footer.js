@@ -5,76 +5,104 @@ class ScottFooter extends HTMLElement {
       "Modern analytics, scalable data platforms, and custom web development.";
 
     this.innerHTML = `
-      <hr style="opacity: 0.2; max-width: 1200px; margin: 0 auto 2rem auto;" />
+      <hr style="opacity:0.2;max-width:1200px;margin:0 auto 2rem auto;" />
 
       <footer class="wrapper style1 align-center">
-        <div class="inner" style="max-width: 1100px; margin: 0 auto; padding: 2rem 1rem;">
 
-          <div class="footer-columns" style="display:flex;flex-direction:column;text-align:left;gap:2rem;margin-bottom:2rem;">
+        <div class="inner"
+          style="
+            max-width:1100px;
+            margin:0 auto;
+            padding:2rem 1rem;
+          ">
 
-            <div style="width:100%;">
 
-              <div class="logo-wrapper" style="margin-bottom: 0.75rem;">
-                <a href="index.html" style="border-bottom: none;">
-                  <span class="h3">
-                    <img src="https://scottlabz.com/images/scottlabz-clear.png" alt="S" class="logo" style="height:1.2em;vertical-align:middle;">cott Labz
+          <div
+            class="footer-columns"
+            style="
+              display:flex;
+              flex-direction:row;
+              flex-wrap:wrap;
+              text-align:left;
+              gap:2rem;
+              margin-bottom:2rem;
+            ">
+
+
+            <!-- BRAND -->
+
+            <div style="flex:2;min-width:260px;">
+
+              <div class="logo-wrapper" style="margin-bottom:.75rem;">
+
+                <a href="/index.html" style="border-bottom:none;">
+
+                  <span class="h3" style="display:inline-flex;align-items:center;">
+
+                    <img
+                      src="/images/scottlabz-clear.png"
+                      alt="S"
+                      class="logo"
+                      style="display:block;">
+
+                    <span>cott Labz</span>
+
                   </span>
+
                 </a>
+
               </div>
+
 
               <p style="font-size:.85rem;opacity:.8;margin-bottom:1rem;">
                 ${customDesc}
               </p>
 
 
-              <ul style="list-style:none;padding:0;margin:0 0 1.5rem 0;font-size:.9rem;">
-                <li>
-
-                  <span class="h3">
-                  <a href="services.html">
-                  <img src="https://scottlabz.com/images/scottlabz-clear.png" alt="S" class="logo" style="height: 1.2em; vertical-align: middle;">ervices</a>
-                  </span>
-
-                  &nbsp; | &nbsp;
-
-                  <span class="h3">
-                    <a href="/about.html">
-                      About
-                    </a>
-                  </span>
-
-                </li>
-              </ul>
-
-
               <ul class="icons" style="justify-content:flex-start;">
 
                 <li>
-                  <a href="https://github.com/scottlabz"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     class="icon brands style2 fa-github">
-                    <span class="label">GitHub</span>
+                  <a
+                    href="https://github.com/scottlabz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="icon brands style2 fa-github">
+
+                    <span class="label">
+                      GitHub
+                    </span>
+
                   </a>
                 </li>
 
 
                 <li>
-                  <a href="https://www.linkedin.com/company/scottlabz"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     class="icon brands style2 fa-linkedin">
-                    <span class="label">LinkedIn</span>
+                  <a
+                    href="https://www.linkedin.com/company/scottlabz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="icon brands style2 fa-linkedin">
+
+                    <span class="label">
+                      LinkedIn
+                    </span>
+
                   </a>
                 </li>
 
 
                 <li>
-                  <a href="/contact.html"
-                     class="icon style2 fa-envelope">
-                    <span class="label">Contact Us</span>
+                  <a
+                    href="/contact.html"
+                    class="icon style2 fa-envelope">
+
+                    <span class="label">
+                      Contact
+                    </span>
+
                   </a>
                 </li>
+
 
               </ul>
 
@@ -82,18 +110,31 @@ class ScottFooter extends HTMLElement {
 
 
 
-            <div style="width:100%;">
+
+            <!-- SOLUTIONS -->
+
+            <div style="flex:1;min-width:150px;">
 
               <h4 style="font-size:.9rem;text-transform:uppercase;">
                 SOLUTIONS
               </h4>
 
-              <ul style="list-style:none;padding:0;font-size:.85rem;line-height:1.8;">
+
+              <ul
+                style="
+                  list-style:none;
+                  padding:0;
+                  font-size:.85rem;
+                  line-height:1.8;
+                ">
+
+
                 <li>
                   <a href="/analytics-data.html">
                     Analytics &amp; Data
                   </a>
                 </li>
+
 
                 <li>
                   <a href="/web-digital.html">
@@ -101,11 +142,13 @@ class ScottFooter extends HTMLElement {
                   </a>
                 </li>
 
+
                 <li>
-                  <a href="/case-studies.html">
-                    Case Studies
+                  <a href="/services.html">
+                    Services
                   </a>
                 </li>
+
 
               </ul>
 
@@ -113,13 +156,70 @@ class ScottFooter extends HTMLElement {
 
 
 
-            <div style="width:100%;">
+
+            <!-- RESOURCES -->
+
+            <div style="flex:1;min-width:150px;">
+
+              <h4 style="font-size:.9rem;text-transform:uppercase;">
+                RESOURCES
+              </h4>
+
+
+              <ul
+                style="
+                  list-style:none;
+                  padding:0;
+                  font-size:.85rem;
+                  line-height:1.8;
+                ">
+
+
+                <li>
+                  <a href="/case-studies.html">
+                    Case Studies
+                  </a>
+                </li>
+
+
+                <li>
+                  <a href="/about.html">
+                    About
+                  </a>
+                </li>
+
+
+                <li>
+                  <a href="/contact.html">
+                    Contact
+                  </a>
+                </li>
+
+
+              </ul>
+
+            </div>
+
+
+
+
+            <!-- GOVERNANCE -->
+
+            <div style="flex:1;min-width:150px;">
 
               <h4 style="font-size:.9rem;text-transform:uppercase;">
                 GOVERNANCE
               </h4>
 
-              <ul style="list-style:none;padding:0;font-size:.85rem;line-height:1.8;">
+
+              <ul
+                style="
+                  list-style:none;
+                  padding:0;
+                  font-size:.85rem;
+                  line-height:1.8;
+                ">
+
 
                 <li>
                   <a href="/security-trust.html">
@@ -127,11 +227,13 @@ class ScottFooter extends HTMLElement {
                   </a>
                 </li>
 
+
                 <li>
                   <a href="/legal.html">
                     Legal &amp; Policies
                   </a>
                 </li>
+
 
               </ul>
 
@@ -142,12 +244,14 @@ class ScottFooter extends HTMLElement {
 
 
 
-          <div style="
-            border-top:1px solid rgba(160,160,160,.2);
-            padding-top:1.5rem;
-            font-size:.85rem;
-            text-align:left;
-          ">
+
+          <div
+            style="
+              border-top:1px solid rgba(160,160,160,.2);
+              padding-top:1.5rem;
+              font-size:.85rem;
+              text-align:left;
+            ">
 
             <p>
               &copy;
@@ -159,8 +263,11 @@ class ScottFooter extends HTMLElement {
 
           </div>
 
+
         </div>
+
       </footer>
+
 
 
       <button
@@ -173,39 +280,12 @@ class ScottFooter extends HTMLElement {
           right:24px;
           z-index:99;
         ">
+
         ↑ Top
+
       </button>
+
     `;
-
-    const loadScript = (src) => {
-      return new Promise((resolve, reject) => {
-        if (document.querySelector(`script[src="${src}"]`)) {
-          resolve();
-          return;
-        }
-
-        const script = document.createElement("script");
-
-        script.src = src;
-        script.defer = true;
-
-        script.onload = resolve;
-        script.onerror = reject;
-
-        document.body.appendChild(script);
-      });
-    };
-
-    loadScript("/assets/js/jquery.min.js")
-      .then(() => loadScript("/assets/js/jquery.scrollex.min.js"))
-      .then(() => loadScript("/assets/js/jquery.scrolly.min.js"))
-      .then(() => loadScript("/assets/js/browser.min.js"))
-      .then(() => loadScript("/assets/js/breakpoints.min.js"))
-      .then(() => loadScript("/assets/js/util.js"))
-      .then(() => loadScript("/assets/js/main.js"))
-      .catch((error) => {
-        console.error("Scott Labz script loading error:", error);
-      });
 
     const yearSpan = this.querySelector("#footer-year");
 
@@ -217,11 +297,7 @@ class ScottFooter extends HTMLElement {
 
     if (topBtn) {
       window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          topBtn.style.display = "block";
-        } else {
-          topBtn.style.display = "none";
-        }
+        topBtn.style.display = window.scrollY > 300 ? "block" : "none";
       });
 
       topBtn.addEventListener("click", () => {
