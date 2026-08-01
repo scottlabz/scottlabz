@@ -5,11 +5,8 @@ Helping organizations build high-performing websites, trusted data, and scalable
 
 ---
 
-⚡ Capabilities
-Web Applications • Analytics Engineering • Data Infrastructure • Measurement Strategy
+- ⚡ **Capabilities** : Web Applications • Analytics Engineering • Data Infrastructure • Measurement Strategy
 
-🛠️ Core Technologies
-Python • SQL • JavaScript • Git • Bash
+- 🛠️ **Core Technologies** : Python • SQL • JavaScript • Git • Bash
 
-🧭 Philosophy
-Build with purpose. Measure with precision. Scale with confidence.
+- 🧭 **Philosophy** : Build with purpose. Measure with precision. Scale with confidence.
