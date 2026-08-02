@@ -1,3 +1,30 @@
-git add .github/workflows/sitemap.yml
-git commit -m "Add sitemap GitHub Action"
-git push
+name: Generate Sitemap
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate sitemap
+        run: python scripts/generate_sitemap.py
+
+      - name: Commit sitemap
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Auto-update sitemap.xml
