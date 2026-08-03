@@ -181,6 +181,11 @@ class ScottFooter extends HTMLElement {
                   </a>
                 </li>
 
+                <li>
+                  <a href="/insights.html">
+                    Insights
+                  </a>
+                </li>
 
                 <li>
                   <a href="/about.html">
