@@ -16,7 +16,6 @@ class ScottFooter extends HTMLElement {
             padding:2rem 1rem;
           ">
 
-
           <div
             class="footer-columns"
             style="
@@ -28,17 +27,12 @@ class ScottFooter extends HTMLElement {
               margin-bottom:2rem;
             ">
 
-
             <!-- BRAND -->
 
             <div style="flex:2;min-width:260px;">
-
               <div class="logo-wrapper" style="margin-bottom:.75rem;">
-
                 <a href="/index.html" style="border-bottom:none;">
-
                   <span class="h3" style="display:inline-flex;align-items:center;">
-
                     <img
                       src="/images/scottlabz-clear.png"
                       alt="S"
@@ -46,79 +40,21 @@ class ScottFooter extends HTMLElement {
                       style="display:block;">
 
                     <span>cott Labz</span>
-
                   </span>
-
                 </a>
-
               </div>
-
-
               <p style="font-size:.85rem;opacity:.8;margin-bottom:1rem;">
                 ${customDesc}
               </p>
-
-
-              <ul class="icons" style="justify-content:flex-start;">
-
-                <li>
-                  <a
-                    href="https://github.com/scottlabz"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="icon brands style2 fa-github">
-
-                    <span class="label">
-                      GitHub
-                    </span>
-
-                  </a>
-                </li>
-
-
-                <li>
-                  <a
-                    href="https://www.linkedin.com/company/scottlabz"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="icon brands style2 fa-linkedin">
-
-                    <span class="label">
-                      LinkedIn
-                    </span>
-
-                  </a>
-                </li>
-
-
-                <li>
-                  <a
-                    href="/contact.html"
-                    class="icon style2 fa-envelope">
-
-                    <span class="label">
-                      Contact
-                    </span>
-
-                  </a>
-                </li>
-
-
-              </ul>
-
             </div>
-
-
-
 
             <!-- SOLUTIONS -->
 
             <div style="flex:1;min-width:150px;">
 
-              <h4 style="font-size:.9rem;text-transform:uppercase;">
+              <h4 style="font-size:.9rem;text-transform:uppercase;margin:0;">
                 SOLUTIONS
               </h4>
-
 
               <ul
                 style="
@@ -127,7 +63,6 @@ class ScottFooter extends HTMLElement {
                   font-size:.85rem;
                   line-height:1.8;
                 ">
-
 
                 <li>
                   <a href="/analytics-data.html">
@@ -135,36 +70,27 @@ class ScottFooter extends HTMLElement {
                   </a>
                 </li>
 
-
                 <li>
                   <a href="/web-digital.html">
                     Web &amp; Digital
                   </a>
                 </li>
 
-
                 <li>
                   <a href="/services.html">
                     Services
                   </a>
                 </li>
-
-
               </ul>
-
             </div>
-
-
-
 
             <!-- RESOURCES -->
 
             <div style="flex:1;min-width:150px;">
 
-              <h4 style="font-size:.9rem;text-transform:uppercase;">
+              <h4 style="font-size:.9rem;text-transform:uppercase;margin:0;">
                 RESOURCES
               </h4>
-
 
               <ul
                 style="
@@ -173,7 +99,6 @@ class ScottFooter extends HTMLElement {
                   font-size:.85rem;
                   line-height:1.8;
                 ">
-
 
                 <li>
                   <a href="/case-studies.html">
@@ -186,36 +111,16 @@ class ScottFooter extends HTMLElement {
                     Insights
                   </a>
                 </li>
-
-                <li>
-                  <a href="/about.html">
-                    About
-                  </a>
-                </li>
-
-
-                <li>
-                  <a href="/contact.html">
-                    Contact
-                  </a>
-                </li>
-
-
               </ul>
-
             </div>
 
-
-
-
-            <!-- GOVERNANCE -->
+            <!-- SCOTT LABZ -->
 
             <div style="flex:1;min-width:150px;">
 
-              <h4 style="font-size:.9rem;text-transform:uppercase;">
-                GOVERNANCE
+              <h4 style="font-size:.9rem;text-transform:uppercase;margin:0;">
+                SCOTT LABZ
               </h4>
-
 
               <ul
                 style="
@@ -225,6 +130,17 @@ class ScottFooter extends HTMLElement {
                   line-height:1.8;
                 ">
 
+                <li>
+                  <a href="/about.html">
+                    About
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/contact.html">
+                    Contact
+                  </a>
+                </li>
 
                 <li>
                   <a href="/security-trust.html">
@@ -232,22 +148,14 @@ class ScottFooter extends HTMLElement {
                   </a>
                 </li>
 
-
                 <li>
                   <a href="/legal.html">
                     Legal &amp; Policies
                   </a>
                 </li>
-
-
               </ul>
-
             </div>
-
-
           </div>
-
-
 
 
           <div
@@ -255,25 +163,56 @@ class ScottFooter extends HTMLElement {
               border-top:1px solid rgba(160,160,160,.2);
               padding-top:1.5rem;
               font-size:.85rem;
-              text-align:left;
+              text-align:center;
             ">
 
-            <p>
+            <p style="margin: 0 0 1rem 0;">
               &copy;
               <span id="footer-year"></span>
               Scott Labz, LLC.
               All rights reserved.
-              <i class="fas fa-dragon"></i>
             </p>
 
+            <ul class="icons" style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 1.5rem;
+            ">
+
+              <li>
+                <a
+                  href="https://github.com/scottlabz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon brands style2 fa-github">
+
+                  <span class="label">
+                    GitHub
+                  </span>
+
+                </a>
+              </li>
+
+
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/scottlabz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon brands style2 fa-linkedin">
+
+                  <span class="label">
+                    LinkedIn
+                  </span>
+
+                </a>
+              </li>
+            </ul>
+
           </div>
-
-
         </div>
-
       </footer>
-
-
 
       <button
         id="backToTop"
@@ -285,9 +224,7 @@ class ScottFooter extends HTMLElement {
           right:24px;
           z-index:99;
         ">
-
         ↑ Top
-
       </button>
 
     `;
