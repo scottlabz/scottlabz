@@ -2880,7 +2880,8 @@ ul.alt {
 
 ul.alt li {
   border-top: solid 1px;
-  padding: 0.5rem 0;
+  padding: 1rem 0 0 0;
+  border-top-color: rgba(0, 0, 0, 0.2);
 }
 
 ul.alt li:first-child {
@@ -2916,10 +2917,6 @@ dl.style2:after {
   content: "";
   display: block;
   clear: both;
-}
-
-ul.alt li {
-  border-top-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Actions */
@@ -9001,6 +8998,7 @@ body.is-preload .items.onload-fade-in > * > .inner {
   margin: 3rem 0;
   padding: 2rem 0 2rem 2rem;
   border-left: 4px solid #1e3a5f;
+  border-bottom: 2px solid #1e3a5f;
 }
 
 .idea-label {
@@ -9037,6 +9035,7 @@ body.is-preload .items.onload-fade-in > * > .inner {
 
 .about-statement {
   background: linear-gradient(90deg, #1e3a5f, #4c8bf5);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -9103,8 +9102,8 @@ body.is-preload .items.onload-fade-in > * > .inner {
   height: 25%;
   background-image: url("/images/about.jpg");
   background-size: cover;
-  background-position: center top;
-  opacity: 0.5;
+  background-position: center;
+  opacity: 0.8;
 }
 
 .about-hero > * {
@@ -9114,12 +9113,15 @@ body.is-preload .items.onload-fade-in > * > .inner {
 
 .light-box {
   background: rgba(248, 250, 252, 0.65);
-  padding: 3rem 2rem;
+  padding: 1.5rem 2rem 0 2rem;
   border-radius: 12px;
   border: 1px solid rgba(30, 58, 95, 0.12);
   box-shadow:
     0 10px 25px rgba(15, 23, 42, 0.06),
     0 4px 10px rgba(15, 23, 42, 0.04);
+}
+.light-box > p {
+  margin: 0 0 1.5rem 0;
 }
 
 /* Mobile */
