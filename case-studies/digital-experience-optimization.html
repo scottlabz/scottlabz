@@ -7,18 +7,13 @@
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
-
-        w[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js",
-        });
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
 
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
           dl = l != "dataLayer" ? "&l=" + l : "";
 
         j.async = true;
-
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
 
         f.parentNode.insertBefore(j, f);
@@ -30,7 +25,7 @@
 
     <meta
       name="description"
-      content="Explore how Scott Labz improves digital experiences through analytics insights, performance optimization, accessibility, and modern web engineering." />
+      content="How behavioral data and structured testing improved digital experiences for a major collegiate athletics retailer's online storefront." />
 
     <meta charset="utf-8" />
 
@@ -45,7 +40,6 @@
     </noscript>
 
     <script src="/assets/js/header-min.js" defer></script>
-
     <script src="/assets/js/favicon-min.js" defer></script>
 
     <link
@@ -55,42 +49,30 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-
         "@type": "WebPage",
-
         "@id": "https://scottlabz.com/case-studies/digital-experience-optimization.html",
-
         "url": "https://scottlabz.com/case-studies/digital-experience-optimization.html",
-
         "name": "Digital Experience Optimization Case Study | Scott Labz",
-
-        "description": "A case study demonstrating digital experience improvements through analytics, performance optimization, accessibility, and web engineering.",
-
+        "description": "A case study on using behavioral data and structured testing to improve digital experiences for a collegiate athletics retailer.",
         "isPartOf": {
           "@type": "WebSite",
           "@id": "https://scottlabz.com/",
           "name": "Scott Labz"
         },
-
         "mainEntity": {
           "@type": "CreativeWork",
-
           "name": "Digital Experience Optimization Initiative",
-
-          "description": "Improving digital experiences through analytics-driven insights, performance engineering, and user-focused optimization.",
-
+          "description": "Using behavioral data, friction analysis, and structured testing to improve the shopping experience across a fast-moving gameday storefront.",
           "author": {
             "@type": "Organization",
             "name": "Scott Labz",
             "url": "https://scottlabz.com/"
           },
-
           "about": [
-            "Digital Experience Optimization",
-            "User Experience",
-            "Web Performance",
-            "Accessibility",
-            "Analytics Insights"
+            "Digital Experience",
+            "User Behavior Analysis",
+            "Conversion Optimization",
+            "Experimentation"
           ]
         }
       }
@@ -106,7 +88,7 @@
 
     <meta
       property="og:description"
-      content="Improving digital experiences through analytics insights, performance engineering, accessibility, and modern web optimization." />
+      content="How behavioral data and structured testing improved digital experiences for a major collegiate athletics retailer's online storefront." />
 
     <meta
       property="og:url"
@@ -119,30 +101,162 @@
     <style>
       .security-table {
         width: 100%;
-
-        margin-bottom: 2rem;
-
+        margin-bottom: 0;
         border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
       }
 
       .security-table th,
       .security-table td {
         padding: 0.75rem;
-
         text-align: left;
-
         border-bottom: 1px solid rgba(160, 160, 160, 0.3);
+      }
+
+      .security-table tbody tr:last-child td {
+        border-bottom: none;
       }
 
       .security-table th {
         font-weight: 600;
+        color: #1e3a5f;
+        background: rgba(30, 58, 95, 0.05);
+      }
+
+      .security-table tbody tr:nth-child(even) {
+        background: rgba(30, 58, 95, 0.02);
+      }
+
+      .security-table td strong {
+        color: #1e3a5f;
+      }
+
+      .case-study-icon {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      .content h3 {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        letter-spacing: -0.01em;
+        margin: 0 0 1.25rem 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(30, 58, 95, 0.15);
+      }
+
+      .content h2.case-study-headline {
+        border-left: 4px solid #1e3a5f;
+        padding-left: 1.25rem;
+        line-height: 1.25;
+      }
+
+      .content dl dt .fweight {
+        color: #1e3a5f;
+        font-size: 1.02rem;
+      }
+
+      .content dl dd p {
+        opacity: 0.85;
+      }
+
+      .content dl dd:last-child p,
+      .case-section > *:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Hero card: logo, back link, title, and intro copy */
+      .hero-box {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        padding: 3rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Each case study section gets its own card */
+      .case-section {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        border-left: 4px solid #1e3a5f;
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Closing CTA card, styled like the rest of the site's CTA blocks */
+      .case-cta {
+        background: rgba(248, 250, 252, 1);
+        border: 1px solid #1e3a5f;
+        border-radius: 12px;
+        padding: 3rem 2.5rem;
+        text-align: center;
+        box-shadow:
+          0 10px 25px rgba(15, 23, 42, 0.06),
+          0 4px 10px rgba(15, 23, 42, 0.04);
+      }
+
+      .case-cta h3 {
+        border-bottom: none;
+        display: inline-block;
+      }
+
+      .case-cta p {
+        max-width: 600px;
+        margin: 0 auto 1.5rem auto;
+      }
+
+      .case-cta .actions {
+        justify-content: center;
+      }
+
+      .banner {
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+      }
+
+      .banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        background-image: url("/images/case-studies10.jpg");
+        background-size: cover;
+        background-position: center;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          black 60%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      }
+
+      .banner > * {
+        position: relative;
+        z-index: 1;
+      }
+      .banner.style1 .content {
+        max-width: 40rem;
+        padding: 1rem;
+      }
+      @media screen and (max-width: 1280px) {
+        .banner.style1 .content {
+          padding: 1rem;
+        }
       }
     </style>
   </head>
 
   <body class="is-preload">
     <!-- Google Tag Manager (noscript) -->
-
     <noscript>
       <iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
@@ -151,317 +265,355 @@
         style="display: none; visibility: hidden">
       </iframe>
     </noscript>
-
     <!-- End Google Tag Manager (noscript) -->
 
-    <div id="wrapper" class="divided">
+    <div id="wrapper">
       <section
         class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
-          <h1>
-            <a href="../index.html" style="border-bottom: none">
-              <img
-                src="/images/scottlabz-clear.png"
-                alt="S"
-                class="logo"
-                style="margin-right: 0" />cott Labz
-            </a>
-          </h1>
-
-          <ul class="actions stacked">
-            <li>
-              <a
-                href="/case-studies.html"
-                class="button big wide smooth-scroll case-study-button">
-                Back
+          <div class="hero-box">
+            <h1>
+              <a href="/index.html" style="border-bottom: none">
+                <img
+                  src="/images/scottlabz-clear.png"
+                  alt="S"
+                  class="logo"
+                  style="margin-right: 0" />cott Labz
               </a>
-            </li>
-          </ul>
+            </h1>
 
-          <h1>Digital Experience Optimization Case Study</h1>
+            <h3>Digital Experience Optimization Case Study</h3>
 
-          <span class="icon solid style2 major fa-briefcase"></span>
+            <h2
+              class="case-study-headline"
+              style="
+                font-size: 2.2rem;
+                margin-top: 0.5rem;
+                margin-bottom: 1.5rem;
+              ">
+              Improving Digital Experiences Through Data &amp; Testing
+            </h2>
 
-          <h2
-            style="
-              font-size: 2.2rem;
-              margin-top: 0.5rem;
-              margin-bottom: 1.5rem;
-            ">
-            Improving Digital Experiences Through Data &amp; Engineering
-          </h2>
+            <p class="major" style="margin-bottom: 0">
+              Using behavioral data and structured testing to find and fix the
+              friction points costing sales across a fast-moving gameday
+              storefront.
+            </p>
+          </div>
 
-          <p class="major">
-            Enhancing digital platforms through analytics insights, performance
-            improvements, accessibility considerations, and user-focused
-            optimization.
-          </p>
+          <div class="case-section">
+            <h3>Project Overview</h3>
 
-          <h3>Project Overview</h3>
+            <table class="security-table">
+              <tbody>
+                <tr>
+                  <td><strong>Project</strong></td>
+                  <td>Digital Experience Optimization</td>
+                </tr>
 
-          <table class="security-table">
-            <tbody>
-              <tr>
-                <td>
-                  <strong> Project Type </strong>
-                </td>
+                <tr>
+                  <td><strong>Organization</strong></td>
+                  <td>
+                    Hawkeye Fan Shop, The Official Retailer of the University of
+                    Iowa Athletics Department
+                  </td>
+                </tr>
 
-                <td>Digital Experience Optimization</td>
-              </tr>
+                <tr>
+                  <td><strong>Focus</strong></td>
+                  <td>
+                    User Behavior Analysis, Experimentation, Conversion
+                    Optimization
+                  </td>
+                </tr>
 
-              <tr>
-                <td>
-                  <strong> Organization </strong>
-                </td>
+                <tr>
+                  <td><strong>Outcome</strong></td>
+                  <td>
+                    Data-backed experience improvements that reduced friction
+                    and lifted conversion during peak demand
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-                <td>Confidential Enterprise Organization</td>
-              </tr>
+          <div class="case-section">
+            <h3>The Challenge</h3>
 
-              <tr>
-                <td>
-                  <strong> Primary Focus </strong>
-                </td>
+            <p>
+              A working storefront with reliable data still leaves an open
+              question: is the experience actually working for the people using
+              it? With traffic spiking hard around gameday, roster changes, and
+              postseason runs, even small friction points - a confusing filter,
+              a slow checkout step - get multiplied across a much larger
+              audience than usual.
+            </p>
 
-                <td>User Experience, Analytics, Performance Optimization</td>
-              </tr>
+            <p style="margin: 0 0 0.9rem 0">Key challenges included:</p>
 
-              <tr>
-                <td>
-                  <strong> Outcome </strong>
-                </td>
+            <ul class="alt">
+              <li>
+                No structured way to see where fans were hesitating, stalling
+                out, or abandoning a purchase
+              </li>
 
-                <td>
-                  Improved user experiences and digital performance visibility
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              <li>
+                Traffic patterns that shift sharply around gameday, making
+                "typical" behavior hard to define
+              </li>
 
-          <h3>The Challenge</h3>
+              <li>
+                A mix of new and returning fans with very different levels of
+                familiarity with the storefront
+              </li>
 
-          <p>
-            Digital platforms must continuously evolve to meet changing user
-            expectations. Organizations often struggle to identify where
-            experiences can be improved without reliable data and technical
-            visibility.
-          </p>
+              <li>
+                Pressure to make experience changes with confidence rather than
+                guesswork, given the volume at stake
+              </li>
 
-          <p>Key challenges included:</p>
+              <li>
+                A need to validate changes before rolling them out broadly
+                during a live season
+              </li>
+            </ul>
+          </div>
 
-          <ul class="alt">
-            <li>Limited visibility into user behavior</li>
+          <div class="case-section">
+            <h3>The Approach</h3>
 
-            <li>Opportunities to improve website performance</li>
+            <p>
+              Rather than redesigning based on assumptions, the work started
+              with watching how fans actually moved through the storefront and
+              testing changes against that evidence.
+            </p>
 
-            <li>Inconsistent digital experiences across platforms</li>
+            <dl>
+              <dt>
+                <span class="fweight"> Behavioral Analysis </span>
+              </dt>
 
-            <li>Accessibility and usability considerations</li>
+              <dd>
+                <p>
+                  Reviewed session activity, funnels, and engagement patterns to
+                  find exactly where fans hesitated, stalled out, or clicked
+                  away.
+                </p>
+              </dd>
 
-            <li>Difficulty connecting analytics insights to improvements</li>
-          </ul>
-          <h3>The Approach</h3>
+              <dt>
+                <span class="fweight"> Friction Identification </span>
+              </dt>
 
-          <p>
-            The project focused on combining analytics insights, technical
-            improvements, and user-centered practices to create stronger digital
-            experiences.
-          </p>
+              <dd>
+                <p>
+                  Pinpointed specific pages and steps - filters, cart, and
+                  checkout - where drop-off was highest relative to traffic.
+                </p>
+              </dd>
 
-          <dl>
-            <dt>
-              <span class="fweight"> Experience Analysis </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Structured Experimentation </span>
+              </dt>
 
-            <dd>
-              <p>
-                Reviewed user behavior, digital interactions, and performance
-                indicators to identify opportunities for improvement.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Ran controlled tests on proposed changes so decisions were
+                  based on measured impact rather than opinion.
+                </p>
+              </dd>
 
-            <dt>
-              <span class="fweight"> Analytics-Driven Optimization </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Gameday-Aware Rollouts </span>
+              </dt>
 
-            <dd>
-              <p>
-                Applied measurement insights to better understand user journeys,
-                engagement patterns, and improvement opportunities.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Timed validated changes around the sports calendar so updates
+                  landed without disrupting high-traffic windows.
+                </p>
+              </dd>
+            </dl>
+          </div>
 
-            <dt>
-              <span class="fweight"> Performance Improvements </span>
-            </dt>
+          <div class="case-section">
+            <h3>The Solution</h3>
 
-            <dd>
-              <p>
-                Optimized technical components to improve website speed,
-                responsiveness, and overall user experience.
-              </p>
-            </dd>
+            <p>
+              A structured, evidence-based process for improving the storefront
+              experience now runs continuously, catching friction points before
+              they cost meaningful sales.
+            </p>
 
-            <dt>
-              <span class="fweight">
-                Accessibility &amp; Usability Enhancements
-              </span>
-            </dt>
+            <table class="security-table">
+              <thead>
+                <tr>
+                  <th>Capability</th>
+                  <th>Impact</th>
+                </tr>
+              </thead>
 
-            <dd>
-              <p>
-                Improved digital experiences by considering accessibility,
-                usability standards, and inclusive design practices.
-              </p>
-            </dd>
-          </dl>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong> Behavioral Insight </strong>
+                  </td>
 
-          <h3>The Solution</h3>
+                  <td>
+                    Clear visibility into exactly where fans hesitate or abandon
+                    a purchase.
+                  </td>
+                </tr>
 
-          <p>
-            A digital experience optimization framework was established to
-            connect analytics data, technical improvements, and user-focused
-            enhancements.
-          </p>
+                <tr>
+                  <td>
+                    <strong> Structured Testing </strong>
+                  </td>
 
-          <table class="security-table">
-            <thead>
-              <tr>
-                <th>Capability</th>
+                  <td>
+                    Experience changes validated against measured impact before
+                    wide rollout.
+                  </td>
+                </tr>
 
-                <th>Impact</th>
-              </tr>
-            </thead>
+                <tr>
+                  <td>
+                    <strong> Gameday-Ready Rollouts </strong>
+                  </td>
 
-            <tbody>
-              <tr>
-                <td>
-                  <strong> User Experience Analysis </strong>
-                </td>
+                  <td>
+                    Improvements timed to land without disrupting peak traffic
+                    windows.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-                <td>
-                  Improved understanding of user interactions and digital
-                  behavior.
-                </td>
-              </tr>
+          <div class="case-section">
+            <h3>The Results</h3>
 
-              <tr>
-                <td>
-                  <strong> Performance Optimization </strong>
-                </td>
+            <p>
+              With behavioral insight and structured testing driving experience
+              decisions, store and web performance have improved, gameday
+              traffic has been handled without the site buckling under peak
+              demand, and conversion has trended upward across departments over
+              the course of the partnership.
+            </p>
 
-                <td>
-                  Enhanced website efficiency and improved customer experiences.
-                </td>
-              </tr>
+            <ul class="alt">
+              <li>
+                Friction points identified and addressed using measured
+                behavioral data
+              </li>
 
-              <tr>
-                <td>
-                  <strong> Digital Measurement </strong>
-                </td>
+              <li>Gameday traffic handled reliably at peak demand</li>
 
-                <td>
-                  Created stronger connections between analytics insights and
-                  optimization opportunities.
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              <li>Upward conversion trends across departments</li>
 
-          <h3>The Results</h3>
+              <li>
+                An experience optimization process supporting ongoing email
+                campaigns for gameday information, product drops, and
+                student-athlete appearances
+              </li>
+            </ul>
+          </div>
 
-          <p>
-            Through analytics-driven improvements and technical optimization,
-            the organization gained a stronger understanding of digital
-            performance and user experience opportunities.
-          </p>
+          <div class="case-section">
+            <h3>Technologies &amp; Capabilities</h3>
 
-          <ul class="alt">
-            <li>Improved digital experience visibility</li>
+            <dl>
+              <dt>
+                <span class="fweight"> User Behavior Analysis </span>
+              </dt>
 
-            <li>Better understanding of user behavior</li>
+              <dd>
+                <p>
+                  Session activity and funnel analysis used to pinpoint exactly
+                  where the experience breaks down.
+                </p>
+              </dd>
 
-            <li>Enhanced website performance opportunities</li>
+              <dt>
+                <span class="fweight"> Experimentation &amp; Validation </span>
+              </dt>
 
-            <li>Stronger foundation for continuous improvement</li>
-          </ul>
+              <dd>
+                <p>
+                  Structured, data-driven testing used to confirm a change
+                  actually improves the experience before it ships broadly.
+                </p>
+              </dd>
 
-          <h3>Technologies &amp; Capabilities</h3>
+              <dt>
+                <span class="fweight"> Conversion Optimization </span>
+              </dt>
 
-          <dl>
-            <dt>
-              <span class="fweight"> Analytics Platforms </span>
-            </dt>
+              <dd>
+                <p>
+                  Targeted improvements to the specific steps costing the most
+                  conversions.
+                </p>
+              </dd>
 
-            <dd>
-              <p>
-                Adobe Analytics, Google Analytics, analytics implementation, and
-                measurement strategy.
-              </p>
-            </dd>
+              <dt>
+                <span class="fweight"> Continuous Improvement </span>
+              </dt>
 
-            <dt>
-              <span class="fweight"> Web Engineering </span>
-            </dt>
+              <dd>
+                <p>
+                  An ongoing process for revisiting the experience as fan
+                  behavior and the sports calendar shift.
+                </p>
+              </dd>
+            </dl>
+          </div>
 
-            <dd>
-              <p>
-                Modern web development practices, performance optimization, and
-                scalable digital architecture.
-              </p>
-            </dd>
+          <div class="case-section">
+            <h3>Business Impact</h3>
 
-            <dt>
-              <span class="fweight"> User Experience Optimization </span>
-            </dt>
+            <p>
+              A storefront that collects data is not the same as one that
+              improves because of it. Watching how fans actually move through
+              the site and validating changes before rolling them out turned
+              behavioral data into real gains in the experience, particularly
+              during the highest-traffic stretches of the season.
+            </p>
 
-            <dd>
-              <p>
-                User behavior analysis, usability improvements, and experience
-                enhancement strategies.
-              </p>
-            </dd>
+            <p style="margin-bottom: 0">
+              Through behavioral analysis, structured experimentation, and
+              gameday-aware rollouts, this initiative created an ongoing
+              optimization process that has supported the partnership with
+              Hawkeye Fan Shop and the University of Iowa Athletics Department
+              since 2016.
+            </p>
+          </div>
 
-            <dt>
-              <span class="fweight"> Digital Performance </span>
-            </dt>
+          <div class="case-section">
+            <h3>Explore More Case Studies</h3>
+            <p style="margin-top: 1.5rem; margin-bottom: 0">
+              <a href="/case-studies.html">View all case studies →</a>
+            </p>
+          </div>
 
-            <dd>
-              <p>
-                Website monitoring, optimization opportunities, and technical
-                improvements focused on reliability.
-              </p>
-            </dd>
-          </dl>
+          <div class="case-cta">
+            <h3>Start the Conversation</h3>
 
-          <h3>Business Impact</h3>
+            <p>
+              A better digital experience isn't a guess. It's built on evidence,
+              tested before it ships, so the changes you make are changes you
+              can actually trust.
+            </p>
 
-          <p>
-            Successful digital experiences require more than attractive design.
-            They require reliable measurement, strong technical foundations, and
-            continuous optimization.
-          </p>
-
-          <p>
-            By connecting analytics insights with engineering improvements, this
-            initiative created a foundation for better engagement, improved
-            performance, and long-term digital growth.
-          </p>
-
-          <h3>Partner With Scott Labz</h3>
-
-          <p>
-            Scott Labz helps organizations improve digital experiences through
-            analytics strategy, performance engineering, and modern web
-            solutions designed for measurable outcomes.
-          </p>
-
-          <ul class="actions">
-            <li>
-              <a href="/contact.html" class="button primary">
-                Start a Conversation
-              </a>
-            </li>
-          </ul>
+            <ul class="actions">
+              <li>
+                <a href="/contact.html" class="button primary">
+                  Start a Conversation
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -474,7 +626,7 @@
       <script src="/assets/js/footer-min.js" defer></script>
 
       <scott-footer
-        description="Explore how Scott Labz improves digital experiences through analytics insights, performance optimization, and modern web engineering solutions.">
+        description="How behavioral data and structured testing improved digital experiences for a major collegiate athletics retailer's online storefront.">
       </scott-footer>
     </div>
   </body>

@@ -25,7 +25,7 @@
 
     <meta
       name="description"
-      content="Explore how Scott Labz developed a digital measurement strategy that improved analytics consistency, tracking reliability, and business visibility." />
+      content="How a ground-up measurement strategy improved analytics consistency, tracking reliability, and business visibility for a major collegiate athletics retailer." />
 
     <meta charset="utf-8" />
 
@@ -53,7 +53,7 @@
         "@id": "https://scottlabz.com/case-studies/digital-measurement-strategy.html",
         "url": "https://scottlabz.com/case-studies/digital-measurement-strategy.html",
         "name": "Digital Measurement Strategy Case Study | Scott Labz",
-        "description": "A case study demonstrating improved digital measurement, analytics consistency, and tracking reliability.",
+        "description": "A case study on building a measurement strategy for a collegiate athletics retailer spanning online and in-store operations.",
         "isPartOf": {
           "@type": "WebSite",
           "@id": "https://scottlabz.com/",
@@ -62,7 +62,7 @@
         "mainEntity": {
           "@type": "CreativeWork",
           "name": "Digital Measurement Strategy Initiative",
-          "description": "Creating a structured analytics foundation through improved measurement planning, tracking strategy, and data quality practices.",
+          "description": "Creating a structured analytics foundation through improved measurement planning, tracking strategy, and data quality practices, built around gameday retail demand.",
           "author": {
             "@type": "Organization",
             "name": "Scott Labz",
@@ -88,7 +88,7 @@
 
     <meta
       property="og:description"
-      content="Building stronger analytics foundations through measurement strategy, tracking architecture, and improved data reliability." />
+      content="How a ground-up measurement strategy improved analytics consistency, tracking reliability, and business visibility for a major collegiate athletics retailer." />
 
     <meta
       property="og:url"
@@ -101,8 +101,10 @@
     <style>
       .security-table {
         width: 100%;
-        margin-bottom: 2rem;
+        margin-bottom: 0;
         border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
       }
 
       .security-table th,
@@ -112,8 +114,143 @@
         border-bottom: 1px solid rgba(160, 160, 160, 0.3);
       }
 
+      .security-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
       .security-table th {
         font-weight: 600;
+        color: #1e3a5f;
+        background: rgba(30, 58, 95, 0.05);
+      }
+
+      .security-table tbody tr:nth-child(even) {
+        background: rgba(30, 58, 95, 0.02);
+      }
+
+      .security-table td strong {
+        color: #1e3a5f;
+      }
+
+      .case-study-icon {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      .content h3 {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        letter-spacing: -0.01em;
+        margin: 0 0 1.25rem 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(30, 58, 95, 0.15);
+      }
+
+      .content h2.case-study-headline {
+        border-left: 4px solid #1e3a5f;
+        padding-left: 1.25rem;
+        line-height: 1.25;
+      }
+
+      .content dl dt .fweight {
+        color: #1e3a5f;
+        font-size: 1.02rem;
+      }
+
+      .content dl dd p {
+        opacity: 0.85;
+      }
+
+      .content dl dd:last-child p,
+      .case-section > *:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Hero card: logo, back link, title, and intro copy */
+      .hero-box {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        padding: 3rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Each case study section gets its own card */
+      .case-section {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        border-left: 4px solid #1e3a5f;
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Closing CTA card, styled like the rest of the site's CTA blocks */
+      .case-cta {
+        background: rgba(248, 250, 252, 1);
+        border: 1px solid #1e3a5f;
+        border-radius: 12px;
+        padding: 3rem 2.5rem;
+        text-align: center;
+        box-shadow:
+          0 10px 25px rgba(15, 23, 42, 0.06),
+          0 4px 10px rgba(15, 23, 42, 0.04);
+      }
+
+      .case-cta h3 {
+        border-bottom: none;
+        display: inline-block;
+      }
+
+      .case-cta p {
+        max-width: 600px;
+        margin: 0 auto 1.5rem auto;
+      }
+
+      .case-cta .actions {
+        justify-content: center;
+      }
+
+      .banner {
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+      }
+
+      .banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        background-image: url("/images/case-studies1.jpg");
+        background-size: cover;
+        background-position: center;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          black 60%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      }
+
+      .banner > * {
+        position: relative;
+        z-index: 1;
+      }
+      .banner.style1 .content {
+        max-width: 40rem;
+        padding: 1rem;
+      }
+      @media screen and (max-width: 1280px) {
+        .banner.style1 .content {
+          padding: 1rem;
+        }
       }
     </style>
   </head>
@@ -130,298 +267,346 @@
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <div id="wrapper" class="divided">
+    <div id="wrapper">
       <section
         class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
-          <h1>
-            <a href="../index.html" style="border-bottom: none">
-              <img
-                src="/images/scottlabz-clear.png"
-                alt="S"
-                class="logo"
-                style="margin-right: 0" />cott Labz
-            </a>
-          </h1>
-
-          <ul class="actions stacked">
-            <li>
-              <a
-                href="/case-studies.html"
-                class="button big wide smooth-scroll case-study-button">
-                Back
+          <div class="hero-box">
+            <h1>
+              <a href="/index.html" style="border-bottom: none">
+                <img
+                  src="/images/scottlabz-clear.png"
+                  alt="S"
+                  class="logo"
+                  style="margin-right: 0" />cott Labz
               </a>
-            </li>
-          </ul>
+            </h1>
 
-          <h1>Digital Measurement Strategy Case Study</h1>
+            <h3>Digital Measurement Strategy Case Study</h3>
 
-          <span class="icon solid style2 major fa-briefcase"></span>
+            <h2
+              class="case-study-headline"
+              style="
+                font-size: 2.2rem;
+                margin-top: 0.5rem;
+                margin-bottom: 1.5rem;
+              ">
+              Creating Reliable Analytics Through Better Measurement Strategy
+            </h2>
 
-          <h2
-            style="
-              font-size: 2.2rem;
-              margin-top: 0.5rem;
-              margin-bottom: 1.5rem;
-            ">
-            Creating Reliable Analytics Through Better Measurement Strategy
-          </h2>
+            <p class="major" style="margin-bottom: 0">
+              Establishing a structured analytics foundation to improve tracking
+              consistency, data reliability, and digital decision-making across
+              online and in-store retail operations.
+            </p>
+          </div>
 
-          <p class="major">
-            Establishing a structured analytics foundation to improve tracking
-            consistency, data reliability, and digital decision-making.
-          </p>
+          <div class="case-section">
+            <h3>Project Overview</h3>
 
-          <h3>Project Overview</h3>
+            <table class="security-table">
+              <tbody>
+                <tr>
+                  <td><strong>Project</strong></td>
+                  <td>Digital Analytics Measurement Strategy</td>
+                </tr>
 
-          <table class="security-table">
-            <tbody>
-              <tr>
-                <td><strong>Project Type</strong></td>
-                <td>Digital Analytics Measurement Strategy</td>
-              </tr>
+                <tr>
+                  <td><strong>Organization</strong></td>
+                  <td>
+                    Hawkeye Fan Shop, The Official Retailer of the University of
+                    Iowa Athletics Department
+                  </td>
+                </tr>
 
-              <tr>
-                <td><strong>Organization</strong></td>
-                <td>Confidential Enterprise Organization</td>
-              </tr>
+                <tr>
+                  <td><strong>Focus</strong></td>
+                  <td>
+                    Analytics Planning, Tracking Architecture, Data Quality
+                  </td>
+                </tr>
 
-              <tr>
-                <td><strong>Primary Focus</strong></td>
-                <td>Analytics Planning, Tracking Architecture, Data Quality</td>
-              </tr>
+                <tr>
+                  <td><strong>Outcome</strong></td>
+                  <td>
+                    Improved measurement consistency and reporting confidence
+                    across gameday, retail, and online channels
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-              <tr>
-                <td><strong>Outcome</strong></td>
-                <td>
-                  Improved measurement consistency and reporting confidence
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="case-section">
+            <h3>The Challenge</h3>
 
-          <h3>The Challenge</h3>
+            <p>
+              This engagement began as a ground-up build, won through a
+              competitive bid to take over from a previous provider. There was
+              no existing tracking or reporting to inherit, and demand for the
+              business does not move gradually - it spikes hard around gameday,
+              roster changes, and postseason runs, across every University of
+              Iowa sport.
+            </p>
 
-          <p>
-            Digital teams often collect large amounts of information but lack a
-            consistent framework for measuring meaningful interactions. Without
-            clear measurement standards, reporting becomes difficult to trust
-            and optimization opportunities can be missed.
-          </p>
+            <p style="margin: 0 0 0.9rem 0">Key challenges included:</p>
 
-          <p>Key challenges included:</p>
+            <ul class="alt">
+              <li>No existing measurement framework to build on</li>
 
-          <ul class="alt">
-            <li>Inconsistent tracking across digital experiences</li>
+              <li>
+                Retail locations across the state and mobile gameday shops
+                operating alongside the online store
+              </li>
 
-            <li>Limited alignment between business goals and analytics data</li>
+              <li>
+                Demand spikes tied to a live sports calendar, not steady traffic
+              </li>
 
-            <li>Difficulty identifying meaningful user interactions</li>
+              <li>
+                Multiple stakeholder groups - athletics department, retail
+                operations, and the online business - each needing different
+                visibility into performance
+              </li>
 
-            <li>Reporting inconsistencies across platforms</li>
+              <li>No baseline reporting to validate against during launch</li>
+            </ul>
+          </div>
 
-            <li>Reduced confidence in analytics insights</li>
-          </ul>
-          <h3>The Approach</h3>
+          <div class="case-section">
+            <h3>The Approach</h3>
 
-          <p>
-            The initiative focused on creating a stronger connection between
-            business objectives, digital experiences, and analytics
-            implementation.
-          </p>
+            <p>
+              The initiative focused on creating a stronger connection between
+              business objectives, digital experiences, and analytics
+              implementation before a single tag went live.
+            </p>
 
-          <dl>
-            <dt>
-              <span class="fweight"> Measurement Framework Development </span>
-            </dt>
+            <dl>
+              <dt>
+                <span class="fweight"> Measurement Framework Development </span>
+              </dt>
 
-            <dd>
-              <p>
-                Defined measurement requirements, key performance indicators,
-                and tracking priorities to create a consistent analytics
-                foundation.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Defined measurement requirements, key performance indicators,
+                  and tracking priorities around gameday sell-through, inventory
+                  accuracy, and campaign performance to create a consistent
+                  analytics foundation from launch.
+                </p>
+              </dd>
 
-            <dt>
-              <span class="fweight"> Analytics Tracking Strategy </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Analytics Tracking Strategy </span>
+              </dt>
 
-            <dd>
-              <p>
-                Evaluated existing tracking practices and established improved
-                approaches for measuring user interactions across digital
-                experiences.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Built an approach for measuring user interactions across the
+                  storefront that could hold up under sharp, unpredictable
+                  traffic spikes rather than assume steady demand.
+                </p>
+              </dd>
 
-            <dt>
-              <span class="fweight"> Data Layer Planning </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Data Layer Planning </span>
+              </dt>
 
-            <dd>
-              <p>
-                Created a structured approach for capturing meaningful digital
-                events and improving consistency between websites and analytics
-                platforms.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Created a structured approach for capturing meaningful digital
+                  events and keeping online sales consistent with retail and
+                  gameday shop activity.
+                </p>
+              </dd>
 
-            <dt>
-              <span class="fweight"> Analytics Governance </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Analytics Governance </span>
+              </dt>
 
-            <dd>
-              <p>
-                Established stronger standards for measurement quality,
-                documentation, and future scalability.
-              </p>
-            </dd>
-          </dl>
+              <dd>
+                <p>
+                  Established standards for measurement quality and
+                  documentation that could scale as the partnership grew across
+                  more sports, stores, and seasons.
+                </p>
+              </dd>
+            </dl>
+          </div>
 
-          <h3>The Solution</h3>
+          <div class="case-section">
+            <h3>The Solution</h3>
 
-          <p>
-            A structured digital measurement framework was created to improve
-            analytics reliability and provide clearer visibility into user
-            behavior.
-          </p>
+            <p>
+              A structured digital measurement framework was created to improve
+              analytics reliability and provide clearer visibility into how fans
+              buy, both online and in person.
+            </p>
 
-          <table class="security-table">
-            <thead>
-              <tr>
-                <th>Capability</th>
-                <th>Impact</th>
-              </tr>
-            </thead>
+            <table class="security-table">
+              <thead>
+                <tr>
+                  <th>Capability</th>
+                  <th>Impact</th>
+                </tr>
+              </thead>
 
-            <tbody>
-              <tr>
-                <td>
-                  <strong> Measurement Planning </strong>
-                </td>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong> Measurement Planning </strong>
+                  </td>
 
-                <td>
-                  Clearer alignment between business goals and analytics data.
-                </td>
-              </tr>
+                  <td>
+                    Clear alignment between athletics department goals, retail
+                    operations, and online sales data.
+                  </td>
+                </tr>
 
-              <tr>
-                <td>
-                  <strong> Tracking Architecture </strong>
-                </td>
+                <tr>
+                  <td>
+                    <strong> Tracking Architecture </strong>
+                  </td>
 
-                <td>
-                  Improved consistency in digital interaction measurement.
-                </td>
-              </tr>
+                  <td>
+                    Consistent measurement of gameday and everyday transactions
+                    across store and site.
+                  </td>
+                </tr>
 
-              <tr>
-                <td>
-                  <strong> Data Quality Standards </strong>
-                </td>
+                <tr>
+                  <td>
+                    <strong> Data Quality Standards </strong>
+                  </td>
 
-                <td>Greater confidence in reporting accuracy and insights.</td>
-              </tr>
-            </tbody>
-          </table>
+                  <td>Greater confidence in reporting during peak demand.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-          <h3>The Results</h3>
+          <div class="case-section">
+            <h3>The Results</h3>
 
-          <p>
-            By establishing a stronger measurement foundation, the organization
-            improved analytics reliability and created a clearer path toward
-            data-driven optimization.
-          </p>
+            <p>
+              With a stronger measurement foundation in place, store and web
+              performance have improved, gameday traffic has been handled
+              without the site buckling under peak demand, and conversion has
+              trended upward across departments over the course of the
+              partnership.
+            </p>
 
-          <ul class="alt">
-            <li>Improved consistency across digital measurement efforts</li>
+            <ul class="alt">
+              <li>
+                Improved consistency across online and in-store measurement
+              </li>
 
-            <li>Increased confidence in analytics reporting</li>
+              <li>Gameday traffic handled reliably at peak demand</li>
 
-            <li>Better visibility into user interactions</li>
+              <li>Upward conversion trends across departments</li>
 
-            <li>Stronger foundation for future analytics initiatives</li>
-          </ul>
+              <li>
+                A measurement foundation supporting ongoing email campaigns for
+                gameday information, product drops, and student-athlete
+                appearances
+              </li>
+            </ul>
+          </div>
 
-          <h3>Technologies &amp; Capabilities</h3>
+          <div class="case-section">
+            <h3>Technologies &amp; Capabilities</h3>
 
-          <dl>
-            <dt>
-              <span class="fweight"> Analytics Platforms </span>
-            </dt>
+            <dl>
+              <dt>
+                <span class="fweight"> Analytics Implementation </span>
+              </dt>
 
-            <dd>
-              <p>
-                Adobe Analytics, Google Analytics, and enterprise analytics
-                solutions.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Event-level tracking configured across the storefront to
+                  capture meaningful gameday and everyday interactions.
+                </p>
+              </dd>
 
-            <dt>
-              <span class="fweight"> Tag Management </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Tag Management </span>
+              </dt>
 
-            <dd>
-              <p>
-                Google Tag Manager, event configuration, and structured
-                implementation practices.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Structured event configuration and tracking practices to keep
+                  measurement consistent as the site evolved.
+                </p>
+              </dd>
 
-            <dt>
-              <span class="fweight"> Data Architecture </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Data Architecture </span>
+              </dt>
 
-            <dd>
-              <p>
-                Data layer planning, measurement documentation, and scalable
-                analytics frameworks.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Data layer planning and measurement documentation designed to
+                  scale across sports, stores, and seasons.
+                </p>
+              </dd>
 
-            <dt>
-              <span class="fweight"> Reporting &amp; Insights </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Reporting &amp; Insights </span>
+              </dt>
 
-            <dd>
-              <p>
-                Improved reporting visibility through stronger measurement
-                foundations and analytics alignment.
-              </p>
-            </dd>
-          </dl>
+              <dd>
+                <p>
+                  Reporting built for the people who actually use it - store
+                  operations, athletics partners, and the online business alike.
+                </p>
+              </dd>
+            </dl>
+          </div>
 
-          <h3>Business Impact</h3>
+          <div class="case-section">
+            <h3>Business Impact</h3>
 
-          <p>
-            Effective analytics begins with a strong measurement foundation.
-            Collecting more data does not create better decisions unless the
-            information is accurate, consistent, and aligned with business
-            objectives.
-          </p>
+            <p>
+              Effective analytics begins with a strong measurement foundation.
+              Collecting more data does not create better decisions unless the
+              information is accurate, consistent, and aligned with how the
+              business actually runs - in this case, a retail operation moving
+              at the speed of college sports.
+            </p>
 
-          <p>
-            Through improved measurement strategy, stronger tracking practices,
-            and better analytics governance, this initiative created a scalable
-            foundation for ongoing digital improvement.
-          </p>
+            <p style="margin-bottom: 0">
+              Through improved measurement strategy, stronger tracking
+              practices, and better analytics governance, this initiative
+              created a scalable foundation that has supported the partnership
+              with Hawkeye Fan Shop and the University of Iowa Athletics
+              Department since 2016.
+            </p>
+          </div>
 
-          <h3>Partner With Scott Labz</h3>
+          <div class="case-section">
+            <h3>Explore More Case Studies</h3>
+            <p style="margin-top: 1.5rem; margin-bottom: 0">
+              <a href="/case-studies.html">View all case studies →</a>
+            </p>
+          </div>
 
-          <p>
-            Scott Labz helps organizations create reliable analytics
-            foundations, improve digital measurement practices, and build
-            scalable technology solutions designed for measurable outcomes.
-          </p>
+          <div class="case-cta">
+            <h3>Start the Conversation</h3>
 
-          <ul class="actions">
-            <li>
-              <a href="/contact.html" class="button primary">
-                Start a Conversation
-              </a>
-            </li>
-          </ul>
+            <p>
+              Reliable measurement doesn't happen by accident. It's built
+              deliberately, from strategy through implementation, so the data
+              you're looking at is data you can actually trust.
+            </p>
+
+            <ul class="actions">
+              <li>
+                <a href="/contact.html" class="button primary">
+                  Start a Conversation
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -434,7 +619,7 @@
       <script src="/assets/js/footer-min.js" defer></script>
 
       <scott-footer
-        description="Explore how Scott Labz helps organizations create reliable analytics foundations, improve measurement strategy, and build scalable digital solutions.">
+        description="How a ground-up measurement strategy improved analytics consistency, tracking reliability, and business visibility for a major collegiate athletics retailer.">
       </scott-footer>
     </div>
   </body>

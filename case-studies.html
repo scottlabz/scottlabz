@@ -65,6 +65,85 @@
     <meta
       property="og:image"
       content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      /* Two-column services layout */
+      .service-directory {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 4rem;
+        margin: 0;
+      }
+
+      .service-column {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .service-column h3 {
+        margin: 0 0 0.75rem;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .service-column h5 {
+        margin: 0;
+        text-transform: uppercase;
+      }
+
+      .service-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .service-links li {
+        margin: 0.25rem 0;
+      }
+
+      .service-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        text-decoration: none;
+        font-size: 0.72rem; /* Smaller text */
+        font-weight: 200;
+        line-height: 1.3;
+        color: inherit;
+        transition:
+          color 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .service-links a::before {
+        content: "›";
+        opacity: 0.45;
+        transition: transform 0.2s ease;
+      }
+
+      .service-links a:hover {
+        color: var(--accent-color);
+      }
+
+      .service-links a:hover::before {
+        transform: translateX(3px);
+      }
+
+      .banner.style1 .content {
+        padding: 3rem;
+      }
+
+      /* Mobile */
+      @media (max-width: 736px) {
+        .service-directory {
+          flex-direction: column;
+          gap: 2rem;
+        }
+      }
+    </style>
   </head>
 
   <body class="is-preload">
@@ -95,133 +174,122 @@
             </a>
           </h1>
 
-          <p class="major">Case Studies</p>
+          <p class="major" style="margin: 0.2rem 0">Case Studies</p>
 
-          <p>
+          <p style="margin: 0 0 1rem 0">
             Explore real-world examples of analytics modernization, digital
             infrastructure improvements, data engineering, and custom technology
             solutions designed to create measurable business outcomes.
           </p>
 
-          <hr /
-          >
+          <img
+            src="images/hawkeyefanshop.png"
+            style="width: stretch; margin: 0" />
 
-          <h3>Analytics &amp; Data Intelligence</h3>
+          <div class="service-directory">
+            <div class="service-column">
+              <h5>Analytics &amp; Data Intelligence</h5>
 
+              <ul class="service-links">
+                <li>
+                  <a href="case-studies/digital-measurement-strategy.html"
+                    >Measurement Strategy</a
+                  >
+                </li>
+                <li>
+                  <a href="case-studies/digital-analytics-implementation.html"
+                    >Analytics Implementation</a
+                  >
+                </li>
+                <li>
+                  <a href="case-studies/analytics-modernization.html"
+                    >Analytics Modernization</a
+                  >
+                </li>
+                <li>
+                  <a href="case-studies/analytics-dashboard-reporting.html"
+                    >Dashboard &amp; Reporting</a
+                  >
+                </li>
+                <li>
+                  <a href="case-studies/data-quality-governance.html"
+                    >Data Quality &amp; Governance</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="case-studies/analytics-dashboard-reporting-platform.html"
+                    >Reporting Platform</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="service-column">
+              <h5>Development &amp; Engineering</h5>
+
+              <ul class="service-links">
+                <li>
+                  <a href="case-studies/digital-experience-optimization.html"
+                    >Experience Optimization</a
+                  >
+                </li>
+                <li>
+                  <a href="case-studies/website-performance-optimization.html"
+                    >Performance Optimization</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="case-studies/website-security-performance-engineering.html"
+                    >Security &amp; Engineering</a
+                  >
+                </li>
+                <li>
+                  <a href="case-studies/custom-web-application-development.html"
+                    >Custom Web Development</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="case-studies/digital-infrastructure-modernization.html"
+                    >Digital Infrastructure</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <hr />
+
+          <h3>Additional Case Studies</h3>
+          <img src="images/flyingherk.png" style="width: 40%; margin: 0" />
           <ul class="actions stacked">
             <li>
               <a
-                href="case-studies/digital-measurement-strategy.html"
+                href="case-studies/the-black-and-gold-shop.html"
                 class="button big wide smooth-scroll">
-                Digital Measurement Strategy
+                The Black &amp; Gold Shop
               </a>
             </li>
-
-            <li>
-              <a
-                href="case-studies/digital-analytics-implementation.html"
-                class="button big wide smooth-scroll">
-                Digital Analytics Implementation
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="case-studies/analytics-modernization.html"
-                class="button big wide smooth-scroll">
-                Analytics Modernization
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="case-studies/analytics-dashboard-reporting.html"
-                class="button big wide smooth-scroll">
-                Analytics Dashboard &amp; Reporting
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="case-studies/data-quality-governance.html"
-                class="button big wide smooth-scroll">
-                Data Quality &amp; Governance
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="case-studies/analytics-dashboard-reporting-platform.html"
-                class="button big wide smooth-scroll">
-                Analytics Reporting Platform
-              </a>
-            </li>
-
-          </ul>
-
-          <hr /
-          >
-
-          <h3>Digital Experience &amp; Engineering</h3>
-
-          <ul class="actions stacked">
-            <li>
-              <a
-                href="case-studies/digital-experience-optimization.html"
-                class="button big wide smooth-scroll">
-                Digital Experience Optimization
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="case-studies/website-performance-optimization.html"
-                class="button big wide smooth-scroll">
-                Website Performance Optimization
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="case-studies/website-security-performance-engineering.html"
-                class="button big wide smooth-scroll">
-                Website Security &amp; Engineering
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="case-studies/custom-web-application-development.html"
-                class="button big wide smooth-scroll">
-                Custom Web Development
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="case-studies/digital-infrastructure-modernization.html"
-                class="button big wide smooth-scroll">
-                Digital Infrastructure
-              </a>
-            </li>
-
           </ul>
         </div>
 
         <div class="image">
-          <img src="images/case-studies.jpg" alt="Scott Labz Case Studies" />
+          <img
+            src="images/case-studies.jpg"
+            alt="Scott Labz Case Studies"
+            style="object-position: top" />
         </div>
       </section>
 
-      
-            <script src="/assets/js/jquery.min.js" defer></script>
+      <script src="/assets/js/jquery.min.js" defer></script>
       <script src="/assets/js/jquery.scrollex.min.js" defer></script>
       <script src="/assets/js/jquery.scrolly.min.js" defer></script>
       <script src="/assets/js/browser.min.js" defer></script>
       <script src="/assets/js/breakpoints.min.js" defer></script>
       <script src="/assets/js/main.js" defer></script>
       <script src="/assets/js/footer-min.js" defer></script>
-<script src="/assets/js/footer-min.js" defer></script>
 
       <scott-footer
         description="Explore Scott Labz case studies demonstrating modern analytics, digital infrastructure, and custom technology solutions.">

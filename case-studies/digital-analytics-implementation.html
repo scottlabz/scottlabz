@@ -7,18 +7,13 @@
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
-
-        w[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js",
-        });
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
 
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
           dl = l != "dataLayer" ? "&l=" + l : "";
 
         j.async = true;
-
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
 
         f.parentNode.insertBefore(j, f);
@@ -30,7 +25,7 @@
 
     <meta
       name="description"
-      content="Explore how Scott Labz implemented scalable digital analytics solutions using structured tracking, data layers, and measurement frameworks." />
+      content="How a ground-up analytics build created reliable, scalable measurement systems for a major collegiate athletics retailer." />
 
     <meta charset="utf-8" />
 
@@ -45,7 +40,6 @@
     </noscript>
 
     <script src="/assets/js/header-min.js" defer></script>
-
     <script src="/assets/js/favicon-min.js" defer></script>
 
     <link
@@ -56,40 +50,29 @@
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
-
         "@id": "https://scottlabz.com/case-studies/digital-analytics-implementation.html",
-
         "url": "https://scottlabz.com/case-studies/digital-analytics-implementation.html",
-
         "name": "Digital Analytics Implementation Case Study | Scott Labz",
-
-        "description": "A case study demonstrating scalable digital analytics implementation through structured tracking, data layers, and measurement frameworks.",
-
+        "description": "A case study on building reliable digital measurement systems for a collegiate athletics retailer spanning online and in-store operations.",
         "isPartOf": {
           "@type": "WebSite",
           "@id": "https://scottlabz.com/",
           "name": "Scott Labz"
         },
-
         "mainEntity": {
           "@type": "CreativeWork",
-
           "name": "Digital Analytics Implementation Initiative",
-
-          "description": "Implementing scalable analytics solutions designed to improve measurement accuracy, visibility, and digital insights.",
-
+          "description": "Building event tracking, data layer structure, and validation practices from the ground up to create dependable measurement systems around gameday retail demand.",
           "author": {
             "@type": "Organization",
             "name": "Scott Labz",
             "url": "https://scottlabz.com/"
           },
-
           "about": [
             "Digital Analytics",
-            "Adobe Analytics",
-            "Google Tag Manager",
-            "Data Layer Implementation",
-            "Measurement Strategy"
+            "Analytics Implementation",
+            "Event Tracking",
+            "Data Layer Development"
           ]
         }
       }
@@ -105,7 +88,7 @@
 
     <meta
       property="og:description"
-      content="Building scalable analytics implementations through structured tracking, data layers, and reliable measurement frameworks." />
+      content="How a ground-up analytics build created reliable, scalable measurement systems for a major collegiate athletics retailer." />
 
     <meta
       property="og:url"
@@ -118,30 +101,162 @@
     <style>
       .security-table {
         width: 100%;
-
-        margin-bottom: 2rem;
-
+        margin-bottom: 0;
         border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
       }
 
       .security-table th,
       .security-table td {
         padding: 0.75rem;
-
         text-align: left;
-
         border-bottom: 1px solid rgba(160, 160, 160, 0.3);
+      }
+
+      .security-table tbody tr:last-child td {
+        border-bottom: none;
       }
 
       .security-table th {
         font-weight: 600;
+        color: #1e3a5f;
+        background: rgba(30, 58, 95, 0.05);
+      }
+
+      .security-table tbody tr:nth-child(even) {
+        background: rgba(30, 58, 95, 0.02);
+      }
+
+      .security-table td strong {
+        color: #1e3a5f;
+      }
+
+      .case-study-icon {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      .content h3 {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        letter-spacing: -0.01em;
+        margin: 0 0 1.25rem 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(30, 58, 95, 0.15);
+      }
+
+      .content h2.case-study-headline {
+        border-left: 4px solid #1e3a5f;
+        padding-left: 1.25rem;
+        line-height: 1.25;
+      }
+
+      .content dl dt .fweight {
+        color: #1e3a5f;
+        font-size: 1.02rem;
+      }
+
+      .content dl dd p {
+        opacity: 0.85;
+      }
+
+      .content dl dd:last-child p,
+      .case-section > *:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Hero card: logo, back link, title, and intro copy */
+      .hero-box {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        padding: 3rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Each case study section gets its own card */
+      .case-section {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        border-left: 4px solid #1e3a5f;
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Closing CTA card, styled like the rest of the site's CTA blocks */
+      .case-cta {
+        background: rgba(248, 250, 252, 1);
+        border: 1px solid #1e3a5f;
+        border-radius: 12px;
+        padding: 3rem 2.5rem;
+        text-align: center;
+        box-shadow:
+          0 10px 25px rgba(15, 23, 42, 0.06),
+          0 4px 10px rgba(15, 23, 42, 0.04);
+      }
+
+      .case-cta h3 {
+        border-bottom: none;
+        display: inline-block;
+      }
+
+      .case-cta p {
+        max-width: 600px;
+        margin: 0 auto 1.5rem auto;
+      }
+
+      .case-cta .actions {
+        justify-content: center;
+      }
+
+      .banner {
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+      }
+
+      .banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        background-image: url("/images/case-studies2.jpg");
+        background-size: cover;
+        background-position: center;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          black 60%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      }
+
+      .banner > * {
+        position: relative;
+        z-index: 1;
+      }
+      .banner.style1 .content {
+        max-width: 40rem;
+        padding: 1rem;
+      }
+      @media screen and (max-width: 1280px) {
+        .banner.style1 .content {
+          padding: 1rem;
+        }
       }
     </style>
   </head>
 
   <body class="is-preload">
     <!-- Google Tag Manager (noscript) -->
-
     <noscript>
       <iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
@@ -150,315 +265,358 @@
         style="display: none; visibility: hidden">
       </iframe>
     </noscript>
-
     <!-- End Google Tag Manager (noscript) -->
 
-    <div id="wrapper" class="divided">
+    <div id="wrapper">
       <section
         class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
-          <h1>
-            <a href="../index.html" style="border-bottom: none">
-              <img
-                src="/images/scottlabz-clear.png"
-                alt="S"
-                class="logo"
-                style="margin-right: 0" />cott Labz
-            </a>
-          </h1>
-
-          <ul class="actions stacked">
-            <li>
-              <a
-                href="/case-studies.html"
-                class="button big wide smooth-scroll case-study-button">
-                Back
+          <div class="hero-box">
+            <h1>
+              <a href="/index.html" style="border-bottom: none">
+                <img
+                  src="/images/scottlabz-clear.png"
+                  alt="S"
+                  class="logo"
+                  style="margin-right: 0" />cott Labz
               </a>
-            </li>
-          </ul>
+            </h1>
 
-          <h1>Digital Analytics Implementation Case Study</h1>
+            <h3>Digital Analytics Implementation Case Study</h3>
 
-          <span class="icon solid style2 major fa-briefcase"></span>
+            <h2
+              class="case-study-headline"
+              style="
+                font-size: 2.2rem;
+                margin-top: 0.5rem;
+                margin-bottom: 1.5rem;
+              ">
+              Building Reliable Digital Measurement Systems
+            </h2>
 
-          <h2
-            style="
-              font-size: 2.2rem;
-              margin-top: 0.5rem;
-              margin-bottom: 1.5rem;
-            ">
-            Building Reliable Digital Measurement Systems
-          </h2>
+            <p class="major" style="margin-bottom: 0">
+              Standing up event tracking, data layer structure, and validation
+              practices from the ground up to create dependable measurement
+              across online and in-store retail operations.
+            </p>
+          </div>
 
-          <p class="major">
-            Implementing scalable analytics solutions through structured
-            tracking, data layer architecture, and measurement frameworks that
-            turn digital activity into actionable insights.
-          </p>
+          <div class="case-section">
+            <h3>Project Overview</h3>
 
-          <h3>Project Overview</h3>
+            <table class="security-table">
+              <tbody>
+                <tr>
+                  <td><strong>Project</strong></td>
+                  <td>Digital Analytics Implementation</td>
+                </tr>
 
-          <table class="security-table">
-            <tbody>
-              <tr>
-                <td>
-                  <strong> Project Type </strong>
-                </td>
+                <tr>
+                  <td><strong>Organization</strong></td>
+                  <td>
+                    Hawkeye Fan Shop, The Official Retailer of the University of
+                    Iowa Athletics Department
+                  </td>
+                </tr>
 
-                <td>Digital Analytics Implementation</td>
-              </tr>
+                <tr>
+                  <td><strong>Focus</strong></td>
+                  <td>
+                    Event Tracking, Data Layer Development, Tag Deployment
+                  </td>
+                </tr>
 
-              <tr>
-                <td>
-                  <strong> Organization </strong>
-                </td>
+                <tr>
+                  <td><strong>Outcome</strong></td>
+                  <td>
+                    A working measurement system delivering accurate, validated
+                    data from launch across gameday, retail, and online channels
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-                <td>Confidential Enterprise Organization</td>
-              </tr>
+          <div class="case-section">
+            <h3>The Challenge</h3>
 
-              <tr>
-                <td>
-                  <strong> Primary Focus </strong>
-                </td>
+            <p>
+              This was a ground-up build, won through a competitive bid to take
+              over from a previous provider. There was no existing tracking to
+              inherit and nothing to migrate - every event, tag, and data point
+              had to be built and validated before the store could go live, all
+              while demand for the business spikes hard around gameday, roster
+              changes, and postseason runs across every University of Iowa
+              sport.
+            </p>
 
-                <td>
-                  Analytics Tracking, Data Layers, Measurement Architecture
-                </td>
-              </tr>
+            <p style="margin: 0 0 0.9rem 0">Key challenges included:</p>
 
-              <tr>
-                <td>
-                  <strong> Outcome </strong>
-                </td>
+            <ul class="alt">
+              <li>No existing tracking implementation to build from</li>
 
-                <td>Improved digital visibility and measurement reliability</td>
-              </tr>
-            </tbody>
-          </table>
+              <li>
+                Retail locations across the state and mobile gameday shops that
+                needed to report consistently alongside the online store
+              </li>
 
-          <h3>The Challenge</h3>
+              <li>
+                Implementation timelines tied to a live sports calendar rather
+                than a standard launch window
+              </li>
 
-          <p>
-            Organizations often collect large amounts of digital data but lack
-            the structured implementation needed to understand customer
-            interactions and business outcomes.
-          </p>
+              <li>
+                No historical data to validate new tracking against once it went
+                live
+              </li>
 
-          <p>Key challenges included:</p>
+              <li>
+                Multiple stakeholder groups each needing dependable numbers from
+                day one
+              </li>
+            </ul>
+          </div>
 
-          <ul class="alt">
-            <li>Inconsistent digital tracking implementations</li>
+          <div class="case-section">
+            <h3>The Approach</h3>
 
-            <li>Limited visibility into user interactions</li>
+            <p>
+              The build focused on getting tracking right before launch, not
+              patching it after the fact - every event was planned, deployed,
+              and checked against expected behavior before it reached a report.
+            </p>
 
-            <li>Lack of standardized event measurement</li>
+            <dl>
+              <dt>
+                <span class="fweight"> Event Tracking Build-Out </span>
+              </dt>
 
-            <li>Disconnect between technical systems and reporting needs</li>
+              <dd>
+                <p>
+                  Defined and deployed the specific interactions worth measuring
+                  across browsing, cart, and checkout - built to hold up under
+                  sharp, unpredictable gameday traffic rather than assume steady
+                  demand.
+                </p>
+              </dd>
 
-            <li>Difficulty scaling analytics capabilities</li>
-          </ul>
-          <h3>The Approach</h3>
+              <dt>
+                <span class="fweight"> Data Layer Development </span>
+              </dt>
 
-          <p>
-            The implementation focused on creating a scalable analytics
-            foundation that improved data collection, measurement consistency,
-            and reporting confidence.
-          </p>
+              <dd>
+                <p>
+                  Structured a consistent data layer so every page and
+                  transaction passed the same information in the same shape,
+                  keeping online sales aligned with retail and gameday shop
+                  activity.
+                </p>
+              </dd>
 
-          <dl>
-            <dt>
-              <span class="fweight"> Analytics Requirements Definition </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Tag Deployment &amp; QA </span>
+              </dt>
 
-            <dd>
-              <p>
-                Identified business objectives, reporting requirements, and
-                measurement needs to create a structured analytics approach.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Deployed tracking in stages with structured testing at each
+                  step, catching gaps and misfires before they reached live
+                  reporting.
+                </p>
+              </dd>
 
-            <dt>
-              <span class="fweight"> Data Layer Architecture </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Validation &amp; Documentation </span>
+              </dt>
 
-            <dd>
-              <p>
-                Developed structured approaches for capturing digital
-                interactions and providing consistent data to analytics
-                platforms.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Verified tracking against expected outcomes at launch and
+                  documented event definitions so the implementation could be
+                  maintained and extended without guesswork.
+                </p>
+              </dd>
+            </dl>
+          </div>
 
-            <dt>
-              <span class="fweight"> Tag Management Implementation </span>
-            </dt>
+          <div class="case-section">
+            <h3>The Solution</h3>
 
-            <dd>
-              <p>
-                Implemented and optimized analytics tracking through structured
-                tag management practices and controlled deployment processes.
-              </p>
-            </dd>
+            <p>
+              A working measurement system was implemented end to end, giving
+              stakeholders accurate, validated data from the moment the store
+              went live.
+            </p>
 
-            <dt>
-              <span class="fweight"> Analytics Validation </span>
-            </dt>
+            <table class="security-table">
+              <thead>
+                <tr>
+                  <th>Capability</th>
+                  <th>Impact</th>
+                </tr>
+              </thead>
 
-            <dd>
-              <p>
-                Validated tracking behavior, data accuracy, and reporting
-                outputs to ensure reliable measurement.
-              </p>
-            </dd>
-          </dl>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong> Event Tracking </strong>
+                  </td>
 
-          <h3>The Solution</h3>
+                  <td>
+                    Accurate capture of browsing, cart, and purchase activity
+                    across gameday and everyday traffic.
+                  </td>
+                </tr>
 
-          <p>
-            A scalable digital analytics implementation was established to
-            improve data reliability, simplify measurement management, and
-            provide clearer insights into digital behavior.
-          </p>
+                <tr>
+                  <td>
+                    <strong> Data Layer Structure </strong>
+                  </td>
 
-          <table class="security-table">
-            <thead>
-              <tr>
-                <th>Capability</th>
+                  <td>
+                    Consistent data passed across every page, reducing gaps
+                    between what happened and what got reported.
+                  </td>
+                </tr>
 
-                <th>Impact</th>
-              </tr>
-            </thead>
+                <tr>
+                  <td>
+                    <strong> Validation Practices </strong>
+                  </td>
 
-            <tbody>
-              <tr>
-                <td>
-                  <strong> Analytics Architecture </strong>
-                </td>
+                  <td>
+                    Confidence that new tracking was accurate at launch, with no
+                    historical baseline to lean on.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-                <td>
-                  Created a structured foundation for reliable digital
-                  measurement.
-                </td>
-              </tr>
+          <div class="case-section">
+            <h3>The Results</h3>
 
-              <tr>
-                <td>
-                  <strong> Event Tracking </strong>
-                </td>
+            <p>
+              With tracking implemented and validated from the start, store and
+              web performance have improved, gameday traffic has been handled
+              without the site buckling under peak demand, and conversion has
+              trended upward across departments over the course of the
+              partnership.
+            </p>
 
-                <td>
-                  Improved visibility into user interactions and digital
-                  behavior.
-                </td>
-              </tr>
+            <ul class="alt">
+              <li>
+                Accurate, validated tracking in place from the first day of
+                launch
+              </li>
 
-              <tr>
-                <td>
-                  <strong> Data Layer Strategy </strong>
-                </td>
+              <li>Gameday traffic handled reliably at peak demand</li>
 
-                <td>
-                  Enabled consistent data collection across digital experiences.
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              <li>Upward conversion trends across departments</li>
 
-          <h3>The Results</h3>
+              <li>
+                A tracking implementation supporting ongoing email campaigns for
+                gameday information, product drops, and student-athlete
+                appearances
+              </li>
+            </ul>
+          </div>
 
-          <p>
-            By implementing a structured analytics framework, the organization
-            gained improved measurement consistency and stronger visibility into
-            digital performance.
-          </p>
+          <div class="case-section">
+            <h3>Technologies &amp; Capabilities</h3>
 
-          <ul class="alt">
-            <li>Improved accuracy of analytics data collection</li>
+            <dl>
+              <dt>
+                <span class="fweight"> Analytics Implementation </span>
+              </dt>
 
-            <li>More consistent tracking across digital experiences</li>
+              <dd>
+                <p>
+                  Event-level tracking built and deployed across the storefront
+                  to capture meaningful gameday and everyday interactions.
+                </p>
+              </dd>
 
-            <li>Better understanding of user behavior</li>
+              <dt>
+                <span class="fweight"> Tag Management </span>
+              </dt>
 
-            <li>Stronger foundation for reporting and optimization</li>
-          </ul>
+              <dd>
+                <p>
+                  Structured tag deployment and event configuration to keep
+                  tracking consistent as the site evolved.
+                </p>
+              </dd>
 
-          <h3>Technologies &amp; Capabilities</h3>
+              <dt>
+                <span class="fweight"> Data Layer Architecture </span>
+              </dt>
 
-          <dl>
-            <dt>
-              <span class="fweight"> Analytics Platforms </span>
-            </dt>
+              <dd>
+                <p>
+                  A consistent data layer designed to scale across sports,
+                  stores, and seasons without breaking as new pages were added.
+                </p>
+              </dd>
 
-            <dd>
-              <p>
-                Adobe Analytics, Google Analytics, and enterprise digital
-                measurement platforms.
-              </p>
-            </dd>
+              <dt>
+                <span class="fweight">
+                  Quality Assurance &amp; Validation
+                </span>
+              </dt>
 
-            <dt>
-              <span class="fweight"> Tag Management </span>
-            </dt>
+              <dd>
+                <p>
+                  Structured testing at each stage of deployment to confirm
+                  tracking matched real activity before it reached a report.
+                </p>
+              </dd>
+            </dl>
+          </div>
 
-            <dd>
-              <p>
-                Google Tag Manager, analytics configuration, and structured
-                deployment workflows.
-              </p>
-            </dd>
+          <div class="case-section">
+            <h3>Business Impact</h3>
 
-            <dt>
-              <span class="fweight"> Data Layer Development </span>
-            </dt>
+            <p>
+              A tracking implementation is only as valuable as its accuracy.
+              Getting the build right the first time - event by event, page by
+              page - meant stakeholders could trust the numbers from launch
+              rather than spend the first season second-guessing them.
+            </p>
 
-            <dd>
-              <p>
-                Structured event tracking, digital interaction measurement, and
-                scalable data collection practices.
-              </p>
-            </dd>
+            <p style="margin-bottom: 0">
+              Through structured event tracking, consistent data layer design,
+              and disciplined validation, this initiative created a working
+              measurement system that has supported the partnership with Hawkeye
+              Fan Shop and the University of Iowa Athletics Department since
+              2016.
+            </p>
+          </div>
 
-            <dt>
-              <span class="fweight"> Reporting &amp; Insights </span>
-            </dt>
+          <div class="case-section">
+            <h3>Explore More Case Studies</h3>
+            <p style="margin-top: 1.5rem; margin-bottom: 0">
+              <a href="/case-studies.html">View all case studies →</a>
+            </p>
+          </div>
 
-            <dd>
-              <p>
-                Analytics reporting foundations designed to support business
-                decisions and digital optimization.
-              </p>
-            </dd>
-          </dl>
+          <div class="case-cta">
+            <h3>Start the Conversation</h3>
 
-          <h3>Business Impact</h3>
+            <p>
+              Reliable tracking doesn't happen by accident. It's built
+              deliberately, event by event, so the data you're looking at is
+              data you can actually trust.
+            </p>
 
-          <p>
-            Effective analytics requires more than installing tracking tools. It
-            requires a reliable architecture that connects digital behavior with
-            meaningful business outcomes.
-          </p>
-
-          <p>
-            Through structured implementation, stronger measurement practices,
-            and improved data reliability, this initiative created a scalable
-            analytics foundation designed for long-term digital growth.
-          </p>
-
-          <h3>Partner With Scott Labz</h3>
-
-          <p>
-            Scott Labz helps organizations implement reliable analytics
-            solutions, improve measurement accuracy, and create digital
-            foundations that transform data into actionable insights.
-          </p>
-
-          <ul class="actions">
-            <li>
-              <a href="/contact.html" class="button primary">
-                Start a Conversation
-              </a>
-            </li>
-          </ul>
+            <ul class="actions">
+              <li>
+                <a href="/contact.html" class="button primary">
+                  Start a Conversation
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -471,7 +629,7 @@
       <script src="/assets/js/footer-min.js" defer></script>
 
       <scott-footer
-        description="Explore how Scott Labz helps organizations implement reliable analytics solutions, improve measurement accuracy, and transform digital data into actionable insights.">
+        description="How a ground-up analytics build created reliable, scalable measurement systems for a major collegiate athletics retailer.">
       </scott-footer>
     </div>
   </body>

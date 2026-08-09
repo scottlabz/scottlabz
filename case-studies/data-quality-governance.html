@@ -21,13 +21,11 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <title>
-      Data Quality &amp; Analytics Governance Case Study | Scott Labz
-    </title>
+    <title>Data Quality &amp; Governance Case Study | Scott Labz</title>
 
     <meta
       name="description"
-      content="Explore how Scott Labz improved analytics reliability through data quality practices, governance standards, and stronger measurement processes." />
+      content="How ongoing validation and governance standards built lasting confidence in analytics data for a major collegiate athletics retailer." />
 
     <meta charset="utf-8" />
 
@@ -54,8 +52,8 @@
         "@type": "WebPage",
         "@id": "https://scottlabz.com/case-studies/data-quality-governance.html",
         "url": "https://scottlabz.com/case-studies/data-quality-governance.html",
-        "name": "Data Quality & Analytics Governance Case Study | Scott Labz",
-        "description": "A case study demonstrating improved analytics reliability through stronger data quality practices and governance.",
+        "name": "Data Quality & Governance Case Study | Scott Labz",
+        "description": "A case study on building ongoing validation, monitoring, and governance standards for a collegiate athletics retailer's analytics data.",
         "isPartOf": {
           "@type": "WebSite",
           "@id": "https://scottlabz.com/",
@@ -63,17 +61,17 @@
         },
         "mainEntity": {
           "@type": "CreativeWork",
-          "name": "Data Quality & Analytics Governance Initiative",
-          "description": "Improving analytics confidence through stronger validation processes, measurement standards, and governance practices.",
+          "name": "Data Quality & Governance Initiative",
+          "description": "Establishing validation practices, anomaly monitoring, and documented governance standards to keep analytics data trustworthy as the partnership scaled.",
           "author": {
             "@type": "Organization",
             "name": "Scott Labz",
             "url": "https://scottlabz.com/"
           },
           "about": [
+            "Digital Analytics",
             "Data Quality",
             "Analytics Governance",
-            "Measurement Standards",
             "Data Validation"
           ]
         }
@@ -86,11 +84,11 @@
 
     <meta
       property="og:title"
-      content="Data Quality &amp; Analytics Governance Case Study | Scott Labz" />
+      content="Data Quality & Governance Case Study | Scott Labz" />
 
     <meta
       property="og:description"
-      content="Improving analytics confidence through stronger data quality practices, governance standards, and validation processes." />
+      content="How ongoing validation and governance standards built lasting confidence in analytics data for a major collegiate athletics retailer." />
 
     <meta
       property="og:url"
@@ -103,8 +101,10 @@
     <style>
       .security-table {
         width: 100%;
-        margin-bottom: 2rem;
+        margin-bottom: 0;
         border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
       }
 
       .security-table th,
@@ -114,8 +114,143 @@
         border-bottom: 1px solid rgba(160, 160, 160, 0.3);
       }
 
+      .security-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
       .security-table th {
         font-weight: 600;
+        color: #1e3a5f;
+        background: rgba(30, 58, 95, 0.05);
+      }
+
+      .security-table tbody tr:nth-child(even) {
+        background: rgba(30, 58, 95, 0.02);
+      }
+
+      .security-table td strong {
+        color: #1e3a5f;
+      }
+
+      .case-study-icon {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      .content h3 {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        letter-spacing: -0.01em;
+        margin: 0 0 1.25rem 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(30, 58, 95, 0.15);
+      }
+
+      .content h2.case-study-headline {
+        border-left: 4px solid #1e3a5f;
+        padding-left: 1.25rem;
+        line-height: 1.25;
+      }
+
+      .content dl dt .fweight {
+        color: #1e3a5f;
+        font-size: 1.02rem;
+      }
+
+      .content dl dd p {
+        opacity: 0.85;
+      }
+
+      .content dl dd:last-child p,
+      .case-section > *:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Hero card: logo, back link, title, and intro copy */
+      .hero-box {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        padding: 3rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Each case study section gets its own card */
+      .case-section {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        border-left: 4px solid #1e3a5f;
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Closing CTA card, styled like the rest of the site's CTA blocks */
+      .case-cta {
+        background: rgba(248, 250, 252, 1);
+        border: 1px solid #1e3a5f;
+        border-radius: 12px;
+        padding: 3rem 2.5rem;
+        text-align: center;
+        box-shadow:
+          0 10px 25px rgba(15, 23, 42, 0.06),
+          0 4px 10px rgba(15, 23, 42, 0.04);
+      }
+
+      .case-cta h3 {
+        border-bottom: none;
+        display: inline-block;
+      }
+
+      .case-cta p {
+        max-width: 600px;
+        margin: 0 auto 1.5rem auto;
+      }
+
+      .case-cta .actions {
+        justify-content: center;
+      }
+
+      .banner {
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+      }
+
+      .banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        background-image: url("/images/case-studies7.jpg");
+        background-size: cover;
+        background-position: center;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          black 60%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      }
+
+      .banner > * {
+        position: relative;
+        z-index: 1;
+      }
+      .banner.style1 .content {
+        max-width: 40rem;
+        padding: 1rem;
+      }
+      @media screen and (max-width: 1280px) {
+        .banner.style1 .content {
+          padding: 1rem;
+        }
       }
     </style>
   </head>
@@ -132,313 +267,355 @@
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <div id="wrapper" class="divided">
+    <div id="wrapper">
       <section
         class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
-          <h1>
-            <a href="../index.html" style="border-bottom: none">
-              <img
-                src="/images/scottlabz-clear.png"
-                alt="S"
-                class="logo"
-                style="margin-right: 0" />cott Labz
-            </a>
-          </h1>
-
-          <ul class="actions stacked">
-            <li>
-              <a
-                href="/case-studies.html"
-                class="button big wide smooth-scroll case-study-button">
-                Back
+          <div class="hero-box">
+            <h1>
+              <a href="/index.html" style="border-bottom: none">
+                <img
+                  src="/images/scottlabz-clear.png"
+                  alt="S"
+                  class="logo"
+                  style="margin-right: 0" />cott Labz
               </a>
-            </li>
-          </ul>
+            </h1>
 
-          <h1>Data Quality &amp; Analytics Governance Case Study</h1>
+            <h3>Data Quality &amp; Governance Case Study</h3>
 
-          <span class="icon solid style2 major fa-briefcase"></span>
+            <h2
+              class="case-study-headline"
+              style="
+                font-size: 2.2rem;
+                margin-top: 0.5rem;
+                margin-bottom: 1.5rem;
+              ">
+              Building Confidence Through Reliable Analytics Data
+            </h2>
 
-          <h2
-            style="
-              font-size: 2.2rem;
-              margin-top: 0.5rem;
-              margin-bottom: 1.5rem;
-            ">
-            Building Confidence Through Reliable Analytics Data
-          </h2>
+            <p class="major" style="margin-bottom: 0">
+              Establishing ongoing validation, anomaly monitoring, and
+              documented governance standards to keep analytics data trustworthy
+              as the partnership scaled.
+            </p>
+          </div>
 
-          <p class="major">
-            Improving analytics trust through stronger validation practices,
-            measurement standards, and scalable governance processes.
-          </p>
+          <div class="case-section">
+            <h3>Project Overview</h3>
 
-          <h3>Project Overview</h3>
+            <table class="security-table">
+              <tbody>
+                <tr>
+                  <td><strong>Project</strong></td>
+                  <td>Data Quality &amp; Governance</td>
+                </tr>
 
-          <table class="security-table">
-            <tbody>
-              <tr>
-                <td>
-                  <strong>Project Type</strong>
-                </td>
+                <tr>
+                  <td><strong>Organization</strong></td>
+                  <td>
+                    Hawkeye Fan Shop, The Official Retailer of the University of
+                    Iowa Athletics Department
+                  </td>
+                </tr>
 
-                <td>Data Quality &amp; Analytics Governance</td>
-              </tr>
+                <tr>
+                  <td><strong>Focus</strong></td>
+                  <td>
+                    Data Validation, Anomaly Monitoring, Governance
+                    Documentation
+                  </td>
+                </tr>
 
-              <tr>
-                <td>
-                  <strong>Organization</strong>
-                </td>
+                <tr>
+                  <td><strong>Outcome</strong></td>
+                  <td>
+                    Documented standards and ongoing checks that keep reporting
+                    trustworthy through every sales spike
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-                <td>Confidential Enterprise Organization</td>
-              </tr>
+          <div class="case-section">
+            <h3>The Challenge</h3>
 
-              <tr>
-                <td>
-                  <strong>Primary Focus</strong>
-                </td>
+            <p>
+              With tracking, infrastructure, and dashboards in place, the
+              longer-term risk shifted to quiet decay - a broken tag, a
+              duplicate event, or a shifted definition that goes unnoticed until
+              a report looks wrong. Left unmanaged, small data quality issues
+              compound quietly until nobody fully trusts the numbers anymore.
+            </p>
 
-                <td>
-                  Data Validation, Analytics Standards, Reporting Reliability
-                </td>
-              </tr>
+            <p style="margin: 0 0 0.9rem 0">Key challenges included:</p>
 
-              <tr>
-                <td>
-                  <strong>Outcome</strong>
-                </td>
+            <ul class="alt">
+              <li>
+                No standing process for catching broken or duplicate tracking
+                before it reached a report
+              </li>
 
-                <td>Increased confidence in analytics data and reporting</td>
-              </tr>
-            </tbody>
-          </table>
+              <li>
+                Sharp, unpredictable traffic spikes that make anomalies easy to
+                miss without automated checks
+              </li>
 
-          <h3>The Challenge</h3>
+              <li>
+                Multiple stakeholder groups who needed to trust the same
+                underlying numbers for different purposes
+              </li>
 
-          <p>
-            Organizations depend on analytics data to make decisions, but
-            inconsistent implementations, tracking gaps, and unclear ownership
-            can reduce confidence in reporting.
-          </p>
+              <li>
+                No documented standards for what "good data" meant across the
+                growing partnership
+              </li>
 
-          <p>Key challenges included:</p>
+              <li>
+                A need for governance that could scale across more sports,
+                stores, and seasons without adding manual overhead
+              </li>
+            </ul>
+          </div>
 
-          <ul class="alt">
-            <li>Inconsistent data collection practices</li>
+          <div class="case-section">
+            <h3>The Approach</h3>
 
-            <li>Limited visibility into tracking accuracy</li>
+            <p>
+              The focus was building ongoing confidence in the data, not a
+              one-time cleanup - catching problems automatically and documenting
+              standards so quality didn't depend on any one person noticing
+              something was off.
+            </p>
 
-            <li>Reporting discrepancies across platforms</li>
+            <dl>
+              <dt>
+                <span class="fweight"> Automated Validation </span>
+              </dt>
 
-            <li>Lack of standardized measurement processes</li>
+              <dd>
+                <p>
+                  Put automated checks in place to catch tracking gaps,
+                  duplicate events, and inconsistent data before they reached a
+                  report.
+                </p>
+              </dd>
 
-            <li>Difficulty scaling analytics practices</li>
-          </ul>
-          <h3>The Approach</h3>
+              <dt>
+                <span class="fweight"> Anomaly Monitoring </span>
+              </dt>
 
-          <p>
-            The initiative focused on improving trust in analytics data by
-            establishing stronger validation practices, measurement standards,
-            and governance processes.
-          </p>
+              <dd>
+                <p>
+                  Established monitoring that flags unexpected shifts in key
+                  metrics - a sudden 40% swing gets a second look before it
+                  reaches a stakeholder.
+                </p>
+              </dd>
 
-          <dl>
-            <dt>
-              <span class="fweight"> Data Quality Assessment </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Governance Documentation </span>
+              </dt>
 
-            <dd>
-              <p>
-                Reviewed existing analytics implementations, tracking
-                structures, and reporting processes to identify data quality
-                gaps and improvement opportunities.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Documented event definitions and data standards so quality
+                  expectations were consistent and repeatable across the
+                  business.
+                </p>
+              </dd>
 
-            <dt>
-              <span class="fweight"> Analytics Validation Processes </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Reconciliation Practices </span>
+              </dt>
 
-            <dd>
-              <p>
-                Implemented stronger validation practices to improve confidence
-                in collected data and ensure digital interactions were measured
-                consistently.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Checked transaction and reporting totals against each other
+                  regularly to confirm store, gameday, and online data stayed
+                  aligned.
+                </p>
+              </dd>
+            </dl>
+          </div>
 
-            <dt>
-              <span class="fweight"> Measurement Standards </span>
-            </dt>
+          <div class="case-section">
+            <h3>The Solution</h3>
 
-            <dd>
-              <p>
-                Established consistent approaches for event tracking,
-                implementation documentation, and analytics management.
-              </p>
-            </dd>
+            <p>
+              Documented standards and automated checks now work together to
+              keep analytics data reliable, giving stakeholders confidence in
+              the numbers even during the highest-traffic periods of the year.
+            </p>
 
-            <dt>
-              <span class="fweight"> Governance Framework </span>
-            </dt>
+            <table class="security-table">
+              <thead>
+                <tr>
+                  <th>Capability</th>
+                  <th>Impact</th>
+                </tr>
+              </thead>
 
-            <dd>
-              <p>
-                Created scalable processes designed to support future analytics
-                growth, maintain quality, and improve collaboration.
-              </p>
-            </dd>
-          </dl>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong> Automated Validation </strong>
+                  </td>
 
-          <h3>The Solution</h3>
+                  <td>
+                    Tracking issues caught before they reach a stakeholder
+                    report.
+                  </td>
+                </tr>
 
-          <p>
-            A stronger analytics governance framework was established to improve
-            data reliability, increase reporting confidence, and create a more
-            scalable measurement environment.
-          </p>
+                <tr>
+                  <td>
+                    <strong> Anomaly Detection </strong>
+                  </td>
 
-          <table class="security-table">
-            <thead>
-              <tr>
-                <th>Capability</th>
+                  <td>
+                    Unexpected shifts flagged early, protecting confidence in
+                    the numbers.
+                  </td>
+                </tr>
 
-                <th>Impact</th>
-              </tr>
-            </thead>
+                <tr>
+                  <td>
+                    <strong> Governance Standards </strong>
+                  </td>
 
-            <tbody>
-              <tr>
-                <td>
-                  <strong> Data Validation </strong>
-                </td>
+                  <td>
+                    Documented definitions that keep data consistent as the
+                    partnership grows.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-                <td>
-                  Improved confidence that analytics data accurately represented
-                  user activity.
-                </td>
-              </tr>
+          <div class="case-section">
+            <h3>The Results</h3>
 
-              <tr>
-                <td>
-                  <strong> Tracking Standards </strong>
-                </td>
+            <p>
+              With validation and governance practices in place, store and web
+              performance have improved, gameday traffic has been handled
+              without the site buckling under peak demand, and conversion has
+              trended upward across departments over the course of the
+              partnership.
+            </p>
 
-                <td>
-                  Increased consistency across digital measurement practices.
-                </td>
-              </tr>
+            <ul class="alt">
+              <li>
+                Tracking issues caught and resolved before reaching reports
+              </li>
 
-              <tr>
-                <td>
-                  <strong> Analytics Governance </strong>
-                </td>
+              <li>Gameday traffic handled reliably at peak demand</li>
 
-                <td>
-                  Created a scalable foundation for long-term analytics
-                  management.
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              <li>Upward conversion trends across departments</li>
 
-          <h3>The Results</h3>
+              <li>
+                Documented governance standards supporting ongoing email
+                campaigns for gameday information, product drops, and
+                student-athlete appearances
+              </li>
+            </ul>
+          </div>
 
-          <p>
-            By improving data quality practices and analytics governance, the
-            organization gained greater confidence in reporting and improved
-            visibility into digital performance.
-          </p>
+          <div class="case-section">
+            <h3>Technologies &amp; Capabilities</h3>
 
-          <ul class="alt">
-            <li>More reliable analytics data</li>
+            <dl>
+              <dt>
+                <span class="fweight"> Data Validation </span>
+              </dt>
 
-            <li>Improved reporting confidence</li>
+              <dd>
+                <p>
+                  Automated checks that catch tracking gaps and inconsistent
+                  data before they reach a report.
+                </p>
+              </dd>
 
-            <li>Stronger measurement consistency</li>
+              <dt>
+                <span class="fweight"> Anomaly Monitoring </span>
+              </dt>
 
-            <li>Better foundation for future analytics initiatives</li>
-          </ul>
+              <dd>
+                <p>
+                  Ongoing monitoring built to flag unexpected shifts across
+                  gameday and everyday activity.
+                </p>
+              </dd>
 
-          <h3>Technologies &amp; Capabilities</h3>
+              <dt>
+                <span class="fweight"> Governance Documentation </span>
+              </dt>
 
-          <dl>
-            <dt>
-              <span class="fweight"> Analytics Platforms </span>
-            </dt>
+              <dd>
+                <p>
+                  Event definitions and data standards documented for
+                  consistency across sports, stores, and seasons.
+                </p>
+              </dd>
 
-            <dd>
-              <p>
-                Adobe Analytics, Google Analytics, and enterprise analytics
-                platforms.
-              </p>
-            </dd>
+              <dt>
+                <span class="fweight"> Reconciliation &amp; Auditing </span>
+              </dt>
 
-            <dt>
-              <span class="fweight"> Data Validation </span>
-            </dt>
+              <dd>
+                <p>
+                  Regular checks against transaction and reporting totals to
+                  confirm store, gameday, and online data stayed aligned.
+                </p>
+              </dd>
+            </dl>
+          </div>
 
-            <dd>
-              <p>
-                Tracking reviews, implementation validation, and analytics
-                quality checks.
-              </p>
-            </dd>
+          <div class="case-section">
+            <h3>Business Impact</h3>
 
-            <dt>
-              <span class="fweight"> Governance Practices </span>
-            </dt>
+            <p>
+              Trust in data doesn't come from a single audit - it comes from
+              knowing the checks are still running months later. Documented
+              standards and automated validation meant stakeholders could rely
+              on the numbers without re-verifying them every time a report
+              looked unusual.
+            </p>
 
-            <dd>
-              <p>
-                Documentation standards, measurement frameworks, and scalable
-                analytics processes.
-              </p>
-            </dd>
+            <p style="margin-bottom: 0">
+              Through automated validation, anomaly monitoring, and documented
+              governance standards, this initiative created a lasting foundation
+              of data confidence that has supported the partnership with Hawkeye
+              Fan Shop and the University of Iowa Athletics Department since
+              2016.
+            </p>
+          </div>
 
-            <dt>
-              <span class="fweight"> Reporting Reliability </span>
-            </dt>
+          <div class="case-section">
+            <h3>Explore More Case Studies</h3>
+            <p style="margin-top: 1.5rem; margin-bottom: 0">
+              <a href="/case-studies.html">View all case studies →</a>
+            </p>
+          </div>
 
-            <dd>
-              <p>
-                Improved analytics confidence through stronger data foundations
-                and quality practices.
-              </p>
-            </dd>
-          </dl>
+          <div class="case-cta">
+            <h3>Start the Conversation</h3>
 
-          <h3>Business Impact</h3>
+            <p>
+              Confidence in your data isn't a one-time project. It's built and
+              maintained deliberately, so the numbers you're looking at are
+              numbers you can actually trust.
+            </p>
 
-          <p>
-            Analytics is only valuable when organizations can trust the data
-            behind their decisions. Strong governance and quality practices
-            transform analytics from simple reporting into a reliable business
-            asset.
-          </p>
-
-          <p>
-            Through improved validation, standardized measurement practices, and
-            scalable governance processes, this initiative created a stronger
-            foundation for continued digital optimization and growth.
-          </p>
-
-          <h3>Partner With Scott Labz</h3>
-
-          <p>
-            Scott Labz helps organizations improve analytics reliability,
-            establish stronger data practices, and build scalable digital
-            foundations designed for measurable business outcomes.
-          </p>
-
-          <ul class="actions">
-            <li>
-              <a href="/contact.html" class="button primary">
-                Start a Conversation
-              </a>
-            </li>
-          </ul>
+            <ul class="actions">
+              <li>
+                <a href="/contact.html" class="button primary">
+                  Start a Conversation
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -451,7 +628,7 @@
       <script src="/assets/js/footer-min.js" defer></script>
 
       <scott-footer
-        description="Explore how Scott Labz helps organizations improve analytics reliability, establish stronger data practices, and build scalable digital foundations.">
+        description="How ongoing validation and governance standards built lasting confidence in analytics data for a major collegiate athletics retailer.">
       </scott-footer>
     </div>
   </body>

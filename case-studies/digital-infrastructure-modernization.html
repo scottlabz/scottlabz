@@ -7,18 +7,13 @@
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
-
-        w[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js",
-        });
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
 
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
           dl = l != "dataLayer" ? "&l=" + l : "";
 
         j.async = true;
-
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
 
         f.parentNode.insertBefore(j, f);
@@ -26,11 +21,11 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <title>Digital Infrastructure Modernization Case Study | Scott Labz</title>
+    <title>Digital Infrastructure Case Study | Scott Labz</title>
 
     <meta
       name="description"
-      content="Explore how Scott Labz modernizes digital infrastructure through scalable architecture, deployment automation, performance engineering, and secure web platform design." />
+      content="How connected inventory and infrastructure modernization kept online, retail, and gameday systems in sync for a major collegiate athletics retailer." />
 
     <meta charset="utf-8" />
 
@@ -45,7 +40,6 @@
     </noscript>
 
     <script src="/assets/js/header-min.js" defer></script>
-
     <script src="/assets/js/favicon-min.js" defer></script>
 
     <link
@@ -56,41 +50,29 @@
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
-
         "@id": "https://scottlabz.com/case-studies/digital-infrastructure-modernization.html",
-
         "url": "https://scottlabz.com/case-studies/digital-infrastructure-modernization.html",
-
-        "name": "Digital Infrastructure Modernization Case Study | Scott Labz",
-
-        "description": "A case study demonstrating enterprise digital infrastructure modernization, scalable architecture, deployment automation, website performance optimization, and secure engineering.",
-
+        "name": "Digital Infrastructure Case Study | Scott Labz",
+        "description": "A case study on modernizing digital infrastructure to keep online, retail, and gameday inventory systems in sync for a collegiate athletics retailer.",
         "isPartOf": {
           "@type": "WebSite",
           "@id": "https://scottlabz.com/",
           "name": "Scott Labz"
         },
-
         "mainEntity": {
           "@type": "CreativeWork",
-
           "name": "Digital Infrastructure Modernization Initiative",
-
-          "description": "Modernizing enterprise web infrastructure to improve performance, scalability, security, and long-term maintainability.",
-
+          "description": "Synchronizing inventory and connecting hosting, deployment, and store systems into a single, scalable infrastructure across statewide retail operations.",
           "author": {
             "@type": "Organization",
             "name": "Scott Labz",
             "url": "https://scottlabz.com/"
           },
-
           "about": [
             "Digital Infrastructure",
-            "Web Architecture",
-            "Performance Engineering",
-            "Deployment Automation",
-            "Website Security",
-            "Infrastructure Modernization"
+            "Inventory Synchronization",
+            "Systems Integration",
+            "Scalability"
           ]
         }
       }
@@ -102,11 +84,11 @@
 
     <meta
       property="og:title"
-      content="Digital Infrastructure Modernization Case Study | Scott Labz" />
+      content="Digital Infrastructure Case Study | Scott Labz" />
 
     <meta
       property="og:description"
-      content="Modernizing digital infrastructure through scalable architecture, deployment automation, performance optimization, and secure engineering." />
+      content="How connected inventory and infrastructure modernization kept online, retail, and gameday systems in sync for a major collegiate athletics retailer." />
 
     <meta
       property="og:url"
@@ -119,8 +101,10 @@
     <style>
       .security-table {
         width: 100%;
-        margin-bottom: 2rem;
+        margin-bottom: 0;
         border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
       }
 
       .security-table th,
@@ -130,40 +114,142 @@
         border-bottom: 1px solid rgba(160, 160, 160, 0.3);
       }
 
-      .security-table th {
-        font-weight: 600;
-      }
-
-      .case-study-button {
-        background-color: #1e3a5f;
-        color: #ffffff !important;
-        border-color: #1e3a5f;
-      }
-
-      .case-study-button:hover {
-        background-color: #2b527f;
-        border-color: #2b527f;
-      }
-
-      .brand-logo {
-        display: inline-flex;
-        align-items: center;
+      .security-table tbody tr:last-child td {
         border-bottom: none;
       }
 
-      .brand-logo img {
-        display: block;
-        margin-right: 0;
+      .security-table th {
+        font-weight: 600;
+        color: #1e3a5f;
+        background: rgba(30, 58, 95, 0.05);
       }
 
-      @media screen and (max-width: 736px) {
-        .security-table {
-          font-size: 0.85rem;
-        }
+      .security-table tbody tr:nth-child(even) {
+        background: rgba(30, 58, 95, 0.02);
+      }
 
-        .security-table th,
-        .security-table td {
-          padding: 0.5rem;
+      .security-table td strong {
+        color: #1e3a5f;
+      }
+
+      .case-study-icon {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      .content h3 {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        letter-spacing: -0.01em;
+        margin: 0 0 1.25rem 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(30, 58, 95, 0.15);
+      }
+
+      .content h2.case-study-headline {
+        border-left: 4px solid #1e3a5f;
+        padding-left: 1.25rem;
+        line-height: 1.25;
+      }
+
+      .content dl dt .fweight {
+        color: #1e3a5f;
+        font-size: 1.02rem;
+      }
+
+      .content dl dd p {
+        opacity: 0.85;
+      }
+
+      .content dl dd:last-child p,
+      .case-section > *:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Hero card: logo, back link, title, and intro copy */
+      .hero-box {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        padding: 3rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Each case study section gets its own card */
+      .case-section {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        border-left: 4px solid #1e3a5f;
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Closing CTA card, styled like the rest of the site's CTA blocks */
+      .case-cta {
+        background: rgba(248, 250, 252, 1);
+        border: 1px solid #1e3a5f;
+        border-radius: 12px;
+        padding: 3rem 2.5rem;
+        text-align: center;
+        box-shadow:
+          0 10px 25px rgba(15, 23, 42, 0.06),
+          0 4px 10px rgba(15, 23, 42, 0.04);
+      }
+
+      .case-cta h3 {
+        border-bottom: none;
+        display: inline-block;
+      }
+
+      .case-cta p {
+        max-width: 600px;
+        margin: 0 auto 1.5rem auto;
+      }
+
+      .case-cta .actions {
+        justify-content: center;
+      }
+
+      .banner {
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+      }
+
+      .banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        background-image: url("/images/case-studies12.jpg");
+        background-size: cover;
+        background-position: center;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          black 60%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      }
+
+      .banner > * {
+        position: relative;
+        z-index: 1;
+      }
+      .banner.style1 .content {
+        max-width: 40rem;
+        padding: 1rem;
+      }
+      @media screen and (max-width: 1280px) {
+        .banner.style1 .content {
+          padding: 1rem;
         }
       }
     </style>
@@ -171,7 +257,6 @@
 
   <body class="is-preload">
     <!-- Google Tag Manager (noscript) -->
-
     <noscript>
       <iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
@@ -180,356 +265,353 @@
         style="display: none; visibility: hidden">
       </iframe>
     </noscript>
-
     <!-- End Google Tag Manager (noscript) -->
 
-    <div id="wrapper" class="divided">
+    <div id="wrapper">
       <section
         class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
-          <h1>
-            <a href="../index.html" style="border-bottom: none">
-              <img
-                src="/images/scottlabz-clear.png"
-                alt="S"
-                class="logo"
-                style="margin-right: 0" />cott Labz
-            </a>
-          </h1>
-
-          <ul class="actions stacked">
-            <li>
-              <a
-                href="/case-studies.html"
-                class="button big wide smooth-scroll case-study-button">
-                Back
+          <div class="hero-box">
+            <h1>
+              <a href="/index.html" style="border-bottom: none">
+                <img
+                  src="/images/scottlabz-clear.png"
+                  alt="S"
+                  class="logo"
+                  style="margin-right: 0" />cott Labz
               </a>
-            </li>
-          </ul>
-
-          <h1>Digital Infrastructure Modernization Case Study</h1>
-
-          <span class="icon solid style2 major fa-briefcase"></span>
-
-          <h2
-            style="
-              font-size: 2.2rem;
-              margin-top: 0.5rem;
-              margin-bottom: 1.5rem;
-            ">
-            Modernizing Digital Infrastructure for Performance, Security &amp;
-            Scalability
-          </h2>
-
-          <p class="major">
-            Designing resilient web infrastructure that improves performance,
-            strengthens security, streamlines deployments, and provides a
-            scalable foundation for long-term digital growth.
-          </p>
-
-          <h3>Project Overview</h3>
-
-          <table class="security-table">
-            <tbody>
-              <tr>
-                <td>
-                  <strong>Project Type</strong>
-                </td>
-
-                <td>Enterprise Digital Infrastructure Modernization</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Organization</strong>
-                </td>
-
-                <td>Confidential Enterprise Organization</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Primary Focus</strong>
-                </td>
-
-                <td>Infrastructure, Performance, Security &amp; Automation</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Outcome</strong>
-                </td>
-
-                <td>
-                  Improved reliability, maintainability, scalability, and
-                  operational efficiency
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h3>The Challenge</h3>
-
-          <p>
-            Many organizations rely on aging web infrastructure that has evolved
-            through years of incremental updates. Legacy architectures often
-            become increasingly difficult to maintain, deploy, secure, and scale
-            while accumulating technical debt.
-          </p>
-
-          <p>
-            As digital platforms continue to expand, organizations require
-            modern infrastructure capable of supporting efficient development,
-            reliable deployments, stronger security, and future business growth.
-          </p>
-
-          <p>Key challenges included:</p>
-
-          <ul class="alt">
-            <li>Legacy website architecture</li>
-
-            <li>Manual deployment processes</li>
-
-            <li>Performance bottlenecks</li>
-
-            <li>Inconsistent development standards</li>
-
-            <li>Growing technical debt</li>
-
-            <li>Limited scalability</li>
-
-            <li>Security hardening requirements</li>
-          </ul>
-
-          <h3>The Approach</h3>
-          <p>
-            The modernization initiative focused on redesigning the underlying
-            digital infrastructure while minimizing operational disruption and
-            creating a sustainable foundation for future development.
-          </p>
-
-          <dl>
-            <dt>
-              <span class="fweight"> Infrastructure Assessment </span>
-            </dt>
-
-            <dd>
-              <p>
-                Evaluated the existing web environment to identify technical
-                debt, infrastructure risks, deployment inefficiencies, and
-                opportunities for modernization while establishing a roadmap for
-                long-term scalability.
-              </p>
-            </dd>
-
-            <dt>
-              <span class="fweight"> Architecture Modernization </span>
-            </dt>
-
-            <dd>
-              <p>
-                Redesigned the platform using modular architecture, reusable
-                components, and maintainable development standards that simplify
-                future enhancements and ongoing maintenance.
-              </p>
-            </dd>
-
-            <dt>
-              <span class="fweight"> Deployment Automation </span>
-            </dt>
-
-            <dd>
-              <p>
-                Introduced automated deployment workflows and version control
-                practices that improved release consistency, reduced manual
-                effort, and accelerated delivery.
-              </p>
-            </dd>
-
-            <dt>
-              <span class="fweight">
-                Performance &amp; Security Engineering
-              </span>
-            </dt>
-
-            <dd>
-              <p>
-                Optimized infrastructure for speed, resilience, and security by
-                implementing modern engineering practices, performance
-                improvements, and infrastructure hardening.
-              </p>
-            </dd>
-          </dl>
-
-          <h3>The Solution</h3>
-
-          <p>
-            A modern digital infrastructure was implemented to provide a stable,
-            scalable, and secure foundation capable of supporting future
-            business growth and evolving technology requirements.
-          </p>
-
-          <table class="security-table">
-            <thead>
-              <tr>
-                <th>Capability</th>
-
-                <th>Impact</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>
-                  <strong>Modern Architecture</strong>
-                </td>
-
-                <td>
-                  Improved scalability while simplifying long-term
-                  maintainability.
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Deployment Automation</strong>
-                </td>
-
-                <td>
-                  Increased deployment consistency while reducing manual
-                  operational effort.
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Performance Engineering</strong>
-                </td>
-
-                <td>
-                  Improved responsiveness and created a better user experience
-                  across digital platforms.
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Infrastructure Security</strong>
-                </td>
-
-                <td>
-                  Strengthened platform resilience through secure engineering
-                  practices and modern infrastructure standards.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h3>The Results</h3>
-
-          <p>
-            By modernizing the organization's digital infrastructure, the
-            platform became more reliable, easier to maintain, and better
-            positioned to support future growth initiatives.
-          </p>
-
-          <ul class="alt">
-            <li>Improved deployment reliability</li>
-
-            <li>Reduced infrastructure complexity</li>
-
-            <li>Better website performance</li>
-
-            <li>Increased long-term maintainability</li>
-
-            <li>Enhanced platform security</li>
-
-            <li>Established a scalable technology foundation</li>
-          </ul>
-
-          <h3>Technologies &amp; Capabilities</h3>
-
-          <dl>
-            <dt>
-              <span class="fweight"> Infrastructure Engineering </span>
-            </dt>
-
-            <dd>
-              <p>
-                Modern infrastructure designed around scalability,
-                maintainability, automation, and long-term operational
-                reliability.
-              </p>
-            </dd>
-
-            <dt>
-              <span class="fweight"> Performance Optimization </span>
-            </dt>
-
-            <dd>
-              <p>
-                Architecture and optimization techniques focused on improving
-                speed, responsiveness, and overall user experience across modern
-                web environments.
-              </p>
-            </dd>
-
-            <dt>
-              <span class="fweight"> DevOps &amp; Automation </span>
-            </dt>
-
-            <dd>
-              <p>
-                Automated deployment workflows, version control, and continuous
-                delivery practices that improve operational efficiency and
-                release quality.
-              </p>
-            </dd>
-
-            <dt>
-              <span class="fweight"> Secure Engineering </span>
-            </dt>
-
-            <dd>
-              <p>
-                Infrastructure hardening, secure configuration management, and
-                engineering best practices that strengthen long-term platform
-                resilience.
-              </p>
-            </dd>
-          </dl>
-
-          <h3>Business Impact</h3>
-
-          <p>
-            Modern digital infrastructure enables organizations to move faster,
-            reduce operational complexity, improve security, and support future
-            innovation with confidence.
-          </p>
-
-          <p>
-            Through scalable architecture, deployment automation, performance
-            engineering, and secure infrastructure design, this initiative
-            established a stronger technical foundation for sustainable digital
-            growth.
-          </p>
-
-          <h3>Partner With Scott Labz</h3>
-
-          <p>
-            Scott Labz helps organizations modernize digital infrastructure
-            through scalable architecture, deployment automation, performance
-            engineering, and secure web platform design that supports long-term
-            business success.
-          </p>
-
-          <ul class="actions">
-            <li>
-              <a href="/contact.html" class="button primary">
-                Start a Conversation
-              </a>
-            </li>
-          </ul>
+            </h1>
+
+            <h3>Digital Infrastructure Case Study</h3>
+
+            <h2
+              class="case-study-headline"
+              style="
+                font-size: 2.2rem;
+                margin-top: 0.5rem;
+                margin-bottom: 1.5rem;
+              ">
+              Modernizing Digital Infrastructure for Performance, Security &amp;
+              Scalability
+            </h2>
+
+            <p class="major" style="margin-bottom: 0">
+              Keeping online inventory in sync with retail stores across the
+              state, on infrastructure built to hold up as the operation keeps
+              growing.
+            </p>
+          </div>
+
+          <div class="case-section">
+            <h3>Project Overview</h3>
+
+            <table class="security-table">
+              <tbody>
+                <tr>
+                  <td><strong>Project</strong></td>
+                  <td>Digital Infrastructure Modernization</td>
+                </tr>
+
+                <tr>
+                  <td><strong>Organization</strong></td>
+                  <td>
+                    Hawkeye Fan Shop, The Official Retailer of the University of
+                    Iowa Athletics Department
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>Focus</strong></td>
+                  <td>
+                    Inventory Synchronization, Hosting &amp; Deployment, Systems
+                    Scalability
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>Outcome</strong></td>
+                  <td>
+                    Stock counts that match reality across every store,
+                    warehouse, and the website
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="case-section">
+            <h3>The Challenge</h3>
+
+            <p>
+              A storefront built from the ground up still had to answer a
+              harder, ongoing question: how do you keep inventory accurate
+              across retail locations statewide, mobile gameday shops, and a
+              growing online store, all while demand spikes hard around gameday,
+              roster changes, and postseason runs?
+            </p>
+
+            <p style="margin: 0 0 0.9rem 0">Key challenges included:</p>
+
+            <ul class="alt">
+              <li>
+                Retail locations across the state and mobile gameday shops that
+                all needed to reflect the same stock counts as the website
+              </li>
+
+              <li>
+                A real risk of overselling product that wasn't actually
+                available once demand spiked
+              </li>
+
+              <li>
+                Hosting and deployment infrastructure that needed to support a
+                fast-moving, gameday-driven release schedule
+              </li>
+
+              <li>
+                A growing footprint of stores and sports that kept expanding
+                what the infrastructure needed to support
+              </li>
+
+              <li>
+                No room for inventory or infrastructure failures once a live
+                event or product drop began
+              </li>
+            </ul>
+          </div>
+
+          <div class="case-section">
+            <h3>The Approach</h3>
+
+            <p>
+              The focus was building infrastructure that treated every store,
+              shop, and the website as one connected system, rather than
+              separate operations that happened to sell the same products.
+            </p>
+
+            <dl>
+              <dt>
+                <span class="fweight"> Inventory Synchronization </span>
+              </dt>
+
+              <dd>
+                <p>
+                  Connected online inventory with retail and gameday shop stock
+                  counts so numbers matched reality across every location.
+                </p>
+              </dd>
+
+              <dt>
+                <span class="fweight"> Hosting &amp; Deployment Strategy </span>
+              </dt>
+
+              <dd>
+                <p>
+                  Built hosting and deployment practices that supported a
+                  fast-moving release schedule tied to a live sports calendar.
+                </p>
+              </dd>
+
+              <dt>
+                <span class="fweight"> Systems Scalability </span>
+              </dt>
+
+              <dd>
+                <p>
+                  Designed the infrastructure to expand cleanly as more stores,
+                  sports, and seasons joined the partnership.
+                </p>
+              </dd>
+
+              <dt>
+                <span class="fweight"> Ongoing Infrastructure Review </span>
+              </dt>
+
+              <dd>
+                <p>
+                  Revisited infrastructure decisions regularly as the
+                  operation's footprint and demand continued to grow.
+                </p>
+              </dd>
+            </dl>
+          </div>
+
+          <div class="case-section">
+            <h3>The Solution</h3>
+
+            <p>
+              Modernized infrastructure now keeps stock counts synchronized
+              across every store, warehouse, and the website, with hosting and
+              deployment built to support a demanding release calendar.
+            </p>
+
+            <table class="security-table">
+              <thead>
+                <tr>
+                  <th>Capability</th>
+                  <th>Impact</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <strong> Connected Inventory </strong>
+                  </td>
+
+                  <td>
+                    Stock counts matching reality across every store, warehouse,
+                    and the website.
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong> Reliable Hosting &amp; Deployment </strong>
+                  </td>
+
+                  <td>
+                    Infrastructure that supports a fast-moving, gameday-driven
+                    release schedule.
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong> Scalable Systems </strong>
+                  </td>
+
+                  <td>
+                    Infrastructure built to expand cleanly as the partnership
+                    grows.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="case-section">
+            <h3>The Results</h3>
+
+            <p>
+              With connected inventory and modernized infrastructure in place,
+              store and web performance have improved, gameday traffic has been
+              handled without the site buckling under peak demand, and
+              conversion has trended upward across departments over the course
+              of the partnership.
+            </p>
+
+            <ul class="alt">
+              <li>
+                Inventory synchronized across stores, gameday shops, and the
+                website
+              </li>
+
+              <li>Gameday traffic handled reliably at peak demand</li>
+
+              <li>Upward conversion trends across departments</li>
+
+              <li>
+                A modernized infrastructure supporting ongoing email campaigns
+                for gameday information, product drops, and student-athlete
+                appearances
+              </li>
+            </ul>
+          </div>
+
+          <div class="case-section">
+            <h3>Technologies &amp; Capabilities</h3>
+
+            <dl>
+              <dt>
+                <span class="fweight"> Inventory Systems </span>
+              </dt>
+
+              <dd>
+                <p>
+                  Stock synchronization connecting retail, gameday shop, and
+                  online counts into one accurate source.
+                </p>
+              </dd>
+
+              <dt>
+                <span class="fweight"> Hosting &amp; Deployment </span>
+              </dt>
+
+              <dd>
+                <p>
+                  Infrastructure practices designed to support a fast release
+                  schedule tied to a live sports calendar.
+                </p>
+              </dd>
+
+              <dt>
+                <span class="fweight"> Scalable Infrastructure </span>
+              </dt>
+
+              <dd>
+                <p>
+                  Systems designed to expand as more stores, sports, and seasons
+                  joined the partnership.
+                </p>
+              </dd>
+
+              <dt>
+                <span class="fweight"> Ongoing Infrastructure Support </span>
+              </dt>
+
+              <dd>
+                <p>
+                  Regular review and adjustment as the operation's footprint and
+                  demand continued to grow.
+                </p>
+              </dd>
+            </dl>
+          </div>
+
+          <div class="case-section">
+            <h3>Business Impact</h3>
+
+            <p>
+              A storefront can only sell what it actually has. Connecting
+              inventory across every store, gameday shop, and the website meant
+              fans saw accurate stock no matter where they shopped, and the
+              business stopped overselling product that wasn't really there.
+            </p>
+
+            <p style="margin-bottom: 0">
+              Through inventory synchronization, dependable hosting and
+              deployment practices, and infrastructure built to scale, this
+              initiative created a foundation that has supported the partnership
+              with Hawkeye Fan Shop and the University of Iowa Athletics
+              Department since 2016.
+            </p>
+          </div>
+
+          <div class="case-section">
+            <h3>Explore More Case Studies</h3>
+            <p style="margin-top: 1.5rem; margin-bottom: 0">
+              <a href="/case-studies.html">View all case studies →</a>
+            </p>
+          </div>
+
+          <div class="case-cta">
+            <h3>Start the Conversation</h3>
+
+            <p>
+              Infrastructure that quietly holds everything together isn't an
+              accident. It's built deliberately, store by store, so the
+              operation you're running is one you can actually count on.
+            </p>
+
+            <ul class="actions">
+              <li>
+                <a href="/contact.html" class="button primary">
+                  Start a Conversation
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -542,7 +624,7 @@
       <script src="/assets/js/footer-min.js" defer></script>
 
       <scott-footer
-        description="Explore how Scott Labz modernizes digital infrastructure through scalable architecture, deployment automation, performance engineering, and secure web platform design.">
+        description="How connected inventory and infrastructure modernization kept online, retail, and gameday systems in sync for a major collegiate athletics retailer.">
       </scott-footer>
     </div>
   </body>

@@ -7,18 +7,13 @@
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
-
-        w[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js",
-        });
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
 
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
           dl = l != "dataLayer" ? "&l=" + l : "";
 
         j.async = true;
-
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
 
         f.parentNode.insertBefore(j, f);
@@ -26,13 +21,11 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <title>
-      Analytics Dashboard &amp; Reporting Platform Case Study | Scott Labz
-    </title>
+    <title>Analytics Reporting Platform Case Study | Scott Labz</title>
 
     <meta
       name="description"
-      content="Explore how Scott Labz builds scalable analytics dashboards and reporting platforms that transform complex data into trusted business intelligence and actionable insights." />
+      content="How a unified reporting platform turned complex, multi-channel retail data into trusted business intelligence for a major collegiate athletics retailer." />
 
     <meta charset="utf-8" />
 
@@ -47,7 +40,6 @@
     </noscript>
 
     <script src="/assets/js/header-min.js" defer></script>
-
     <script src="/assets/js/favicon-min.js" defer></script>
 
     <link
@@ -58,41 +50,29 @@
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
-
         "@id": "https://scottlabz.com/case-studies/analytics-dashboard-reporting-platform.html",
-
         "url": "https://scottlabz.com/case-studies/analytics-dashboard-reporting-platform.html",
-
-        "name": "Analytics Dashboard & Reporting Platform Case Study | Scott Labz",
-
-        "description": "A case study demonstrating enterprise analytics dashboards, reporting architecture, KPI frameworks, business intelligence, and data visualization solutions.",
-
+        "name": "Analytics Reporting Platform Case Study | Scott Labz",
+        "description": "A case study on building a unified reporting platform that turns complex, multi-channel retail data into trusted business intelligence.",
         "isPartOf": {
           "@type": "WebSite",
           "@id": "https://scottlabz.com/",
           "name": "Scott Labz"
         },
-
         "mainEntity": {
           "@type": "CreativeWork",
-
-          "name": "Analytics Dashboard & Reporting Platform Initiative",
-
-          "description": "Creating scalable reporting platforms that transform disconnected data into trusted business intelligence.",
-
+          "name": "Analytics Reporting Platform Initiative",
+          "description": "Building a centralized reporting platform that pulls retail, gameday, and online data into one trusted source of business intelligence.",
           "author": {
             "@type": "Organization",
             "name": "Scott Labz",
             "url": "https://scottlabz.com/"
           },
-
           "about": [
-            "Analytics Dashboards",
+            "Digital Analytics",
+            "Reporting Platform",
             "Business Intelligence",
-            "Reporting Architecture",
-            "Data Visualization",
-            "KPI Framework Development",
-            "Reporting Automation"
+            "Data Warehousing"
           ]
         }
       }
@@ -104,11 +84,11 @@
 
     <meta
       property="og:title"
-      content="Analytics Dashboard &amp; Reporting Platform Case Study | Scott Labz" />
+      content="Analytics Reporting Platform Case Study | Scott Labz" />
 
     <meta
       property="og:description"
-      content="Transforming complex data into trusted business intelligence through scalable analytics dashboards, KPI frameworks, and reporting platforms." />
+      content="How a unified reporting platform turned complex, multi-channel retail data into trusted business intelligence for a major collegiate athletics retailer." />
 
     <meta
       property="og:url"
@@ -121,8 +101,10 @@
     <style>
       .security-table {
         width: 100%;
-        margin-bottom: 2rem;
+        margin-bottom: 0;
         border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
       }
 
       .security-table th,
@@ -132,47 +114,149 @@
         border-bottom: 1px solid rgba(160, 160, 160, 0.3);
       }
 
-      .security-table th {
-        font-weight: 600;
-      }
-
-      .case-study-button {
-        background-color: #1e3a5f;
-        color: #ffffff !important;
-        border-color: #1e3a5f;
-      }
-
-      .case-study-button:hover {
-        background-color: #2b527f;
-        border-color: #2b527f;
-      }
-
-      .brand-logo {
-        display: inline-flex;
-        align-items: center;
+      .security-table tbody tr:last-child td {
         border-bottom: none;
       }
 
-      .brand-logo img {
-        display: block;
-        margin-right: 0;
+      .security-table th {
+        font-weight: 600;
+        color: #1e3a5f;
+        background: rgba(30, 58, 95, 0.05);
       }
 
-      @media screen and (max-width: 736px) {
-        .security-table {
-          font-size: 0.85rem;
-        }
+      .security-table tbody tr:nth-child(even) {
+        background: rgba(30, 58, 95, 0.02);
+      }
 
-        .security-table th,
-        .security-table td {
-          padding: 0.5rem;
+      .security-table td strong {
+        color: #1e3a5f;
+      }
+
+      .case-study-icon {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      .content h3 {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        letter-spacing: -0.01em;
+        margin: 0 0 1.25rem 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(30, 58, 95, 0.15);
+      }
+
+      .content h2.case-study-headline {
+        border-left: 4px solid #1e3a5f;
+        padding-left: 1.25rem;
+        line-height: 1.25;
+      }
+
+      .content dl dt .fweight {
+        color: #1e3a5f;
+        font-size: 1.02rem;
+      }
+
+      .content dl dd p {
+        opacity: 0.85;
+      }
+
+      .content dl dd:last-child p,
+      .case-section > *:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Hero card: logo, back link, title, and intro copy */
+      .hero-box {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        padding: 3rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Each case study section gets its own card */
+      .case-section {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        border-left: 4px solid #1e3a5f;
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Closing CTA card, styled like the rest of the site's CTA blocks */
+      .case-cta {
+        background: rgba(248, 250, 252, 1);
+        border: 1px solid #1e3a5f;
+        border-radius: 12px;
+        padding: 3rem 2.5rem;
+        text-align: center;
+        box-shadow:
+          0 10px 25px rgba(15, 23, 42, 0.06),
+          0 4px 10px rgba(15, 23, 42, 0.04);
+      }
+
+      .case-cta h3 {
+        border-bottom: none;
+        display: inline-block;
+      }
+
+      .case-cta p {
+        max-width: 600px;
+        margin: 0 auto 1.5rem auto;
+      }
+
+      .case-cta .actions {
+        justify-content: center;
+      }
+
+      .banner {
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+      }
+
+      .banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        background-image: url("/images/case-studies8.jpg");
+        background-size: cover;
+        background-position: center;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          black 60%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      }
+
+      .banner > * {
+        position: relative;
+        z-index: 1;
+      }
+      .banner.style1 .content {
+        max-width: 40rem;
+        padding: 1rem;
+      }
+      @media screen and (max-width: 1280px) {
+        .banner.style1 .content {
+          padding: 1rem;
         }
       }
     </style>
   </head>
+
   <body class="is-preload">
     <!-- Google Tag Manager (noscript) -->
-
     <noscript>
       <iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
@@ -181,338 +265,355 @@
         style="display: none; visibility: hidden">
       </iframe>
     </noscript>
-
     <!-- End Google Tag Manager (noscript) -->
 
-    <div id="wrapper" class="divided">
+    <div id="wrapper">
       <section
         class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
-          <h1>
-            <a href="../index.html" style="border-bottom: none">
-              <img
-                src="/images/scottlabz-clear.png"
-                alt="S"
-                class="logo"
-                style="margin-right: 0" />cott Labz
-            </a>
-          </h1>
-
-          <ul class="actions stacked">
-            <li>
-              <a
-                href="/case-studies.html"
-                class="button big wide smooth-scroll case-study-button">
-                Back
+          <div class="hero-box">
+            <h1>
+              <a href="/index.html" style="border-bottom: none">
+                <img
+                  src="/images/scottlabz-clear.png"
+                  alt="S"
+                  class="logo"
+                  style="margin-right: 0" />cott Labz
               </a>
-            </li>
-          </ul>
-
-          <h1>Analytics Dashboard &amp; Reporting Platform Case Study</h1>
-
-          <span class="icon solid style2 major fa-briefcase"></span>
-
-          <h2
-            style="
-              font-size: 2.2rem;
-              margin-top: 0.5rem;
-              margin-bottom: 1.5rem;
-            ">
-            Transforming Complex Data Into Trusted Business Intelligence
-          </h2>
-
-          <p class="major">
-            Designing scalable analytics dashboards and reporting platforms that
-            unify business metrics, improve visibility, and empower data-driven
-            decisions.
-          </p>
-
-          <h3>Project Overview</h3>
-
-          <table class="security-table">
-            <tbody>
-              <tr>
-                <td>
-                  <strong>Project Type</strong>
-                </td>
-
-                <td>Enterprise Analytics Dashboard &amp; Reporting Platform</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Organization</strong>
-                </td>
-
-                <td>Confidential Enterprise Organization</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Primary Focus</strong>
-                </td>
-
-                <td>
-                  Business Intelligence, KPI Frameworks, Reporting Architecture
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Outcome</strong>
-                </td>
-
-                <td>
-                  Improved visibility, reporting consistency, and decision
-                  support
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h3>The Challenge</h3>
-
-          <p>
-            Organizations often collect large volumes of data across multiple
-            systems but struggle to convert that information into consistent,
-            meaningful insights.
-          </p>
-
-          <p>
-            Leadership teams require reliable visibility into performance, while
-            business teams need reporting solutions that are easy to understand,
-            maintain, and scale.
-          </p>
-
-          <p>Key challenges included:</p>
-
-          <ul class="alt">
-            <li>Disconnected reporting sources</li>
-
-            <li>Inconsistent business metrics</li>
-
-            <li>Manual reporting processes</li>
-
-            <li>Limited executive visibility</li>
-
-            <li>Difficulty scaling reporting across teams</li>
-          </ul>
-
-          <h3>The Approach</h3>
-
-          <p>
-            The project focused on creating a reporting ecosystem that connected
-            business objectives with reliable data sources, meaningful metrics,
-            and intuitive reporting experiences.
-          </p>
-
-          <dl>
-            <dt>
-              <span class="fweight"> KPI Framework Development </span>
-            </dt>
-
-            <dd>
-              <p>
-                Established a structured measurement framework that aligned
-                reporting metrics with organizational goals and measurable
-                business outcomes.
-              </p>
-            </dd>
-
-            <dt>
-              <span class="fweight"> Reporting Architecture Design </span>
-            </dt>
-
-            <dd>
-              <p>
-                Designed scalable reporting structures that organized complex
-                information into clear dashboards and reusable reporting models.
-              </p>
-            </dd>
-
-            <dt>
-              <span class="fweight"> Data Integration Strategy </span>
-            </dt>
-
-            <dd>
-              <p>
-                Connected analytics platforms, reporting systems, and data
-                sources to create consistent reporting experiences across
-                business functions.
-              </p>
-            </dd>
-
-            <dt>
-              <span class="fweight"> Dashboard Experience Design </span>
-            </dt>
-
-            <dd>
-              <p>
-                Created intuitive dashboards that prioritized actionable
-                insights over unnecessary complexity.
-              </p>
-            </dd>
-          </dl>
-
-          <h3>The Solution</h3>
-
-          <p>
-            A centralized analytics reporting platform was developed to provide
-            teams with reliable visibility into performance metrics, trends, and
-            business outcomes.
-          </p>
-
-          <table class="security-table">
-            <thead>
-              <tr>
-                <th>Capability</th>
-
-                <th>Impact</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>
-                  <strong>Executive Dashboards</strong>
-                </td>
-
-                <td>
-                  Provided leadership with high-level visibility into business
-                  performance and strategic metrics.
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>KPI Frameworks</strong>
-                </td>
-
-                <td>
-                  Created consistent measurement standards across reporting
-                  initiatives.
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Reporting Automation</strong>
-                </td>
-
-                <td>
-                  Reduced manual reporting effort while improving reliability
-                  and scalability.
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Data Visualization</strong>
-                </td>
-
-                <td>
-                  Simplified complex information into accessible visual
-                  reporting experiences.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <h3>The Results</h3>
-
-          <p>
-            By implementing a structured reporting platform, the organization
-            gained improved visibility, reduced reporting complexity, and
-            greater confidence in analytics-driven decisions.
-          </p>
-
-          <ul class="alt">
-            <li>Improved access to critical business metrics</li>
-
-            <li>Reduced manual reporting effort</li>
-
-            <li>Increased consistency across reporting initiatives</li>
-
-            <li>Better alignment between data and business strategy</li>
-          </ul>
-
-          <h3>Technologies &amp; Capabilities</h3>
-
-          <dl>
-            <dt>
-              <span class="fweight"> Analytics Platforms </span>
-            </dt>
-
-            <dd>
-              <p>
-                Enterprise analytics environments, measurement platforms, and
-                reporting ecosystems designed to support scalable business
-                intelligence.
-              </p>
-            </dd>
-
-            <dt>
-              <span class="fweight"> Business Intelligence </span>
-            </dt>
-
-            <dd>
-              <p>
-                Dashboard architecture, KPI frameworks, and decision-support
-                reporting solutions designed around business objectives.
-              </p>
-            </dd>
-
-            <dt>
-              <span class="fweight"> Data Visualization </span>
-            </dt>
-
-            <dd>
-              <p>
-                Clear visual storytelling designed to make complex information
-                easier to understand and act upon.
-              </p>
-            </dd>
-
-            <dt>
-              <span class="fweight"> Reporting Automation </span>
-            </dt>
-
-            <dd>
-              <p>
-                Streamlined workflows that improve reporting speed, reliability,
-                and scalability for ongoing business needs.
-              </p>
-            </dd>
-          </dl>
-
-          <h3>Business Impact</h3>
-
-          <p>
-            Effective reporting is not about creating more dashboards. It is
-            about creating confidence in the information organizations use to
-            make decisions.
-          </p>
-
-          <p>
-            Through scalable reporting architecture, consistent measurement
-            frameworks, and improved visibility, this initiative created a
-            stronger foundation for data-driven business growth.
-          </p>
-
-          <h3>Partner With Scott Labz</h3>
-
-          <p>
-            Scott Labz helps organizations transform complex data into trusted
-            business intelligence through analytics dashboards, reporting
-            platforms, KPI frameworks, and scalable data solutions.
-          </p>
-
-          <ul class="actions">
-            <li>
-              <a href="/contact.html" class="button primary">
-                Start a Conversation
-              </a>
-            </li>
-          </ul>
+            </h1>
+
+            <h3>Analytics Reporting Platform Case Study</h3>
+
+            <h2
+              class="case-study-headline"
+              style="
+                font-size: 2.2rem;
+                margin-top: 0.5rem;
+                margin-bottom: 1.5rem;
+              ">
+              Transforming Complex Data Into Trusted Business Intelligence
+            </h2>
+
+            <p class="major" style="margin-bottom: 0">
+              Bringing retail, gameday, and online data into a single reporting
+              platform built to hold up as a trusted source of business
+              intelligence.
+            </p>
+          </div>
+
+          <div class="case-section">
+            <h3>Project Overview</h3>
+
+            <table class="security-table">
+              <tbody>
+                <tr>
+                  <td><strong>Project</strong></td>
+                  <td>Analytics Reporting Platform</td>
+                </tr>
+
+                <tr>
+                  <td><strong>Organization</strong></td>
+                  <td>
+                    Hawkeye Fan Shop, The Official Retailer of the University of
+                    Iowa Athletics Department
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>Focus</strong></td>
+                  <td>
+                    Reporting Platform Architecture, Data Consolidation,
+                    Business Intelligence
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>Outcome</strong></td>
+                  <td>
+                    A centralized platform giving the business one trusted
+                    source of truth across every sales channel
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="case-section">
+            <h3>The Challenge</h3>
+
+            <p>
+              As reporting needs grew beyond individual dashboards, the business
+              needed something more durable: a platform that could pull retail,
+              gameday, and online data together into one place, hold up under
+              the volume of a full sports calendar, and remain trustworthy as
+              new stores, sports, and seasons were added.
+            </p>
+
+            <p style="margin: 0 0 0.9rem 0">Key challenges included:</p>
+
+            <ul class="alt">
+              <li>
+                Complex, multi-channel data that needed to be consolidated
+                without losing detail
+              </li>
+
+              <li>
+                Reporting volume that scales sharply around gameday, roster
+                changes, and postseason runs
+              </li>
+
+              <li>
+                A growing footprint of stores, mobile gameday shops, and online
+                sales that all needed to feed the same platform
+              </li>
+
+              <li>
+                Stakeholders across the athletics department, retail operations,
+                and the online business relying on the same platform for
+                different purposes
+              </li>
+
+              <li>
+                A need for a platform that stays reliable as the partnership
+                continues to expand
+              </li>
+            </ul>
+          </div>
+
+          <div class="case-section">
+            <h3>The Approach</h3>
+
+            <p>
+              The platform was built around consolidation and durability -
+              pulling complex data together in one place while keeping it
+              structured enough to remain trustworthy as volume grew.
+            </p>
+
+            <dl>
+              <dt>
+                <span class="fweight"> Platform Architecture </span>
+              </dt>
+
+              <dd>
+                <p>
+                  Designed a reporting platform structured to pull retail,
+                  gameday, and online data together without losing the detail
+                  each source provides.
+                </p>
+              </dd>
+
+              <dt>
+                <span class="fweight"> Data Consolidation </span>
+              </dt>
+
+              <dd>
+                <p>
+                  Brought data from every sales channel into one consistent
+                  structure, so numbers could be compared across stores, sports,
+                  and seasons.
+                </p>
+              </dd>
+
+              <dt>
+                <span class="fweight"> Scalable Reporting </span>
+              </dt>
+
+              <dd>
+                <p>
+                  Built the platform to absorb sharp gameday volume spikes
+                  without slowing down or losing accuracy.
+                </p>
+              </dd>
+
+              <dt>
+                <span class="fweight"> Business Intelligence Enablement </span>
+              </dt>
+
+              <dd>
+                <p>
+                  Structured the platform so stakeholders could pull trusted
+                  answers directly, rather than requesting a custom report each
+                  time.
+                </p>
+              </dd>
+            </dl>
+          </div>
+
+          <div class="case-section">
+            <h3>The Solution</h3>
+
+            <p>
+              A centralized reporting platform now gives the business one
+              trusted source of truth, turning complex, multi-channel data into
+              business intelligence stakeholders can rely on.
+            </p>
+
+            <table class="security-table">
+              <thead>
+                <tr>
+                  <th>Capability</th>
+                  <th>Impact</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <strong> Data Consolidation </strong>
+                  </td>
+
+                  <td>
+                    Retail, gameday, and online data brought into one consistent
+                    structure.
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong> Platform Reliability </strong>
+                  </td>
+
+                  <td>
+                    Reporting that holds up under sharp gameday volume spikes.
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong> Trusted Intelligence </strong>
+                  </td>
+
+                  <td>
+                    A single source of truth stakeholders can query directly
+                    with confidence.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="case-section">
+            <h3>The Results</h3>
+
+            <p>
+              With a centralized reporting platform in place, store and web
+              performance have improved, gameday traffic has been handled
+              without the site buckling under peak demand, and conversion has
+              trended upward across departments over the course of the
+              partnership.
+            </p>
+
+            <ul class="alt">
+              <li>
+                A single trusted reporting platform spanning every sales channel
+              </li>
+
+              <li>Gameday traffic handled reliably at peak demand</li>
+
+              <li>Upward conversion trends across departments</li>
+
+              <li>
+                A reporting platform supporting ongoing email campaigns for
+                gameday information, product drops, and student-athlete
+                appearances
+              </li>
+            </ul>
+          </div>
+
+          <div class="case-section">
+            <h3>Technologies &amp; Capabilities</h3>
+
+            <dl>
+              <dt>
+                <span class="fweight"> Reporting Platform Architecture </span>
+              </dt>
+
+              <dd>
+                <p>
+                  A centralized structure designed to consolidate retail,
+                  gameday, and online data without losing detail.
+                </p>
+              </dd>
+
+              <dt>
+                <span class="fweight"> Data Consolidation </span>
+              </dt>
+
+              <dd>
+                <p>
+                  Multi-channel data brought together into one consistent,
+                  comparable structure.
+                </p>
+              </dd>
+
+              <dt>
+                <span class="fweight"> Scalable Infrastructure </span>
+              </dt>
+
+              <dd>
+                <p>
+                  A platform built to absorb gameday volume spikes and keep pace
+                  as the partnership grows.
+                </p>
+              </dd>
+
+              <dt>
+                <span class="fweight"> Business Intelligence </span>
+              </dt>
+
+              <dd>
+                <p>
+                  Structured reporting that gives stakeholders trusted answers
+                  they can query directly.
+                </p>
+              </dd>
+            </dl>
+          </div>
+
+          <div class="case-section">
+            <h3>Business Impact</h3>
+
+            <p>
+              Complex, multi-channel data only becomes useful once it lives
+              somewhere stakeholders can trust it. A centralized reporting
+              platform meant retail, gameday, and online performance could be
+              compared side by side, giving the business one dependable answer
+              instead of three conflicting ones.
+            </p>
+
+            <p style="margin-bottom: 0">
+              Through consolidated platform architecture, scalable reporting
+              infrastructure, and business intelligence built for direct use,
+              this initiative created a trusted reporting foundation that has
+              supported the partnership with Hawkeye Fan Shop and the University
+              of Iowa Athletics Department since 2016.
+            </p>
+          </div>
+
+          <div class="case-section">
+            <h3>Explore More Case Studies</h3>
+            <p style="margin-top: 1.5rem; margin-bottom: 0">
+              <a href="/case-studies.html">View all case studies →</a>
+            </p>
+          </div>
+
+          <div class="case-cta">
+            <h3>Start the Conversation</h3>
+
+            <p>
+              A reporting platform is only as valuable as the trust behind it.
+              It's built deliberately, one consolidated source at a time, so the
+              data you're looking at is data you can actually trust.
+            </p>
+
+            <ul class="actions">
+              <li>
+                <a href="/contact.html" class="button primary">
+                  Start a Conversation
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -525,7 +626,7 @@
       <script src="/assets/js/footer-min.js" defer></script>
 
       <scott-footer
-        description="Explore how Scott Labz transforms complex data into trusted business intelligence through analytics dashboards, reporting platforms, KPI frameworks, and scalable data solutions.">
+        description="How a unified reporting platform turned complex, multi-channel retail data into trusted business intelligence for a major collegiate athletics retailer.">
       </scott-footer>
     </div>
   </body>

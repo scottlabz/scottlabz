@@ -25,7 +25,7 @@
 
     <meta
       name="description"
-      content="Explore how Scott Labz improved website performance through technical analysis, optimization strategies, and data-driven digital enhancements." />
+      content="How speed and reliability improvements kept a gameday storefront fast under peak traffic for a major collegiate athletics retailer." />
 
     <meta charset="utf-8" />
 
@@ -40,7 +40,6 @@
     </noscript>
 
     <script src="/assets/js/header-min.js" defer></script>
-
     <script src="/assets/js/favicon-min.js" defer></script>
 
     <link
@@ -54,7 +53,7 @@
         "@id": "https://scottlabz.com/case-studies/website-performance-optimization.html",
         "url": "https://scottlabz.com/case-studies/website-performance-optimization.html",
         "name": "Website Performance Optimization Case Study | Scott Labz",
-        "description": "A case study demonstrating website performance improvements through technical optimization and analytics-driven enhancements.",
+        "description": "A case study on improving load speed and reliability for a collegiate athletics retailer's storefront during peak gameday traffic.",
         "isPartOf": {
           "@type": "WebSite",
           "@id": "https://scottlabz.com/",
@@ -63,7 +62,7 @@
         "mainEntity": {
           "@type": "CreativeWork",
           "name": "Website Performance Optimization Initiative",
-          "description": "Improving digital experiences through technical analysis, optimization strategies, and performance improvements.",
+          "description": "Improving load speed, caching, and asset delivery so a gameday storefront stays fast and reliable under sharp traffic spikes.",
           "author": {
             "@type": "Organization",
             "name": "Scott Labz",
@@ -71,9 +70,9 @@
           },
           "about": [
             "Website Performance",
-            "Digital Optimization",
-            "Technical Analysis",
-            "User Experience"
+            "Core Web Vitals",
+            "Caching",
+            "Site Reliability"
           ]
         }
       }
@@ -89,7 +88,7 @@
 
     <meta
       property="og:description"
-      content="Improving digital experiences through performance analysis, technical optimization, and data-driven enhancements." />
+      content="How speed and reliability improvements kept a gameday storefront fast under peak traffic for a major collegiate athletics retailer." />
 
     <meta
       property="og:url"
@@ -102,8 +101,10 @@
     <style>
       .security-table {
         width: 100%;
-        margin-bottom: 2rem;
+        margin-bottom: 0;
         border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
       }
 
       .security-table th,
@@ -113,15 +114,149 @@
         border-bottom: 1px solid rgba(160, 160, 160, 0.3);
       }
 
+      .security-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
       .security-table th {
         font-weight: 600;
+        color: #1e3a5f;
+        background: rgba(30, 58, 95, 0.05);
+      }
+
+      .security-table tbody tr:nth-child(even) {
+        background: rgba(30, 58, 95, 0.02);
+      }
+
+      .security-table td strong {
+        color: #1e3a5f;
+      }
+
+      .case-study-icon {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      .content h3 {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        letter-spacing: -0.01em;
+        margin: 0 0 1.25rem 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(30, 58, 95, 0.15);
+      }
+
+      .content h2.case-study-headline {
+        border-left: 4px solid #1e3a5f;
+        padding-left: 1.25rem;
+        line-height: 1.25;
+      }
+
+      .content dl dt .fweight {
+        color: #1e3a5f;
+        font-size: 1.02rem;
+      }
+
+      .content dl dd p {
+        opacity: 0.85;
+      }
+
+      .content dl dd:last-child p,
+      .case-section > *:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Hero card: logo, back link, title, and intro copy */
+      .hero-box {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        padding: 3rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Each case study section gets its own card */
+      .case-section {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        border-left: 4px solid #1e3a5f;
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Closing CTA card, styled like the rest of the site's CTA blocks */
+      .case-cta {
+        background: rgba(248, 250, 252, 1);
+        border: 1px solid #1e3a5f;
+        border-radius: 12px;
+        padding: 3rem 2.5rem;
+        text-align: center;
+        box-shadow:
+          0 10px 25px rgba(15, 23, 42, 0.06),
+          0 4px 10px rgba(15, 23, 42, 0.04);
+      }
+
+      .case-cta h3 {
+        border-bottom: none;
+        display: inline-block;
+      }
+
+      .case-cta p {
+        max-width: 600px;
+        margin: 0 auto 1.5rem auto;
+      }
+
+      .case-cta .actions {
+        justify-content: center;
+      }
+
+      .banner {
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+      }
+
+      .banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        background-image: url("/images/case-studies4.jpg");
+        background-size: cover;
+        background-position: center;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          black 60%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      }
+
+      .banner > * {
+        position: relative;
+        z-index: 1;
+      }
+      .banner.style1 .content {
+        max-width: 40rem;
+        padding: 1rem;
+      }
+      @media screen and (max-width: 1280px) {
+        .banner.style1 .content {
+          padding: 1rem;
+        }
       }
     </style>
   </head>
 
   <body class="is-preload">
     <!-- Google Tag Manager (noscript) -->
-
     <noscript>
       <iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
@@ -130,312 +265,347 @@
         style="display: none; visibility: hidden">
       </iframe>
     </noscript>
-
     <!-- End Google Tag Manager (noscript) -->
 
-    <div id="wrapper" class="divided">
+    <div id="wrapper">
       <section
         class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
-          <h1>
-            <a href="../index.html" style="border-bottom: none">
-              <img
-                src="/images/scottlabz-clear.png"
-                alt="S"
-                class="logo"
-                style="margin-right: 0" />cott Labz
-            </a>
-          </h1>
-
-          <ul class="actions stacked">
-            <li>
-              <a
-                href="/case-studies.html"
-                class="button big wide smooth-scroll case-study-button">
-                Back
+          <div class="hero-box">
+            <h1>
+              <a href="/index.html" style="border-bottom: none">
+                <img
+                  src="/images/scottlabz-clear.png"
+                  alt="S"
+                  class="logo"
+                  style="margin-right: 0" />cott Labz
               </a>
-            </li>
-          </ul>
+            </h1>
 
-          <h1>Website Performance Optimization Case Study</h1>
+            <h3>Website Performance Optimization Case Study</h3>
 
-          <span class="icon solid style2 major fa-briefcase"></span>
+            <h2
+              class="case-study-headline"
+              style="
+                font-size: 2.2rem;
+                margin-top: 0.5rem;
+                margin-bottom: 1.5rem;
+              ">
+              Improving Digital Experiences Through Performance Optimization
+            </h2>
 
-          <h2
-            style="
-              font-size: 2.2rem;
-              margin-top: 0.5rem;
-              margin-bottom: 1.5rem;
-            ">
-            Improving Digital Experiences Through Performance Optimization
-          </h2>
+            <p class="major" style="margin-bottom: 0">
+              Keeping a gameday storefront fast and reliable under sharp traffic
+              spikes, not just on a quiet Tuesday afternoon.
+            </p>
+          </div>
 
-          <p class="major">
-            Enhancing website speed, reliability, and user experience through
-            technical analysis, performance improvements, and data-driven
-            optimization.
-          </p>
+          <div class="case-section">
+            <h3>Project Overview</h3>
 
-          <h3>Project Overview</h3>
+            <table class="security-table">
+              <tbody>
+                <tr>
+                  <td><strong>Project</strong></td>
+                  <td>Website Performance Optimization</td>
+                </tr>
 
-          <table class="security-table">
-            <tbody>
-              <tr>
-                <td>
-                  <strong>Project Type</strong>
-                </td>
+                <tr>
+                  <td><strong>Organization</strong></td>
+                  <td>
+                    Hawkeye Fan Shop, The Official Retailer of the University of
+                    Iowa Athletics Department
+                  </td>
+                </tr>
 
-                <td>Website Performance Optimization</td>
-              </tr>
+                <tr>
+                  <td><strong>Focus</strong></td>
+                  <td>
+                    Load Speed, Caching, Asset Delivery, Peak-Traffic
+                    Reliability
+                  </td>
+                </tr>
 
-              <tr>
-                <td>
-                  <strong>Organization</strong>
-                </td>
+                <tr>
+                  <td><strong>Outcome</strong></td>
+                  <td>
+                    A storefront that stays fast and stable through the heaviest
+                    traffic of the season
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-                <td>Confidential Enterprise Organization</td>
-              </tr>
+          <div class="case-section">
+            <h3>The Challenge</h3>
 
-              <tr>
-                <td>
-                  <strong>Primary Focus</strong>
-                </td>
+            <p>
+              A retail site is only as good as its worst moment, and this
+              storefront's worst moments arrive predictably - gameday, a roster
+              announcement, a postseason run. A page that loads fine under
+              normal browsing can slow to a crawl the instant thousands of fans
+              hit the same product page at once.
+            </p>
 
-                <td>Performance Analysis, Optimization, Digital Experience</td>
-              </tr>
+            <p style="margin: 0 0 0.9rem 0">Key challenges included:</p>
 
-              <tr>
-                <td>
-                  <strong>Outcome</strong>
-                </td>
+            <ul class="alt">
+              <li>
+                Traffic spikes concentrated in short windows around live
+                sporting events
+              </li>
 
-                <td>
-                  Improved website performance visibility and user experience
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              <li>
+                Product and checkout pages that needed to stay fast even when
+                demand jumped many times over baseline
+              </li>
 
-          <h3>The Challenge</h3>
+              <li>
+                Image-heavy merchandise pages that could easily slow load times
+                if left unoptimized
+              </li>
 
-          <p>
-            Digital experiences depend on more than functionality. Website
-            performance, responsiveness, and reliability directly influence
-            customer engagement and business outcomes.
-          </p>
+              <li>
+                A retail calendar with no room for downtime once a game started
+              </li>
 
-          <p>Key challenges included:</p>
+              <li>
+                A need for performance work that holds up over years of changing
+                content, not just a single launch
+              </li>
+            </ul>
+          </div>
 
-          <ul class="alt">
-            <li>Limited visibility into website performance issues</li>
+          <div class="case-section">
+            <h3>The Approach</h3>
 
-            <li>Slow or inconsistent digital experiences</li>
+            <p>
+              Performance work was built around the storefront's actual traffic
+              pattern - sharp, predictable spikes - rather than average-day
+              load.
+            </p>
 
-            <li>Difficulty identifying optimization opportunities</li>
+            <dl>
+              <dt>
+                <span class="fweight"> Performance Auditing </span>
+              </dt>
 
-            <li>Fragmented performance measurement practices</li>
+              <dd>
+                <p>
+                  Measured load speed and Core Web Vitals across key pages to
+                  identify where slowdowns were most likely to hurt conversion.
+                </p>
+              </dd>
 
-            <li>Need for scalable technical improvements</li>
-          </ul>
-          <h3>The Approach</h3>
+              <dt>
+                <span class="fweight"> Caching &amp; Asset Delivery </span>
+              </dt>
 
-          <p>
-            The initiative focused on identifying performance opportunities,
-            improving technical efficiency, and creating a stronger foundation
-            for reliable digital experiences.
-          </p>
+              <dd>
+                <p>
+                  Implemented caching and image optimization so heavy
+                  merchandise pages loaded quickly even under a traffic surge.
+                </p>
+              </dd>
 
-          <dl>
-            <dt>
-              <span class="fweight"> Performance Assessment </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Load Testing </span>
+              </dt>
 
-            <dd>
-              <p>
-                Evaluated website performance factors including page behavior,
-                technical implementation, and opportunities for optimization.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Simulated gameday-level traffic ahead of high-demand dates to
+                  catch bottlenecks before fans ever hit them.
+                </p>
+              </dd>
 
-            <dt>
-              <span class="fweight"> Technical Optimization </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Ongoing Monitoring </span>
+              </dt>
 
-            <dd>
-              <p>
-                Improved website efficiency through optimization strategies
-                focused on performance, reliability, and maintainability.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Tracked performance continuously so degradation gets caught
+                  before it affects a live event.
+                </p>
+              </dd>
+            </dl>
+          </div>
 
-            <dt>
-              <span class="fweight"> Analytics-Driven Insights </span>
-            </dt>
+          <div class="case-section">
+            <h3>The Solution</h3>
 
-            <dd>
-              <p>
-                Used analytics data and performance indicators to identify
-                improvement opportunities and measure outcomes.
-              </p>
-            </dd>
+            <p>
+              A performance-tuned storefront now holds up under gameday-level
+              demand, keeping pages fast when the volume of visitors is at its
+              highest.
+            </p>
 
-            <dt>
-              <span class="fweight"> Scalable Digital Improvements </span>
-            </dt>
+            <table class="security-table">
+              <thead>
+                <tr>
+                  <th>Capability</th>
+                  <th>Impact</th>
+                </tr>
+              </thead>
 
-            <dd>
-              <p>
-                Established practices designed to support ongoing website
-                optimization and future digital growth.
-              </p>
-            </dd>
-          </dl>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong> Fast Page Loads </strong>
+                  </td>
 
-          <h3>The Solution</h3>
+                  <td>
+                    Product and checkout pages that stay responsive under peak
+                    traffic.
+                  </td>
+                </tr>
 
-          <p>
-            A performance optimization framework was established to improve
-            website reliability, increase visibility into technical issues, and
-            create a better overall digital experience.
-          </p>
+                <tr>
+                  <td>
+                    <strong> Optimized Asset Delivery </strong>
+                  </td>
 
-          <table class="security-table">
-            <thead>
-              <tr>
-                <th>Capability</th>
+                  <td>
+                    Image-heavy merchandise pages that load quickly without
+                    sacrificing visual quality.
+                  </td>
+                </tr>
 
-                <th>Impact</th>
-              </tr>
-            </thead>
+                <tr>
+                  <td>
+                    <strong> Verified Load Capacity </strong>
+                  </td>
 
-            <tbody>
-              <tr>
-                <td>
-                  <strong> Performance Analysis </strong>
-                </td>
+                  <td>
+                    Confidence the site holds up before a high-demand event ever
+                    begins.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-                <td>
-                  Improved understanding of technical performance opportunities.
-                </td>
-              </tr>
+          <div class="case-section">
+            <h3>The Results</h3>
 
-              <tr>
-                <td>
-                  <strong> Technical Optimization </strong>
-                </td>
+            <p>
+              With performance tuned for the storefront's actual traffic
+              pattern, store and web performance have improved, gameday traffic
+              has been handled without the site buckling under peak demand, and
+              conversion has trended upward across departments over the course
+              of the partnership.
+            </p>
 
-                <td>
-                  Enhanced website efficiency and digital experience quality.
-                </td>
-              </tr>
+            <ul class="alt">
+              <li>Fast, stable page loads during peak gameday traffic</li>
 
-              <tr>
-                <td>
-                  <strong> Measurement Integration </strong>
-                </td>
+              <li>Gameday traffic handled reliably at peak demand</li>
 
-                <td>
-                  Connected performance improvements with measurable outcomes.
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              <li>Upward conversion trends across departments</li>
 
-          <h3>The Results</h3>
+              <li>
+                A performance-tuned storefront supporting ongoing email
+                campaigns for gameday information, product drops, and
+                student-athlete appearances
+              </li>
+            </ul>
+          </div>
 
-          <p>
-            By combining technical improvements with analytics insights, the
-            organization gained better visibility into website performance and
-            created a stronger foundation for continuous optimization.
-          </p>
+          <div class="case-section">
+            <h3>Technologies &amp; Capabilities</h3>
 
-          <ul class="alt">
-            <li>Improved visibility into website performance</li>
+            <dl>
+              <dt>
+                <span class="fweight"> Performance Tuning </span>
+              </dt>
 
-            <li>Better understanding of optimization opportunities</li>
+              <dd>
+                <p>
+                  Core Web Vitals improvements targeted at the pages that matter
+                  most during gameday traffic.
+                </p>
+              </dd>
 
-            <li>More reliable digital experiences</li>
+              <dt>
+                <span class="fweight"> Caching &amp; Image Optimization </span>
+              </dt>
 
-            <li>Stronger foundation for future improvements</li>
-          </ul>
+              <dd>
+                <p>
+                  Efficient asset delivery that keeps merchandise pages fast
+                  without stripping out the visuals fans expect.
+                </p>
+              </dd>
 
-          <h3>Technologies &amp; Capabilities</h3>
+              <dt>
+                <span class="fweight"> Load Testing </span>
+              </dt>
 
-          <dl>
-            <dt>
-              <span class="fweight"> Web Technologies </span>
-            </dt>
+              <dd>
+                <p>
+                  Simulated traffic spikes used to validate the site's capacity
+                  ahead of high-demand dates.
+                </p>
+              </dd>
 
-            <dd>
-              <p>
-                Modern HTML, CSS, JavaScript, responsive design, and scalable
-                website architecture.
-              </p>
-            </dd>
+              <dt>
+                <span class="fweight"> Scalable Hosting &amp; Deployment </span>
+              </dt>
 
-            <dt>
-              <span class="fweight"> Performance Analysis </span>
-            </dt>
+              <dd>
+                <p>
+                  Deployment practices designed to keep the storefront stable as
+                  traffic scales up and back down.
+                </p>
+              </dd>
+            </dl>
+          </div>
 
-            <dd>
-              <p>
-                Website performance reviews, optimization analysis, and
-                technical improvement strategies.
-              </p>
-            </dd>
+          <div class="case-section">
+            <h3>Business Impact</h3>
 
-            <dt>
-              <span class="fweight"> Analytics Integration </span>
-            </dt>
+            <p>
+              Speed matters most exactly when it's hardest to maintain - the
+              moment thousands of fans arrive at once. Tuning the storefront
+              around its real traffic pattern, rather than an average day, meant
+              the site stayed fast precisely when a slow page would have cost
+              the most sales.
+            </p>
 
-            <dd>
-              <p>
-                Google Analytics, Adobe Analytics, Google Tag Manager, and
-                digital measurement practices.
-              </p>
-            </dd>
+            <p style="margin-bottom: 0">
+              Through performance auditing, caching and asset optimization, and
+              proactive load testing, this initiative created a performance
+              foundation that has supported the partnership with Hawkeye Fan
+              Shop and the University of Iowa Athletics Department since 2016.
+            </p>
+          </div>
 
-            <dt>
-              <span class="fweight"> Digital Infrastructure </span>
-            </dt>
+          <div class="case-section">
+            <h3>Explore More Case Studies</h3>
+            <p style="margin-top: 1.5rem; margin-bottom: 0">
+              <a href="/case-studies.html">View all case studies →</a>
+            </p>
+          </div>
 
-            <dd>
-              <p>
-                Scalable hosting, security considerations, and maintainable
-                technical foundations.
-              </p>
-            </dd>
-          </dl>
+          <div class="case-cta">
+            <h3>Start the Conversation</h3>
 
-          <h3>Business Impact</h3>
+            <p>
+              A fast site on a quiet day isn't the test that matters. It's built
+              to stay fast under real pressure, so the storefront you're running
+              is one you can actually count on.
+            </p>
 
-          <p>
-            Website performance directly impacts how users interact with digital
-            experiences. A faster, more reliable website improves engagement
-            while creating a stronger foundation for business growth.
-          </p>
-
-          <p>
-            Through technical optimization, analytics-driven insights, and
-            scalable improvements, this initiative helped create a more reliable
-            and measurable digital presence.
-          </p>
-
-          <h3>Partner With Scott Labz</h3>
-
-          <p>
-            Scott Labz helps organizations improve website performance,
-            modernize digital infrastructure, and create scalable technology
-            solutions designed for measurable results.
-          </p>
-
-          <ul class="actions">
-            <li>
-              <a href="/contact.html" class="button primary">
-                Start a Conversation
-              </a>
-            </li>
-          </ul>
+            <ul class="actions">
+              <li>
+                <a href="/contact.html" class="button primary">
+                  Start a Conversation
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -448,7 +618,7 @@
       <script src="/assets/js/footer-min.js" defer></script>
 
       <scott-footer
-        description="Explore how Scott Labz helps organizations improve website performance, modernize digital infrastructure, and build scalable technology solutions.">
+        description="How speed and reliability improvements kept a gameday storefront fast under peak traffic for a major collegiate athletics retailer.">
       </scott-footer>
     </div>
   </body>

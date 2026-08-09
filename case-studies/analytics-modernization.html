@@ -25,7 +25,7 @@
 
     <meta
       name="description"
-      content="Explore how Scott Labz improved analytics infrastructure, connected fragmented digital systems, and increased website performance visibility." />
+      content="How connecting store, gameday, and online systems modernized analytics infrastructure for a major collegiate athletics retailer." />
 
     <meta charset="utf-8" />
 
@@ -33,16 +33,14 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=yes" />
 
-    <link rel="stylesheet" href="../assets/css/main-min.css" />
+    <link rel="stylesheet" href="/assets/css/main-min.css" />
 
     <noscript>
-      <link rel="stylesheet" href="../assets/css/noscript-min.css" />
+      <link rel="stylesheet" href="/assets/css/noscript-min.css" />
     </noscript>
 
     <script src="/assets/js/header-min.js" defer></script>
     <script src="/assets/js/favicon-min.js" defer></script>
-
-    <link rel="manifest" href="/images/favicon/manifest.json" />
 
     <link
       rel="canonical"
@@ -55,7 +53,7 @@
         "@id": "https://scottlabz.com/case-studies/analytics-modernization.html",
         "url": "https://scottlabz.com/case-studies/analytics-modernization.html",
         "name": "Analytics Modernization Case Study | Scott Labz",
-        "description": "A case study demonstrating analytics modernization, improved data reliability, and enhanced website performance visibility.",
+        "description": "A case study on connecting store, gameday, and online systems into a modern analytics infrastructure for a collegiate athletics retailer.",
         "isPartOf": {
           "@type": "WebSite",
           "@id": "https://scottlabz.com/",
@@ -64,17 +62,17 @@
         "mainEntity": {
           "@type": "CreativeWork",
           "name": "Analytics Modernization Initiative",
-          "description": "Improving website performance by connecting disconnected digital systems and creating a stronger analytics foundation.",
+          "description": "Connecting disparate retail, gameday, and online systems into a single, modern analytics infrastructure built to scale with a live sports calendar.",
           "author": {
             "@type": "Organization",
             "name": "Scott Labz",
             "url": "https://scottlabz.com/"
           },
           "about": [
-            "Analytics Infrastructure",
-            "Data Quality",
-            "Website Performance Optimization",
-            "Digital Measurement Strategy"
+            "Digital Analytics",
+            "Analytics Modernization",
+            "Systems Integration",
+            "Data Infrastructure"
           ]
         }
       }
@@ -90,7 +88,7 @@
 
     <meta
       property="og:description"
-      content="Connecting digital systems through modern analytics infrastructure to improve visibility, measurement, and website performance." />
+      content="How connecting store, gameday, and online systems modernized analytics infrastructure for a major collegiate athletics retailer." />
 
     <meta
       property="og:url"
@@ -103,8 +101,10 @@
     <style>
       .security-table {
         width: 100%;
-        margin-bottom: 2rem;
+        margin-bottom: 0;
         border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
       }
 
       .security-table th,
@@ -114,14 +114,143 @@
         border-bottom: 1px solid rgba(160, 160, 160, 0.3);
       }
 
-      .security-table th {
-        font-weight: 600;
+      .security-table tbody tr:last-child td {
+        border-bottom: none;
       }
 
-      .brand-inline-logo {
-        height: 1.2em;
-        vertical-align: middle;
-        margin-right: 0.05em;
+      .security-table th {
+        font-weight: 600;
+        color: #1e3a5f;
+        background: rgba(30, 58, 95, 0.05);
+      }
+
+      .security-table tbody tr:nth-child(even) {
+        background: rgba(30, 58, 95, 0.02);
+      }
+
+      .security-table td strong {
+        color: #1e3a5f;
+      }
+
+      .case-study-icon {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      .content h3 {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        letter-spacing: -0.01em;
+        margin: 0 0 1.25rem 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(30, 58, 95, 0.15);
+      }
+
+      .content h2.case-study-headline {
+        border-left: 4px solid #1e3a5f;
+        padding-left: 1.25rem;
+        line-height: 1.25;
+      }
+
+      .content dl dt .fweight {
+        color: #1e3a5f;
+        font-size: 1.02rem;
+      }
+
+      .content dl dd p {
+        opacity: 0.85;
+      }
+
+      .content dl dd:last-child p,
+      .case-section > *:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Hero card: logo, back link, title, and intro copy */
+      .hero-box {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        padding: 3rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Each case study section gets its own card */
+      .case-section {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        border-left: 4px solid #1e3a5f;
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Closing CTA card, styled like the rest of the site's CTA blocks */
+      .case-cta {
+        background: rgba(248, 250, 252, 1);
+        border: 1px solid #1e3a5f;
+        border-radius: 12px;
+        padding: 3rem 2.5rem;
+        text-align: center;
+        box-shadow:
+          0 10px 25px rgba(15, 23, 42, 0.06),
+          0 4px 10px rgba(15, 23, 42, 0.04);
+      }
+
+      .case-cta h3 {
+        border-bottom: none;
+        display: inline-block;
+      }
+
+      .case-cta p {
+        max-width: 600px;
+        margin: 0 auto 1.5rem auto;
+      }
+
+      .case-cta .actions {
+        justify-content: center;
+      }
+
+      .banner {
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+      }
+
+      .banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        background-image: url("/images/case-studies3.jpg");
+        background-size: cover;
+        background-position: center;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          black 60%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      }
+
+      .banner > * {
+        position: relative;
+        z-index: 1;
+      }
+      .banner.style1 .content {
+        max-width: 40rem;
+        padding: 1rem;
+      }
+      @media screen and (max-width: 1280px) {
+        .banner.style1 .content {
+          padding: 1rem;
+        }
       }
     </style>
   </head>
@@ -138,309 +267,355 @@
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <div id="wrapper" class="divided">
+    <div id="wrapper">
       <section
         class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
-          <h1>
-            <a href="../index.html" style="border-bottom: none">
-              <img
-                src="/images/scottlabz-clear.png"
-                alt="S"
-                class="logo"
-                style="margin-right: 0" />cott Labz
-            </a>
-          </h1>
-
-          <ul class="actions stacked">
-            <li>
-              <a
-                href="/case-studies.html"
-                class="button big wide smooth-scroll case-study-button">
-                Back
+          <div class="hero-box">
+            <h1>
+              <a href="/index.html" style="border-bottom: none">
+                <img
+                  src="/images/scottlabz-clear.png"
+                  alt="S"
+                  class="logo"
+                  style="margin-right: 0" />cott Labz
               </a>
-            </li>
-          </ul>
+            </h1>
 
-          <h1>Analytics Modernization Case Study</h1>
+            <h3>Analytics Modernization Case Study</h3>
 
-          <span class="icon solid style2 major fa-briefcase"></span>
+            <h2
+              class="case-study-headline"
+              style="
+                font-size: 2.2rem;
+                margin-top: 0.5rem;
+                margin-bottom: 1.5rem;
+              ">
+              Connecting Digital Systems Through Modern Analytics Infrastructure
+            </h2>
 
-          <h2
-            style="
-              font-size: 2.2rem;
-              margin-top: 0.5rem;
-              margin-bottom: 1.5rem;
-            ">
-            Connecting Digital Systems Through Modern Analytics Infrastructure
-          </h2>
+            <p class="major" style="margin-bottom: 0">
+              Bringing store, gameday, and online systems into a single, modern
+              analytics infrastructure built to keep pace with a live sports
+              calendar.
+            </p>
+          </div>
 
-          <p class="major">
-            Improving website performance by creating a stronger analytics
-            foundation, improving data reliability, and connecting fragmented
-            digital systems.
-          </p>
+          <div class="case-section">
+            <h3>Project Overview</h3>
 
-          <h3>Project Overview</h3>
+            <table class="security-table">
+              <tbody>
+                <tr>
+                  <td><strong>Project</strong></td>
+                  <td>Analytics Modernization</td>
+                </tr>
 
-          <table class="security-table">
-            <tbody>
-              <tr>
-                <td>
-                  <strong>Project Type</strong>
-                </td>
+                <tr>
+                  <td><strong>Organization</strong></td>
+                  <td>
+                    Hawkeye Fan Shop, The Official Retailer of the University of
+                    Iowa Athletics Department
+                  </td>
+                </tr>
 
-                <td>Analytics Infrastructure Modernization</td>
-              </tr>
+                <tr>
+                  <td><strong>Focus</strong></td>
+                  <td>
+                    Systems Integration, Infrastructure Modernization, Scalable
+                    Reporting
+                  </td>
+                </tr>
 
-              <tr>
-                <td>
-                  <strong>Organization</strong>
-                </td>
+                <tr>
+                  <td><strong>Outcome</strong></td>
+                  <td>
+                    A connected analytics infrastructure spanning retail,
+                    gameday, and online channels, built to scale with the
+                    partnership
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-                <td>Confidential Enterprise Organization</td>
-              </tr>
+          <div class="case-section">
+            <h3>The Challenge</h3>
 
-              <tr>
-                <td>
-                  <strong>Primary Focus</strong>
-                </td>
+            <p>
+              As the partnership grew from a single storefront into a
+              multi-channel operation - retail locations across the state,
+              mobile gameday shops, and a growing online store - the original
+              measurement setup needed to evolve alongside it. What worked for
+              one channel at launch would not hold up once store, gameday, and
+              site all needed to speak the same language.
+            </p>
 
-                <td>
-                  Analytics Architecture, Data Quality, Website Performance
-                </td>
-              </tr>
+            <p style="margin: 0 0 0.9rem 0">Key challenges included:</p>
 
-              <tr>
-                <td>
-                  <strong>Outcome</strong>
-                </td>
+            <ul class="alt">
+              <li>
+                Store, gameday, and online systems that grew independently and
+                needed to be brought into alignment
+              </li>
 
-                <td>Improved digital visibility and performance insights</td>
-              </tr>
-            </tbody>
-          </table>
+              <li>
+                Reporting requirements expanding across more sports, more
+                stores, and more seasons than the original setup was built for
+              </li>
 
-          <h3>The Challenge</h3>
+              <li>
+                Demand spikes tied to a live sports calendar that a modern
+                infrastructure needed to absorb without breaking
+              </li>
 
-          <p>
-            The organization faced challenges caused by disconnected digital
-            systems and inconsistent measurement practices. Although valuable
-            data existed across multiple platforms, the lack of alignment
-            between systems created limitations in understanding user behavior,
-            evaluating performance, and identifying optimization opportunities.
-          </p>
+              <li>
+                Multiple stakeholder groups relying on the same underlying data
+                for different purposes
+              </li>
 
-          <p>Key challenges included:</p>
+              <li>
+                A need to modernize without disrupting reporting the business
+                already depended on
+              </li>
+            </ul>
+          </div>
 
-          <ul class="alt">
-            <li>Disconnected technology systems impacting data visibility</li>
+          <div class="case-section">
+            <h3>The Approach</h3>
 
-            <li>Inconsistent tracking across digital experiences</li>
+            <p>
+              Modernization focused on connecting what already existed rather
+              than starting over, so the business kept its reporting while the
+              infrastructure underneath it was strengthened.
+            </p>
 
-            <li>Limited insight into customer interactions</li>
+            <dl>
+              <dt>
+                <span class="fweight"> Systems Assessment </span>
+              </dt>
 
-            <li>Difficulty identifying website performance opportunities</li>
+              <dd>
+                <p>
+                  Reviewed how retail, gameday, and online systems captured and
+                  reported data independently, identifying where they diverged
+                  and where they could be connected.
+                </p>
+              </dd>
 
-            <li>Reduced confidence in analytics reporting</li>
-          </ul>
-          <h3>The Approach</h3>
+              <dt>
+                <span class="fweight"> Infrastructure Consolidation </span>
+              </dt>
 
-          <p>
-            The project focused on improving the connection between digital
-            experiences, analytics platforms, and business reporting.
-          </p>
+              <dd>
+                <p>
+                  Brought disconnected tracking and reporting pieces into a
+                  unified infrastructure that could support every channel
+                  consistently.
+                </p>
+              </dd>
 
-          <dl>
-            <dt>
-              <span class="fweight"> Analytics Architecture Assessment </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Scalable Architecture </span>
+              </dt>
 
-            <dd>
-              <p>
-                Reviewed existing measurement practices, tracking structures,
-                and data flows to identify opportunities for improved
-                reliability and visibility.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Designed the modernized setup to expand cleanly as more
+                  sports, stores, and seasons were added to the partnership.
+                </p>
+              </dd>
 
-            <dt>
-              <span class="fweight"> Data Quality Improvements </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Phased Rollout </span>
+              </dt>
 
-            <dd>
-              <p>
-                Improved the accuracy and consistency of digital measurement
-                through stronger tracking strategies and implementation
-                practices.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Modernized the infrastructure in stages so existing reporting
+                  stayed dependable throughout the transition.
+                </p>
+              </dd>
+            </dl>
+          </div>
 
-            <dt>
-              <span class="fweight"> Website Performance Optimization </span>
-            </dt>
+          <div class="case-section">
+            <h3>The Solution</h3>
 
-            <dd>
-              <p>
-                Applied analytics insights to identify opportunities for
-                improving digital performance and user experiences.
-              </p>
-            </dd>
+            <p>
+              A modern, connected analytics infrastructure now ties retail,
+              gameday, and online activity together, giving stakeholders one
+              consistent picture of the business as it continues to grow.
+            </p>
 
-            <dt>
-              <span class="fweight"> Scalable Measurement Strategy </span>
-            </dt>
+            <table class="security-table">
+              <thead>
+                <tr>
+                  <th>Capability</th>
+                  <th>Impact</th>
+                </tr>
+              </thead>
 
-            <dd>
-              <p>
-                Established a stronger analytics foundation designed to support
-                future reporting, optimization, and digital growth initiatives.
-              </p>
-            </dd>
-          </dl>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong> Connected Systems </strong>
+                  </td>
 
-          <h3>The Solution</h3>
+                  <td>
+                    Retail, gameday, and online data flowing into one consistent
+                    infrastructure.
+                  </td>
+                </tr>
 
-          <p>
-            A connected analytics framework was established to bridge gaps
-            between technical systems and business objectives.
-          </p>
+                <tr>
+                  <td>
+                    <strong> Scalable Infrastructure </strong>
+                  </td>
 
-          <table class="security-table">
-            <thead>
-              <tr>
-                <th>Capability</th>
+                  <td>
+                    Reporting that keeps pace as the partnership expands to more
+                    sports, stores, and seasons.
+                  </td>
+                </tr>
 
-                <th>Impact</th>
-              </tr>
-            </thead>
+                <tr>
+                  <td>
+                    <strong> Modernized Reporting </strong>
+                  </td>
 
-            <tbody>
-              <tr>
-                <td>
-                  <strong> Analytics Strategy </strong>
-                </td>
+                  <td>
+                    A single, dependable source stakeholders across the business
+                    can rely on.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-                <td>Improved measurement planning and digital visibility.</td>
-              </tr>
+          <div class="case-section">
+            <h3>The Results</h3>
 
-              <tr>
-                <td>
-                  <strong> Tracking Architecture </strong>
-                </td>
+            <p>
+              With a modernized, connected infrastructure in place, store and
+              web performance have improved, gameday traffic has been handled
+              without the site buckling under peak demand, and conversion has
+              trended upward across departments over the course of the
+              partnership.
+            </p>
 
-                <td>
-                  More consistent and reliable user interaction measurement.
-                </td>
-              </tr>
+            <ul class="alt">
+              <li>
+                Retail, gameday, and online systems reporting on connected
+                infrastructure
+              </li>
 
-              <tr>
-                <td>
-                  <strong> Performance Analysis </strong>
-                </td>
+              <li>Gameday traffic handled reliably at peak demand</li>
 
-                <td>
-                  Better understanding of website optimization opportunities.
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              <li>Upward conversion trends across departments</li>
 
-          <h3>The Results</h3>
+              <li>
+                A modernized foundation supporting ongoing email campaigns for
+                gameday information, product drops, and student-athlete
+                appearances
+              </li>
+            </ul>
+          </div>
 
-          <p>
-            By connecting fragmented systems and improving measurement
-            reliability, the organization gained improved visibility into
-            website performance and digital behavior.
-          </p>
+          <div class="case-section">
+            <h3>Technologies &amp; Capabilities</h3>
 
-          <ul class="alt">
-            <li>Improved website performance insights</li>
+            <dl>
+              <dt>
+                <span class="fweight"> Systems Integration </span>
+              </dt>
 
-            <li>More reliable analytics data</li>
+              <dd>
+                <p>
+                  Retail, gameday, and online systems connected into a single
+                  analytics infrastructure.
+                </p>
+              </dd>
 
-            <li>Better understanding of user behavior</li>
+              <dt>
+                <span class="fweight"> Infrastructure Design </span>
+              </dt>
 
-            <li>Stronger foundation for future optimization</li>
-          </ul>
+              <dd>
+                <p>
+                  A modernized setup built to expand cleanly as the partnership
+                  grows across sports and seasons.
+                </p>
+              </dd>
 
-          <h3>Technologies &amp; Capabilities</h3>
+              <dt>
+                <span class="fweight"> Data Architecture </span>
+              </dt>
 
-          <dl>
-            <dt>
-              <span class="fweight"> Analytics Platforms </span>
-            </dt>
+              <dd>
+                <p>
+                  Consistent data structure across every connected channel,
+                  designed to scale without breaking.
+                </p>
+              </dd>
 
-            <dd>
-              <p>
-                Adobe Analytics, Google Analytics, and enterprise measurement
-                platforms.
-              </p>
-            </dd>
+              <dt>
+                <span class="fweight"> Reporting &amp; Insights </span>
+              </dt>
 
-            <dt>
-              <span class="fweight"> Tag Management &amp; Tracking </span>
-            </dt>
+              <dd>
+                <p>
+                  A single, dependable reporting layer built for store
+                  operations, athletics partners, and the online business alike.
+                </p>
+              </dd>
+            </dl>
+          </div>
 
-            <dd>
-              <p>
-                Google Tag Manager, event tracking strategy, and structured data
-                layer implementation.
-              </p>
-            </dd>
+          <div class="case-section">
+            <h3>Business Impact</h3>
 
-            <dt>
-              <span class="fweight"> Data Architecture </span>
-            </dt>
+            <p>
+              Growth exposes the seams in any analytics setup. Connecting
+              retail, gameday, and online systems into one modern infrastructure
+              meant the business could keep expanding - more sports, more
+              stores, more seasons - without stakeholders losing confidence in
+              the numbers along the way.
+            </p>
 
-            <dd>
-              <p>
-                Data quality improvements, reporting foundations, and scalable
-                analytics frameworks.
-              </p>
-            </dd>
+            <p style="margin-bottom: 0">
+              Through systems integration, scalable infrastructure design, and a
+              phased approach to modernization, this initiative created a
+              connected analytics foundation that has supported the partnership
+              with Hawkeye Fan Shop and the University of Iowa Athletics
+              Department since 2016.
+            </p>
+          </div>
 
-            <dt>
-              <span class="fweight"> Digital Performance </span>
-            </dt>
+          <div class="case-section">
+            <h3>Explore More Case Studies</h3>
+            <p style="margin-top: 1.5rem; margin-bottom: 0">
+              <a href="/case-studies.html">View all case studies →</a>
+            </p>
+          </div>
 
-            <dd>
-              <p>
-                Website performance analysis, optimization opportunities, and
-                improved digital experiences.
-              </p>
-            </dd>
-          </dl>
+          <div class="case-cta">
+            <h3>Start the Conversation</h3>
 
-          <h3>Business Impact</h3>
+            <p>
+              A modern analytics infrastructure doesn't happen by accident. It's
+              built deliberately, connecting the systems you already run so the
+              data you're looking at is data you can actually trust.
+            </p>
 
-          <p>
-            Modern analytics infrastructure is not simply about collecting more
-            data. It is about creating confidence in the information
-            organizations use to make decisions.
-          </p>
-
-          <p>
-            Through improved system connections, stronger measurement practices,
-            and better performance visibility, this initiative created a
-            foundation for continued digital improvement and long-term growth.
-          </p>
-
-          <h3>Partner With Scott Labz</h3>
-
-          <p>
-            Scott Labz helps organizations modernize analytics, improve digital
-            performance, and build reliable technology foundations designed for
-            scalability, security, and measurable outcomes.
-          </p>
-
-          <ul class="actions">
-            <li>
-              <a href="/contact.html" class="button primary">
-                Start a Conversation
-              </a>
-            </li>
-          </ul>
+            <ul class="actions">
+              <li>
+                <a href="/contact.html" class="button primary">
+                  Start a Conversation
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -453,7 +628,7 @@
       <script src="/assets/js/footer-min.js" defer></script>
 
       <scott-footer
-        description="Explore how Scott Labz helps organizations modernize analytics, improve digital performance, and build reliable technology foundations.">
+        description="How connecting store, gameday, and online systems modernized analytics infrastructure for a major collegiate athletics retailer.">
       </scott-footer>
     </div>
   </body>

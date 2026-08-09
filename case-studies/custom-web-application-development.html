@@ -7,18 +7,13 @@
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
-
-        w[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js",
-        });
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
 
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
           dl = l != "dataLayer" ? "&l=" + l : "";
 
         j.async = true;
-
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
 
         f.parentNode.insertBefore(j, f);
@@ -26,11 +21,11 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <title>Custom Web Application Development Case Study | Scott Labz</title>
+    <title>Custom Web Development Case Study | Scott Labz</title>
 
     <meta
       name="description"
-      content="Explore how Scott Labz designs and develops custom web applications that improve workflows, automate processes, and create scalable digital solutions." />
+      content="How a full-scale ecommerce platform was built from the ground up for a major collegiate athletics retailer, from domain to storefront." />
 
     <meta charset="utf-8" />
 
@@ -45,7 +40,6 @@
     </noscript>
 
     <script src="/assets/js/header-min.js" defer></script>
-
     <script src="/assets/js/favicon-min.js" defer></script>
 
     <link
@@ -56,40 +50,29 @@
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
-
         "@id": "https://scottlabz.com/case-studies/custom-web-application-development.html",
-
         "url": "https://scottlabz.com/case-studies/custom-web-application-development.html",
-
-        "name": "Custom Web Application Development Case Study | Scott Labz",
-
-        "description": "A case study demonstrating custom web application development through modern architecture, integrations, and scalable digital solutions.",
-
+        "name": "Custom Web Development Case Study | Scott Labz",
+        "description": "A case study on building a full-scale ecommerce platform from the ground up for a collegiate athletics retailer.",
         "isPartOf": {
           "@type": "WebSite",
           "@id": "https://scottlabz.com/",
           "name": "Scott Labz"
         },
-
         "mainEntity": {
           "@type": "CreativeWork",
-
-          "name": "Custom Web Application Development Initiative",
-
-          "description": "Designing and developing custom web applications that improve workflows, automate processes, and create scalable digital capabilities.",
-
+          "name": "Custom Web Development Initiative",
+          "description": "Building a full-scale ecommerce storefront from domain setup through launch, tied directly into retail store operations statewide.",
           "author": {
             "@type": "Organization",
             "name": "Scott Labz",
             "url": "https://scottlabz.com/"
           },
-
           "about": [
-            "Web Application Development",
-            "Full Stack Development",
-            "API Integration",
-            "Software Architecture",
-            "Digital Solutions"
+            "Custom Web Development",
+            "Ecommerce Platforms",
+            "Application Architecture",
+            "Retail Technology"
           ]
         }
       }
@@ -101,11 +84,11 @@
 
     <meta
       property="og:title"
-      content="Custom Web Application Development Case Study | Scott Labz" />
+      content="Custom Web Development Case Study | Scott Labz" />
 
     <meta
       property="og:description"
-      content="Building scalable digital solutions through modern application architecture, integrations, and custom software development." />
+      content="How a full-scale ecommerce platform was built from the ground up for a major collegiate athletics retailer, from domain to storefront." />
 
     <meta
       property="og:url"
@@ -118,30 +101,162 @@
     <style>
       .security-table {
         width: 100%;
-
-        margin-bottom: 2rem;
-
+        margin-bottom: 0;
         border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
       }
 
       .security-table th,
       .security-table td {
         padding: 0.75rem;
-
         text-align: left;
-
         border-bottom: 1px solid rgba(160, 160, 160, 0.3);
+      }
+
+      .security-table tbody tr:last-child td {
+        border-bottom: none;
       }
 
       .security-table th {
         font-weight: 600;
+        color: #1e3a5f;
+        background: rgba(30, 58, 95, 0.05);
+      }
+
+      .security-table tbody tr:nth-child(even) {
+        background: rgba(30, 58, 95, 0.02);
+      }
+
+      .security-table td strong {
+        color: #1e3a5f;
+      }
+
+      .case-study-icon {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      .content h3 {
+        color: #1e3a5f;
+        font-size: 1.4rem;
+        letter-spacing: -0.01em;
+        margin: 0 0 1.25rem 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(30, 58, 95, 0.15);
+      }
+
+      .content h2.case-study-headline {
+        border-left: 4px solid #1e3a5f;
+        padding-left: 1.25rem;
+        line-height: 1.25;
+      }
+
+      .content dl dt .fweight {
+        color: #1e3a5f;
+        font-size: 1.02rem;
+      }
+
+      .content dl dd p {
+        opacity: 0.85;
+      }
+
+      .content dl dd:last-child p,
+      .case-section > *:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Hero card: logo, back link, title, and intro copy */
+      .hero-box {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        padding: 3rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Each case study section gets its own card */
+      .case-section {
+        background: rgba(248, 250, 252, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        border-left: 4px solid #1e3a5f;
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #1e3a5f;
+      }
+
+      /* Closing CTA card, styled like the rest of the site's CTA blocks */
+      .case-cta {
+        background: rgba(248, 250, 252, 1);
+        border: 1px solid #1e3a5f;
+        border-radius: 12px;
+        padding: 3rem 2.5rem;
+        text-align: center;
+        box-shadow:
+          0 10px 25px rgba(15, 23, 42, 0.06),
+          0 4px 10px rgba(15, 23, 42, 0.04);
+      }
+
+      .case-cta h3 {
+        border-bottom: none;
+        display: inline-block;
+      }
+
+      .case-cta p {
+        max-width: 600px;
+        margin: 0 auto 1.5rem auto;
+      }
+
+      .case-cta .actions {
+        justify-content: center;
+      }
+
+      .banner {
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+      }
+
+      .banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        background-image: url("/images/case-studies9.jpg");
+        background-size: cover;
+        background-position: center;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          black 60%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      }
+
+      .banner > * {
+        position: relative;
+        z-index: 1;
+      }
+      .banner.style1 .content {
+        max-width: 40rem;
+        padding: 1rem;
+      }
+      @media screen and (max-width: 1280px) {
+        .banner.style1 .content {
+          padding: 1rem;
+        }
       }
     </style>
   </head>
 
   <body class="is-preload">
     <!-- Google Tag Manager (noscript) -->
-
     <noscript>
       <iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
@@ -150,316 +265,355 @@
         style="display: none; visibility: hidden">
       </iframe>
     </noscript>
-
     <!-- End Google Tag Manager (noscript) -->
 
-    <div id="wrapper" class="divided">
+    <div id="wrapper">
       <section
         class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
-          <h1>
-            <a href="../index.html" style="border-bottom: none">
-              <img
-                src="/images/scottlabz-clear.png"
-                alt="S"
-                class="logo"
-                style="margin-right: 0" />cott Labz
-            </a>
-          </h1>
-
-          <ul class="actions stacked">
-            <li>
-              <a
-                href="/case-studies.html"
-                class="button big wide smooth-scroll case-study-button">
-                Back
+          <div class="hero-box">
+            <h1>
+              <a href="/index.html" style="border-bottom: none">
+                <img
+                  src="/images/scottlabz-clear.png"
+                  alt="S"
+                  class="logo"
+                  style="margin-right: 0" />cott Labz
               </a>
-            </li>
-          </ul>
+            </h1>
 
-          <h1>Custom Web Application Development Case Study</h1>
+            <h3>Custom Web Development Case Study</h3>
 
-          <span class="icon solid style2 major fa-briefcase"></span>
+            <h2
+              class="case-study-headline"
+              style="
+                font-size: 2.2rem;
+                margin-top: 0.5rem;
+                margin-bottom: 1.5rem;
+              ">
+              Building Scalable Digital Solutions Through Modern Application
+              Architecture
+            </h2>
 
-          <h2
-            style="
-              font-size: 2.2rem;
-              margin-top: 0.5rem;
-              margin-bottom: 1.5rem;
-            ">
-            Building Scalable Digital Solutions Through Modern Application
-            Architecture
-          </h2>
+            <p class="major" style="margin-bottom: 0">
+              Standing up a full-scale ecommerce storefront from the ground up -
+              domain, hosting, and application - built to run in unison with a
+              statewide retail operation.
+            </p>
+          </div>
 
-          <p class="major">
-            Designing and developing custom web applications that improve
-            workflows, automate processes, integrate systems, and create
-            scalable digital capabilities.
-          </p>
+          <div class="case-section">
+            <h3>Project Overview</h3>
 
-          <h3>Project Overview</h3>
+            <table class="security-table">
+              <tbody>
+                <tr>
+                  <td><strong>Project</strong></td>
+                  <td>Custom Web Development</td>
+                </tr>
 
-          <table class="security-table">
-            <tbody>
-              <tr>
-                <td>
-                  <strong> Project Type </strong>
-                </td>
+                <tr>
+                  <td><strong>Organization</strong></td>
+                  <td>
+                    Hawkeye Fan Shop, The Official Retailer of the University of
+                    Iowa Athletics Department
+                  </td>
+                </tr>
 
-                <td>Custom Web Application Development</td>
-              </tr>
+                <tr>
+                  <td><strong>Focus</strong></td>
+                  <td>
+                    Ecommerce Application Development, Domain &amp; Hosting
+                    Setup, Retail Integration
+                  </td>
+                </tr>
 
-              <tr>
-                <td>
-                  <strong> Organization </strong>
-                </td>
+                <tr>
+                  <td><strong>Outcome</strong></td>
+                  <td>
+                    A full-scale storefront built from scratch and running in
+                    unison with retail operations across the state
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-                <td>Confidential Enterprise Organization</td>
-              </tr>
+          <div class="case-section">
+            <h3>The Challenge</h3>
 
-              <tr>
-                <td>
-                  <strong> Primary Focus </strong>
-                </td>
+            <p>
+              This engagement was a true ground-up build, won through a
+              competitive bid to take over from a previous provider. There was
+              no existing site, domain configuration, or hosting to inherit -
+              every piece needed to be established before a single product could
+              go live, all while supporting brick-and-mortar stores and mobile
+              gameday shops across every University of Iowa sport.
+            </p>
 
-                <td>
-                  Application Architecture, Development, System Integration
-                </td>
-              </tr>
+            <p style="margin: 0 0 0.9rem 0">Key challenges included:</p>
 
-              <tr>
-                <td>
-                  <strong> Outcome </strong>
-                </td>
+            <ul class="alt">
+              <li>
+                No existing domain, hosting, or web application to build from
+              </li>
 
-                <td>Improved workflows and scalable digital capabilities</td>
-              </tr>
-            </tbody>
-          </table>
+              <li>
+                A need for a storefront with the full range of capabilities fans
+                expect from their team's official shop
+              </li>
 
-          <h3>The Challenge</h3>
+              <li>
+                Retail locations across the state and mobile gameday shops that
+                needed to operate in sync with the online store
+              </li>
 
-          <p>
-            Organizations often rely on disconnected tools, manual processes,
-            and outdated workflows that limit efficiency and make it difficult
-            to scale digital operations.
-          </p>
+              <li>
+                A launch timeline tied to a live sports season, with no
+                flexibility to slip
+              </li>
 
-          <p>Key challenges included:</p>
+              <li>
+                A need for an application built to scale as the partnership grew
+                across more sports and stores
+              </li>
+            </ul>
+          </div>
 
-          <ul class="alt">
-            <li>Manual processes limiting operational efficiency</li>
+          <div class="case-section">
+            <h3>The Approach</h3>
 
-            <li>Disconnected systems creating workflow challenges</li>
+            <p>
+              The build started from the ground floor and worked outward -
+              domain and hosting first, then the application itself, built to
+              run in step with the physical retail business.
+            </p>
 
-            <li>Limited automation capabilities</li>
+            <dl>
+              <dt>
+                <span class="fweight"> Foundation Setup </span>
+              </dt>
 
-            <li>Difficulty adapting existing platforms to business needs</li>
+              <dd>
+                <p>
+                  Established domain registration, DNS, and hosting as the
+                  starting point for everything built on top of it.
+                </p>
+              </dd>
 
-            <li>Need for scalable custom digital solutions</li>
-          </ul>
-          <h3>The Approach</h3>
+              <dt>
+                <span class="fweight"> Ecommerce Application Development </span>
+              </dt>
 
-          <p>
-            The project focused on creating a modern application foundation
-            designed around business requirements, scalability, and long-term
-            maintainability.
-          </p>
+              <dd>
+                <p>
+                  Built a full-scale storefront application with the browsing,
+                  cart, and checkout capabilities fans expect from an official
+                  team shop.
+                </p>
+              </dd>
 
-          <dl>
-            <dt>
-              <span class="fweight"> Application Architecture </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Retail Integration </span>
+              </dt>
 
-            <dd>
-              <p>
-                Designed scalable application structures that support business
-                workflows, future enhancements, and reliable operation.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Connected the online application to retail store and gameday
+                  shop operations so the business could run as one system, not
+                  several disconnected pieces.
+                </p>
+              </dd>
 
-            <dt>
-              <span class="fweight"> Front-End Development </span>
-            </dt>
+              <dt>
+                <span class="fweight"> Component-Based Architecture </span>
+              </dt>
 
-            <dd>
-              <p>
-                Developed responsive user experiences focused on usability,
-                performance, and accessibility.
-              </p>
-            </dd>
+              <dd>
+                <p>
+                  Structured the application in reusable, maintainable pieces
+                  designed to expand as the partnership added more sports and
+                  seasons.
+                </p>
+              </dd>
+            </dl>
+          </div>
 
-            <dt>
-              <span class="fweight"> Backend &amp; API Integration </span>
-            </dt>
+          <div class="case-section">
+            <h3>The Solution</h3>
 
-            <dd>
-              <p>
-                Connected systems through APIs, automated processes, and
-                structured data workflows.
-              </p>
-            </dd>
+            <p>
+              A custom-built ecommerce application now runs the storefront end
+              to end, tied directly into retail operations across the state.
+            </p>
 
-            <dt>
-              <span class="fweight"> Security &amp; Scalability </span>
-            </dt>
+            <table class="security-table">
+              <thead>
+                <tr>
+                  <th>Capability</th>
+                  <th>Impact</th>
+                </tr>
+              </thead>
 
-            <dd>
-              <p>
-                Applied modern development practices designed to support
-                reliability, security, and future growth.
-              </p>
-            </dd>
-          </dl>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong> Full-Scale Storefront </strong>
+                  </td>
 
-          <h3>The Solution</h3>
+                  <td>
+                    A ground-up ecommerce application with every capability fans
+                    expect from their team shop.
+                  </td>
+                </tr>
 
-          <p>
-            A custom web application solution was developed to replace manual
-            processes, connect digital systems, and provide a flexible platform
-            designed around organizational needs.
-          </p>
+                <tr>
+                  <td>
+                    <strong> Connected Retail Operations </strong>
+                  </td>
 
-          <table class="security-table">
-            <thead>
-              <tr>
-                <th>Capability</th>
+                  <td>
+                    Online and in-store business running in unison rather than
+                    as separate systems.
+                  </td>
+                </tr>
 
-                <th>Impact</th>
-              </tr>
-            </thead>
+                <tr>
+                  <td>
+                    <strong> Scalable Architecture </strong>
+                  </td>
 
-            <tbody>
-              <tr>
-                <td>
-                  <strong> Custom Application Platform </strong>
-                </td>
+                  <td>
+                    An application built to expand cleanly as the partnership
+                    grew.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-                <td>
-                  Delivered a solution designed specifically around business
-                  requirements.
-                </td>
-              </tr>
+          <div class="case-section">
+            <h3>The Results</h3>
 
-              <tr>
-                <td>
-                  <strong> Workflow Automation </strong>
-                </td>
+            <p>
+              With a custom-built application running the storefront, store and
+              web performance have improved, gameday traffic has been handled
+              without the site buckling under peak demand, and conversion has
+              trended upward across departments over the course of the
+              partnership.
+            </p>
 
-                <td>
-                  Reduced repetitive manual tasks and improved operational
-                  efficiency.
-                </td>
-              </tr>
+            <ul class="alt">
+              <li>
+                A full-scale storefront built and launched from the ground up
+              </li>
 
-              <tr>
-                <td>
-                  <strong> System Integration </strong>
-                </td>
+              <li>Gameday traffic handled reliably at peak demand</li>
 
-                <td>
-                  Connected existing technologies through modern integration
-                  patterns.
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              <li>Upward conversion trends across departments</li>
 
-          <h3>The Results</h3>
+              <li>
+                A custom application supporting ongoing email campaigns for
+                gameday information, product drops, and student-athlete
+                appearances
+              </li>
+            </ul>
+          </div>
 
-          <p>
-            By replacing fragmented workflows with a scalable application
-            solution, the organization gained improved efficiency, better system
-            connectivity, and a stronger digital foundation.
-          </p>
+          <div class="case-section">
+            <h3>Technologies &amp; Capabilities</h3>
 
-          <ul class="alt">
-            <li>Improved operational workflows</li>
+            <dl>
+              <dt>
+                <span class="fweight"> Custom Application Development </span>
+              </dt>
 
-            <li>Reduced manual processes</li>
+              <dd>
+                <p>
+                  A ground-up ecommerce build covering browsing, cart, and
+                  checkout functionality.
+                </p>
+              </dd>
 
-            <li>Enhanced digital experiences</li>
+              <dt>
+                <span class="fweight"> Domain &amp; Hosting Setup </span>
+              </dt>
 
-            <li>Increased ability to scale future capabilities</li>
-          </ul>
+              <dd>
+                <p>
+                  Foundational infrastructure established before any application
+                  code went live.
+                </p>
+              </dd>
 
-          <h3>Technologies &amp; Capabilities</h3>
+              <dt>
+                <span class="fweight"> Retail Systems Integration </span>
+              </dt>
 
-          <dl>
-            <dt>
-              <span class="fweight"> Front-End Development </span>
-            </dt>
+              <dd>
+                <p>
+                  Online storefront connected to physical retail and gameday
+                  shop operations across the state.
+                </p>
+              </dd>
 
-            <dd>
-              <p>
-                Modern HTML, CSS, JavaScript, responsive design, and optimized
-                user experiences.
-              </p>
-            </dd>
+              <dt>
+                <span class="fweight"> Scalable Codebase </span>
+              </dt>
 
-            <dt>
-              <span class="fweight"> Backend Development </span>
-            </dt>
+              <dd>
+                <p>
+                  Accessible, maintainable code structured to grow with the
+                  partnership over time.
+                </p>
+              </dd>
+            </dl>
+          </div>
 
-            <dd>
-              <p>
-                Application logic, APIs, automation workflows, and scalable
-                backend services.
-              </p>
-            </dd>
+          <div class="case-section">
+            <h3>Business Impact</h3>
 
-            <dt>
-              <span class="fweight"> Data &amp; Integration </span>
-            </dt>
+            <p>
+              Building an ecommerce application from nothing means every
+              decision - hosting, architecture, integration - shapes how well
+              the business can run years later. Connecting the storefront
+              directly to retail operations meant the online and in-person
+              business could move together instead of pulling in different
+              directions.
+            </p>
 
-            <dd>
-              <p>
-                Database integration, structured data workflows, and connected
-                digital systems.
-              </p>
-            </dd>
+            <p style="margin-bottom: 0">
+              Through foundational setup, custom application development, and
+              deep retail integration, this initiative created a storefront that
+              has supported the partnership with Hawkeye Fan Shop and the
+              University of Iowa Athletics Department since 2016.
+            </p>
+          </div>
 
-            <dt>
-              <span class="fweight"> Development Practices </span>
-            </dt>
+          <div class="case-section">
+            <h3>Explore More Case Studies</h3>
+            <p style="margin-top: 1.5rem; margin-bottom: 0">
+              <a href="/case-studies.html">View all case studies →</a>
+            </p>
+          </div>
 
-            <dd>
-              <p>
-                Version control, secure development practices, testing, and
-                maintainable application architecture.
-              </p>
-            </dd>
-          </dl>
+          <div class="case-cta">
+            <h3>Start the Conversation</h3>
 
-          <h3>Business Impact</h3>
+            <p>
+              A storefront built from scratch is only as good as the decisions
+              made on day one. It's built deliberately, from the domain up, so
+              the platform you're running is one you can actually grow with.
+            </p>
 
-          <p>
-            Custom software should solve real business challenges, not simply
-            replicate existing processes. The strongest digital solutions
-            connect technology with measurable improvements.
-          </p>
-
-          <p>
-            Through modern application architecture, automation, and system
-            integration, this initiative created a scalable platform designed to
-            support continued growth and innovation.
-          </p>
-
-          <h3>Partner With Scott Labz</h3>
-
-          <p>
-            Scott Labz builds custom web applications, digital platforms, and
-            technical solutions designed to improve efficiency, connect systems,
-            and support long-term business goals.
-          </p>
-
-          <ul class="actions">
-            <li>
-              <a href="/contact.html" class="button primary">
-                Start a Conversation
-              </a>
-            </li>
-          </ul>
+            <ul class="actions">
+              <li>
+                <a href="/contact.html" class="button primary">
+                  Start a Conversation
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -472,7 +626,7 @@
       <script src="/assets/js/footer-min.js" defer></script>
 
       <scott-footer
-        description="Explore how Scott Labz builds custom web applications, digital platforms, and scalable technology solutions designed to improve efficiency and support business growth.">
+        description="How a full-scale ecommerce platform was built from the ground up for a major collegiate athletics retailer, from domain to storefront.">
       </scott-footer>
     </div>
   </body>

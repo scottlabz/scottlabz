@@ -9135,3 +9135,29 @@ body.is-preload .items.onload-fade-in > * > .inner {
     margin-top: 0.15rem;
   }
 }
+
+.markets-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.markets-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  background-image: url(/images/markets.jpg);
+  background-size: cover;
+  background-position: center;
+
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+.markets-hero > * {
+  position: relative;
+  z-index: 1;
+}
