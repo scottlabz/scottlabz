@@ -9103,7 +9103,6 @@ body.is-preload .items.onload-fade-in > * > .inner {
   background-image: url("/images/about.jpg");
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
 }
 
 .about-hero > * {
