@@ -196,6 +196,20 @@ class ScottFooter extends HTMLElement {
 
               <li>
                 <a
+                  href="https://gitlab.com/scottlabz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon brands style2 fa-gitlab">
+
+                  <span class="label">
+                    GitLab
+                  </span>
+
+                </a>
+              </li>
+
+              <li>
+                <a
                   href="https://www.linkedin.com/company/scottlabz"
                   target="_blank"
                   rel="noopener noreferrer"
