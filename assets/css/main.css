@@ -9160,3 +9160,30 @@ body.is-preload .items.onload-fade-in > * > .inner {
   position: relative;
   z-index: 1;
 }
+
+.copyright {
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .copyright {
+    text-align: left;
+  }
+}
+
+.ftrmsg {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .ftrmsg {
+    width: 30%;
+  }
+}

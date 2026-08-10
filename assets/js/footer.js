@@ -43,7 +43,7 @@ class ScottFooter extends HTMLElement {
                   </span>
                 </a>
               </div>
-              <p style="font-size:.85rem;opacity:.8;margin-bottom:1rem;">
+              <p class="ftrmsg">
                 ${customDesc}
               </p>
             </div>
@@ -158,13 +158,7 @@ class ScottFooter extends HTMLElement {
           </div>
 
 
-          <div
-            style="
-              border-top:1px solid rgba(160,160,160,.2);
-              padding-top:1.5rem;
-              font-size:.85rem;
-              text-align:center;
-            ">
+          <div class="copyright">
 
             <p style="margin: 0 0 1rem 0;">
               &copy;
