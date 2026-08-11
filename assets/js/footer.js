@@ -75,8 +75,8 @@ class ScottFooter extends HTMLElement {
                       title="Scott Labz BBB Business Review"
                       style="
                         border: 0;
-                        width:100px;
-                        height:auto;
+                        width:auto;
+                        height:100%;
                       "
                     >
                   </a>
@@ -92,7 +92,7 @@ class ScottFooter extends HTMLElement {
                       display:flex;
                       align-items:center;
                     "
-                    alt="McLean County Chamber of Commerce"
+                    aria-label="McLean County Chamber of Commerce"
                     title="McLean County Chamber of Commerce"
                   >
                     <img
@@ -102,8 +102,8 @@ class ScottFooter extends HTMLElement {
                       title="McLean County Chamber of Commerce"
                       style="
                         display:block;
-                        width:70px;
-                        height:auto;
+                        width:100%;
+                        height:75px;
                       "
                     >
                   </a>
@@ -267,7 +267,7 @@ class ScottFooter extends HTMLElement {
                     target="_blank"
                     rel="noopener noreferrer"
                     class="icon brands style2 fa-github"
-                      alt="GitHub"
+                      aria-label="GitHub"
                       title="GitHub"
                     >
 
@@ -284,7 +284,7 @@ class ScottFooter extends HTMLElement {
                     target="_blank"
                     rel="noopener noreferrer"
                     class="icon brands style2 fa-gitlab"
-                      alt="GitLab"
+                      aria-label="GitLab"
                       title="GitLab"
                     >
 
@@ -301,7 +301,7 @@ class ScottFooter extends HTMLElement {
                     target="_blank"
                     rel="noopener noreferrer"
                     class="icon brands style2 fa-linkedin"
-                    alt="LinkedIn"
+                    aria-label="LinkedIn"
                     title="LinkedIn"
                     >
 
@@ -353,40 +353,22 @@ class ScottFooter extends HTMLElement {
           behavior: "smooth",
         });
       });
-
-      const socialGroups = this.querySelector("#footer-social-groups");
-      const divider = this.querySelector("#footer-divider");
-      const bbbImg = this.querySelector("#footer-bbb-img");
-      const chamberImg = this.querySelector("#footer-chamber-img");
-
-      const applyResponsiveFooterStyles = () => {
-        const isMobile = window.innerWidth <= 736;
-
-        if (socialGroups) {
-          socialGroups.style.flexDirection = isMobile ? "column" : "row";
-          socialGroups.style.gap = isMobile ? "1.5rem" : "2.5rem";
-        }
-
-        if (divider) {
-          divider.style.width = isMobile ? "60%" : "1px";
-          divider.style.height = "1px";
-          if (!isMobile) {
-            divider.style.height = "36px";
-          }
-        }
-
-        if (bbbImg) {
-          bbbImg.style.width = isMobile ? "90px" : "100px";
-        }
-
-        if (chamberImg) {
-          chamberImg.style.width = isMobile ? "65px" : "70px";
-        }
-      };
-
-      applyResponsiveFooterStyles();
-      window.addEventListener("resize", applyResponsiveFooterStyles);
     }
+
+    // Responsive footer sizing — independent of the back-to-top button
+    const socialGroups = this.querySelector("#footer-social-groups");
+
+    const applyResponsiveFooterStyles = () => {
+      const isMobile = window.innerWidth <= 736;
+
+      if (socialGroups) {
+        socialGroups.style.flexDirection = isMobile ? "column" : "row";
+        socialGroups.style.gap = isMobile ? "1.5rem" : "2.5rem";
+      }
+    };
+
+    applyResponsiveFooterStyles();
+    window.addEventListener("resize", applyResponsiveFooterStyles);
   }
 }
 
