@@ -37,15 +37,80 @@ class ScottFooter extends HTMLElement {
                       src="/images/scottlabz-clear.png"
                       alt="S"
                       class="logo"
-                      style="display:block;">
-
-                    <span>cott Labz</span>
+                      style="display:block;max-height: 4vh;margin-right: 2px;">
+                    <span style="font-size: x-large;">cott Labz</span>
                   </span>
                 </a>
               </div>
               <p class="ftrmsg">
                 ${customDesc}
               </p>
+
+              <ul class="icons" style="
+                display:flex;
+                align-items:center;
+                justify-content:flex-start;
+                flex-wrap:wrap;
+                gap:1.75rem;
+                list-style:none;
+                padding:0;
+                margin:0;
+              ">
+
+                <li style="display:flex;align-items:center;">
+                  
+                    <a href="https://www.bbb.org/us/il/normal/profile/data-analytics/scott-labz-0724-1000039342/#sealclick"
+                    target="_blank"
+                    rel="nofollow"
+                    style="
+                      border-bottom:none;
+                      display:flex;
+                      align-items:center;
+                    "
+                  >
+                    <img
+                      id="footer-bbb-img"
+                      src="https://seal-heartofillinois.bbb.org/seals/blue-seal-120-61-bbb-1000039342.png"
+                      alt="Scott Labz BBB Business Review"
+                      title="Scott Labz BBB Business Review"
+                      style="
+                        border: 0;
+                        width:100px;
+                        height:auto;
+                      "
+                    >
+                  </a>
+                </li>
+
+                <li style="display:flex;align-items:center;">
+                  
+                    <a href="https://www.mcleancochamber.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="
+                      border-bottom:none;
+                      display:flex;
+                      align-items:center;
+                    "
+                    alt="McLean County Chamber of Commerce"
+                    title="McLean County Chamber of Commerce"
+                  >
+                    <img
+                      id="footer-chamber-img"
+                      src="/images/Chamber-Member-Logo.png"
+                      alt="McLean County Chamber of Commerce"
+                      title="McLean County Chamber of Commerce"
+                      style="
+                        display:block;
+                        width:70px;
+                        height:auto;
+                      "
+                    >
+                  </a>
+                </li>
+
+              </ul>
+
             </div>
 
             <!-- SOLUTIONS -->
@@ -111,6 +176,12 @@ class ScottFooter extends HTMLElement {
                     Insights
                   </a>
                 </li>
+
+                <li>
+                  <a href="/faq.html">
+                    FAQ
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -119,7 +190,7 @@ class ScottFooter extends HTMLElement {
             <div style="flex:1;min-width:150px;">
 
               <h4 style="font-size:.9rem;text-transform:uppercase;margin:0;">
-                SCOTT LABZ
+                COMPANY
               </h4>
 
               <ul
@@ -133,6 +204,12 @@ class ScottFooter extends HTMLElement {
                 <li>
                   <a href="/about.html">
                     About
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/bbb.html">
+                    BBB Accreditation
                   </a>
                 </li>
 
@@ -157,65 +234,93 @@ class ScottFooter extends HTMLElement {
             </div>
           </div>
 
-
           <div class="copyright">
 
-            <p style="margin: 0 0 1rem 0;">
+            <p style="margin: 0 0 0.7rem 0;">
               &copy;
               <span id="footer-year"></span>
               Scott Labz, LLC.
               All rights reserved.
+              <br />
+              Analytics &middot; Data &middot; Web Development &middot; Digital Infrastructure
+              <br />
+              Independent Analytics &amp; Digital Firm
             </p>
 
-            <ul class="icons" style="
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              gap: 1.5rem;
+            <div id="footer-social-groups" style="
+              display:flex;
+              align-items:flex-start;
+              justify-content:center;
+              flex-wrap:wrap;
+              gap:2.5rem;
+              margin:0 auto;
             ">
 
-              <li>
-                <a
-                  href="https://github.com/scottlabz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="icon brands style2 fa-github">
+              <ul class="icons" style="
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                flex-wrap:wrap;
+                gap:1.25rem;
+                list-style:none;
+                padding:0;
+                margin:0;
+              ">
 
-                  <span class="label">
-                    GitHub
-                  </span>
+                <li>
+                  
+                    <a href="https://github.com/scottlabz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="icon brands style2 fa-github"
+                      alt="GitHub"
+                      title="GitHub"
+                    >
 
-                </a>
-              </li>
+                    <span class="label">
+                      GitHub
+                    </span>
 
-              <li>
-                <a
-                  href="https://gitlab.com/scottlabz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="icon brands style2 fa-gitlab">
+                  </a>
+                </li>
 
-                  <span class="label">
-                    GitLab
-                  </span>
+                <li>
+                  
+                    <a href="https://gitlab.com/scottlabz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="icon brands style2 fa-gitlab"
+                      alt="GitLab"
+                      title="GitLab"
+                    >
 
-                </a>
-              </li>
+                    <span class="label">
+                      GitLab
+                    </span>
 
-              <li>
-                <a
-                  href="https://www.linkedin.com/company/scottlabz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="icon brands style2 fa-linkedin">
+                  </a>
+                </li>
 
-                  <span class="label">
-                    LinkedIn
-                  </span>
+                <li>
+                  
+                    <a href="https://www.linkedin.com/company/scottlabz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="icon brands style2 fa-linkedin"
+                    alt="LinkedIn"
+                    title="LinkedIn"
+                    >
 
-                </a>
-              </li>
-            </ul>
+                    <span class="label">
+                      LinkedIn
+                    </span>
+
+                  </a>
+                </li>
+
+              </ul>
+
+            </div>
 
           </div>
         </div>
@@ -233,7 +338,6 @@ class ScottFooter extends HTMLElement {
         ">
         ↑ Top
       </button>
-
     `;
 
     const yearSpan = this.querySelector("#footer-year");
@@ -255,6 +359,39 @@ class ScottFooter extends HTMLElement {
           behavior: "smooth",
         });
       });
+
+      const socialGroups = this.querySelector("#footer-social-groups");
+      const divider = this.querySelector("#footer-divider");
+      const bbbImg = this.querySelector("#footer-bbb-img");
+      const chamberImg = this.querySelector("#footer-chamber-img");
+
+      const applyResponsiveFooterStyles = () => {
+        const isMobile = window.innerWidth <= 736;
+
+        if (socialGroups) {
+          socialGroups.style.flexDirection = isMobile ? "column" : "row";
+          socialGroups.style.gap = isMobile ? "1.5rem" : "2.5rem";
+        }
+
+        if (divider) {
+          divider.style.width = isMobile ? "60%" : "1px";
+          divider.style.height = "1px";
+          if (!isMobile) {
+            divider.style.height = "36px";
+          }
+        }
+
+        if (bbbImg) {
+          bbbImg.style.width = isMobile ? "90px" : "100px";
+        }
+
+        if (chamberImg) {
+          chamberImg.style.width = isMobile ? "65px" : "70px";
+        }
+      };
+
+      applyResponsiveFooterStyles();
+      window.addEventListener("resize", applyResponsiveFooterStyles);
     }
   }
 }
