@@ -218,18 +218,6 @@ class ScottFooter extends HTMLElement {
                     Contact
                   </a>
                 </li>
-
-                <li>
-                  <a href="/security-trust.html">
-                    Security &amp; Trust
-                  </a>
-                </li>
-
-                <li>
-                  <a href="/legal.html">
-                    Legal &amp; Policies
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -245,6 +233,12 @@ class ScottFooter extends HTMLElement {
               Analytics &middot; Data &middot; Web Development &middot; Digital Infrastructure
               <br />
               Independent Analytics &amp; Digital Firm
+            </p>
+
+            <p style="font-size: 0.85rem; opacity: 0.7; margin: 0 0 1.25rem;">
+              <a href="security-trust.html" style="color: inherit; text-decoration: underline;">Security &amp; Trust</a>
+              <span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>
+              <a href="legal.html" style="color: inherit; text-decoration: underline;">Legal &amp; Policies</a>
             </p>
 
             <div id="footer-social-groups" style="
