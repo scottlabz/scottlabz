@@ -232,7 +232,7 @@ class ScottFooter extends HTMLElement {
               <br />
               Analytics &middot; Data &middot; Web Development &middot; Digital Infrastructure
               <br />
-              Independent Analytics &amp; Digital Firm
+              Independent Analytics &amp; Digital Engineering Firm
               <br />
               <span style="font-size:small;">Bloomington-Normal, McLean County, Illinois, USA</span>
             </p>
