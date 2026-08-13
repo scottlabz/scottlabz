@@ -34,28 +34,29 @@
         "@context": "https://schema.org",
         "@graph": [
           {
-            "@type": "LocalBusiness",
+            "@type": ["Organization", "LocalBusiness"],
+            "@id": "https://scottlabz.com/#organization",
             "name": "Scott Labz, LLC",
             "description": "Scott Labz provides web development, analytics consulting, automation, SEO, and digital infrastructure services focused on performance, reliability, and measurable business growth.",
             "url": "https://scottlabz.com/",
             "telephone": "+1-309-324-2875",
+            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "slogan": "Engineering Digital Growth Through Data",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "1710 Fairfield Dr",
               "addressLocality": "Normal",
-              "addressRegion": "Il",
+              "addressRegion": "IL",
               "postalCode": "61761",
               "addressCountry": "US"
             },
             "geo": {
               "@type": "GeoCoordinates",
-              "latitude": "40.501744599999995",
-              "longitude": "-89.016401"
+              "latitude": 40.5017446,
+              "longitude": -89.016401
             },
             "hasMap": "https://maps.app.goo.gl/6s86TSLyijQBTXTQ7",
-            "image": "https://scottlabz.com/images/scottlabz-clear.png",
-            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
-            "slogan": "Engineering Digital Growth Through Data",
             "openingHoursSpecification": {
               "@type": "OpeningHoursSpecification",
               "dayOfWeek": [
@@ -74,7 +75,12 @@
               "https://github.com/scottlabz",
               "https://www.linkedin.com/company/scottlabz",
               "https://www.linkedin.com/in/scotttaylor369"
-            ]
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-309-324-2875",
+              "contactType": "Scott Labz"
+            }
           },
           {
             "@type": "Person",
@@ -92,10 +98,9 @@
               "Digital Analytics Consulting"
             ],
             "worksFor": {
-              "@type": "Organization",
-              "name": "Scott Labz, LLC"
+              "@id": "https://scottlabz.com/#organization"
             },
-            "sameAs": ["https://www.linkedin.com/company/scottlabz"]
+            "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
           }
         ]
       }
