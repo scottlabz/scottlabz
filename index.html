@@ -21,9 +21,7 @@
       name="description"
       content="Scott Labz builds the tracking, platforms, and reporting that turn messy business data into decisions you can trust." />
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/main-min.css" />
     <noscript>
       <link rel="stylesheet" href="assets/css/noscript-min.css" />
@@ -34,24 +32,71 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "@id": "https://scottlabz.com/",
-        "name": "ScottLabz",
-        "url": "https://scottlabz.com/",
-        "logo": "https://scottlabz.com/images/scottlabz-clear.png",
-        "image": "https://scottlabz.com/images/scottlabz-clear.png",
-        "description": "Scott Labz builds the tracking, platforms, and reporting that turn messy business data into decisions you can trust.",
-        "serviceType": [
-          "Web Development",
-          "Digital Infrastructure",
-          "Analytics Solutions",
-          "Digital Analytics Consulting"
-        ],
-        "areaServed": "Worldwide",
-        "sameAs": [
-          "https://github.com/scottlabz",
-          "https://www.linkedin.com/company/scottlabz",
-          "https://www.linkedin.com/in/scotttaylor369"
+        "@graph": [
+          {
+            "@type": "LocalBusiness",
+            "name": "Scott Labz, LLC",
+            "description": "Scott Labz provides web development, analytics consulting, automation, SEO, and digital infrastructure services focused on performance, reliability, and measurable business growth.",
+            "url": "https://scottlabz.com/",
+            "telephone": "+1-309-324-2875",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "1710 Fairfield Dr",
+              "addressLocality": "Normal",
+              "addressRegion": "Il",
+              "postalCode": "61761",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "40.501744599999995",
+              "longitude": "-89.016401"
+            },
+            "hasMap": "https://maps.app.goo.gl/6s86TSLyijQBTXTQ7",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+            "slogan": "Engineering Digital Growth Through Data",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "00:00",
+              "closes": "23:59"
+            },
+            "sameAs": [
+              "https://github.com/scottlabz",
+              "https://www.linkedin.com/company/scottlabz",
+              "https://www.linkedin.com/in/scotttaylor369"
+            ]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://scottlabz.com/#setaylor",
+            "name": "S.E. Taylor",
+            "jobTitle": "Owner",
+            "description": "S.E. Taylor is the founder of Scott Labz, where he combines web development, analytics, automation, and digital strategy to help businesses create faster, smarter, and more effective digital experiences.",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "url": "https://scottlabz.com/",
+            "email": "mailto:info@scottlabz.com",
+            "knowsAbout": [
+              "Analytics Solutions",
+              "Web Development",
+              "Digital Infrastructure",
+              "Digital Analytics Consulting"
+            ],
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Scott Labz, LLC"
+            },
+            "sameAs": ["https://www.linkedin.com/company/scottlabz"]
+          }
         ]
       }
     </script>
