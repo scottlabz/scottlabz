@@ -47,104 +47,76 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "@id": "https://scottlabz.com/faq.html",
-        "mainEntity": [
+        "@graph": [
           {
-            "@type": "Question",
-            "name": "What's your approach to analytics?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Analytics should answer questions, not create more of them. Reliable analytics solutions help businesses understand what's happening across their digital experiences. Every implementation is designed to be accurate, scalable, and easy to maintain, creating a dependable foundation for reporting and decision-making."
+            "@type": ["Organization", "LocalBusiness"],
+            "@id": "https://scottlabz.com/#organization",
+            "name": "Scott Labz, LLC",
+            "description": "Answers to common questions about analytics approach, implementation, data quality, privacy, and how engagements work.",
+            "url": "https://scottlabz.com/faq.html",
+            "telephone": "+1-309-324-2875",
+            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "priceRange": "$$",
+            "slogan": "Engineering Digital Growth Through Data",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "1710 Fairfield Dr",
+              "addressLocality": "Normal",
+              "addressRegion": "IL",
+              "postalCode": "61761",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 40.5017446,
+              "longitude": -89.016401
+            },
+            "hasMap": "https://maps.app.goo.gl/6s86TSLyijQBTXTQ7",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "00:00",
+              "closes": "23:59"
+            },
+            "sameAs": [
+              "https://github.com/scottlabz",
+              "https://www.linkedin.com/company/scottlabz",
+              "https://www.linkedin.com/in/scotttaylor369"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-309-324-2875",
+              "contactType": "Scott Labz"
             }
           },
           {
-            "@type": "Question",
-            "name": "How do you approach tracking and implementation?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Every implementation starts with a clear measurement strategy. Understanding business goals comes before any tracking is deployed. From there, a structured data layer, consistent event taxonomy, and clean implementation follow established practices. The result is higher-quality data, fewer tracking issues, and reports stakeholders can trust."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can you work with our existing systems?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Solutions are built around open standards and proven implementation practices, not a single platform or vendor, and are designed to integrate with existing websites, applications, marketing technologies, and data platforms while reducing disruption. Whether optimizing an existing implementation, modernizing a stack, or connecting data across systems, the goal is helping your technology work better together, not requiring a rebuild."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do you ensure data quality?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Reliable insights begin with reliable data. Every implementation includes validation, testing, and ongoing monitoring to verify data is collected accurately and consistently. Tracking issues, missing information, and reporting inconsistencies are identified early, helping maintain confidence in every dashboard and report."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do you handle privacy and security?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Responsible data collection is built into every solution. Industry practices for privacy, access control, consent management, and data governance guide every implementation, protecting customer data while providing the insights organizations need to make informed decisions."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you work with our existing teams?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Solutions are designed to support internal staff, existing processes, and long-term maintainability, so the work stays usable well after an engagement ends."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What does an engagement typically look like?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Most engagements move through four stages: understanding current systems and goals, assessing gaps and opportunities, implementing improvements, and enabling internal processes so value continues after launch. Scope and timeline are defined upfront based on what the business actually needs."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How long does a typical project take?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Timelines depend on scope. A focused measurement audit or tracking cleanup can wrap in a few weeks, while a full analytics rebuild, integration project, or custom web build runs longer. A clear timeline is set before work begins."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you handle advertising campaigns or media buying?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. The focus is measurement, implementation, data infrastructure, and web development, the systems that make campaign performance measurable in the first place, not managing the campaigns or ad spend themselves."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you work with businesses of any size?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Engagements range from independent retailers standing up their first reliable analytics setup to established organizations modernizing a legacy stack. Every solution is scoped to the size and complexity of the business it supports."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you provide support after a project launches?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Ongoing monitoring, maintenance, and iterative improvement are available after launch, since digital platforms and data needs continue to change after the initial build."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I get started?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Reach out through the contact page with a short description of the current setup and what you're trying to solve. A short conversation usually clarifies whether the right first step is an audit, a new implementation, or something else entirely."
-            }
+            "@type": "Person",
+            "@id": "https://scottlabz.com/#setaylor",
+            "name": "S.E. Taylor",
+            "jobTitle": "Founder",
+            "description": "S.E. Taylor is the founder of Scott Labz, where he combines web development, analytics, automation, and digital strategy to help businesses create faster, smarter, and more effective digital experiences.",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "url": "https://scottlabz.com/faq.html",
+            "email": "mailto:info@scottlabz.com",
+            "knowsAbout": [
+              "Analytics Solutions",
+              "Web Development",
+              "Digital Infrastructure",
+              "Digital Analytics Consulting"
+            ],
+            "worksFor": {
+              "@id": "https://scottlabz.com/#organization"
+            },
+            "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
           }
         ]
       }

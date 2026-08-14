@@ -47,32 +47,78 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebPage",
-        "@id": "https://scottlabz.com/case-studies/analytics-dashboard-reporting.html",
-        "url": "https://scottlabz.com/case-studies/analytics-dashboard-reporting.html",
-        "name": "Analytics Dashboard & Reporting Case Study | Scott Labz",
-        "description": "A case study on turning raw retail, gameday, and online data into actionable dashboards and reporting for a collegiate athletics retailer.",
-        "isPartOf": {
-          "@type": "WebSite",
-          "@id": "https://scottlabz.com/",
-          "name": "Scott Labz"
-        },
-        "mainEntity": {
-          "@type": "CreativeWork",
-          "name": "Analytics Dashboard & Reporting Initiative",
-          "description": "Designing dashboards and reporting views that translate connected retail, gameday, and online data into decisions stakeholders can act on.",
-          "author": {
-            "@type": "Organization",
-            "name": "Scott Labz",
-            "url": "https://scottlabz.com/"
+        "@graph": [
+          {
+            "@type": ["Organization", "LocalBusiness"],
+            "@id": "https://scottlabz.com/#organization",
+            "name": "Scott Labz, LLC",
+            "description": "How connected dashboards and reporting turned raw retail and gameday data into actionable insight for a major collegiate athletics retailer.",
+            "url": "https://scottlabz.com/case-studies/analytics-dashboard-reporting.html",
+            "telephone": "+1-309-324-2875",
+            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "priceRange": "$$",
+            "slogan": "Engineering Digital Growth Through Data",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "1710 Fairfield Dr",
+              "addressLocality": "Normal",
+              "addressRegion": "IL",
+              "postalCode": "61761",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 40.5017446,
+              "longitude": -89.016401
+            },
+            "hasMap": "https://maps.app.goo.gl/6s86TSLyijQBTXTQ7",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "00:00",
+              "closes": "23:59"
+            },
+            "sameAs": [
+              "https://github.com/scottlabz",
+              "https://www.linkedin.com/company/scottlabz",
+              "https://www.linkedin.com/in/scotttaylor369"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-309-324-2875",
+              "contactType": "Scott Labz"
+            }
           },
-          "about": [
-            "Digital Analytics",
-            "Dashboard Design",
-            "Business Reporting",
-            "Data Visualization"
-          ]
-        }
+          {
+            "@type": "Person",
+            "@id": "https://scottlabz.com/#setaylor",
+            "name": "S.E. Taylor",
+            "jobTitle": "Founder",
+            "description": "S.E. Taylor is the founder of Scott Labz, where he combines web development, analytics, automation, and digital strategy to help businesses create faster, smarter, and more effective digital experiences.",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "url": "https://scottlabz.com/case-studies/analytics-dashboard-reporting.html",
+            "email": "mailto:info@scottlabz.com",
+            "knowsAbout": [
+              "Analytics Solutions",
+              "Web Development",
+              "Digital Infrastructure",
+              "Digital Analytics Consulting"
+            ],
+            "worksFor": {
+              "@id": "https://scottlabz.com/#organization"
+            },
+            "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
+          }
+        ]
       }
     </script>
 
