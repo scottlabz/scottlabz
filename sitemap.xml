@@ -14,36 +14,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://scottlabz.com/assets/css/index.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://scottlabz.com/assets/index.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://scottlabz.com/assets/js/index.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://scottlabz.com/assets/sass/index.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://scottlabz.com/assets/webfonts/index.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
     <loc>https://scottlabz.com/bbb.html</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>yearly</changefreq>
@@ -104,12 +74,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://scottlabz.com/case-studies/index.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://scottlabz.com/case-studies/the-black-and-gold-shop.html</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>yearly</changefreq>
@@ -146,24 +110,6 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://scottlabz.com/images/favicon/index.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://scottlabz.com/images/gallery/index.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://scottlabz.com/images/index.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
     <loc>https://scottlabz.com/</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -174,12 +120,6 @@
     <lastmod>2026-08-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://scottlabz.com/insights/index.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://scottlabz.com/insights.html</loc>
@@ -230,12 +170,6 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://scottlabz.com/markets/index.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
     <loc>https://scottlabz.com/markets/web-development-bloomington-normal-il.html</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>yearly</changefreq>
@@ -246,12 +180,6 @@
     <lastmod>2026-08-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://scottlabz.com/scripts/index.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://scottlabz.com/security-trust.html</loc>
@@ -294,12 +222,6 @@
     <lastmod>2026-08-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://scottlabz.com/trust/index.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://scottlabz.com/trust/privacy.html</loc>
