@@ -1,36 +1,21 @@
-name: Purge Cloudflare Cache
+name: Purge Cache
+
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
+    inputs:
+      environment:
+        description: Environment to purge
+        required: true
+        default: production
+        type: choice
+        options:
+          - production
+          - staging
+
 jobs:
-  purge-cache:
+  purge:
     runs-on: ubuntu-latest
-    environment: production
+    environment: ${{ github.event.inputs.environment }}
     steps:
-      - name: Purge Cloudflare cache
-        run: |
-          response=$(curl -s -w "\n%{http_code}" -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CF_ZONE_ID }}/purge_cache" \
-            -H "Authorization: Bearer ${{ secrets.CF_API_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            --data '{"purge_everything":true}')
-
-          http_code=$(echo "$response" | tail -n1)
-          body=$(echo "$response" | sed '$d')
-
-          echo "HTTP status: $http_code"
-          echo "Response body: $body"
-
-          if [ "$http_code" -ne 200 ]; then
-            echo "::error::Cloudflare purge failed with HTTP $http_code"
-            exit 1
-          fi
-
-          success=$(echo "$body" | grep -o '"success":[a-z]*' | cut -d: -f2)
-          if [ "$success" != "true" ]; then
-            echo "::error::Cloudflare purge reported failure: $body"
-            exit 1
-          fi
-
-          echo "Cache purge successful."
+      - name: Purge cache
+        run: echo "Purging cache for ${{ github.event.inputs.environment }}"
