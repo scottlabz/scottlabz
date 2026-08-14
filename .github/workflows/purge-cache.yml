@@ -18,4 +18,14 @@ jobs:
     environment: ${{ github.event.inputs.environment }}
     steps:
       - name: Purge cache
-        run: echo "Purging cache for ${{ github.event.inputs.environment }}"
+        run: |
+          response=$(curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CF_ZONE_ID }}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CF_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}')
+          echo "$response"
+          success=$(echo "$response" | jq -r '.success')
+          if [ "$success" != "true" ]; then
+            echo "Purge failed"
+            exit 1
+          fi
