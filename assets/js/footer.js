@@ -146,6 +146,13 @@ class ScottFooter extends HTMLElement {
                     Services
                   </a>
                 </li>
+
+                <li>
+                  <a href="/industries.html">
+                    Industries
+                  </a>
+                </li>
+
               </ul>
             </div>
 
