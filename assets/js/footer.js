@@ -84,7 +84,7 @@ class ScottFooter extends HTMLElement {
 
                 <li style="display:flex;align-items:center;">
                   
-                    <a href="https://www.mcleancochamber.org/"
+                    <a href="https://business.mcleancochamber.org/active-member-directory/Details/scott-labz-llc-4951023"
                     target="_blank"
                     rel="noopener noreferrer"
                     style="
