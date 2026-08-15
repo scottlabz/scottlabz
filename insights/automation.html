@@ -1,0 +1,813 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>Automation | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="Automation built to be trusted, not just to run - covering triggers, validation, execution, monitoring, recovery, and continuous improvement for systems that hold up over time." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/main-min.css" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript-min.css" />
+    </noscript>
+
+    <script src="/assets/js/header-min.js"></script>
+    <script src="/assets/js/favicon-min.js"></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/insights/automation.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://scottlabz.com/#organization",
+            "name": "Scott Labz, LLC",
+            "description": "Automation built to be trusted, not just to run - covering triggers, validation, execution, monitoring, recovery, and continuous improvement for systems that hold up over time.",
+            "url": "https://scottlabz.com/insights/automation.html",
+            "telephone": "+1-309-324-2875",
+            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "priceRange": "$$",
+            "slogan": "Engineering Digital Growth Through Data",
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "McLean County, Illinois"
+            },
+            "sameAs": [
+              "https://github.com/scottlabz",
+              "https://www.linkedin.com/company/scottlabz",
+              "https://www.linkedin.com/in/scotttaylor369"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-309-324-2875",
+              "contactType": "Scott Labz"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://scottlabz.com/#scotttaylor",
+            "name": "Scott Taylor",
+            "jobTitle": "Founder",
+            "description": "Scott Taylor is the founder of Scott Labz, where he combines web development, analytics, automation, and digital strategy to help businesses create faster, smarter, and more effective digital experiences.",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "url": "https://scottlabz.com/insights/automation.html",
+            "email": "mailto:info@scottlabz.com",
+            "knowsAbout": [
+              "Analytics Solutions",
+              "Web Development",
+              "Digital Infrastructure",
+              "Digital Analytics Consulting"
+            ],
+            "worksFor": {
+              "@id": "https://scottlabz.com/#organization"
+            },
+            "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
+          }
+        ]
+      }
+    </script>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Scott Labz" />
+
+    <meta property="og:title" content="Automation | Scott Labz" />
+
+    <meta
+      property="og:description"
+      content="Automation built to be trusted, not just to run - triggers, validation, execution, monitoring, recovery, and continuous improvement." />
+
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/insights/automation.html" />
+
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .auto-page {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 2rem;
+      }
+
+      .auto-hero {
+        background: #1e3a5f;
+        color: #ffffff;
+        padding: 5rem 1.5rem 4.5rem;
+        text-align: center;
+      }
+
+      .auto-hero .auto-kicker {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #93c5fd;
+        margin-bottom: 1.25rem;
+      }
+
+      .auto-hero h1 {
+        font-size: 2.75rem;
+        line-height: 1.15;
+        margin-bottom: 1.25rem;
+        color: #ffffff;
+      }
+
+      .auto-hero p {
+        max-width: 620px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        opacity: 0.85;
+      }
+
+      .auto-hero .auto-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 2.5rem;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      .auto-hero .auto-logo img {
+        height: 1.5em;
+      }
+
+      .auto-lede {
+        font-size: 1.2rem;
+        line-height: 1.75;
+        margin-bottom: 3.5rem;
+      }
+
+      .auto-lede strong {
+        color: #1e3a5f;
+      }
+
+      .auto-section {
+        margin-bottom: 4rem;
+      }
+
+      .auto-section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+      }
+
+      .auto-section > p.auto-section-lead {
+        font-size: 1rem;
+        line-height: 1.7;
+        opacity: 0.8;
+        max-width: 640px;
+        margin-bottom: 2rem;
+      }
+
+      /* Vertical timeline */
+      .auto-timeline {
+        position: relative;
+        padding-left: 3rem;
+      }
+
+      .auto-timeline::before {
+        content: "";
+        position: absolute;
+        left: 1.1rem;
+        top: 0.5rem;
+        bottom: 0.5rem;
+        width: 2px;
+        background: linear-gradient(
+          to bottom,
+          #2563eb,
+          #7c3aed,
+          #ea580c,
+          #0891b2,
+          #dc2626,
+          #16a34a
+        );
+      }
+
+      .auto-stage {
+        position: relative;
+        padding-bottom: 2.25rem;
+      }
+
+      .auto-stage:last-child {
+        padding-bottom: 0;
+      }
+
+      .auto-stage .auto-stage-marker {
+        position: absolute;
+        left: -3rem;
+        top: 0;
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 10px rgba(15, 23, 42, 0.15);
+      }
+
+      .auto-stage h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .auto-stage p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        opacity: 0.82;
+        margin: 0;
+      }
+
+      .stage-1 .auto-stage-marker {
+        background: #2563eb;
+      }
+      .stage-2 .auto-stage-marker {
+        background: #7c3aed;
+      }
+      .stage-3 .auto-stage-marker {
+        background: #ea580c;
+      }
+      .stage-4 .auto-stage-marker {
+        background: #0891b2;
+      }
+      .stage-5 .auto-stage-marker {
+        background: #dc2626;
+      }
+      .stage-6 .auto-stage-marker {
+        background: #16a34a;
+      }
+
+      /* Loud vs silent comparison */
+      .auto-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border: 1px solid rgba(30, 58, 95, 0.15);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .auto-split-col {
+        padding: 1.75rem;
+      }
+
+      .auto-split-col.silent {
+        background: rgba(180, 60, 60, 0.04);
+        border-right: 1px solid rgba(30, 58, 95, 0.15);
+      }
+
+      .auto-split-col.loud {
+        background: rgba(30, 58, 95, 0.035);
+      }
+
+      .auto-split-col h4 {
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+
+      .auto-split-col.silent h4 {
+        color: #a33;
+      }
+
+      .auto-split-col.loud h4 {
+        color: #1e3a5f;
+      }
+
+      .auto-split-col ul {
+        margin: 0;
+        padding-left: 1.1rem;
+      }
+
+      .auto-split-col li {
+        font-size: 0.9rem;
+        line-height: 1.65;
+        margin-bottom: 0.6rem;
+        opacity: 0.85;
+      }
+
+      @media (max-width: 640px) {
+        .auto-split {
+          grid-template-columns: 1fr;
+        }
+        .auto-split-col.silent {
+          border-right: none;
+          border-bottom: 1px solid rgba(30, 58, 95, 0.15);
+        }
+      }
+
+      /* Principles checklist */
+      .auto-checklist {
+        border-top: 1px solid rgba(30, 58, 95, 0.1);
+      }
+
+      .auto-check-row {
+        display: flex;
+        gap: 1.25rem;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid rgba(30, 58, 95, 0.1);
+      }
+
+      .auto-check-mark {
+        flex-shrink: 0;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background: rgba(30, 58, 95, 0.08);
+        color: #1e3a5f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+      }
+
+      .auto-check-row h3 {
+        font-size: 1.02rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .auto-check-row p {
+        font-size: 0.92rem;
+        line-height: 1.6;
+        opacity: 0.82;
+        margin: 0;
+      }
+
+      /* Who this helps */
+      .auto-audience {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.25rem 2.5rem;
+      }
+
+      .auto-audience-row {
+        display: flex;
+        align-items: baseline;
+        gap: 0.75rem;
+        padding: 0.85rem 0;
+        border-bottom: 1px dashed rgba(30, 58, 95, 0.18);
+      }
+
+      .auto-audience-row span.auto-audience-mark {
+        color: #1e3a5f;
+        font-weight: 700;
+      }
+
+      .auto-audience-row p {
+        margin: 0;
+        font-size: 0.93rem;
+        line-height: 1.55;
+      }
+
+      @media (max-width: 640px) {
+        .auto-audience {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* FAQ via native details/summary */
+      .auto-faq-item {
+        border-bottom: 1px solid rgba(30, 58, 95, 0.12);
+      }
+
+      .auto-faq-item summary {
+        cursor: pointer;
+        list-style: none;
+        padding: 1.25rem 1.75rem 1.25rem 0;
+        font-weight: 600;
+        font-size: 1rem;
+        position: relative;
+      }
+
+      .auto-faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .auto-faq-item summary::after {
+        content: "+";
+        position: absolute;
+        right: 0;
+        top: 1.2rem;
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: #1e3a5f;
+        transition: transform 0.2s ease;
+      }
+
+      .auto-faq-item[open] summary::after {
+        transform: rotate(45deg);
+      }
+
+      .auto-faq-item p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        opacity: 0.82;
+        padding-bottom: 1.5rem;
+        margin: 0;
+      }
+
+      /* Closing */
+      .auto-close {
+        text-align: center;
+        padding: 3.5rem 2rem;
+        background: rgba(30, 58, 95, 0.035);
+        border-radius: 12px;
+      }
+
+      .auto-close h2 {
+        margin-bottom: 1rem;
+      }
+
+      .auto-close p {
+        max-width: 520px;
+        margin: 0 auto 2rem;
+        opacity: 0.82;
+      }
+
+      .about-hero {
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+      }
+
+      .about-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        background-image: url("/images/automation.jpg");
+        background-size: cover;
+        background-position: center;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          black 60%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      }
+
+      .about-hero > * {
+        position: relative;
+        z-index: 1;
+      }
+      .back-to-notes {font-size:large;}
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden">
+      </iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+    <section
+      class="banner about-hero style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+      <div class="content">
+          <!-- Hero -->
+          <div class="light-box">
+            <h1>
+              <a href="index.html" style="border-bottom: none">
+                <img
+                  src="/images/scottlabz-clear.png"
+                  alt="Scott Labz"
+                  class="logo"
+                  style="margin-right: 0" />cott Labz
+              </a>
+            </h1>
+
+        <h2 style="margin:0 0 0 0">Automation</h2>
+            <a href="/insights/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Insights</a
+            ><br /><br />
+        <p>
+          Automation should make a process more trustworthy, not just hands-off.
+          A workflow that fails without telling anyone isn't an improvement -
+          it's just a slower way to find out something's wrong.
+        </p>
+      </div>
+
+      <main class="auto-page">
+        <p class="auto-lede">
+          <strong>Reliable, not just automatic.</strong> Writing a script that
+          runs is the easy part. Writing one that still does the right thing six
+          months from now, after the inputs have shifted and nobody's watching
+          closely, is the part that actually matters.
+        </p>
+
+        <section class="auto-section">
+          <h2>Six stages, one loop</h2>
+          <p class="auto-section-lead">
+            Every automation that holds up moves through the same six stages.
+            Skipping any one of them is usually where things quietly start to
+            break.
+          </p>
+
+          <div class="auto-timeline">
+            <div class="auto-stage stage-1">
+              <div class="auto-stage-marker">1</div>
+              <h3>Trigger</h3>
+              <p>
+                Detects the event or condition that should start the workflow,
+                and nothing else.
+              </p>
+            </div>
+
+            <div class="auto-stage stage-2">
+              <div class="auto-stage-marker">2</div>
+              <h3>Validate</h3>
+              <p>
+                Confirms conditions and inputs are actually safe to act on
+                before anything runs.
+              </p>
+            </div>
+
+            <div class="auto-stage stage-3">
+              <div class="auto-stage-marker">3</div>
+              <h3>Execute</h3>
+              <p>
+                Carries out the defined action the same way, every time,
+                regardless of who's watching.
+              </p>
+            </div>
+
+            <div class="auto-stage stage-4">
+              <div class="auto-stage-marker">4</div>
+              <h3>Monitor</h3>
+              <p>
+                Watches outcomes, not just completions, to confirm the
+                automation actually did what it should have.
+              </p>
+            </div>
+
+            <div class="auto-stage stage-5">
+              <div class="auto-stage-marker">5</div>
+              <h3>Recover</h3>
+              <p>
+                Handles failure gracefully - retrying, rolling back, or
+                escalating - instead of failing silently.
+              </p>
+            </div>
+
+            <div class="auto-stage stage-6">
+              <div class="auto-stage-marker">6</div>
+              <h3>Improve</h3>
+              <p>
+                Feeds what was learned back into the workflow, instead of
+                leaving it exactly as first built.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="auto-section">
+          <h2>Loud failure vs. silent failure</h2>
+          <p class="auto-section-lead">
+            Most automation failures aren't dramatic. Nothing crashes, nothing
+            pages anyone - the workflow just quietly does something slightly
+            different than it was built to do.
+          </p>
+
+          <div class="auto-split">
+            <div class="auto-split-col silent">
+              <h4>Silent</h4>
+              <ul>
+                <li>Runs on schedule, completes without an error</li>
+                <li>Output drifts from what it's supposed to be</li>
+                <li>
+                  Nobody finds out until someone checks the result by hand
+                </li>
+                <li>By then, no one knows exactly when it started</li>
+              </ul>
+            </div>
+            <div class="auto-split-col loud">
+              <h4>Loud</h4>
+              <ul>
+                <li>Confirms its own outcome, not just its own completion</li>
+                <li>Flags the moment an input looks wrong</li>
+                <li>Sends a clear signal the instant it can't do its job</li>
+                <li>Fails in a way that's obvious, not a way that's quiet</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="auto-section">
+          <h2>What good automation actually looks like</h2>
+          <p class="auto-section-lead">
+            A few principles that separate automation people trust from
+            automation people quietly work around.
+          </p>
+
+          <div class="auto-checklist">
+            <div class="auto-check-row">
+              <div class="auto-check-mark">
+                <span class="icon solid fa-check"></span>
+              </div>
+              <div>
+                <h3>Fail loudly</h3>
+                <p>
+                  Silent failure is the most expensive kind. Every workflow
+                  needs a clear, immediate signal when it can't do what it's
+                  supposed to.
+                </p>
+              </div>
+            </div>
+
+            <div class="auto-check-row">
+              <div class="auto-check-mark">
+                <span class="icon solid fa-check"></span>
+              </div>
+              <div>
+                <h3>Idempotent by design</h3>
+                <p>
+                  Running a workflow twice by accident should never cause twice
+                  the damage - built in, not something everyone has to remember.
+                </p>
+              </div>
+            </div>
+
+            <div class="auto-check-row">
+              <div class="auto-check-mark">
+                <span class="icon solid fa-check"></span>
+              </div>
+              <div>
+                <h3>Owned, not orphaned</h3>
+                <p>
+                  Every automation needs a named owner - the same discipline
+                  data itself needs to hold up over time.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="auto-section">
+          <h2>Who this helps</h2>
+          <p class="auto-section-lead">
+            Automation worth building tends to show up in a handful of familiar
+            situations.
+          </p>
+
+          <div class="auto-audience">
+            <div class="auto-audience-row">
+              <span class="auto-audience-mark">&rarr;</span>
+              <p>Manual reporting eating a day every week</p>
+            </div>
+            <div class="auto-audience-row">
+              <span class="auto-audience-mark">&rarr;</span>
+              <p>Scripts nobody fully understands anymore</p>
+            </div>
+            <div class="auto-audience-row">
+              <span class="auto-audience-mark">&rarr;</span>
+              <p>Automation that already failed silently once</p>
+            </div>
+            <div class="auto-audience-row">
+              <span class="auto-audience-mark">&rarr;</span>
+              <p>Workflows spread across too many tools</p>
+            </div>
+            <div class="auto-audience-row">
+              <span class="auto-audience-mark">&rarr;</span>
+              <p>Growing without adding headcount</p>
+            </div>
+            <div class="auto-audience-row">
+              <span class="auto-audience-mark">&rarr;</span>
+              <p>Getting ahead of the next bottleneck</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="auto-section">
+          <h2>Frequently asked questions</h2>
+
+          <details class="auto-faq-item">
+            <summary>Isn't automation just for larger teams?</summary>
+            <p>
+              No - smaller teams often benefit the most, since there's less room
+              to absorb repetitive manual work without it eating into everything
+              else.
+            </p>
+          </details>
+
+          <details class="auto-faq-item">
+            <summary>
+              What if our current process is inconsistent or messy?
+            </summary>
+            <p>
+              That's a normal starting point. Understanding the process as it
+              actually runs today, not as it's supposed to run, comes before
+              anything gets automated.
+            </p>
+          </details>
+
+          <details class="auto-faq-item">
+            <summary>
+              How do you make sure automation doesn't fail silently?
+            </summary>
+            <p>
+              Monitoring and alerting are part of the build, not an afterthought
+              - every workflow should be able to say clearly when it didn't do
+              what it was supposed to.
+            </p>
+          </details>
+
+          <details class="auto-faq-item">
+            <summary>
+              Do you build on our existing tools, or replace them?
+            </summary>
+            <p>
+              Usually build on what's already there. Replacing tools is rarely
+              the actual bottleneck.
+            </p>
+          </details>
+
+          <details class="auto-faq-item">
+            <summary>What happens after it's built?</summary>
+            <p>
+              Automation needs an owner and a way to check in on it over time,
+              the same as any other system that matters.
+            </p>
+          </details>
+        </section>
+
+        <section class="auto-close">
+          <h2>Ready to automate something that actually holds up?</h2>
+          <p>
+            Let's look at what's eating the most manual time, and figure out
+            what's actually worth automating first.
+          </p>
+          <ul class="actions stacked" style="justify-content: center">
+            <li>
+              <a href="/contact.html" class="button big wide alt">
+                Get in Touch
+              </a>
+            </li>
+          </ul>
+</div>
+      </section>
+      </main>
+
+      <!-- Scripts -->
+
+      <script src="/assets/js/jquery.min.js" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+      <script src="/assets/js/browser.min.js" defer></script>
+      <script src="/assets/js/breakpoints.min.js" defer></script>
+      <script src="/assets/js/main.js" defer></script>
+      <script src="/assets/js/footer-min.js" defer></script>
+
+      <scott-footer
+        description="Automation built to be trusted, not just to run - triggers, validation, execution, monitoring, recovery, and continuous improvement."></scott-footer>
+    </div>
+  </body>
+</html>
