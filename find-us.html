@@ -302,6 +302,41 @@
         margin: 0 auto 1.5rem;
         opacity: 0.8;
       }
+
+      .about-hero {
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+      }
+
+      .about-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 25%;
+        background-image: url("/images/find-us.jpg");
+        background-size: cover;
+        background-position: center;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          black 60%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      }
+
+      .about-hero > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .light-box {
+        border: 1px solid rgba(30, 58, 95, 0.75);
+        margin-bottom: 2rem;
+        background: rgb(248 250 252 / 85%);
+      }
     </style>
   </head>
 
@@ -317,237 +352,247 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div id="wrapper" class="divided">
-      <main class="cred-page" id="first">
-        <div class="content" style="margin-bottom: 2.5rem">
-          <h1>
-            <a href="index.html" style="border-bottom: none">
-              <img
-                src="images/scottlabz-clear.png"
-                alt="Scott Labz"
-                class="logo"
-                style="margin-right: 0" />cott Labz
-            </a>
-          </h1>
-          <p class="major">Credentials &amp; Recognition</p>
+      <section
+        class="banner about-hero style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+        <div class="content">
+          <!-- Hero -->
+          <div class="light-box">
+            <h1>
+              <a href="index.html" style="border-bottom: none">
+                <img
+                  src="images/scottlabz-clear.png"
+                  alt="Scott Labz"
+                  class="logo"
+                  style="margin-right: 0" />cott Labz
+              </a>
+            </h1>
+            <p class="major">Credentials &amp; Recognition</p>
+
+            <div class="cred-intro">
+              <p>
+                Every claim on this site can be checked somewhere else, too.
+                Instead of ten tabs, here's one place to verify accreditation,
+                membership, and independent reviews for Scott Labz, LLC.
+              </p>
+            </div>
+          </div>
+
+          <div class="cred-stack">
+            <div
+              class="cred-block"
+              style="
+                --cred-accent: #003057;
+                --cred-tint: rgba(0, 48, 87, 0.06);
+              ">
+              <div class="cred-mark cred-mark-wordmark">
+                <img
+                  src="https://seal-heartofillinois.bbb.org/seals/blue-seal-120-61-bbb-1000039342.png"
+                  alt="Scott Labz BBB Business Review" />
+              </div>
+              <div class="cred-body">
+                <span class="cred-kicker">Accreditation</span>
+                <h3>Better Business Bureau</h3>
+                <p>
+                  Accredited business profile, rating history, and complaint
+                  record for Scott Labz, LLC.
+                </p>
+                <a
+                  class="cred-link"
+                  href="https://www.bbb.org/us/il/normal/profile/data-analytics/scott-labz-0724-1000039342"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  View BBB Profile <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <div
+              class="cred-block"
+              style="
+                --cred-accent: #4285f4;
+                --cred-tint: rgba(66, 133, 244, 0.06);
+              ">
+              <div class="cred-mark cred-mark-wordmark">
+                <img src="images/google.png" alt="Google" />
+              </div>
+              <div class="cred-body">
+                <span class="cred-kicker">Business Profile</span>
+                <h3>Google Business Profile</h3>
+                <p>
+                  Usually the first thing a prospect checks before reaching out
+                  - reviews and ratings surfaced directly in search.
+                </p>
+                <a
+                  class="cred-link"
+                  href="https://share.google/ykIIFNxiUl71WsNW3"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  View Google Profile <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <div
+              class="cred-block"
+              style="
+                --cred-accent: #0a66c2;
+                --cred-tint: rgba(10, 102, 194, 0.06);
+              ">
+              <div class="cred-mark cred-mark-wordmark">
+                <span class="icon brands fa-linkedin"></span>
+              </div>
+              <div class="cred-body">
+                <span class="cred-kicker">Company Profile</span>
+                <h3>LinkedIn</h3>
+                <p>
+                  Company page with engagement history, team updates, and a
+                  consistent professional footprint.
+                </p>
+                <a
+                  class="cred-link"
+                  href="https://www.linkedin.com/company/scottlabz"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  View LinkedIn Page <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <div
+              class="cred-block"
+              style="
+                --cred-accent: #1e3a5f;
+                --cred-tint: rgba(30, 58, 95, 0.06);
+              ">
+              <div class="cred-mark cred-mark-wordmark">
+                <img
+                  src="images/Chamber-Member-Logo.png"
+                  alt="McLean County Chamber of Commerce" />
+              </div>
+              <div class="cred-body">
+                <span class="cred-kicker">Membership</span>
+                <h3>McLean County Chamber of Commerce</h3>
+                <p>
+                  Active member listing in the local business directory for
+                  Bloomington-Normal, Illinois.
+                </p>
+                <a
+                  class="cred-link"
+                  href="https://mcleancountychamberofcommerce.growthzoneapp.com/active-member-directory/Details/member-directory-info-4951023"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  View Member Directory <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <div
+              class="cred-block"
+              style="
+                --cred-accent: #e62414;
+                --cred-tint: rgba(230, 36, 20, 0.06);
+              ">
+              <div class="cred-mark cred-mark-wordmark">
+                <img src="images/clutch.png" alt="Clutch" />
+              </div>
+              <div class="cred-body">
+                <span class="cred-kicker">B2B Review Platform</span>
+                <h3>Clutch</h3>
+                <p>
+                  Independent verified-review profile used to evaluate B2B
+                  service providers.
+                </p>
+                <a
+                  class="cred-link"
+                  href="https://clutch.co/profile/scott-labz"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  View Clutch Profile <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <div
+              class="cred-block"
+              style="
+                --cred-accent: #951b43;
+                --cred-tint: rgba(149, 27, 67, 0.06);
+              ">
+              <div class="cred-mark cred-mark-wordmark">
+                <img src="images/themanifest.png" alt="The Manifest" />
+              </div>
+              <div class="cred-body">
+                <span class="cred-kicker">B2B Research Platform</span>
+                <h3>The Manifest</h3>
+                <p>
+                  Company profile and client feedback aggregated for researching
+                  and comparing service providers.
+                </p>
+                <a
+                  class="cred-link"
+                  href="https://themanifest.com/company/scott-labz"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  View Manifest Profile <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <div
+              class="cred-block"
+              style="
+                --cred-accent: #1d8751;
+                --cred-tint: rgba(29, 135, 81, 0.06);
+              ">
+              <div class="cred-mark cred-mark-wordmark">
+                <img src="images/nextdoor.png" alt="Nextdoor" />
+              </div>
+              <div class="cred-body">
+                <span class="cred-kicker">Local Presence</span>
+                <h3>Nextdoor</h3>
+                <p>
+                  Business page within the local Bloomington-Normal neighborhood
+                  network.
+                </p>
+                <a
+                  class="cred-link"
+                  href="https://nextdoor.com/page/scott-labz-llc-normal-il"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  View Nextdoor Page <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <div
+              class="cred-block pending"
+              style="
+                --cred-accent: #1d1d1f;
+                --cred-tint: rgba(29, 29, 31, 0.06);
+              ">
+              <div class="cred-mark">
+                <span class="icon brands fa-apple"></span>
+              </div>
+              <div class="cred-body">
+                <span class="cred-kicker">Business Listing</span>
+                <h3>Apple Business Connect</h3>
+                <p>
+                  Business presence within Apple Maps and Apple's business
+                  directory - listing setup is in progress.
+                </p>
+                <span class="cred-link-pending">Coming Soon</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cred-note">
+            <p>
+              Every link above opens the third party's own site, not a
+              reproduction of it - so what's shown is always current.
+            </p>
+          </div>
         </div>
-
-        <div class="cred-intro">
-          <p>
-            Every claim on this site can be checked somewhere else, too. Instead
-            of ten tabs, here's one place to verify accreditation, membership,
-            and independent reviews for Scott Labz, LLC.
-          </p>
-        </div>
-
-        <div class="cred-stack">
-          <div
-            class="cred-block"
-            style="--cred-accent: #003057; --cred-tint: rgba(0, 48, 87, 0.06)">
-            <div class="cred-mark cred-mark-wordmark">
-              <img
-                src="https://seal-heartofillinois.bbb.org/seals/blue-seal-120-61-bbb-1000039342.png"
-                alt="Scott Labz BBB Business Review" />
-            </div>
-            <div class="cred-body">
-              <span class="cred-kicker">Accreditation</span>
-              <h3>Better Business Bureau</h3>
-              <p>
-                Accredited business profile, rating history, and complaint
-                record for Scott Labz, LLC.
-              </p>
-              <a
-                class="cred-link"
-                href="https://www.bbb.org/us/il/normal/profile/data-analytics/scott-labz-0724-1000039342"
-                target="_blank"
-                rel="noopener noreferrer">
-                View BBB Profile <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div
-            class="cred-block"
-            style="
-              --cred-accent: #4285f4;
-              --cred-tint: rgba(66, 133, 244, 0.06);
-            ">
-            <div class="cred-mark cred-mark-wordmark">
-              <img src="images/google.png" alt="Google" />
-            </div>
-            <div class="cred-body">
-              <span class="cred-kicker">Business Profile</span>
-              <h3>Google Business Profile</h3>
-              <p>
-                Usually the first thing a prospect checks before reaching
-                out - reviews and ratings surfaced directly in search.
-              </p>
-              <a
-                class="cred-link"
-                href="https://share.google/ykIIFNxiUl71WsNW3"
-                target="_blank"
-                rel="noopener noreferrer">
-                View Google Profile <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div
-            class="cred-block"
-            style="
-              --cred-accent: #0a66c2;
-              --cred-tint: rgba(10, 102, 194, 0.06);
-            ">
-            <div class="cred-mark cred-mark-wordmark">
-              <span class="icon brands fa-linkedin"></span>
-            </div>
-            <div class="cred-body">
-              <span class="cred-kicker">Company Profile</span>
-              <h3>LinkedIn</h3>
-              <p>
-                Company page with engagement history, team updates, and a
-                consistent professional footprint.
-              </p>
-              <a
-                class="cred-link"
-                href="https://www.linkedin.com/company/scottlabz"
-                target="_blank"
-                rel="noopener noreferrer">
-                View LinkedIn Page <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div
-            class="cred-block"
-            style="--cred-accent: #1e3a5f; --cred-tint: rgba(30, 58, 95, 0.06)">
-            <div class="cred-mark cred-mark-wordmark">
-              <img
-                src="images/Chamber-Member-Logo.png"
-                alt="McLean County Chamber of Commerce" />
-            </div>
-            <div class="cred-body">
-              <span class="cred-kicker">Membership</span>
-              <h3>McLean County Chamber of Commerce</h3>
-              <p>
-                Active member listing in the local business directory for
-                Bloomington-Normal, Illinois.
-              </p>
-              <a
-                class="cred-link"
-                href="https://mcleancountychamberofcommerce.growthzoneapp.com/active-member-directory/Details/member-directory-info-4951023"
-                target="_blank"
-                rel="noopener noreferrer">
-                View Member Directory <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div
-            class="cred-block"
-            style="
-              --cred-accent: #e62414;
-              --cred-tint: rgba(230, 36, 20, 0.06);
-            ">
-            <div class="cred-mark cred-mark-wordmark">
-              <img src="images/clutch.png" alt="Clutch" />
-            </div>
-            <div class="cred-body">
-              <span class="cred-kicker">B2B Review Platform</span>
-              <h3>Clutch</h3>
-              <p>
-                Independent verified-review profile used to evaluate B2B service
-                providers.
-              </p>
-              <a
-                class="cred-link"
-                href="https://clutch.co/profile/scott-labz"
-                target="_blank"
-                rel="noopener noreferrer">
-                View Clutch Profile <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div
-            class="cred-block"
-            style="
-              --cred-accent: #951b43;
-              --cred-tint: rgba(149, 27, 67, 0.06);
-            ">
-            <div class="cred-mark cred-mark-wordmark">
-              <img src="images/themanifest.png" alt="The Manifest" />
-            </div>
-            <div class="cred-body">
-              <span class="cred-kicker">B2B Research Platform</span>
-              <h3>The Manifest</h3>
-              <p>
-                Company profile and client feedback aggregated for researching
-                and comparing service providers.
-              </p>
-              <a
-                class="cred-link"
-                href="https://themanifest.com/company/scott-labz"
-                target="_blank"
-                rel="noopener noreferrer">
-                View Manifest Profile <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div
-            class="cred-block"
-            style="
-              --cred-accent: #1d8751;
-              --cred-tint: rgba(29, 135, 81, 0.06);
-            ">
-            <div class="cred-mark cred-mark-wordmark">
-              <img src="images/nextdoor.png" alt="Nextdoor" />
-            </div>
-            <div class="cred-body">
-              <span class="cred-kicker">Local Presence</span>
-              <h3>Nextdoor</h3>
-              <p>
-                Business page within the local Bloomington-Normal neighborhood
-                network.
-              </p>
-              <a
-                class="cred-link"
-                href="https://nextdoor.com/page/scott-labz-llc-normal-il"
-                target="_blank"
-                rel="noopener noreferrer">
-                View Nextdoor Page <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div
-            class="cred-block pending"
-            style="
-              --cred-accent: #1d1d1f;
-              --cred-tint: rgba(29, 29, 31, 0.06);
-            ">
-            <div class="cred-mark">
-              <span class="icon brands fa-apple"></span>
-            </div>
-            <div class="cred-body">
-              <span class="cred-kicker">Business Listing</span>
-              <h3>Apple Business Connect</h3>
-              <p>
-                Business presence within Apple Maps and Apple's business
-                directory - listing setup is in progress.
-              </p>
-              <span class="cred-link-pending">Coming Soon</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="cred-note">
-          <p>
-            Every link above opens the third party's own site, not a
-            reproduction of it - so what's shown is always current.
-          </p>
-        </div>
-      </main>
+      </section>
 
       <script src="assets/js/jquery.min.js" defer></script>
       <script src="assets/js/jquery.scrollex.min.js" defer></script>
