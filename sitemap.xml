@@ -170,6 +170,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://scottlabz.com/insights/automation.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://scottlabz.com/insights/engineering-approach.html</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>yearly</changefreq>
