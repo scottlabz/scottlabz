@@ -1,0 +1,484 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>The Contract Nobody Signed | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="Schema drift, SCD boundary bugs, and semantic drift are three different symptoms of the same missing thing: an actual agreement between whoever produces a dataset and whoever depends on it." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../assets/css/main-min.css" />
+
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript-min.css" />
+    </noscript>
+
+    <script src="../assets/js/header-min.js"></script>
+    <script src="../assets/js/favicon-min.js"></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/data-contracts-discipline.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/data-contracts-discipline.html",
+        "headline": "The Contract Nobody Signed",
+        "description": "Schema drift, SCD boundary bugs, and semantic drift are three different symptoms of the same missing thing: an actual agreement between whoever produces a dataset and whoever depends on it.",
+        "url": "https://scottlabz.com/field-notes/data-contracts-discipline.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="The Contract Nobody Signed | Scott Labz" />
+    <meta
+      property="og:description"
+      content="Schema drift, SCD boundary bugs, and semantic drift are three different symptoms of the same missing thing: an actual agreement between whoever produces a dataset and whoever depends on it." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/data-contracts-discipline.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block {
+        position: relative;
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 2rem 2rem 2rem 2.5rem;
+        border: 1px solid #dbe5ee;
+        overflow: hidden;
+        margin-bottom: 3rem;
+      }
+
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+
+      .service-content h2 {
+        font-size: 1.35rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+
+      .service-content h3 {
+        font-size: 1.05rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #1e3a5f;
+      }
+
+      .service-content p,
+      .service-content li {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        opacity: 0.85;
+        margin-bottom: 1rem;
+      }
+
+      .service-content ul {
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .log-entry,
+      .pattern-entry {
+        border-left: 3px solid #1e3a5f;
+        padding: 0.25rem 0 0.25rem 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .log-entry .log-title,
+      .pattern-entry .pattern-title {
+        font-weight: 600;
+        color: #1e3a5f;
+        font-size: 0.95rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .compare-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .compare-card {
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid rgba(160, 160, 160, 0.25);
+      }
+
+      .compare-card.before {
+        background: rgba(180, 60, 60, 0.04);
+        border-color: rgba(180, 60, 60, 0.25);
+      }
+
+      .compare-card.after {
+        background: rgba(30, 58, 95, 0.04);
+        border-color: rgba(30, 58, 95, 0.25);
+      }
+
+      .compare-card h4 {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .compare-card.before h4 {
+        color: #a33;
+      }
+
+      .compare-card.after h4 {
+        color: #1e3a5f;
+      }
+
+      .compare-card ul {
+        padding-left: 1.1rem;
+        margin-bottom: 0;
+      }
+
+      .compare-card li {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+      .back-to-notes {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: #1e3a5f;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        transition:
+          gap 0.2s ease,
+          opacity 0.2s ease;
+      }
+
+      .back-to-notes:hover {
+        gap: 0.75rem;
+        opacity: 0.75;
+      }
+
+      .back-to-notes i {
+        transition: transform 0.2s ease;
+      }
+
+      .back-to-notes:hover i {
+        transform: translateX(-3px);
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <h1>
+            <a href="../index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.png"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </h1>
+          <p class="major">
+            The Contract Nobody Signed<br />
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
+            <strong>Three different bugs, one missing thing</strong> in
+            common - an actual agreement between whoever produces a dataset
+            and whoever depends on it.
+          </p>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            A canonical tag drifting from a sitemap. A Type 2 dimension with
+            an off-by-one boundary. A metric quietly redefined by an app
+            release nobody on the data side reviewed. Three unrelated-looking
+            problems, three different root causes - and the same missing
+            thing underneath all of them: nobody had written down, in a place
+            both sides were obligated to check, what the data was actually
+            supposed to be.
+          </p>
+          <p>
+            A data contract is that written-down thing. Not a legal
+            document - an explicit agreement between whoever produces a
+            dataset and whoever consumes it, covering what the data means,
+            who's accountable for it, how it's allowed to change, and what
+            happens when it breaks. Most teams don't have one. Most teams
+            don't notice until something like the three problems above shows
+            up first.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What the discipline actually covers</h2>
+          <p>
+            "Data contract" gets used loosely enough that it's worth being
+            specific about what it actually needs to contain to do any good.
+            It's fewer than four things, and none of them are exotic.
+          </p>
+
+          <div class="pattern-entry">
+            <div class="pattern-title">Ownership</div>
+            <p>
+              Every dataset that other teams depend on needs a named owner -
+              not a team name, an actual person or role accountable for it.
+              Without that, a breaking change ships from whoever happened to
+              touch the code last, and consumers find out by their dashboard
+              breaking rather than by being told.
+            </p>
+          </div>
+
+          <div class="pattern-entry">
+            <div class="pattern-title">Versioning</div>
+            <p>
+              A schema or a definition doesn't get changed in place - it gets
+              versioned, the way an API does. A backwards-incompatible change
+              ships as a new version consumers opt into on their own
+              timeline; a compatible change gets documented and dated. The
+              alternative is what a Type 2 boundary bug or a silently
+              redefined metric both look like from the consumer's side: the
+              same name, quietly meaning something different underneath.
+            </p>
+          </div>
+
+          <div class="pattern-entry">
+            <div class="pattern-title">SLAs</div>
+            <p>
+              Freshness, completeness, and accuracy need an explicit,
+              agreed-on standard - how current the data is expected to be,
+              what "complete" means for that specific dataset, and how
+              quickly a violation gets acknowledged and fixed. Without a
+              stated SLA, "the dashboard is a day behind" is either a
+              non-issue or an outage depending entirely on who you ask,
+              because nobody agreed in advance which one it is.
+            </p>
+          </div>
+
+          <div class="pattern-entry">
+            <div class="pattern-title">A real review gate</div>
+            <p>
+              A change that affects a contract - a column, a firing
+              condition, a definition - needs to require sign-off from the
+              consumer side before it ships, not just a notification after
+              the fact. This is the single piece that would have caught the
+              semantic drift case directly: the event's firing condition
+              changed inside a release that never crossed paths with anyone
+              who reported on it.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Why this gets skipped so often</h2>
+          <p>
+            Nobody sets out to skip it. A dataset starts as an internal
+            implementation detail with one consumer who sits three desks
+            away, and an informal handshake is genuinely enough. It stays
+            informal past the point where it's still enough, because nothing
+            forces a review of that decision - the data keeps flowing, the
+            dashboards keep rendering, right up until a producer-side change
+            crosses a boundary nobody had drawn.
+          </p>
+          <p>
+            By the time a contract would obviously help, there are usually
+            several consumers, at least one of whom nobody producing the data
+            has ever spoken to directly. Retrofitting ownership and review
+            gates at that point is a bigger lift than it would have been at
+            the start - which is exactly why it's worth treating as a
+            default from the first consumer, not a response to the third
+            incident.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What adopting it actually looks like</h2>
+          <p>
+            None of this requires new tooling to start. In most cases, it's:
+          </p>
+          <ul class="alt">
+            <li>
+              Naming an accountable owner for every dataset with more than
+              one consumer, and making that ownership discoverable, not just
+              known informally.
+            </li>
+            <li>
+              Writing down what each critical field or event actually means,
+              including the conditions under which it fires or gets
+              populated - the exact thing that was missing in the semantic
+              drift case.
+            </li>
+            <li>
+              Requiring a version bump or an explicit changelog entry for any
+              change that alters meaning, not just structure.
+            </li>
+            <li>
+              Adding one review step - even a lightweight one - before a
+              producer-side change ships, specifically for anything a
+              contract covers.
+            </li>
+          </ul>
+          <p>
+            The goal isn't paperwork for its own sake. It's making sure that
+            when a definition changes, it changes as a decision both sides
+            made together, instead of an accident one side discovers later.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>Is this only necessary at large-scale, multi-team organizations?</h3>
+          <p>
+            The formal version scales with team size, but the underlying
+            discipline applies as soon as there's more than one consumer of a
+            dataset who isn't also its producer - which happens well before
+            an organization would call itself "large-scale."
+          </p>
+
+          <h3>How is this different from just documenting the schema?</h3>
+          <p>
+            Schema documentation describes structure. A contract also covers
+            ownership, versioning behavior, and freshness expectations -
+            structure was never the part that failed in any of the incidents
+            that make this worth doing; the agreement around how it's allowed
+            to change was.
+          </p>
+
+          <h3>What's the smallest version of this worth starting with?</h3>
+          <p>
+            A named owner and a one-paragraph definition for each dataset
+            other people depend on, plus an agreement that changes to either
+            get communicated before they ship rather than discovered after.
+            That alone catches most of what actually causes incidents like
+            the ones documented elsewhere in these notes.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Not sure who actually owns your most-used datasets?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              A short conversation is usually enough to tell whether there's a
+              quick answer or something deeper worth tracing.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="../contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+      <script src="/assets/js/browser.min.js" defer></script>
+      <script src="/assets/js/breakpoints.min.js" defer></script>
+      <script src="/assets/js/main.js" defer></script>
+      <script src="/assets/js/footer-min.js" defer></script>
+      <scott-footer
+        description="Schema drift, SCD boundary bugs, and semantic drift are three different symptoms of the same missing thing: an actual agreement between whoever produces a dataset and whoever depends on it."></scott-footer>
+    </div>
+  </body>
+</html>

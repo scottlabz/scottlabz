@@ -1,0 +1,564 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>The Semantic Drift Problem | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="Active Users jumped with no schema change, no SQL change, and no migration - because what counted as 'active' had quietly moved somewhere the warehouse couldn't see." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../assets/css/main-min.css" />
+
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript-min.css" />
+    </noscript>
+
+    <script src="../assets/js/header-min.js"></script>
+    <script src="../assets/js/favicon-min.js"></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/semantic-drift-problem.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/semantic-drift-problem.html",
+        "headline": "The Semantic Drift Problem",
+        "description": "Active Users jumped with no schema change, no SQL change, and no migration - because what counted as 'active' had quietly moved somewhere the warehouse couldn't see.",
+        "url": "https://scottlabz.com/field-notes/semantic-drift-problem.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="The Semantic Drift Problem | Scott Labz" />
+    <meta
+      property="og:description"
+      content="Active Users jumped with no schema change, no SQL change, and no migration - because what counted as 'active' had quietly moved somewhere the warehouse couldn't see." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/semantic-drift-problem.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block {
+        position: relative;
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 2rem 2rem 2rem 2.5rem;
+        border: 1px solid #dbe5ee;
+        overflow: hidden;
+        margin-bottom: 3rem;
+      }
+
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+
+      .service-content h2 {
+        font-size: 1.35rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+
+      .service-content h3 {
+        font-size: 1.05rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #1e3a5f;
+      }
+
+      .service-content p,
+      .service-content li {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        opacity: 0.85;
+        margin-bottom: 1rem;
+      }
+
+      .service-content ul {
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .log-entry {
+        border-left: 3px solid #1e3a5f;
+        padding: 0.25rem 0 0.25rem 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .log-entry .log-title {
+        font-weight: 600;
+        color: #1e3a5f;
+        font-size: 0.95rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .compare-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .compare-card {
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid rgba(160, 160, 160, 0.25);
+      }
+
+      .compare-card.before {
+        background: rgba(180, 60, 60, 0.04);
+        border-color: rgba(180, 60, 60, 0.25);
+      }
+
+      .compare-card.after {
+        background: rgba(30, 58, 95, 0.04);
+        border-color: rgba(30, 58, 95, 0.25);
+      }
+
+      .compare-card h4 {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .compare-card.before h4 {
+        color: #a33;
+      }
+
+      .compare-card.after h4 {
+        color: #1e3a5f;
+      }
+
+      .compare-card ul {
+        padding-left: 1.1rem;
+        margin-bottom: 0;
+      }
+
+      .compare-card li {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+      .back-to-notes {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: #1e3a5f;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        transition:
+          gap 0.2s ease,
+          opacity 0.2s ease;
+      }
+
+      .back-to-notes:hover {
+        gap: 0.75rem;
+        opacity: 0.75;
+      }
+
+      .back-to-notes i {
+        transition: transform 0.2s ease;
+      }
+
+      .back-to-notes:hover i {
+        transform: translateX(-3px);
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <h1>
+            <a href="../index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.png"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </h1>
+          <p class="major">
+            The Semantic Drift Problem<br />
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
+            <strong>Nothing in the warehouse changed</strong> - not the
+            table, not the column, not the SQL. What changed was what
+            "active" meant, somewhere upstream nobody was watching.
+          </p>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            Schema drift is a structural problem - a column changes type, a
+            table moves, a field goes missing, and the pipeline usually
+            breaks loudly enough to get noticed. Semantic drift is quieter
+            and more dangerous: the schema stays exactly the same, the SQL
+            defining the metric doesn't change a single line, and the
+            dashboard still runs without error. What moves is the real-world
+            condition a value is supposed to represent - and nothing in the
+            warehouse is positioned to notice that, because from its
+            perspective, nothing happened.
+          </p>
+          <p>
+            This is what that looked like the specific time it mattered: a
+            single metric, "Active Users," that started telling a
+            noticeably different story with no schema change, no failed
+            test, and no one on the data side having touched anything.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The starting point</h2>
+          <p>
+            Weekly Active Users stepped up by a meaningful margin between one
+            reporting week and the next, with no product launch, no campaign,
+            and no seasonal pattern to explain it. The metric's SQL -
+            <code
+              >COUNT(DISTINCT user_id) FROM events WHERE event_type =
+              'active_session'</code
+            >
+            - hadn't been touched in months, confirmed by checking the dbt
+            model's own change history. The underlying event table's schema
+            was identical: same columns, same types, same event name showing
+            up in the same place.
+          </p>
+          <p>
+            By every signal analytics normally watches - schema, SQL,
+            pipeline logs, test results - nothing had changed. And yet the
+            number had.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What was actually happening</h2>
+          <p>
+            The event itself hadn't changed. What had changed was the
+            condition under which the mobile app decided to fire it.
+          </p>
+          <ul class="alt">
+            <li>
+              <code>active_session</code> had always required a minimum
+              ten-second foreground session before it fired - a threshold
+              meant to filter out accidental opens.
+            </li>
+            <li>
+              A mobile release, shipped by a different team for an unrelated
+              reason, needed a general "app opened" signal for a push
+              notification feature and reused the existing
+              <code>active_session</code> event instead of introducing a new
+              one, dropping the duration threshold in the process.
+            </li>
+            <li>
+              The event name, its schema, and its column in the warehouse
+              never changed. What changed was the population of real-world
+              behavior that now qualified to write a row into it.
+            </li>
+            <li>
+              Nothing about that change touched anything analytics owned or
+              reviewed - it lived entirely in application code, several
+              layers upstream of the warehouse, with no migration and no
+              schema diff to flag it.
+            </li>
+          </ul>
+          <p>
+            The metric wasn't computing anything wrong. It was correctly
+            counting exactly what it was defined to count. The definition
+            itself just wasn't the same definition anyone thought it was
+            anymore.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The decision log</h2>
+          <p>
+            The instinct when a metric jumps is to check the pipeline first.
+            That instinct is usually right - just not this time - and ruling
+            it out in a specific order is what eventually pointed at the real
+            cause.
+          </p>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 1: Rule out the warehouse before questioning the event
+            </div>
+            <p>
+              Schema, SQL history, and load logs were checked first, in that
+              order, because a structural change is the more common cause and
+              the fastest one to confirm or eliminate. All three came back
+              clean, which is what shifted the investigation from "what broke
+              downstream" to "what's actually landing in the table."
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 2: Look at the shape of the change, not just its
+              existence
+            </div>
+            <p>
+              The jump was a sustained step-change on a specific date, not a
+              gradual drift and not a one-day spike. That shape looks like a
+              release, not a data-quality issue, which is what justified
+              checking app release dates next instead of continuing to
+              inspect the pipeline.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 3: Plot the raw event, segmented by app version
+            </div>
+            <p>
+              Breaking <code>active_session</code> volume down by client app
+              version - rather than looking at the aggregated daily metric -
+              showed the increase was isolated entirely to sessions from the
+              new release. Older app versions kept producing the event at the
+              old rate throughout, which made this a behavior change tied to
+              a specific release, not a warehouse-side issue.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 4: Confirm with the team that owns the event, then
+              decide how to handle the seam
+            </div>
+            <p>
+              The mobile team's release notes confirmed the duration
+              threshold had been dropped for an unrelated feature. The
+              remaining decision wasn't technical - it was whether to
+              silently patch the SQL to approximate the old definition, or to
+              treat this as a genuine redefinition of "active" and document
+              the cutover date so the trend line's discontinuity had a known,
+              stated cause instead of an invisible one.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Before and after</h2>
+          <div class="compare-grid">
+            <div class="compare-card before">
+              <h4>Before</h4>
+              <ul>
+                <li>
+                  "Active" defined implicitly by whatever condition the app
+                  happened to enforce
+                </li>
+                <li>
+                  No record connecting a metric's history to the event
+                  contract behind it
+                </li>
+                <li>
+                  A firing-condition change shipped with no analytics review
+                </li>
+                <li>
+                  The trend line's step-change with no documented explanation
+                </li>
+              </ul>
+            </div>
+            <div class="compare-card after">
+              <h4>After</h4>
+              <ul>
+                <li>
+                  "Active" defined explicitly in a written event contract,
+                  reviewed on both sides
+                </li>
+                <li>
+                  The redefinition dated and annotated directly on the
+                  dashboard's trend line
+                </li>
+                <li>
+                  Event-firing-condition changes flagged as a required review
+                  step before mobile releases
+                </li>
+                <li>
+                  Raw event volume by client version tracked as a standing
+                  check, not a one-off investigation
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>What this actually took</h2>
+          <p>
+            Nothing in this required a pipeline fix, because nothing in the
+            pipeline was broken. What it required was accepting that "the
+            schema didn't change" and "the metric didn't change" are two
+            different claims, and only one of them had actually held. A
+            metric built on top of an event inherits whatever the event
+            currently means - and that meaning lives in application code the
+            warehouse has no visibility into and no reason to alert on.
+          </p>
+          <p>
+            The lasting fix wasn't a query change. It was treating the
+            definition of "active" as something that needs its own explicit
+            contract and its own change log, separate from the SQL that
+            happens to compute it today.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>How is this different from schema drift?</h3>
+          <p>
+            Schema drift is when the structure underneath a metric changes -
+            a column type, a table's shape, a field going missing - usually
+            visible as a broken pipeline or a failed test. Semantic drift is
+            when the structure stays completely intact and only the
+            real-world meaning behind the data shifts, which means none of
+            the usual structural checks have any reason to fire.
+          </p>
+
+          <h3>How would I know if this is happening to one of my own metrics?</h3>
+          <p>
+            Watch for a metric that step-changes on a specific date with no
+            corresponding schema change, deploy, or campaign on the analytics
+            side. Segmenting the underlying raw event by app or platform
+            version, rather than looking at the aggregated metric, usually
+            isolates it quickly if the cause is a release-driven behavior
+            change.
+          </p>
+
+          <h3>Can this be prevented, or only caught after the fact?</h3>
+          <p>
+            It can be reduced, not fully prevented, by treating any
+            event that feeds a reported metric as having an explicit
+            contract - documented firing conditions, reviewed by both the
+            team that owns the event and the team that reports on it - so a
+            change to what qualifies gets flagged as a decision instead of
+            shipping as an implementation detail.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Not sure if one of your own metrics has quietly redefined
+              itself?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              A short conversation is usually enough to tell whether there's a
+              quick answer or something deeper worth tracing.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="../contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+      <script src="/assets/js/browser.min.js" defer></script>
+      <script src="/assets/js/breakpoints.min.js" defer></script>
+      <script src="/assets/js/main.js" defer></script>
+      <script src="/assets/js/footer-min.js" defer></script>
+      <scott-footer
+        description="Active Users jumped with no schema change, no SQL change, and no migration - because what counted as 'active' had quietly moved somewhere the warehouse couldn't see."></scott-footer>
+    </div>
+  </body>
+</html>
