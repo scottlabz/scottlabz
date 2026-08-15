@@ -193,6 +193,32 @@
       #wrapper.divided > * {
         box-shadow: none;
       }
+      .back-to-notes {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: #1e3a5f;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        transition:
+          gap 0.2s ease,
+          opacity 0.2s ease;
+      }
+
+      .back-to-notes:hover {
+        gap: 0.75rem;
+        opacity: 0.75;
+      }
+
+      .back-to-notes i {
+        transition: transform 0.2s ease;
+      }
+
+      .back-to-notes:hover i {
+        transform: translateX(-3px);
+      }
     </style>
   </head>
 
@@ -220,7 +246,11 @@
             </a>
           </h1>
           <p class="major">
-            The Tag Container Autopsy<br /><br />
+            The Tag Container Autopsy<br />
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
             <strong>What a broken measurement setup actually looks like</strong
             >, and the exact reasoning behind every decision made to fix it.
           </p>
@@ -430,7 +460,7 @@
         <section>
           <div
             style="
-              margin-top: 2rem;
+              margin: 2rem 0 4rem 0;
               padding: 4rem 2rem;
               background: rgba(248, 250, 252, 1);
               border-radius: 8px;
@@ -441,7 +471,7 @@
                 0 4px 10px rgba(15, 23, 42, 0.04);
             ">
             <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
-              Not sure what's actually happening inside your setup?
+              Not sure what your own site is telling you?
             </h3>
             <p
               style="
@@ -453,7 +483,7 @@
                 margin-right: auto;
               ">
               A short conversation is usually enough to tell whether there's a
-              quick answer or something deeper worth tracing.
+              quick fix or a bigger gap worth addressing.
             </p>
             <ul
               class="actions stacked"

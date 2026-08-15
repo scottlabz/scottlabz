@@ -186,6 +186,34 @@
         font-size: 0.9rem;
         margin-bottom: 0.5rem;
       }
+      .fn-card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        cursor: pointer;
+      }
+
+      .fn-card-link .section-block {
+        transition:
+          border-color 0.2s ease,
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .fn-card-link:hover .section-block {
+        border-color: #1e3a5f;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(30, 58, 95, 0.12);
+      }
+
+      .fn-card-link .fa-arrow-right {
+        transition: transform 0.2s ease;
+        display: inline-block;
+      }
+
+      .fn-card-link:hover .fa-arrow-right {
+        transform: translateX(4px);
+      }
     </style>
   </head>
 
@@ -223,7 +251,7 @@
           <ul class="actions stacked">
             <li>
               <a href="#first" class="button big wide smooth-scroll"
-                >Read More</a
+                >Browse Field Notes</a
               >
             </li>
           </ul>
@@ -241,6 +269,7 @@
         style="max-width: 900px; margin: 0 auto; padding: 4rem 1.5rem">
         <a
           href="gtm-container-autopsy.html"
+          class="fn-card-link"
           style="
             text-decoration: none;
             color: inherit;
@@ -252,7 +281,28 @@
             <p>
               A real walkthrough of diagnosing a broken measurement setup - what
               was double-firing, what was dead, and the exact reasoning behind
-              every decision made to fix it.
+              every decision made to fix it. &nbsp;&nbsp;
+              <i class="fas fa-arrow-right"></i>
+            </p>
+          </section>
+        </a>
+
+        <a
+          href="website-measurement-gaps.html"
+          class="fn-card-link"
+          style="
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+          ">
+          <section class="section-block">
+            <h2>What Businesses Get Wrong About Their Website Data</h2>
+            <p>
+              Patterns seen across small and mid-size business sites - what's
+              usually missing from their measurement setups, and what it quietly
+              costs. &nbsp;&nbsp;
+              <i class="fas fa-arrow-right"></i>
             </p>
           </section>
         </a>
