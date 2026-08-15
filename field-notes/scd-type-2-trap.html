@@ -1,0 +1,565 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>The Slowly Changing Dimension Trap | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="A dimension table that looked correct on every quiet day and wrong only on days it changed - a classic SCD Type 2 boundary bug and how it was finally pinned down." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../assets/css/main-min.css" />
+
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript-min.css" />
+    </noscript>
+
+    <script src="../assets/js/header-min.js"></script>
+    <script src="../assets/js/favicon-min.js"></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/scd-type-2-trap.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/scd-type-2-trap.html",
+        "headline": "The Slowly Changing Dimension Trap",
+        "description": "A dimension table that looked correct on every quiet day and wrong only on days it changed - a classic SCD Type 2 boundary bug and how it was finally pinned down.",
+        "url": "https://scottlabz.com/field-notes/scd-type-2-trap.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="The Slowly Changing Dimension Trap | Scott Labz" />
+    <meta
+      property="og:description"
+      content="A dimension table that looked correct on every quiet day and wrong only on days it changed - a classic SCD Type 2 boundary bug and how it was finally pinned down." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/scd-type-2-trap.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block {
+        position: relative;
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 2rem 2rem 2rem 2.5rem;
+        border: 1px solid #dbe5ee;
+        overflow: hidden;
+        margin-bottom: 3rem;
+      }
+
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+
+      .service-content h2 {
+        font-size: 1.35rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+
+      .service-content h3 {
+        font-size: 1.05rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #1e3a5f;
+      }
+
+      .service-content p,
+      .service-content li {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        opacity: 0.85;
+        margin-bottom: 1rem;
+      }
+
+      .service-content ul {
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .log-entry {
+        border-left: 3px solid #1e3a5f;
+        padding: 0.25rem 0 0.25rem 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .log-entry .log-title {
+        font-weight: 600;
+        color: #1e3a5f;
+        font-size: 0.95rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .compare-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .compare-card {
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid rgba(160, 160, 160, 0.25);
+      }
+
+      .compare-card.before {
+        background: rgba(180, 60, 60, 0.04);
+        border-color: rgba(180, 60, 60, 0.25);
+      }
+
+      .compare-card.after {
+        background: rgba(30, 58, 95, 0.04);
+        border-color: rgba(30, 58, 95, 0.25);
+      }
+
+      .compare-card h4 {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .compare-card.before h4 {
+        color: #a33;
+      }
+
+      .compare-card.after h4 {
+        color: #1e3a5f;
+      }
+
+      .compare-card ul {
+        padding-left: 1.1rem;
+        margin-bottom: 0;
+      }
+
+      .compare-card li {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+      .back-to-notes {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: #1e3a5f;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        transition:
+          gap 0.2s ease,
+          opacity 0.2s ease;
+      }
+
+      .back-to-notes:hover {
+        gap: 0.75rem;
+        opacity: 0.75;
+      }
+
+      .back-to-notes i {
+        transition: transform 0.2s ease;
+      }
+
+      .back-to-notes:hover i {
+        transform: translateX(-3px);
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <h1>
+            <a href="../index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.png"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </h1>
+          <p class="major">
+            The Slowly Changing Dimension Trap<br />
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
+            <strong>The numbers were only wrong on the days</strong> something
+            actually changed - which is exactly what made a boundary bug in a
+            Type 2 dimension so easy to miss.
+          </p>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            Slowly changing dimensions are one of those patterns everyone in
+            analytics engineering has implemented, and almost everyone has
+            gotten subtly wrong at least once. Type 2 in particular -
+            versioning a row instead of overwriting it, so a customer's
+            address or an account's plan tier can be reconstructed as of any
+            past date - has a specific boundary condition that's easy to get
+            backwards, and a bug there doesn't announce itself. It hides
+            inside otherwise-correct-looking data.
+          </p>
+          <p>
+            This is what that looked like in practice: a dimension table that
+            passed every row-count check, every null check, every schema
+            test, and was still quietly doubling metrics on a predictable
+            subset of days.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The starting point</h2>
+          <p>
+            A monthly reconciliation between a revenue dashboard and the
+            source billing system turned up a small, consistent discrepancy -
+            not huge, not on every day, but real. Aggregate totals for the
+            month were slightly high. Spot-checking individual days found
+            most of them matched exactly. A handful didn't.
+          </p>
+          <p>
+            The dimension underneath the fact table - an account dimension
+            tracking plan tier, status, and a few billing attributes - was
+            built as Type 2: every change to a tracked column closed out the
+            current row with an <code>effective_end</code> date and inserted
+            a new row starting on the date of the change. That part had been
+            tested when it was built and had been running for months without
+            an obvious failure.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What was actually happening</h2>
+          <p>
+            The mismatched days weren't random. Every one of them was a day
+            on which at least one account had a tracked attribute change -
+            and the dimension had recorded that change by closing the old
+            version and opening the new one on the <em>same</em> date, both
+            boundaries inclusive.
+          </p>
+          <ul class="alt">
+            <li>
+              The outgoing version's <code>effective_end</code> was set to
+              the change date itself, not the day before it.
+            </li>
+            <li>
+              The incoming version's <code>effective_start</code> was also
+              set to the change date - so for that one day, both versions of
+              the same account satisfied
+              <code>fact_date BETWEEN effective_start AND effective_end</code
+              >.
+            </li>
+            <li>
+              Every fact row for that account on that specific day joined to
+              both dimension versions, doubling that row in the join output.
+            </li>
+            <li>
+              On any day with no dimension changes, there was exactly one
+              valid version to join against, so the totals were correct -
+              which is why this didn't show up as a constant, obvious error.
+            </li>
+          </ul>
+          <p>
+            The dimension table itself wasn't invalid by its own constraints
+            - there were no duplicate natural keys, no gaps in coverage,
+            nothing a typical dbt schema test would flag. The problem was one
+            day of overlap between two otherwise-correct adjacent versions,
+            and it only existed on the specific dates where a change actually
+            happened.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The decision log</h2>
+          <p>
+            Finding a bug that only shows up on a subset of days requires
+            ruling out the more common causes first, because the intermittent
+            pattern looks a lot like other, more familiar failure modes.
+          </p>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 1: Rule out fact-table duplication before touching the
+              dimension
+            </div>
+            <p>
+              An intermittent doubling looks like a duplicate-load problem in
+              the fact table first - a job that reran, an idempotency key
+              that didn't hold. Checking the fact table's own row counts and
+              load history against its source ruled that out early and
+              redirected the search toward the join itself.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 2: Correlate the bad dates against dimension activity,
+              not fact volume
+            </div>
+            <p>
+              The mismatched dates didn't correlate with unusually high
+              transaction volume, which ruled out a load-size or
+              batch-processing explanation. They did correlate, exactly, with
+              dates that had at least one row in the dimension's own change
+              history - which pointed straight at the dimension's versioning
+              logic instead of anything on the fact side.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 3: Check the boundary condition directly, not the row
+              counts
+            </div>
+            <p>
+              With the dimension's change-tracking logic in view, the actual
+              check was simple: for any account with more than one version,
+              did the outgoing version's <code>effective_end</code> equal the
+              incoming version's <code>effective_start</code>? It did, every
+              time - which is the one-line signature of this exact bug, and
+              faster to confirm directly than to keep reasoning about it
+              indirectly through fact table symptoms.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 4: Fix the boundary, then backfill only the affected
+              windows
+            </div>
+            <p>
+              The fix itself was a one-column change - closing the outgoing
+              version the day <em>before</em> the new version's start date
+              instead of on the same date, so adjacent windows touch without
+              overlapping. The more deliberate part was backfilling only the
+              historical partitions that contained a change event, rather
+              than reprocessing the full table, and reconciling each
+              backfilled month against source before calling it resolved.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Before and after</h2>
+          <div class="compare-grid">
+            <div class="compare-card before">
+              <h4>Before</h4>
+              <ul>
+                <li>
+                  Outgoing and incoming versions sharing one inclusive
+                  boundary date
+                </li>
+                <li>
+                  Fact-to-dimension joins fanning out on any date with a
+                  tracked change
+                </li>
+                <li>
+                  Reported totals correct on quiet days, silently inflated on
+                  change days
+                </li>
+                <li>
+                  No schema test catching it, since the dimension table was
+                  internally valid
+                </li>
+              </ul>
+            </div>
+            <div class="compare-card after">
+              <h4>After</h4>
+              <ul>
+                <li>
+                  Adjacent version windows touching with no overlapping date
+                </li>
+                <li>Historical partitions with known changes backfilled</li>
+                <li>
+                  Each backfilled month reconciled against source before
+                  close-out
+                </li>
+                <li>
+                  A boundary check added alongside the existing schema tests
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>What this actually took</h2>
+          <p>
+            The fix was a single date-arithmetic correction. Finding it took
+            longer than that, because the symptom - a small, inconsistent
+            discrepancy - fit several more common explanations before it fit
+            the actual one. What made the difference was correlating the bad
+            dates against the dimension's own change history instead of
+            staying focused on the fact table, which is where the
+            investigation naturally starts by default.
+          </p>
+          <p>
+            The broader point: a Type 2 dimension can pass every standard
+            data-quality check and still be wrong, because the bug isn't a
+            constraint violation - it's a relationship between two otherwise
+            valid rows. That's not something a not-null or uniqueness test
+            was ever going to catch.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>How would I know if this is happening in my own SCD Type 2 tables?</h3>
+          <p>
+            For any natural key with more than one version, compare the
+            outgoing row's <code>effective_end</code> against the next row's
+            <code>effective_start</code>. If they're ever equal instead of
+            one day apart, adjacent versions are overlapping on that
+            boundary date, and any fact table joined with an inclusive
+            <code>BETWEEN</code> on both ends will double-count rows on that
+            date.
+          </p>
+
+          <h3>Why doesn't a uniqueness test catch this?</h3>
+          <p>
+            Because nothing about the dimension table itself is duplicated -
+            each row has a distinct natural key plus effective date, so a
+            standard uniqueness or not-null test passes cleanly. The bug is
+            in the relationship between two valid rows, not in either row on
+            its own, which is why it needs a boundary-specific check rather
+            than a general schema test.
+          </p>
+
+          <h3>Is making the end date exclusive always the right fix?</h3>
+          <p>
+            The fix depends on which side of the join is inclusive. What
+            matters is that the dimension's versioning logic and the fact
+            table's join condition agree on exactly one convention - either
+            the end date is exclusive, or the start date is, but not neither
+            and not both. The bug here was two boundaries that were both
+            inclusive, which is the version of this mistake worth checking
+            for first since it's the most common one.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Not sure whether your own dimension history holds up?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              A short conversation is usually enough to tell whether there's a
+              quick answer or something deeper worth tracing.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="../contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+      <script src="/assets/js/browser.min.js" defer></script>
+      <script src="/assets/js/breakpoints.min.js" defer></script>
+      <script src="/assets/js/main.js" defer></script>
+      <script src="/assets/js/footer-min.js" defer></script>
+      <scott-footer
+        description="A dimension table that looked correct on every quiet day and wrong only on days it changed - a classic SCD Type 2 boundary bug and how it was finally pinned down."></scott-footer>
+    </div>
+  </body>
+</html>
