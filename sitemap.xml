@@ -122,6 +122,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://scottlabz.com/field-notes/scd-type-2-trap.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://scottlabz.com/field-notes/schema-drift-problem.html</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>yearly</changefreq>
