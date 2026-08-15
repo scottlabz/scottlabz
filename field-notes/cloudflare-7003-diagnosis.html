@@ -21,11 +21,11 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <title>The Tag Container Autopsy - Broken Setup | Scott Labz</title>
+    <title>The Cloudflare 7003 Diagnosis | Scott Labz</title>
 
     <meta
       name="description"
-      content="A real walkthrough of diagnosing a broken tag management setup - what was double-firing, what was dead, and how each decision got made." />
+      content="A real walkthrough of tracking down a silent deploy failure - a routing error, a bad secret, and an exposed token that had to be found and revoked." />
 
     <meta charset="utf-8" />
 
@@ -42,16 +42,16 @@
 
     <link
       rel="canonical"
-      href="https://scottlabz.com/field-notes/gtm-container-autopsy.html" />
+      href="https://scottlabz.com/field-notes/cloudflare-7003-diagnosis.html" />
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Article",
-        "@id": "https://scottlabz.com/field-notes/gtm-container-autopsy.html",
-        "headline": "The Tag Container Autopsy",
-        "description": "A real walkthrough of diagnosing a broken tag management setup - what was double-firing, what was dead, and how each decision got made.",
-        "url": "https://scottlabz.com/field-notes/gtm-container-autopsy.html",
+        "@id": "https://scottlabz.com/field-notes/cloudflare-7003-diagnosis.html",
+        "headline": "The Cloudflare 7003 Diagnosis",
+        "description": "A real walkthrough of tracking down a silent deploy failure - a routing error, a bad secret, and an exposed token that had to be found and revoked.",
+        "url": "https://scottlabz.com/field-notes/cloudflare-7003-diagnosis.html",
         "author": {
           "@id": "https://scottlabz.com/#scotttaylor"
         },
@@ -65,13 +65,13 @@
     <meta property="og:site_name" content="Scott Labz" />
     <meta
       property="og:title"
-      content="The Tag Container Autopsy | Scott Labz" />
+      content="The Cloudflare 7003 Diagnosis | Scott Labz" />
     <meta
       property="og:description"
-      content="A real walkthrough of diagnosing a broken tag management setup - what was double-firing, what was dead, and how each decision got made." />
+      content="A real walkthrough of tracking down a silent deploy failure - a routing error, a bad secret, and an exposed token that had to be found and revoked." />
     <meta
       property="og:url"
-      content="https://scottlabz.com/field-notes/gtm-container-autopsy.html" />
+      content="https://scottlabz.com/field-notes/cloudflare-7003-diagnosis.html" />
     <meta
       property="og:image"
       content="https://scottlabz.com/images/scottlabz-clear.png" />
@@ -244,13 +244,14 @@
             </a>
           </h1>
           <p class="major">
-            The Tag Container Autopsy<br />
+            The Cloudflare 7003 Diagnosis<br />
             <a href="/field-notes/" class="back-to-notes">
               <i class="fas fa-arrow-left"></i>
               Back to Field Notes </a
             ><br />
-            <strong>What a broken measurement setup actually looks like</strong
-            >, and the exact reasoning behind every decision made to fix it.
+            <strong>A workflow that looked like it was working</strong>, until
+            it wasn't - and the trail that led from a routing error to an
+            exposed credential.
           </p>
         </div>
       </section>
@@ -262,125 +263,125 @@
         <section class="section-block">
           <h2>Why this exists</h2>
           <p>
-            Most write-ups about measurement problems stay abstract - "clean up
-            your tags," "audit your triggers," "reduce duplicate events." None
-            of that tells you what a real diagnosis looks like or how the
-            decisions actually get made under a deadline.
+            Automated deploy pipelines have a specific way of failing: quietly.
+            Everything looks green. The workflow runs, the logs show success,
+            and yet the live site is serving something stale. This is what that
+            actually looked like, and how the real cause got found.
           </p>
           <p>
-            This is a walkthrough of one real audit, details anonymized. The
-            client, timeline, and exact numbers are changed. The problems, the
-            reasoning, and the fixes are not.
+            This one's not anonymized. It's this site's own deploy pipeline, and
+            it's the kind of failure worth documenting exactly because it's so
+            easy to miss.
           </p>
         </section>
 
         <section class="section-block">
           <h2>The starting point</h2>
           <p>
-            The request was simple: "our numbers don't match what we're seeing
-            in the storefront." Revenue in the reporting dashboard was running
-            roughly 18% higher than actual processed orders. Nobody knew why,
-            and nobody had looked inside the container in over two years.
+            A cache-purge step had been added to the deploy workflow so that
+            pushing a change would automatically clear the edge cache and the
+            new version would go live right away. The workflow itself was
+            confirmed firing correctly on every push - no errors in the run log,
+            every step marked complete.
           </p>
           <p>
-            Two years of unaudited tags is enough time for a setup to accumulate
-            a lot of quiet damage - old campaigns nobody remembers, triggers
-            built for a page that no longer exists, and fixes layered on top of
-            other fixes.
+            Except the cache wasn't clearing. Pages kept serving the previous
+            version well after a push had gone out, and there was nothing in the
+            workflow's own output pointing to why.
           </p>
         </section>
 
         <section class="section-block">
-          <h2>What the container actually looked like</h2>
+          <h2>What was actually happening</h2>
           <p>
-            Opening it up, the picture was less "one bug" and more "several
-            years of small, reasonable-at-the-time decisions that never got
-            revisited."
+            The workflow succeeding and the purge succeeding turned out to be
+            two different things. The automation was correctly sending the purge
+            request - but the request itself was being rejected further
+            downstream, and that rejection wasn't surfacing as a workflow
+            failure.
           </p>
           <ul class="alt">
             <li>
-              A purchase event firing twice on the confirmation page - once from
-              a template built years earlier, once from a newer implementation
-              nobody had removed the old one for.
+              The purge request was failing with a routing error (error code
+              7003) - meaning the zone identifier being sent didn't match a zone
+              the credential had access to.
             </li>
             <li>
-              A checkout trigger still watching for a URL pattern from a
-              storefront redesign that had shipped over a year prior.
+              The zone ID stored as a secret was invalid - close enough to a
+              real value that it wasn't obviously wrong at a glance, but wrong
+              enough to fail every request.
             </li>
             <li>
-              Eleven tags with no owner, no notes, and no clear trigger logic -
-              built for campaigns that had long since ended.
-            </li>
-            <li>
-              A cross-domain setup that worked for the main site but silently
-              broke on a subdomain added after the original configuration.
+              While tracing how that secret had been set, a separate API token
+              turned up exposed in a place it shouldn't have been - a credential
+              with broader access than the deploy workflow actually needed.
             </li>
           </ul>
           <p>
-            None of these were dramatic on their own. Together, they explained
-            the entire gap.
+            None of this showed up as a failed workflow run, because the
+            workflow's job was just to send the request. Whether the request was
+            accepted was a separate question nothing was checking.
           </p>
         </section>
 
         <section class="section-block">
           <h2>The decision log</h2>
           <p>
-            This is the part most write-ups skip - not just what was wrong, but
-            the actual reasoning behind each call. Every fix has a trade-off,
-            and the trade-off is usually more informative than the fix itself.
+            The fixes themselves were small. Getting to them required ruling
+            things out in a specific order, and each step changed what looked
+            like the likely cause.
           </p>
 
           <div class="log-entry">
             <div class="log-title">
-              Decision 1: Kill the duplicate, not both
+              Decision 1: Confirm the workflow first, not the credentials
             </div>
             <p>
-              The instinct is to rip out anything that looks redundant. Instead,
-              each of the two firing tags got traced back to what else depended
-              on it. One fed a downstream reporting pipeline nobody had
-              documented. Removing the wrong one would have quietly broken that
-              pipeline instead of fixing the duplication. The newer tag stayed;
-              the older one was retired only after confirming nothing still
-              pointed to it.
+              The instinct when a purge silently fails is to assume the
+              credentials are wrong. Instead, the first step was confirming the
+              workflow was actually running and reaching the request step at all
+              - it was. That ruled out a triggering problem and pointed the
+              search toward the request itself, not the automation around it.
             </p>
           </div>
 
           <div class="log-entry">
             <div class="log-title">
-              Decision 2: Fix the trigger condition, not the symptom
+              Decision 2: Read the actual error code, not just "it failed"
             </div>
             <p>
-              It would have been faster to just disable the stale checkout
-              trigger. Instead, the underlying URL logic got rebuilt to match
-              current page structure, because the alternative - leaving a silent
-              gap in checkout tracking - creates the exact same kind of problem
-              this audit was trying to solve.
+              A routing error like this one points to a specific mismatch - the
+              credential and the zone ID don't agree on what's being accessed.
+              That's a narrower problem than "the request failed," and it's the
+              difference between guessing at permissions and checking one
+              specific value.
             </p>
           </div>
 
           <div class="log-entry">
             <div class="log-title">
-              Decision 3: Document before deleting the orphaned tags
+              Decision 3: Replace the zone ID, then verify against a live purge
             </div>
             <p>
-              Eleven unowned tags is tempting to mass-delete. Each one got a
-              short note on what it likely was and why it was being removed,
-              stored outside the container itself. Six months later, if a
-              question comes up about historical data, there's a record of what
-              changed and why - instead of a mystery.
+              Once the invalid zone ID was identified, the fix itself was a
+              one-line secret update. The more important part was not declaring
+              it fixed until a real purge had been triggered and confirmed
+              against the actual cache state, rather than trusting a clean
+              workflow run on its own.
             </p>
           </div>
 
           <div class="log-entry">
             <div class="log-title">
-              Decision 4: Treat the subdomain gap as a structural issue
+              Decision 4: Treat the exposed token as its own separate issue
             </div>
             <p>
-              The cross-domain break wasn't a one-line fix so much as a sign the
-              whole domain list needed to be centrally managed instead of
-              hardcoded in multiple places. That took longer than a patch would
-              have, but it's the difference between fixing today's break and
-              preventing the next one.
+              Finding the exposed token in the middle of this diagnosis was
+              tempting to treat as a side note. It got handled as its own fix
+              instead - revoked from the account's profile-level token list, not
+              just removed from wherever it had been visible, since a token
+              stays valid until it's revoked at the source regardless of where
+              it was exposed.
             </p>
           </div>
         </section>
@@ -391,21 +392,23 @@
             <div class="compare-card before">
               <h4>Before</h4>
               <ul>
-                <li>Revenue overreported by roughly 18%</li>
-                <li>Duplicate purchase event firing on every order</li>
-                <li>Checkout tracking silently broken for over a year</li>
-                <li>Eleven undocumented, unowned tags</li>
-                <li>Cross-domain tracking failing on one subdomain</li>
+                <li>Workflow reporting success on every run</li>
+                <li>Cache purge silently rejected with a routing error</li>
+                <li>Live site intermittently serving stale content</li>
+                <li>No workflow-level signal that anything was wrong</li>
+                <li>An overscoped API token sitting exposed</li>
               </ul>
             </div>
             <div class="compare-card after">
               <h4>After</h4>
               <ul>
-                <li>Revenue reconciled to within rounding error</li>
-                <li>Single purchase event, verified against order data</li>
-                <li>Checkout trigger rebuilt around current page structure</li>
-                <li>Documented ownership for every active tag</li>
-                <li>Domain list centralized instead of hardcoded</li>
+                <li>Zone ID corrected and verified against a live purge</li>
+                <li>Cache clears confirmed immediately after each push</li>
+                <li>Exposed token revoked at the account level</li>
+                <li>
+                  Diagnosis and fix documented for the next time something looks
+                  "successful" but isn't
+                </li>
               </ul>
             </div>
           </div>
@@ -414,44 +417,48 @@
         <section class="section-block">
           <h2>What this actually took</h2>
           <p>
-            Not a checklist run top to bottom. Every one of these decisions
-            required tracing a tag back to whatever it fed - a report, a
-            dashboard, someone's Monday morning routine - before touching it.
-            The technical fix in each case was usually the easy part. Figuring
-            out what would break if it changed was the real work.
+            The fix was a secret update and a revoked token - a few minutes of
+            actual work. Getting there took longer, because "the workflow
+            succeeded" had to be separated from "the thing the workflow was
+            supposed to do actually happened." Those aren't the same claim, and
+            treating them as the same claim is exactly how this kind of failure
+            stays invisible.
           </p>
           <p>
-            That's the difference between a template and an audit. A template
-            tells you what to look for. An audit is the judgment call made each
-            time something looks wrong but isn't obviously safe to remove.
+            The bigger takeaway wasn't the specific error code. It was a
+            reminder to verify outcomes, not just completions - a workflow
+            finishing without an error is not the same as confirming the thing
+            it was supposed to change actually changed.
           </p>
         </section>
 
         <section class="section-block">
           <h2>Frequently asked questions</h2>
 
-          <h3>How long does something like this usually take?</h3>
+          <h3>How would I know if this is happening on my own site?</h3>
           <p>
-            It depends entirely on how much undocumented history is sitting
-            inside the setup. A container that's been touched by one careful
-            owner for years looks very different from one that's changed hands
-            repeatedly with no notes. The tracing work - figuring out what
-            depends on what - is almost always the longer half.
+            The clearest sign is a mismatch between what a deploy or automation
+            log says and what's actually visible on the live site. If a workflow
+            reports success but changes aren't showing up where they should,
+            it's worth checking whether the workflow is confirming an outcome or
+            just confirming it ran.
           </p>
 
-          <h3>Is a revenue mismatch always a tagging problem?</h3>
+          <h3>Is this specific to one platform's setup?</h3>
           <p>
-            Not always, but it's one of the first places worth checking.
-            Duplicate events, stale triggers, and unreconciled currency or
-            refund logic account for a large share of the reporting gaps seen in
-            practice.
+            The specific error code is tied to how one CDN provider validates
+            requests, but the underlying pattern - a step reporting success
+            while the request it sent gets silently rejected downstream - shows
+            up across a lot of automated deploy setups, regardless of provider.
           </p>
 
-          <h3>Can this be done without disrupting current tracking?</h3>
+          <h3>What's the actual risk of an exposed token like this?</h3>
           <p>
-            Yes. Diagnosis happens in a working copy before anything touches the
-            live setup, and changes get verified against real order data before
-            they replace what's currently running.
+            An exposed credential is valid until it's revoked, regardless of
+            whether anyone has misused it yet. The safest assumption is that
+            visibility alone is the risk, and it should be revoked at the source
+            as soon as it's found rather than just removed from where it was
+            seen.
           </p>
         </section>
 
@@ -469,7 +476,7 @@
                 0 4px 10px rgba(15, 23, 42, 0.04);
             ">
             <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
-              Not sure what your own site is telling you?
+              Not sure what's actually happening behind your own deploys?
             </h3>
             <p
               style="
@@ -481,7 +488,7 @@
                 margin-right: auto;
               ">
               A short conversation is usually enough to tell whether there's a
-              quick fix or a bigger gap worth addressing.
+              quick answer or something deeper worth tracing.
             </p>
             <ul
               class="actions stacked"
@@ -504,7 +511,7 @@
       <script src="/assets/js/main.js" defer></script>
       <script src="/assets/js/footer-min.js" defer></script>
       <scott-footer
-        description="A real walkthrough of diagnosing a broken tag management setup - what was double-firing, what was dead, and how each decision got made."></scott-footer>
+        description="A real walkthrough of tracking down a silent deploy failure - a routing error, a bad secret, and an exposed token that had to be found and revoked."></scott-footer>
     </div>
   </body>
 </html>

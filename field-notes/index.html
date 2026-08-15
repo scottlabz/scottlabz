@@ -21,7 +21,7 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <title>Field Notes | Scott Labz</title>
+    <title>Field Notes - Breakdowns the way they happened | Scott Labz</title>
 
     <meta
       name="description"
@@ -29,9 +29,7 @@
 
     <meta charset="utf-8" />
 
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="../assets/css/main-min.css" />
 
@@ -47,16 +45,36 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Article",
-        "@id": "https://scottlabz.com/field-notes/gtm-container-autopsy.html",
-        "headline": "Field Notes",
+        "@type": "CollectionPage",
+        "@id": "https://scottlabz.com/field-notes/",
+        "name": "Field Notes",
         "description": "Real breakdowns of measurement problems and technical decisions, written as they happened.",
-        "url": "https://scottlabz.com/field-notes/gtm-container-autopsy.html",
-        "author": {
-          "@type": "ProfessionalService",
-          "@id": "https://scottlabz.com/",
-          "name": "ScottLabz",
-          "url": "https://scottlabz.com/"
+        "url": "https://scottlabz.com/field-notes/",
+        "about": {
+          "@id": "https://scottlabz.com/#organization"
+        },
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "Article",
+              "position": 1,
+              "name": "The Tag Container Autopsy",
+              "url": "https://scottlabz.com/field-notes/gtm-container-autopsy.html"
+            },
+            {
+              "@type": "Article",
+              "position": 2,
+              "name": "What Businesses Get Wrong About Their Website Data",
+              "url": "https://scottlabz.com/field-notes/website-measurement-gaps.html"
+            },
+            {
+              "@type": "Article",
+              "position": 3,
+              "name": "The Cloudflare 7003 Diagnosis",
+              "url": "https://scottlabz.com/field-notes/cloudflare-7003-diagnosis.html"
+            }
+          ]
         }
       }
     </script>
@@ -298,6 +316,26 @@
               Patterns seen across small and mid-size business sites - what's
               usually missing from their measurement setups, and what it quietly
               costs. &nbsp;&nbsp;
+              <i class="fas fa-arrow-right"></i>
+            </p>
+          </section>
+        </a>
+
+        <a
+          href="cloudflare-7003-diagnosis.html"
+          class="fn-card-link"
+          style="
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+          ">
+          <section class="section-block">
+            <h2>The Cloudflare 7003 Diagnosis</h2>
+            <p>
+              A real walkthrough of tracking down a silent deploy failure - a
+              routing error, a bad secret, and an exposed token that had to be
+              found and revoked. &nbsp;&nbsp;
               <i class="fas fa-arrow-right"></i>
             </p>
           </section>
