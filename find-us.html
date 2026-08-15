@@ -276,6 +276,26 @@
         color: #94a3b8;
       }
 
+      .cred-divider {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        margin: 0.5rem 0 2.5rem;
+        color: #94a3b8;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .cred-divider::before,
+      .cred-divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(30, 58, 95, 0.15);
+      }
+
       @media screen and (max-width: 700px) {
         .cred-block {
           flex-direction: column;
@@ -556,6 +576,30 @@
                   rel="noopener noreferrer">
                   View Nextdoor Page <i class="fas fa-arrow-right"></i>
                 </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="cred-divider"><span>Coming Soon</span></div>
+
+          <div class="cred-stack">
+            <div
+              class="cred-block pending"
+              style="
+                --cred-accent: #1585c8;
+                --cred-tint: rgba(21, 133, 200, 0.06);
+              ">
+              <div class="cred-mark">
+                <img src="images/bing.png" alt="Bing" />
+              </div>
+              <div class="cred-body">
+                <span class="cred-kicker">Business Listing</span>
+                <h3>Bing Places</h3>
+                <p>
+                  Business presence within Bing Search and Maps -
+                  listing setup is in progress.
+                </p>
+                <span class="cred-link-pending">Coming Soon</span>
               </div>
             </div>
 
