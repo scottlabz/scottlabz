@@ -1,0 +1,482 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>The Tag Container Autopsy | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="A real walkthrough of diagnosing a broken tag management setup - what was double-firing, what was dead, and how each decision got made." />
+
+    <meta charset="utf-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=yes" />
+
+    <link rel="stylesheet" href="../assets/css/main-min.css" />
+
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript-min.css" />
+    </noscript>
+
+    <script src="../assets/js/header-min.js"></script>
+    <script src="../assets/js/favicon-min.js"></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/gtm-container-autopsy.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/gtm-container-autopsy.html",
+        "headline": "The Tag Container Autopsy",
+        "description": "A real walkthrough of diagnosing a broken tag management setup - what was double-firing, what was dead, and how each decision got made.",
+        "url": "https://scottlabz.com/field-notes/gtm-container-autopsy.html",
+        "author": {
+          "@type": "ProfessionalService",
+          "@id": "https://scottlabz.com/",
+          "name": "ScottLabz",
+          "url": "https://scottlabz.com/"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="The Tag Container Autopsy | Scott Labz" />
+    <meta
+      property="og:description"
+      content="A real walkthrough of diagnosing a broken tag management setup - what was double-firing, what was dead, and how each decision got made." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/gtm-container-autopsy.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block {
+        position: relative;
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 2rem 2rem 2rem 2.5rem;
+        border: 1px solid #dbe5ee;
+        overflow: hidden;
+        margin-bottom: 3rem;
+      }
+
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+
+      .service-content h2 {
+        font-size: 1.35rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+
+      .service-content h3 {
+        font-size: 1.05rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #1e3a5f;
+      }
+
+      .service-content p,
+      .service-content li {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        opacity: 0.85;
+        margin-bottom: 1rem;
+      }
+
+      .service-content ul {
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .log-entry {
+        border-left: 3px solid #1e3a5f;
+        padding: 0.25rem 0 0.25rem 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .log-entry .log-title {
+        font-weight: 600;
+        color: #1e3a5f;
+        font-size: 0.95rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .compare-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .compare-card {
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid rgba(160, 160, 160, 0.25);
+      }
+
+      .compare-card.before {
+        background: rgba(180, 60, 60, 0.04);
+        border-color: rgba(180, 60, 60, 0.25);
+      }
+
+      .compare-card.after {
+        background: rgba(30, 58, 95, 0.04);
+        border-color: rgba(30, 58, 95, 0.25);
+      }
+
+      .compare-card h4 {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .compare-card.before h4 {
+        color: #a33;
+      }
+
+      .compare-card.after h4 {
+        color: #1e3a5f;
+      }
+
+      .compare-card ul {
+        padding-left: 1.1rem;
+        margin-bottom: 0;
+      }
+
+      .compare-card li {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <h1>
+            <a href="../index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.png"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </h1>
+          <p class="major">
+            The Tag Container Autopsy<br /><br />
+            <strong>What a broken measurement setup actually looks like</strong
+            >, and the exact reasoning behind every decision made to fix it.
+          </p>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            Most write-ups about measurement problems stay abstract - "clean up
+            your tags," "audit your triggers," "reduce duplicate events." None
+            of that tells you what a real diagnosis looks like or how the
+            decisions actually get made under a deadline.
+          </p>
+          <p>
+            This is a walkthrough of one real audit, details anonymized. The
+            client, timeline, and exact numbers are changed. The problems, the
+            reasoning, and the fixes are not.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The starting point</h2>
+          <p>
+            The request was simple: "our numbers don't match what we're seeing
+            in the storefront." Revenue in the reporting dashboard was running
+            roughly 18% higher than actual processed orders. Nobody knew why,
+            and nobody had looked inside the container in over two years.
+          </p>
+          <p>
+            Two years of unaudited tags is enough time for a setup to accumulate
+            a lot of quiet damage - old campaigns nobody remembers, triggers
+            built for a page that no longer exists, and fixes layered on top of
+            other fixes.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What the container actually looked like</h2>
+          <p>
+            Opening it up, the picture was less "one bug" and more "several
+            years of small, reasonable-at-the-time decisions that never got
+            revisited."
+          </p>
+          <ul class="alt">
+            <li>
+              A purchase event firing twice on the confirmation page - once from
+              a template built years earlier, once from a newer implementation
+              nobody had removed the old one for.
+            </li>
+            <li>
+              A checkout trigger still watching for a URL pattern from a
+              storefront redesign that had shipped over a year prior.
+            </li>
+            <li>
+              Eleven tags with no owner, no notes, and no clear trigger logic -
+              built for campaigns that had long since ended.
+            </li>
+            <li>
+              A cross-domain setup that worked for the main site but silently
+              broke on a subdomain added after the original configuration.
+            </li>
+          </ul>
+          <p>
+            None of these were dramatic on their own. Together, they explained
+            the entire gap.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The decision log</h2>
+          <p>
+            This is the part most write-ups skip - not just what was wrong, but
+            the actual reasoning behind each call. Every fix has a trade-off,
+            and the trade-off is usually more informative than the fix itself.
+          </p>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 1: Kill the duplicate, not both
+            </div>
+            <p>
+              The instinct is to rip out anything that looks redundant. Instead,
+              each of the two firing tags got traced back to what else depended
+              on it. One fed a downstream reporting pipeline nobody had
+              documented. Removing the wrong one would have quietly broken that
+              pipeline instead of fixing the duplication. The newer tag stayed;
+              the older one was retired only after confirming nothing still
+              pointed to it.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 2: Fix the trigger condition, not the symptom
+            </div>
+            <p>
+              It would have been faster to just disable the stale checkout
+              trigger. Instead, the underlying URL logic got rebuilt to match
+              current page structure, because the alternative - leaving a silent
+              gap in checkout tracking - creates the exact same kind of problem
+              this audit was trying to solve.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 3: Document before deleting the orphaned tags
+            </div>
+            <p>
+              Eleven unowned tags is tempting to mass-delete. Each one got a
+              short note on what it likely was and why it was being removed,
+              stored outside the container itself. Six months later, if a
+              question comes up about historical data, there's a record of what
+              changed and why - instead of a mystery.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 4: Treat the subdomain gap as a structural issue
+            </div>
+            <p>
+              The cross-domain break wasn't a one-line fix so much as a sign the
+              whole domain list needed to be centrally managed instead of
+              hardcoded in multiple places. That took longer than a patch would
+              have, but it's the difference between fixing today's break and
+              preventing the next one.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Before and after</h2>
+          <div class="compare-grid">
+            <div class="compare-card before">
+              <h4>Before</h4>
+              <ul>
+                <li>Revenue overreported by roughly 18%</li>
+                <li>Duplicate purchase event firing on every order</li>
+                <li>Checkout tracking silently broken for over a year</li>
+                <li>Eleven undocumented, unowned tags</li>
+                <li>Cross-domain tracking failing on one subdomain</li>
+              </ul>
+            </div>
+            <div class="compare-card after">
+              <h4>After</h4>
+              <ul>
+                <li>Revenue reconciled to within rounding error</li>
+                <li>Single purchase event, verified against order data</li>
+                <li>Checkout trigger rebuilt around current page structure</li>
+                <li>Documented ownership for every active tag</li>
+                <li>Domain list centralized instead of hardcoded</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>What this actually took</h2>
+          <p>
+            Not a checklist run top to bottom. Every one of these decisions
+            required tracing a tag back to whatever it fed - a report, a
+            dashboard, someone's Monday morning routine - before touching it.
+            The technical fix in each case was usually the easy part. Figuring
+            out what would break if it changed was the real work.
+          </p>
+          <p>
+            That's the difference between a template and an audit. A template
+            tells you what to look for. An audit is the judgment call made each
+            time something looks wrong but isn't obviously safe to remove.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>How long does something like this usually take?</h3>
+          <p>
+            It depends entirely on how much undocumented history is sitting
+            inside the setup. A container that's been touched by one careful
+            owner for years looks very different from one that's changed hands
+            repeatedly with no notes. The tracing work - figuring out what
+            depends on what - is almost always the longer half.
+          </p>
+
+          <h3>Is a revenue mismatch always a tagging problem?</h3>
+          <p>
+            Not always, but it's one of the first places worth checking.
+            Duplicate events, stale triggers, and unreconciled currency or
+            refund logic account for a large share of the reporting gaps seen in
+            practice.
+          </p>
+
+          <h3>Can this be done without disrupting current tracking?</h3>
+          <p>
+            Yes. Diagnosis happens in a working copy before anything touches the
+            live setup, and changes get verified against real order data before
+            they replace what's currently running.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin-top: 2rem;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Not sure what's actually happening inside your setup?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              A short conversation is usually enough to tell whether there's a
+              quick answer or something deeper worth tracing.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="../contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+      <script src="/assets/js/browser.min.js" defer></script>
+      <script src="/assets/js/breakpoints.min.js" defer></script>
+      <script src="/assets/js/main.js" defer></script>
+      <script src="/assets/js/footer-min.js" defer></script>
+      <scott-footer
+        description="A real walkthrough of diagnosing a broken tag management setup - what was double-firing, what was dead, and how each decision got made."></scott-footer>
+    </div>
+  </body>
+</html>

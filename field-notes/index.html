@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>Field Notes | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="Real breakdowns of measurement problems and technical decisions, written as they happened." />
+
+    <meta charset="utf-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=yes" />
+
+    <link rel="stylesheet" href="../assets/css/main-min.css" />
+
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript-min.css" />
+    </noscript>
+
+    <script src="../assets/js/header-min.js"></script>
+    <script src="../assets/js/favicon-min.js"></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/case-studies/gtm-container-autopsy.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/case-studies/gtm-container-autopsy.html",
+        "headline": "The Tag Container Autopsy",
+        "description": "Real breakdowns of measurement problems and technical decisions, written as they happened.",
+        "url": "https://scottlabz.com/case-studies/gtm-container-autopsy.html",
+        "author": {
+          "@type": "ProfessionalService",
+          "@id": "https://scottlabz.com/",
+          "name": "ScottLabz",
+          "url": "https://scottlabz.com/"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="The Tag Container Autopsy | Scott Labz" />
+    <meta
+      property="og:description"
+      content="Real breakdowns of measurement problems and technical decisions, written as they happened." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/case-studies/gtm-container-autopsy.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block {
+        position: relative;
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 2rem 2rem 2rem 2.5rem;
+        border: 1px solid #dbe5ee;
+        overflow: hidden;
+        margin-bottom: 3rem;
+      }
+
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+
+      .service-content h2 {
+        font-size: 1.35rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+
+      .service-content h3 {
+        font-size: 1.05rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #1e3a5f;
+      }
+
+      .service-content p,
+      .service-content li {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        opacity: 0.85;
+        margin-bottom: 1rem;
+      }
+
+      .service-content ul {
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .log-entry {
+        border-left: 3px solid #1e3a5f;
+        padding: 0.25rem 0 0.25rem 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .log-entry .log-title {
+        font-weight: 600;
+        color: #1e3a5f;
+        font-size: 0.95rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .compare-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .compare-card {
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid rgba(160, 160, 160, 0.25);
+      }
+
+      .compare-card.before {
+        background: rgba(180, 60, 60, 0.04);
+        border-color: rgba(180, 60, 60, 0.25);
+      }
+
+      .compare-card.after {
+        background: rgba(30, 58, 95, 0.04);
+        border-color: rgba(30, 58, 95, 0.25);
+      }
+
+      .compare-card h4 {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .compare-card.before h4 {
+        color: #a33;
+      }
+
+      .compare-card.after h4 {
+        color: #1e3a5f;
+      }
+
+      .compare-card ul {
+        padding-left: 1.1rem;
+        margin-bottom: 0;
+      }
+
+      .compare-card li {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section
+        class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+        <div class="content">
+          <h1>
+            <a href="../index.html" style="border-bottom: none">
+              <img
+                src="../images/scottlabz-clear.png"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </h1>
+          <p class="major">
+            Field Notes
+            <br /><br />
+            Real breakdowns of measurement problems, technical decisions, and
+            lessons from the work - written the way they actually happened, not
+            as a generic checklist.
+          </p>
+          <ul class="actions stacked">
+            <li>
+              <a href="#first" class="button big wide smooth-scroll"
+                >Read More</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="image">
+          <img
+            src="../images/field-notes.jpg"
+            alt="Tag container audit and measurement diagnostic breakdown" />
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 4rem 1.5rem">
+        <a
+          href="gtm-container-autopsy.html"
+          style="
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+          ">
+          <section class="section-block">
+            <h2>The Tag Container Autopsy</h2>
+            <p>
+              A real walkthrough of diagnosing a broken measurement setup - what
+              was double-firing, what was dead, and the exact reasoning behind
+              every decision made to fix it.
+            </p>
+          </section>
+        </a>
+      </main>
+
+      <script src="/assets/js/jquery.min.js" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+      <script src="/assets/js/browser.min.js" defer></script>
+      <script src="/assets/js/breakpoints.min.js" defer></script>
+      <script src="/assets/js/main.js" defer></script>
+      <script src="/assets/js/footer-min.js" defer></script>
+      <scott-footer
+        description="Real breakdowns of measurement problems, technical decisions, and lessons from the work - written as they actually happened."></scott-footer>
+    </div>
+  </body>
+</html>
