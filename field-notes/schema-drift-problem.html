@@ -1,0 +1,554 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>The Schema Drift Problem | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="A structured-data cleanup turned up a quieter problem underneath it - canonical tags, Open Graph URLs, and JSON-LD all pointing to different addresses, and how the sitemap became the tiebreaker." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../assets/css/main-min.css" />
+
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript-min.css" />
+    </noscript>
+
+    <script src="../assets/js/header-min.js"></script>
+    <script src="../assets/js/favicon-min.js"></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/schema-drift-problem.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/schema-drift-problem.html",
+        "headline": "The Schema Drift Problem",
+        "description": "A structured-data cleanup turned up a quieter problem underneath it - canonical tags, Open Graph URLs, and JSON-LD all pointing to different addresses, and how the sitemap became the tiebreaker.",
+        "url": "https://scottlabz.com/field-notes/schema-drift-problem.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="The Schema Drift Problem | Scott Labz" />
+    <meta
+      property="og:description"
+      content="A structured-data cleanup turned up a quieter problem underneath it - canonical tags, Open Graph URLs, and JSON-LD all pointing to different addresses, and how the sitemap became the tiebreaker." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/schema-drift-problem.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block {
+        position: relative;
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 2rem 2rem 2rem 2.5rem;
+        border: 1px solid #dbe5ee;
+        overflow: hidden;
+        margin-bottom: 3rem;
+      }
+
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+
+      .service-content h2 {
+        font-size: 1.35rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+
+      .service-content h3 {
+        font-size: 1.05rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #1e3a5f;
+      }
+
+      .service-content p,
+      .service-content li {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        opacity: 0.85;
+        margin-bottom: 1rem;
+      }
+
+      .service-content ul {
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .log-entry {
+        border-left: 3px solid #1e3a5f;
+        padding: 0.25rem 0 0.25rem 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .log-entry .log-title {
+        font-weight: 600;
+        color: #1e3a5f;
+        font-size: 0.95rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .compare-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .compare-card {
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid rgba(160, 160, 160, 0.25);
+      }
+
+      .compare-card.before {
+        background: rgba(180, 60, 60, 0.04);
+        border-color: rgba(180, 60, 60, 0.25);
+      }
+
+      .compare-card.after {
+        background: rgba(30, 58, 95, 0.04);
+        border-color: rgba(30, 58, 95, 0.25);
+      }
+
+      .compare-card h4 {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .compare-card.before h4 {
+        color: #a33;
+      }
+
+      .compare-card.after h4 {
+        color: #1e3a5f;
+      }
+
+      .compare-card ul {
+        padding-left: 1.1rem;
+        margin-bottom: 0;
+      }
+
+      .compare-card li {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+      .back-to-notes {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: #1e3a5f;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        transition:
+          gap 0.2s ease,
+          opacity 0.2s ease;
+      }
+
+      .back-to-notes:hover {
+        gap: 0.75rem;
+        opacity: 0.75;
+      }
+
+      .back-to-notes i {
+        transition: transform 0.2s ease;
+      }
+
+      .back-to-notes:hover i {
+        transform: translateX(-3px);
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <h1>
+            <a href="../index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.png"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </h1>
+          <p class="major">
+            The Schema Drift Problem<br />
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
+            <strong>Three tags that are supposed to agree</strong>, quietly
+            not agreeing - and what it took to find every place it had
+            happened, not just the one that got noticed first.
+          </p>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            A single page can describe its own URL in at least three places -
+            the canonical link tag, the Open Graph <code>og:url</code> tag,
+            and, if the page carries structured data, the
+            <code>url</code> field inside its own JSON-LD. Nothing forces
+            those three to agree with each other, or with where the page
+            actually lives. They're just three separate strings, hand-written
+            or copy-pasted at three separate times.
+          </p>
+          <p>
+            This is what happened when a routine structured-data cleanup on
+            this site turned up exactly that kind of disagreement, spread
+            across more pages than expected, and what it took to actually
+            confirm the fix rather than just quiet the symptom that got
+            noticed first.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The starting point</h2>
+          <p>
+            The original task was narrower: standardize the JSON-LD
+            organization schema across every page - drop a stale address
+            block, retire an old founder name, fix a couple of pages
+            referencing an <code>@id</code> that didn't resolve to anything.
+            Mechanical work, page by page.
+          </p>
+          <p>
+            Partway through, a stray thought worth checking: if the
+            structured data had drifted, had anything else? The Open Graph
+            tags sitting right above those JSON-LD blocks hadn't been part of
+            the original task at all - but they hadn't been checked in a
+            while either.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What was actually happening</h2>
+          <p>
+            Cross-referencing each page's canonical tag against its own
+            <code>og:url</code>, and both against the live sitemap, surfaced
+            three distinct failure patterns instead of one:
+          </p>
+          <ul class="alt">
+            <li>
+              Ten policy pages under <code>/trust/</code> had canonical and
+              <code>og:url</code> tags both missing the
+              <code>/trust/</code> path segment entirely - pointing at a
+              root-level URL that had never existed on the live site.
+            </li>
+            <li>
+              Two of those same pages had it worse: the canonical tag and the
+              JSON-LD <code>url</code> field pointed at a URL that had never
+              existed anywhere, while that same page's <code>og:url</code>
+              pointed at a third, still-wrong address - three tags, three
+              different wrong answers, on one page.
+            </li>
+            <li>
+              One page was missing its entire Open Graph block - no
+              <code>og:title</code>, no <code>og:image</code>, nothing -
+              meaning a shared link to it would render with no preview at
+              all.
+            </li>
+            <li>
+              A collection page's <code>og:url</code> pointed at one specific
+              article inside it instead of at itself, alongside an
+              <code>og:type</code> of <code>article</code> on a page that
+              wasn't one.
+            </li>
+          </ul>
+          <p>
+            None of this was visible from reading any single page in
+            isolation. Each page looked internally plausible - a canonical
+            tag, an og:url, values that resembled real URLs. The drift only
+            showed up by comparing each signal against the others, and
+            against ground truth.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The decision log</h2>
+          <p>
+            The fixes were one-line URL corrections. Trusting them required a
+            specific process, because the tempting shortcut - fix whichever
+            value looks wrong - doesn't work when more than one value is
+            wrong on the same page.
+          </p>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 1: Pick one source of truth before touching anything
+            </div>
+            <p>
+              With three tags per page potentially disagreeing, the sitemap
+              was the tiebreaker - it's generated from what's actually
+              deployed, not hand-typed per page, which made it the one signal
+              least likely to have drifted the same way the manual tags had.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 2: Check every page, not just the one that prompted
+              the question
+            </div>
+            <p>
+              The first mismatch found was on a single page. The instinct is
+              to fix that page and move on. Instead, the same
+              canonical-versus-og:url-versus-sitemap comparison ran across
+              every page in the repository, which is what turned one known
+              mismatch into ten.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 3: Treat a missing tag as its own category, not a
+              variant of a wrong one
+            </div>
+            <p>
+              The page missing its Open Graph block entirely wasn't caught by
+              a "does the URL match" check, because there was no URL to
+              compare - it required a separate presence check for each
+              individual tag, run across every page that carried structured
+              data.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 4: Validate the JSON after every batch of edits, not
+              at the end
+            </div>
+            <p>
+              Structural edits to a JSON-LD block are easy to get almost
+              right - a dropped comma or an unclosed brace still looks fine
+              on a quick read. Every batch of edits got parsed as JSON
+              immediately afterward, which is also what caught an unrelated,
+              pre-existing corruption on one page where a script tag had been
+              left truncated and unclosed from an earlier edit, silently
+              breaking that page's structured data before this pass ever
+              started.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Before and after</h2>
+          <div class="compare-grid">
+            <div class="compare-card before">
+              <h4>Before</h4>
+              <ul>
+                <li>
+                  10 policy pages canonical-linking to URLs that 404 in
+                  production
+                </li>
+                <li>
+                  2 pages with three internally disagreeing URL references
+                </li>
+                <li>1 page sharing with no title, description, or image</li>
+                <li>1 collection page mislabeled as a single article</li>
+                <li>
+                  1 page with a silently broken, unclosed JSON-LD block
+                </li>
+              </ul>
+            </div>
+            <div class="compare-card after">
+              <h4>After</h4>
+              <ul>
+                <li>
+                  Every canonical, og:url, and JSON-LD url field verified
+                  against the sitemap
+                </li>
+                <li>Full Open Graph block present on every content page</li>
+                <li>
+                  Collection pages correctly typed and self-referencing
+                </li>
+                <li>
+                  Every JSON-LD block on the site re-parsed and confirmed
+                  valid
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>What this actually took</h2>
+          <p>
+            Every individual fix was a URL string swap. None of them were
+            hard. What made this worth writing down is that the bug wasn't in
+            any one tag - it was in the assumption that three
+            independently-maintained references to the same page would stay
+            in sync on their own. They don't, especially after a page gets
+            moved into a subdirectory and only some of its self-references
+            get updated to match.
+          </p>
+          <p>
+            The actual takeaway: when a page describes its own location in
+            more than one place, that's a place worth diffing against
+            something authoritative on a schedule, not just when a mismatch
+            happens to get noticed.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>How would I know if this is happening on my own site?</h3>
+          <p>
+            Pull every page's canonical <code>href</code> and its
+            <code>og:url</code> content, and diff each pair against the
+            corresponding entry in your sitemap. Any page where those three
+            don't all agree is a candidate - and it's worth checking every
+            page, not just ones that seem likely, since drift tends to
+            cluster around whatever got restructured or moved most recently.
+          </p>
+
+          <h3>Why does a wrong canonical tag actually matter?</h3>
+          <p>
+            A canonical tag pointing at a URL that doesn't exist is telling
+            search engines the "real" version of a working page is a page
+            that 404s. Depending on how that gets interpreted, it can mean
+            the working page never gets indexed under its actual address, or
+            gets indexed inconsistently.
+          </p>
+
+          <h3>Is this only a risk after restructuring a site?</h3>
+          <p>
+            That's the most common trigger - moving a page into a
+            subdirectory and updating the file path without updating every
+            tag that hardcodes the old URL - but the same drift can happen
+            any time a page's metadata gets copy-pasted from a template and
+            only partially customized.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Not sure whether your own pages agree with themselves?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              A short conversation is usually enough to tell whether there's a
+              quick answer or something deeper worth tracing.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="../contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+      <script src="/assets/js/browser.min.js" defer></script>
+      <script src="/assets/js/breakpoints.min.js" defer></script>
+      <script src="/assets/js/main.js" defer></script>
+      <script src="/assets/js/footer-min.js" defer></script>
+      <scott-footer
+        description="A structured-data cleanup turned up a quieter problem underneath it - canonical tags, Open Graph URLs, and JSON-LD all pointing to different addresses, and how the sitemap became the tiebreaker."></scott-footer>
+    </div>
+  </body>
+</html>
