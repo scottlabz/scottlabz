@@ -1,0 +1,454 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>
+      What Businesses Get Wrong About Their Website Data | Scott Labz
+    </title>
+
+    <meta
+      name="description"
+      content="Most sites can tell you how many people showed up. Almost none can tell you why that matters, or what those visits actually turned into." />
+
+    <meta charset="utf-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=yes" />
+
+    <link rel="stylesheet" href="../assets/css/main-min.css" />
+
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript-min.css" />
+    </noscript>
+
+    <script src="../assets/js/header-min.js"></script>
+    <script src="../assets/js/favicon-min.js"></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/website-data-mistakes.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/website-data-mistakes.html",
+        "headline": "What Businesses Get Wrong About Their Website Data",
+        "description": "Most sites can tell you how many people showed up. Almost none can tell you why that matters, or what those visits actually turned into.",
+        "url": "https://scottlabz.com/field-notes/website-data-mistakes.html",
+        "author": {
+          "@type": "ProfessionalService",
+          "@id": "https://scottlabz.com/",
+          "name": "ScottLabz",
+          "url": "https://scottlabz.com/"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="What Businesses Get Wrong About Their Website Data | Scott Labz" />
+    <meta
+      property="og:description"
+      content="Most sites can tell you how many people showed up. Almost none can tell you why that matters, or what those visits actually turned into." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/website-data-mistakes.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block {
+        position: relative;
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 2rem 2rem 2rem 2.5rem;
+        border: 1px solid #dbe5ee;
+        overflow: hidden;
+        margin-bottom: 3rem;
+      }
+
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+
+      .service-content h2 {
+        font-size: 1.35rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+
+      .service-content h3 {
+        font-size: 1.05rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #1e3a5f;
+      }
+
+      .service-content p,
+      .service-content li {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        opacity: 0.85;
+        margin-bottom: 1rem;
+      }
+
+      .service-content ul {
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .log-entry {
+        border-left: 3px solid #1e3a5f;
+        padding: 0.25rem 0 0.25rem 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .log-entry .log-title {
+        font-weight: 600;
+        color: #1e3a5f;
+        font-size: 0.95rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .compare-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .compare-card {
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid rgba(160, 160, 160, 0.25);
+      }
+
+      .compare-card.before {
+        background: rgba(180, 60, 60, 0.04);
+        border-color: rgba(180, 60, 60, 0.25);
+      }
+
+      .compare-card.after {
+        background: rgba(30, 58, 95, 0.04);
+        border-color: rgba(30, 58, 95, 0.25);
+      }
+
+      .compare-card h4 {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .compare-card.before h4 {
+        color: #a33;
+      }
+
+      .compare-card.after h4 {
+        color: #1e3a5f;
+      }
+
+      .compare-card ul {
+        padding-left: 1.1rem;
+        margin-bottom: 0;
+      }
+
+      .compare-card li {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+      .back-to-notes {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: #1e3a5f;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        transition:
+          gap 0.2s ease,
+          opacity 0.2s ease;
+      }
+
+      .back-to-notes:hover {
+        gap: 0.75rem;
+        opacity: 0.75;
+      }
+
+      .back-to-notes i {
+        transition: transform 0.2s ease;
+      }
+
+      .back-to-notes:hover i {
+        transform: translateX(-3px);
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <h1>
+            <a href="../index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.png"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </h1>
+          <p class="major">
+            What Businesses Get Wrong About Their Website Data
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
+            <strong>Same gaps, different storefronts.</strong> A look at what's
+            usually missing from business measurement setups, and what it
+            quietly costs.
+          </p>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            A lot of businesses are running on whatever measurement setup came
+            installed by default - and nobody has ever gone back to check if
+            it's actually working.
+          </p>
+          <p>
+            This isn't a knock on any one business. It's a pattern seen across a
+            lot of sites, from small storefronts to established retailers, and
+            it's worth naming plainly so it's easier to spot.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What the pattern looks like</h2>
+          <p>
+            Walk through enough business sites and the same handful of gaps show
+            up again and again, regardless of how nice the site itself looks.
+          </p>
+
+          <div class="pattern-entry">
+            <div class="pattern-title">
+              Traffic is tracked. Outcomes aren't.
+            </div>
+            <p>
+              Most sites have some kind of visitor counter running. Far fewer
+              track whether a visit turned into a call, a form submission, a
+              directions request, or a sale. Knowing that people showed up isn't
+              the same as knowing what they came to do.
+            </p>
+          </div>
+
+          <div class="pattern-entry">
+            <div class="pattern-title">
+              Every campaign looks the same in reporting
+            </div>
+            <p>
+              A business running a paid promotion, a sponsorship, and organic
+              search traffic often can't tell which one actually brought someone
+              in. Without basic source tagging, every visitor blends into one
+              undifferentiated number.
+            </p>
+          </div>
+
+          <div class="pattern-entry">
+            <div class="pattern-title">Mobile behavior gets ignored</div>
+            <p>
+              A large share of search traffic comes from a phone, usually
+              someone looking for hours, a phone number, or directions. Sites
+              rarely track whether that mobile visitor actually found what they
+              needed before leaving.
+            </p>
+          </div>
+
+          <div class="pattern-entry">
+            <div class="pattern-title">Nobody's looked at it in years</div>
+            <p>
+              Measurement tools get installed once during a site launch and then
+              never revisited. Redesigns happen, pages get renamed, buttons move
+              - and the tracking underneath quietly stops matching what's
+              actually on the page.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Why this happens so often</h2>
+          <p>
+            It isn't a lack of effort. It's a lack of access. Many businesses
+            end up choosing between a generalist web shop that treats
+            measurement as an afterthought, or handling it themselves alongside
+            everything else running a business requires.
+          </p>
+          <p>
+            Neither path is wrong. But it does mean the gap tends to persist far
+            longer than it should, quietly, in the background, while everything
+            else about the business moves forward.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What closing the gap actually looks like</h2>
+          <p>
+            None of this requires a rebuild. In most cases, it's a matter of:
+          </p>
+          <ul class="alt">
+            <li>
+              Defining what actually counts as a meaningful outcome on the site
+              - a call, a form, a booking, a purchase.
+            </li>
+            <li>
+              Tagging where visitors are coming from so campaigns can be told
+              apart.
+            </li>
+            <li>
+              Checking that tracking still matches the site as it exists today,
+              not as it existed at launch.
+            </li>
+            <li>
+              Setting up a simple, honest report that shows what's working
+              without requiring a dashboard degree to read.
+            </li>
+          </ul>
+          <p>
+            The goal isn't more data. It's knowing, with some confidence, what's
+            actually bringing people in the door.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>Does this only apply to bigger businesses?</h3>
+          <p>
+            No. If anything, it matters more for smaller operations, where
+            marketing budget is tighter and every dollar spent needs to be
+            accounted for.
+          </p>
+
+          <h3>Do I need to replace what I'm already using?</h3>
+          <p>
+            Usually not. Most of this is about configuring what's already in
+            place correctly, not swapping it out for something new.
+          </p>
+
+          <h3>How would I even know if this applies to my site?</h3>
+          <p>
+            A quick way to check: if a question like "which of our marketing
+            efforts actually brought in customers last month" doesn't have a
+            confident answer, that's usually a sign the underlying measurement
+            isn't set up to answer it yet.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Not sure what your own site is telling you?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              A short conversation is usually enough to tell whether there's a
+              quick fix or a bigger gap worth addressing.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="../contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+      <script src="/assets/js/browser.min.js" defer></script>
+      <script src="/assets/js/breakpoints.min.js" defer></script>
+      <script src="/assets/js/main.js" defer></script>
+      <script src="/assets/js/footer-min.js" defer></script>
+      <scott-footer
+        description="Most sites can tell you how many people showed up. Almost none can tell you why that matters, or what those visits actually turned into."></scott-footer>
+    </div>
+  </body>
+</html>
