@@ -320,7 +320,7 @@
 .principle-card,
 .quality-card,
 .audience-card {
-  animation: fadeUp 0.5s ease both;
+  animation: fadeUp 0.25s ease both;
 }
 
 @keyframes fadeUp {
