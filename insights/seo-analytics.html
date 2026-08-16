@@ -1,0 +1,490 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>SEO Analytics: Why the Two Aren't Separate | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="SEO and analytics read the same underlying signals - titles, headings, canonical URLs, structured data. Break one discipline and you quietly break the other." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/main-min.css?v=725980574b" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript-min.css?v=30b0cb2b12" />
+    </noscript>
+
+    <script src="/assets/js/header-min.js?v=2569da2f4b"></script>
+    <script src="/assets/js/favicon-min.js?v=d2e76e98d0"></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/insights/seo-analytics.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://scottlabz.com/#organization",
+            "name": "Scott Labz, LLC",
+            "description": "SEO and analytics read the same underlying signals - titles, headings, canonical URLs, structured data. Break one discipline and you quietly break the other.",
+            "url": "https://scottlabz.com/insights/seo-analytics.html",
+            "telephone": "+1-309-324-2875",
+            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "priceRange": "$$",
+            "slogan": "Engineering Digital Growth Through Data",
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "McLean County, Illinois"
+            },
+            "sameAs": [
+              "https://github.com/scottlabz",
+              "https://www.linkedin.com/company/scottlabz",
+              "https://www.linkedin.com/in/scotttaylor369"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-309-324-2875",
+              "contactType": "Scott Labz"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://scottlabz.com/#scotttaylor",
+            "name": "Scott Taylor",
+            "jobTitle": "Founder",
+            "description": "Scott Taylor is the founder of Scott Labz, where he combines web development, analytics, automation, and digital strategy to help businesses create faster, smarter, and more effective digital experiences.",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "url": "https://scottlabz.com/insights/seo-analytics.html",
+            "email": "mailto:info@scottlabz.com",
+            "knowsAbout": [
+              "Analytics Solutions",
+              "Web Development",
+              "Digital Infrastructure",
+              "Digital Analytics Consulting"
+            ],
+            "worksFor": {
+              "@id": "https://scottlabz.com/#organization"
+            },
+            "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
+          }
+        ]
+      }
+    </script>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="SEO Analytics: Why the Two Aren't Separate | Scott Labz" />
+    <meta
+      property="og:description"
+      content="SEO and analytics read the same underlying signals. Break one discipline and you quietly break the other." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/insights/seo-analytics.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .seo-lede {
+        font-size: 1.15rem;
+        opacity: 0.85;
+        max-width: 760px;
+        margin: 0 auto 3rem auto;
+        text-align: center;
+      }
+
+      .seo-page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem;
+      }
+
+      .seo-signal-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+        margin: 1.5rem 0 0.5rem 0;
+      }
+
+      .seo-signal-card {
+        padding: 1.5rem;
+        border-radius: 10px;
+        background: rgba(30, 58, 95, 0.03);
+        border: 1px solid rgba(30, 58, 95, 0.15);
+      }
+
+      .seo-signal-card .seo-signal-label {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #1e3a5f;
+        margin-bottom: 0.5rem;
+      }
+
+      .seo-signal-card p {
+        margin: 0;
+        font-size: 0.92rem;
+        opacity: 0.85;
+      }
+
+      .seo-timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin: 2rem 0 0.5rem 0;
+        border-left: 2px solid rgba(30, 58, 95, 0.2);
+      }
+
+      .seo-step {
+        position: relative;
+        padding: 0 0 2rem 2rem;
+      }
+
+      .seo-step:last-child {
+        padding-bottom: 0;
+      }
+
+      .seo-step-marker {
+        position: absolute;
+        left: -0.6rem;
+        top: 0;
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 50%;
+        background: #1e3a5f;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        font-weight: 700;
+      }
+
+      .seo-step h3 {
+        margin: 0 0 0.4rem 0;
+        font-size: 1.1rem;
+      }
+
+      .seo-step p {
+        margin: 0;
+        font-size: 0.94rem;
+        opacity: 0.85;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section
+        class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="/index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.png"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">
+            SEO Analytics<br />
+            <a href="/insights.html" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Insights </a
+            ><br />
+            <strong
+              >Search engines and analytics platforms read the same page</strong
+            >
+            - the same title, the same headings, the same structured data. Treat
+            them as separate disciplines and you'll spend twice the effort
+            fixing the same underlying problem twice.
+          </h1>
+        </div>
+        <div class="image">
+          <img
+            src="/images/seo-analytics.jpg"
+            alt="Banner illustration representing the connection between SEO and analytics through shared technical signals like titles and structured data" />
+        </div>
+      </section>
+
+      <main class="seo-page">
+        <p class="seo-lede">
+          SEO usually lives with marketing. Analytics usually lives with whoever
+          owns the tracking. In practice, they're reading the exact same signals
+          off the exact same page - which means a page that confuses one of them
+          is almost always confusing the other too.
+        </p>
+
+        <section class="section-block">
+          <h2>One page, two audiences, one set of facts</h2>
+          <p>
+            A search crawler and an analytics platform ask remarkably similar
+            questions about every page: What is this page actually about? What
+            is its one canonical address? How does it relate to the pages around
+            it? A page answers those questions with the same handful of signals
+            both audiences depend on:
+          </p>
+
+          <div class="seo-signal-grid">
+            <div class="seo-signal-card">
+              <span class="seo-signal-label">Title &amp; Meta Description</span>
+              <p>
+                Tells a search result what the page is - and tells an analytics
+                report what to call it when fifteen pages all share a generic
+                template title.
+              </p>
+            </div>
+            <div class="seo-signal-card">
+              <span class="seo-signal-label">Heading Structure</span>
+              <p>
+                One clear H1 tells a crawler the page's real topic - and tells a
+                screen reader or content-grouping report the same thing, for the
+                same reason.
+              </p>
+            </div>
+            <div class="seo-signal-card">
+              <span class="seo-signal-label">Canonical URL</span>
+              <p>
+                Tells a search engine which address is the real one - and
+                determines whether your analytics reports one clean pageview
+                total or three fragmented ones.
+              </p>
+            </div>
+            <div class="seo-signal-card">
+              <span class="seo-signal-label">Internal Links</span>
+              <p>
+                Tells a crawler which pages matter enough to link to - and
+                determines whether a page even shows up in your own
+                navigation-path reports.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>What fixing it actually looks like</h2>
+          <p>
+            None of this is abstract. It's the same six-part sequence every time
+            a site's technical foundation gets audited and repaired - each step
+            closing a gap that was quietly costing both search visibility and
+            clean measurement.
+          </p>
+
+          <div class="seo-timeline">
+            <div class="seo-step">
+              <div class="seo-step-marker">1</div>
+              <h3>Titles &amp; descriptions, made unique</h3>
+              <p>
+                Every page gets its own accurate title and description instead
+                of a copy-pasted template - the first thing both a search result
+                and a report list actually display.
+              </p>
+            </div>
+            <div class="seo-step">
+              <div class="seo-step-marker">2</div>
+              <h3>Alt text, made descriptive</h3>
+              <p>
+                Images get alt text that describes what they're for, not just
+                what they show - useful to a screen reader, a crawler, and
+                anyone auditing the page later.
+              </p>
+            </div>
+            <div class="seo-step">
+              <div class="seo-step-marker">3</div>
+              <h3>Heading hierarchy, made singular</h3>
+              <p>
+                Every page ends up with exactly one H1 and no skipped levels - a
+                document outline a crawler, a screen reader, and a human
+                skimming the page can all agree on.
+              </p>
+            </div>
+            <div class="seo-step">
+              <div class="seo-step-marker">4</div>
+              <h3>Canonical tags &amp; structured data, brought into sync</h3>
+              <p>
+                The canonical link, the Open Graph URL, and the JSON-LD
+                <code>url</code> field all get checked against each other -
+                three separate places a page can quietly disagree about its own
+                address.
+              </p>
+            </div>
+            <div class="seo-step">
+              <div class="seo-step-marker">5</div>
+              <h3>Internal links, connected</h3>
+              <p>
+                Related pages get linked to each other in context, not just
+                through shared footer navigation - closing the gap between
+                sections that technically exist on the same site but never
+                actually point to one another.
+              </p>
+            </div>
+            <div class="seo-step">
+              <div class="seo-step-marker">6</div>
+              <h3>The sitemap, kept honest</h3>
+              <p>
+                An automated sitemap regenerates on every deploy instead of
+                drifting out of date by hand - so the map a crawler follows
+                always matches what's actually live.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Why broken SEO shows up as broken analytics</h2>
+          <p>
+            The connection isn't philosophical - it's mechanical. A page
+            reachable at three slightly different URLs doesn't just confuse a
+            search engine about which one to index; it splits that page's
+            traffic across three separate rows in an analytics report, making a
+            genuinely popular page look like three mediocre ones. A page missing
+            from internal navigation isn't just harder for a crawler to find;
+            it's a page your own reporting is less likely to surface too,
+            because fewer paths lead visitors to it in the first place.
+          </p>
+          <p>
+            The fix in both cases is the same fix, done once - which is the
+            actual argument for treating SEO and analytics as one discipline
+            instead of two teams occasionally comparing notes.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>Isn't SEO just about keywords and content?</h3>
+          <p>
+            Keywords and content matter, but they sit on top of a technical
+            foundation - correct titles, one clear heading per page, a single
+            canonical URL, structured data that agrees with itself. Without that
+            foundation, good content still gets misread by both search engines
+            and analytics tools.
+          </p>
+
+          <h3>Can broken technical SEO actually corrupt my analytics data?</h3>
+          <p>
+            Yes, directly. Duplicate or inconsistent canonical URLs split
+            traffic across multiple rows in a report. Missing or doubled H1 tags
+            confuse automated content grouping. Orphaned pages with no internal
+            links get less crawl traffic and less organic traffic to measure in
+            the first place - the two problems aren't related, they're the same
+            problem observed from two sides.
+          </p>
+
+          <h3>Where should this kind of audit actually start?</h3>
+          <p>
+            With an inventory, not a guess - every title, meta description,
+            heading structure, and canonical reference checked against what the
+            page actually is, one page at a time. It's mechanical work, not a
+            redesign, and it's usually where the biggest gap between "the site
+            looks fine" and "the site is structurally sound" gets found.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Not sure if your SEO and your analytics are quietly disagreeing?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              A structural audit usually surfaces it fast - see how that kind of
+              work plays out in our
+              <a href="/case-studies/data-quality-governance.html"
+                >Data Quality &amp; Governance case study</a
+              >
+              or read
+              <a href="/field-notes/schema-drift-problem.html"
+                >The Schema Drift Problem</a
+              >
+              for a real example.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="/contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
+      <script
+        src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3"
+        defer></script>
+      <script
+        src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c"
+        defer></script>
+      <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
+      <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
+      <script src="/assets/js/main.js?v=4b0bd6ba6f" defer></script>
+      <script src="/assets/js/footer-min.js?v=7934698606" defer></script>
+      <scott-footer
+        description="SEO and analytics read the same underlying signals - titles, headings, canonical URLs, structured data."></scott-footer>
+    </div>
+  </body>
+</html>
