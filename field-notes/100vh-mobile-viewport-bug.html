@@ -1,0 +1,426 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>100vh Isn't What You Think on Mobile Safari | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="Why min-height:100vh cuts off content and jumps on mobile Safari, what the unit actually measures, and the one-line 100svh fallback that fixes it for good." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../assets/css/main-min.css?v=f499c69a2c" />
+
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript-min.css?v=30b0cb2b12" />
+    </noscript>
+
+    <script src="../assets/js/header-min.js?v=2569da2f4b"></script>
+    <script src="../assets/js/favicon-min.js?v=d2e76e98d0"></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/100vh-mobile-viewport-bug.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/100vh-mobile-viewport-bug.html",
+        "headline": "100vh Isn't What You Think",
+        "description": "Why min-height:100vh cuts off content and jumps on mobile Safari, what the unit actually measures, and the one-line 100svh fallback that fixes it for good.",
+        "url": "https://scottlabz.com/field-notes/100vh-mobile-viewport-bug.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="100vh Isn't What You Think on Mobile Safari | Scott Labz" />
+    <meta
+      property="og:description"
+      content="Why min-height:100vh cuts off content and jumps on mobile Safari, what the unit actually measures, and the one-line 100svh fallback that fixes it for good." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/100vh-mobile-viewport-bug.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+      .service-content h3 {
+        font-size: 1.05rem;
+        color: #1e3a5f;
+      }
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="../index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.png"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">
+            100vh Isn't What You Think<br />
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
+            <strong>A full-height hero, cut off at the bottom</strong> on the
+            one browser where "full height" doesn't mean what it says.
+          </h1>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            <code>min-height: 100vh</code> is one of the most common lines in
+            any hero section's CSS, and on desktop it does exactly what it
+            looks like it does - fill the screen. On mobile Safari, and to a
+            lesser extent mobile Chrome, it doesn't. The unit isn't buggy in
+            the sense of behaving randomly; it's doing exactly what the spec
+            says. The spec just doesn't mean what most people assume it
+            means, and that gap is what causes a hero's call-to-action button
+            to sit just below the fold, or a page to visibly jump the instant
+            someone starts scrolling.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What 100vh actually measures</h2>
+          <p>
+            On a phone, the browser chrome - the address bar, the tab strip,
+            the bottom toolbar - takes up real space, and it isn't static. It
+            collapses when you scroll down and reappears when you scroll back
+            up or land on a fresh page. That means the actual visible area of
+            the page keeps changing size by the height of that chrome, often
+            60-100px, without the page itself resizing.
+          </p>
+          <p>
+            <code>100vh</code> doesn't track that. It's defined against the
+            <em>largest</em> possible viewport - the one with the browser
+            chrome fully collapsed - and it stays pinned to that value
+            regardless of whether the chrome is actually showing right now.
+            On first load, with the address bar visible, an element set to
+            <code>min-height: 100vh</code> is taller than the space actually
+            available, so the bottom of it - often exactly the button or
+            headline meant to close out the hero - sits below what's
+            currently on screen.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What it actually looks like</h2>
+          <ul class="alt">
+            <li>
+              A hero section's CTA button sitting just out of view on first
+              load, even though the design clearly intends it to be visible.
+            </li>
+            <li>
+              The page visibly resizing the moment a user starts scrolling,
+              as the address bar collapses and the browser re-evaluates
+              layout against a viewport that's now a different size than it
+              computed <code>100vh</code> against.
+            </li>
+            <li>
+              The same page looking correct in desktop Chrome dev tools'
+              mobile emulation, because emulated viewports don't reproduce
+              the collapsing-chrome behavior of a real device.
+            </li>
+          </ul>
+          <p>
+            That last point is what makes this easy to ship without noticing
+            - the bug is specific to real mobile browsers with dynamic
+            chrome, not to narrow viewport width, so a resized desktop
+            browser window won't reproduce it.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The decision log</h2>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 1: Confirm it's the viewport unit, not application CSS
+            </div>
+            <p>
+              Before touching anything, the fix has to match the actual
+              cause. Cutting the affected section's own padding, margin, and
+              flex rules down to the minimum and testing on a real device -
+              not an emulator - confirmed the section itself was fine; only
+              elements using <code>vh</code> units were affected.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 2: Reject the JavaScript viewport-height polyfill
+            </div>
+            <p>
+              The long-standing fix for this is a small script that reads
+              <code>window.innerHeight</code>, writes it to a CSS custom
+              property, and re-runs on every resize event, with every
+              <code>100vh</code> reference swapped for
+              <code>calc(var(--vh, 1vh) * 100)</code>. It works, but it adds a
+              runtime dependency and a resize listener to fix something CSS
+              can now handle natively, and it still renders wrong for one
+              frame before the script runs.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 3: Use <code>svh</code> as a fallback, not a
+              replacement
+            </div>
+            <p>
+              Modern browsers support <code>svh</code> (small viewport
+              height) - the viewport size <em>with</em> browser chrome
+              visible, which is the value that was actually needed all
+              along. Replacing <code>100vh</code> outright would break
+              older browsers that don't recognize the unit and would simply
+              drop the declaration. Declaring <code>100vh</code> first and
+              <code>100svh</code> immediately after solves that: browsers
+              that understand <code>svh</code> use it, since it's the later
+              declaration for the same property; browsers that don't just
+              ignore that line and keep the <code>vh</code> value.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 4: Apply it everywhere, not just the one hero that got
+              reported
+            </div>
+            <p>
+              A single fixed hero doesn't help much if the same
+              <code>min-height: 100vh</code> pattern is copy-pasted across
+              every other page's hero section too. The actual fix was an
+              audit - every occurrence of the raw property, across the
+              shared stylesheet and every page-specific override, got the
+              same two-line treatment, not just the page someone happened to
+              be looking at when this came up.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Before and after</h2>
+          <div class="compare-grid">
+            <div class="compare-card before">
+              <h3 class="size-h4">Before</h3>
+              <ul>
+                <li>
+                  <code>min-height: 100vh</code> computed against the largest
+                  possible viewport
+                </li>
+                <li>
+                  Hero content extending below what's actually visible on
+                  first load
+                </li>
+                <li>
+                  Layout visibly resizing as the address bar collapses on
+                  scroll
+                </li>
+                <li>Bug invisible in desktop responsive-mode emulation</li>
+              </ul>
+            </div>
+            <div class="compare-card after">
+              <h3 class="size-h4">After</h3>
+              <ul>
+                <li>
+                  <code>min-height: 100svh</code> declared right after the
+                  <code>vh</code> value, same property
+                </li>
+                <li>
+                  Modern browsers size against the chrome-visible viewport
+                  correctly
+                </li>
+                <li>
+                  Older browsers silently keep the original
+                  <code>vh</code> behavior
+                </li>
+                <li>No JavaScript, no resize listener, no polyfill</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>What this actually took</h2>
+          <p>
+            One extra line per rule:
+          </p>
+          <p>
+            <code>min-height: 100vh; min-height: 100svh;</code>
+          </p>
+          <p>
+            The fix itself is trivial. What took the actual time was finding
+            every place the pattern already existed - a shared stylesheet
+            rule, plus a handful of page-specific overrides that had been
+            copy-pasted with their own <code>min-height: 100vh</code> - and
+            confirming each one got the same treatment, rather than fixing
+            the one hero someone happened to notice and leaving the rest
+            inconsistent.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>What's the actual difference between vh, svh, lvh, and dvh?</h3>
+          <p>
+            <code>vh</code> is defined inconsistently across mobile browsers
+            in practice, usually against the largest viewport.
+            <code>svh</code> (small viewport height) is the viewport with
+            browser chrome fully visible - the safe, conservative value.
+            <code>lvh</code> (large viewport height) is the viewport with
+            chrome fully collapsed - functionally close to how
+            <code>vh</code> already behaves on mobile.
+            <code>dvh</code> (dynamic viewport height) tracks the chrome in
+            real time and resizes as it collapses or reappears, which fixes
+            the cutoff but reintroduces the layout-shift-on-scroll behavior
+            this fix is meant to avoid. <code>svh</code> is the one that
+            actually solves the "content cut off" problem without adding
+            movement.
+          </p>
+
+          <h3>Do I still need a JavaScript viewport-height polyfill?</h3>
+          <p>
+            No, for any browser that supports <code>svh</code> - which is
+            every current major mobile browser. The fallback declaration
+            handles the rest: browsers without <code>svh</code> support
+            simply keep using <code>vh</code>, the same way they already
+            were before this fix existed.
+          </p>
+
+          <h3>Does this affect desktop browsers at all?</h3>
+          <p>
+            No. Desktop browsers don't have collapsing chrome that changes
+            the viewport size, so <code>vh</code> and <code>svh</code>
+            resolve to the same value there. The fallback declaration is
+            inert on desktop - it's purely a mobile fix, with no visible
+            change anywhere else.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Not sure what your own site does on a real phone?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              Desktop responsive mode misses this one. A quick look on an
+              actual device is usually enough to tell.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="../contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c" defer></script>
+      <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
+      <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
+      <script src="/assets/js/main.js?v=4b0bd6ba6f" defer></script>
+      <script src="/assets/js/footer-min.js?v=7934698606" defer></script>
+      <scott-footer
+        description="Why min-height:100vh cuts off content and jumps on mobile Safari, and the one-line 100svh fallback that fixes it."></scott-footer>
+    </div>
+  </body>
+</html>

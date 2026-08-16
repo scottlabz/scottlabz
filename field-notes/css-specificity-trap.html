@@ -1,0 +1,412 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>The Specificity Trap: A CSS Utility Class Story | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="A brand wordmark quietly shrank to body-text size on eight pages because a leftover page rule beat a shared utility class on CSS specificity, not order." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../assets/css/main-min.css?v=f499c69a2c" />
+
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript-min.css?v=30b0cb2b12" />
+    </noscript>
+
+    <script src="../assets/js/header-min.js?v=2569da2f4b"></script>
+    <script src="../assets/js/favicon-min.js?v=d2e76e98d0"></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/css-specificity-trap.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/css-specificity-trap.html",
+        "headline": "The Specificity Trap",
+        "description": "A brand wordmark quietly shrank to body-text size on eight pages because a leftover page rule beat a shared utility class on CSS specificity, not order.",
+        "url": "https://scottlabz.com/field-notes/css-specificity-trap.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="The Specificity Trap: A CSS Utility Class Story | Scott Labz" />
+    <meta
+      property="og:description"
+      content="A brand wordmark quietly shrank to body-text size on eight pages because a leftover page rule beat a shared utility class on CSS specificity, not order." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/css-specificity-trap.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+      .service-content h3 {
+        font-size: 1.05rem;
+        color: #1e3a5f;
+      }
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="../index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.png"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">
+            The Specificity Trap<br />
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
+            <strong>A shared utility class, working everywhere but eight
+            specific pages</strong> - and a one-property page rule nobody
+            remembered was still there.
+          </h1>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            A shared class is supposed to mean "this looks the same
+            everywhere it's used." That assumption holds right up until a
+            page has its own leftover CSS sitting in a
+            <code>&lt;style&gt;</code> block, written for something else
+            entirely, that happens to match the same element by accident.
+            When that happens, nothing throws an error. The class is still
+            applied, exactly as written. It just loses.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What it actually looked like</h2>
+          <p>
+            The site's brand wordmark - the "Scott Labz" logo and text
+            treatment at the top of every hero section - is styled by a
+            single shared class,
+            <code>.brand-mark</code>, that renders it at a large, consistent
+            size across the entire site. On two service pages and six
+            location pages, it wasn't doing that. The logo icon rendered at
+            its normal size; the text next to it rendered at roughly
+            body-copy size - readable, but nowhere near the scale every other
+            page showed.
+          </p>
+          <p>
+            Nothing in the markup was different. Every affected page had the
+            exact same
+            <code>&lt;p class="brand-mark"&gt;</code> structure as every
+            unaffected page. The class was there, spelled correctly, doing
+            nothing.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What was actually happening</h2>
+          <p>
+            Each of the eight affected pages carried its own
+            <code>&lt;style&gt;</code> block with a rule meant for ordinary
+            paragraph text inside that page's content area:
+          </p>
+          <p>
+            <code
+              >.service-content p, .service-content li { font-size: 0.95rem;
+              ... }</code
+            >
+          </p>
+          <p>
+            Reasonable on its own. The problem is that
+            <code>.brand-mark</code> is applied to a
+            <code>&lt;p&gt;</code> tag, and on these eight pages that
+            <code>&lt;p&gt;</code> happens to sit inside
+            <code>.service-content</code>. Both rules matched the same
+            element. The shared class lost - not because of where either
+            rule was written, but because of what each selector is worth:
+          </p>
+          <ul class="alt">
+            <li>
+              <code>.brand-mark</code> - one class - specificity (0, 1, 0)
+            </li>
+            <li>
+              <code>.service-content p</code> - one class plus one tag -
+              specificity (0, 1, 1)
+            </li>
+          </ul>
+          <p>
+            A compound selector with a tag name attached outweighs a single
+            class, full stop, regardless of which rule appears first or
+            which file loads last. Moving the utility class's own
+            declaration later in the stylesheet wouldn't have changed
+            anything - the two rules aren't tied, so source order was never
+            the deciding factor to begin with.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The decision log</h2>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 1: Rule out a markup problem before touching any CSS
+            </div>
+            <p>
+              The first instinct with "a class isn't working" is to assume
+              it's missing, misspelled, or applied to the wrong element.
+              Checking the rendered markup on an affected page confirmed
+              <code>class="brand-mark"</code> was present and correct - which
+              meant the class was being overridden, not skipped.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 2: Compute specificity directly instead of guessing
+            </div>
+            <p>
+              Once two rules are both confirmed to match the same element,
+              guessing which one wins from memory is exactly how this kind
+              of bug slips through review. Writing out both selectors'
+              specificity side by side - one class versus one class plus one
+              tag - made the outcome unambiguous instead of assumed.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">Decision 3: Reject <code>!important</code></div>
+            <p>
+              Forcing the utility class to win with <code>!important</code>
+              would have fixed these eight pages immediately and made the
+              next specificity conflict harder to reason about, since
+              <code>!important</code> rules don't lose to anything short of
+              another <code>!important</code> rule. The goal was a fix that
+              stayed inside normal cascade rules, not one that opted out of
+              them.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 4: Override with deliberately higher, scoped
+              specificity
+            </div>
+            <p>
+              The actual fix was a second rule -
+              <code>.service-content p.brand-mark</code> - that matches only
+              this exact situation and outweighs the page rule on its own
+              terms: one class, one tag, and one more class, a strictly
+              higher specificity than either of the two rules it sits
+              between. It doesn't touch the original page rule, and it
+              doesn't need to - it just wins where it needs to win.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Before and after</h2>
+          <div class="compare-grid">
+            <div class="compare-card before">
+              <h3 class="size-h4">Before</h3>
+              <ul>
+                <li>
+                  <code>.brand-mark</code> (0, 1, 0) losing to
+                  <code>.service-content p</code> (0, 1, 1)
+                </li>
+                <li>Wordmark rendering at body-copy size on 8 pages</li>
+                <li>
+                  Same markup, same class, silently different result
+                  page-to-page
+                </li>
+                <li>No error, no warning - just a smaller logo</li>
+              </ul>
+            </div>
+            <div class="compare-card after">
+              <h3 class="size-h4">After</h3>
+              <ul>
+                <li>
+                  <code>.service-content p.brand-mark</code> added at (0, 2,
+                  1)
+                </li>
+                <li>Original page-scoped rule left completely untouched</li>
+                <li>Wordmark renders identically on every page</li>
+                <li>Fix scoped to exactly the elements it needs to cover</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>What this actually took</h2>
+          <p>
+            One additional CSS rule, added once to the shared stylesheet
+            rather than copy-pasted into each of the eight pages
+            individually. The harder part wasn't writing the fix - it was
+            noticing the pattern in the first place, since the eight affected
+            pages had nothing in common at a glance except a coincidence of
+            markup structure that only a specificity comparison actually
+            explained.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>What's the fastest way to compare two selectors' specificity?</h3>
+          <p>
+            Count three numbers for each selector: ID attributes, then
+            classes/attributes/pseudo-classes, then element tags. Compare
+            left to right - more IDs always wins regardless of the rest,
+            then more classes, then more tags. A single class and a
+            class-plus-tag selector differ at the second number, so the
+            class-plus-tag selector wins even though it "looks" simpler.
+          </p>
+
+          <h3>Why not just use <code>!important</code> and move on?</h3>
+          <p>
+            It would have worked here, but it trades a small, local problem
+            for a permanent one: an <code>!important</code> rule can only be
+            overridden by another <code>!important</code> rule, which means
+            every future style intended for that element has to know to
+            fight back the same way. A targeted, more-specific selector
+            fixes the immediate conflict without changing the rules for
+            anything that comes after it.
+          </p>
+
+          <h3>How do you find every other place a shared class might be
+          silently losing?</h3>
+          <p>
+            Search the codebase for every selector that could plausibly match
+            the same elements the utility class is meant to style - in this
+            case, every page-scoped rule targeting a bare tag name that the
+            class also gets applied to - and compare specificity for each
+            one directly, rather than assuming a class that works on most
+            pages works on all of them.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Wondering if a shared style is quietly losing somewhere on your
+              own site?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              It usually takes a specificity comparison, not a guess, to find
+              out for sure.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="../contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c" defer></script>
+      <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
+      <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
+      <script src="/assets/js/main.js?v=4b0bd6ba6f" defer></script>
+      <script src="/assets/js/footer-min.js?v=7934698606" defer></script>
+      <scott-footer
+        description="A brand wordmark quietly shrank to body-text size on eight pages because a leftover page rule beat a shared utility class on specificity."></scott-footer>
+    </div>
+  </body>
+</html>
