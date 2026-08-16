@@ -110,7 +110,19 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://scottlabz.com/field-notes/100vh-mobile-viewport-bug.html</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://scottlabz.com/field-notes/cloudflare-7003-diagnosis.html</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://scottlabz.com/field-notes/css-specificity-trap.html</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
