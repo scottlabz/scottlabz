@@ -9255,3 +9255,402 @@ body.is-preload .items.onload-fade-in > * > .inner {
     width: 100%;
   }
 }
+
+/* ============================================================
+   Consolidated page-scoped component styles.
+   These were previously copy-pasted into <style> blocks on
+   individual pages (identically or near-identically); moved
+   here once to remove duplication and drift risk.
+   ============================================================ */
+
+/* Security-style data table (case studies, trust pages) */
+.security-table {
+  width: 100%;
+  margin-bottom: 0;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.security-table th,
+.security-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(160, 160, 160, 0.3);
+}
+
+.security-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.security-table th {
+  font-weight: 600;
+  color: #1e3a5f;
+  background: rgba(30, 58, 95, 0.05);
+}
+
+.security-table tbody tr:nth-child(even) {
+  background: rgba(30, 58, 95, 0.02);
+}
+
+.security-table td strong {
+  color: #1e3a5f;
+}
+
+/* Case study page template */
+.case-study-icon {
+  color: #1e3a5f;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.case-study-hero h3 {
+  color: #1e3a5f;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.25rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(30, 58, 95, 0.15);
+}
+
+.case-study-headline {
+  border-left: 4px solid #1e3a5f;
+  padding-left: 1.25rem;
+  line-height: 1.25;
+}
+
+.case-study-hero dl dt .fweight {
+  color: #1e3a5f;
+  font-size: 1.02rem;
+}
+
+.case-study-hero dl dd p {
+  opacity: 0.85;
+}
+
+.case-study-hero dl dd:last-child p,
+.case-section > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Hero card: logo, back link, title, and intro copy */
+.hero-box {
+  background: rgba(248, 250, 252, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  padding: 3rem;
+  margin-bottom: 2.5rem;
+  border: 1px solid #1e3a5f;
+}
+
+/* Each case study section gets its own card */
+.case-section {
+  background: rgba(248, 250, 252, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  border-left: 4px solid #1e3a5f;
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  border: 1px solid #1e3a5f;
+}
+
+/* Closing CTA card, styled like the rest of the site's CTA blocks */
+.case-cta {
+  background: rgba(248, 250, 252, 1);
+  border: 1px solid #1e3a5f;
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  box-shadow:
+    0 10px 25px rgba(15, 23, 42, 0.06),
+    0 4px 10px rgba(15, 23, 42, 0.04);
+}
+
+.case-cta h3 {
+  border-bottom: none;
+  display: inline-block;
+}
+
+.case-cta p {
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
+}
+
+.case-cta .actions {
+  justify-content: center;
+}
+
+/* Case study hero: shorter masked banner instead of the site's default
+   full image-split hero. --hero-bg is set per page via inline style. */
+.case-study-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.case-study-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  background-image: var(--hero-bg);
+  background-size: cover;
+  background-position: center;
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+.case-study-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.case-study-hero.banner.style1 .content {
+  max-width: 40rem;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 1280px) {
+  .case-study-hero.banner.style1 .content {
+    padding: 1rem;
+  }
+}
+
+/* Shared "service content" body typography (used across service/market/
+   field-notes/legal pages wrapped in <main class="service-content">).
+   Individual pages may still override specific properties for spacing
+   differences (see each page's own <style> block for those, if present). */
+.service-content h2 {
+  font-size: 1.35rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.service-content h3 {
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-content p,
+.service-content li {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.85;
+  margin-bottom: 1rem;
+}
+
+.service-content ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* .service-content p above unintentionally crushes the brand-mark logo
+   text (also a <p>) down to body-copy size on pages where the hero sits
+   inside .service-content. Restore its intended size with higher
+   specificity so it matches every other page. */
+.service-content p.brand-mark {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.375;
+  letter-spacing: -0.05em;
+  margin: 0 0 1rem 0;
+  opacity: 1;
+}
+
+@media screen and (max-width: 736px) {
+  .service-content p.brand-mark {
+    font-size: 2.5rem;
+  }
+}
+
+/* Field Notes: before/after comparison cards */
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.compare-card {
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(160, 160, 160, 0.25);
+}
+
+.compare-card.before {
+  background: rgba(180, 60, 60, 0.04);
+  border-color: rgba(180, 60, 60, 0.25);
+}
+
+.compare-card.after {
+  background: rgba(30, 58, 95, 0.04);
+  border-color: rgba(30, 58, 95, 0.25);
+}
+
+.compare-card h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.compare-card.before h4 {
+  color: #a33;
+}
+
+.compare-card.after h4 {
+  color: #1e3a5f;
+}
+
+.compare-card ul {
+  padding-left: 1.1rem;
+  margin-bottom: 0;
+}
+
+.compare-card li {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Field Notes: decision-log entries */
+.log-entry {
+  border-left: 3px solid #1e3a5f;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.log-entry .log-title {
+  font-weight: 600;
+  color: #1e3a5f;
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+/* Field Notes: "back to field notes" link */
+.back-to-notes {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #1e3a5f;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  transition:
+    gap 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.back-to-notes:hover {
+  gap: 0.75rem;
+  opacity: 0.75;
+}
+
+.back-to-notes i {
+  transition: transform 0.2s ease;
+}
+
+.back-to-notes:hover i {
+  transform: translateX(-3px);
+}
+
+/* Markets pages: service link cards with per-category color coding */
+.market-link-card {
+  display: block;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(160, 160, 160, 0.25);
+  background: rgba(128, 128, 128, 0.04);
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.market-link-card:hover {
+  border-color: #1e3a5f;
+}
+
+.market-link-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.market-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.market-icon.icon-web {
+  background: #2563eb;
+}
+.market-icon.icon-design {
+  background: #ec4899;
+}
+.market-icon.icon-analytics {
+  background: #16a34a;
+}
+.market-icon.icon-consulting {
+  background: #f59e0b;
+}
+.market-icon.icon-ecommerce {
+  background: #dc2626;
+}
+.market-icon.icon-integration {
+  background: #6366f1;
+}
+
+.market-link-card.card-web {
+  background: rgba(37, 99, 235, 0.06);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+.market-link-card.card-design {
+  background: rgba(236, 72, 153, 0.06);
+  border-color: rgba(236, 72, 153, 0.2);
+}
+.market-link-card.card-analytics {
+  background: rgba(22, 163, 74, 0.06);
+  border-color: rgba(22, 163, 74, 0.2);
+}
+.market-link-card.card-consulting {
+  background: rgba(245, 158, 11, 0.06);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+.market-link-card.card-ecommerce {
+  background: rgba(220, 38, 38, 0.06);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+.market-link-card.card-integration {
+  background: rgba(99, 102, 241, 0.06);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.market-link-card h1 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--heading-color);
+}
+
+/* Accent-bordered content section card (bbb, faq, markets, field-notes) */
+.section-block {
+  position: relative;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 2rem 2rem 2rem 2.5rem;
+  border: 1px solid #dbe5ee;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}

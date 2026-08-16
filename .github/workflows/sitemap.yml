@@ -1,4 +1,4 @@
-name: Generate Sitemap
+name: Generate Sitemap & Cache Bust
 
 on:
   push:
@@ -24,7 +24,10 @@ jobs:
       - name: Generate sitemap
         run: python scripts/generate_sitemap.py
 
-      - name: Commit sitemap
+      - name: Cache bust changed CSS/JS references
+        run: python scripts/cache_bust.py
+
+      - name: Commit sitemap and cache-bust updates
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Auto-update sitemap.xml
+          commit_message: "Auto-update sitemap.xml and asset cache-bust versions"
