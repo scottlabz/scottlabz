@@ -9026,21 +9026,12 @@ body.is-preload .items.onload-fade-in > * > .inner {
   gap: 2rem;
 }
 
-/* Tablet */
+/* Tablet and mobile: a two-column tier here paired the tall brand column
+   (logo + tagline + two badge images) against short nav-link columns in
+   the same flex row, leaving a large uneven gap under the shorter column.
+   Stack to a single column for anything narrower than desktop instead. */
 
 @media screen and (max-width: 900px) {
-  .footer-columns {
-    gap: 1.5rem;
-  }
-
-  .footer-columns > div {
-    min-width: 45% !important;
-  }
-}
-
-/* Mobile */
-
-@media screen and (max-width: 600px) {
   .footer-columns {
     flex-direction: column;
     gap: 2rem;

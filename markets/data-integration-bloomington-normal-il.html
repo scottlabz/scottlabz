@@ -154,6 +154,24 @@
         margin-bottom: 1rem;
       }
 
+      /* .service-content p above was unintentionally crushing the brand-mark
+         logo text (also a <p>) down to body-copy size. Restore its intended
+         size with higher specificity so it matches every other page. */
+      .service-content p.brand-mark {
+        font-size: 3.5rem;
+        font-weight: 300;
+        line-height: 1.375;
+        letter-spacing: -0.05em;
+        margin: 0 0 1rem 0;
+        opacity: 1;
+      }
+
+      @media screen and (max-width: 736px) {
+        .service-content p.brand-mark {
+          font-size: 2.5rem;
+        }
+      }
+
       .market-link-card {
         display: block;
         padding: 1.5rem;
