@@ -18,14 +18,7 @@ class ScottFooter extends HTMLElement {
 
           <div
             class="footer-columns"
-            style="
-              display:flex;
-              flex-direction:row;
-              flex-wrap:wrap;
-              text-align:left;
-              gap:2rem;
-              margin-bottom:2rem;
-            ">
+            style="margin-bottom:2rem;">
 
             <!-- BRAND -->
 

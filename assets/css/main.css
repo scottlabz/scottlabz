@@ -162,10 +162,13 @@ textarea {
   width: auto;
   height: auto;
 }
-@media (max-width: 300px) {
+@media screen and (max-width: 736px) {
+  /* Viewport-relative sizing (vw/vh) can drift out of proportion with the
+     brand-mark text next to it, which scales in rem at this breakpoint.
+     Switch to a rem-based cap so the two scale together predictably. */
   .logo {
-    max-width: 10vw;
-    max-height: 6vh;
+    max-width: none;
+    max-height: 2.5rem;
   }
 }
 .fweight {
@@ -3925,6 +3928,7 @@ body.is-preload .banner.onload-image-fade-in .image img {
 
 .banner.style1.fullscreen {
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 @media screen and (orientation: portrait) {
@@ -4091,6 +4095,7 @@ body.is-preload .banner.onload-image-fade-in .image img {
 
 .banner.style2.fullscreen {
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 .banner.style2.orient-left {
@@ -4265,6 +4270,7 @@ body.is-preload .banner.onload-image-fade-in .image img {
 
 .banner.style3.fullscreen {
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 .banner.style3.orient-left {
@@ -4510,6 +4516,7 @@ body.is-preload .banner.onload-image-fade-in .image img {
 
 .banner.style4.fullscreen {
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 .banner.style4.orient-left {
@@ -4652,6 +4659,7 @@ body.is-preload .banner.onload-image-fade-in .image img {
 
 .banner.style5.fullscreen {
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 .banner.style5.content-align-left {
@@ -5957,6 +5965,7 @@ body.is-preload .spotlight.onload-image-fade-in .image img {
 
 .spotlight.style4.fullscreen {
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 .spotlight.style4.halfscreen {
@@ -6127,6 +6136,7 @@ body.is-preload .spotlight.onload-image-fade-in .image img {
 
 .spotlight.style5.fullscreen {
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 .spotlight.style5.halfscreen {
@@ -9154,6 +9164,7 @@ body.is-preload .items.onload-fade-in > * > .inner {
   position: relative;
   overflow: hidden;
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 .about-hero::before {
@@ -9204,6 +9215,7 @@ body.is-preload .items.onload-fade-in > * > .inner {
   position: relative;
   overflow: hidden;
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 .markets-hero::before {
@@ -9249,6 +9261,6 @@ body.is-preload .items.onload-fade-in > * > .inner {
 
 @media (max-width: 768px) {
   .ftrmsg {
-    width: 30%;
+    width: 100%;
   }
 }
