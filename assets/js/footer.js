@@ -257,9 +257,9 @@ class ScottFooter extends HTMLElement {
             </p>
 
             <p style="font-size: 0.85rem; opacity: 0.7; margin: 0 0 1.25rem;">
-              <a href="security-trust.html" style="color: inherit; text-decoration: underline;">Security &amp; Trust</a>
+              <a href="/security-trust.html" style="color: inherit; text-decoration: underline;">Security &amp; Trust</a>
               <span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>
-              <a href="legal.html" style="color: inherit; text-decoration: underline;">Legal &amp; Policies</a>
+              <a href="/legal.html" style="color: inherit; text-decoration: underline;">Legal &amp; Policies</a>
             </p>
 
             <div id="footer-social-groups" style="
