@@ -275,6 +275,19 @@
         color: #ffcd00;
         filter: drop-shadow(2px 2px 0 #000000);
       }
+
+      /* .service-content h3 otherwise overrides .size-h4's font-size and
+         adds its own margin, which would misalign these headings inside
+         the flex icon/text row above. Restore the original h4 rendering
+         (font-size 1.1rem, margin 0 0 1rem 0) for these re-tagged headings. */
+      .service-content h3.size-h4 {
+        margin: 0 0 1rem 0;
+      }
+      @media screen and (max-width: 736px) {
+        .service-content h3.size-h4 {
+          font-size: 1rem;
+        }
+      }
     </style>
   </head>
 
@@ -293,7 +306,7 @@
       <section
         class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
-          <h1>
+          <p class="brand-mark">
             <a href="../index.html" style="border-bottom: none">
               <img
                 src="../images/scottlabz-clear.png"
@@ -301,13 +314,13 @@
                 class="logo"
                 style="margin-right: 0" />cott Labz
             </a>
-          </h1>
-          <p class="major">
+          </p>
+          <h1 class="major">
             Bloomington-Normal, IL<br /><br />
             <strong>Local analytics support and web development</strong>,
             working with businesses across McLean County on tracking, reporting,
             and modern web builds.
-          </p>
+          </h1>
           <p>
             Being local means a conversation can happen over coffee just as
             easily as over email. If it's helpful to sit down and talk through a
@@ -361,7 +374,7 @@
                 <span class="market-icon icon-integration"
                   ><i class="fas fa-plug"></i
                 ></span>
-                <h4>Data Integration</h4>
+                <h3 class="size-h4">Data Integration</h3>
               </div>
               <p>
                 Connecting the platforms your business already runs on.
@@ -375,7 +388,7 @@
                 <span class="market-icon icon-analytics"
                   ><i class="fas fa-chart-line"></i
                 ></span>
-                <h4>Digital Analytics</h4>
+                <h3 class="size-h4">Digital Analytics</h3>
               </div>
               <p>
                 Reliable tracking and reporting you can actually trust.
@@ -389,7 +402,7 @@
                 <span class="market-icon icon-consulting"
                   ><i class="fas fa-search"></i
                 ></span>
-                <h4>Analytics Consulting</h4>
+                <h3 class="size-h4">Analytics Consulting</h3>
               </div>
               <p>
                 Audits, measurement strategy, and data quality reviews.
@@ -403,7 +416,7 @@
                 <span class="market-icon icon-ecommerce"
                   ><i class="fas fa-shopping-cart"></i
                 ></span>
-                <h4>Ecommerce</h4>
+                <h3 class="size-h4">Ecommerce</h3>
               </div>
               <p>
                 Online stores built to handle real traffic and real sales.
@@ -417,7 +430,7 @@
                 <span class="market-icon icon-web"
                   ><i class="fas fa-code"></i
                 ></span>
-                <h4>Web Development</h4>
+                <h3 class="size-h4">Web Development</h3>
               </div>
               <p>
                 Custom sites and web applications for local businesses.
@@ -431,7 +444,7 @@
                 <span class="market-icon icon-design"
                   ><i class="fas fa-palette"></i
                 ></span>
-                <h4>Website Design</h4>
+                <h3 class="size-h4">Website Design</h3>
               </div>
               <p>
                 Modern, responsive design built around how customers browse.

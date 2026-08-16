@@ -380,6 +380,49 @@ h6 {
   font-size: 0.7rem;
 }
 
+.brand-mark {
+  font-weight: 300;
+  line-height: 1.375;
+  letter-spacing: -0.05em;
+  margin: 0 0 1rem 0;
+  font-size: 3.5rem;
+}
+
+.brand-mark a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1.major {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.65;
+  letter-spacing: normal;
+  margin: 0 0 2rem 0;
+}
+
+/* Size-lock utilities: preserve a heading's prior rendered size when its
+   tag level changes for document-outline correctness. */
+.size-h2 {
+  font-size: 2.25rem;
+  line-height: 1.375;
+}
+
+.size-h3 {
+  font-size: 1.5rem;
+  line-height: 1.375;
+}
+
+.size-h4 {
+  font-size: 1.1rem;
+  line-height: 1.375;
+}
+
+.size-h5 {
+  font-size: 0.9rem;
+  line-height: 1.375;
+}
+
 sub {
   font-size: 0.8rem;
   position: relative;
@@ -461,6 +504,26 @@ hr.major {
   }
 
   h4 {
+    font-size: 1rem;
+  }
+
+  .brand-mark {
+    font-size: 2.5rem;
+  }
+
+  h1.major {
+    font-size: 1.1rem;
+  }
+
+  .size-h2 {
+    font-size: 2rem;
+  }
+
+  .size-h3 {
+    font-size: 1.25rem;
+  }
+
+  .size-h4 {
     font-size: 1rem;
   }
 }

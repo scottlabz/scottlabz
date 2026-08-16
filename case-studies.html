@@ -159,6 +159,15 @@
         font-weight: 500;
       }
 
+      /* Category headers were promoted from h5 to h2 for correct document
+         outline; replicate the h5 styling above exactly since .size-h5 only
+         restores font-size, not this rule's margin/case/weight. */
+      .service-column h2.size-h5 {
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
       .service-links {
         list-style: none;
         margin: 0;
@@ -246,7 +255,7 @@
       <section
         class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
-          <h1>
+          <p class="brand-mark">
             <a href="index.html" style="border-bottom: none">
               <img
                 src="images/scottlabz-clear.png"
@@ -254,9 +263,9 @@
                 class="logo"
                 style="margin-right: 0" />cott Labz
             </a>
-          </h1>
+          </p>
 
-          <p class="major" style="margin: 0.2rem 0">Case Studies</p>
+          <h1 class="major" style="margin: 0.2rem 0">Case Studies</h1>
 
           <p style="margin: 0 0 1rem 0">
             Explore real-world examples of analytics modernization, digital
@@ -288,7 +297,7 @@
 
           <div class="service-directory">
             <div class="service-column">
-              <h5>Analytics &amp; Data Intelligence</h5>
+              <h2 class="size-h5">Analytics &amp; Data Intelligence</h2>
 
               <ul class="service-links">
                 <li>
@@ -326,7 +335,7 @@
             </div>
 
             <div class="service-column">
-              <h5>Development &amp; Engineering</h5>
+              <h2 class="size-h5">Development &amp; Engineering</h2>
 
               <ul class="service-links">
                 <li>
@@ -362,7 +371,7 @@
 
           <hr />
 
-          <h3>Additional Case Studies</h3>
+          <h2 class="size-h3">Additional Case Studies</h2>
           <img
             src="images/bgs.jpg"
             class="flyingherk"
