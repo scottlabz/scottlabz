@@ -130,6 +130,15 @@
       .service-content p strong {
         opacity: 1;
       }
+
+      .about-hero::before {
+        background-image: url("/images/faq.jpg");
+        height: 15%;
+      }
+      .light-box {
+        border: 1px solid rgba(30, 58, 95, 0.75);
+            margin-bottom: 2rem;
+      }
     </style>
   </head>
   <body class="is-preload">
@@ -144,12 +153,10 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div id="wrapper" class="divided">
-      <main
-        class="service-content"
-        id="first"
-        style="max-width: 900px; margin: 0 auto; padding: 4rem 1.5rem">
-        <section>
-          <div class="content">
+      <section
+        class="banner about-hero style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+        <div class="content">
+          <div class="light-box">
             <p class="brand-mark">
               <a href="index.html" style="border-bottom: none">
                 <img
@@ -165,8 +172,11 @@
               questions about approach, implementation, engagements, and scope.
             </h1>
           </div>
-        </section>
 
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0 1.5rem 4rem">
         <section class="section-block">
           <h2>Our Approach</h2>
 
@@ -376,6 +386,8 @@
           </div>
         </section>
       </main>
+        </div>
+      </section>
 
       <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
       <script src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3" defer></script>
