@@ -1,6 +1,21 @@
 name: Purge Cache
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**.html"
+      - "**.css"
+      - "**.js"
+      - "**.json"
+      - "**.xml"
+      - "**.svg"
+      - "**.png"
+      - "**.jpg"
+      - "**.jpeg"
+      - "**.webp"
+      - "**.ico"
   workflow_dispatch:
     inputs:
       environment:
@@ -15,7 +30,7 @@ on:
 jobs:
   purge:
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.environment }}
+    environment: ${{ github.event.inputs.environment || 'production' }}
     steps:
       - name: Purge cache
         run: |
