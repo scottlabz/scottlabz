@@ -28,5 +28,3 @@ See [SECURITY.md](SECURITY.md) to report a vulnerability.
 [![Security Policy](https://img.shields.io/badge/security-policy-green)](SECURITY.md)
 [![Website](https://img.shields.io/badge/website-scottlabz.com-green)](https://scottlabz.com)
 [![Last Commit](https://img.shields.io/github/last-commit/scottlabz/scottlabz)](https://github.com/scottlabz/scottlabz)
-
-Licensed under the [Apache License 2.0](LICENSE).
