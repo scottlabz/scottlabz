@@ -1,0 +1,392 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>HTTP Response Headers, Read Properly | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="A real HTTP response header audit on a live site: what curl -I showed, what got tightened, and why one CSP rule stayed on purpose. See the full decision log." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/main-min.css" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript-min.css" />
+    </noscript>
+
+    <script src="/assets/js/header-min.js"></script>
+    <script src="/assets/js/favicon-min.js"></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/http-response-headers-read-properly.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/http-response-headers-read-properly.html",
+        "headline": "HTTP Response Headers, Read Properly",
+        "description": "A real header audit on a live site - what curl -I actually showed, what got tightened, and the one rule that was deliberately left alone.",
+        "url": "https://scottlabz.com/field-notes/http-response-headers-read-properly.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="HTTP Response Headers, Read Properly | Scott Labz" />
+    <meta
+      property="og:description"
+      content="A real HTTP response header audit on a live site: what curl -I showed, what got tightened, and why one CSP rule stayed on purpose. See the full decision log." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/http-response-headers-read-properly.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+      .service-content h3 {
+        font-size: 1.05rem;
+        color: #1e3a5f;
+      }
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="/index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.png"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">
+            HTTP Response Headers, Read Properly<br />
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
+            <strong>A real header audit on a live site</strong> &mdash; what
+            the response actually said, and what changed once someone read
+            it closely.
+          </h1>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>What <code>curl -I</code> Actually Showed</h2>
+          <p>
+            The assumption going in was that this site's headers were
+            already in reasonable shape &mdash; the edge-level security
+            headers had been set up early, and nothing had thrown an
+            obvious error since. That assumption lasted about as long as
+            it took to run a plain response-header check against a
+            handful of live pages and read the output line by line
+            instead of skimming it.
+          </p>
+          <p>
+            Nothing was broken in the sense of a page failing to load.
+            Everything rendered, every script fired, every form
+            submitted. The gaps were the kind that don't show up as
+            errors at all &mdash; a content policy that was technically
+            present but permissive enough to not be doing much work, a
+            referrer policy left to whatever the browser defaulted to,
+            and a caching rule written for one kind of file being quietly
+            applied to a completely different kind of file.
+          </p>
+          <p>
+            None of this shows up in a screenshot. It only shows up when
+            someone reads the response headers as a set of enforced
+            rules, not as background noise the browser handles for you.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Before and After</h2>
+          <div class="table-wrapper">
+            <table class="security-table">
+              <thead>
+                <tr>
+                  <th>Header</th>
+                  <th>Before</th>
+                  <th>After</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Content-Security-Policy</strong></td>
+                  <td>
+                    No explicit script or connect allowlist &mdash; fell
+                    back to broad defaults that didn't reflect what was
+                    actually loading
+                  </td>
+                  <td>
+                    Named allowlist covering exactly the origins in
+                    active use &mdash; nothing more
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Referrer-Policy</strong></td>
+                  <td>Not set &mdash; left to browser default</td>
+                  <td>
+                    Explicitly set to
+                    <code>strict-origin-when-cross-origin</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>X-Content-Type-Options</strong></td>
+                  <td>Not set</td>
+                  <td><code>nosniff</code></td>
+                </tr>
+                <tr>
+                  <td><strong>Permissions-Policy</strong></td>
+                  <td>Not set</td>
+                  <td>
+                    Camera, microphone, and geolocation explicitly denied
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Cache-Control</strong> &mdash; HTML documents</td>
+                  <td>Same long-lived edge TTL as static assets</td>
+                  <td>Short TTL, revalidated on each request</td>
+                </tr>
+                <tr>
+                  <td><strong>Cache-Control</strong> &mdash; static assets</td>
+                  <td>Same rule as HTML documents</td>
+                  <td>
+                    Long TTL, marked immutable &mdash; filenames don't
+                    change without a deploy
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>style-src 'unsafe-inline'</code></td>
+                  <td>Present</td>
+                  <td>Present &mdash; kept on purpose</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Decision Log</h2>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Tightening the content policy to a named allowlist
+            </div>
+            <p>
+              The site only talks to a small, known set of external
+              origins &mdash; a tag manager, an analytics endpoint, a
+              form handler. A policy that doesn't name them explicitly
+              isn't protecting against anything specific; it's just
+              present. Rewriting it as an exact allowlist meant the
+              policy now reflects reality instead of a template default,
+              and anything unexpected trying to load from somewhere else
+              gets blocked rather than waved through.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Setting a referrer policy instead of inheriting one
+            </div>
+            <p>
+              Leaving this unset means every browser picks its own
+              default, and those defaults haven't been consistent across
+              versions. Setting it explicitly means the full page URL
+              &mdash; including anything sensitive in a query string
+              &mdash; doesn't leak to third-party origins on outbound
+              requests, regardless of what browser someone's using.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Splitting the cache rule for HTML from static assets
+            </div>
+            <p>
+              This was the one that actually mattered for day-to-day
+              work, not just security posture. HTML documents and static
+              assets were sharing one caching rule, which meant a page
+              edit could sit stale at the edge for as long as a
+              fingerprinted CSS file was supposed to. Splitting them
+              means content updates show up promptly, and asset caching
+              stays aggressive where it's actually safe to be aggressive.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Leaving <code>style-src 'unsafe-inline'</code> alone
+            </div>
+            <p>
+              This is the one that stayed. Every page on this site scopes
+              its own layout tweaks in a page-level
+              <code>&lt;style&gt;</code> block rather than a shared
+              stylesheet, by design &mdash; no build step means no easy
+              way to generate per-page nonces or hashes for a static file
+              tree. Removing this directive would mean restructuring how
+              every page is styled, for a category of risk that's
+              already low compared to what an unrestricted script policy
+              would have allowed. Not every gap is worth closing the same
+              day it's found.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>Why do response headers matter if the page already loads fine?</h3>
+          <p>
+            A page that renders correctly and a page that's actually
+            enforcing its own security and caching rules are two
+            different questions. Headers are instructions the browser
+            follows whether or not anything looks different on screen.
+          </p>
+
+          <h3>Won't a strict content policy break analytics or form tools?</h3>
+          <p>
+            Only if it's written generically. A policy built from the
+            actual list of origins in use is exact, not a guess &mdash;
+            it allows what's really there and nothing else.
+          </p>
+
+          <h3>Why keep any "unsafe" rule in place instead of removing it outright?</h3>
+          <p>
+            Because every removal has a cost on the other side. This one
+            would have meant reworking the entire page-styling approach
+            for a marginal reduction in a risk category that was already
+            low. Judgment call, documented, not an oversight.
+          </p>
+
+          <h3>How often does this need to be checked again?</h3>
+          <p>
+            Any time a new third-party origin gets added &mdash; a form
+            service, an analytics tool, an embed. That's the exact moment
+            a hand-written allowlist quietly goes stale.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              A header audit doesn't take long &mdash; not having one
+              costs more
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              If response headers haven't been checked since launch,
+              they're probably making decisions on your behalf that
+              nobody actually made.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="/contact.html" class="button big wide alt"
+                  >Get a Header Review</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+      <script src="/assets/js/browser.min.js" defer></script>
+      <script src="/assets/js/breakpoints.min.js" defer></script>
+      <script src="/assets/js/main.js" defer></script>
+      <script src="/assets/js/footer-min.js" defer></script>
+      <scott-footer
+        description="A real header audit on a live site - what curl -I actually showed, what got tightened, and the one rule that was deliberately left alone."></scott-footer>
+    </div>
+  </body>
+</html>
