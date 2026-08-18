@@ -128,9 +128,9 @@
               <i class="fas fa-arrow-left"></i>
               Back to Field Notes </a
             ><br />
-            <strong>A real header audit on a live site</strong> &mdash; what
-            the response actually said, and what changed once someone read
-            it closely.
+            <strong>A real header audit on a live site</strong> - what the
+            response actually said, and what changed once someone read it
+            closely.
           </h1>
         </div>
       </section>
@@ -142,28 +142,26 @@
         <section class="section-block">
           <h2>What <code>curl -I</code> Actually Showed</h2>
           <p>
-            The assumption going in was that this site's headers were
-            already in reasonable shape &mdash; the edge-level security
-            headers had been set up early, and nothing had thrown an
-            obvious error since. That assumption lasted about as long as
-            it took to run a plain response-header check against a
-            handful of live pages and read the output line by line
-            instead of skimming it.
+            The assumption going in was that this site's headers were already in
+            reasonable shape - the edge-level security headers had been set up
+            early, and nothing had thrown an obvious error since. That
+            assumption lasted about as long as it took to run a plain
+            response-header check against a handful of live pages and read the
+            output line by line instead of skimming it.
           </p>
           <p>
             Nothing was broken in the sense of a page failing to load.
-            Everything rendered, every script fired, every form
-            submitted. The gaps were the kind that don't show up as
-            errors at all &mdash; a content policy that was technically
-            present but permissive enough to not be doing much work, a
-            referrer policy left to whatever the browser defaulted to,
-            and a caching rule written for one kind of file being quietly
-            applied to a completely different kind of file.
+            Everything rendered, every script fired, every form submitted. The
+            gaps were the kind that don't show up as errors at all - a content
+            policy that was technically present but permissive enough to not be
+            doing much work, a referrer policy left to whatever the browser
+            defaulted to, and a caching rule written for one kind of file being
+            quietly applied to a completely different kind of file.
           </p>
           <p>
-            None of this shows up in a screenshot. It only shows up when
-            someone reads the response headers as a set of enforced
-            rules, not as background noise the browser handles for you.
+            None of this shows up in a screenshot. It only shows up when someone
+            reads the response headers as a set of enforced rules, not as
+            background noise the browser handles for you.
           </p>
         </section>
 
@@ -182,18 +180,17 @@
                 <tr>
                   <td><strong>Content-Security-Policy</strong></td>
                   <td>
-                    No explicit script or connect allowlist &mdash; fell
-                    back to broad defaults that didn't reflect what was
-                    actually loading
+                    No explicit script or connect allowlist - fell back to broad
+                    defaults that didn't reflect what was actually loading
                   </td>
                   <td>
-                    Named allowlist covering exactly the origins in
-                    active use &mdash; nothing more
+                    Named allowlist covering exactly the origins in active use -
+                    nothing more
                   </td>
                 </tr>
                 <tr>
                   <td><strong>Referrer-Policy</strong></td>
-                  <td>Not set &mdash; left to browser default</td>
+                  <td>Not set - left to browser default</td>
                   <td>
                     Explicitly set to
                     <code>strict-origin-when-cross-origin</code>
@@ -207,27 +204,25 @@
                 <tr>
                   <td><strong>Permissions-Policy</strong></td>
                   <td>Not set</td>
-                  <td>
-                    Camera, microphone, and geolocation explicitly denied
-                  </td>
+                  <td>Camera, microphone, and geolocation explicitly denied</td>
                 </tr>
                 <tr>
-                  <td><strong>Cache-Control</strong> &mdash; HTML documents</td>
+                  <td><strong>Cache-Control</strong> - HTML documents</td>
                   <td>Same long-lived edge TTL as static assets</td>
                   <td>Short TTL, revalidated on each request</td>
                 </tr>
                 <tr>
-                  <td><strong>Cache-Control</strong> &mdash; static assets</td>
+                  <td><strong>Cache-Control</strong> - static assets</td>
                   <td>Same rule as HTML documents</td>
                   <td>
-                    Long TTL, marked immutable &mdash; filenames don't
-                    change without a deploy
+                    Long TTL, marked immutable - filenames don't change without
+                    a deploy
                   </td>
                 </tr>
                 <tr>
                   <td><code>style-src 'unsafe-inline'</code></td>
                   <td>Present</td>
-                  <td>Present &mdash; kept on purpose</td>
+                  <td>Present - kept on purpose</td>
                 </tr>
               </tbody>
             </table>
@@ -242,14 +237,13 @@
               Tightening the content policy to a named allowlist
             </div>
             <p>
-              The site only talks to a small, known set of external
-              origins &mdash; a tag manager, an analytics endpoint, a
-              form handler. A policy that doesn't name them explicitly
-              isn't protecting against anything specific; it's just
-              present. Rewriting it as an exact allowlist meant the
-              policy now reflects reality instead of a template default,
-              and anything unexpected trying to load from somewhere else
-              gets blocked rather than waved through.
+              The site only talks to a small, known set of external origins - a
+              tag manager, an analytics endpoint, a form handler. A policy that
+              doesn't name them explicitly isn't protecting against anything
+              specific; it's just present. Rewriting it as an exact allowlist
+              meant the policy now reflects reality instead of a template
+              default, and anything unexpected trying to load from somewhere
+              else gets blocked rather than waved through.
             </p>
           </div>
 
@@ -258,12 +252,11 @@
               Setting a referrer policy instead of inheriting one
             </div>
             <p>
-              Leaving this unset means every browser picks its own
-              default, and those defaults haven't been consistent across
-              versions. Setting it explicitly means the full page URL
-              &mdash; including anything sensitive in a query string
-              &mdash; doesn't leak to third-party origins on outbound
-              requests, regardless of what browser someone's using.
+              Leaving this unset means every browser picks its own default, and
+              those defaults haven't been consistent across versions. Setting it
+              explicitly means the full page URL - including anything sensitive
+              in a query string - doesn't leak to third-party origins on
+              outbound requests, regardless of what browser someone's using.
             </p>
           </div>
 
@@ -272,13 +265,13 @@
               Splitting the cache rule for HTML from static assets
             </div>
             <p>
-              This was the one that actually mattered for day-to-day
-              work, not just security posture. HTML documents and static
-              assets were sharing one caching rule, which meant a page
-              edit could sit stale at the edge for as long as a
-              fingerprinted CSS file was supposed to. Splitting them
-              means content updates show up promptly, and asset caching
-              stays aggressive where it's actually safe to be aggressive.
+              This was the one that actually mattered for day-to-day work, not
+              just security posture. HTML documents and static assets were
+              sharing one caching rule, which meant a page edit could sit stale
+              at the edge for as long as a fingerprinted CSS file was supposed
+              to. Splitting them means content updates show up promptly, and
+              asset caching stays aggressive where it's actually safe to be
+              aggressive.
             </p>
           </div>
 
@@ -287,15 +280,14 @@
               Leaving <code>style-src 'unsafe-inline'</code> alone
             </div>
             <p>
-              This is the one that stayed. Every page on this site scopes
-              its own layout tweaks in a page-level
-              <code>&lt;style&gt;</code> block rather than a shared
-              stylesheet, by design &mdash; no build step means no easy
-              way to generate per-page nonces or hashes for a static file
-              tree. Removing this directive would mean restructuring how
-              every page is styled, for a category of risk that's
-              already low compared to what an unrestricted script policy
-              would have allowed. Not every gap is worth closing the same
+              This is the one that stayed. Every page on this site scopes its
+              own layout tweaks in a page-level
+              <code>&lt;style&gt;</code> block rather than a shared stylesheet,
+              by design - no build step means no easy way to generate per-page
+              nonces or hashes for a static file tree. Removing this directive
+              would mean restructuring how every page is styled, for a category
+              of risk that's already low compared to what an unrestricted script
+              policy would have allowed. Not every gap is worth closing the same
               day it's found.
             </p>
           </div>
@@ -304,34 +296,38 @@
         <section class="section-block">
           <h2>Frequently asked questions</h2>
 
-          <h3>Why do response headers matter if the page already loads fine?</h3>
+          <h3>
+            Why do response headers matter if the page already loads fine?
+          </h3>
           <p>
-            A page that renders correctly and a page that's actually
-            enforcing its own security and caching rules are two
-            different questions. Headers are instructions the browser
-            follows whether or not anything looks different on screen.
+            A page that renders correctly and a page that's actually enforcing
+            its own security and caching rules are two different questions.
+            Headers are instructions the browser follows whether or not anything
+            looks different on screen.
           </p>
 
           <h3>Won't a strict content policy break analytics or form tools?</h3>
           <p>
-            Only if it's written generically. A policy built from the
-            actual list of origins in use is exact, not a guess &mdash;
-            it allows what's really there and nothing else.
+            Only if it's written generically. A policy built from the actual
+            list of origins in use is exact, not a guess - it allows what's
+            really there and nothing else.
           </p>
 
-          <h3>Why keep any "unsafe" rule in place instead of removing it outright?</h3>
+          <h3>
+            Why keep any "unsafe" rule in place instead of removing it outright?
+          </h3>
           <p>
-            Because every removal has a cost on the other side. This one
-            would have meant reworking the entire page-styling approach
-            for a marginal reduction in a risk category that was already
-            low. Judgment call, documented, not an oversight.
+            Because every removal has a cost on the other side. This one would
+            have meant reworking the entire page-styling approach for a marginal
+            reduction in a risk category that was already low. Judgment call,
+            documented, not an oversight.
           </p>
 
           <h3>How often does this need to be checked again?</h3>
           <p>
-            Any time a new third-party origin gets added &mdash; a form
-            service, an analytics tool, an embed. That's the exact moment
-            a hand-written allowlist quietly goes stale.
+            Any time a new third-party origin gets added - a form service, an
+            analytics tool, an embed. That's the exact moment a hand-written
+            allowlist quietly goes stale.
           </p>
         </section>
 
@@ -349,8 +345,7 @@
                 0 4px 10px rgba(15, 23, 42, 0.04);
             ">
             <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
-              A header audit doesn't take long &mdash; not having one
-              costs more
+              A header audit doesn't take long - not having one costs more
             </h3>
             <p
               style="
@@ -361,9 +356,9 @@
                 margin-left: auto;
                 margin-right: auto;
               ">
-              If response headers haven't been checked since launch,
-              they're probably making decisions on your behalf that
-              nobody actually made.
+              If response headers haven't been checked since launch, they're
+              probably making decisions on your behalf that nobody actually
+              made.
             </p>
             <ul
               class="actions stacked"
@@ -379,8 +374,12 @@
       </main>
 
       <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
-      <script src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3" defer></script>
-      <script src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c" defer></script>
+      <script
+        src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3"
+        defer></script>
+      <script
+        src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c"
+        defer></script>
       <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
       <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
       <script src="/assets/js/main.js?v=4b0bd6ba6f" defer></script>

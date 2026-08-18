@@ -143,8 +143,8 @@
               <i class="fas fa-arrow-left"></i>
               Back to Field Notes </a
             ><br />
-            <strong>An automation that never once failed</strong> &mdash;
-            because it was never actually automated.
+            <strong>An automation that never once failed</strong> - because it
+            was never actually automated.
           </h1>
         </div>
       </section>
@@ -156,29 +156,28 @@
         <section class="section-block">
           <h2>What Looked Automated</h2>
           <p>
-            The workflow had a name, a schedule of sorts, and a green
-            checkmark on every run. <code>purge-cache.yml</code> sat in
-            <code>.github/workflows</code>, and every time it ran, it
-            succeeded &mdash; Cloudflare's cache got purged, the site
-            reflected changes, nothing looked wrong. That was the problem.
-            Nothing looked wrong because nothing had ever actually broken.
-            It just wasn't doing what it was named to do.
+            The workflow had a name, a schedule of sorts, and a green checkmark
+            on every run. <code>purge-cache.yml</code> sat in
+            <code>.github/workflows</code>, and every time it ran, it succeeded
+            - Cloudflare's cache got purged, the site reflected changes, nothing
+            looked wrong. That was the problem. Nothing looked wrong because
+            nothing had ever actually broken. It just wasn't doing what it was
+            named to do.
           </p>
           <p>
-            The tell wasn't an error. It was checking the Actions run
-            history out of routine and noticing every single entry read
-            the same way: <em>Manually run by scottlabz.</em> Not one of
-            them said triggered by a push, because nothing in the workflow
-            file was listening for one.
+            The tell wasn't an error. It was checking the Actions run history
+            out of routine and noticing every single entry read the same way:
+            <em>Manually run by scottlabz.</em> Not one of them said triggered
+            by a push, because nothing in the workflow file was listening for
+            one.
           </p>
           <p>
             The trigger block only declared
-            <code>workflow_dispatch</code> &mdash; the event that fires
-            when someone clicks "Run workflow" in the Actions tab. There
-            was no <code>push</code> trigger anywhere in the file. Every
-            purge that had ever happened, going back through the entire
-            run history, was a manual click wearing the outfit of a
-            pipeline.
+            <code>workflow_dispatch</code> - the event that fires when someone
+            clicks "Run workflow" in the Actions tab. There was no
+            <code>push</code> trigger anywhere in the file. Every purge that had
+            ever happened, going back through the entire run history, was a
+            manual click wearing the outfit of a pipeline.
           </p>
         </section>
 
@@ -197,19 +196,19 @@
                 <tr>
                   <td><strong>Trigger block</strong></td>
                   <td>
-                    <code>workflow_dispatch</code> only &mdash; runs only
-                    when someone clicks the button
+                    <code>workflow_dispatch</code> only - runs only when someone
+                    clicks the button
                   </td>
                   <td>
-                    <code>workflow_dispatch</code> plus
-                    <code>push</code>, scoped to <code>main</code>
+                    <code>workflow_dispatch</code> plus <code>push</code>,
+                    scoped to <code>main</code>
                   </td>
                 </tr>
                 <tr>
                   <td><strong>Environment resolution</strong></td>
                   <td>
-                    Hard reference to <code>inputs.environment</code>,
-                    which only exists on manual dispatch runs
+                    Hard reference to <code>inputs.environment</code>, which
+                    only exists on manual dispatch runs
                   </td>
                   <td>
                     <code>inputs.environment || 'production'</code>
@@ -219,24 +218,23 @@
                 <tr>
                   <td><strong>What triggers a purge</strong></td>
                   <td>
-                    Nothing did, automatically &mdash; every commit sat
-                    there until someone remembered to click
+                    Nothing did, automatically - every commit sat there until
+                    someone remembered to click
                   </td>
                   <td>
-                    Any push to <code>main</code> touching a
-                    content-relevant file
+                    Any push to <code>main</code> touching a content-relevant
+                    file
                   </td>
                 </tr>
                 <tr>
                   <td><strong>Cloudflare audit log actor</strong></td>
                   <td>
-                    <code>Actor Context: dash</code> on every entry
-                    &mdash; dashboard-style, human-initiated
+                    <code>Actor Context: dash</code> on every entry -
+                    dashboard-style, human-initiated
                   </td>
                   <td>
-                    <code>Actor Context: api_token</code>, blank actor
-                    email &mdash; confirms the API, not a person, made
-                    the call
+                    <code>Actor Context: api_token</code>, blank actor email -
+                    confirms the API, not a person, made the call
                   </td>
                 </tr>
               </tbody>
@@ -252,9 +250,9 @@
             <p>
               This was the actual fix. A <code>push</code> event scoped to
               <code>main</code> was added alongside the existing
-              <code>workflow_dispatch</code>, so manual runs still work
-              when needed, but a deploy no longer depends on someone
-              remembering to trigger it by hand.
+              <code>workflow_dispatch</code>, so manual runs still work when
+              needed, but a deploy no longer depends on someone remembering to
+              trigger it by hand.
             </p>
           </div>
 
@@ -265,12 +263,12 @@
             <p>
               The workflow referenced <code>inputs.environment</code>
               directly, which is only populated when a run starts from
-              <code>workflow_dispatch</code>. Left as-is, a
-              push-triggered run would hit an empty value. Adding
+              <code>workflow_dispatch</code>. Left as-is, a push-triggered run
+              would hit an empty value. Adding
               <code>inputs.environment || 'production'</code> gives
-              push-triggered runs a sane default without changing behavior
-              for manual runs, which still pass whatever environment was
-              chosen at dispatch.
+              push-triggered runs a sane default without changing behavior for
+              manual runs, which still pass whatever environment was chosen at
+              dispatch.
             </p>
           </div>
 
@@ -279,17 +277,16 @@
               Filtering which file changes actually trigger a purge
             </div>
             <p>
-              Once the push trigger existed, the next question was
-              whether every commit should fire it. It shouldn't. Editing
-              <code>CLAUDE.md</code>, a Python script, or the workflow
-              file itself doesn't change anything a visitor would see,
-              and purging on those commits anyway just burns purge
-              requests and adds noise to the audit log. A
-              <code>paths:</code> filter was added covering
+              Once the push trigger existed, the next question was whether every
+              commit should fire it. It shouldn't. Editing
+              <code>CLAUDE.md</code>, a Python script, or the workflow file
+              itself doesn't change anything a visitor would see, and purging on
+              those commits anyway just burns purge requests and adds noise to
+              the audit log. A <code>paths:</code> filter was added covering
               <code>.html</code>, <code>.css</code>, <code>.js</code>,
-              <code>.json</code>, <code>.xml</code>, <code>.svg</code>,
-              and common image extensions &mdash; the file types that
-              actually change what's served.
+              <code>.json</code>, <code>.xml</code>, <code>.svg</code>, and
+              common image extensions - the file types that actually change
+              what's served.
             </p>
           </div>
 
@@ -298,17 +295,16 @@
               Verifying against the Cloudflare side, not the GitHub side
             </div>
             <p>
-              A green checkmark in Actions only proves the workflow
-              executed, not that it executed the way it was supposed to
-              &mdash; a manual click produces the identical checkmark.
-              The real confirmation came from Cloudflare's own audit log,
-              where each purge request records an
+              A green checkmark in Actions only proves the workflow executed,
+              not that it executed the way it was supposed to - a manual click
+              produces the identical checkmark. The real confirmation came from
+              Cloudflare's own audit log, where each purge request records an
               <code>Actor Context</code>: <code>dash</code> for a
               dashboard-style action, <code>api_token</code> for one
-              authenticated by the workflow itself, with a blank actor
-              email as the second confirming signal. That's the only
-              place the distinction between "a person did this" and
-              "this ran on its own" actually shows up.
+              authenticated by the workflow itself, with a blank actor email as
+              the second confirming signal. That's the only place the
+              distinction between "a person did this" and "this ran on its own"
+              actually shows up.
             </p>
           </div>
         </section>
@@ -318,39 +314,36 @@
 
           <h3>How does a broken automation run successfully every time?</h3>
           <p>
-            Because a manual trigger and an automated trigger produce the
-            same kind of run in GitHub Actions &mdash; same log, same
-            green checkmark. Nothing about the interface distinguishes
-            "this fired on its own" from "someone just clicked the
-            button," so a workflow can look perfectly healthy while never
-            once running unattended.
+            Because a manual trigger and an automated trigger produce the same
+            kind of run in GitHub Actions - same log, same green checkmark.
+            Nothing about the interface distinguishes "this fired on its own"
+            from "someone just clicked the button," so a workflow can look
+            perfectly healthy while never once running unattended.
           </p>
 
           <h3>Why trust Cloudflare's audit log over GitHub's run history?</h3>
           <p>
-            GitHub can confirm the workflow executed. It can't tell you
-            what actually triggered that execution from the outside.
-            Cloudflare's audit log records who or what authenticated the
-            actual purge request, which is the only signal that separates
-            a human click from an API-driven call.
+            GitHub can confirm the workflow executed. It can't tell you what
+            actually triggered that execution from the outside. Cloudflare's
+            audit log records who or what authenticated the actual purge
+            request, which is the only signal that separates a human click from
+            an API-driven call.
           </p>
 
           <h3>Why bother filtering which commits trigger a purge?</h3>
           <p>
-            Because not every commit changes anything visitors see.
-            Purging on documentation edits or CI config changes wastes
-            purge requests and buries the log in entries that don't mean
-            anything, making it harder to notice a real problem the next
-            time one shows up.
+            Because not every commit changes anything visitors see. Purging on
+            documentation edits or CI config changes wastes purge requests and
+            buries the log in entries that don't mean anything, making it harder
+            to notice a real problem the next time one shows up.
           </p>
 
           <h3>Does this apply to automation beyond this one workflow?</h3>
           <p>
-            Yes &mdash; a passing status only proves something ran, not
-            that it ran the way it was designed to. Anything that's
-            supposed to be automatic needs a way to prove it was
-            automatic, from a signal that can't be produced by a person
-            doing it manually instead.
+            Yes - a passing status only proves something ran, not that it ran
+            the way it was designed to. Anything that's supposed to be automatic
+            needs a way to prove it was automatic, from a signal that can't be
+            produced by a person doing it manually instead.
           </p>
         </section>
 
@@ -396,8 +389,12 @@
       </main>
 
       <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
-      <script src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3" defer></script>
-      <script src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c" defer></script>
+      <script
+        src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3"
+        defer></script>
+      <script
+        src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c"
+        defer></script>
       <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
       <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
       <script src="/assets/js/main.js?v=4b0bd6ba6f" defer></script>
