@@ -1,0 +1,391 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>The Address We Took Out of the Schema | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="A client's schema was publishing a stale address, precise coordinates, and 'open 24 hours' every day. Correcting it wasn't the right call. Removing it was." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/main-min.css" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript-min.css" />
+    </noscript>
+
+    <script src="/assets/js/header-min.js"></script>
+    <script src="/assets/js/favicon-min.js"></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/the-address-we-took-out-of-the-schema.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/the-address-we-took-out-of-the-schema.html",
+        "headline": "The Address We Took Out of the Schema",
+        "description": "A client's schema was publishing a stale address, precise coordinates, and 'open 24 hours' every day. Correcting it wasn't the right call. Removing it was.",
+        "url": "https://scottlabz.com/field-notes/the-address-we-took-out-of-the-schema.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="The Address We Took Out of the Schema | Scott Labz" />
+    <meta
+      property="og:description"
+      content="A client's schema was publishing a stale address, precise coordinates, and 'open 24 hours' every day. Correcting it wasn't the right call. Removing it was." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/the-address-we-took-out-of-the-schema.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+      .service-content h3 {
+        font-size: 1.05rem;
+        color: #1e3a5f;
+      }
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+      .security-table {
+        table-layout: fixed;
+      }
+      .security-table th:first-child,
+      .security-table td:first-child {
+        width: 22%;
+      }
+      .security-table th,
+      .security-table td {
+        font-size: 0.85rem;
+      }
+      .security-table code {
+        white-space: normal;
+        word-break: break-word;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="/index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.png"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">
+            The Address We Took Out of the Schema<br />
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
+            <strong>Correcting the data was the obvious move.</strong>
+            Removing it was the right one.
+          </h1>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>What the Schema Was Actually Saying</h2>
+          <p>
+            The client here is a small, family-run shop - the kind of
+            place where the person who answers the phone is also the
+            person who unlocks the door. During a routine technical
+            review of their site, the JSON-LD block turned up something
+            nobody had actually read since the day it went live.
+          </p>
+          <p>
+            It was declaring a full street address, latitude and
+            longitude out to six decimal places, and an
+            <code>openingHoursSpecification</code> claiming the shop was
+            open 24 hours a day, every day of the week.
+          </p>
+          <p>
+            None of it was current. The address pointed at a location
+            the business hadn't operated out of in years. The hours were
+            lifted straight from whatever schema generator had produced
+            the original template, never touched again. Nobody had
+            decided to publish any of this - it arrived pre-filled, and
+            nobody had gone back to delete it.
+          </p>
+          <p>
+            This is the kind of error that doesn't announce itself. The
+            page looked fine. The listing rendered normally wherever it
+            showed up in search. The only place any of it actually
+            lived was in a block of markup nobody reads unless they go
+            looking for it.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Before and After</h2>
+          <div class="table-wrapper">
+            <table class="security-table">
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Before</th>
+                  <th>After</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Street address</strong></td>
+                  <td>
+                    Full address published in schema, several years out
+                    of date
+                  </td>
+                  <td>Removed entirely</td>
+                </tr>
+                <tr>
+                  <td><strong>Geo coordinates</strong></td>
+                  <td>
+                    Precise lat/long to six decimal places, tied to the
+                    old address
+                  </td>
+                  <td>Removed entirely</td>
+                </tr>
+                <tr>
+                  <td><strong>Opening hours</strong></td>
+                  <td>
+                    <code>"Open 00:00-23:59, every day of the week"</code>
+                  </td>
+                  <td>Removed entirely</td>
+                </tr>
+                <tr>
+                  <td><strong>Where hours/location live now</strong></td>
+                  <td>Only in the site's own schema, silently wrong</td>
+                  <td>
+                    A listing channel the owner actually updates, and a
+                    contact page a person reads before making the trip
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Decision Log</h2>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Why the address was removed instead of corrected
+            </div>
+            <p>
+              The obvious first move once a stale address gets flagged
+              is to just update it. That got overridden here. This is a
+              small, appointment-heavy operation - walk-in traffic isn't
+              really the model - and the owner was uneasy about a
+              precise public address sitting in structured data that
+              gets scraped, cached, and republished by anyone running a
+              script, long after the site itself changes again.
+              Removing it took that exposure off the table entirely,
+              instead of just handing the same problem a new address to
+              eventually go stale on.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">Why the coordinates went too</div>
+            <p>
+              Coordinates tied to a wrong address are worse than no
+              coordinates at all - they send someone to a real place
+              that isn't the right one, with more confidence than a
+              vague listing would. Once the address itself was gone,
+              coordinates pointing at nothing had no reason to stay
+              either.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Why "open 24 hours" had to go, not just get corrected
+            </div>
+            <p>
+              This one mattered more than it looks. The real hours
+              shift by season, and some weeks by the owner's own
+              calendar - a small, owner-run shop doesn't operate on a
+              fixed schedule the way a franchise does. Hand-entering
+              "correct" hours today just means they're wrong again in a
+              few months. And a wrong hours field is worse than a
+              missing one: a customer who drives out because the schema
+              said open, finds the door locked, doesn't just distrust
+              the hours. They stop trusting anything else the
+              structured data told them about the business.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">Where the real information lives now</div>
+            <p>
+              Instead of trying to keep a static field in sync with
+              something that changes on its own schedule, the accurate
+              version now lives where the owner actually updates it
+              when things change - a listing they control directly, and
+              a contact page a visitor reads before deciding to make
+              the trip. Schema doesn't need to carry information
+              nobody's maintaining.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>Why not just fix the hours instead of removing them?</h3>
+          <p>
+            Because a hand-entered value in a file nobody revisits will
+            drift again the moment the real hours change. Removing the
+            field avoids re-creating the exact problem that got found in
+            the first place.
+          </p>
+
+          <h3>Doesn't removing structured data hurt local search visibility?</h3>
+          <p>
+            Less than leaving it wrong does. Schema is one signal among
+            several, and search systems that catch one field being
+            false tend to trust the rest of a site's structured data
+            less too - not just that one field.
+          </p>
+
+          <h3>How did an audit even catch this if the page looked fine?</h3>
+          <p>
+            Because none of it is visible on the page. Reading schema
+            means opening the markup directly and reading it line by
+            line - not judging it by whether the rendered page looks
+            right, since the two have nothing to do with each other.
+          </p>
+
+          <h3>Is this a common problem?</h3>
+          <p>
+            More common than it should be, especially on sites that
+            started from a template or an automated generator. A lot of
+            local-business schema in the wild was accepted as a
+            default, not actually written by anyone.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              If nobody's checked your schema since launch, it's
+              probably still saying whatever the template said
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              Structured data doesn't fail loudly. It just sits there,
+              quietly telling search engines and anyone else reading it
+              something that stopped being true a while ago.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="/contact.html" class="button big wide alt"
+                  >Get a Schema Review</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+      <script src="/assets/js/browser.min.js" defer></script>
+      <script src="/assets/js/breakpoints.min.js" defer></script>
+      <script src="/assets/js/main.js" defer></script>
+      <script src="/assets/js/footer-min.js" defer></script>
+      <scott-footer
+        description="Real breakdowns of measurement problems, technical decisions, and lessons from the work - written as they actually happened."></scott-footer>
+    </div>
+  </body>
+</html>
