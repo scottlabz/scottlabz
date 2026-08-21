@@ -2,21 +2,36 @@
 <html lang="en">
   <head>
     <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
 
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager (loads on first interaction, or after 5s) -->
     <script>
       (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-
-        f.parentNode.insertBefore(j, f);
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
+        });
+        var fallback = setTimeout(trigger, 5000);
       })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
     </script>
     <!-- End Google Tag Manager -->
@@ -387,6 +402,8 @@
               <a href="index.html" style="border-bottom: none">
                 <img
                   src="images/scottlabz-clear.png"
+                  width="313"
+                  height="410"
                   alt="S"
                   class="logo"
                   style="margin-right: 0" />cott Labz
@@ -413,6 +430,8 @@
               <div class="cred-mark cred-mark-wordmark">
                 <img
                   src="https://seal-heartofillinois.bbb.org/seals/blue-seal-120-61-bbb-1000039342.png"
+                  width="137"
+                  height="70"
                   alt="Better Business Bureau Accredited Business seal linking to the verified Scott Labz BBB profile and customer reviews" />
               </div>
               <div class="cred-body">
@@ -441,6 +460,8 @@
               <div class="cred-mark cred-mark-wordmark">
                 <img
                   src="images/google.png"
+                  width="215"
+                  height="219"
                   alt="Google logo representing the Scott Labz Google Business Profile listing with customer reviews and search visibility" />
               </div>
               <div class="cred-body">
@@ -495,6 +516,8 @@
               <div class="cred-mark cred-mark-wordmark">
                 <img
                   src="images/Chamber-Member-Logo.png"
+                  width="500"
+                  height="500"
                   alt="McLean County Chamber of Commerce member logo confirming Scott Labz's active local business membership" />
               </div>
               <div class="cred-body">
@@ -523,6 +546,8 @@
               <div class="cred-mark cred-mark-wordmark">
                 <img
                   src="images/clutch.png"
+                  width="161"
+                  height="54"
                   alt="Clutch logo linking to verified client reviews and ratings for Scott Labz on the Clutch B2B research platform" />
               </div>
               <div class="cred-body">
@@ -551,6 +576,8 @@
               <div class="cred-mark cred-mark-wordmark">
                 <img
                   src="images/themanifest.png"
+                  width="91"
+                  height="53"
                   alt="The Manifest logo linking to Scott Labz's verified company profile on The Manifest B2B research platform" />
               </div>
               <div class="cred-body">
@@ -620,6 +647,8 @@
               <div class="cred-mark cred-mark-wordmark">
                 <img
                   src="images/goodfirms.png"
+                  width="161"
+                  height="42"
                   alt="Goodfirms logo linking to the verified Scott Labz company profile on the Goodfirms review platform" />
               </div>
               <div class="cred-body">
@@ -648,6 +677,8 @@
               <div class="cred-mark cred-mark-wordmark">
                 <img
                   src="images/agencyspotter.png"
+                  width="103"
+                  height="48"
                   alt="Agency Spotter logo linking to the verified Scott Labz company profile on the Agency Spotter directory" />
               </div>
               <div class="cred-body">
@@ -676,6 +707,8 @@
               <div class="cred-mark cred-mark-wordmark">
                 <img
                   src="images/sortlist.png"
+                  width="131"
+                  height="49"
                   alt="Sortlist logo linking to the verified Scott Labz company profile on the Sortlist agency directory" />
               </div>
               <div class="cred-body">
@@ -704,6 +737,8 @@
               <div class="cred-mark cred-mark-wordmark">
                 <img
                   src="images/techbehemoths.png"
+                  width="167"
+                  height="73"
                   alt="TechBehemoths logo linking to the verified Scott Labz company profile on the TechBehemoths agency directory" />
               </div>
               <div class="cred-body">
@@ -732,6 +767,8 @@
               <div class="cred-mark cred-mark-wordmark">
                 <img
                   src="images/nextdoor.png"
+                  width="151"
+                  height="38"
                   alt="Nextdoor logo linking to the Scott Labz LLC business page and neighborhood reviews in Normal, Illinois" />
               </div>
               <div class="cred-body">
@@ -764,6 +801,8 @@
               <div class="cred-mark">
                 <img
                   src="images/bing.png"
+                  width="284"
+                  height="409"
                   alt="Bing logo representing the upcoming Scott Labz Bing Places business listing, currently in progress" />
               </div>
               <div class="cred-body">
@@ -806,6 +845,8 @@
               <div class="cred-mark cred-mark-wordmark">
                 <img
                   src="images/yellowpages.png"
+                  width="150"
+                  height="58"
                   alt="YellowPages logo representing the upcoming Scott Labz business directory listing" />
               </div>
               <div class="cred-body">
@@ -828,6 +869,8 @@
               <div class="cred-mark cred-mark-wordmark">
                 <img
                   src="images/downtownbloomington.png"
+                  width="339"
+                  height="121"
                   alt="Downtown Bloomington logo representing the upcoming Scott Labz business directory listing downtown" />
               </div>
               <div class="cred-body">
@@ -870,6 +913,8 @@
               <div class="cred-mark cred-mark-wordmark">
                 <img
                   src="images/pantagraph.png"
+                  width="264"
+                  height="72"
                   alt="The Pantagraph newspaper logo representing the upcoming Scott Labz listing in its local business directory" />
               </div>
               <div class="cred-body">
@@ -892,6 +937,8 @@
               <div class="cred-mark cred-mark-wordmark">
                 <img
                   src="images/patch.png"
+                  width="84"
+                  height="37"
                   alt="Patch logo representing the upcoming Scott Labz listing in its local business directory" />
               </div>
               <div class="cred-body">
@@ -914,6 +961,8 @@
               <div class="cred-mark">
                 <img
                   src="images/police-bloomingtonil.png"
+                  width="296"
+                  height="296"
                   alt="Bloomington Police Department badge representing the upcoming Scott Labz listing in its public business directory" />
               </div>
               <div class="cred-body">

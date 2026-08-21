@@ -2,17 +2,35 @@
 <html>
    <head>
     <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <!-- Google Tag Manager -->
+    <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
+    <!-- Google Tag Manager (loads on first interaction, or after 5s) -->
     <script>
       (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
+        });
+        var fallback = setTimeout(trigger, 5000);
       })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
     </script>
     <!-- End Google Tag Manager -->
@@ -113,7 +131,7 @@
             <div class="content">
                <div class="logo-wrapper" style="margin-bottom: 1.5rem;">
                   <a href="/index.html" style="border-bottom: none;">
-                  <span class="h2"><img src="/images/scottlabz-clear.png" alt="S" class="logo">cott Labz</span>
+                  <span class="h2"><img src="/images/scottlabz-clear.png" width="313" height="410" alt="S" class="logo">cott Labz</span>
                   </a>
                </div>
                <h1>Information Security Management Standard (ISMS)</h1>

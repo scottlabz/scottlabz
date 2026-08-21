@@ -2,21 +2,36 @@
 <html>
   <head>
     <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
 
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager (loads on first interaction, or after 5s) -->
     <script>
       (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-
-        f.parentNode.insertBefore(j, f);
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
+        });
+        var fallback = setTimeout(trigger, 5000);
       })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
     </script>
     <!-- End Google Tag Manager -->
@@ -128,6 +143,8 @@
             <a href="../index.html" style="border-bottom: none">
               <img
                 src="/images/scottlabz-clear.png"
+                width="313"
+                height="410"
                 alt="S"
                 class="logo"
                 style="margin-right: 0" />cott Labz

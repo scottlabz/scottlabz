@@ -28,6 +28,8 @@ class ScottFooter extends HTMLElement {
                   <span class="h3" style="display:inline-flex;align-items:center;">
                     <img
                       src="/images/scottlabz-clear.png"
+                      width="313"
+                      height="410"
                       alt="S"
                       class="logo"
                       style="display:block;max-height: 4vh;margin-right: 2px;">
@@ -64,6 +66,8 @@ class ScottFooter extends HTMLElement {
                     <img
                       id="footer-bbb-img"
                       src="https://seal-heartofillinois.bbb.org/seals/blue-seal-120-61-bbb-1000039342.png"
+                      width="137"
+                      height="70"
                       alt="Scott Labz BBB Business Review"
                       title="Scott Labz BBB Business Review"
                       style="
@@ -91,6 +95,8 @@ class ScottFooter extends HTMLElement {
                     <img
                       id="footer-chamber-img"
                       src="/images/Chamber-Member-Logo.png"
+                      width="500"
+                      height="500"
                       alt="McLean County Chamber of Commerce"
                       title="McLean County Chamber of Commerce"
                       style="

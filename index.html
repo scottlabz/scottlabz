@@ -2,17 +2,35 @@
 <html>
   <head>
     <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <!-- Google Tag Manager -->
+    <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
+    <!-- Google Tag Manager (loads on first interaction, or after 5s) -->
     <script>
       (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
+        });
+        var fallback = setTimeout(trigger, 5000);
       })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
     </script>
     <!-- End Google Tag Manager -->
@@ -109,7 +127,7 @@
         class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
           <p class="brand-mark">
-            <img src="images/scottlabz-clear.png" alt="S" class="logo" />cott
+            <img src="images/scottlabz-clear.png" width="313" height="410" alt="S" class="logo" />cott
             Labz
           </p>
           <h1 class="major">
@@ -138,6 +156,8 @@
         <div class="image">
           <img
             src="images/banner.jpg"
+            width="1600"
+            height="900"
             fetchpriority="high"
             alt="Scott Labz enterprise analytics engineering and modern data infrastructure banner shown on the homepage" />
         </div>
@@ -191,6 +211,8 @@
         <div class="image">
           <img
             src="images/spotlight01.jpg"
+            width="1600"
+            height="900"
             alt="Illustration of measurement architecture, telemetry frameworks, and audit pipelines built by Scott Labz engineers" />
         </div>
       </section>
@@ -241,6 +263,8 @@
         <div class="image">
           <img
             src="images/spotlight02.jpg"
+            width="1600"
+            height="900"
             alt="Illustration of executive reporting dashboards and strategic data translation advisory work from Scott Labz" />
         </div>
       </section>
@@ -291,6 +315,8 @@
         <div class="image">
           <img
             src="images/spotlight03.jpg"
+            width="4032"
+            height="3024"
             alt="Illustration of A/B/n testing experimentation and eCommerce performance optimization delivered by Scott Labz" />
         </div>
       </section>
@@ -309,6 +335,8 @@
           <article>
             <img
               src="images/gallery/thumbs/01.jpg"
+              width="360"
+              height="250"
               class="image"
               alt="Hawkeye Fan Shop storefront photo, the official University of Iowa Athletic Department retail partner of Scott Labz" />
             <div class="caption">
@@ -326,6 +354,8 @@
           <article>
             <img
               src="images/gallery/thumbs/02.jpg"
+              width="360"
+              height="250"
               class="image"
               alt="The Black and Gold Shop, official retailer of the University of Iowa Hawkeyes and a Scott Labz case study client" />
             <div class="caption">
@@ -343,6 +373,8 @@
           <article>
             <img
               src="images/gallery/thumbs/03.jpg"
+              width="360"
+              height="250"
               class="image"
               alt="Retail platform engineering connecting digital commerce and physical stores, built by Scott Labz engineers" />
             <div class="caption">
@@ -360,6 +392,8 @@
           <article>
             <img
               src="images/gallery/thumbs/04.jpg"
+              width="360"
+              height="250"
               class="image"
               alt="Omni-channel retail systems synchronizing in-store and online inventory for a Scott Labz retail client" />
             <div class="caption">
@@ -373,6 +407,8 @@
           <article>
             <img
               src="images/gallery/thumbs/05.jpg"
+              width="360"
+              height="250"
               class="image"
               alt="Gameday merchandise setup and venue retail operations managed with Scott Labz retail technology systems" />
             <div class="caption">
@@ -386,6 +422,8 @@
           <article>
             <img
               src="images/gallery/thumbs/06.jpg"
+              width="360"
+              height="250"
               class="image"
               alt="Stadium retail telemetry and rapid point-of-sale terminal systems deployed by Scott Labz for gameday retail" />
             <div class="caption">
@@ -401,6 +439,8 @@
           <article>
             <img
               src="images/gallery/thumbs/07.jpg"
+              width="360"
+              height="250"
               class="image"
               alt="University of Iowa stadium community and gameday fan experience supported by Scott Labz retail systems" />
             <div class="caption">
@@ -414,6 +454,8 @@
           <article>
             <img
               src="images/gallery/thumbs/08.jpg"
+              width="360"
+              height="250"
               class="image"
               alt="High-capacity mobile gameday fan shops and concourse retail pop-ups powered by Scott Labz infrastructure" />
             <div class="caption">
@@ -427,6 +469,8 @@
           <article>
             <img
               src="images/gallery/thumbs/09.jpg"
+              width="360"
+              height="250"
               class="image"
               alt="Visiting locker room logistics and sideline gameday venue execution supported by Scott Labz systems" />
             <div class="caption">
@@ -440,6 +484,8 @@
           <article>
             <img
               src="images/gallery/thumbs/10.jpg"
+              width="360"
+              height="250"
               class="image"
               alt="Neighborhood retail logistics and local community shop operations supported by Scott Labz technology" />
             <div class="caption">
@@ -456,6 +502,8 @@
           <article>
             <img
               src="images/gallery/thumbs/11.jpg"
+              width="360"
+              height="250"
               class="image"
               alt="University of Iowa Hawkeyes gameday fan culture and team traditions captured at a Scott Labz retail client" />
             <div class="caption">
@@ -469,6 +517,8 @@
           <article>
             <img
               src="images/gallery/thumbs/12.jpg"
+              width="360"
+              height="250"
               class="image"
               alt="Local Main Street storefronts integrated with modern point-of-sale systems built by Scott Labz engineers" />
             <div class="caption">

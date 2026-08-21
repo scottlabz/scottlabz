@@ -2,17 +2,35 @@
 <html>
   <head>
     <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <!-- Google Tag Manager -->
+    <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
+    <!-- Google Tag Manager (loads on first interaction, or after 5s) -->
     <script>
       (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
+        });
+        var fallback = setTimeout(trigger, 5000);
       })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
     </script>
     <!-- End Google Tag Manager -->
@@ -135,6 +153,8 @@
     <section style="margin: 0">
       <img
         src="images/scottlabz-banner-d.png"
+        width="1619"
+        height="473"
         style="width: 100%"
         alt="Scott Labz, LLC"
         title="Scott Labz, LLC" />
@@ -183,6 +203,8 @@
       &copy;
       <img
         src="images/scottlabz-clear.png"
+        width="313"
+        height="410"
         alt="S"
         style="
           height: 1.1em;

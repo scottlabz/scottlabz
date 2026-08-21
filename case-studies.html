@@ -2,31 +2,43 @@
 <html lang="en-US">
   <head>
     <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
 
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager (loads on first interaction, or after 5s) -->
     <script>
       (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-
-        w[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js",
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
         });
-
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-
-        j.async = true;
-
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-
-        f.parentNode.insertBefore(j, f);
+        var fallback = setTimeout(trigger, 5000);
       })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
     </script>
     <!-- End Google Tag Manager -->
 
-    <title>Case Studies | Analytics &amp; Digital Engineering | Scott Labz</title>
+    <title>
+      Case Studies | Analytics &amp; Digital Engineering | Scott Labz
+    </title>
 
     <meta
       name="description"
@@ -259,6 +271,8 @@
             <a href="index.html" style="border-bottom: none">
               <img
                 src="images/scottlabz-clear.png"
+                width="313"
+                height="410"
                 alt="S"
                 class="logo"
                 style="margin-right: 0" />cott Labz
@@ -293,6 +307,8 @@
 
           <img
             src="images/hawkeyefanshop.png"
+            width="727"
+            height="349"
             style="width: stretch; margin: 0"
             alt="Hawkeye Fan Shop logo, the official University of Iowa Athletic Department retailer featured in this Scott Labz case study"
             title="Hawkeye Fan Shop - The Official University of Iowa Athletic Department" />
@@ -376,6 +392,8 @@
           <h2 class="size-h3">Additional Case Studies</h2>
           <img
             src="images/bgs.jpg"
+            width="724"
+            height="154"
             class="flyingherk"
             alt="The Black &amp; Gold Shop storefront, an ecommerce case study built and engineered by Scott Labz for University of Iowa fans"
             title="The Black &amp; Gold Shop" />
@@ -393,6 +411,8 @@
         <div class="image">
           <img
             src="images/case-studies.jpg"
+            width="1980"
+            height="1320"
             style="object-position: top"
             alt="Banner image representing Scott Labz case studies in analytics modernization, digital infrastructure, and web engineering"
             title="Scott Labz Case Studies" />
@@ -400,8 +420,12 @@
       </section>
 
       <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
-      <script src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3" defer></script>
-      <script src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c" defer></script>
+      <script
+        src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3"
+        defer></script>
+      <script
+        src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c"
+        defer></script>
       <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
       <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
       <script src="/assets/js/main.js?v=4b0bd6ba6f" defer></script>
