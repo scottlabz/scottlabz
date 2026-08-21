@@ -1,0 +1,516 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>The Fix That Dropped the Score First | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="A mobile PageSpeed audit uncovered a silently broken stylesheet path, a Cloudflare cache ceiling, and one well-intentioned fix that made the score worse first." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/main-min.css?v=725980574b" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript-min.css?v=30b0cb2b12" />
+    </noscript>
+
+    <script src="/assets/js/header-min.js?v=2569da2f4b"></script>
+    <script src="/assets/js/favicon-min.js?v=d2e76e98d0"></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/the-fix-that-dropped-the-score-first.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/the-fix-that-dropped-the-score-first.html",
+        "headline": "The Fix That Dropped the Score First",
+        "description": "A mobile PageSpeed audit uncovered a silently broken stylesheet path, a Cloudflare cache ceiling, and one well-intentioned fix that made the score worse first.",
+        "url": "https://scottlabz.com/field-notes/the-fix-that-dropped-the-score-first.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="The Fix That Dropped the Score First | Scott Labz" />
+    <meta
+      property="og:description"
+      content="A mobile PageSpeed audit uncovered a silently broken stylesheet path, a Cloudflare cache ceiling, and one well-intentioned fix that made the score worse first." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/the-fix-that-dropped-the-score-first.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+      .service-content h3 {
+        font-size: 1.05rem;
+        color: #1e3a5f;
+      }
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+      .security-table {
+        table-layout: fixed;
+      }
+      .security-table th:first-child,
+      .security-table td:first-child {
+        width: 18%;
+      }
+      .security-table th,
+      .security-table td {
+        font-size: 0.85rem;
+      }
+      .security-table code {
+        white-space: normal;
+        word-break: break-word;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="/index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.png"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">
+            The Fix That Dropped the Score First<br />
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
+            <strong>A mobile PageSpeed score that dropped</strong>
+            before it went anywhere better - and the five separate things
+            actually wrong underneath it.
+          </h1>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            A PageSpeed Insights audit rarely hands you one problem. It hands
+            you a list, and most of that list turns out to be symptoms of the
+            same two or three root causes wearing different names. This is what
+            one mobile audit on this site's own stack actually turned up,
+            including the fix that made things worse before it made them better.
+          </p>
+          <p>
+            Not anonymized. This is this site's own render-blocking chain, its
+            own broken stylesheet path, and its own regression - kept here
+            because the mistake in the middle of it is the kind that's easy to
+            repeat.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The starting point</h2>
+          <p>
+            The stack: GitHub Pages as the origin, Cloudflare in front of it for
+            proxy and DNS, and an HTML5 UP-style template still leaning on
+            jQuery.
+          </p>
+          <p>
+            The first thing the audit flagged was three render-blocking requests
+            loading in serial instead of in parallel - a main stylesheet, Font
+            Awesome, and a Google Fonts stylesheet - adding up to roughly 1.4
+            seconds of blocking time before anything could paint. That single
+            finding turned out to be the entry point into four more issues that
+            weren't visible until the first one got pulled apart.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What was actually wrong</h2>
+          <ul class="alt">
+            <li>
+              The main stylesheet used CSS <code>@import</code> to pull in Font
+              Awesome and Google Fonts - invisible to the browser's preload
+              scanner, turning three parallelizable requests into a serial
+              chain.
+            </li>
+            <li>
+              Font Awesome was resolving to the wrong path and silently 404ing,
+              likely for a long time before this audit surfaced it.
+            </li>
+            <li>
+              Every static asset was capped at a flat 4-hour browser cache TTL
+              by a Cloudflare dashboard override, with no origin-level way to
+              fix it since GitHub Pages doesn't expose server config.
+            </li>
+            <li>
+              Custom fonts had no <code>font-display</code> set, letting the
+              browser hide text and icons entirely while they downloaded.
+            </li>
+            <li>
+              A consistent ~330-340ms cross-domain request to a second domain
+              had no obvious explanation from the audit alone.
+            </li>
+          </ul>
+          <p>
+            And underneath all of it: five separate analytics and tracking tools
+            running at once, each one its own script, its own request, and its
+            own share of main-thread contention.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The decision log</h2>
+          <p>
+            Two of these fixes made things worse before they made things better.
+            Both regressions are documented here alongside the fixes, because
+            the wrong turn is the more useful part to remember.
+          </p>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 1: Move the imports into HTML, not into JavaScript
+            </div>
+            <p>
+              The fix for the serial CSS chain was straightforward on paper -
+              replace the <code>@import</code> lines with direct
+              <code>&lt;link rel="stylesheet"&gt;</code> tags in the HTML head,
+              plus preconnect hints for the font domains, so the browser could
+              discover and fetch all three stylesheets in parallel from the
+              start. The first attempt moved those
+              <code>&lt;link&gt;</code> tags into a JS file instead, injecting
+              them via <code>document.createElement</code> - convenient to
+              write, and a real regression to ship. A script-injected
+              <code>&lt;link&gt;</code> isn't visible to the browser until the
+              script itself downloads, parses, and executes, which delayed
+              discovery later than the original <code>@import</code> chain in
+              some respects and caused a visible re-paint once styles landed
+              late. Anything affecting first paint belongs in raw HTML, not
+              JS-injected markup - JS injection is fine for things that don't
+              affect the initial render, like lang attributes, meta tags, and
+              analytics scripts.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 2: Verify the asset actually loads, don't assume it does
+            </div>
+            <p>
+              Pulling the <code>@import</code> chain apart surfaced a second,
+              unrelated bug: the Font Awesome path resolved to
+              <code>/css/fontawesome-all.min.css</code>, but the file actually
+              lived at <code>/assets/css/fontawesome-all.min.css</code>. Since
+              <code>@import</code> failures don't always throw the same loud
+              console error a <code>&lt;link&gt;</code> tag does under strict
+              MIME checking, this had likely been silently broken - icons
+              invisible - for a while before this audit made it visible. The fix
+              was a corrected, root-relative path reference. The habit worth
+              keeping: confirm a broken asset reference via direct testing
+              rather than assuming a page that "looks fine" is actually loading
+              everything it references.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 3: Respecting existing headers isn't the same as setting
+              good ones
+            </div>
+            <p>
+              Cloudflare's Browser Cache TTL dashboard setting was overriding
+              whatever the origin sent, at a flat 4 hours - meaning near-total
+              re-download on any repeat visit within half a day. The first
+              attempt switched that setting to "Respect Existing Headers"
+              without first setting up rules to inject a better
+              <code>Cache-Control</code> value, which just let Cloudflare pass
+              through GitHub Pages' own default of <code>max-age=600</code> -
+              ten minutes, worse than the original override. The actual fix was
+              two Cloudflare Transform Rules matching by URI path ending in
+              <code>.css</code>/<code>.js</code> (a year, immutable, since those
+              are versioned via <code>?v=</code> query strings) and
+              <code>.jpg</code>/<code>.png</code>/<code>.webp</code>/<code
+                >.woff2</code
+              >
+              (30 days), combined with "Respect Existing Headers" so the
+              Transform Rules' values actually take effect instead of either
+              extreme.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 4: One line for hosted fonts, a different line for
+              self-hosted ones
+            </div>
+            <p>
+              Missing <code>font-display: swap</code> meant the browser could
+              hide text and icons entirely while custom fonts downloaded. For
+              Google Fonts, the fix was appending
+              <code>&amp;display=swap</code> to the stylesheet URL. For the
+              self-hosted, minified Font Awesome file, there's no single
+              declaration to edit - the fix was a targeted <code>sed</code> pass
+              injecting <code>font-display:swap;</code> into every
+              <code>@font-face</code> block in the minified CSS.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 5: Track down the mystery request before assuming it's a
+              problem
+            </div>
+            <p>
+              The consistent cross-domain request turned out to be a self-hosted
+              Matomo analytics instance on a second domain, loading a tracking
+              script and pixel - legitimate and intentional, just not obvious
+              from the audit alone. The fix wasn't removing it, since it's a
+              real, wanted analytics tool; it was adding a preconnect hint to
+              warm the connection ahead of time, in raw HTML rather than
+              JS-injected, for the same first-paint-adjacent reasons as decision
+              1, just with lower stakes since it doesn't affect visual render.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Score timeline</h2>
+          <div class="table-wrapper">
+            <table class="security-table">
+              <thead>
+                <tr>
+                  <th>Score</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>71</td>
+                  <td>
+                    Starting point - Font Awesome silently broken the whole time
+                  </td>
+                </tr>
+                <tr>
+                  <td>51</td>
+                  <td>
+                    After moving CSS links into JS-injected
+                    <code>header.js</code>
+                    (regression)
+                  </td>
+                </tr>
+                <tr>
+                  <td>59</td>
+                  <td>Partial recovery</td>
+                </tr>
+                <tr>
+                  <td>70</td>
+                  <td>
+                    After fixing the Font Awesome path and confirming the
+                    render-blocking chain clean
+                  </td>
+                </tr>
+                <tr>
+                  <td>59-53</td>
+                  <td>
+                    Run-to-run lab variance, confirmed via repeated, unchanged
+                    audits
+                  </td>
+                </tr>
+                <tr>
+                  <td>15.0s LCP</td>
+                  <td>
+                    One anomalous outlier run - page verified reachable and fast
+                    via direct fetch immediately after, not reproduced as a
+                    steady-state issue
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>What this actually took</h2>
+          <p>
+            None of the individual fixes were large - a handful of
+            <code>&lt;link&gt;</code> tags, two Transform Rules, a corrected
+            path, a <code>sed</code> command. What took longer was resisting the
+            urge to trust a single composite score. A 10-15 point swing across
+            consecutive, unchanged audits looks alarming until three or four
+            repeat runs show the same underlying issue every time - at which
+            point the swing is measurement noise, not a regression, and the
+            individual metrics (LCP, FCP, TBT, CLS) are the more reliable signal
+            than the composite number.
+          </p>
+          <p>
+            Diagnosing render-blocking chains, cache configuration, and
+            asset-loading regressions like these falls under
+            <a href="/web-digital.html">Web &amp; Digital</a> work - the same
+            discipline applied here to this site's own front end.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>
+            Why did fixing performance make the score worse before it got
+            better?
+          </h3>
+          <p>
+            Because the first attempt at the fix - moving stylesheet links into
+            a JS file instead of raw HTML - solved the discovery problem for the
+            browser's preload scanner while creating a worse one: nothing about
+            styling was visible until the script itself finished loading.
+            Anything on the critical rendering path needs to stay in static
+            HTML.
+          </p>
+
+          <h3>Why can't cache headers be set directly on GitHub Pages?</h3>
+          <p>
+            GitHub Pages doesn't expose origin-level server configuration - no
+            <code>.htaccess</code> or equivalent. If a site is proxied through
+            Cloudflare, caching has to be solved at the edge, using Transform
+            Rules or Cache Response Rules, not at the origin.
+          </p>
+
+          <h3>Is a single anomalous LCP reading something to worry about?</h3>
+          <p>
+            Not on its own. Lab-based audits have real run-to-run variance from
+            server jitter and simulated throttling inconsistency, even with zero
+            code changes. It's worth running an audit three or more times and
+            checking whether the same underlying issue shows up consistently
+            before treating one outlier reading as a real regression.
+          </p>
+
+          <h3>How many analytics tools is too many?</h3>
+          <p>
+            There's no fixed number, but each additional tracker is main-thread
+            contention and network weight that compounds - even when no single
+            tool is individually "the problem." Five separate tools running at
+            once on one site is a reasonable trigger to start asking which ones
+            are actually still needed.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Not sure what's actually slowing your site down?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              A composite score rarely tells the whole story. A short
+              conversation is usually enough to tell whether there's a quick fix
+              or something deeper worth tracing.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="/contact.html" class="button big wide alt"
+                  >Get a Performance Audit</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
+      <script
+        src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3"
+        defer></script>
+      <script
+        src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c"
+        defer></script>
+      <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
+      <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
+      <script src="/assets/js/main.js?v=4b0bd6ba6f" defer></script>
+      <script src="/assets/js/footer-min.js?v=7934698606" defer></script>
+      <scott-footer
+        description="A mobile PageSpeed audit uncovered a silently broken stylesheet path, a Cloudflare cache ceiling, and one well-intentioned fix that made the score worse first."></scott-footer>
+    </div>
+  </body>
+</html>

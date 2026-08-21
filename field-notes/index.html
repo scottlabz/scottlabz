@@ -127,6 +127,12 @@
               "position": 12,
               "name": "The Address We Took Out of the Schema",
               "url": "https://scottlabz.com/field-notes/the-address-we-took-out-of-the-schema.html"
+            },
+            {
+              "@type": "Article",
+              "position": 13,
+              "name": "The Fix That Dropped the Score First",
+              "url": "https://scottlabz.com/field-notes/the-fix-that-dropped-the-score-first.html"
             }
           ]
         }
@@ -154,7 +160,7 @@
         top: 0;
         width: 6px;
         height: 100%;
-        background: #1e3a5f;
+        background: var(--accent, #1e3a5f);
       }
       .service-content h3 {
         font-size: 1.05rem;
@@ -186,6 +192,57 @@
 
       .fn-card-link:hover .fa-arrow-right {
         transform: translateX(4px);
+      }
+
+      .fn-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+
+      .fn-grid .fn-card-link {
+        height: 100%;
+      }
+
+      .fn-grid .fn-card-link .section-block {
+        height: 100%;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem 1.5rem 1.5rem 2rem;
+      }
+
+      .fn-grid h2 {
+        font-size: 1.02rem;
+        line-height: 1.35;
+        margin-bottom: 0.6rem;
+        padding-right: 1.4rem;
+      }
+
+      .fn-grid p {
+        font-size: 0.82rem;
+        line-height: 1.55;
+      }
+
+      .fn-card-icon {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 0.8rem;
+        color: var(--accent, #1e3a5f);
+        opacity: 0.55;
+      }
+
+      @media screen and (max-width: 980px) {
+        .fn-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media screen and (max-width: 640px) {
+        .fn-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -244,7 +301,8 @@
       <main
         class="service-content"
         id="first"
-        style="max-width: 900px; margin: 0 auto; padding: 4rem 1.5rem">
+        style="max-width: 1180px; margin: 0 auto; padding: 4rem 1.5rem">
+        <div class="fn-grid">
         <a
           href="gtm-container-autopsy.html"
           class="fn-card-link"
@@ -254,13 +312,11 @@
             display: block;
             cursor: pointer;
           ">
-          <section class="section-block">
+          <section class="section-block" style="--accent: #1e3a5f">
+            <i class="fas fa-arrow-right fn-card-icon"></i>
             <h2>The Tag Container Autopsy</h2>
             <p>
-              A real walkthrough of diagnosing a broken measurement setup - what
-              was double-firing, what was dead, and the exact reasoning behind
-              every decision made to fix it. &nbsp;&nbsp;
-              <i class="fas fa-arrow-right"></i>
+              What was double-firing, what was dead, and why.
             </p>
           </section>
         </a>
@@ -274,13 +330,12 @@
             display: block;
             cursor: pointer;
           ">
-          <section class="section-block">
-            <h2>What Businesses Get Wrong About Their Website Data</h2>
+          <section class="section-block" style="--accent: #0e7490">
+            <i class="fas fa-arrow-right fn-card-icon"></i>
+            <h2>What Businesses Get Wrong</h2>
             <p>
-              Patterns seen across small and mid-size business sites - what's
-              usually missing from their measurement setups, and what it quietly
-              costs. &nbsp;&nbsp;
-              <i class="fas fa-arrow-right"></i>
+              What's usually missing from small business measurement, and
+              what it costs.
             </p>
           </section>
         </a>
@@ -294,13 +349,12 @@
             display: block;
             cursor: pointer;
           ">
-          <section class="section-block">
+          <section class="section-block" style="--accent: #7c2d92">
+            <i class="fas fa-arrow-right fn-card-icon"></i>
             <h2>The Cloudflare 7003 Diagnosis</h2>
             <p>
-              A real walkthrough of tracking down a silent deploy failure - a
-              routing error, a bad secret, and an exposed token that had to be
-              found and revoked. &nbsp;&nbsp;
-              <i class="fas fa-arrow-right"></i>
+              A silent deploy failure - a routing error, a bad secret, an
+              exposed token.
             </p>
           </section>
         </a>
@@ -314,13 +368,12 @@
             display: block;
             cursor: pointer;
           ">
-          <section class="section-block">
+          <section class="section-block" style="--accent: #b45309">
+            <i class="fas fa-arrow-right fn-card-icon"></i>
             <h2>The Schema Drift Problem</h2>
             <p>
-              Canonical tags, Open Graph URLs, and JSON-LD quietly
-              disagreeing with each other across a dozen pages - and how the
-              sitemap became the tiebreaker. &nbsp;&nbsp;
-              <i class="fas fa-arrow-right"></i>
+              Canonical tags, Open Graph, and JSON-LD quietly disagreeing
+              across a dozen pages.
             </p>
           </section>
         </a>
@@ -334,13 +387,12 @@
             display: block;
             cursor: pointer;
           ">
-          <section class="section-block">
-            <h2>The Slowly Changing Dimension Trap</h2>
+          <section class="section-block" style="--accent: #15803d">
+            <i class="fas fa-arrow-right fn-card-icon"></i>
+            <h2>The SCD Trap</h2>
             <p>
-              A Type 2 dimension that was only wrong on the days something
-              actually changed - a classic boundary bug that no schema test
-              was ever going to catch. &nbsp;&nbsp;
-              <i class="fas fa-arrow-right"></i>
+              A Type 2 dimension only wrong on the days something actually
+              changed.
             </p>
           </section>
         </a>
@@ -354,13 +406,11 @@
             display: block;
             cursor: pointer;
           ">
-          <section class="section-block">
+          <section class="section-block" style="--accent: #be123c">
+            <i class="fas fa-arrow-right fn-card-icon"></i>
             <h2>The Semantic Drift Problem</h2>
             <p>
-              Active Users jumped with no schema change and no SQL change -
-              because what counted as "active" had quietly moved somewhere
-              the warehouse couldn't see. &nbsp;&nbsp;
-              <i class="fas fa-arrow-right"></i>
+              Active Users jumped with no schema or SQL change behind it.
             </p>
           </section>
         </a>
@@ -374,13 +424,12 @@
             display: block;
             cursor: pointer;
           ">
-          <section class="section-block">
+          <section class="section-block" style="--accent: #4338ca">
+            <i class="fas fa-arrow-right fn-card-icon"></i>
             <h2>The Contract Nobody Signed</h2>
             <p>
-              Three different bugs, one missing thing in common - what data
-              contracts actually need to cover, and why most teams skip them
-              until it's too late. &nbsp;&nbsp;
-              <i class="fas fa-arrow-right"></i>
+              Three different bugs, one missing thing in common: a data
+              contract.
             </p>
           </section>
         </a>
@@ -394,13 +443,11 @@
             display: block;
             cursor: pointer;
           ">
-          <section class="section-block">
+          <section class="section-block" style="--accent: #0f766e">
+            <i class="fas fa-arrow-right fn-card-icon"></i>
             <h2>100vh Isn't What You Think</h2>
             <p>
-              Why a full-height hero cuts off its own CTA button on mobile
-              Safari, what the unit actually measures, and the one-line fix
-              that fixes it for good. &nbsp;&nbsp;
-              <i class="fas fa-arrow-right"></i>
+              Why a full-height hero cuts off its own CTA on mobile Safari.
             </p>
           </section>
         </a>
@@ -414,13 +461,12 @@
             display: block;
             cursor: pointer;
           ">
-          <section class="section-block">
+          <section class="section-block" style="--accent: #9333ea">
+            <i class="fas fa-arrow-right fn-card-icon"></i>
             <h2>The Specificity Trap</h2>
             <p>
-              A shared brand style quietly shrank to body-text size on eight
-              pages - not from a missing class, but from a page rule that
-              outweighed it on specificity. &nbsp;&nbsp;
-              <i class="fas fa-arrow-right"></i>
+              A shared brand style quietly shrank on eight pages - a
+              specificity fight, not a missing class.
             </p>
           </section>
         </a>
@@ -434,14 +480,11 @@
             display: block;
             cursor: pointer;
           ">
-          <section class="section-block">
-            <h2>HTTP Response Headers, Read Properly</h2>
+          <section class="section-block" style="--accent: #c2410c">
+            <i class="fas fa-arrow-right fn-card-icon"></i>
+            <h2>HTTP Headers, Read Properly</h2>
             <p>
-              A real header audit on a live site - a CSP that wasn't naming
-              its own origins, HTML and static assets sharing one cache
-              rule, and the one directive left alone on purpose.
-              &nbsp;&nbsp;
-              <i class="fas fa-arrow-right"></i>
+              A live header audit - a CSP not naming its own origins.
             </p>
           </section>
         </a>
@@ -455,13 +498,12 @@
             display: block;
             cursor: pointer;
           ">
-          <section class="section-block">
+          <section class="section-block" style="--accent: #0369a1">
+            <i class="fas fa-arrow-right fn-card-icon"></i>
             <h2>The Purge That Only Ran Manually</h2>
             <p>
-              A cache-purge workflow passed every run for months without
-              ever actually firing on its own - and the audit log detail
-              that gave it away. &nbsp;&nbsp;
-              <i class="fas fa-arrow-right"></i>
+              A cache-purge workflow passed every run without ever actually
+              firing.
             </p>
           </section>
         </a>
@@ -475,16 +517,35 @@
             display: block;
             cursor: pointer;
           ">
-          <section class="section-block">
-            <h2>The Address We Took Out of the Schema</h2>
+          <section class="section-block" style="--accent: #a21caf">
+            <i class="fas fa-arrow-right fn-card-icon"></i>
+            <h2>The Address We Removed</h2>
             <p>
-              A client's schema was quietly publishing a stale address,
-              precise coordinates, and a fake 24-hour claim - correcting
-              it wasn't the right call. Removing it was. &nbsp;&nbsp;
-              <i class="fas fa-arrow-right"></i>
+              A stale address, precise coordinates, a fake 24-hour claim -
+              removing beat correcting.
             </p>
           </section>
         </a>
+
+        <a
+          href="the-fix-that-dropped-the-score-first.html"
+          class="fn-card-link"
+          style="
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+          ">
+          <section class="section-block" style="--accent: #1d4ed8">
+            <i class="fas fa-arrow-right fn-card-icon"></i>
+            <h2>The Fix That Dropped the Score First</h2>
+            <p>
+              A mobile PageSpeed audit that dropped before it improved -
+              and why.
+            </p>
+          </section>
+        </a>
+        </div>
       </main>
 
       <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
