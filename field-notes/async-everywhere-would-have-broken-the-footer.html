@@ -1,0 +1,453 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>Async Everywhere Would Have Broken the Footer | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="A site-wide script-loading audit split real order-independent scripts from order-dependent ones - and why marking everything async was the wrong instinct." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/main-min.css?v=d6547819f7" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript-min.css?v=30b0cb2b12" />
+    </noscript>
+
+    <script src="/assets/js/header-min.js?v=5f6243616a" async></script>
+    <script src="/assets/js/favicon-min.js?v=d2e76e98d0" async></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/async-everywhere-would-have-broken-the-footer.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/async-everywhere-would-have-broken-the-footer.html",
+        "headline": "Async Everywhere Would Have Broken the Footer",
+        "description": "A site-wide script-loading audit split real order-independent scripts from order-dependent ones - and why marking everything async was the wrong instinct.",
+        "url": "https://scottlabz.com/field-notes/async-everywhere-would-have-broken-the-footer.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="Async Everywhere Would Have Broken the Footer | Scott Labz" />
+    <meta
+      property="og:description"
+      content="A site-wide script-loading audit split real order-independent scripts from order-dependent ones - and why marking everything async was the wrong instinct." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/async-everywhere-would-have-broken-the-footer.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+      .service-content h3 {
+        font-size: 1.05rem;
+        color: #1e3a5f;
+      }
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+      .security-table {
+        table-layout: fixed;
+      }
+      .security-table th:first-child,
+      .security-table td:first-child {
+        width: 24%;
+      }
+      .security-table th,
+      .security-table td {
+        font-size: 0.85rem;
+      }
+      .security-table code {
+        white-space: normal;
+        word-break: break-word;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="/index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.png"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">
+            Async Everywhere Would Have Broken the Footer<br />
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
+            <strong>A site-wide script tag audit</strong> across every page -
+            and the one script that had to stay exactly where the rule said it
+            shouldn't go.
+          </h1>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            "Use <code>async</code> for order-independent stuff, use
+            <code>defer</code> for anything that needs the DOM or a specific
+            order" is a correct rule almost everywhere. Applying it mechanically
+            to every <code>&lt;script&gt;</code> tag on a real site is a
+            different exercise, because a handful of scripts don't announce
+            which category they're in just from what they do.
+          </p>
+          <p>
+            This is that audit, across every real page on this site - what got
+            reclassified, what stayed exactly as it was, and the one script
+            where the obvious-looking answer was wrong.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The starting point</h2>
+          <p>
+            Real content pages, each loading the same set of scripts:
+            <code>header-min.js</code> and <code>favicon-min.js</code> in the
+            head, then <code>jquery.min.js</code>, two jQuery plugins,
+            <code>browser.min.js</code>, <code>breakpoints.min.js</code>,
+            <code>main.js</code>, and <code>footer-min.js</code> before the
+            closing tag. The second group was already consistently marked
+            <code>defer</code> on every page. The first group wasn't -
+            <code>header-min.js</code> and <code>favicon-min.js</code> had no
+            loading attribute at all on most pages, and <code>defer</code> on a
+            handful of others, with no pattern explaining the difference.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What the audit found</h2>
+          <ul class="alt">
+            <li>
+              <code>favicon-min.js</code> only appends
+              <code>&lt;link rel="icon"&gt;</code> tags to the head - zero
+              rendering impact, zero dependency on the DOM body, zero dependency
+              on any other script. A clean <code>async</code>
+              candidate.
+            </li>
+            <li>
+              <code>header-min.js</code> injects preconnect hints and the Font
+              Awesome / Google Fonts stylesheet links - not a tracker, but still
+              order-independent relative to every other script on the page, and
+              with no DOM-readiness requirement of its own.
+            </li>
+            <li>
+              <code>jquery.min.js</code> through <code>footer-min.js</code> form
+              a real dependency chain: the jQuery plugins need jQuery defined
+              first, <code>main.js</code> reads globals that
+              <code>browser.js</code> and <code>breakpoints.js</code> set up,
+              and <code>footer-min.js</code> registers the
+              <code>&lt;scott-footer&gt;</code> custom element that's already
+              sitting in every page's HTML by the time these scripts run.
+            </li>
+            <li>
+              The inline Google Tag Manager snippet has no
+              <code>src</code> attribute at all, so <code>async</code> and
+              <code>defer</code> don't apply to it either way - it already
+              handles its own asynchronous loading internally by setting
+              <code>.async = true</code> on the <code>gtm.js</code> element it
+              creates at runtime.
+            </li>
+          </ul>
+        </section>
+
+        <section class="section-block">
+          <h2>The decision log</h2>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 1: favicon-min.js gets async, no second-guessing
+            </div>
+            <p>
+              This one wasn't close. Favicon links don't affect layout, paint,
+              or any other script's behavior. There's no scenario where this
+              script running slightly later or slightly out of order changes
+              anything a visitor sees.
+              <code>async</code>, across all pages.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 2: header-min.js gets async, not defer
+            </div>
+            <p>
+              This is the one that looked like it should be
+              <code>defer</code> at first glance - it touches the head, and
+              "touches the head" reads a lot like "needs to be careful about
+              timing." But <code>defer</code> specifically means "wait until the
+              entire document has finished parsing," and this script injects the
+              Font Awesome and Google Fonts stylesheet links. Pushing that
+              injection until after the whole page has parsed is the exact
+              regression documented in
+              <a href="/field-notes/the-fix-that-dropped-the-score-first.html"
+                >a previous audit on this site</a
+              >
+              - it dropped the mobile PageSpeed score from 71 to 51 the last
+              time a font-related script got delayed like that.
+              <code>async</code> keeps the parser unblocked without pushing the
+              injection all the way to the end of the document.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 3: leave the jQuery-to-footer chain exactly as it was
+            </div>
+            <p>
+              These six scripts were already correctly marked
+              <code>defer</code> on every page, and that was worth confirming
+              rather than assuming. <code>defer</code> scripts execute in the
+              order they appear in the document, right before
+              <code>DOMContentLoaded</code> - which is precisely what this chain
+              needs, since each script after the first one depends on something
+              the previous one set up. Marking any of these
+              <code>async</code> would let the browser run them in whatever
+              order they finish downloading, which for a same-origin set of
+              small files could easily mean <code>main.js</code> running before
+              <code>browser.js</code> has set the values it reads.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 4: don't add attributes to the inline GTM snippet
+            </div>
+            <p>
+              The GTM bootstrap script has no <code>src</code>, and per the HTML
+              spec, <code>async</code> and <code>defer</code> have no effect on
+              a classic script without one - browsers ignore them on inline
+              scripts. Adding either would be a no-op at best, and worth
+              documenting as a no-op rather than leaving it to look like an
+              oversight.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Before and after</h2>
+          <div class="table-wrapper">
+            <table class="security-table">
+              <thead>
+                <tr>
+                  <th>Script</th>
+                  <th>Before</th>
+                  <th>After</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>header-min.js</code></td>
+                  <td>
+                    No attribute on most pages, <code>defer</code> on a few
+                  </td>
+                  <td><code>async</code>, consistent across all pages</td>
+                </tr>
+                <tr>
+                  <td><code>favicon-min.js</code></td>
+                  <td>
+                    No attribute on most pages, <code>defer</code> on a few
+                  </td>
+                  <td><code>async</code>, consistent across all pages</td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>jquery.min.js</code> through
+                    <code>footer-min.js</code>
+                  </td>
+                  <td><code>defer</code>, in document order</td>
+                  <td>Unchanged - already correct</td>
+                </tr>
+                <tr>
+                  <td>Inline GTM bootstrap</td>
+                  <td>No <code>src</code>, no attribute</td>
+                  <td>Unchanged - attributes don't apply</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>What this actually took</h2>
+          <p>
+            A regex across all HTML files, two of which turned out to be
+            directory placeholders with no scripts to touch at all. The actual
+            work was smaller than the checking: confirming every
+            <code>&lt;script src&gt;</code> tag site-wide ended up with exactly
+            one loading attribute, that no tag picked up a duplicate, and that
+            every embedded JSON-LD block still parsed after the sweep. None of
+            that shows up in a diff - it's the difference between a change that
+            looks done and one that's actually verified. Auditing script-loading
+            behavior like this falls under
+            <a href="/web-digital.html">Web &amp; Digital</a> work, the same
+            practice applied here to this site's own script tags.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>
+            Why not just mark every script async and let the browser sort it
+            out?
+          </h3>
+          <p>
+            Because "sort it out" is exactly what <code>async</code> doesn't
+            guarantee - it explicitly gives up execution order between scripts.
+            For scripts with real dependencies, like a plugin that needs its
+            library loaded first, that's not a performance optimization, it's a
+            race condition.
+          </p>
+
+          <h3>
+            How do you tell if a script actually needs defer instead of async?
+          </h3>
+          <p>
+            Ask two questions: does it read or rely on something another script
+            sets up, and does it need the page's HTML to be fully parsed before
+            it runs. A yes to either points to
+            <code>defer</code>. A no to both, and no rendering impact either
+            way, points to <code>async</code>.
+          </p>
+
+          <h3>Does the order of async scripts in the HTML matter at all?</h3>
+          <p>
+            Not for execution order between them - that's determined by
+            whichever one finishes downloading first, not by document position.
+            Position still matters for readability and for where the browser
+            discovers the tag during parsing, just not for the order the scripts
+            actually run in.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Not sure which of your own scripts are actually safe to make
+              async?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              A short conversation is usually enough to map out which scripts
+              have real dependencies and which ones don't.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="/contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
+      <script
+        src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3"
+        defer></script>
+      <script
+        src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c"
+        defer></script>
+      <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
+      <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
+      <script src="/assets/js/main.js?v=4b0bd6ba6f" defer></script>
+      <script src="/assets/js/footer-min.js?v=7934698606" defer></script>
+      <scott-footer
+        description="A site-wide script-loading audit split real order-independent scripts from order-dependent ones - and why marking everything async was the wrong instinct."></scott-footer>
+    </div>
+  </body>
+</html>
