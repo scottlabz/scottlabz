@@ -44,6 +44,15 @@
     head.appendChild(preconnectGstatic);
   }
 
+  if (
+    !head.querySelector('link[rel="preconnect"][href="https://scottlabz.net"]')
+  ) {
+    const preconnectMatomo = document.createElement("link");
+    preconnectMatomo.rel = "preconnect";
+    preconnectMatomo.href = "https://scottlabz.net";
+    head.appendChild(preconnectMatomo);
+  }
+
   if (!head.querySelector('link[href="/assets/css/fontawesome-all.min.css"]')) {
     const fontAwesome = document.createElement("link");
     fontAwesome.rel = "stylesheet";
@@ -59,7 +68,7 @@
     const googleFonts = document.createElement("link");
     googleFonts.rel = "stylesheet";
     googleFonts.href =
-      "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i";
+      "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i&display=swap";
     head.appendChild(googleFonts);
   }
 
