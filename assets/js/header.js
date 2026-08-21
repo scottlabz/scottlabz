@@ -47,7 +47,7 @@
   if (!head.querySelector('link[href="/assets/css/fontawesome-all.min.css"]')) {
     const fontAwesome = document.createElement("link");
     fontAwesome.rel = "stylesheet";
-    fontAwesome.href = "css/fontawesome-all.min.css";
+    fontAwesome.href = "/assets/css/fontawesome-all.min.css";
     head.appendChild(fontAwesome);
   }
 
