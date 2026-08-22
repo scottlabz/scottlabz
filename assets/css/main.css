@@ -196,6 +196,11 @@ body {
     color 0.25s ease;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* ==========================================
    3. LOGO RECOLOR (DARK MODE)
    ========================================== */
@@ -3896,7 +3901,7 @@ body.is-preload .banner.onload-image-fade-in .image img {
     -webkit-flex-direction: column-reverse;
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
-    text-align: center;
+    text-align: left;
   }
 
   .banner.style1 .content {
@@ -5381,7 +5386,7 @@ body.is-preload .spotlight.onload-image-fade-in .image img {
     -webkit-flex-direction: column-reverse;
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
-    text-align: center !important;
+    text-align: left !important;
   }
 
   .spotlight.style1 .content {
@@ -7348,6 +7353,16 @@ body.is-preload .gallery.onload-fade-in article .image img {
   }
 }
 
+@media screen and (max-width: 736px) {
+  /* Horizontal-scroll filmstrip on mobile too, matching desktop. Caption is
+     otherwise :hover-only, which never triggers on touch, so force it
+     visible here instead of requiring a hover that can't happen. */
+  .gallery.style2 article .caption {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
 .gallery.style2.small article {
   width: 17.5rem;
 }
@@ -8237,6 +8252,31 @@ body.is-preload .items.onload-fade-in > * > .inner {
   }
 }
 
+@media screen and (max-width: 736px) {
+  /* index.html's "Scalable Data Precision" section (#scalable-precision) -
+     stack to single-column earlier than the theme default (480px), since
+     two-up still felt cramped/side-by-side at phone widths. */
+  #scalable-precision .items.style1.medium > * {
+    width: 100%;
+    border-left-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #scalable-precision .items.style1.medium > :not(:first-child) {
+    border-top-width: 1px;
+  }
+
+  #scalable-precision .items.style1.medium > :first-child {
+    border-top-width: 0;
+    padding-top: 0;
+  }
+
+  #scalable-precision .items.style1.medium > :last-child {
+    padding-bottom: 0;
+  }
+}
+
 /* Items (style2) */
 
 .items.style2 {
@@ -9046,6 +9086,10 @@ body.is-preload .items.onload-fade-in > * > .inner {
   footer .icons {
     justify-content: flex-start !important;
   }
+
+  #footer-social-groups {
+    justify-content: flex-start !important;
+  }
 }
 
 .case-study-button {
@@ -9650,4 +9694,33 @@ body.is-preload .items.onload-fade-in > * > .inner {
   border: 1px solid #dbe5ee;
   overflow: hidden;
   margin-bottom: 3rem;
+}
+
+/* services.html: the auto-fit(minmax(320px,...)) and fixed 2-col grids
+   force a hard minimum column width wider than a mobile viewport, causing
+   horizontal overflow - collapse both to a single column below 736px. */
+@media screen and (max-width: 736px) {
+  /* services.html's .inner has an inline max-width:1300px (wider than the
+     theme's default responsive max-width:100%), which let it overflow the
+     viewport on mobile instead of shrinking - restore the cap below 736px. */
+  .svc-inner {
+    max-width: 100% !important;
+  }
+
+  .svc-grid,
+  .svc-grid-2col {
+    /* minmax(0, 1fr), not bare 1fr - a grid item's default min-width:auto
+       still forces the track to its content's min-content width otherwise,
+       which is exactly what caused the horizontal overflow here. */
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* Closing CTA banner images (about/faq/landing/contact/industries): the
+   width:100% inline style with no height:auto let some browsers keep the
+   HTML height attribute as a literal pixel height, stretching the image
+   instead of scaling it proportionally. */
+.cta-banner-img {
+  width: 100%;
+  height: auto;
 }
