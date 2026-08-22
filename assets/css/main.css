@@ -9109,10 +9109,13 @@ body.is-preload .items.onload-fade-in > * > .inner {
   display: inline-block;
 }
 
-/* BBB seal (footer). Replicates the sizing/hover CSS that BBB's legacy.js
-   widget would normally inject via document.write() - that script can't be
-   used here because the footer is injected by JS well after the page has
-   finished parsing, and document.write() called that late wipes the page. */
+/* BBB seals (footer + markets pages). Replicates the sizing/hover CSS that
+   BBB's legacy.js widget would normally inject via document.write(). We
+   don't load that script at all: the footer builds its markup via JS well
+   after the page has parsed, where document.write() would wipe the whole
+   page, and on the markets pages the site's CSP script-src doesn't allow
+   seal-heartofillinois.bbb.org, so the script is silently blocked there
+   anyway (it loaded fine in local dev only because dev has no CSP header). */
 #bbblink.ruhzbum {
   display: block;
   position: relative;
@@ -9135,6 +9138,29 @@ body.is-preload .items.onload-fade-in > * > .inner {
 }
 #bbblink.ruhzbum:hover img {
   margin-left: -150px;
+}
+#bbblink.ruvtbul {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  color: #005a78;
+  margin: 0;
+  padding: 0;
+  width: 80px;
+  height: 144px;
+}
+#bbblink.ruvtbul img {
+  border: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 0;
+  max-width: 200%;
+}
+#bbblink.ruvtbul:hover img {
+  margin-left: -80px;
 }
 
 /* Tablet and mobile: a two-column tier here paired the tall brand column
