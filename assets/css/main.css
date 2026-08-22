@@ -9109,6 +9109,34 @@ body.is-preload .items.onload-fade-in > * > .inner {
   display: inline-block;
 }
 
+/* BBB seal (footer). Replicates the sizing/hover CSS that BBB's legacy.js
+   widget would normally inject via document.write() - that script can't be
+   used here because the footer is injected by JS well after the page has
+   finished parsing, and document.write() called that late wipes the page. */
+#bbblink.ruhzbum {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  color: #005a78;
+  margin: 0;
+  padding: 0;
+  width: 150px;
+  height: 69px;
+}
+#bbblink.ruhzbum img {
+  border: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 0;
+  max-width: 200%;
+}
+#bbblink.ruhzbum:hover img {
+  margin-left: -150px;
+}
+
 /* Tablet and mobile: a two-column tier here paired the tall brand column
    (logo + tagline + two badge images) against short nav-link columns in
    the same flex row, leaving a large uneven gap under the shorter column.

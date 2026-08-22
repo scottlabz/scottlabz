@@ -53,28 +53,20 @@ class ScottFooter extends HTMLElement {
               ">
 
                 <li style="display:flex;align-items:center;">
-                  
+
                     <a href="https://www.bbb.org/us/il/normal/profile/data-analytics/scott-labz-0724-1000039342/#sealclick"
+                    id="bbblink"
+                    class="ruhzbum"
                     target="_blank"
                     rel="nofollow"
-                    style="
-                      border-bottom:none;
-                      display:flex;
-                      align-items:center;
-                    "
+                    style="border-bottom:none;"
                   >
                     <img
-                      id="footer-bbb-img"
-                      src="https://seal-heartofillinois.bbb.org/seals/blue-seal-120-61-bbb-1000039342.png"
-                      width="137"
-                      height="70"
+                      src="https://seal-heartofillinois.bbb.org/logo/ruhzbum/bbb-1000039342.png"
+                      width="300"
+                      height="68"
                       alt="Scott Labz BBB Business Review"
                       title="Scott Labz BBB Business Review"
-                      style="
-                        border: 0;
-                        width:auto;
-                        height:100%;
-                      "
                     >
                   </a>
                 </li>
