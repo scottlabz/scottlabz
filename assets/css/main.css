@@ -396,6 +396,10 @@ h6 {
 .brand-mark a {
   color: inherit;
   text-decoration: none;
+  /* Without this, the anchor's own box (the actual touch target) doesn't
+     expand to contain the taller logo image inside it - measures well
+     under 24px tall despite the visible logo being much bigger. */
+  display: inline-block;
 }
 
 h1.major {
@@ -2819,6 +2823,16 @@ input[type="radio"]:focus + label:before {
   width: 2.75em;
 }
 
+a.icon.style2 {
+  /* Without this, the anchor's own box (the actual touch target) doesn't
+     expand to contain the circular icon glyph rendered via :before -
+     measures well under 24px tall despite the visible circle being much
+     bigger. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .icon.major {
   display: block;
   margin: 0 0 1rem 0;
@@ -2952,6 +2966,14 @@ ul.alt li {
   border-top-color: rgba(0, 0, 0, 0.2);
 }
 
+ul.alt li a {
+  /* Link-list items (e.g. bbb.html's credential links) otherwise render
+     under 24px tall - the existing 1rem li padding already keeps adjacent
+     items well spaced. */
+  display: inline-block;
+  padding: 0.2rem 0;
+}
+
 ul.alt li:first-child {
   border-top: 0;
   padding-top: 0;
@@ -3003,6 +3025,13 @@ ul.actions {
 ul.actions li {
   padding: 0 0 0 1rem;
   vertical-align: middle;
+}
+
+ul.actions li a:has(> .button) {
+  /* Without this, the anchor's own box (the actual touch target) doesn't
+     expand to contain the taller styled .button span inside it - measures
+     well under 24px tall despite the visible button being much bigger. */
+  display: inline-block;
 }
 
 ul.actions.special {
@@ -7273,6 +7302,7 @@ body.is-preload .gallery.onload-fade-in article .image img {
   display: block;
   width: 100%;
   border-radius: 0;
+  object-fit: cover;
 }
 
 .gallery.style2 article .image img {
@@ -9063,6 +9093,22 @@ body.is-preload .items.onload-fade-in > * > .inner {
   gap: 2rem;
 }
 
+.footer-columns ul li a {
+  /* Stacked nav links otherwise render under 24px tall with 0px between
+     adjacent links - padding grows the target itself, margin adds real
+     separation between one link's box and the next, without changing the
+     visible text size. */
+  display: inline-block;
+  padding: 0.45rem 0.25rem;
+  margin-bottom: 0.6rem;
+}
+
+.logo-wrapper a {
+  /* Same anchor-doesn't-contain-its-taller-child issue as .brand-mark a -
+     the footer's logo link measures under 24px tall otherwise. */
+  display: inline-block;
+}
+
 /* Tablet and mobile: a two-column tier here paired the tall brand column
    (logo + tagline + two badge images) against short nav-link columns in
    the same flex row, leaving a large uneven gap under the shorter column.
@@ -9283,6 +9329,14 @@ body.is-preload .items.onload-fade-in > * > .inner {
   }
 }
 
+.copyright p a {
+  /* "Security & Trust" / "Legal & Policies" otherwise render under 24px
+     tall - small padding grows the target without changing the text size
+     or the inline middot-separated layout. */
+  display: inline-block;
+  padding: 0.3rem 0.15rem;
+}
+
 .ftrmsg {
   font-size: 0.85rem;
   opacity: 0.8;
@@ -9394,6 +9448,14 @@ body.is-preload .items.onload-fade-in > * > .inner {
   padding: 2.5rem;
   margin-bottom: 2.5rem;
   border: 1px solid #1e3a5f;
+}
+
+.case-section p > a:only-child {
+  /* Standalone CTA link that's the sole content of its paragraph (e.g.
+     "View all case studies ->") - not inline prose, so it still needs to
+     meet the 24px touch target minimum. */
+  display: inline-block;
+  padding: 0.3rem 0.15rem;
 }
 
 /* Closing CTA card, styled like the rest of the site's CTA blocks */
@@ -9583,6 +9645,7 @@ body.is-preload .items.onload-fade-in > * > .inner {
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 2rem;
+  padding: 0.15rem 0;
   transition:
     gap 0.2s ease,
     opacity 0.2s ease;
