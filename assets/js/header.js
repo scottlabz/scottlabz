@@ -20,39 +20,12 @@
   /*
    * Critical CSS (moved out of main-min.css's @import rules
    * so the browser can fetch them in parallel instead of serially)
+   *
+   * No preconnect hints here on purpose: this script itself injects
+   * these stylesheet links, so a preconnect added in the same pass
+   * has no head start over the request it's meant to warm up for -
+   * confirmed unused by Lighthouse.
    */
-  if (
-    !head.querySelector(
-      'link[rel="preconnect"][href="https://fonts.googleapis.com"]',
-    )
-  ) {
-    const preconnectGoogleFonts = document.createElement("link");
-    preconnectGoogleFonts.rel = "preconnect";
-    preconnectGoogleFonts.href = "https://fonts.googleapis.com";
-    head.appendChild(preconnectGoogleFonts);
-  }
-
-  if (
-    !head.querySelector(
-      'link[rel="preconnect"][href="https://fonts.gstatic.com"]',
-    )
-  ) {
-    const preconnectGstatic = document.createElement("link");
-    preconnectGstatic.rel = "preconnect";
-    preconnectGstatic.href = "https://fonts.gstatic.com";
-    preconnectGstatic.crossOrigin = "anonymous";
-    head.appendChild(preconnectGstatic);
-  }
-
-  if (
-    !head.querySelector('link[rel="preconnect"][href="https://scottlabz.net"]')
-  ) {
-    const preconnectMatomo = document.createElement("link");
-    preconnectMatomo.rel = "preconnect";
-    preconnectMatomo.href = "https://scottlabz.net";
-    head.appendChild(preconnectMatomo);
-  }
-
   if (!head.querySelector('link[href="/assets/css/fontawesome-all.min.css"]')) {
     const fontAwesome = document.createElement("link");
     fontAwesome.rel = "stylesheet";
