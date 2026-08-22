@@ -7260,7 +7260,7 @@ body.is-preload .gallery.onload-fade-in article .image img {
   display: block;
   position: relative;
   overflow: hidden;
-  width: 22.5rem;
+  width: auto;
   max-width: 75vw;
 }
 
