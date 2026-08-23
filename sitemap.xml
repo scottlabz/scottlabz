@@ -194,6 +194,18 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://scottlabz.com/field-notes/the-scroll-that-wouldnt-stop.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://scottlabz.com/field-notes/the-widget-that-broke-two-ways.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://scottlabz.com/field-notes/website-measurement-gaps.html</loc>
     <lastmod>2026-08-23</lastmod>
     <changefreq>yearly</changefreq>
@@ -230,7 +242,25 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://scottlabz.com/insights/cart-abandonment-measurement-gap.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://scottlabz.com/insights/dashboards-nobody-opens.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://scottlabz.com/insights/engineering-approach.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://scottlabz.com/insights/local-seo-is-a-data-problem.html</loc>
     <lastmod>2026-08-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -242,7 +272,19 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://scottlabz.com/insights/redundant-data-entry-missing-integration.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://scottlabz.com/insights/seo-analytics.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://scottlabz.com/insights/what-automation-shouldnt-touch.html</loc>
     <lastmod>2026-08-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
