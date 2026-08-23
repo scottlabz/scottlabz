@@ -121,6 +121,106 @@
     <meta
       property="og:image"
       content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .idea-index {
+        border-top: 1px solid rgba(30, 58, 95, 0.15);
+      }
+
+      .idea-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+        padding: 2.25rem 0;
+        border-bottom: 1px solid rgba(30, 58, 95, 0.15);
+        text-decoration: none;
+        color: inherit;
+        transition: padding-left 0.25s ease;
+      }
+
+      .idea-row:hover {
+        padding-left: 0.75rem;
+      }
+
+      .idea-number {
+        flex: 0 0 auto;
+        min-width: 3rem;
+        font-size: 1.9rem;
+        font-weight: 300;
+        line-height: 1;
+        color: rgba(30, 58, 95, 0.25);
+        transition: color 0.25s ease;
+      }
+
+      .idea-row:hover .idea-number {
+        color: #1e3a5f;
+      }
+
+      .idea-body {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+
+      .idea-kicker {
+        display: block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #1e3a5f;
+        opacity: 0.6;
+        margin-bottom: 0.5rem;
+      }
+
+      .idea-title {
+        font-size: 1.35rem;
+        line-height: 1.3;
+        margin: 0 0 0.5rem 0;
+        color: #111111;
+      }
+
+      .idea-excerpt {
+        font-size: 0.92rem;
+        line-height: 1.55;
+        opacity: 0.75;
+        margin: 0;
+        max-width: 560px;
+      }
+
+      .idea-arrow {
+        flex: 0 0 auto;
+        align-self: center;
+        font-size: 1rem;
+        color: #1e3a5f;
+        opacity: 0;
+        transform: translateX(-6px);
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease;
+      }
+
+      .idea-row:hover .idea-arrow {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      @media screen and (max-width: 640px) {
+        .idea-row {
+          gap: 1.1rem;
+          padding: 1.75rem 0;
+        }
+        .idea-number {
+          min-width: 2rem;
+          font-size: 1.4rem;
+        }
+        .idea-title {
+          font-size: 1.1rem;
+        }
+        .idea-arrow {
+          display: none;
+        }
+      }
+    </style>
   </head>
 
   <body class="is-preload">
@@ -158,49 +258,10 @@
             forward with confidence.
           </p>
 
-          <hr />
-
-          <h2 class="size-h3">Building What Matters</h2>
-
           <ul class="actions stacked">
             <li>
-              <a
-                href="/insights/engineering-approach.html"
-                class="button big wide smooth-scroll">
-                Engineering Approach
-              </a>
-            </li>
-            <li>
-              <a
-                href="/insights/automation.html"
-                class="button big wide smooth-scroll">
-                Automation
-              </a>
-            </li>
-            <li>
-              <a
-                href="/insights/seo-analytics.html"
-                class="button big wide smooth-scroll">
-                SEO Analytics
-              </a>
-            </li>
-            <li>
-              <a
-                href="/insights/why-redundancy-beats-a-single-stack.html"
-                class="button big wide smooth-scroll">
-                Built for Redundancy
-              </a>
-            </li>
-            <li>
-              <a
-                href="/insights/measurement-before-media-spend.html"
-                class="button big wide smooth-scroll">
-                Verify Before Spending
-              </a>
-            </li>
-            <li>
-              <a href="/field-notes/" class="button big wide smooth-scroll">
-                Field Notes
+              <a href="#first" class="button big wide smooth-scroll">
+                Browse Insights
               </a>
             </li>
           </ul>
@@ -213,6 +274,180 @@
             height="1550"
             alt="Banner image representing Scott Labz insights on analytics, engineering, and digital strategy for businesses" />
         </div>
+      </section>
+
+      <section
+        id="first"
+        class="service-content"
+        style="max-width: 1180px; margin: 0 auto; padding: 4rem 1.5rem">
+        <h2 class="size-h3" style="margin-bottom: 2rem">
+          Building What Matters
+        </h2>
+
+        <div class="idea-index">
+          <a href="/insights/dashboards-nobody-opens.html" class="idea-row">
+            <span class="idea-number">01</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Measurement</span>
+              <span class="idea-title">Dashboards Nobody Opens</span>
+              <p class="idea-excerpt">
+                What separates a dashboard people actually open from one
+                that just sits there.
+              </p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+
+          <a
+            href="/insights/local-seo-is-a-data-problem.html"
+            class="idea-row">
+            <span class="idea-number">02</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Search &amp; Data</span>
+              <span class="idea-title"
+                >Local SEO Is a Data Problem, Not a Marketing One</span
+              >
+              <p class="idea-excerpt">
+                Inconsistent business listings are a data integrity
+                problem, not a marketing oversight.
+              </p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+
+          <a
+            href="/insights/redundant-data-entry-missing-integration.html"
+            class="idea-row">
+            <span class="idea-number">03</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Systems</span>
+              <span class="idea-title"
+                >Redundant Data Entry Is Usually a Missing Integration</span
+              >
+              <p class="idea-excerpt">
+                Typing the same information twice is rarely a training
+                gap - it's usually a connection nobody built.
+              </p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+
+          <a
+            href="/insights/what-automation-shouldnt-touch.html"
+            class="idea-row">
+            <span class="idea-number">04</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Automation</span>
+              <span class="idea-title">What Automation Shouldn't Touch</span>
+              <p class="idea-excerpt">
+                The judgment calls, exceptions, and edge cases worth
+                leaving to a person on purpose.
+              </p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+
+          <a
+            href="/insights/cart-abandonment-measurement-gap.html"
+            class="idea-row">
+            <span class="idea-number">05</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Measurement</span>
+              <span class="idea-title"
+                >Cart Abandonment Is a Measurement Gap, Not a UX
+                Problem</span
+              >
+              <p class="idea-excerpt">
+                Knowing where a shopper left isn't the same as knowing
+                why.
+              </p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+
+          <a href="/insights/engineering-approach.html" class="idea-row">
+            <span class="idea-number">06</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Systems</span>
+              <span class="idea-title"
+                >Our Engineering Approach to Reliable Systems</span
+              >
+              <p class="idea-excerpt">
+                How systems get built to stay dependable long after launch
+                day.
+              </p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+
+          <a href="/insights/automation.html" class="idea-row">
+            <span class="idea-number">07</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Automation</span>
+              <span class="idea-title">Automation Built to Be Trusted</span>
+              <p class="idea-excerpt">
+                Automation that earns confidence instead of quietly
+                eroding it.
+              </p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+
+          <a href="/insights/seo-analytics.html" class="idea-row">
+            <span class="idea-number">08</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Search &amp; Data</span>
+              <span class="idea-title"
+                >SEO Analytics: Why the Two Aren't Separate</span
+              >
+              <p class="idea-excerpt">
+                Search visibility and measurement are one discipline, not
+                two departments.
+              </p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+
+          <a
+            href="/insights/why-redundancy-beats-a-single-stack.html"
+            class="idea-row">
+            <span class="idea-number">09</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Systems</span>
+              <span class="idea-title">Why Redundancy Beats a Single Stack</span>
+              <p class="idea-excerpt">
+                The case for measurement architecture that doesn't depend
+                on any one system telling the truth.
+              </p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+
+          <a
+            href="/insights/measurement-before-media-spend.html"
+            class="idea-row">
+            <span class="idea-number">10</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Measurement</span>
+              <span class="idea-title"
+                >Measurement Before Media Spend, Not After</span
+              >
+              <p class="idea-excerpt">
+                Verifying a setup can be trusted before it's used to
+                justify spending.
+              </p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+        </div>
+
+        <ul class="actions" style="justify-content: center; margin-top: 3rem">
+          <li>
+            <a href="/field-notes/" class="button big wide alt">
+              Browse Field Notes
+            </a>
+          </li>
+        </ul>
       </section>
 
       </main>

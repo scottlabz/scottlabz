@@ -1,0 +1,420 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
+
+    <!-- Google Tag Manager (loads on first interaction, or after 5s) -->
+    <script>
+      (function (w, d, s, l, i) {
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
+        });
+        var fallback = setTimeout(trigger, 5000);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>The Scroll That Wouldn't Stop | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="Two pages on the same small-business site had the identical mobile bug - endless horizontal scroll - caused by two completely unrelated mistakes. A walkthrough of tracing each one back to its real source." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../assets/css/main-min.css?v=1d0d2d772e" />
+
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript-min.css?v=30b0cb2b12" />
+    </noscript>
+
+    <script src="../assets/js/header-min.js?v=0b07c49366" async></script>
+    <script src="../assets/js/favicon-min.js?v=d2e76e98d0" async></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/the-scroll-that-wouldnt-stop.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/the-scroll-that-wouldnt-stop.html",
+        "headline": "The Scroll That Wouldn't Stop",
+        "description": "Two pages on the same site had the identical mobile bug, caused by two completely unrelated mistakes. Tracing each one back to its real source instead of assuming a shared cause.",
+        "url": "https://scottlabz.com/field-notes/the-scroll-that-wouldnt-stop.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="The Scroll That Wouldn't Stop | Scott Labz" />
+    <meta
+      property="og:description"
+      content="Two pages on the same site had the identical mobile bug, caused by two completely unrelated mistakes. Tracing each one back to its real source instead of assuming a shared cause." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/the-scroll-that-wouldnt-stop.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+      .service-content h3 {
+        font-size: 1.05rem;
+        color: #1e3a5f;
+      }      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="../index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.webp"
+                width="130"
+                height="170"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">
+            The Scroll That Wouldn't Stop<br />
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
+            <strong>Two pages, the same exact symptom</strong>, and two
+            mistakes that had nothing to do with each other.
+          </h1>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            When two pages on the same site show the identical bug, the
+            natural assumption is that they share a cause - fix it once,
+            copy the fix, done. That assumption is exactly what makes this
+            kind of bug take longer than it should. Sometimes two pages
+            really do share a root cause. Sometimes they only share a
+            symptom, and the fastest way to lose an afternoon is treating
+            the second one as a copy of the first.
+          </p>
+          <p>
+            This is a small-business site where two separate pages
+            developed the same mobile bug at some point during ordinary
+            content work, for two reasons that turned out to have nothing
+            in common.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The starting point</h2>
+          <p>
+            Visitors on mobile flagged a strange behavior on two pages - an
+            About page and a Contact page. Both scrolled horizontally past
+            their own content, endlessly, well beyond anything actually on
+            the screen. Every other page on the site behaved normally. Both
+            broken pages showed the exact same symptom: same direction, same
+            "scrolls forever" feel, same absence of any visible cause when
+            just looking at the rendered page.
+          </p>
+          <p>
+            That similarity was the first trap. Two pages, one symptom,
+            visited in the same week - it reads like one bug in two places.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What was actually happening</h2>
+          <p>
+            Confirming the bug was real (and not just a visual glitch) meant
+            checking the actual layout math rather than trusting the
+            screen: the page's visible width was correctly constrained to
+            the device, but the page's full scrollable width was
+            hundreds of pixels wider than that - a genuine overflow, not a
+            rendering artifact.
+          </p>
+          <p>
+            Finding the cause meant walking the page structure from the
+            outer container inward, comparing each element's width against
+            its own parent's width, until landing on the exact element
+            whose box was wider than the box holding it. That's the point
+            where a layout actually breaks - everything downstream of it is
+            just inheriting the damage.
+          </p>
+          <ul class="alt">
+            <li>
+              On the About page, that point traced back to the site's
+              shared footer component - the same footer used on dozens of
+              other pages without issue. The footer itself wasn't the
+              cause; it was a downstream victim.
+            </li>
+            <li>
+              On the Contact page, the same tracing process led somewhere
+              completely different: a page-specific style block, nowhere
+              near the footer.
+            </li>
+          </ul>
+          <p>
+            Two pages, two independent breakpoints, in two different parts
+            of the codebase. The shared symptom had been a coincidence of
+            timing, not a shared cause.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The decision log</h2>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 1: Treat "same symptom" as a hypothesis, not a
+              diagnosis
+            </div>
+            <p>
+              The efficient-looking move was fixing the first page and
+              applying the identical fix to the second. That was deferred
+              until each page had been traced independently, specifically
+              to avoid "fixing" the second page's symptom without ever
+              finding its actual cause.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 2: Follow the About page's overflow past the footer,
+              not into it
+            </div>
+            <p>
+              The widest element on the page turned out to be inside the
+              shared footer - but that footer renders correctly everywhere
+              else it's used, which ruled it out as the actual cause. The
+              real problem was upstream: a content wrapper earlier in the
+              page was missing its closing tag, corrupting how the rest of
+              the page nested inside it and pushing the footer outside the
+              container meant to clip it. The footer was just the first
+              place the damage became visible.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 3: Trace the Contact page from zero, not from the
+              About page's answer
+            </div>
+            <p>
+              A missing closing tag was the temptation to check for first,
+              since it had just explained the previous page. It wasn't
+              there. The actual cause was a page-specific style rule that
+              had been intended to style a decorative background layer, but
+              was written targeting the real page container directly
+              instead - taking that container out of normal flow, locking
+              its height, and changing how it handled content wider than
+              the screen.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">Decision 4: Fix each at its own source</div>
+            <p>
+              The About page's fix was closing the tag that had been left
+              open. The Contact page's fix was correcting the selector so
+              it styled the decorative layer it was always meant to, not
+              the page container standing behind it. Two one-line changes,
+              in two unrelated places, for a bug that looked identical from
+              a phone screen.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Before and after</h2>
+          <div class="compare-grid">
+            <div class="compare-card before">
+              <h3 class="size-h4">Before</h3>
+              <ul>
+                <li>Both pages scrolling endlessly right on mobile</li>
+                <li>Identical symptom, assumed shared cause</li>
+                <li>A corrupted nesting hiding behind the shared footer</li>
+                <li>A mis-targeted selector hiding in page-specific styles</li>
+              </ul>
+            </div>
+            <div class="compare-card after">
+              <h3 class="size-h4">After</h3>
+              <ul>
+                <li>Each page traced independently to its real cause</li>
+                <li>Missing tag closed on the first page</li>
+                <li>Selector corrected on the second page</li>
+                <li>Neither fix borrowed from the other</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>What this actually took</h2>
+          <p>
+            Both fixes were small once found. What took the time was
+            resisting the shortcut of treating a shared symptom as proof of
+            a shared cause, and instead tracing each page's layout from the
+            outside in until the actual point of breakage showed up on its
+            own.
+          </p>
+          <p>
+            The bigger takeaway wasn't either specific bug. It was that
+            "looks the same" and "is the same" are different claims, and
+            confusing them is exactly how a five-minute fix on one page
+            turns into a mystery on the next.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>If two pages have the same bug, why not just copy the fix?</h3>
+          <p>
+            Because "same bug" is often an assumption based on how the bug
+            looks, not on what's actually causing it. Applying one page's
+            fix to another page without confirming the cause is shared
+            risks leaving the second page's real problem untouched while
+            looking like it's been addressed.
+          </p>
+
+          <h3>How do you find the actual element causing an overflow like
+          this?</h3>
+          <p>
+            By comparing each element's rendered width against its own
+            parent's width, moving from the outer page container inward,
+            until reaching the specific element that's wider than the box
+            holding it. That element - not whatever happens to be visually
+            near the overflow - is where the fix belongs.
+          </p>
+
+          <h3>Does a single missing closing tag really cause damage that
+          far away?</h3>
+          <p>
+            Yes. A missing closing tag doesn't just affect the element it
+            belonged to - it changes how every element after it gets nested
+            for the rest of the document, since the browser has to guess
+            where that tag should have closed. Content meant to sit safely
+            inside a contained wrapper can end up outside it entirely.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Not sure if your own "identical" bugs actually share a cause?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              A short conversation is usually enough to tell whether there's
+              a quick answer or something deeper worth tracing.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="../contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c" defer></script>
+      <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
+      <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
+      <script src="/assets/js/main.js?v=0200c190da" defer></script>
+      <script src="/assets/js/footer-min.js?v=c306eed6ce" defer></script>
+      <scott-footer
+        description="Two pages on the same site had the identical mobile bug, caused by two completely unrelated mistakes. Tracing each one back to its real source instead of assuming a shared cause."></scott-footer>
+    </div>
+  </body>
+</html>

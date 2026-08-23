@@ -1,0 +1,424 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
+
+    <!-- Google Tag Manager (loads on first interaction, or after 5s) -->
+    <script>
+      (function (w, d, s, l, i) {
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
+        });
+        var fallback = setTimeout(trigger, 5000);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>The Widget That Broke Two Ways | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="A vendor-supplied trust badge failed in two places on the same small-business site, for two unrelated reasons - one a scripting hazard, one a silent policy block. The fix that solved both at once." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../assets/css/main-min.css?v=1d0d2d772e" />
+
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript-min.css?v=30b0cb2b12" />
+    </noscript>
+
+    <script src="../assets/js/header-min.js?v=0b07c49366" async></script>
+    <script src="../assets/js/favicon-min.js?v=d2e76e98d0" async></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/the-widget-that-broke-two-ways.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/the-widget-that-broke-two-ways.html",
+        "headline": "The Widget That Broke Two Ways",
+        "description": "A vendor-supplied trust badge failed in two places on the same site, for two unrelated reasons. The fix that solved both at once.",
+        "url": "https://scottlabz.com/field-notes/the-widget-that-broke-two-ways.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="The Widget That Broke Two Ways | Scott Labz" />
+    <meta
+      property="og:description"
+      content="A vendor-supplied trust badge failed in two places on the same site, for two unrelated reasons. The fix that solved both at once." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/the-widget-that-broke-two-ways.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+      .service-content h3 {
+        font-size: 1.05rem;
+        color: #1e3a5f;
+      }      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="../index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.webp"
+                width="130"
+                height="170"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">
+            The Widget That Broke Two Ways<br />
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
+            <strong>The same trust badge</strong>, added the same way, broke
+            for two reasons that had nothing to do with each other.
+          </h1>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            Vendor embed widgets come with copy-paste instructions written
+            for the simplest possible case: a static page, loaded once,
+            with the snippet dropped in exactly where the vendor shows it.
+            That assumption doesn't always survive contact with a real
+            site, and the two most common ways it breaks look nothing alike
+            from the outside.
+          </p>
+          <p>
+            This is a small-business site that added the same
+            accreditation badge widget in two different places, and watched
+            it fail two different ways.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The starting point</h2>
+          <p>
+            The badge - a small accreditation seal from a third-party
+            trust directory - needed to appear in two spots: a handful of
+            individual landing pages, and the site-wide footer, which is
+            built by a small script so its markup doesn't have to be
+            hand-copied onto every page separately. The vendor's
+            instructions were the same everywhere: a script tag, followed
+            by a linked image.
+          </p>
+          <p>
+            Dropped in as given, it looked fine in local testing everywhere
+            it was placed.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What was actually happening</h2>
+          <p>
+            Before trusting the snippet, it was worth checking what the
+            script it loaded actually did. Fetching that file directly
+            showed it had exactly one job: writing a small stylesheet into
+            the page that controlled the badge's size, its cropped preview,
+            and a hover effect. The badge image itself was just a static
+            file - no live verification call, no dynamic content. Every
+            visual behavior came from that one injected stylesheet.
+          </p>
+          <ul class="alt">
+            <li>
+              In the site-wide footer, that script would have run well
+              after the page had already finished loading - the footer's
+              markup doesn't exist until a small script builds it, and by
+              then the technique the vendor's script relies on to inject
+              its stylesheet is no longer safe to use at all.
+            </li>
+            <li>
+              On the individual landing pages, the exact same script
+              behaved correctly in every local check, then rendered as a
+              raw, unstyled image once the pages were live - with no error
+              visible anywhere on the page itself.
+            </li>
+          </ul>
+          <p>
+            Same vendor, same snippet, two failures that looked nothing
+            alike and had two completely separate causes.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The decision log</h2>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 1: Don't run a page-rewriting technique after the
+              page has already loaded
+            </div>
+            <p>
+              The technique the vendor's script uses to inject its
+              stylesheet is only safe while a page is still being read by
+              the browser for the first time. Used any later, it doesn't
+              add to the page - it silently erases everything already on
+              it and starts over. Since the footer's own markup is built by
+              a script that runs after that window closes, loading the
+              vendor's script there directly wasn't a workable option at
+              all, regardless of how it tested.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 2: Read what the script does before deciding how to
+              use it
+            </div>
+            <p>
+              Rather than guess, the vendor's script was fetched and read
+              directly. Its entire effect was one small stylesheet -
+              sizing, cropping, and a hover state for the badge. That meant
+              the same visual result could be reproduced without ever
+              loading or running the vendor's script, in any location on
+              the site.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 3: Treat the landing pages' failure as its own
+              problem, not a repeat of the footer's
+            </div>
+            <p>
+              The landing pages didn't have the same page-rewriting hazard
+              the footer did - the vendor's script runs safely on an
+              ordinary static page. The live failure there came from
+              somewhere else entirely: the production site's security
+              headers restricted which outside domains a script is allowed
+              to load from, and the vendor's domain wasn't on that list.
+              The browser blocked the script without showing any error, and
+              local testing never caught it because the local environment
+              didn't send those same headers.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 4: Fix it once, the same way, everywhere
+            </div>
+            <p>
+              Instead of patching the footer one way and the landing pages
+              a different way, the same fix solved both: stop loading the
+              vendor's script anywhere, and add the small stylesheet it
+              would have written directly into the site's own CSS. Nothing
+              external needs to load or execute for the badge to render
+              correctly, which sidesteps both the page-rewriting hazard and
+              the security-header restriction at the same time.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Before and after</h2>
+          <div class="compare-grid">
+            <div class="compare-card before">
+              <h3 class="size-h4">Before</h3>
+              <ul>
+                <li>Footer version at real risk of wiping the page</li>
+                <li>Landing-page version unstyled in production only</li>
+                <li>Both failures invisible during local testing</li>
+                <li>Dependent on a domain outside the site's own control</li>
+              </ul>
+            </div>
+            <div class="compare-card after">
+              <h3 class="size-h4">After</h3>
+              <ul>
+                <li>Vendor script removed from every location</li>
+                <li>Same styling added directly to the site's own CSS</li>
+                <li>Badge renders identically regardless of environment</li>
+                <li>No dependency on an external script loading at all</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>What this actually took</h2>
+          <p>
+            The fix itself was a handful of CSS rules, copied from a
+            script that was already doing the work in public. What took
+            the time was not trusting the vendor's copy-paste instructions
+            at face value, and checking production - not just a local
+            preview - before considering either placement finished.
+          </p>
+          <p>
+            The bigger takeaway wasn't either specific failure. It was that
+            "it worked when I tested it" and "it works" are different
+            claims, and a script that behaves in a local preview can still
+            fail in two unrelated ways once it reaches an environment with
+            different rules.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>Isn't local testing supposed to catch this kind of thing?</h3>
+          <p>
+            Only if the local environment matches production closely
+            enough to matter. Security headers in particular are often
+            configured at the hosting or CDN layer and never present at
+            all during local development, which means a script that's
+            silently blocked in production can look completely fine on a
+            local machine.
+          </p>
+
+          <h3>
+            Why is it unsafe to inject a stylesheet into a page after it's
+            already loaded?
+          </h3>
+          <p>
+            The specific technique in question is only safe while the
+            browser is actively parsing the page for the first time. Used
+            after that point, it doesn't append to the page - it implicitly
+            reopens the document and replaces everything already rendered,
+            which for a page whose content is built by scripts running
+            after that window closes would mean losing the content
+            entirely.
+          </p>
+
+          <h3>Does removing a vendor's script change what the badge
+          verifies?</h3>
+          <p>
+            No, as long as the badge still links out to the vendor's own
+            verification page. The script in this case was purely
+            cosmetic - it controlled how the badge looked, not what it
+            confirmed. Removing it changes the delivery mechanism, not the
+            legitimacy of the credential itself.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Not sure if a third-party widget on your own site is actually
+              working everywhere it's placed?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              A short conversation is usually enough to tell whether there's
+              a quick answer or something deeper worth tracing.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="../contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c" defer></script>
+      <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
+      <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
+      <script src="/assets/js/main.js?v=0200c190da" defer></script>
+      <script src="/assets/js/footer-min.js?v=c306eed6ce" defer></script>
+      <scott-footer
+        description="A vendor-supplied trust badge failed in two places on the same site, for two unrelated reasons. The fix that solved both at once."></scott-footer>
+    </div>
+  </body>
+</html>
