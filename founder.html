@@ -242,14 +242,25 @@
         border: 1px solid rgba(30, 58, 95, 0.75);
       }
 
+      .scott-photo-wrap {
+        position: relative;
+        display: inline-block;
+        width: 50%;
+      }
+
       .hero-linkedin-icon {
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        position: absolute;
+        bottom: 0.75rem;
+        right: 0.75rem;
         width: 1.8em;
         height: 1.8em;
+        font-size: 1.25rem;
         background: #1e3a5f;
         border-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
       }
 
       .scott {
@@ -258,7 +269,8 @@
       }
 
       .scott img {
-        max-width: 50%;
+        display: block;
+        width: 100%;
         border: 3px solid #000000;
         margin: 0;
         box-shadow:
@@ -315,27 +327,23 @@
                 class="about-statement"
                 style="margin-bottom: 0.5rem; text-align: center">
                 Hello, my name is Scott.
-                <a
-                  href="https://www.linkedin.com/in/scotttaylor369/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="icon brands fa-linkedin-in hero-linkedin-icon"
-                  aria-label="Scott Taylor on LinkedIn"
-                  title="Connect on LinkedIn"
-                  style="
-                    margin-left: 0.5rem;
-                    vertical-align: middle;
-                    font-size: 1rem;
-                    color: #ffffff;
-                    -webkit-text-fill-color: initial;
-                  "></a>
               </h1>
 
               <p class="major scott">
-                <img
-                  src="/images/scott-taylor.jpg"
-                  alt="Scott Taylor - Principal Analytics Engineer & Founder of Scott Labz LLC."
-                  title="Scott Taylor - Principal Analytics Engineer & Founder of Scott Labz LLC." />
+                <span class="scott-photo-wrap">
+                  <img
+                    src="/images/scott-taylor.jpg"
+                    alt="Scott Taylor - Principal Analytics Engineer & Founder of Scott Labz LLC."
+                    title="Scott Taylor - Principal Analytics Engineer & Founder of Scott Labz LLC." />
+                  <a
+                    href="https://www.linkedin.com/in/scotttaylor369/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="icon brands fa-linkedin-in hero-linkedin-icon"
+                    aria-label="Scott Taylor on LinkedIn"
+                    title="Connect on LinkedIn"
+                    style="color: #ffffff; -webkit-text-fill-color: initial"></a>
+                </span>
               </p>
 
               <p class="major">
