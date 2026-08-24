@@ -19,7 +19,26 @@
       margin: 0;
       font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--text-color);
-      background: var(--bg-color);
+      /* A soft dashboard-canvas backdrop instead of flat white - a
+         radial glow near the top, an overall very light gray-blue
+         gradient, and a faint dot grid (graph-paper feel). Subtle
+         enough to blend rather than stripe, but different enough in
+         tone from the nav's glass panel above that the two still read
+         as clearly separate surfaces. */
+      background-color: #f4f6f8;
+      background-image:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(30, 58, 95, 0.05) 0%,
+          transparent 55%
+        ),
+        linear-gradient(180deg, #fbfcfd 0%, #eef1f5 100%),
+        radial-gradient(rgba(30, 58, 95, 0.06) 1px, transparent 1px);
+      background-size:
+        100% 100%,
+        100% 100%,
+        22px 22px;
+      background-attachment: fixed, fixed, fixed;
     }
     main {
       max-width: 800px;
