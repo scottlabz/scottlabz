@@ -40,10 +40,10 @@ class ScottNav extends HTMLElement {
     // Each item's color is used even when it isn't the current page, so
     // the row reads as distinct items rather than a wall of navy.
     const items = [
-      { href: "/index.html", label: "Home", height: 15, color: "#1e3a5f" },
-      { href: "/services.html", label: "Services", height: 20, color: "#2563eb" },
-      { href: "/case-studies.html", label: "Work", height: 25, color: "#ca8a04" },
-      { href: "/insights.html", label: "Insights", height: 30, color: "#b45309" },
+      { href: "/services.html", label: "Services", height: 15, color: "#2563eb" },
+      { href: "/case-studies.html", label: "Work", height: 20, color: "#ca8a04" },
+      { href: "/insights.html", label: "Insights", height: 25, color: "#b45309" },
+      { href: "/field-notes/index.html", label: "Field Notes", height: 30, color: "#1e3a5f" },
       { href: "/about.html", label: "About", height: 35, color: "#7c3aed" },
       { href: "/contact.html", label: "Contact", height: 40, color: "#15803d" },
     ];
