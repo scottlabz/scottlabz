@@ -204,16 +204,36 @@ class ScottNav extends HTMLElement {
           text-underline-offset: 3px;
         }
 
+        /* Mobile diverges from the desktop single scrolling row on
+           purpose - a horizontal scroller hides half the items behind
+           a swipe gesture, which fights the "nothing is ever hidden"
+           idea this component is built around. Below the breakpoint,
+           the bars wrap into a centered grid instead, so every item
+           stays visible with no scrollbar at all. */
         @media screen and (max-width: 736px) {
           .sl-nav-brand span {
             display: none;
           }
           .sl-nav-inner {
-            justify-content: flex-start;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.35rem;
+            padding: 0.5rem 1rem;
           }
           .sl-nav-bars {
-            flex: 1;
-            min-width: 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            overflow-x: visible;
+            scroll-snap-type: none;
+            width: 100%;
+          }
+          .sl-bar {
+            width: 64px;
+            min-height: 56px;
+            padding: 0.3rem 0.2rem 0.5rem;
+          }
+          .sl-bar-label {
+            font-size: 0.8rem;
           }
         }
       `;
