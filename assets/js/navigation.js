@@ -88,7 +88,13 @@ class ScottNav extends HTMLElement {
           position: sticky;
           top: 0;
           z-index: 500;
-          background: var(--bg-color, #ffffff);
+          background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.88) 0%,
+            rgba(255, 255, 255, 0.78) 100%
+          );
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
           border-bottom: 1px solid var(--border-color, #e5e5e5);
           transform: translateY(0);
         }
