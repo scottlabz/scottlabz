@@ -40,12 +40,12 @@ class ScottNav extends HTMLElement {
     // Each item's color is used even when it isn't the current page, so
     // the row reads as distinct items rather than a wall of navy.
     const items = [
-      { href: "/index.html", label: "Home", height: 18, color: "#1e3a5f" },
-      { href: "/services.html", label: "Services", height: 24, color: "#0e7490" },
-      { href: "/case-studies.html", label: "Work", height: 30, color: "#15803d" },
-      { href: "/insights.html", label: "Insights", height: 36, color: "#b45309" },
-      { href: "/about.html", label: "About", height: 42, color: "#7c3aed" },
-      { href: "/contact.html", label: "Contact", height: 48, color: "#be123c" },
+      { href: "/index.html", label: "Home", height: 15, color: "#1e3a5f" },
+      { href: "/services.html", label: "Services", height: 20, color: "#0e7490" },
+      { href: "/case-studies.html", label: "Work", height: 25, color: "#15803d" },
+      { href: "/insights.html", label: "Insights", height: 30, color: "#b45309" },
+      { href: "/about.html", label: "About", height: 35, color: "#7c3aed" },
+      { href: "/contact.html", label: "Contact", height: 40, color: "#be123c" },
     ];
 
     const currentPath =
@@ -149,13 +149,17 @@ class ScottNav extends HTMLElement {
           width: auto;
         }
 
+        /* px throughout this row (not rem) for the same reason as the
+           fixed 75px nav height above: it has to actually fit inside
+           that fixed box on every page, and rem would grow past it at
+           this site's wider breakpoints. */
         .sl-nav-bars {
           display: flex;
           align-items: flex-end;
-          gap: 0.2rem;
+          gap: 3px;
           list-style: none;
           margin: 0;
-          padding: 0.2rem 0 0 0;
+          padding: 2px 0 0 0;
         }
 
         .sl-bar {
@@ -163,10 +167,10 @@ class ScottNav extends HTMLElement {
           flex-direction: column;
           align-items: center;
           justify-content: flex-end;
-          gap: 0.3rem;
-          width: 56px;
-          min-height: 48px;
-          padding: 0.3rem 0.2rem 0.45rem;
+          gap: 3px;
+          width: 48px;
+          min-height: 40px;
+          padding: 3px 3px 4px;
           text-decoration: none;
           border-radius: 6px;
           border: 2px solid transparent;
@@ -178,7 +182,7 @@ class ScottNav extends HTMLElement {
         }
 
         .sl-bar-fill {
-          width: 20px;
+          width: 16px;
           border-radius: 3px 3px 0 0;
           background: color-mix(in srgb, var(--bar-color, #1e3a5f) 12%, white);
           border-top: 3px solid var(--bar-color, #1e3a5f);
@@ -195,7 +199,8 @@ class ScottNav extends HTMLElement {
         }
 
         .sl-bar-label {
-          font-size: 0.8rem;
+          font-size: 12px;
+          line-height: 1.1;
           font-weight: 500;
           color: var(--text-color, #111111);
           white-space: nowrap;
@@ -205,19 +210,19 @@ class ScottNav extends HTMLElement {
            underlined label - three signals beyond color, per WCAG 1.4.1. */
         .sl-bar[aria-current="page"] .sl-bar-fill {
           background: var(--bar-color, #1e3a5f);
-          height: 48px !important;
+          height: 40px !important;
         }
         .sl-bar[aria-current="page"] .sl-bar-fill::after {
           content: "";
           position: absolute;
-          top: -7px;
+          top: -6px;
           left: 50%;
           transform: translateX(-50%);
           width: 0;
           height: 0;
-          border-left: 4px solid transparent;
-          border-right: 4px solid transparent;
-          border-bottom: 5px solid var(--bar-color, #1e3a5f);
+          border-left: 3px solid transparent;
+          border-right: 3px solid transparent;
+          border-bottom: 4px solid var(--bar-color, #1e3a5f);
         }
         .sl-bar[aria-current="page"] .sl-bar-label {
           font-weight: 700;
@@ -236,8 +241,8 @@ class ScottNav extends HTMLElement {
           .sl-nav-inner {
             flex-direction: column;
             justify-content: center;
-            gap: 0.3rem;
-            padding: 0.4rem 1rem;
+            gap: 5px;
+            padding: 6px 16px;
           }
           .sl-nav-bars {
             flex-wrap: wrap;
@@ -247,10 +252,10 @@ class ScottNav extends HTMLElement {
           .sl-bar {
             width: 46px;
             min-height: 40px;
-            padding: 0.25rem 0.15rem 0.35rem;
+            padding: 4px 2px 6px;
           }
           .sl-bar-label {
-            font-size: 0.7rem;
+            font-size: 11px;
           }
         }
       `;
