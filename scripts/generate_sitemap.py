@@ -18,6 +18,15 @@ EXCLUDE_DIRS = {
 
 EXCLUDE_FILES = {
     "404.html",
+    "nav-demo.html",
+}
+
+# Subdirectory index.html files are, by default, redirect stubs (e.g.
+# case-studies/index.html, trust/index.html) and get skipped below. This
+# one is a real content hub page, not a stub - keep it in the sitemap the
+# same way insights.html (a sibling hub page) already is.
+INCLUDE_SUBDIR_INDEX = {
+    "field-notes/index.html",
 }
 
 MAIN_PAGES = {
@@ -51,8 +60,8 @@ for file in sorted(ROOT.rglob("*.html")):
   relative = file.relative_to(ROOT).as_posix()
 
   # Skip index.html files inside subdirectories (e.g., case-studies/index.html, trust/index.html)
-  # unless it's the root index.html
-  if file.name == "index.html" and relative != "index.html":
+  # unless it's the root index.html or an explicitly-included real page
+  if file.name == "index.html" and relative != "index.html" and relative not in INCLUDE_SUBDIR_INDEX:
     continue
 
   if relative == "index.html":
@@ -63,7 +72,7 @@ for file in sorted(ROOT.rglob("*.html")):
   if relative.startswith("case-studies/"):
     priority, freq = CASE_STUDY
   else:
-    priority, freq = MAIN_PAGES.get(file.name, DEFAULT)
+    priority, freq = MAIN_PAGES.get(relative, DEFAULT)
 
   pages.append(f"""  <url>
     <loc>{url}</loc>
