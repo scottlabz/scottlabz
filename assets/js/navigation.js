@@ -136,20 +136,6 @@ class ScottNav extends HTMLElement {
           list-style: none;
           margin: 0;
           padding: 0.2rem 0 0 0;
-          overflow-x: auto;
-          scroll-snap-type: x proximity;
-          -webkit-overflow-scrolling: touch;
-        }
-        .sl-nav-bars::-webkit-scrollbar {
-          height: 5px;
-        }
-        .sl-nav-bars::-webkit-scrollbar-thumb {
-          background: var(--border-color, #e5e5e5);
-          border-radius: 4px;
-        }
-
-        .sl-bar-item {
-          scroll-snap-align: start;
         }
 
         .sl-bar {
@@ -165,11 +151,8 @@ class ScottNav extends HTMLElement {
           border-radius: 6px;
           border: 2px solid transparent;
         }
-        .sl-bar:hover,
         .sl-bar:focus-visible {
           border-color: var(--bar-color, #1e3a5f);
-        }
-        .sl-bar:focus-visible {
           outline: 3px solid var(--bar-color, #1e3a5f);
           outline-offset: 2px;
         }
@@ -223,12 +206,9 @@ class ScottNav extends HTMLElement {
           text-underline-offset: 3px;
         }
 
-        /* Mobile diverges from the desktop single scrolling row on
-           purpose - a horizontal scroller hides half the items behind
-           a swipe gesture, which fights the "nothing is ever hidden"
-           idea this component is built around. Below the breakpoint,
-           the bars wrap into a centered grid instead, so every item
-           stays visible with no scrollbar at all. */
+        /* Below the breakpoint, the bars wrap into a centered grid
+           instead of staying in one row, so every item stays visible
+           without needing to shrink below a usable tap-target size. */
         @media screen and (max-width: 736px) {
           .sl-nav-brand span {
             display: none;
@@ -242,8 +222,6 @@ class ScottNav extends HTMLElement {
           .sl-nav-bars {
             flex-wrap: wrap;
             justify-content: center;
-            overflow-x: visible;
-            scroll-snap-type: none;
             width: 100%;
           }
           .sl-bar {
