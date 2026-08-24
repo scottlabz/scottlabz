@@ -147,16 +147,14 @@ class ScottNav extends HTMLElement {
           padding: 0 16px;
         }
 
+        /* No longer a link, so no click/tap target padding or
+           interactive styling needed - just a flex item sized to match
+           the tallest bar (40px), vertically centered by .sl-nav-inner's
+           align-items: center like the other items. */
         .sl-nav-brand {
-          display: flex;
-          align-items: center;
-          flex-shrink: 0;
-          padding: 10px 0;
-          border-bottom: none !important;
-        }
-        .sl-nav-brand img {
           display: block;
-          height: 24px;
+          flex-shrink: 0;
+          height: 40px;
           width: auto;
         }
 
@@ -291,9 +289,12 @@ class ScottNav extends HTMLElement {
 
       <nav class="sl-nav" aria-label="Primary">
         <div class="sl-nav-inner">
-          <a href="/index.html" class="sl-nav-brand">
-            <img src="/images/scottlabz-clear.webp" alt="Scott Labz" width="24" height="31" />
-          </a>
+          <img
+            src="/images/scottlabz-clear.webp"
+            alt="Scott Labz"
+            class="sl-nav-brand"
+            width="31"
+            height="40" />
 
           <ul class="sl-nav-bars" role="list">
             ${barsMarkup}
