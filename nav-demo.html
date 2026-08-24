@@ -148,10 +148,10 @@
             .sl-skip-link { position:absolute; left:-9999px; top:0; background:#1e3a5f; color:#fff; padding:0.85rem 1.25rem; font-size:1rem; font-weight:600; z-index:1000; border-radius:0 0 6px 0; }
             .sl-skip-link:focus { left:0; }
             .sl-nav { position:sticky; top:0; z-index:500; background:var(--bg-color,#ffffff); border-bottom:1px solid var(--border-color,#e5e5e5); }
-            .sl-nav-inner { display:flex; align-items:center; gap:1.5rem; max-width:1200px; margin:0 auto; padding:0 1rem; }
+            .sl-nav-inner { display:flex; align-items:center; justify-content:center; gap:1.5rem; max-width:1200px; margin:0 auto; padding:0 1rem; }
             .sl-nav-brand { display:flex; align-items:center; gap:0.5rem; flex-shrink:0; padding:0.75rem 0; border-bottom:none !important; color:var(--text-color,#111111); text-decoration:none; font-weight:700; font-size:1.05rem; }
             .sl-nav-brand img { display:block; height:30px; width:auto; }
-            .sl-nav-bars { display:flex; flex:1; justify-content:center; align-items:flex-end; gap:0.25rem; list-style:none; margin:0; padding:0.25rem 0 0 0; overflow-x:auto; scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch; }
+            .sl-nav-bars { display:flex; align-items:flex-end; gap:0.25rem; list-style:none; margin:0; padding:0.25rem 0 0 0; overflow-x:auto; scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch; }
             .sl-nav-bars::-webkit-scrollbar { height:5px; }
             .sl-nav-bars::-webkit-scrollbar-thumb { background:var(--border-color,#e5e5e5); border-radius:4px; }
             .sl-bar-item { scroll-snap-align:start; }
@@ -165,7 +165,7 @@
             .sl-bar[aria-current="page"] .sl-bar-fill { background:#1e3a5f; height:66px !important; }
             .sl-bar[aria-current="page"] .sl-bar-fill::after { content:""; position:absolute; top:-7px; left:50%; transform:translateX(-50%); width:9px; height:9px; border-radius:50%; background:#1e3a5f; }
             .sl-bar[aria-current="page"] .sl-bar-label { font-weight:700; color:#1e3a5f; text-decoration:underline; text-underline-offset:3px; }
-            @media screen and (max-width:736px) { .sl-nav-brand span { display:none; } }
+            @media screen and (max-width:736px) { .sl-nav-brand span { display:none; } .sl-nav-inner { justify-content:flex-start; } .sl-nav-bars { flex:1; min-width:0; } }
           `;
           document.head.appendChild(style);
         }

@@ -86,6 +86,7 @@ class ScottNav extends HTMLElement {
         .sl-nav-inner {
           display: flex;
           align-items: center;
+          justify-content: center;
           gap: 1.5rem;
           max-width: 1200px;
           margin: 0 auto;
@@ -112,8 +113,6 @@ class ScottNav extends HTMLElement {
 
         .sl-nav-bars {
           display: flex;
-          flex: 1;
-          justify-content: center;
           align-items: flex-end;
           gap: 0.25rem;
           list-style: none;
@@ -208,6 +207,13 @@ class ScottNav extends HTMLElement {
         @media screen and (max-width: 736px) {
           .sl-nav-brand span {
             display: none;
+          }
+          .sl-nav-inner {
+            justify-content: flex-start;
+          }
+          .sl-nav-bars {
+            flex: 1;
+            min-width: 0;
           }
         }
       `;
