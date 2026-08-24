@@ -112,6 +112,8 @@ class ScottNav extends HTMLElement {
 
         .sl-nav-bars {
           display: flex;
+          flex: 1;
+          justify-content: center;
           align-items: flex-end;
           gap: 0.25rem;
           list-style: none;
