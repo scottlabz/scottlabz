@@ -150,14 +150,9 @@ class ScottNav extends HTMLElement {
         .sl-nav-brand {
           display: flex;
           align-items: center;
-          gap: 8px;
           flex-shrink: 0;
           padding: 10px 0;
           border-bottom: none !important;
-          color: var(--text-color, #111111);
-          text-decoration: none;
-          font-weight: 700;
-          font-size: 15px;
         }
         .sl-nav-brand img {
           display: block;
@@ -248,9 +243,6 @@ class ScottNav extends HTMLElement {
            instead of staying in one row, so every item stays visible
            without needing to shrink below a usable tap-target size. */
         @media screen and (max-width: 736px) {
-          .sl-nav-brand span {
-            display: none;
-          }
           .sl-nav-inner {
             flex-direction: column;
             justify-content: center;
@@ -300,8 +292,7 @@ class ScottNav extends HTMLElement {
       <nav class="sl-nav" aria-label="Primary">
         <div class="sl-nav-inner">
           <a href="/index.html" class="sl-nav-brand">
-            <img src="/images/scottlabz-clear.webp" alt="" width="24" height="31" />
-            <span>Scott Labz</span>
+            <img src="/images/scottlabz-clear.webp" alt="Scott Labz" width="24" height="31" />
           </a>
 
           <ul class="sl-nav-bars" role="list">
