@@ -39,7 +39,7 @@
 
     <meta
       name="description"
-      content="A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 92+ on mobile - image bugs, missing landmarks, touch targets, and alt text, one category at a time." />
+      content="A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 94+ on mobile - image bugs, missing landmarks, touch targets, and alt text, one category at a time." />
 
     <meta charset="utf-8" />
 
@@ -48,7 +48,9 @@
     <link rel="stylesheet" href="../assets/css/main-min.css?v=1d0d2d772e" />
 
     <noscript>
-      <link rel="stylesheet" href="../assets/css/noscript-min.css?v=30b0cb2b12" />
+      <link
+        rel="stylesheet"
+        href="../assets/css/noscript-min.css?v=30b0cb2b12" />
     </noscript>
 
     <script src="../assets/js/header-min.js?v=0b07c49366" async></script>
@@ -65,7 +67,7 @@
         "@type": "Article",
         "@id": "https://scottlabz.com/field-notes/the-cleanup-pass.html",
         "headline": "The Cleanup Pass",
-        "description": "A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 92+ on mobile, one category at a time.",
+        "description": "A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 94+ on mobile, one category at a time.",
         "url": "https://scottlabz.com/field-notes/the-cleanup-pass.html",
         "author": {
           "@id": "https://scottlabz.com/#scotttaylor"
@@ -81,7 +83,7 @@
     <meta property="og:title" content="The Cleanup Pass | Scott Labz" />
     <meta
       property="og:description"
-      content="A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 92+ on mobile, one category at a time." />
+      content="A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 94+ on mobile, one category at a time." />
     <meta
       property="og:url"
       content="https://scottlabz.com/field-notes/the-cleanup-pass.html" />
@@ -102,7 +104,8 @@
       .service-content h3 {
         font-size: 1.05rem;
         color: #1e3a5f;
-      }      .banner.style1 .content {
+      }
+      .banner.style1 .content {
         padding: 4rem 7rem 0 7rem;
       }
       #wrapper.divided > * {
@@ -208,8 +211,8 @@
               Back to Field Notes </a
             ><br />
             <strong>A batch of small, unrelated-looking issues</strong> that
-            were quietly capping every score that matters, cleared one
-            category at a time.
+            were quietly capping every score that matters, cleared one category
+            at a time.
           </h1>
         </div>
       </section>
@@ -221,19 +224,19 @@
         <section class="section-block">
           <h2>Why this exists</h2>
           <p>
-            A performance audit isn't one number. It's four separate
-            categories - Performance, Accessibility, Best Practices, and
-            SEO - and a page can look completely fine while quietly failing
-            several of them at once. This is the pass that took this site's
-            own scores from a mixed bag to 100 across the board on desktop
-            and 92 Performance with 100 on the rest on mobile, not from one
-            large fix, but from clearing a list of small, specific ones.
+            A performance audit isn't one number. It's four separate categories
+            - Performance, Accessibility, Best Practices, and SEO - and a page
+            can look completely fine while quietly failing several of them at
+            once. This is the pass that took this site's own scores from a mixed
+            bag to 100 across the board on desktop and 94 Performance with 100
+            on the rest on mobile, not from one large fix, but from clearing a
+            list of small, specific ones.
           </p>
           <p>
-            None of the individual issues were dramatic. That's exactly why
-            they were worth writing down - the kind of thing that's easy to
-            skip past during a normal review, and easy to miss entirely
-            without checking each category on its own terms.
+            None of the individual issues were dramatic. That's exactly why they
+            were worth writing down - the kind of thing that's easy to skip past
+            during a normal review, and easy to miss entirely without checking
+            each category on its own terms.
           </p>
         </section>
 
@@ -241,18 +244,18 @@
           <h2>The starting point</h2>
           <p>
             Nothing was broken in an obvious sense. Pages loaded, forms
-            submitted, nothing was visibly on fire. But a handful of things
-            had accumulated across different pages and different points in
-            time: images stretching or squishing at certain widths, some
-            pages missing a landmark region entirely, interactive elements
-            with a real clickable area smaller than they looked, alt text
-            that was either absent or generic enough to be nearly useless,
-            and a third-party embed that behaved differently in production
-            than it did anywhere it had actually been tested.
+            submitted, nothing was visibly on fire. But a handful of things had
+            accumulated across different pages and different points in time:
+            images stretching or squishing at certain widths, some pages missing
+            a landmark region entirely, interactive elements with a real
+            clickable area smaller than they looked, alt text that was either
+            absent or generic enough to be nearly useless, and a third-party
+            embed that behaved differently in production than it did anywhere it
+            had actually been tested.
           </p>
           <p>
-            Each of those is a small deduction on its own. Together, they
-            were enough to keep every category short of full marks.
+            Each of those is a small deduction on its own. Together, they were
+            enough to keep every category short of full marks.
           </p>
         </section>
 
@@ -260,16 +263,15 @@
           <h2>What was actually happening</h2>
           <ul class="alt">
             <li>
-              Several images had a fixed height set without a matching
-              width, or vice versa, so the browser fell back to stretching
-              or squishing them instead of preserving their real
-              proportions.
+              Several images had a fixed height set without a matching width, or
+              vice versa, so the browser fell back to stretching or squishing
+              them instead of preserving their real proportions.
             </li>
             <li>
               A number of pages had no <code>&lt;main&gt;</code> landmark
               wrapping their primary content at all, leaving assistive
-              technology with no reliable way to jump past the header and
-              footer to the actual page.
+              technology with no reliable way to jump past the header and footer
+              to the actual page.
             </li>
             <li>
               Several links and icons looked fine visually but had a real
@@ -278,24 +280,23 @@
               sitting inside it.
             </li>
             <li>
-              A handful of images either had no alt text, or had the exact
-              same generic alt text copy-pasted across several visually
-              different images - which, for anyone using a screen reader, is
-              close to the same problem as having no alt text at all.
+              A handful of images either had no alt text, or had the exact same
+              generic alt text copy-pasted across several visually different
+              images - which, for anyone using a screen reader, is close to the
+              same problem as having no alt text at all.
             </li>
             <li>
               A third-party embed loaded correctly in local testing but was
-              silently blocked in production by a stricter policy header
-              the local environment didn't send - a gap that only became
-              visible once production and local were actually compared side
-              by side.
+              silently blocked in production by a stricter policy header the
+              local environment didn't send - a gap that only became visible
+              once production and local were actually compared side by side.
             </li>
           </ul>
           <p>
-            None of these showed up as a single failing test. Each one lived
-            in a different category, which is exactly why a page can look
-            fine at a glance and still leave points on the table in four
-            different places at once.
+            None of these showed up as a single failing test. Each one lived in
+            a different category, which is exactly why a page can look fine at a
+            glance and still leave points on the table in four different places
+            at once.
           </p>
         </section>
 
@@ -304,8 +305,8 @@
           <p>
             The individual fixes were small. Getting through all of them
             required treating each category as its own pass rather than one
-            general "cleanup," since the causes and the fixes for each one
-            had almost nothing in common.
+            general "cleanup," since the causes and the fixes for each one had
+            almost nothing in common.
           </p>
 
           <div class="log-entry">
@@ -315,11 +316,11 @@
             <p>
               The stretched and squished images all traced back to the same
               handful of causes - a missing <code>object-fit</code> rule, an
-              inline size override with no matching dimension, or a grid
-              column that didn't actually shrink below its content's minimum
-              width. Rather than patch each affected page individually, the
-              fix went into the shared stylesheet once, so any page using
-              that same pattern was covered by the same change.
+              inline size override with no matching dimension, or a grid column
+              that didn't actually shrink below its content's minimum width.
+              Rather than patch each affected page individually, the fix went
+              into the shared stylesheet once, so any page using that same
+              pattern was covered by the same change.
             </p>
           </div>
 
@@ -329,27 +330,26 @@
             </div>
             <p>
               Adding a missing <code>&lt;main&gt;</code> region isn't just
-              wrapping the whole page - it means correctly excluding the
-              header, navigation, and footer, and not adding a second one
-              where a page already had it. Every page got checked
-              individually against that rule rather than applying one
-              template blindly across all of them.
+              wrapping the whole page - it means correctly excluding the header,
+              navigation, and footer, and not adding a second one where a page
+              already had it. Every page got checked individually against that
+              rule rather than applying one template blindly across all of them.
             </p>
           </div>
 
           <div class="log-entry">
             <div class="log-title">
-              Decision 3: Treat "looks fine" and "is a real target" as
-              separate questions
+              Decision 3: Treat "looks fine" and "is a real target" as separate
+              questions
             </div>
             <p>
-              The undersized click targets weren't a font-size or color
-              problem - they were a box-sizing problem. An inline link
-              wrapping a taller image or icon doesn't automatically expand
-              to contain it, so the visible content looked correct while the
-              actual clickable area was only as tall as the surrounding
-              text. The fix was sizing and spacing only - padding, margin,
-              and display changes - never touching layout or color.
+              The undersized click targets weren't a font-size or color problem
+              - they were a box-sizing problem. An inline link wrapping a taller
+              image or icon doesn't automatically expand to contain it, so the
+              visible content looked correct while the actual clickable area was
+              only as tall as the surrounding text. The fix was sizing and
+              spacing only - padding, margin, and display changes - never
+              touching layout or color.
             </p>
           </div>
 
@@ -359,28 +359,27 @@
               check
             </div>
             <p>
-              A first pass confirmed every image had an alt attribute
-              present. That's not the same as confirming it was correct.
-              Several images shared identical, generic alt text that
-              described the brand rather than what was actually different
-              about each image - which meant the presence check alone would
-              have missed the real problem entirely.
+              A first pass confirmed every image had an alt attribute present.
+              That's not the same as confirming it was correct. Several images
+              shared identical, generic alt text that described the brand rather
+              than what was actually different about each image - which meant
+              the presence check alone would have missed the real problem
+              entirely.
             </p>
           </div>
 
           <div class="log-entry">
             <div class="log-title">
-              Decision 5: Confirm any embed against the same policy
-              production enforces
+              Decision 5: Confirm any embed against the same policy production
+              enforces
             </div>
             <p>
-              A third-party embed worked fine in local testing because
-              local testing didn't send the same content security policy
-              production does. Once that difference was identified, the
-              fix was to stop depending on the external script entirely and
-              recreate the small amount of styling it provided directly, so
-              the result no longer depended on a policy exception staying in
-              place.
+              A third-party embed worked fine in local testing because local
+              testing didn't send the same content security policy production
+              does. Once that difference was identified, the fix was to stop
+              depending on the external script entirely and recreate the small
+              amount of styling it provided directly, so the result no longer
+              depended on a policy exception staying in place.
             </p>
           </div>
         </section>
@@ -395,14 +394,18 @@
                 <li>Several pages missing a landmark region entirely</li>
                 <li>Click targets smaller than they visually appeared</li>
                 <li>Generic alt text reused across different images</li>
-                <li>An embed that passed in preview and failed in production</li>
+                <li>
+                  An embed that passed in preview and failed in production
+                </li>
               </ul>
             </div>
             <div class="compare-card after">
               <h3 class="size-h4">After</h3>
               <ul>
                 <li>Proportions preserved through a shared stylesheet fix</li>
-                <li>Every page carrying exactly one correctly scoped landmark</li>
+                <li>
+                  Every page carrying exactly one correctly scoped landmark
+                </li>
                 <li>Click targets matching their visible size</li>
                 <li>Alt text describing what's actually different per image</li>
                 <li>Production-safe styling with no external dependency</li>
@@ -415,7 +418,7 @@
           <h2>The scores</h2>
           <p>
             Desktop landed at 100 Performance, 100 Accessibility, 100 Best
-            Practices, and 100 SEO. Mobile landed at 92 Performance, with
+            Practices, and 100 SEO. Mobile landed at 94 Performance, with
             Accessibility, Best Practices, and SEO all also at 100.
           </p>
           <div class="score-shots">
@@ -431,7 +434,7 @@
                   height="212"
                   alt="Lighthouse desktop scores: 100 Performance, 100 Accessibility, 100 Best Practices, 100 SEO" />
                 <a
-                  href="https://pagespeed.web.dev/analysis/https-scottlabz-com/p8ra8264rq?form_factor=desktop"
+                  href="https://pagespeed.web.dev/analysis/https-scottlabz-com/9pm9v90pro?form_factor=desktop"
                   target="_blank"
                   rel="noopener"
                   class="score-shot-link"
@@ -449,9 +452,9 @@
                   src="../images/pagespeed-mobile.png"
                   width="1382"
                   height="198"
-                  alt="Lighthouse mobile scores: 92 Performance, 100 Accessibility, 100 Best Practices, 100 SEO" />
+                  alt="Lighthouse mobile scores: 94 Performance, 100 Accessibility, 100 Best Practices, 100 SEO" />
                 <a
-                  href="https://pagespeed.web.dev/analysis/https-scottlabz-com/p8ra8264rq?form_factor=mobile"
+                  href="https://pagespeed.web.dev/analysis/https-scottlabz-com/9pm9v90pro?form_factor=mobile"
                   target="_blank"
                   rel="noopener"
                   class="score-shot-link"
@@ -461,30 +464,29 @@
             </div>
           </div>
           <p>
-            The mobile Performance score is the one that stayed short of
-            full marks, which tracks - mobile carries real constraints
-            around processing power and connection speed that a fixed
-            desktop environment doesn't, and closing that last gap further
-            would mean trading against those constraints rather than fixing
-            another bug.
+            The mobile Performance score is the one that stayed short of full
+            marks, which tracks - mobile carries real constraints around
+            processing power and connection speed that a fixed desktop
+            environment doesn't, and closing that last gap further would mean
+            trading against those constraints rather than fixing another bug.
           </p>
         </section>
 
         <section class="section-block">
           <h2>What this actually took</h2>
           <p>
-            None of these fixes were individually complex. What took the
-            time was treating four different categories as four different
-            problems instead of one general pass, and re-checking each
-            category on its own terms rather than assuming a fix for one
-            issue had incidentally covered another.
+            None of these fixes were individually complex. What took the time
+            was treating four different categories as four different problems
+            instead of one general pass, and re-checking each category on its
+            own terms rather than assuming a fix for one issue had incidentally
+            covered another.
           </p>
           <p>
             The bigger takeaway wasn't the specific score. It was that a
-            presence check and a correctness check are different questions
-            - an image having alt text isn't the same as that alt text
-            being useful, and a script loading in one environment isn't the
-            same as it loading in every environment that matters.
+            presence check and a correctness check are different questions - an
+            image having alt text isn't the same as that alt text being useful,
+            and a script loading in one environment isn't the same as it loading
+            in every environment that matters.
           </p>
         </section>
 
@@ -493,32 +495,29 @@
 
           <h3>Does a perfect score mean a site is fully accessible?</h3>
           <p>
-            No. An automated audit checks what can be checked
-            automatically - things like contrast, landmarks, alt text
-            presence, and target sizing. It can't evaluate whether alt text
-            is actually accurate, or whether a page makes sense navigated
-            entirely by keyboard or screen reader. A high score is a strong
-            signal, not a guarantee.
+            No. An automated audit checks what can be checked automatically -
+            things like contrast, landmarks, alt text presence, and target
+            sizing. It can't evaluate whether alt text is actually accurate, or
+            whether a page makes sense navigated entirely by keyboard or screen
+            reader. A high score is a strong signal, not a guarantee.
           </p>
 
           <h3>Why would a script work in preview but fail in production?</h3>
           <p>
-            Local and preview environments often don't send the same
-            security headers a production environment does. A content
-            security policy that restricts which external scripts are
-            allowed to run is a common example - it's invisible until
-            someone checks production's actual response headers against
-            what loaded locally.
+            Local and preview environments often don't send the same security
+            headers a production environment does. A content security policy
+            that restricts which external scripts are allowed to run is a common
+            example - it's invisible until someone checks production's actual
+            response headers against what loaded locally.
           </p>
 
           <h3>Is this a one-time pass or something that needs repeating?</h3>
           <p>
-            Both. The specific issues here are fixed and shouldn't
-            reappear on their own, but new pages and new content introduce
-            new chances for the same categories of mistakes - a missing
-            landmark on a new page, an image added without matching
-            dimensions. The value of documenting the pass is having a
-            checklist for the next one.
+            Both. The specific issues here are fixed and shouldn't reappear on
+            their own, but new pages and new content introduce new chances for
+            the same categories of mistakes - a missing landmark on a new page,
+            an image added without matching dimensions. The value of documenting
+            the pass is having a checklist for the next one.
           </p>
         </section>
 
@@ -547,8 +546,8 @@
                 margin-left: auto;
                 margin-right: auto;
               ">
-              A short conversation is usually enough to tell whether there's
-              a quick answer or something deeper worth tracing.
+              A short conversation is usually enough to tell whether there's a
+              quick answer or something deeper worth tracing.
             </p>
             <ul
               class="actions stacked"
@@ -564,14 +563,18 @@
       </main>
 
       <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
-      <script src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3" defer></script>
-      <script src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c" defer></script>
+      <script
+        src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3"
+        defer></script>
+      <script
+        src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c"
+        defer></script>
       <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
       <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
       <script src="/assets/js/main.js?v=0200c190da" defer></script>
       <script src="/assets/js/footer-min.js?v=c306eed6ce" defer></script>
       <scott-footer
-        description="A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 92+ on mobile, one category at a time."></scott-footer>
+        description="A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 94+ on mobile, one category at a time."></scott-footer>
     </div>
   </body>
 </html>
