@@ -54,6 +54,7 @@
     <script src="../assets/js/header-min.js?v=0b07c49366" async></script>
     <script src="../assets/js/favicon-min.js?v=d2e76e98d0" async></script>
     <script src="../assets/js/navigation-min.js?v=d59ead959b" defer></script>
+    <script src="../assets/js/scott-filter-bar-min.js?v=a0d2b5dd01" defer></script>
 
     <link rel="canonical" href="https://scottlabz.com/field-notes/" />
 
@@ -265,6 +266,29 @@
           grid-template-columns: 1fr;
         }
       }
+
+      /* Required by <scott-filter-bar> - the cards it filters live
+         outside its shadow root, so the show/hide transition classes
+         have to be in regular page CSS. !important on ff-hide because
+         every card also carries an inline display:block. */
+      .fn-card-link {
+        transition:
+          opacity 0.18s ease,
+          transform 0.18s ease;
+      }
+      .fn-card-link.ff-hide {
+        display: none !important;
+      }
+      .fn-card-link.ff-leaving,
+      .fn-card-link.ff-entering {
+        opacity: 0;
+        transform: translateY(4px) scale(0.98);
+      }
+
+      scott-filter-bar {
+        display: block;
+        margin-bottom: 1rem;
+      }
     </style>
   </head>
 
@@ -328,10 +352,22 @@
         class="service-content"
         id="first"
         style="max-width: 1180px; margin: 0 auto; padding: 4rem 1.5rem">
-        <div class="fn-grid">
+        <scott-filter-bar target="#fn-grid" item-selector=".fn-card-link" all-label="All">
+          <script type="application/json">
+            [
+              { "key": "measurement", "label": "Measurement & Data", "color": "#2563eb" },
+              { "key": "frontend",    "label": "Frontend & CSS", "color": "#0f766e" },
+              { "key": "infra",       "label": "Infrastructure & Ops", "color": "#7c2d92" },
+              { "key": "performance", "label": "Performance", "color": "#ca8a04" }
+            ]
+          </script>
+        </scott-filter-bar>
+
+        <div class="fn-grid" id="fn-grid">
         <a
           href="the-widget-that-broke-two-ways.html"
           class="fn-card-link"
+          data-categories="frontend"
           style="
             text-decoration: none;
             color: inherit;
@@ -351,6 +387,7 @@
         <a
           href="the-scroll-that-wouldnt-stop.html"
           class="fn-card-link"
+          data-categories="frontend"
           style="
             text-decoration: none;
             color: inherit;
@@ -370,6 +407,7 @@
         <a
           href="the-cleanup-pass.html"
           class="fn-card-link"
+          data-categories="performance"
           style="
             text-decoration: none;
             color: inherit;
@@ -389,6 +427,7 @@
         <a
           href="gtm-container-autopsy.html"
           class="fn-card-link"
+          data-categories="measurement"
           style="
             text-decoration: none;
             color: inherit;
@@ -407,6 +446,7 @@
         <a
           href="website-measurement-gaps.html"
           class="fn-card-link"
+          data-categories="measurement"
           style="
             text-decoration: none;
             color: inherit;
@@ -426,6 +466,7 @@
         <a
           href="cloudflare-7003-diagnosis.html"
           class="fn-card-link"
+          data-categories="infra"
           style="
             text-decoration: none;
             color: inherit;
@@ -445,6 +486,7 @@
         <a
           href="schema-drift-problem.html"
           class="fn-card-link"
+          data-categories="measurement"
           style="
             text-decoration: none;
             color: inherit;
@@ -464,6 +506,7 @@
         <a
           href="scd-type-2-trap.html"
           class="fn-card-link"
+          data-categories="measurement"
           style="
             text-decoration: none;
             color: inherit;
@@ -483,6 +526,7 @@
         <a
           href="semantic-drift-problem.html"
           class="fn-card-link"
+          data-categories="measurement"
           style="
             text-decoration: none;
             color: inherit;
@@ -501,6 +545,7 @@
         <a
           href="data-contracts-discipline.html"
           class="fn-card-link"
+          data-categories="measurement"
           style="
             text-decoration: none;
             color: inherit;
@@ -520,6 +565,7 @@
         <a
           href="100vh-mobile-viewport-bug.html"
           class="fn-card-link"
+          data-categories="frontend"
           style="
             text-decoration: none;
             color: inherit;
@@ -538,6 +584,7 @@
         <a
           href="css-specificity-trap.html"
           class="fn-card-link"
+          data-categories="frontend"
           style="
             text-decoration: none;
             color: inherit;
@@ -557,6 +604,7 @@
         <a
           href="http-response-headers-read-properly.html"
           class="fn-card-link"
+          data-categories="infra"
           style="
             text-decoration: none;
             color: inherit;
@@ -575,6 +623,7 @@
         <a
           href="the-purge-that-only-ran-manually.html"
           class="fn-card-link"
+          data-categories="infra"
           style="
             text-decoration: none;
             color: inherit;
@@ -594,6 +643,7 @@
         <a
           href="the-address-we-took-out-of-the-schema.html"
           class="fn-card-link"
+          data-categories="measurement"
           style="
             text-decoration: none;
             color: inherit;
@@ -613,6 +663,7 @@
         <a
           href="the-fix-that-dropped-the-score-first.html"
           class="fn-card-link"
+          data-categories="performance frontend"
           style="
             text-decoration: none;
             color: inherit;
@@ -632,6 +683,7 @@
         <a
           href="async-everywhere-would-have-broken-the-footer.html"
           class="fn-card-link"
+          data-categories="frontend performance"
           style="
             text-decoration: none;
             color: inherit;

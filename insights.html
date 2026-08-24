@@ -54,6 +54,7 @@
     <script src="/assets/js/header-min.js?v=0b07c49366" async></script>
     <script src="/assets/js/favicon-min.js?v=d2e76e98d0" async></script>
     <script src="/assets/js/navigation-min.js?v=d59ead959b" defer></script>
+    <script src="/assets/js/scott-filter-bar-min.js?v=a0d2b5dd01" defer></script>
 
     <link rel="canonical" href="https://scottlabz.com/insights.html" />
 
@@ -221,6 +222,29 @@
           display: none;
         }
       }
+
+      /* Required by <scott-filter-bar> - the rows it filters live
+         outside its shadow root, so the show/hide transition classes
+         have to be in regular page CSS. */
+      .idea-row {
+        transition:
+          padding-left 0.25s ease,
+          opacity 0.18s ease,
+          transform 0.18s ease;
+      }
+      .idea-row.ff-hide {
+        display: none;
+      }
+      .idea-row.ff-leaving,
+      .idea-row.ff-entering {
+        opacity: 0;
+        transform: translateY(4px) scale(0.98);
+      }
+
+      scott-filter-bar {
+        display: block;
+        margin-bottom: 1rem;
+      }
     </style>
   </head>
 
@@ -286,8 +310,19 @@
           Building What Matters
         </h2>
 
-        <div class="idea-index">
-          <a href="/insights/dashboards-nobody-opens.html" class="idea-row">
+        <scott-filter-bar target="#idea-index" item-selector=".idea-row" all-label="All">
+          <script type="application/json">
+            [
+              { "key": "measurement",  "label": "Measurement", "color": "#2563eb" },
+              { "key": "search-data",  "label": "Search & Data", "color": "#b45309" },
+              { "key": "systems",      "label": "Systems", "color": "#334155" },
+              { "key": "automation",   "label": "Automation", "color": "#7c3aed" }
+            ]
+          </script>
+        </scott-filter-bar>
+
+        <div class="idea-index" id="idea-index">
+          <a href="/insights/dashboards-nobody-opens.html" class="idea-row" data-categories="measurement">
             <span class="idea-number">01</span>
             <span class="idea-body">
               <span class="idea-kicker">Measurement</span>
@@ -302,7 +337,8 @@
 
           <a
             href="/insights/local-seo-is-a-data-problem.html"
-            class="idea-row">
+            class="idea-row"
+            data-categories="search-data">
             <span class="idea-number">02</span>
             <span class="idea-body">
               <span class="idea-kicker">Search &amp; Data</span>
@@ -319,7 +355,8 @@
 
           <a
             href="/insights/redundant-data-entry-missing-integration.html"
-            class="idea-row">
+            class="idea-row"
+            data-categories="systems">
             <span class="idea-number">03</span>
             <span class="idea-body">
               <span class="idea-kicker">Systems</span>
@@ -336,7 +373,8 @@
 
           <a
             href="/insights/what-automation-shouldnt-touch.html"
-            class="idea-row">
+            class="idea-row"
+            data-categories="automation">
             <span class="idea-number">04</span>
             <span class="idea-body">
               <span class="idea-kicker">Automation</span>
@@ -351,7 +389,8 @@
 
           <a
             href="/insights/cart-abandonment-measurement-gap.html"
-            class="idea-row">
+            class="idea-row"
+            data-categories="measurement">
             <span class="idea-number">05</span>
             <span class="idea-body">
               <span class="idea-kicker">Measurement</span>
@@ -367,7 +406,10 @@
             <i class="fas fa-arrow-right idea-arrow"></i>
           </a>
 
-          <a href="/insights/engineering-approach.html" class="idea-row">
+          <a
+            href="/insights/engineering-approach.html"
+            class="idea-row"
+            data-categories="systems">
             <span class="idea-number">06</span>
             <span class="idea-body">
               <span class="idea-kicker">Systems</span>
@@ -382,7 +424,10 @@
             <i class="fas fa-arrow-right idea-arrow"></i>
           </a>
 
-          <a href="/insights/automation.html" class="idea-row">
+          <a
+            href="/insights/automation.html"
+            class="idea-row"
+            data-categories="automation">
             <span class="idea-number">07</span>
             <span class="idea-body">
               <span class="idea-kicker">Automation</span>
@@ -395,7 +440,10 @@
             <i class="fas fa-arrow-right idea-arrow"></i>
           </a>
 
-          <a href="/insights/seo-analytics.html" class="idea-row">
+          <a
+            href="/insights/seo-analytics.html"
+            class="idea-row"
+            data-categories="search-data">
             <span class="idea-number">08</span>
             <span class="idea-body">
               <span class="idea-kicker">Search &amp; Data</span>
@@ -412,7 +460,8 @@
 
           <a
             href="/insights/why-redundancy-beats-a-single-stack.html"
-            class="idea-row">
+            class="idea-row"
+            data-categories="systems">
             <span class="idea-number">09</span>
             <span class="idea-body">
               <span class="idea-kicker">Systems</span>
@@ -427,7 +476,8 @@
 
           <a
             href="/insights/measurement-before-media-spend.html"
-            class="idea-row">
+            class="idea-row"
+            data-categories="measurement">
             <span class="idea-number">10</span>
             <span class="idea-body">
               <span class="idea-kicker">Measurement</span>
