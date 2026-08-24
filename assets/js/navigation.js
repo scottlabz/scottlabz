@@ -107,12 +107,14 @@ class ScottNav extends HTMLElement {
           transform: translateY(-100%);
         }
 
-        /* 75px at the default 16px root font-size. rem rather than px so
-           it stays proportional to the user's font-size/zoom setting -
-           mobile keeps its own auto-height wrapped grid below. */
+        /* px, not rem - this site's own html font-size is not fixed
+           (main.css steps it from 18pt down to 10pt across breakpoints),
+           so a rem value here would drift with it instead of holding a
+           steady 75px. Mobile keeps its own auto-height wrapped grid
+           below. */
         @media screen and (min-width: 737px) {
           .sl-nav {
-            height: 4.6875rem;
+            height: 75px;
           }
           .sl-nav-inner {
             height: 100%;
