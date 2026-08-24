@@ -97,25 +97,13 @@ class ScottNav extends HTMLElement {
           position: sticky;
           top: 0;
           z-index: 500;
-          /* A faint dot grid layered under the glass gradient - a
-             monitor/dashboard screen texture instead of a flat white
-             stripe, subtle enough to still blend rather than stand out. */
           background-color: rgba(255, 255, 255, 0.78);
-          background-image: linear-gradient(
-              160deg,
-              rgba(255, 255, 255, 0.85) 0%,
-              rgba(255, 255, 255, 0.6) 45%,
-              rgba(255, 255, 255, 0.78) 100%
-            ),
-            radial-gradient(rgba(30, 58, 95, 0.05) 1px, transparent 1px);
-          background-size:
-            100% 100%,
-            14px 14px;
           backdrop-filter: blur(16px) saturate(140%);
           -webkit-backdrop-filter: blur(16px) saturate(140%);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.85);
           box-shadow:
             inset 0 1px 0 rgba(255, 255, 255, 0.9),
-            0 4px 20px rgba(15, 23, 42, 0.06);
+            0 8px 28px rgba(15, 23, 42, 0.16);
           transform: translateY(0);
         }
         @media (prefers-reduced-motion: no-preference) {
@@ -201,8 +189,8 @@ class ScottNav extends HTMLElement {
 
         .sl-bar-fill {
           width: 16px;
-          border-radius: 3px 3px 0 0;
-          background: color-mix(in srgb, var(--bar-color, #1e3a5f) 12%, white);
+          border-radius: 2px 2px 0 0;
+          background: color-mix(in srgb, var(--bar-color, #1e3a5f) 32%, white);
           border-top: 3px solid var(--bar-color, #1e3a5f);
         }
         @media (prefers-reduced-motion: no-preference) {
@@ -212,7 +200,7 @@ class ScottNav extends HTMLElement {
         }
         .sl-bar:hover .sl-bar-fill,
         .sl-bar:focus-visible .sl-bar-fill {
-          background: color-mix(in srgb, var(--bar-color, #1e3a5f) 25%, white);
+          background: color-mix(in srgb, var(--bar-color, #1e3a5f) 48%, white);
         }
 
         .sl-bar-label {
@@ -223,19 +211,15 @@ class ScottNav extends HTMLElement {
           white-space: nowrap;
         }
 
-        /* Current page: tallest, filled with a modest embossed gradient
-           instead of flat color, bold underlined label - three signals
-           beyond color, per WCAG 1.4.1. */
+        /* Current page: tallest, filled with a flat, full-strength
+           color - crisp and high-contrast against the other bars' pale
+           tints, bold underlined label - three signals beyond color,
+           per WCAG 1.4.1. */
         .sl-bar[aria-current="page"] .sl-bar-fill {
-          background: linear-gradient(
-            180deg,
-            color-mix(in srgb, var(--bar-color, #1e3a5f) 75%, white) 0%,
-            var(--bar-color, #1e3a5f) 50%,
-            color-mix(in srgb, var(--bar-color, #1e3a5f) 80%, black) 100%
-          );
-          border-top-color: color-mix(in srgb, var(--bar-color, #1e3a5f) 75%, white);
+          background: var(--bar-color, #1e3a5f);
+          border-top-color: var(--bar-color, #1e3a5f);
           box-shadow:
-            inset 0 1px 1px rgba(255, 255, 255, 0.4),
+            inset 0 2px 0px rgba(255, 255, 255, 0.4),
             0 2px 4px rgba(15, 23, 42, 0.18);
           height: 40px !important;
         }

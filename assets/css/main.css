@@ -316,8 +316,14 @@ a {
   text-decoration: underline;
 }
 
-a:hover {
-  text-decoration: none;
+/* Guarded to real hover-capable pointers (mouse/trackpad) only. An
+   unconditional a:hover here makes touch browsers treat the first tap
+   on any link as "hover" and only follow it on a second tap - this is
+   what's behind links needing two taps on mobile. */
+@media (hover: hover) {
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 strong,
@@ -547,8 +553,10 @@ a {
   color: #000000;
 }
 
-a:hover {
-  color: #1e3a5f;
+@media (hover: hover) {
+  a:hover {
+    color: #1e3a5f;
+  }
 }
 
 strong,
