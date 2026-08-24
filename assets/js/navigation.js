@@ -88,12 +88,20 @@ class ScottNav extends HTMLElement {
           position: sticky;
           top: 0;
           z-index: 500;
-          background: linear-gradient(
-            160deg,
-            rgba(255, 255, 255, 0.85) 0%,
-            rgba(255, 255, 255, 0.6) 45%,
-            rgba(255, 255, 255, 0.78) 100%
-          );
+          /* A faint dot grid layered under the glass gradient - a
+             monitor/dashboard screen texture instead of a flat white
+             stripe, subtle enough to still blend rather than stand out. */
+          background-color: rgba(255, 255, 255, 0.78);
+          background-image: linear-gradient(
+              160deg,
+              rgba(255, 255, 255, 0.85) 0%,
+              rgba(255, 255, 255, 0.6) 45%,
+              rgba(255, 255, 255, 0.78) 100%
+            ),
+            radial-gradient(rgba(30, 58, 95, 0.05) 1px, transparent 1px);
+          background-size:
+            100% 100%,
+            14px 14px;
           backdrop-filter: blur(16px) saturate(140%);
           -webkit-backdrop-filter: blur(16px) saturate(140%);
           box-shadow:
