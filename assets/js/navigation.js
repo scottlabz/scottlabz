@@ -124,27 +124,32 @@ class ScottNav extends HTMLElement {
           }
         }
 
+        /* px, not rem, here too - same reason as the height and bars
+           below: this site's html font-size isn't fixed, and the demo
+           preview (which doesn't load main.css) only ever sees the
+           browser's plain 16px default, so rem would render smaller
+           there than on the real, wider-breakpoint site pages. */
         .sl-nav-inner {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 1.25rem;
+          gap: 20px;
           max-width: 1200px;
           margin: 0 auto;
-          padding: 0 1rem;
+          padding: 0 16px;
         }
 
         .sl-nav-brand {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 8px;
           flex-shrink: 0;
-          padding: 0.6rem 0;
+          padding: 10px 0;
           border-bottom: none !important;
           color: var(--text-color, #111111);
           text-decoration: none;
           font-weight: 700;
-          font-size: 0.95rem;
+          font-size: 15px;
         }
         .sl-nav-brand img {
           display: block;
