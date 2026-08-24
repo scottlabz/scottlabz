@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scott Labz - Navigation Preview</title>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,700&display=swap"
+  />
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #111111;
+      --border-color: #e5e5e5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-color);
+      background: var(--bg-color);
+    }
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 6rem;
+    }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .lede { color: #555; font-size: 1.1rem; line-height: 1.6; }
+    p { line-height: 1.7; color: #333; }
+
+    /* ---- Demo-only control panel. Not part of navigation.js. ---- */
+    .demo-panel {
+      position: sticky;
+      top: 0;
+      z-index: 600;
+      background: #fffbea;
+      border-bottom: 2px dashed #d4b106;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    .demo-panel strong { color: #7a5b00; }
+    .demo-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+    .demo-buttons button {
+      font: inherit;
+      font-size: 0.85rem;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid #1e3a5f;
+      background: #fff;
+      color: #1e3a5f;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .demo-buttons button[aria-pressed="true"] {
+      background: #1e3a5f;
+      color: #fff;
+    }
+    /* ---------------------------------------------------------------- */
+  </style>
+</head>
+<body>
+
+  <!-- DEMO-ONLY: simulates navigating between pages so you can see the
+       "current page" bar state change without needing multiple real
+       pages. This panel is not part of navigation.js. -->
+  <div class="demo-panel">
+    <strong>Preview controls</strong> - click a page below to simulate visiting it.
+    Scroll down to see the nav stick to the top.
+    <div class="demo-buttons" id="demoButtons"></div>
+  </div>
+
+  <!-- ============== THIS PART IS THE REAL COMPONENT ============== -->
+  <scott-nav></scott-nav>
+  <!-- ================================================================ -->
+
+  <main id="main-content">
+    <h1>Field Notes: Building a Bar-Chart Navigation</h1>
+    <p class="lede">
+      This page exists to preview the navigation component in context.
+      Scroll down - the bar chart stays fixed to the top of the viewport
+      so it's reachable from anywhere on the page, without hiding behind
+      a menu button.
+    </p>
+    <p>
+      Every item's bar height increases left to right, echoing the bar
+      chart built into the S in the logo. Whichever page is active
+      becomes the tall, solid, marked bar - so the menu itself shows you
+      where you are, without needing a separate breadcrumb or "you are
+      here" label.
+    </p>
+    <p>
+      The clickable zone for every item is a full-height column, even
+      for short bars like "Home" - the bar is decorative, not the
+      target. Tab through the page with your keyboard to see the focus
+      outline; it's deliberately thick and high-contrast rather than
+      the thin default most browsers ship.
+    </p>
+    <p>
+      Try narrowing your browser window. Past roughly 736px - the same
+      breakpoint the rest of scottlabz.com already uses - the bar chart
+      becomes a horizontally scrollable strip instead of wrapping or
+      collapsing into a hidden menu. Every item stays visible and
+      reachable; nothing is ever hidden behind a hamburger icon.
+    </p>
+    <p>
+      If your operating system has "reduce motion" turned on, the small
+      grow-on-hover animation is skipped automatically - the state
+      change (color, height, label weight) still happens instantly, just
+      without the transition.
+    </p>
+    <p style="margin-top: 3rem; color: #888; font-size: 0.9rem;">
+      (Placeholder body copy for scroll-testing purposes only.)
+    </p>
+  </main>
+
+  <script>
+    /* =========================================================
+     * navigation.js - identical to the standalone production
+     * file, inlined here only so this single HTML file previews
+     * on its own without a second network request.
+     * ========================================================= */
+    class ScottNav extends HTMLElement {
+      connectedCallback() {
+        const items = [
+          { href: "/index.html", label: "Home", height: 26 },
+          { href: "/services.html", label: "Services", height: 34 },
+          { href: "/case-studies.html", label: "Work", height: 42 },
+          { href: "/insights.html", label: "Insights", height: 50 },
+          { href: "/about.html", label: "About", height: 58 },
+          { href: "/contact.html", label: "Contact", height: 66 },
+        ];
+
+        const normalize = (href) =>
+          href.replace(/index\.html$/, "").replace(/\/$/, "") || "/";
+
+        if (!document.getElementById("scott-nav-style")) {
+          const style = document.createElement("style");
+          style.id = "scott-nav-style";
+          style.textContent = `
+            .sl-skip-link { position:absolute; left:-9999px; top:0; background:#1e3a5f; color:#fff; padding:0.85rem 1.25rem; font-size:1rem; font-weight:600; z-index:1000; border-radius:0 0 6px 0; }
+            .sl-skip-link:focus { left:0; }
+            .sl-nav { position:sticky; top:0; z-index:500; background:var(--bg-color,#ffffff); border-bottom:1px solid var(--border-color,#e5e5e5); }
+            .sl-nav-inner { display:flex; align-items:center; gap:1.5rem; max-width:1200px; margin:0 auto; padding:0 1rem; }
+            .sl-nav-brand { display:flex; align-items:center; gap:0.5rem; flex-shrink:0; padding:0.75rem 0; border-bottom:none !important; color:var(--text-color,#111111); text-decoration:none; font-weight:700; font-size:1.05rem; }
+            .sl-nav-brand img { display:block; height:30px; width:auto; }
+            .sl-nav-bars { display:flex; align-items:flex-end; gap:0.25rem; list-style:none; margin:0; padding:0.25rem 0 0 0; overflow-x:auto; scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch; }
+            .sl-nav-bars::-webkit-scrollbar { height:5px; }
+            .sl-nav-bars::-webkit-scrollbar-thumb { background:var(--border-color,#e5e5e5); border-radius:4px; }
+            .sl-bar-item { scroll-snap-align:start; }
+            .sl-bar { display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:0.4rem; width:78px; min-height:68px; padding:0.4rem 0.25rem 0.6rem; text-decoration:none; border-radius:6px; border:2px solid transparent; }
+            .sl-bar:hover, .sl-bar:focus-visible { border-color:#1e3a5f; }
+            .sl-bar:focus-visible { outline:3px solid #1e3a5f; outline-offset:2px; }
+            .sl-bar-fill { width:30px; border-radius:3px 3px 0 0; background:#eef2f6; border-top:3px solid #1e3a5f; position:relative; }
+            @media (prefers-reduced-motion: no-preference) { .sl-bar-fill { transition:height 0.15s ease, background-color 0.15s ease; } }
+            .sl-bar:hover .sl-bar-fill, .sl-bar:focus-visible .sl-bar-fill { background:#dbe4ec; }
+            .sl-bar-label { font-size:0.95rem; font-weight:500; color:var(--text-color,#111111); white-space:nowrap; }
+            .sl-bar[aria-current="page"] .sl-bar-fill { background:#1e3a5f; height:66px !important; }
+            .sl-bar[aria-current="page"] .sl-bar-fill::after { content:""; position:absolute; top:-7px; left:50%; transform:translateX(-50%); width:9px; height:9px; border-radius:50%; background:#1e3a5f; }
+            .sl-bar[aria-current="page"] .sl-bar-label { font-weight:700; color:#1e3a5f; text-decoration:underline; text-underline-offset:3px; }
+            @media screen and (max-width:736px) { .sl-nav-brand span { display:none; } }
+          `;
+          document.head.appendChild(style);
+        }
+
+        this.items = items;
+        this.normalize = normalize;
+        this.render();
+      }
+
+      // DEMO-ONLY DIFFERENCE: reads window.DEMO_CURRENT_PAGE (set by the
+      // preview buttons below) instead of the real window.location.pathname,
+      // since this single file simulates several "pages" at once. The
+      // production navigation.js always uses the real URL.
+      render() {
+        const currentPath = this.normalize(window.DEMO_CURRENT_PAGE || "/index.html");
+
+        const barsMarkup = this.items
+          .map((item) => {
+            const isCurrent = this.normalize(item.href) === currentPath;
+            return `
+              <li class="sl-bar-item">
+                <a href="${item.href}" class="sl-bar" ${isCurrent ? 'aria-current="page"' : ""} onclick="return false;">
+                  <span class="sl-bar-fill" style="height:${item.height}px;"></span>
+                  <span class="sl-bar-label">${item.label}</span>
+                </a>
+              </li>
+            `;
+          })
+          .join("");
+
+        const skipTarget = this.getAttribute("skip-target") || "#main-content";
+        this.innerHTML = `
+          <a href="${skipTarget}" class="sl-skip-link">Skip to main content</a>
+          <nav class="sl-nav" aria-label="Primary">
+            <div class="sl-nav-inner">
+              <a href="/index.html" class="sl-nav-brand" onclick="return false;">
+                <img src="https://scottlabz.com/images/scottlabz-clear.webp" alt="" width="30" height="39" onerror="this.style.display='none'" />
+                <span>Scott Labz</span>
+              </a>
+              <ul class="sl-nav-bars" role="list">${barsMarkup}</ul>
+            </div>
+          </nav>
+        `;
+      }
+    }
+    customElements.define("scott-nav", ScottNav);
+
+    /* ---- DEMO-ONLY wiring for the yellow control panel above ---- */
+    window.DEMO_CURRENT_PAGE = "/index.html";
+    const demoItems = [
+      { href: "/index.html", label: "Home" },
+      { href: "/services.html", label: "Services" },
+      { href: "/case-studies.html", label: "Work" },
+      { href: "/insights.html", label: "Insights" },
+      { href: "/about.html", label: "About" },
+      { href: "/contact.html", label: "Contact" },
+    ];
+    const demoButtonsEl = document.getElementById("demoButtons");
+    function renderDemoButtons() {
+      demoButtonsEl.innerHTML = demoItems
+        .map(
+          (i) =>
+            `<button type="button" data-href="${i.href}" aria-pressed="${i.href === window.DEMO_CURRENT_PAGE}">${i.label}</button>`
+        )
+        .join("");
+    }
+    renderDemoButtons();
+    demoButtonsEl.addEventListener("click", (e) => {
+      const btn = e.target.closest("button");
+      if (!btn) return;
+      window.DEMO_CURRENT_PAGE = btn.dataset.href;
+      renderDemoButtons();
+      document.querySelector("scott-nav").render();
+    });
+  </script>
+</body>
+</html>
