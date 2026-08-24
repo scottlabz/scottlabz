@@ -42,10 +42,10 @@ class ScottNav extends HTMLElement {
     const items = [
       { href: "/index.html", label: "Home", height: 15, color: "#1e3a5f" },
       { href: "/services.html", label: "Services", height: 20, color: "#0e7490" },
-      { href: "/case-studies.html", label: "Work", height: 25, color: "#15803d" },
+      { href: "/case-studies.html", label: "Work", height: 25, color: "#a21caf" },
       { href: "/insights.html", label: "Insights", height: 30, color: "#b45309" },
       { href: "/about.html", label: "About", height: 35, color: "#7c3aed" },
-      { href: "/contact.html", label: "Contact", height: 40, color: "#be123c" },
+      { href: "/contact.html", label: "Contact", height: 40, color: "#15803d" },
     ];
 
     const currentPath =
