@@ -44,7 +44,16 @@ class ScottNav extends HTMLElement {
       { href: "/case-studies.html", label: "Work", height: 20, color: "#ca8a04" },
       { href: "/insights.html", label: "Insights", height: 25, color: "#b45309" },
       { href: "/field-notes/", label: "Field Notes", height: 30, color: "#1e3a5f" },
-      { href: "/about.html", label: "About", height: 35, color: "#7c3aed" },
+      {
+        href: "/about.html",
+        label: "About",
+        height: 35,
+        color: "#7c3aed",
+        // founder.html is a standalone page, not a subpage under an
+        // /about/ directory, so it can't be caught by the section-path
+        // check below - it needs to be listed explicitly.
+        aliases: ["/founder.html"],
+      },
       { href: "/contact.html", label: "Contact", height: 40, color: "#15803d" },
     ];
 
@@ -267,7 +276,19 @@ class ScottNav extends HTMLElement {
 
     const barsMarkup = items
       .map((item) => {
-        const isCurrent = normalize(item.href) === currentPath;
+        // Active on the item's own page, and on any subpage under its
+        // directory (e.g. /field-notes/ stays active for
+        // /field-notes/some-post.html, /case-studies.html for
+        // /case-studies/some-project.html). Strip a trailing .html for
+        // the directory check specifically, since a leaf page like
+        // case-studies.html shares its name with the case-studies/
+        // directory that holds its subpages.
+        const itemPath = normalize(item.href);
+        const sectionPath = itemPath.replace(/\.html$/, "");
+        const isCurrent =
+          itemPath === currentPath ||
+          currentPath.startsWith(sectionPath + "/") ||
+          (item.aliases || []).some((alias) => normalize(alias) === currentPath);
         return `
           <li class="sl-bar-item">
             <a
