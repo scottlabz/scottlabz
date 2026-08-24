@@ -189,7 +189,6 @@ class ScottNav extends HTMLElement {
           border-radius: 3px 3px 0 0;
           background: color-mix(in srgb, var(--bar-color, #1e3a5f) 12%, white);
           border-top: 3px solid var(--bar-color, #1e3a5f);
-          position: relative;
         }
         @media (prefers-reduced-motion: no-preference) {
           .sl-bar-fill {
@@ -209,23 +208,21 @@ class ScottNav extends HTMLElement {
           white-space: nowrap;
         }
 
-        /* Current page: tallest, filled solid, arrow marker, bold
-           underlined label - three signals beyond color, per WCAG 1.4.1. */
+        /* Current page: tallest, filled with a modest embossed gradient
+           instead of flat color, bold underlined label - three signals
+           beyond color, per WCAG 1.4.1. */
         .sl-bar[aria-current="page"] .sl-bar-fill {
-          background: var(--bar-color, #1e3a5f);
+          background: linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bar-color, #1e3a5f) 75%, white) 0%,
+            var(--bar-color, #1e3a5f) 50%,
+            color-mix(in srgb, var(--bar-color, #1e3a5f) 80%, black) 100%
+          );
+          border-top-color: color-mix(in srgb, var(--bar-color, #1e3a5f) 75%, white);
+          box-shadow:
+            inset 0 1px 1px rgba(255, 255, 255, 0.4),
+            0 2px 4px rgba(15, 23, 42, 0.18);
           height: 40px !important;
-        }
-        .sl-bar[aria-current="page"] .sl-bar-fill::after {
-          content: "";
-          position: absolute;
-          top: -6px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 0;
-          height: 0;
-          border-left: 3px solid transparent;
-          border-right: 3px solid transparent;
-          border-bottom: 4px solid var(--bar-color, #1e3a5f);
         }
         .sl-bar[aria-current="page"] .sl-bar-label {
           font-weight: 700;
