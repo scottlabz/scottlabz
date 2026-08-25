@@ -133,6 +133,12 @@ class ScottFooter extends HTMLElement {
                 </li>
 
                 <li>
+                  <a href="/conversion-optimization.html">
+                    Optimization
+                  </a>
+                </li>
+
+                <li>
                   <a href="/services.html">
                     Services
                   </a>
