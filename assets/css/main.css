@@ -9327,7 +9327,7 @@ body.is-preload .items.onload-fade-in > * > .inner {
 }
 
 .light-box {
-  background: rgba(248, 250, 252, 0.65);
+  background: rgba(248, 250, 252, 0.85);
   padding: 1.5rem 2rem 0 2rem;
   border-radius: 12px;
   border: 1px solid rgba(30, 58, 95, 0.12);
