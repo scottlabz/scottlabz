@@ -250,6 +250,20 @@ body {
   background: #ffffff;
 }
 
+/* Reserves scott-nav's height before its own JS-injected styles and
+   markup land, so the nav popping in doesn't shove the rest of the
+   page down - a layout-shift "flicker" on every page load otherwise,
+   since navigation-min.js is deferred and the element starts empty. */
+scott-nav {
+  display: block;
+  min-height: 75px;
+}
+@media screen and (max-width: 736px) {
+  scott-nav {
+    min-height: auto;
+  }
+}
+
 body.is-preload *,
 body.is-preload *:before,
 body.is-preload *:after {
