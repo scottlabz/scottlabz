@@ -19,6 +19,7 @@ EXCLUDE_DIRS = {
 EXCLUDE_FILES = {
     "404.html",
     "nav-demo.html",
+    "filter-bar-demo.html",
 }
 
 # Subdirectory index.html files are, by default, redirect stubs (e.g.

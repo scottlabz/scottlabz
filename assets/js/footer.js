@@ -192,6 +192,12 @@ class ScottFooter extends HTMLElement {
                     FAQ
                   </a>
                 </li>
+
+                <li>
+                  <a href="/lab.html">
+                    Lab
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -218,8 +224,14 @@ class ScottFooter extends HTMLElement {
                 </li>
 
                 <li>
+                  <a href="/why-us.html">
+                    Why Us
+                  </a>
+                </li>
+
+                <li>
                   <a href="/bbb.html">
-                    BBB Accreditation
+                    Accreditation
                   </a>
                 </li>
 
