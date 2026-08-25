@@ -138,7 +138,7 @@ class ScottNav extends HTMLElement {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 20px;
+          gap: 10px;
           max-width: 1200px;
           margin: 0 auto;
           padding: 0 16px;
