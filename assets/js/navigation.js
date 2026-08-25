@@ -40,7 +40,16 @@ class ScottNav extends HTMLElement {
     // Each item's color is used even when it isn't the current page, so
     // the row reads as distinct items rather than a wall of navy.
     const items = [
-      { href: "/services.html", label: "Services", height: 15, color: "#2563eb" },
+      {
+        href: "/services.html",
+        label: "Services",
+        height: 15,
+        color: "#2563eb",
+        // These are standalone pages, not subpages under a /services/
+        // directory, so they can't be caught by the section-path check
+        // below - they need to be listed explicitly.
+        aliases: ["/analytics-data.html", "/web-digital.html", "/industries.html"],
+      },
       { href: "/case-studies.html", label: "Work", height: 20, color: "#ca8a04" },
       { href: "/insights.html", label: "Insights", height: 25, color: "#b45309" },
       { href: "/field-notes/", label: "Field Notes", height: 30, color: "#1e3a5f" },
