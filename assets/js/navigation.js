@@ -48,7 +48,12 @@ class ScottNav extends HTMLElement {
         // These are standalone pages, not subpages under a /services/
         // directory, so they can't be caught by the section-path check
         // below - they need to be listed explicitly.
-        aliases: ["/analytics-data.html", "/web-digital.html", "/industries.html"],
+        aliases: [
+          "/analytics-data.html",
+          "/web-digital.html",
+          "/conversion-optimization.html",
+          "/industries.html",
+        ],
       },
       { href: "/case-studies.html", label: "Work", height: 20, color: "#ca8a04" },
       { href: "/insights.html", label: "Insights", height: 25, color: "#b45309" },

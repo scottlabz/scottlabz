@@ -51,7 +51,7 @@
 
     <script src="assets/js/header-min.js?v=0b07c49366" async></script>
     <script src="assets/js/favicon-min.js?v=d2e76e98d0" async></script>
-    <script src="assets/js/navigation-min.js?v=8548a6c862" defer></script>
+    <script src="assets/js/navigation-min.js?v=9d08c12f5f" defer></script>
     <link rel="canonical" href="https://scottlabz.com/services.html" />
 
     <script type="application/ld+json">
@@ -118,6 +118,26 @@
     <meta
       property="og:image"
       content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      /* A hint that these headings are clickable, not a full-strength
+         link - muted underline at rest, solidifies to navy on hover. */
+      .svc-h3-link {
+        color: inherit;
+        text-decoration: underline;
+        text-decoration-color: rgba(30, 58, 95, 0.35);
+        text-underline-offset: 4px;
+        transition:
+          color 0.2s ease,
+          text-decoration-color 0.2s ease;
+      }
+      @media (hover: hover) {
+        .svc-h3-link:hover {
+          color: #1e3a5f;
+          text-decoration-color: #1e3a5f;
+        }
+      }
+    </style>
   </head>
 
   <body class="is-preload">
@@ -219,7 +239,7 @@
                       color: var(--heading-color);
                       margin: 0;
                     ">
-                    <a href="/analytics-data.html" style="color: inherit">
+                    <a href="/analytics-data.html" class="svc-h3-link">
                       Analytics & Data Solutions
                     </a>
                   </h3>
@@ -372,7 +392,7 @@
                       color: var(--heading-color);
                       margin: 0;
                     ">
-                    <a href="/web-digital.html" style="color: inherit">
+                    <a href="/web-digital.html" class="svc-h3-link">
                       Web Development & Digital Solutions
                     </a>
                   </h3>
@@ -524,7 +544,9 @@
                       color: var(--heading-color);
                       margin: 0;
                     ">
-                    Optimization & Continuous Improvement
+                    <a href="/conversion-optimization.html" class="svc-h3-link">
+                      Optimization & Continuous Improvement
+                    </a>
                   </h3>
                 </div>
                 <div
