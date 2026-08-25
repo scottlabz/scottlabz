@@ -16,7 +16,7 @@ Scott Labz, LLC provides analytics engineering, web development, and digital inf
 
 We take a security-first approach to development and deployment:
 
-- Responsible disclosure via our [Vulnerability Disclosure Policy](https://scottlabz.com/vdp.html)
+- Responsible disclosure via our [Vulnerability Disclosure Policy](https://scottlabz.com/trust/vdp.html)
 - Privacy-focused analytics and data handling
 - Secure deployment practices, including automated dependency and code scanning
 
@@ -26,7 +26,7 @@ See [SECURITY.md](SECURITY.md) to report a vulnerability.
 
 [![License](https://img.shields.io/github/license/scottlabz/scottlabz)](LICENSE)
 [![Security Policy](https://img.shields.io/badge/security-policy-green)](SECURITY.md)
-[![Vulnerability Disclosure](https://img.shields.io/badge/vulnerability%20disclosure-policy-green)](https://scottlabz.com/vdp.html)
+[![Vulnerability Disclosure](https://img.shields.io/badge/vulnerability%20disclosure-policy-green)](https://scottlabz.com/trust/vdp.html)
 [![Code of Conduct](https://img.shields.io/badge/code%20of%20conduct-policy-green)](CODE_OF_CONDUCT.md)
 [![Cache Purge](https://img.shields.io/github/actions/workflow/status/scottlabz/scottlabz/purge-cache.yml?label=cache%20purge)](https://github.com/scottlabz/scottlabz/actions/workflows/purge-cache.yml)
 [![Website](https://img.shields.io/badge/website-scottlabz.com-green)](https://scottlabz.com)
