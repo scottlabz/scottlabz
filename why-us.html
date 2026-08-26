@@ -143,15 +143,135 @@
       .service-container {
         max-width: 900px;
         margin: 0 auto;
-        padding: 4rem 1.5rem;
+        padding: 2rem 1.5rem;
       }
 
       .section-block {
-        margin-bottom: 3rem;
+        margin-bottom: 0;
         padding: 2.5rem 2rem;
         border-radius: 8px;
         background: rgba(128, 128, 128, 0.04);
         border: 1px solid rgba(160, 160, 160, 0.2);
+      }
+
+      .wu-lead {
+        font-size: 1.15rem;
+        line-height: 1.7;
+        color: #3a4a5c;
+      }
+
+      .wu-reorder {
+        margin: 1.75rem 0 0;
+        font-weight: 600;
+        color: #1e3a5f;
+      }
+
+      .wu-steps {
+        position: relative;
+        margin: 1.75rem 0 2rem;
+        padding-left: 2.75rem;
+      }
+
+      .wu-steps::before {
+        content: "";
+        position: absolute;
+        left: 11px;
+        top: 6px;
+        bottom: 6px;
+        width: 2px;
+        background: linear-gradient(#1e3a5f, rgba(30, 58, 95, 0.15));
+      }
+
+      .wu-step {
+        position: relative;
+        margin-bottom: 1.5rem;
+      }
+
+      .wu-step:last-child {
+        margin-bottom: 0;
+      }
+
+      .wu-step::before {
+        content: attr(data-n);
+        position: absolute;
+        left: -2.75rem;
+        top: 0;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #1e3a5f;
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .wu-step:nth-child(1)::before {
+        background: #d64545;
+      }
+
+      .wu-step:nth-child(2)::before {
+        background: #3fa66c;
+      }
+
+      .wu-step:nth-child(3)::before {
+        background: #4c8bf5;
+      }
+
+      .wu-step h4 {
+        margin: 0 0 0.2rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #1e3a5f;
+      }
+
+      .wu-step p {
+        margin: 0;
+        color: #4a5a6c;
+      }
+
+      .wu-body {
+        margin-top: 0.75rem;
+      }
+
+      .wu-body p {
+        margin: 0 0 1.25rem;
+        line-height: 1.7;
+        color: #3a4a5c;
+      }
+
+      .wu-body p:last-child {
+        margin-bottom: 0;
+      }
+
+      .wu-close {
+        margin-top: 2rem;
+        padding-top: 1.75rem;
+        border-top: 1px solid rgba(160, 160, 160, 0.25);
+      }
+
+      .wu-close p {
+        margin: 0 0 0.5rem;
+      }
+
+      .wu-statement {
+        font-size: 1.2rem;
+        font-weight: 600;
+        background: linear-gradient(90deg, #1e3a5f, #4c8bf5);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .wu-brand {
+        text-align: center;
+      }
+
+      .wu-brand a {
+        border-bottom: none;
       }
     </style>
   </head>
@@ -169,6 +289,85 @@
     </noscript>
     <!-- End Google Tag Manager -->
 
+    <main class="service-container">
+      <section class="section-block">
+        <p class="brand-mark wu-brand">
+          <a href="index.html">
+            <img
+              src="images/scottlabz-clear.webp"
+              width="130"
+              height="170"
+              alt="S"
+              class="logo" />cott Labz
+          </a>
+        </p>
+
+        <p class="wu-lead">
+          A dashboard built on bad data is worse than no dashboard. A
+          campaign with no measurement plan is a guess with a budget. Most
+          engagements ship both anyway - the report still renders, the ads
+          still spend, and nobody notices until the numbers stop making
+          sense.
+        </p>
+
+        <p class="wu-reorder">Here, the order runs the other way.</p>
+
+        <div class="wu-steps">
+          <div class="wu-step" data-n="1">
+            <h4>Measure</h4>
+            <p>
+              First, and mean it - find out what's actually true about a
+              business's data and performance, not what the last report
+              assumed.
+            </p>
+          </div>
+          <div class="wu-step" data-n="2">
+            <h4>Build</h4>
+            <p>Second, only what's genuinely missing, nothing added for its own sake.</p>
+          </div>
+          <div class="wu-step" data-n="3">
+            <h4>Improve</h4>
+            <p>
+              After that, continuously, because a launch date isn't a finish
+              line - it's where the real work starts.
+            </p>
+          </div>
+        </div>
+
+        <div class="wu-body">
+          <p>
+            Every engagement moves through that same sequence: measurement
+            strategy, dashboard reporting, web builds, advertising campaigns.
+            No step gets skipped to hit a deadline faster or make a launch
+            look shinier.
+          </p>
+
+          <p>
+            That discipline shows up in who stays. Client relationships here
+            go back to 2006 - long enough to know that trust isn't promised
+            at the start of an engagement, it's built by holding up under
+            real scrutiny over years, not quarters.
+          </p>
+
+          <p>
+            It's backed by more than a claim. Better Business Bureau
+            accreditation. Membership in the local Chamber of Commerce. A
+            track record that includes official retail partnerships,
+            collegiate athletics programs, and specialty commerce - real
+            businesses with real stakes, not pilot programs.
+          </p>
+        </div>
+
+        <div class="wu-close">
+          <p class="wu-statement">
+            The result is straightforward: work that still makes sense a
+            year in, because it was measured, built, and improved in that
+            order - not the reverse.
+          </p>
+        </div>
+      </section>
+    </main>
+
     <div id="wrapper">
       <section>
         <img
@@ -180,7 +379,7 @@
           title="Scott Labz banner: Data. Engineered. Impact. Delivered. Icons for engineering excellence, innovation, measurable impact, and being a partner, not a vendor."
           style="
             width: 100%;
-            max-width: 90%;
+            max-width: 80%;
             height: auto;
             display: block;
             margin: 0 auto;
