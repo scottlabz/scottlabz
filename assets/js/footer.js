@@ -5,8 +5,6 @@ class ScottFooter extends HTMLElement {
       "Modern analytics, scalable data platforms, and custom web development.";
 
     this.innerHTML = `
-      <hr style="opacity:0.2;max-width:1200px;margin:0 auto 2rem auto;" />
-
       <footer class="wrapper style1 align-center">
 
         <div class="inner"
