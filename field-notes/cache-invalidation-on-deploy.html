@@ -1,0 +1,421 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
+
+    <!-- Google Tag Manager (loads on first interaction, or after 5s) -->
+    <script>
+      (function (w, d, s, l, i) {
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
+        });
+        var fallback = setTimeout(trigger, 5000);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>Cache Clears Itself the Moment Content Changes | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="Deploy-triggered cache invalidation and automatic asset versioning replaced a manual purge step with something verified against the host's own log instead of assumed to work." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/main-min.css?v=6e48b4e9ca" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript-min.css?v=30b0cb2b12" />
+    </noscript>
+
+    <script src="/assets/js/header-min.js?v=0b07c49366" async></script>
+    <script src="/assets/js/favicon-min.js?v=d2e76e98d0" async></script>
+    <script src="/assets/js/navigation-min.js?v=9d08c12f5f" defer></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/cache-invalidation-on-deploy.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/cache-invalidation-on-deploy.html",
+        "headline": "Cache Clears Itself the Moment Content Changes",
+        "description": "Deploy-triggered cache invalidation and automatic asset versioning replaced a manual purge step with something verified against the host's own log instead of assumed to work.",
+        "url": "https://scottlabz.com/field-notes/cache-invalidation-on-deploy.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="Cache Clears Itself the Moment Content Changes | Scott Labz" />
+    <meta
+      property="og:description"
+      content="Deploy-triggered cache invalidation and automatic asset versioning replaced a manual purge step with something verified, not assumed, to work." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/cache-invalidation-on-deploy.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+      .service-content h3 {
+        font-size: 1.05rem;
+        color: #1e3a5f;
+      }
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <scott-nav skip-target="#first"></scott-nav>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="/index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.webp"
+                width="130"
+                height="170"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">
+            Cache Clears Itself the Moment Content Changes<br />
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
+            <strong>Manually purging cache after every edit works right up
+            until the one time someone forgets it</strong> - so the deploy
+            step does it instead, verified against the host's own log
+            rather than assumed to work.
+          </h1>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            A cached page and a published page can quietly disagree with
+            each other. The edit is live at the origin, but visitors keep
+            getting served the version from before it, right up until
+            something forces a refresh. Manually clearing that cache after
+            every change works fine as a process - until the one time it's
+            forgotten, and there's no way to tell from the outside whether
+            that's happening on any given day.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What it actually looked like</h2>
+          <p>
+            A content change would go live at the source, but the cached
+            version at the edge could keep serving the old copy until it
+            either expired on its own or someone logged in and purged it by
+            hand. That worked, but it depended entirely on remembering an
+            extra step after every single edit - a step with no reminder,
+            no confirmation, and no consequence visible until a visitor
+            reported seeing something that was supposedly already fixed.
+          </p>
+          <p>
+            A related but separate problem sat on top of it: stylesheets
+            and scripts kept the same filename across edits. A browser that
+            had already cached one of those files under its old name had no
+            reason to ask for a new copy, even after the file's contents
+            changed on the server. That part couldn't be fixed by purging
+            anything - a browser's own cache isn't something a server can
+            reach into directly.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What was actually happening</h2>
+          <p>
+            These are two different caching layers with two different
+            rules. Content pages are cached at the delivery network's edge,
+            and that cache can be cleared on command. Static assets like
+            scripts and stylesheets are cached inside each visitor's
+            browser, tied to the exact URL requested - and a browser has no
+            way of knowing a file changed unless the URL itself changes.
+          </p>
+          <p>
+            Treating both as the same problem was the mistake. Edge cache
+            needed a purge triggered at the right moment. Browser cache
+            needed a naming convention that changed automatically whenever
+            a file's contents did, so the browser would treat it as a
+            different file entirely rather than reusing what it already
+            had.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The decision log</h2>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 1: Trigger the purge from the deploy step itself, not
+              a person
+            </div>
+            <p>
+              A step that runs automatically every time a change ships
+              removes the "did I remember" variable entirely. It doesn't
+              require discipline, and it doesn't degrade the tenth time it
+              runs the way a manual habit can.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 2: Scope the purge to content files only, not
+              everything
+            </div>
+            <p>
+              Clearing the entire cache on every single push - including
+              changes that have nothing to do with published content -
+              would force the origin to be hit far more often than
+              necessary, working against the reason a cache exists in the
+              first place. The purge step filters by file type, and only
+              fires for the ones that actually affect what a visitor sees.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 3: Verify the purge happened, don't just trust that
+              it ran
+            </div>
+            <p>
+              A deploy step reporting success and a cache actually being
+              cleared are two different claims. Confirmation came from the
+              delivery network's own activity log, showing the purge
+              requests landing and attributing them to the automated step -
+              not from assuming a green checkmark meant the job was done.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 4: Solve the browser-cache problem with a name
+              change, not a purge
+            </div>
+            <p>
+              There's no remote command that clears a visitor's own browser
+              cache. Instead, each stylesheet and script's filename now
+              includes a short hash generated from its contents. Change the
+              file, and the hash changes with it, so the browser requests
+              it as a brand-new file rather than reusing what it already
+              had cached. A small script recalculates that hash
+              automatically any time a source file changes, so nobody has
+              to remember to update it by hand.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Before and after</h2>
+          <div class="compare-grid">
+            <div class="compare-card before">
+              <h3 class="size-h4">Before</h3>
+              <ul>
+                <li>Cache purge depended on someone remembering to do it</li>
+                <li>
+                  Occasional stale content served for hours after a real
+                  edit
+                </li>
+                <li>
+                  Script and stylesheet filenames stayed constant across
+                  edits
+                </li>
+                <li>
+                  No confirmation the purge happened, only whether the
+                  deploy step reported success
+                </li>
+              </ul>
+            </div>
+            <div class="compare-card after">
+              <h3 class="size-h4">After</h3>
+              <ul>
+                <li>
+                  Purge fires automatically on every relevant push, scoped
+                  to content file types
+                </li>
+                <li>
+                  Confirmed against the delivery network's own activity log
+                </li>
+                <li>
+                  Every stylesheet and script carries a version hash that
+                  changes with its contents
+                </li>
+                <li>
+                  Publishing a change and clearing the cache are now the
+                  same action
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>What this actually took</h2>
+          <p>
+            A short automated step tied to the existing deploy process, and
+            a small local script that recalculates version hashes for
+            changed files. No new service to run, and no ongoing manual
+            task once it was wired up - the only future work is extending
+            the file-type filter if a new kind of asset needs the same
+            treatment. Deploy hardening like this sits inside the
+            <a href="/web-digital.html">Web &amp; Digital</a> practice.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>Why not just set a short cache expiration instead of purging manually?</h3>
+          <p>
+            A shorter cache lifetime limits how stale content can get, but
+            it also throws away most of the performance benefit caching
+            exists for - the origin gets hit far more often by every
+            visitor, not just the ones arriving right after a change.
+            Purging on demand, only when content actually changes, keeps a
+            long cache lifetime for everything else.
+          </p>
+
+          <h3>Why version the filename instead of telling browsers not to cache the file at all?</h3>
+          <p>
+            Telling a browser never to cache a script or stylesheet means
+            every visitor downloads it fresh on every visit, which defeats
+            the purpose. A version hash in the filename gets both:
+            aggressive caching until the file changes, and immediate pickup
+            of the new version the moment it does.
+          </p>
+
+          <h3>How do you know the purge is actually working and not just reporting success?</h3>
+          <p>
+            By checking the delivery network's own log for purge requests
+            attributed to the automated step, rather than only trusting the
+            deploy tool's own success message. Those are two different
+            claims, and only one of them confirms the cache was actually
+            cleared.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Wondering if your site is quietly serving visitors a stale
+              version of itself?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              It usually shows up as "I already fixed that" for a change
+              that technically shipped hours ago.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="/contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c" defer></script>
+      <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
+      <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
+      <script src="/assets/js/main.js?v=0200c190da" defer></script>
+      <script src="/assets/js/footer-min.js?v=163e6eb6e4" defer></script>
+      <scott-footer
+        description="Deploy-triggered cache invalidation and automatic asset versioning, verified against the host's own log instead of assumed to work."></scott-footer>
+    </div>
+  </body>
+</html>

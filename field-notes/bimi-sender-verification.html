@@ -1,0 +1,400 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
+
+    <!-- Google Tag Manager (loads on first interaction, or after 5s) -->
+    <script>
+      (function (w, d, s, l, i) {
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
+        });
+        var fallback = setTimeout(trigger, 5000);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>Teaching Inboxes to Recognize a Real Sender | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="A verified brand mark next to every outgoing message wasn't a paid certificate away - it was a mail provider away. How DNS-based sender authentication closed the gap." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/main-min.css?v=6e48b4e9ca" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript-min.css?v=30b0cb2b12" />
+    </noscript>
+
+    <script src="/assets/js/header-min.js?v=0b07c49366" async></script>
+    <script src="/assets/js/favicon-min.js?v=d2e76e98d0" async></script>
+    <script src="/assets/js/navigation-min.js?v=9d08c12f5f" defer></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/bimi-sender-verification.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/bimi-sender-verification.html",
+        "headline": "Teaching Inboxes to Recognize a Real Sender",
+        "description": "A verified brand mark next to every outgoing message wasn't a paid certificate away - it was a mail provider away. How DNS-based sender authentication closed the gap.",
+        "url": "https://scottlabz.com/field-notes/bimi-sender-verification.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="Teaching Inboxes to Recognize a Real Sender | Scott Labz" />
+    <meta
+      property="og:description"
+      content="A verified brand mark next to every outgoing message wasn't a paid certificate away - it was a mail provider away." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/bimi-sender-verification.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+      .service-content h3 {
+        font-size: 1.05rem;
+        color: #1e3a5f;
+      }
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <scott-nav skip-target="#first"></scott-nav>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="/index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.webp"
+                width="130"
+                height="170"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">
+            Teaching Inboxes to Recognize a Real Sender<br />
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes </a
+            ><br />
+            <strong>A verified brand mark next to every outgoing message
+            wasn't a paid certificate away</strong> - it turned out to be a
+            mail provider away.
+          </h1>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            Most inboxes show a generic icon, or nothing at all, next to a
+            business's outgoing mail. A verified brand mark next to a
+            sender's name is one of the only visible trust signals a
+            recipient gets before they even open a message. Getting one
+            isn't really about buying a badge - it's about a chain of DNS
+            records proving a domain is consistently who it says it is,
+            reliably enough that a mail provider is willing to display
+            something next to it.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What it actually looked like</h2>
+          <p>
+            Outgoing mail was already authenticated, but nothing visible
+            showed up in the inbox because of it. Once the domain's
+            authentication policy moved from monitoring-only to full
+            enforcement, and a record was published pointing to a hosted
+            logo file, a verified mark started appearing next to outgoing
+            messages - but only in some inboxes. It rendered immediately in
+            several major mail providers, at no additional cost. It did not
+            render in the single largest inbox provider, which requires a
+            separate paid verified credential on top of everything already
+            in place.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What was actually happening</h2>
+          <p>
+            A brand mark is only displayed if the mail provider trusts that
+            the DNS records behind it reflect real, enforced sender
+            authentication - not just a policy that logs failures without
+            acting on them. Some providers will display a self-asserted
+            mark as soon as those records exist and check out. Others
+            require an additional verified credential on top, confirming
+            trademark ownership before they'll show anything.
+          </p>
+          <p>
+            That distinction had nothing to do with whether the setup was
+            correct - it was correct, and it worked in every inbox that
+            didn't specifically require the extra credential. It came down
+            to a straightforward choice: pay for a certificate to unlock
+            one specific inbox provider, or leave that one gap open.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>The decision log</h2>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 1: Move to full enforcement before attempting
+              anything visible
+            </div>
+            <p>
+              A visible sender mark has a real prerequisite: mail providers
+              won't show one unless the domain's authentication policy is
+              set to actually reject or quarantine failures, not just
+              report on them. That policy moved from monitoring-only to
+              full enforcement first, deliberately, and only after
+              confirming legitimate mail wasn't getting caught by the
+              tightened rule.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 2: Self-assert first, evaluate the paid certificate
+              later
+            </div>
+            <p>
+              Rather than buying a verified credential upfront on the
+              assumption it was necessary, a self-asserted record went live
+              first. That confirmed exactly which inboxes would show the
+              mark at no extra cost, and made the size of the actual
+              remaining gap - one specific major provider - visible before
+              deciding whether it was worth paying to close.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 3: Close the gap by removing the provider, not by
+              buying the certificate
+            </div>
+            <p>
+              The calculus changed for a mostly unrelated reason: outgoing
+              mail routing needed to move regardless, since a "send mail
+              as" workflow tied to that same provider was set to stop being
+              supported in January 2027. Migrating away was already the
+              plan for that reason alone. Once the migration happened, the
+              one inbox that required a paid certificate was simply no
+              longer part of the outgoing mail setup - and the certificate
+              question resolved itself without spending anything on it.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Before and after</h2>
+          <div class="compare-grid">
+            <div class="compare-card before">
+              <h3 class="size-h4">Before</h3>
+              <ul>
+                <li>
+                  Authentication policy set to monitor failures, not
+                  enforce against them
+                </li>
+                <li>No visible sender mark in any inbox</li>
+                <li>
+                  Mark rendering in several providers after enforcement, but
+                  not the largest one
+                </li>
+                <li>
+                  A paid certificate treated as the only remaining path to
+                  full coverage
+                </li>
+              </ul>
+            </div>
+            <div class="compare-card after">
+              <h3 class="size-h4">After</h3>
+              <ul>
+                <li>Authentication policy fully enforced</li>
+                <li>A self-asserted brand mark live, at zero ongoing cost</li>
+                <li>
+                  Mail routing moved off the one provider that required a
+                  paid credential
+                </li>
+                <li>
+                  The verified mark renders everywhere mail is actually
+                  received, without ever purchasing a certificate
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>What this actually took</h2>
+          <p>
+            Two DNS record changes, made once enforcement was confirmed
+            safe, a hosted logo file meeting the required format, and a
+            separate mail-provider migration that ended up closing the
+            remaining gap as a side effect rather than as its original
+            purpose. Sender authentication work like this sits inside the
+            <a href="/web-digital.html">Web &amp; Digital</a> practice,
+            alongside the rest of a domain's underlying trust and delivery
+            setup.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>Does every mail provider require a paid certificate for a brand mark to show?</h3>
+          <p>
+            No. Several major providers will display a self-asserted record
+            with no extra certificate, as long as authentication is fully
+            enforced and the logo meets the required format. Historically,
+            the single largest inbox provider has been the exception,
+            requiring a separate paid verified credential on top of
+            everything else.
+          </p>
+
+          <h3>What's the actual difference between the paid certificate and a self-asserted record?</h3>
+          <p>
+            A self-asserted record just points to a hosted logo file that a
+            mail provider chooses to trust based on the domain's DNS setup.
+            The paid certificate adds a third party confirming that
+            trademark ownership actually matches the domain, which is what
+            unlocks display in the providers that require it.
+          </p>
+
+          <h3>Is moving to full enforcement risky - could it block legitimate mail?</h3>
+          <p>
+            It can, if a hard-reject policy is set before every legitimate
+            sending source is confirmed to be properly authenticated.
+            Moving from monitoring to enforcement gradually, and confirming
+            legitimate mail keeps passing at each step, is what makes the
+            jump to full enforcement safe rather than a gamble.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Wondering if your business email would pass a mail provider's
+              trust check?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              Most domains have never had their sender authentication looked
+              at past the basic setup.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="/contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c" defer></script>
+      <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
+      <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
+      <script src="/assets/js/main.js?v=0200c190da" defer></script>
+      <script src="/assets/js/footer-min.js?v=163e6eb6e4" defer></script>
+      <scott-footer
+        description="A verified brand mark next to every outgoing message wasn't a paid certificate away - it was a mail provider away."></scott-footer>
+    </div>
+  </body>
+</html>
