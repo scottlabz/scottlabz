@@ -14,6 +14,7 @@ class ScottFooter extends HTMLElement {
             max-width:1100px;
             margin:0 auto;
             padding:2rem 1rem;
+            border-top: 1px solid rgba(160, 160, 160, .2);
           ">
 
           <div
@@ -117,7 +118,7 @@ class ScottFooter extends HTMLElement {
                   list-style:none;
                   padding:0;
                   font-size:.85rem;
-                  line-height:1.8;
+                  line-height:1.2;
                 ">
 
                 <li>
@@ -166,7 +167,7 @@ class ScottFooter extends HTMLElement {
                   list-style:none;
                   padding:0;
                   font-size:.85rem;
-                  line-height:1.8;
+                  line-height:1.2;
                 ">
 
                 <li>
@@ -214,7 +215,7 @@ class ScottFooter extends HTMLElement {
                   list-style:none;
                   padding:0;
                   font-size:.85rem;
-                  line-height:1.8;
+                  line-height:1.2;
                 ">
 
                 <li>
