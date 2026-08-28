@@ -3,21 +3,24 @@
   <head>
     <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
 
-    <!-- Google Tag Manager (loads on first interaction, or after 5s) -->
+    <!-- Google tag (gtag.js) (loads on first interaction, or after 5s) -->
     <script>
-      (function (w, d, s, l, i) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      (function (w, d, s, id) {
         var loaded = false;
         function boot() {
           if (loaded) return;
           loaded = true;
-          w[l] = w[l] || [];
-          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
           var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != "dataLayer" ? "&l=" + l : "";
+            j = d.createElement(s);
           j.async = true;
-          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          j.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
           f.parentNode.insertBefore(j, f);
+          gtag("js", new Date());
+          gtag("config", id);
         }
         var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
         function trigger() {
@@ -31,9 +34,9 @@
           w.addEventListener(e, trigger, { passive: true, once: true });
         });
         var fallback = setTimeout(trigger, 5000);
-      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+      })(window, document, "script", "G-08JHY36N39");
     </script>
-    <!-- End Google Tag Manager -->
+    <!-- End Google tag (gtag.js) -->
 
     <title>Async Everywhere Would Have Broken the Footer | Scott Labz</title>
 
@@ -131,15 +134,6 @@
 
   <body class="is-preload">
     <scott-nav skip-target="#first"></scott-nav>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
     <div id="wrapper" class="divided">
       <section class="banner style1">
@@ -231,12 +225,12 @@
               sitting in every page's HTML by the time these scripts run.
             </li>
             <li>
-              The inline Google Tag Manager snippet has no
+              The inline Google tag (gtag.js) snippet has no
               <code>src</code> attribute at all, so <code>async</code> and
               <code>defer</code> don't apply to it either way - it already
               handles its own asynchronous loading internally by setting
-              <code>.async = true</code> on the <code>gtm.js</code> element it
-              creates at runtime.
+              <code>.async = true</code> on the <code>gtag/js</code> element
+              it creates at runtime.
             </li>
           </ul>
         </section>
@@ -301,15 +295,15 @@
 
           <div class="log-entry">
             <div class="log-title">
-              Decision 4: don't add attributes to the inline GTM snippet
+              Decision 4: don't add attributes to the inline gtag.js snippet
             </div>
             <p>
-              The GTM bootstrap script has no <code>src</code>, and per the HTML
-              spec, <code>async</code> and <code>defer</code> have no effect on
-              a classic script without one - browsers ignore them on inline
-              scripts. Adding either would be a no-op at best, and worth
-              documenting as a no-op rather than leaving it to look like an
-              oversight.
+              The gtag.js bootstrap script has no <code>src</code>, and per the
+              HTML spec, <code>async</code> and <code>defer</code> have no
+              effect on a classic script without one - browsers ignore them on
+              inline scripts. Adding either would be a no-op at best, and
+              worth documenting as a no-op rather than leaving it to look like
+              an oversight.
             </p>
           </div>
         </section>
@@ -349,7 +343,7 @@
                   <td>Unchanged - already correct</td>
                 </tr>
                 <tr>
-                  <td>Inline GTM bootstrap</td>
+                  <td>Inline gtag.js bootstrap</td>
                   <td>No <code>src</code>, no attribute</td>
                   <td>Unchanged - attributes don't apply</td>
                 </tr>

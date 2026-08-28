@@ -3,21 +3,24 @@
   <head>
     <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
 
-    <!-- Google Tag Manager (loads on first interaction, or after 5s) -->
+    <!-- Google tag (gtag.js) (loads on first interaction, or after 5s) -->
     <script>
-      (function (w, d, s, l, i) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      (function (w, d, s, id) {
         var loaded = false;
         function boot() {
           if (loaded) return;
           loaded = true;
-          w[l] = w[l] || [];
-          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
           var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != "dataLayer" ? "&l=" + l : "";
+            j = d.createElement(s);
           j.async = true;
-          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          j.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
           f.parentNode.insertBefore(j, f);
+          gtag("js", new Date());
+          gtag("config", id);
         }
         var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
         function trigger() {
@@ -31,9 +34,9 @@
           w.addEventListener(e, trigger, { passive: true, once: true });
         });
         var fallback = setTimeout(trigger, 5000);
-      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+      })(window, document, "script", "G-08JHY36N39");
     </script>
-    <!-- End Google Tag Manager -->
+    <!-- End Google tag (gtag.js) -->
 
     <title>Automation Built to Be Trusted | Scott Labz Insights</title>
 
@@ -514,16 +517,6 @@
 
   <body class="is-preload">
     <scott-nav></scott-nav>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden">
-      </iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
     <div id="wrapper" class="divided">
     <section
