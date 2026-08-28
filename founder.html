@@ -54,7 +54,7 @@
 
     <script src="assets/js/header-min.js?v=0b07c49366" async></script>
     <script src="assets/js/favicon-min.js?v=d2e76e98d0" async></script>
-    <script src="assets/js/navigation-min.js?v=9d08c12f5f" defer></script>
+    <script src="assets/js/navigation-min.js?v=5522214cf9" defer></script>
 
     <link rel="canonical" href="https://scottlabz.com/founder.html" />
 
@@ -129,7 +129,7 @@
       content="https://scottlabz.com/images/scottlabz-clear.png" />
 
     <style>
-      /* --- DYNAMIC VISUAL STYLES FOR FULL CLIENT ROSTER --- */
+      /* --- CLIENT ROSTER HIGHLIGHT --- */
       .bio-highlight {
         background: rgba(0, 0, 0, 0.02);
         padding: 3rem 2rem;
@@ -140,73 +140,42 @@
         border-left: 6px solid #005a9c;
       }
 
-      .roster-category {
-        margin-bottom: 7rem;
-      }
-
-      .bio-highlight > .roster-category:last-of-type {
-        margin-bottom: 0.5rem;
-      }
-
-      .roster-category h3 {
-        border-bottom: 3px solid rgba(0, 0, 0, 0.05);
-        padding-bottom: 0.5rem;
-        margin-bottom: 1.5rem;
-        font-size: 1.4rem;
-        letter-spacing: -0.02em;
-        text-align: left;
-      }
-
-      .badge-grid {
+      .highlight-grid {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 10px;
       }
 
-      /* The Team Badge Core Style */
-      .team-badge {
+      .highlight-tag {
         display: inline-flex;
         align-items: center;
-        padding: 0.65rem 1.25rem;
-        border-radius: 50px;
-        font-weight: 700;
+        padding: 0.5rem 1.1rem;
+        border-radius: 8px;
         font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        background-color: var(--bg, #eeeeee);
-        color: var(--text, #333333);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
-        transition: all 0.25s ease;
-        cursor: default;
+        font-weight: 600;
+        background: rgba(30, 58, 95, 0.06);
+        border: 1px solid rgba(30, 58, 95, 0.18);
+        color: #1e3a5f;
       }
 
-      .team-badge:hover {
-        transform: translateY(-4px) scale(1.02);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+      .roster-link {
+        margin-top: 1.75rem;
       }
 
-      .org-group {
-        margin-bottom: 1.75rem;
+      .highlight-group {
+        margin-bottom: 1.5rem;
       }
 
-      .org-group:last-child {
+      .highlight-group:last-child {
         margin-bottom: 0;
       }
 
-      .org-group h4 {
-        font-size: 0.95rem;
+      .highlight-group h3 {
+        font-size: 0.85rem;
         color: #1e3a5f;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        margin-bottom: 0.5rem;
-        text-align: left;
-      }
-
-      .org-group p {
-        font-size: 0.9rem;
-        color: #555;
-        line-height: 1.8;
-        margin: 0;
+        margin-bottom: 0.6rem;
       }
 
       .about-hero {
@@ -222,7 +191,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 15%;
+        height: 32%;
         background-image: url("/images/founder.jpg");
         background-size: cover;
         background-position: center;
@@ -368,760 +337,117 @@
                 architectures into streamlined, high-performance web ecosystems.
               </p>
               <p>
-                My core mission is to bridge the critical gap between raw data
-                and measurable digital growth. By establishing reliable
-                measurement frameworks, deep behavioural insights, and scalable
+                My core mission is to bridge the gap between raw data and
+                measurable digital growth. By establishing reliable measurement
+                frameworks, deep behavioural insights, and scalable
                 infrastructure, I help businesses move away from guesswork and
-                toward precision decision-making. Whether engineering custom
+                toward precision decision-making. Whether building custom
                 e-commerce platforms or optimizing digital pipelines, every
                 solution is built with a singular objective in mind: turning
-                complex technological systems into clear, actionable drivers of
-                long-term business success.
+                complex systems into clear, actionable drivers of long-term
+                business success.
               </p>
             </div>
 
-            <!-- COMPREHENSIVE VISUAL CLIENT ROSTER -->
+            <!-- CLIENT ROSTER HIGHLIGHT -->
             <div class="bio-highlight">
               <h2 class="about-statement" style="margin-bottom: 1rem">
                 Client Roster
               </h2>
               <p style="margin-bottom: 2rem">
-                Throughout my career, I've had the privilege of engineering
+                Throughout my career, I've had the privilege of building
                 <a href="/case-studies.html">custom e-commerce platforms</a>,
-                tracking analytics, and architecting live-event infrastructure
-                for the following comprehensive roster of professional sports
-                teams, collegiate programs, motorsports, and major global
-                brands.
+                tracking analytics, and live-event infrastructure for
+                organizations spanning professional sports, collegiate
+                athletics, motorsports, healthcare, higher education, and
+                national consumer brands, including:
               </p>
 
-              <!-- Enterprise & Consulting Clients -->
-              <div class="roster-category">
-                <h3>Enterprise, Agencies & Organizations</h3>
-                <div class="badge-grid">
-                  <span
-                    class="team-badge"
-                    style="--bg: #002d62; --text: #ffffff"
-                    >Ford Motor Company</span
+              <div class="highlight-group">
+                <h3>National consumer/corporate brands</h3>
+                <div class="highlight-grid">
+                  <span class="highlight-tag">Ford Motor Company</span>
+                  <span class="highlight-tag">Anheuser-Busch</span>
+                  <span class="highlight-tag">Macy's</span>
+                  <span class="highlight-tag">Kaiser Permanente</span>
+                  <span class="highlight-tag">Mary Kay</span>
+                  <span class="highlight-tag">New Era Cap</span>
+                </div>
+              </div>
+
+              <div class="highlight-group">
+                <h3>Pro sports franchises</h3>
+                <div class="highlight-grid">
+                  <span class="highlight-tag">New York Yankees</span>
+                  <span class="highlight-tag">Los Angeles Dodgers</span>
+                  <span class="highlight-tag">Chicago Cubs</span>
+                  <span class="highlight-tag">St. Louis Cardinals</span>
+                </div>
+              </div>
+
+              <div class="highlight-group">
+                <h3>Collegiate athletics</h3>
+                <div class="highlight-grid">
+                  <span class="highlight-tag">Ohio State Athletics</span>
+                  <span class="highlight-tag">LSU Tigers</span>
+                  <span class="highlight-tag">Iowa Hawkeyes</span>
+                  <span class="highlight-tag">Kentucky Wildcats</span>
+                  <span class="highlight-tag">Kansas Jayhawks</span>
+                </div>
+              </div>
+
+              <div class="highlight-group">
+                <h3>Motorsports</h3>
+                <div class="highlight-grid">
+                  <span class="highlight-tag">NASCAR Hall of Fame</span>
+                  <span class="highlight-tag">Chip Ganassi Racing</span>
+                </div>
+              </div>
+
+              <div class="highlight-group">
+                <h3>Higher education</h3>
+                <div class="highlight-grid">
+                  <span class="highlight-tag">Villanova University</span>
+                  <span class="highlight-tag"
+                    >Southern Methodist University</span
                   >
-                  <span
-                    class="team-badge"
-                    style="--bg: #005a9c; --text: #ffffff"
-                    >Kaiser Permanente</span
+                  <span class="highlight-tag">Boston University</span>
+                </div>
+              </div>
+
+              <div class="highlight-group">
+                <h3>Healthcare & research</h3>
+                <div class="highlight-grid">
+                  <span class="highlight-tag"
+                    >Fred Hutchinson Cancer Research Center</span
                   >
-                  <span
-                    class="team-badge"
-                    style="--bg: #003087; --text: #ffffff"
-                    >AmGen</span
+                  <span class="highlight-tag">Texas Children's Hospital</span>
+                </div>
+              </div>
+
+              <div class="highlight-group">
+                <h3>National nonprofits</h3>
+                <div class="highlight-grid">
+                  <span class="highlight-tag">Feeding America</span>
+                  <span class="highlight-tag"
+                    >Make-A-Wish Foundation of America</span
                   >
-                  <span
-                    class="team-badge"
-                    style="--bg: #d50032; --text: #ffffff"
-                    >University of Phoenix</span
+                  <span class="highlight-tag"
+                    >Humane Society of the United States</span
                   >
-                  <span
-                    class="team-badge"
-                    style="--bg: #1a365d; --text: #ffffff"
-                    >Collegis Education</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #e31837; --text: #ffffff"
-                    >Mary Kay</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #004c54; --text: #ffffff"
-                    >Rockport</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #ff6600; --text: #ffffff"
-                    >Reef</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #003366; --text: #ffffff"
-                    >Vitamin Shoppe</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #111111; --text: #ffffff"
-                    >AutoWeb</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #4a4a4a; --text: #ffffff"
-                    >Legrand AV</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #b8860b; --text: #000000"
-                    >Benchmade Knife Company</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #003366; --text: #ffffff"
-                    >Plantronics</span
+                  <span class="highlight-tag"
+                    >MADD (Mothers Against Drunk Driving)</span
                   >
                 </div>
               </div>
 
-              <!-- NCAA & Collegiate -->
-              <div class="roster-category">
-                <h3>NCAA & Collegiate Entities</h3>
-                <div class="badge-grid">
-                  <span
-                    class="team-badge"
-                    style="--bg: #003087; --text: #ffffff"
-                    >Allstate Sugar Bowl</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #48176e; --text: #ffffff"
-                    >R+L Carriers New Orleans Bowl</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #000000; --text: #ffcd00"
-                    >Iowa Hawkeyes</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #ce0f3d; --text: #ffffff"
-                    >Ohio State Athletics</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #4b2e83; --text: #e8d3a2"
-                    >Washington Huskies</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #ceb888; --text: #000000"
-                    >Purdue Boilermakers</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #8c1d40; --text: #ffc627"
-                    >Arizona State Sun Devils</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #ce1126; --text: #14213d"
-                    >Ole Miss Rebels</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #0051ba; --text: #ffffff"
-                    >Kansas Jayhawks</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #f15a22; --text: #ffffff"
-                    >Iowa State Cyclones</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #981e32; --text: #ffffff"
-                    >Auburn Tigers</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #0033a1; --text: #ffffff"
-                    >Kentucky Wildcats</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #981e32; --text: #ffffff"
-                    >Washington State Cougars</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #cc0000; --text: #ffffff"
-                    >Texas Tech Alumni Association</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #b5a642; --text: #cf0a2c"
-                    >UNLV Rebels</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #8c1d40; --text: #ffffff"
-                    >Loyola Ramblers</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #ce1126; --text: #ffffff"
-                    >The Buckeye Corner</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #ceb888; --text: #000000"
-                    >The Purdue Shop</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #003087; --text: #ffffff"
-                    >Kentucky Sports Radio Shop</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #461d7c; --text: #fdd023"
-                    >LSU Tigers</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #0051ba; --text: #ffffff"
-                    >KU Store</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #8c1d40; --text: #ffc627"
-                    >Sparky's Stadium Shop</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #4b2e83; --text: #e8d3a2"
-                    >The Dawg Den</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #981e32; --text: #ffffff"
-                    >Wazzu Gear</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #cc0000; --text: #ffffff"
-                    >Tech Traditions</span
-                  >
-                </div>
-              </div>
-
-              <!-- Professional Sports (NFL & MLB) -->
-              <div class="roster-category">
-                <h3>Professional Sports Teams (NFL & MLB)</h3>
-                <div class="badge-grid">
-                  <span
-                    class="team-badge"
-                    style="--bg: #0e3386; --text: #ffffff"
-                    >Chicago Cubs</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #0c2340; --text: #ffffff"
-                    >New York Yankees</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #005a9c; --text: #ffffff"
-                    >Los Angeles Dodgers</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #002d72; --text: #ff5910"
-                    >New York Mets</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #125740; --text: #ffffff"
-                    >New York Jets</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #4f2683; --text: #ffc62f"
-                    >Minnesota Vikings</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #d3a625; --text: #000000"
-                    >New Orleans Saints</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #002c5f; --text: #ffffff"
-                    >Indianapolis Colts</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #db0007; --text: #ffffff"
-                    >Pittsburgh Pirates</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #c41e3a; --text: #ffffff"
-                    >St. Louis Cardinals</span
-                  >
-                </div>
-              </div>
-
-              <!-- Motorsports -->
-              <div class="roster-category">
-                <h3>Motorsports (NASCAR)</h3>
-                <div class="badge-grid">
-                  <span
-                    class="team-badge"
-                    style="--bg: #000000; --text: #e31837"
-                    >Dale Earnhardt Shop</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #da291c; --text: #ffffff"
-                    >Chip Ganassi Racing</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #000000; --text: #ffdf00"
-                    >NASCAR Hall of Fame</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #c8102e; --text: #ffffff"
-                    >IndyCar</span
-                  >
-                </div>
-              </div>
-
-              <!-- Regional Team Shops -->
-              <div class="roster-category">
-                <h3>Regional Team Shops</h3>
-                <div class="badge-grid">
-                  <span
-                    class="team-badge"
-                    style="--bg: #c8102e; --text: #f1be48"
-                    >Cy's Locker Room</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #000000; --text: #ffcd00"
-                    >Herky's Locker Room</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #002f6c; --text: #ffffff"
-                    >Seattle Team Shop</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #005f73; --text: #ffffff"
-                    >Bay Area Locker Room</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #bd3039; --text: #ffffff"
-                    >Boston Locker Room</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #ce1141; --text: #ffffff"
-                    >Chicago Locker Room</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #002244; --text: #fb4f14"
-                    >Denver Locker Room</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #ce1126; --text: #ffffff"
-                    >Detroit Locker Room</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #0c2340; --text: #ffffff"
-                    >New York Locker Room</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #007ac1; --text: #ffffff"
-                    >Oklahoma Locker Room</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #154733; --text: #fee123"
-                    >Oregon Locker Room</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #bf5700; --text: #ffffff"
-                    >Texas Locker Room</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #00205b; --text: #ffffff"
-                    >Toronto Locker Room</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #0033a1; --text: #ffffff"
-                    >Fan Outfitters - Kentucky</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #ad0000; --text: #ffffff"
-                    >Fan Outfitters - Louisville</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #841617; --text: #fdf9f3"
-                    >Fan Outfitters - Oklahoma</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #ff7300; --text: #000000"
-                    >Fan Outfitters - Oklahoma State</span
-                  >
-                </div>
-              </div>
-
-              <!-- Brands, Retailers & Organizations -->
-              <div class="roster-category">
-                <h3>Brands, Retailers & Global Platforms</h3>
-                <div class="badge-grid">
-                  <span
-                    class="team-badge"
-                    style="--bg: #e31837; --text: #ffffff"
-                    >Anheuser-Busch</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #c8102e; --text: #ffffff"
-                    >Budweiser / The Bud Shop</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #1a1a1a; --text: #00ff00"
-                    >Bleacher Report</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #222222; --text: #ffffff"
-                    >LIDS Sports Group</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #222222; --text: #ffffff"
-                    >LIDS Canada</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #222222; --text: #ffffff"
-                    >LIDS Clubhouse</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #002d62; --text: #ffffff"
-                    >Jersey City</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #e21a2c; --text: #ffffff"
-                    >Macy's</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #000000; --text: #ffffff"
-                    >New Era Cap</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #002d62; --text: #ffffff"
-                    >The CFL</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #000000; --text: #d4af37"
-                    >World Series of Poker</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #555555; --text: #ffffff"
-                    >Kitchens</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #004b87; --text: #ffffff"
-                    >Siopa Sports</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #990000; --text: #ffffff"
-                    >Sports Avenue</span
-                  >
-                </div>
-              </div>
-
-              <!-- Consulting -->
-              <div class="roster-category">
-                <h3>Independent Consulting Engagements</h3>
-                <div class="badge-grid">
-                  <span
-                    class="team-badge"
-                    style="--bg: #555555; --text: #ffffff"
-                    >Nonparallel New Media</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #990000; --text: #ffffff"
-                    >Blaze Hosting</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #002f6c; --text: #ffffff"
-                    >Blueprint Logic</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #004b87; --text: #ffffff"
-                    >TMone</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #f15a22; --text: #ffffff">
-                    CRMone</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #154733; --text: #ffffff"
-                    >Marketone</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #004b87; --text: #ffffff"
-                    >Discount Lists</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #990000; --text: #ffffff"
-                    >Fromotions</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #990000; --text: #ffffff"
-                    >AJ's Pizza Shop</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #002f6c; --text: #ffffff"
-                    >Destiny Cruises &amp; Tours</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #004b87; --text: #ffffff"
-                    >Cyber Name Store</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #002f6c; --text: #ffffff"
-                    >EnergyTronix</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #990000; --text: #ffffff"
-                    >Computer Source of Iowa</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #004b87; --text: #ffffff"
-                    >Computers In Motion</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #f15a22; --text: #ffffff">
-                    Des Moines is Not Boring</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #154733; --text: #fee123"
-                    >Double D Game Farm</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #222222; --text: #ffffff"
-                    >Midwest New Media</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #990000; --text: #ffffff"
-                    >Powerball Matrix</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #004b87; --text: #ffffff"
-                    >Mega Millions Matrix</span
-                  >
-                  <span
-                    class="team-badge"
-                    style="--bg: #f15a22; --text: #ffffff">
-                    The Stelter Company &nbsp;&nbsp;
-                    <i class="fas fa-arrow-down"></i
-                  ></span>
-                </div>
-              </div>
-
-              <!-- The Stelter Company Projects & Organizations -->
-              <div class="roster-category">
-                <h3>The Stelter Company Projects &amp; Organizations</h3>
-                <p style="margin-bottom: 2rem; color: #555">
-                  A representative sample of the nonprofit, healthcare, and
-                  education clients supported through platform and
-                  infrastructure work delivered for The Stelter Company, grouped
-                  by sector.
-                </p>
-
-                <div class="org-group">
-                  <h4>Higher Education &amp; Universities</h4>
-                  <p>
-                    ASU Foundation for A New American University, Boston
-                    University, Bowling Green State University, Buena Vista
-                    University, Butler University, California Polytechnic State
-                    University Foundation, Carthage College, Central College,
-                    College of Saint Benedict, Columbia College, Concordia
-                    College, Cornell College, Earlham College, Fort Lewis
-                    College Foundation, Georgia State University, Gulf Coast
-                    State College Foundation, Hamline University, Haverford
-                    College, Hood College, Hope College, Indiana University
-                    Foundation, Iowa State University Foundation, Kalamazoo
-                    College, Kirkwood Community College Foundation, LSU
-                    Foundation, Macalester College, Minnesota State Mankato,
-                    Mount Saint Marys University, Nazareth College, New Mexico
-                    State University Foundation, North Idaho College Foundation,
-                    Northwest Christian University, Our Lady of the Lake
-                    University, Saint Xavier University, Scripps College, South
-                    Dakota State University Foundation, Southeastern Louisiana
-                    University Foundation, Southern Methodist University, St.
-                    John's University, Temple University, Texas Southern
-                    University, The Catholic University of America, Trinity
-                    University, University of Houston Clear Lake, University of
-                    Arkansas at Little Rock, University of Denver, University of
-                    Florida Foundation, University of Houston, University of
-                    Maryland Baltimore County, University of Minnesota
-                    Foundation, University of Oklahoma, University of Portland,
-                    University of Southern Maine (Portland), University of the
-                    Incarnate Word, USF Foundation, Villanova University,
-                    Wartburg College, West Virginia State University Foundation,
-                    Worcester State University.
-                  </p>
-                </div>
-
-                <div class="org-group">
-                  <h4>K-12 &amp; Preparatory Schools</h4>
-                  <p>
-                    Bellarmine College Preparatory, Bergen Catholic High School,
-                    Cate School (The King's Court), Hamlin School, Katherine
-                    Delmar Burke School, Notre Dame Preparatory School,
-                    Salpointe Catholic High School, St. Stephen's Episcopal
-                    School, The Kinkaid School, University of Detroit Jesuit,
-                    Valley Christian Schools of San Jose, Wisconsin Lutheran
-                    High School Foundation.
-                  </p>
-                </div>
-
-                <div class="org-group">
-                  <h4>Healthcare Systems &amp; Medical Foundations</h4>
-                  <p>
-                    All Saints Health Foundation, Capital Health System,
-                    Children's Medical Foundation, Childrens Health Care
-                    Atlanta, Community Memorial Health System, Compass Regional
-                    Hospice, Conquer Cancer Foundation, Eastern Virginia Medical
-                    School Foundation, Edward Foundation, Evergreen Health
-                    Foundation, Fred Hutchinson Cancer Research Center,
-                    Geisinger Health System Foundation, Glaucoma Research
-                    Foundation, Hackensack University Medical Center Foundation,
-                    Henry County Health Center, Hospice of Palm Beach County,
-                    Hospital for Special Care Foundation, Joslin Diabetes
-                    Center, Lakeland Health Foundation, Monmouth Medical Center
-                    Foundation, National Jewish Health, National MS Society -
-                    Denver, Nebraska Methodist Hospital Foundation, Norman
-                    Regional Health Foundation, Pinnacle Health Foundation,
-                    Planned Parenthood of the Heartland, Ridgeview Foundation,
-                    Saint Luke's Foundation, Skyland Trail, Southwest Autism
-                    Research and Resource Center, St. Anthony Regional Hospital,
-                    St. Louis Children's Hospital Foundation, Texas Childrens
-                    Hospital, Torrance Memorial Medical Center, Trinity Health
-                    Foundation, UnityPoint Health Foundation.
-                  </p>
-                </div>
-
-                <div class="org-group">
-                  <h4>Faith-Based Organizations</h4>
-                  <p>
-                    Catholic Charities, Catholic Diocese of Wilmington, First
-                    Methodist Church of Fort Worth Foundation, Grace Polaris
-                    Church, Lutheran Social Services of the South, Lutheran
-                    World Relief, Marilyn Hickey Ministries, Methodist
-                    Healthcare Ministries, Phoebe Ministries, Sisters of Mercy -
-                    Northeast Community, Society of St. Vincent de Paul Phoenix,
-                    Spring Creek Church, Trinity Missions, Virginia Baptist
-                    Homes Foundation.
-                  </p>
-                </div>
-
-                <div class="org-group">
-                  <h4>Human &amp; Social Services</h4>
-                  <p>
-                    Centers for Families and Children, Children's Home
-                    Foundation, Compassion International, Feeding America, Girl
-                    Scouts of San Diego, Jewish Social Service Agency,
-                    Make-A-Wish Foundation of America, Philadelphia Freedom
-                    Valley YMCA, Second Harvest Heartland, United Way of Broward
-                    County, Valparaiso YMCA, Westport Weston Family YMCA, YMCA
-                    of Snohomish County.
-                  </p>
-                </div>
-
-                <div class="org-group">
-                  <h4>Arts, Culture &amp; Museums</h4>
-                  <p>
-                    Aquarium of the Pacific, Broward Performing Arts Foundation,
-                    Civil War Trust, Denver Museum of Nature and Science, EAA
-                    Aviation Foundation, Hill Museum and Manuscript Library,
-                    Lincoln Center for the Performing Arts, Nebraska Educational
-                    Telecommunications, Palm Springs Art Museum, Portland Art
-                    Museum, San Francisco Symphony, Straz Center, The Cable
-                    Center, The Huntington Library, The Library Foundation, The
-                    Smith Center.
-                  </p>
-                </div>
-
-                <div class="org-group">
-                  <h4>Environmental &amp; Wildlife Organizations</h4>
-                  <p>
-                    African Wildlife, Animal Rescue League of Iowa, Houston
-                    Audubon Society, Humane Society of the United States, Humane
-                    Society Wildlife Land Trust, Pheasants Forever, Phoenix Zoo,
-                    Seattle Humane Society, Trout Unlimited.
-                  </p>
-                </div>
-
-                <div class="org-group">
-                  <h4>Civic, Advocacy &amp; Community Organizations</h4>
-                  <p>
-                    Americans United - Separation of Church and State,
-                    Compassion and Choices, Horizons Foundation, Los Angeles
-                    Firemen's Relief Association, MADD - Mothers Against Drunk
-                    Driving, Montana Community Foundation, Navy Marine Coast
-                    Guard Residence Foundation, Rose Community Foundation, The
-                    Fuller Foundation, Veterans of Foreign Wars of the United
-                    States.
-                  </p>
-                </div>
-
-                <div class="org-group">
-                  <h4>Professional &amp; Research Associations</h4>
-                  <p>
-                    American Association of Endodontists, American Society of
-                    Civil Engineers Foundation, American Society of
-                    International Law, AONE Foundation, Radiological Society of
-                    North America, Society for Science and the Public.
-                  </p>
-                </div>
-
-                <div class="org-group">
-                  <h4>Greek &amp; Alumni Foundations</h4>
-                  <p>Delta Gamma Foundation, Kappa Kappa Gamma Foundation.</p>
-                </div>
-              </div>
+              <p class="roster-link">
+                <a href="/clients.html"
+                  >See the full client list, 280+ organizations across
+                  professional sports, collegiate athletics, motorsports,
+                  healthcare, higher education, and consumer brands &rarr;</a
+                >
+              </p>
             </div>
 
             <!-- Principle -->

@@ -63,10 +63,11 @@ class ScottNav extends HTMLElement {
         label: "About",
         height: 35,
         color: "#7c3aed",
-        // founder.html is a standalone page, not a subpage under an
-        // /about/ directory, so it can't be caught by the section-path
-        // check below - it needs to be listed explicitly.
-        aliases: ["/founder.html"],
+        // founder.html and clients.html are standalone pages, not
+        // subpages under an /about/ directory, so they can't be caught
+        // by the section-path check below - they need to be listed
+        // explicitly.
+        aliases: ["/founder.html", "/clients.html"],
       },
       { href: "/contact.html", label: "Contact", height: 40, color: "#15803d" },
     ];

@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
+
+    <!-- Google Tag Manager (loads on first interaction, or after 5s) -->
+    <script>
+      (function (w, d, s, l, i) {
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
+        });
+        var fallback = setTimeout(trigger, 5000);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>Client Roster | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="280+ organizations across professional sports, collegiate athletics, motorsports, healthcare, higher education, and consumer brands supported with analytics, web development, and digital infrastructure." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="assets/css/main-min.css?v=6e48b4e9ca" />
+
+    <noscript>
+      <link rel="stylesheet" href="assets/css/noscript-min.css?v=30b0cb2b12" />
+    </noscript>
+
+    <script src="assets/js/header-min.js?v=0b07c49366" async></script>
+    <script src="assets/js/favicon-min.js?v=d2e76e98d0" async></script>
+    <script src="assets/js/navigation-min.js?v=5522214cf9" defer></script>
+
+    <link rel="canonical" href="https://scottlabz.com/clients.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://scottlabz.com/#organization",
+            "name": "Scott Labz, LLC",
+            "description": "Scott Labz provides web development, analytics consulting, automation, SEO, and digital infrastructure services focused on performance, reliability, and measurable business growth.",
+            "url": "https://scottlabz.com/clients.html",
+            "telephone": "+1-309-324-2875",
+            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "priceRange": "$$",
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "McLean County, Illinois"
+            },
+            "sameAs": [
+              "https://github.com/scottlabz",
+              "https://www.linkedin.com/company/scottlabz",
+              "https://www.linkedin.com/in/scotttaylor369"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-309-324-2875",
+              "contactType": "Scott Labz"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://scottlabz.com/#scotttaylor",
+            "name": "Scott Taylor",
+            "jobTitle": "Founder",
+            "description": "Scott Taylor is the founder of Scott Labz, where he combines web development, analytics, automation, and digital strategy to help businesses create faster, smarter, and more effective digital experiences.",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "url": "https://scottlabz.com/clients.html",
+            "email": "mailto:info@scottlabz.com",
+            "knowsAbout": [
+              "Analytics Solutions",
+              "Web Development",
+              "Digital Infrastructure",
+              "Digital Analytics Consulting"
+            ],
+            "worksFor": {
+              "@id": "https://scottlabz.com/#organization"
+            },
+            "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
+          }
+        ]
+      }
+    </script>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta property="og:title" content="Client Roster | Scott Labz" />
+    <meta
+      property="og:description"
+      content="280+ organizations across professional sports, collegiate athletics, motorsports, healthcare, higher education, and consumer brands." />
+    <meta property="og:url" content="https://scottlabz.com/clients.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .fact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+        margin: 1.5rem 0 0.5rem;
+      }
+
+      .fact-item {
+        padding: 1.25rem 1.5rem;
+        background: rgba(30, 58, 95, 0.04);
+        border: 1px solid rgba(30, 58, 95, 0.15);
+        border-radius: 8px;
+      }
+
+      .fact-item .fact-label {
+        display: block;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #1e3a5f;
+        margin-bottom: 0.35rem;
+      }
+
+      .fact-item .fact-value {
+        font-size: 1.05rem;
+        font-weight: 600;
+      }
+
+      .roster-section h2 {
+        border-bottom: 3px solid rgba(0, 0, 0, 0.05);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        letter-spacing: -0.02em;
+      }
+
+      .roster-list {
+        font-size: 0.92rem;
+        color: #555;
+        line-height: 1.8;
+        margin: 0;
+      }
+
+      .roster-subgroup {
+        margin-bottom: 1.5rem;
+      }
+
+      .roster-subgroup:last-child {
+        margin-bottom: 0;
+      }
+
+      .roster-subgroup h3 {
+        font-size: 0.95rem;
+        color: #1e3a5f;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+      }
+
+      .roster-section::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: var(--accent, #1e3a5f);
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <scott-nav skip-target="#first"></scott-nav>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="wrapper" class="divided">
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 4rem 1.5rem">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="index.html" style="border-bottom: none">
+              <img
+                src="images/scottlabz-clear.webp"
+                width="130"
+                height="170"
+                alt="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">Client Roster</h1>
+
+          <p>
+            The full list of organizations supported with analytics, web
+            development, and digital infrastructure work over the course of
+            my career, grouped by category. A curated set of the most
+            recognizable names is also featured on the
+            <a href="/founder.html">founder page</a>.
+          </p>
+
+          <div class="fact-grid">
+            <div class="fact-item">
+              <span class="fact-label">Organizations</span>
+              <span class="fact-value">280+</span>
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">Categories</span>
+              <span class="fact-value">17</span>
+            </div>
+          </div>
+        </div>
+
+        <section
+          class="section-block roster-section"
+          style="--accent: #1e3a5f; margin-top: 2rem">
+          <h2>Enterprise, Agencies &amp; Organizations</h2>
+          <p class="roster-list">
+            Ford Motor Company, Kaiser Permanente, AmGen, University of
+            Phoenix, Collegis Education, Mary Kay, Rockport, Reef, Vitamin
+            Shoppe, AutoWeb, Legrand AV, Benchmade Knife Company,
+            Plantronics.
+          </p>
+        </section>
+
+        <section class="section-block roster-section" style="--accent: #b45309">
+          <h2>NCAA &amp; Collegiate Entities</h2>
+          <p class="roster-list">
+            Allstate Sugar Bowl, R+L Carriers New Orleans Bowl, Iowa
+            Hawkeyes, Ohio State Athletics, Washington Huskies, Purdue
+            Boilermakers, Arizona State Sun Devils, Ole Miss Rebels, Kansas
+            Jayhawks, Iowa State Cyclones, Auburn Tigers, Kentucky Wildcats,
+            Washington State Cougars, Texas Tech Alumni Association, UNLV
+            Rebels, Loyola Ramblers, The Buckeye Corner, The Purdue Shop,
+            Kentucky Sports Radio Shop, LSU Tigers, KU Store, Sparky's
+            Stadium Shop, The Dawg Den, Wazzu Gear, Tech Traditions.
+          </p>
+        </section>
+
+        <section class="section-block roster-section" style="--accent: #0e7490">
+          <h2>Professional Sports Teams (NFL &amp; MLB)</h2>
+          <p class="roster-list">
+            Chicago Cubs, New York Yankees, Los Angeles Dodgers, New York
+            Mets, New York Jets, Minnesota Vikings, New Orleans Saints,
+            Indianapolis Colts, Pittsburgh Pirates, St. Louis Cardinals.
+          </p>
+        </section>
+
+        <section class="section-block roster-section" style="--accent: #dc2626">
+          <h2>Motorsports (NASCAR)</h2>
+          <p class="roster-list">
+            Dale Earnhardt Shop, Chip Ganassi Racing, NASCAR Hall of Fame,
+            IndyCar.
+          </p>
+        </section>
+
+        <section class="section-block roster-section" style="--accent: #7c2d92">
+          <h2>Regional Team Shops</h2>
+          <p class="roster-list">
+            Cy's Locker Room, Herky's Locker Room, Seattle Team Shop, Bay
+            Area Locker Room, Boston Locker Room, Chicago Locker Room,
+            Denver Locker Room, Detroit Locker Room, New York Locker Room,
+            Oklahoma Locker Room, Oregon Locker Room, Texas Locker Room,
+            Toronto Locker Room, Fan Outfitters - Kentucky, Fan Outfitters -
+            Louisville, Fan Outfitters - Oklahoma, Fan Outfitters - Oklahoma
+            State.
+          </p>
+        </section>
+
+        <section class="section-block roster-section" style="--accent: #15803d">
+          <h2>Brands, Retailers &amp; Global Platforms</h2>
+          <p class="roster-list">
+            Anheuser-Busch, Budweiser / The Bud Shop, Bleacher Report, LIDS
+            Sports Group, LIDS Canada, LIDS Clubhouse, Jersey City, Macy's,
+            New Era Cap, The CFL, World Series of Poker, Kitchens, Siopa
+            Sports, Sports Avenue.
+          </p>
+        </section>
+
+        <section class="section-block roster-section" style="--accent: #c2410c">
+          <h2>Independent Consulting Engagements</h2>
+          <p class="roster-list">
+            Nonparallel New Media, Blaze Hosting, Blueprint Logic, TMone,
+            CRMone, Marketone, Discount Lists, Fromotions, AJ's Pizza Shop,
+            Destiny Cruises &amp; Tours, Cyber Name Store, EnergyTronix,
+            Computer Source of Iowa, Computers In Motion, Des Moines is Not
+            Boring, Double D Game Farm, Midwest New Media, Powerball Matrix,
+            Mega Millions Matrix, The Stelter Company.
+          </p>
+        </section>
+
+        <section class="section-block roster-section" style="--accent: #4338ca">
+          <h2>The Stelter Company Projects &amp; Organizations</h2>
+          <p style="margin-bottom: 1.5rem; color: #555">
+            A representative sample of the nonprofit, healthcare, and
+            education clients supported through platform and infrastructure
+            work delivered for The Stelter Company, grouped by sector.
+          </p>
+
+          <div class="roster-subgroup">
+            <h3>Higher Education &amp; Universities</h3>
+            <p class="roster-list">
+              ASU Foundation for A New American University, Boston
+              University, Bowling Green State University, Buena Vista
+              University, Butler University, California Polytechnic State
+              University Foundation, Carthage College, Central College,
+              College of Saint Benedict, Columbia College, Concordia
+              College, Cornell College, Earlham College, Fort Lewis College
+              Foundation, Georgia State University, Gulf Coast State College
+              Foundation, Hamline University, Haverford College, Hood
+              College, Hope College, Indiana University Foundation, Iowa
+              State University Foundation, Kalamazoo College, Kirkwood
+              Community College Foundation, LSU Foundation, Macalester
+              College, Minnesota State Mankato, Mount Saint Marys
+              University, Nazareth College, New Mexico State University
+              Foundation, North Idaho College Foundation, Northwest
+              Christian University, Our Lady of the Lake University, Saint
+              Xavier University, Scripps College, South Dakota State
+              University Foundation, Southeastern Louisiana University
+              Foundation, Southern Methodist University, St. John's
+              University, Temple University, Texas Southern University, The
+              Catholic University of America, Trinity University, University
+              of Houston Clear Lake, University of Arkansas at Little Rock,
+              University of Denver, University of Florida Foundation,
+              University of Houston, University of Maryland Baltimore
+              County, University of Minnesota Foundation, University of
+              Oklahoma, University of Portland, University of Southern Maine
+              (Portland), University of the Incarnate Word, USF Foundation,
+              Villanova University, Wartburg College, West Virginia State
+              University Foundation, Worcester State University.
+            </p>
+          </div>
+
+          <div class="roster-subgroup">
+            <h3>K-12 &amp; Preparatory Schools</h3>
+            <p class="roster-list">
+              Bellarmine College Preparatory, Bergen Catholic High School,
+              Cate School (The King's Court), Hamlin School, Katherine
+              Delmar Burke School, Notre Dame Preparatory School, Salpointe
+              Catholic High School, St. Stephen's Episcopal School, The
+              Kinkaid School, University of Detroit Jesuit, Valley Christian
+              Schools of San Jose, Wisconsin Lutheran High School
+              Foundation.
+            </p>
+          </div>
+
+          <div class="roster-subgroup">
+            <h3>Healthcare Systems &amp; Medical Foundations</h3>
+            <p class="roster-list">
+              All Saints Health Foundation, Capital Health System,
+              Children's Medical Foundation, Childrens Health Care Atlanta,
+              Community Memorial Health System, Compass Regional Hospice,
+              Conquer Cancer Foundation, Eastern Virginia Medical School
+              Foundation, Edward Foundation, Evergreen Health Foundation,
+              Fred Hutchinson Cancer Research Center, Geisinger Health
+              System Foundation, Glaucoma Research Foundation, Hackensack
+              University Medical Center Foundation, Henry County Health
+              Center, Hospice of Palm Beach County, Hospital for Special
+              Care Foundation, Joslin Diabetes Center, Lakeland Health
+              Foundation, Monmouth Medical Center Foundation, National
+              Jewish Health, National MS Society - Denver, Nebraska
+              Methodist Hospital Foundation, Norman Regional Health
+              Foundation, Pinnacle Health Foundation, Planned Parenthood of
+              the Heartland, Ridgeview Foundation, Saint Luke's Foundation,
+              Skyland Trail, Southwest Autism Research and Resource Center,
+              St. Anthony Regional Hospital, St. Louis Children's Hospital
+              Foundation, Texas Childrens Hospital, Torrance Memorial
+              Medical Center, Trinity Health Foundation, UnityPoint Health
+              Foundation.
+            </p>
+          </div>
+
+          <div class="roster-subgroup">
+            <h3>Faith-Based Organizations</h3>
+            <p class="roster-list">
+              Catholic Charities, Catholic Diocese of Wilmington, First
+              Methodist Church of Fort Worth Foundation, Grace Polaris
+              Church, Lutheran Social Services of the South, Lutheran World
+              Relief, Marilyn Hickey Ministries, Methodist Healthcare
+              Ministries, Phoebe Ministries, Sisters of Mercy - Northeast
+              Community, Society of St. Vincent de Paul Phoenix, Spring
+              Creek Church, Trinity Missions, Virginia Baptist Homes
+              Foundation.
+            </p>
+          </div>
+
+          <div class="roster-subgroup">
+            <h3>Human &amp; Social Services</h3>
+            <p class="roster-list">
+              Centers for Families and Children, Children's Home Foundation,
+              Compassion International, Feeding America, Girl Scouts of San
+              Diego, Jewish Social Service Agency, Make-A-Wish Foundation of
+              America, Philadelphia Freedom Valley YMCA, Second Harvest
+              Heartland, United Way of Broward County, Valparaiso YMCA,
+              Westport Weston Family YMCA, YMCA of Snohomish County.
+            </p>
+          </div>
+
+          <div class="roster-subgroup">
+            <h3>Arts, Culture &amp; Museums</h3>
+            <p class="roster-list">
+              Aquarium of the Pacific, Broward Performing Arts Foundation,
+              Civil War Trust, Denver Museum of Nature and Science, EAA
+              Aviation Foundation, Hill Museum and Manuscript Library,
+              Lincoln Center for the Performing Arts, Nebraska Educational
+              Telecommunications, Palm Springs Art Museum, Portland Art
+              Museum, San Francisco Symphony, Straz Center, The Cable
+              Center, The Huntington Library, The Library Foundation, The
+              Smith Center.
+            </p>
+          </div>
+
+          <div class="roster-subgroup">
+            <h3>Environmental &amp; Wildlife Organizations</h3>
+            <p class="roster-list">
+              African Wildlife, Animal Rescue League of Iowa, Houston
+              Audubon Society, Humane Society of the United States, Humane
+              Society Wildlife Land Trust, Pheasants Forever, Phoenix Zoo,
+              Seattle Humane Society, Trout Unlimited.
+            </p>
+          </div>
+
+          <div class="roster-subgroup">
+            <h3>Civic, Advocacy &amp; Community Organizations</h3>
+            <p class="roster-list">
+              Americans United - Separation of Church and State, Compassion
+              and Choices, Horizons Foundation, Los Angeles Firemen's Relief
+              Association, MADD - Mothers Against Drunk Driving, Montana
+              Community Foundation, Navy Marine Coast Guard Residence
+              Foundation, Rose Community Foundation, The Fuller Foundation,
+              Veterans of Foreign Wars of the United States.
+            </p>
+          </div>
+
+          <div class="roster-subgroup">
+            <h3>Professional &amp; Research Associations</h3>
+            <p class="roster-list">
+              American Association of Endodontists, American Society of
+              Civil Engineers Foundation, American Society of International
+              Law, AONE Foundation, Radiological Society of North America,
+              Society for Science and the Public.
+            </p>
+          </div>
+
+          <div class="roster-subgroup">
+            <h3>Greek &amp; Alumni Foundations</h3>
+            <p class="roster-list">
+              Delta Gamma Foundation, Kappa Kappa Gamma Foundation.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin-top: 2rem;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Have a project to discuss?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              Connect directly to talk through analytics, web, or digital
+              infrastructure needs.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
+      <script
+        src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3"
+        defer></script>
+      <script
+        src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c"
+        defer></script>
+      <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
+      <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
+      <script src="/assets/js/main.js?v=0200c190da" defer></script>
+      <script src="/assets/js/footer-min.js?v=3b3549b144" defer></script>
+      <scott-footer
+        description="Analytics, web development, and digital infrastructure for 280+ organizations across sports, education, healthcare, and consumer brands."></scott-footer>
+    </div>
+  </body>
+</html>
