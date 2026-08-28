@@ -29,6 +29,7 @@ class ScottFooter extends HTMLElement {
                       width="130"
                       height="170"
                       alt="S"
+                      title="S"
                       class="logo"
                       style="display:block;max-height: 4vh;margin-right: 2px;">
                     <span style="font-size: x-large;">cott Labz</span>

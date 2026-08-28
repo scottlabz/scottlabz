@@ -313,6 +313,7 @@ class ScottNav extends HTMLElement {
             <img
               src="/images/scottlabz-clear.webp"
               alt="Scott Labz"
+              title="Scott Labz"
               width="31"
               height="40" />
           </a>
