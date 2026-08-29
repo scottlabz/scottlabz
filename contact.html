@@ -161,6 +161,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        text-align: left;
       }
 
       label {
@@ -271,18 +272,27 @@
             </p>
 
             <form action="https://formspree.io/f/xgawpgkj" method="POST">
-              <input type="text" name="name" placeholder="Your Name" required />
+              <div class="form-group">
+                <label for="contact-name">Name</label>
+                <input type="text" id="contact-name" name="name" required />
+              </div>
 
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required />
+              <div class="form-group">
+                <label for="contact-email">Email</label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  required />
+              </div>
 
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                required></textarea>
+              <div class="form-group">
+                <label for="contact-message">Message</label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  required></textarea>
+              </div>
 
               <button
                 type="submit"
