@@ -226,7 +226,9 @@
 						$gallery = $a.parents('.gallery'),
 						$modal = $gallery.children('.modal'),
 						$modalImg = $modal.find('img'),
-						href = $a.attr('href');
+						href = $a.attr('href'),
+						$sourceImg = $a.find('img'),
+						altText = $sourceImg.attr('alt') || $a.parents('article').find('img').first().attr('alt') || 'Enlarged gallery image';
 
 					// Not an image? Bail.
 						if (!href.match(/\.(jpg|gif|png|mp4)$/))
@@ -243,8 +245,9 @@
 					// Lock.
 						$modal[0]._locked = true;
 
-					// Set src.
+					// Set src and alt.
 						$modalImg.attr('src', href);
+						$modalImg.attr('alt', altText);
 
 					// Set visible.
 						$modal.addClass('visible');
@@ -312,7 +315,7 @@
 							$modal.trigger('click');
 
 				})
-				.prepend('<div class="modal" tabIndex="-1"><div class="inner"><img src="" alt="" /></div></div>')
+				.prepend('<div class="modal" tabIndex="-1"><div class="inner"><img src="" alt="Enlarged gallery image" /></div></div>')
 					.find('img')
 						.on('load', function(event) {
 
