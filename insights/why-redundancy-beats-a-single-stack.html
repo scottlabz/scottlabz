@@ -138,13 +138,6 @@
         height: 100%;
         background: #1e3a5f;
       }
-      .about-hero::before {
-        background-image: url("/images/insights-redundancy.jpg");
-        height: 15%;
-      }
-      .light-box {
-        margin-bottom: 2rem;
-      }
     </style>
   </head>
 
@@ -153,37 +146,46 @@
 
     <div id="wrapper" class="divided">
       <section
-        class="banner about-hero style1 orient-left content-align-left fullscreen onload-content-fade-right">
+        class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
-          <div class="light-box">
-            <p class="brand-mark">
-              <a href="/index.html" style="border-bottom: none">
-                <img
-                  src="/images/scottlabz-clear.webp"
-                  width="130"
-                  height="170"
-                  alt="S"
-                  title="S"
-                  class="logo"
-                  style="margin-right: 0" />cott Labz
-              </a>
-            </p>
-
-            <h1 class="major">Why Redundancy Beats a Single Stack</h1>
+          <p class="brand-mark">
+            <a href="/index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.webp"
+                width="130"
+                height="170"
+                alt="S"
+                title="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">Why Redundancy Beats a Single Stack</h1>
+          <p class="major">
             <a href="/insights.html" class="back-to-notes">
               <i class="fas fa-arrow-left"></i>
-              Back to Insights</a
-            ><br /><br />
-            <p>
-              The case for measurement architecture that doesn't depend on any
-              one system telling the truth.
-            </p>
-          </div>
+              Back to Insights
+            </a>
+          </p>
+          <p class="major">
+            The case for measurement architecture that doesn't depend on any
+            one system telling the truth.
+          </p>
+        </div>
+        <div class="image">
+          <img
+            src="/images/insights-redundancy2.jpg"
+            width="2000"
+            height="1500"
+            alt="Glowing blue network of connected nodes rising out of darkness, representing independent systems confirming the same data"
+            title="Glowing blue network of connected nodes rising out of darkness, representing independent systems confirming the same data" />
+        </div>
+      </section>
 
-          <main
-            class="service-content"
-            id="first"
-            style="max-width: 900px; margin: 0 auto; padding: 0">
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 0 auto; padding: 0">
             <section class="section-block">
               <h2>The Failure Nobody Diagnoses</h2>
               <p>
@@ -372,8 +374,6 @@
               </div>
             </section>
           </main>
-        </div>
-      </section>
 
       <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
       <script
