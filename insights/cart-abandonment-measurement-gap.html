@@ -110,6 +110,17 @@
             ],
             "worksFor": { "@id": "https://scottlabz.com/#organization" },
             "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
+          },
+          {
+            "@type": "Article",
+            "@id": "https://scottlabz.com/insights/cart-abandonment-measurement-gap.html#article",
+            "headline": "Cart Abandonment Is a Measurement Gap, Not a UX Problem",
+            "description": "Knowing where a shopper left isn't the same as knowing why. Most cart abandonment analysis stops at the easy question instead of the useful one.",
+            "image": "https://scottlabz.com/images/insights-cart-abandonment.jpg",
+            "author": { "@id": "https://scottlabz.com/#scotttaylor" },
+            "publisher": { "@id": "https://scottlabz.com/#organization" },
+            "dateModified": "2026-08-30",
+            "mainEntityOfPage": { "@id": "https://scottlabz.com/insights/cart-abandonment-measurement-gap.html" }
           }
         ]
       }
@@ -140,12 +151,17 @@
         height: 100%;
         background: #1e3a5f;
       }
-      .about-hero::before {
-        background-image: url("/images/insights-cart-abandonment.jpg");
-        height: 15%;
+          .byline {
+        font-size: 0.85rem;
+        opacity: 0.65;
+        margin: 0 0 0.75rem;
       }
-      .light-box {
-        margin-bottom: 2rem;
+          h1.major {
+        margin: 0;
+      }
+          p.major {
+        font-size: 1.25rem;
+        margin: 0;
       }
     </style>
   </head>
@@ -155,34 +171,41 @@
 
     <div id="wrapper" class="divided">
       <section
-        class="banner about-hero style1 orient-left content-align-left fullscreen onload-content-fade-right">
+        class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
-          <div class="light-box">
-            <p class="brand-mark">
-              <a href="/index.html" style="border-bottom: none">
-                <img
-                  src="/images/scottlabz-clear.webp"
-                  width="130"
-                  height="170"
-                  alt="S"
-                  title="S"
-                  class="logo"
-                  style="margin-right: 0" />cott Labz
-              </a>
-            </p>
-
-            <h1 class="major">
-              Cart Abandonment Is a Measurement Gap, Not a UX Problem
-            </h1>
+          <p class="brand-mark">
+            <a href="/index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.webp"
+                width="130"
+                height="170"
+                alt="S"
+                title="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">Cart Abandonment Is a Measurement Gap, Not a UX Problem</h1>
+          <p class="byline">By Scott Taylor</p>
+          <p class="major">
             <a href="/insights.html" class="back-to-notes">
               <i class="fas fa-arrow-left"></i>
-              Back to Insights</a
-            ><br /><br />
-            <p>
-              Knowing where a shopper left the checkout isn't the same as
-              knowing why. Most setups only ever answer the first question.
-            </p>
-          </div>
+              Back to Insights
+            </a>
+          </p>
+          <p class="major">
+            Knowing where a shopper left the checkout isn't the same as knowing why. Most setups only ever answer the first question.
+          </p>
+        </div>
+        <div class="image">
+          <img
+            src="/images/insights-cart-abandonment.jpg"
+            width="1280"
+            height="1920"
+            alt="Abstract burst of blue light trails radiating outward, representing the many possible reasons behind a single checkout drop-off"
+            title="Abstract burst of blue light trails radiating outward, representing the many possible reasons behind a single checkout drop-off" />
+        </div>
+      </section>
 
           <main
             class="service-content"
@@ -342,9 +365,6 @@
               </div>
             </section>
           </main>
-        </div>
-      </section>
-
       <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
       <script
         src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3"

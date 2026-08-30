@@ -108,6 +108,17 @@
             ],
             "worksFor": { "@id": "https://scottlabz.com/#organization" },
             "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
+          },
+          {
+            "@type": "Article",
+            "@id": "https://scottlabz.com/insights/local-seo-is-a-data-problem.html#article",
+            "headline": "Local SEO Is a Data Problem, Not a Marketing One",
+            "description": "Inconsistent business listings aren't a marketing oversight. They're a data integrity problem, and they get treated with a marketing checklist instead of a data fix.",
+            "image": "https://scottlabz.com/images/insights-local-seo.jpg",
+            "author": { "@id": "https://scottlabz.com/#scotttaylor" },
+            "publisher": { "@id": "https://scottlabz.com/#organization" },
+            "dateModified": "2026-08-30",
+            "mainEntityOfPage": { "@id": "https://scottlabz.com/insights/local-seo-is-a-data-problem.html" }
           }
         ]
       }
@@ -138,12 +149,17 @@
         height: 100%;
         background: #1e3a5f;
       }
-      .about-hero::before {
-        background-image: url("/images/insights-local-seo.jpg");
-        height: 15%;
+          .byline {
+        font-size: 0.85rem;
+        opacity: 0.65;
+        margin: 0 0 0.75rem;
       }
-      .light-box {
-        margin-bottom: 2rem;
+          h1.major {
+        margin: 0;
+      }
+          p.major {
+        font-size: 1.25rem;
+        margin: 0;
       }
     </style>
   </head>
@@ -153,35 +169,41 @@
 
     <div id="wrapper" class="divided">
       <section
-        class="banner about-hero style1 orient-left content-align-left fullscreen onload-content-fade-right">
+        class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
-          <div class="light-box">
-            <p class="brand-mark">
-              <a href="/index.html" style="border-bottom: none">
-                <img
-                  src="/images/scottlabz-clear.webp"
-                  width="130"
-                  height="170"
-                  alt="S"
-                  title="S"
-                  class="logo"
-                  style="margin-right: 0" />cott Labz
-              </a>
-            </p>
-
-            <h1 class="major">
-              Local SEO Is a Data Problem, Not a Marketing One
-            </h1>
+          <p class="brand-mark">
+            <a href="/index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.webp"
+                width="130"
+                height="170"
+                alt="S"
+                title="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">Local SEO Is a Data Problem, Not a Marketing One</h1>
+          <p class="byline">By Scott Taylor</p>
+          <p class="major">
             <a href="/insights.html" class="back-to-notes">
               <i class="fas fa-arrow-left"></i>
-              Back to Insights</a
-            ><br /><br />
-            <p>
-              A business's name, address, and phone number are data. Treated as
-              marketing copy, they drift - and that drift is what actually costs
-              local visibility.
-            </p>
-          </div>
+              Back to Insights
+            </a>
+          </p>
+          <p class="major">
+            A business's name, address, and phone number are data. Treated as marketing copy, they drift - and that drift is what actually costs local visibility.
+          </p>
+        </div>
+        <div class="image">
+          <img
+            src="/images/insights-local-seo.jpg"
+            width="1280"
+            height="1920"
+            alt="Close-up of a reflective hexagonal grid pattern, representing the repeating data points behind local search visibility"
+            title="Close-up of a reflective hexagonal grid pattern, representing the repeating data points behind local search visibility" />
+        </div>
+      </section>
 
           <main
             class="service-content"
@@ -347,9 +369,6 @@
               </div>
             </section>
           </main>
-        </div>
-      </section>
-
       <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
       <script
         src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3"

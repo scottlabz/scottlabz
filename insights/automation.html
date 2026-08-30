@@ -111,6 +111,17 @@
               "@id": "https://scottlabz.com/#organization"
             },
             "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
+          },
+          {
+            "@type": "Article",
+            "@id": "https://scottlabz.com/insights/automation.html#article",
+            "headline": "Automation Built to Be Trusted",
+            "description": "Automation built to be trusted, not just to run - covering triggers, validation, execution, monitoring, and recovery for durable systems. Read the full guide.",
+            "image": "https://scottlabz.com/images/insights-automation.jpg",
+            "author": { "@id": "https://scottlabz.com/#scotttaylor" },
+            "publisher": { "@id": "https://scottlabz.com/#organization" },
+            "dateModified": "2026-08-30",
+            "mainEntityOfPage": { "@id": "https://scottlabz.com/insights/automation.html" }
           }
         ]
       }
@@ -482,36 +493,19 @@
         opacity: 0.82;
       }
 
-      .about-hero {
-        position: relative;
-        overflow: hidden;
-        min-height: 100vh;
-        min-height: 100svh;
-      }
-
-      .about-hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 15%;
-        background-image: url("/images/insights-automation.jpg");
-        background-size: cover;
-        background-position: center;
-        -webkit-mask-image: linear-gradient(
-          to bottom,
-          black 60%,
-          transparent 100%
-        );
-        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-      }
-
-      .about-hero > * {
-        position: relative;
-        z-index: 1;
-      }
       .back-to-notes {font-size:large;}
+          .byline {
+        font-size: 0.85rem;
+        opacity: 0.65;
+        margin: 0 0 0.75rem;
+      }
+          h1.major {
+        margin: 0;
+      }
+          p.major {
+        font-size: 1.25rem;
+        margin: 0;
+      }
     </style>
   </head>
 
@@ -520,34 +514,43 @@
 
     <div id="wrapper" class="divided">
     <section
-      class="banner about-hero style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+      class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
       <div class="content">
-          <!-- Hero -->
-          <div class="light-box">
-            <p class="brand-mark">
-              <a href="/index.html" style="border-bottom: none">
-                <img
-                  src="/images/scottlabz-clear.webp"
-                  width="130"
-                  height="170"
-                  alt="S"
-                  title="S"
-                  class="logo"
-                  style="margin-right: 0" />cott Labz
-              </a>
-            </p>
-
-        <h1 class="size-h2" style="margin:0 0 0 0">Automation</h1>
-            <a href="/insights.html" class="back-to-notes">
-              <i class="fas fa-arrow-left"></i>
-              Back to Insights</a
-            ><br /><br />
-        <p>
+        <p class="brand-mark">
+          <a href="/index.html" style="border-bottom: none">
+            <img
+              src="/images/scottlabz-clear.webp"
+              width="130"
+              height="170"
+              alt="S"
+              title="S"
+              class="logo"
+              style="margin-right: 0" />cott Labz
+          </a>
+        </p>
+        <h1 class="major">Automation</h1>
+        <p class="byline">By Scott Taylor</p>
+        <p class="major">
+          <a href="/insights.html" class="back-to-notes">
+            <i class="fas fa-arrow-left"></i>
+            Back to Insights
+          </a>
+        </p>
+        <p class="major">
           Automation should make a process more trustworthy, not just hands-off.
           A workflow that fails without telling anyone isn't an improvement -
           it's just a slower way to find out something's wrong.
         </p>
       </div>
+      <div class="image">
+        <img
+          src="/images/insights-automation.jpg"
+          width="1920"
+          height="1080"
+          alt="Smooth curved ribbons of green light forming a continuous loop, representing a self-sustaining automated process"
+          title="Smooth curved ribbons of green light forming a continuous loop, representing a self-sustaining automated process" />
+      </div>
+    </section>
 
       <main id="main-content" class="auto-page">
         <p class="auto-lede">
@@ -807,8 +810,7 @@
               </a>
             </li>
           </ul>
-</div>
-      </section>
+        </section>
       </main>
 
       <!-- Scripts -->
