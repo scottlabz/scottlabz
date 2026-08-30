@@ -320,6 +320,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://scottlabz.com/insights/what-is-analytics-architecture.html</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://scottlabz.com/insights/why-redundancy-beats-a-single-stack.html</loc>
     <lastmod>2026-08-30</lastmod>
     <changefreq>yearly</changefreq>
