@@ -9590,7 +9590,7 @@ body.is-preload .items.onload-fade-in > * > .inner {
 
 .case-study-hero.banner.style1 .content {
   max-width: 40rem;
-  padding: 1rem;
+  padding: 4rem 0;
 }
 
 @media screen and (max-width: 1280px) {
