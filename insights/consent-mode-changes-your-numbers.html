@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
+
+    <!-- Google tag (gtag.js) (loads on first interaction, or after 5s) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      (function (w, d, s, id) {
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s);
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+          f.parentNode.insertBefore(j, f);
+          gtag("js", new Date());
+          gtag("config", id);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
+        });
+        var fallback = setTimeout(trigger, 5000);
+      })(window, document, "script", "G-08JHY36N39");
+    </script>
+    <!-- End Google tag (gtag.js) -->
+
+    <title>
+      Consent Mode Changes Your Numbers, Not Just Your Compliance | Scott Labz
+    </title>
+
+    <meta
+      name="description"
+      content="Turning on consent mode doesn't just satisfy a legal requirement. It swaps some real events for modeled ones - and most dashboards never say which is which." />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/main-min.css?v=4396d22998" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript-min.css?v=30b0cb2b12" />
+    </noscript>
+
+    <script src="/assets/js/header-min.js?v=0b07c49366" async></script>
+    <script src="/assets/js/favicon-min.js?v=d2e76e98d0" async></script>
+    <script src="/assets/js/navigation-min.js?v=69e6b093de" defer></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/insights/consent-mode-changes-your-numbers.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://scottlabz.com/#organization",
+            "name": "Scott Labz, LLC",
+            "description": "Turning on consent mode doesn't just satisfy a legal requirement. It swaps some real events for modeled ones - and most dashboards never say which is which.",
+            "url": "https://scottlabz.com/insights/consent-mode-changes-your-numbers.html",
+            "telephone": "+1-309-324-2875",
+            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "priceRange": "$$",
+            "slogan": "Measure. Build. Improve.",
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "McLean County, Illinois"
+            },
+            "sameAs": [
+              "https://github.com/scottlabz",
+              "https://www.linkedin.com/company/scottlabz",
+              "https://www.linkedin.com/in/scotttaylor369"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-309-324-2875",
+              "contactType": "Scott Labz"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://scottlabz.com/#scotttaylor",
+            "name": "Scott Taylor",
+            "jobTitle": "Founder",
+            "description": "Scott Taylor is the founder of Scott Labz, where he combines web development, analytics, automation, and digital strategy to help businesses create faster, smarter, and more effective digital experiences.",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "url": "https://scottlabz.com/insights/consent-mode-changes-your-numbers.html",
+            "email": "mailto:info@scottlabz.com",
+            "knowsAbout": [
+              "Analytics Solutions",
+              "Web Development",
+              "Digital Infrastructure",
+              "Digital Analytics Consulting"
+            ],
+            "worksFor": { "@id": "https://scottlabz.com/#organization" },
+            "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
+          },
+          {
+            "@type": "Article",
+            "@id": "https://scottlabz.com/insights/consent-mode-changes-your-numbers.html#article",
+            "headline": "Consent Mode Changes Your Numbers, Not Just Your Compliance",
+            "description": "Turning on consent mode doesn't just satisfy a legal requirement. It swaps some real events for modeled ones - and most dashboards never say which is which.",
+            "image": "https://scottlabz.com/images/numbers.jpg",
+            "author": { "@id": "https://scottlabz.com/#scotttaylor" },
+            "publisher": { "@id": "https://scottlabz.com/#organization" },
+            "dateModified": "2026-09-03",
+            "mainEntityOfPage": {
+              "@id": "https://scottlabz.com/insights/consent-mode-changes-your-numbers.html"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="Consent Mode Changes Your Numbers, Not Just Your Compliance | Scott Labz" />
+    <meta
+      property="og:description"
+      content="Turning on consent mode doesn't just satisfy a legal requirement. It swaps some real events for modeled ones - and most dashboards never say which is which." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/insights/consent-mode-changes-your-numbers.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+      .byline {
+        font-size: 0.85rem;
+        opacity: 0.65;
+        margin: 0 0 0.75rem;
+      }
+      h1.major {
+        margin: 0;
+      }
+      p.major {
+        font-size: 1.25rem;
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <scott-nav skip-target="#first"></scott-nav>
+
+    <div id="wrapper" class="divided">
+      <section
+        class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="/index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.webp"
+                width="130"
+                height="170"
+                alt="S"
+                title="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">
+            Consent Mode Changes Your Numbers, Not Just Your Compliance
+          </h1>
+
+          <p class="byline">By Scott Taylor</p>
+          <p class="major">
+            <a href="/insights.html" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Insights
+            </a>
+          </p>
+          <p class="major">
+            Turning on consent mode doesn't just satisfy a legal requirement. It
+            swaps some of the real events in a report for modeled ones - and
+            most dashboards never say which rows are which.
+          </p>
+        </div>
+        <div class="image">
+          <img
+            src="/images/numbers.jpg"
+            width="1920"
+            height="2880"
+            alt="Numbered lane markings on a red running track, counting down from seven in the foreground toward the starting line"
+            title="Numbered lane markings on a red running track, counting down from seven in the foreground toward the starting line" />
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 2rem auto; padding: 0">
+        <section class="section-block">
+          <h2>The Checkbox That Changes the Data</h2>
+          <p>
+            Consent mode gets talked about as a compliance switch - flip it on,
+            satisfy the regulation, move on. That framing misses what actually
+            happens on the measurement side. When a visitor declines tracking,
+            the platform doesn't just stop counting them. It tries to estimate
+            what their event would have looked like, and folds that estimate
+            into the same totals as everyone who said yes.
+          </p>
+          <p>
+            The report still shows one number. It just isn't made of one kind of
+            data anymore.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What "Modeled" Actually Means</h2>
+          <p>
+            The modeling itself is reasonable in principle: use the behavior of
+            consenting visitors who look similar to the ones who declined, and
+            estimate a plausible conversion rate for the group that opted out.
+            It's a statistical fill-in, not a fabrication out of thin air. But
+            it's still an estimate standing in for an observation, and the
+            report doesn't visually distinguish the two.
+          </p>
+          <p>
+            A conversion count built partly from real events and partly from
+            modeled ones will move for reasons that have nothing to do with the
+            campaign it's supposedly measuring - including a shift in how many
+            visitors decline in the first place.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Where the Modeled Numbers Hide</h2>
+          <p>
+            Most standard reports show a single blended figure with no flag for
+            how much of it is modeled versus observed. That fraction isn't
+            static, either - it moves with the consent rate, which can shift on
+            its own after a cookie banner redesign, a new browser default, or
+            just seasonal traffic mix, none of which have anything to do with
+            actual performance.
+          </p>
+          <p>
+            A month-over-month jump can be a real change in behavior, or it can
+            be the modeled share of the report growing or shrinking. From the
+            blended number alone, there's no way to tell which one happened.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Reading a Consent-Mode Report on Purpose</h2>
+          <p>
+            Most platforms expose the modeled share somewhere, even if it's not
+            on the default view - a separate report, a diagnostic panel, or an
+            export that breaks observed and modeled conversions apart. Finding
+            that number once is enough to know roughly how much of a given
+            period's total is estimate rather than observation.
+          </p>
+          <p>
+            The other habit worth building is not comparing periods with
+            meaningfully different consent rates as if they were measuring the
+            same thing - a quarter right after a banner redesign and a quarter
+            six months later can differ in modeled share alone, before
+            performance enters into it at all.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Common Questions</h2>
+
+          <div class="log-entry">
+            <h3>Does consent mode make the data wrong?</h3>
+            <p>
+              Not wrong exactly - the modeled portion is a reasonable
+              statistical estimate, not a fabrication. But it's a different kind
+              of number than a directly observed event, and treating the two
+              identically is where the confusion starts.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <h3>How much of a typical report is modeled?</h3>
+            <p>
+              It depends entirely on the site's consent rate, which varies by
+              audience, region, and even how the banner itself is worded -
+              there's no fixed percentage that applies everywhere.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <h3>Can the modeled share be turned off?</h3>
+            <p>
+              Not without also losing the visibility into declined-consent
+              visitors entirely - the choice isn't between modeled and exact,
+              it's between modeled and not measured at all.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <h3>
+              Where do you actually find the observed-versus-modeled split?
+            </h3>
+            <p>
+              It's usually one layer below the default dashboard - a diagnostics
+              view, a raw export, or a platform-specific report built for
+              exactly this question, rather than the summary screen most people
+              check first.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin-top: 3rem;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Not Sure How Much of Your Report Is a Model?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              Finding the observed-versus-modeled split usually takes one
+              diagnostic report, not a rebuild.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="/contact.html" class="button big wide alt"
+                  >Start the Conversation</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
+      <script
+        src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3"
+        defer></script>
+      <script
+        src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c"
+        defer></script>
+      <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
+      <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
+      <script src="/assets/js/main.js?v=88fb08ab17" defer></script>
+      <script src="/assets/js/footer-min.js?v=8a364de27b" defer></script>
+
+      <scott-footer
+        description="Turning on consent mode doesn't just satisfy a legal requirement - it swaps some real events for modeled ones, and most dashboards never say which is which.">
+      </scott-footer>
+    </div>
+  </body>
+</html>

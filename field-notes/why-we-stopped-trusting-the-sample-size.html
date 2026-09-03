@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
+
+    <!-- Google tag (gtag.js) (loads on first interaction, or after 5s) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      (function (w, d, s, id) {
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s);
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+          f.parentNode.insertBefore(j, f);
+          gtag("js", new Date());
+          gtag("config", id);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
+        });
+        var fallback = setTimeout(trigger, 5000);
+      })(window, document, "script", "G-08JHY36N39");
+    </script>
+    <!-- End Google tag (gtag.js) -->
+
+    <title>Why We Stopped Trusting the Sample Size | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="A test was called a winner on day four. The sample size looked big enough - it just wasn't the sample size that mattered." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../assets/css/main-min.css?v=4396d22998" />
+
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript-min.css?v=30b0cb2b12" />
+    </noscript>
+
+    <script src="../assets/js/header-min.js?v=0b07c49366" async></script>
+    <script src="../assets/js/favicon-min.js?v=d2e76e98d0" async></script>
+    <script src="../assets/js/navigation-min.js?v=69e6b093de" defer></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/why-we-stopped-trusting-the-sample-size.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/why-we-stopped-trusting-the-sample-size.html",
+        "headline": "Why We Stopped Trusting the Sample Size",
+        "description": "A test was called a winner on day four. The sample size looked big enough - it just wasn't the sample size that mattered.",
+        "url": "https://scottlabz.com/field-notes/why-we-stopped-trusting-the-sample-size.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="Why We Stopped Trusting the Sample Size | Scott Labz" />
+    <meta
+      property="og:description"
+      content="A test was called a winner on day four. The sample size looked big enough - it just wasn't the sample size that mattered." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/why-we-stopped-trusting-the-sample-size.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+      .service-content h3 {
+        font-size: 1.05rem;
+        color: #1e3a5f;
+      }
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+      .byline {
+        font-size: 0.85rem;
+        opacity: 0.65;
+        margin: 0 0 0.75rem;
+      }
+      .byline a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid currentColor;
+      }
+      .byline a:hover {
+        opacity: 0.8;
+      }
+      h1.major {
+        margin: 0;
+      }
+      p.major {
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <scott-nav skip-target="#first"></scott-nav>
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="../index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.webp"
+                width="130"
+                height="170"
+                alt="S"
+                title="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">Why We Stopped Trusting the Sample Size</h1>
+
+          <p class="byline"><a href="/founder.html">Scott Taylor</a> - July 2026</p>
+          <p class="major">
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes
+            </a>
+          </p>
+          <p class="major">
+            <strong>The test was called a winner on day four</strong> - the
+            sample size looked big enough. It just wasn't the sample size
+            that mattered.
+          </p>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 2rem auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            An A/B test that hits a testing tool's default significance
+            threshold feels like a finished result. Often it isn't - it's a
+            snapshot of a result still in motion, read at the moment it
+            happened to cross a line. This is what it looked like when
+            calling a test early cost more than waiting would have.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What it actually looked like</h2>
+          <p>
+            A pricing-page variant was live against the control for four
+            days. By day four, the testing dashboard showed the variant
+            ahead by a wide margin, with the tool's built-in significance
+            indicator lit up green. The traffic volume looked healthy - well
+            past the minimum the platform's own guidance suggested. The call
+            was made to end the test early and roll the variant out to
+            everyone.
+          </p>
+          <p>
+            Two weeks after the rollout, overall conversion was flat against
+            the pre-test baseline - not the lift the four-day result had
+            promised. Nothing about the four-day number had been calculated
+            wrong. It just hadn't finished happening yet.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What was actually happening</h2>
+          <p>
+            The test's four days had included one unusually high-traffic day
+            - a promotional email had gone out to the full list on day two,
+            sending a burst of already-warm visitors through both variants
+            at once. That single day's behavior didn't reflect the site's
+            normal traffic mix, but the significance calculation had no way
+            to know that. It just saw enough total visitors and enough of a
+            gap between the two groups, and reported confidence.
+          </p>
+          <p>
+            Significance answers a narrower question than it sounds like it
+            answers: given the data collected so far, is the gap between
+            variants big enough that it's unlikely to be random noise. It
+            says nothing about whether the traffic collected so far is
+            actually representative of a normal week.
+          </p>
+          <ul class="alt">
+            <li>Day four significance reading - real, and also premature</li>
+            <li>Promotional-email traffic spike - real, and also atypical</li>
+            <li>Two-week post-rollout result - the number that actually mattered</li>
+          </ul>
+        </section>
+
+        <section class="section-block">
+          <h2>The decision log</h2>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 1: Check whether the win held in the two weeks after rollout, not just the four days before it
+            </div>
+            <p>
+              The only way to know if the early result was real was to look
+              past it - comparing the two full weeks after the rollout
+              against the same two weeks' baseline from before the test
+              began, rather than trusting the in-test dashboard's own
+              read of itself.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 2: Go back and look for anything unusual in the traffic during the test window
+            </div>
+            <p>
+              With the flat post-rollout number in hand, the four test days
+              were reviewed individually instead of as a single pooled
+              total. Day two stood out immediately once traffic was broken
+              out by day rather than averaged across the whole test.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">Decision 3: Set a minimum test duration before checking significance again</div>
+            <p>
+              Rather than banning early looks at the dashboard entirely, a
+              minimum run time - covering at least one full week, so every
+              day-of-week pattern appears at least once - was set as a
+              condition before a result gets acted on, promotional email or
+              not.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">Decision 4: Flag known traffic events on the test calendar going forward</div>
+            <p>
+              Email sends, sales, and other planned traffic spikes now get
+              logged against the test calendar as they're scheduled, so a
+              future review doesn't have to reconstruct after the fact
+              which day was unusual and why.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Before and after</h2>
+          <div class="compare-grid">
+            <div class="compare-card before">
+              <h3 class="size-h4">Before</h3>
+              <ul>
+                <li>Tests called the moment the dashboard turned green</li>
+                <li>No minimum run time enforced</li>
+                <li>Promotional sends unlogged against test windows</li>
+                <li>A flat two-week result after an early "winning" call</li>
+              </ul>
+            </div>
+            <div class="compare-card after">
+              <h3 class="size-h4">After</h3>
+              <ul>
+                <li>One full week minimum before any result is acted on</li>
+                <li>Daily traffic reviewed individually, not just pooled</li>
+                <li>Known traffic events logged against the test calendar</li>
+                <li>Results that hold up two weeks after rollout, not just four days in</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>What this actually took</h2>
+          <p>
+            No new tooling - the testing platform's significance calculation
+            was never wrong about what it was measuring. The fix was a
+            process change: a minimum run time, and a habit of checking a
+            day-by-day traffic breakdown before trusting a pooled total.
+            Reading a test result for what it actually says, not what the
+            dashboard's green checkmark implies, is part of the
+            <a href="/analytics-data.html">Analytics &amp; Data</a> practice
+            on every test that gets called, not just the ones that later
+            look wrong.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>Wasn't the significance calculation itself correct?</h3>
+          <p>
+            Yes - the math was sound given the data it had. The problem
+            wasn't the calculation, it was calling the test before the data
+            it was calculating from was representative of a normal period.
+          </p>
+
+          <h3>How long should a test actually run?</h3>
+          <p>
+            Long enough to include at least one full cycle of whatever
+            pattern the traffic follows - usually a full week at minimum, so
+            weekday and weekend behavior both appear, longer if the business
+            has a monthly or seasonal rhythm.
+          </p>
+
+          <h3>Does a bigger sample size fix this?</h3>
+          <p>
+            Not by itself - a bigger sample collected entirely during one
+            atypical event is still an atypical sample. Representativeness
+            and sample size are different questions, and a significance
+            reading only checks one of them.
+          </p>
+
+          <h3>How do you catch an atypical day before it skews a test?</h3>
+          <p>
+            Review traffic broken out by day while a test is still running,
+            not just the pooled total, and cross-check against anything
+            else scheduled to reach the audience during that window - an
+            email send, a sale, a press mention.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Not Sure a Past Test Result Actually Held?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              Checking a rollout against its pre-test baseline usually
+              settles it in an afternoon.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="../contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c" defer></script>
+      <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
+      <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
+      <script src="/assets/js/main.js?v=88fb08ab17" defer></script>
+      <script src="/assets/js/footer-min.js?v=8a364de27b" defer></script>
+      <scott-footer
+        description="A test was called a winner on day four - the sample size looked big enough, but it wasn't the sample size that mattered."></scott-footer>
+    </div>
+  </body>
+</html>
