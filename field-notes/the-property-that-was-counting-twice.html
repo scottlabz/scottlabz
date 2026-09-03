@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <link rel="preconnect" href="https://seal-heartofillinois.bbb.org" />
+
+    <!-- Google tag (gtag.js) (loads on first interaction, or after 5s) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      (function (w, d, s, id) {
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s);
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+          f.parentNode.insertBefore(j, f);
+          gtag("js", new Date());
+          gtag("config", id);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
+        });
+        var fallback = setTimeout(trigger, 5000);
+      })(window, document, "script", "G-08JHY36N39");
+    </script>
+    <!-- End Google tag (gtag.js) -->
+
+    <title>The Property That Was Counting Twice | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="Conversions looked strong for weeks. Two analytics properties, both live, both receiving the same events - and nobody had told either one about the other." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../assets/css/main-min.css?v=6e48b4e9ca" />
+
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript-min.css?v=30b0cb2b12" />
+    </noscript>
+
+    <script src="../assets/js/header-min.js?v=0b07c49366" async></script>
+    <script src="../assets/js/favicon-min.js?v=d2e76e98d0" async></script>
+    <script src="../assets/js/navigation-min.js?v=69e6b093de" defer></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/field-notes/the-property-that-was-counting-twice.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://scottlabz.com/field-notes/the-property-that-was-counting-twice.html",
+        "headline": "The Property That Was Counting Twice",
+        "description": "Conversions looked strong for weeks. Two analytics properties, both live, both receiving the same events - and nobody had told either one about the other.",
+        "url": "https://scottlabz.com/field-notes/the-property-that-was-counting-twice.html",
+        "author": {
+          "@id": "https://scottlabz.com/#scotttaylor"
+        },
+        "publisher": {
+          "@id": "https://scottlabz.com/#organization"
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta
+      property="og:title"
+      content="The Property That Was Counting Twice | Scott Labz" />
+    <meta
+      property="og:description"
+      content="Conversions looked strong for weeks. Two analytics properties, both live, both receiving the same events - and nobody had told either one about the other." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/field-notes/the-property-that-was-counting-twice.html" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: #1e3a5f;
+      }
+      .service-content h3 {
+        font-size: 1.05rem;
+        color: #1e3a5f;
+      }
+      .banner.style1 .content {
+        padding: 4rem 7rem 0 7rem;
+      }
+      #wrapper.divided > * {
+        box-shadow: none;
+      }
+      .byline {
+        font-size: 0.85rem;
+        opacity: 0.65;
+        margin: 0 0 0.75rem;
+      }
+      .byline a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid currentColor;
+      }
+      .byline a:hover {
+        opacity: 0.8;
+      }
+      h1.major {
+        margin: 0;
+      }
+      p.major {
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <scott-nav skip-target="#first"></scott-nav>
+
+    <div id="wrapper" class="divided">
+      <section class="banner style1">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="../index.html" style="border-bottom: none">
+              <img
+                src="/images/scottlabz-clear.webp"
+                width="130"
+                height="170"
+                alt="S"
+                title="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">The Property That Was Counting Twice</h1>
+
+          <p class="byline"><a href="/founder.html">Scott Taylor</a> - September 2026</p>
+          <p class="major">
+            <a href="/field-notes/" class="back-to-notes">
+              <i class="fas fa-arrow-left"></i>
+              Back to Field Notes
+            </a>
+          </p>
+          <p class="major">
+            <strong>Conversions were up double digits, three weeks
+            running</strong> - and the actual reason had nothing to do with
+            the campaign anyone was crediting for it.
+          </p>
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 900px; margin: 2rem auto; padding: 0">
+        <section class="section-block">
+          <h2>Why this exists</h2>
+          <p>
+            A conversion count that goes up is rarely questioned. It's the
+            metric everyone already wants to believe, which is exactly why
+            it's the one most likely to hide a measurement problem instead
+            of a real result. This is what it looked like when a single
+            <code>&lt;script&gt;</code> tag, added months earlier and never
+            removed, turned out to be the entire story.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What it actually looked like</h2>
+          <p>
+            A site redesign months prior had included a full analytics
+            re-platform - new property, new measurement ID, new event
+            naming. The rollout went fine. The old property was supposed to
+            be retired once the new one was confirmed working.
+          </p>
+          <p>
+            It wasn't. The old tag was still sitting in the page template,
+            untouched, quietly sending the exact same purchase events to a
+            property nobody was looking at anymore - while the new property,
+            the one everyone reported from, was healthy and accurate on its
+            own. Nothing about the new property's numbers was wrong. The
+            problem was a separate report, built later, that pulled from
+            both properties without realizing it.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>What was actually happening</h2>
+          <p>
+            A quarterly summary had been built by an outside consultant
+            using an export tool that pulled every measurement ID associated
+            with the account - both the active property and the one that was
+            supposed to be retired. Each purchase event existed in both
+            properties, since both tags were still firing on every checkout.
+            The export tool didn't know the two properties described the
+            same website. It just added their totals together.
+          </p>
+          <p>
+            The result read as legitimate growth because every individual
+            number involved was, in isolation, completely real. Real
+            purchases. Real timestamps. Real customer IDs. They were just
+            being counted from two places that happened to be watching the
+            same checkout.
+          </p>
+          <ul class="alt">
+            <li>Live property - accurate, actively monitored, correctly configured</li>
+            <li>Retired property - still tagged, still firing, technically also accurate</li>
+            <li>Quarterly export - summed both, unaware they overlapped</li>
+          </ul>
+        </section>
+
+        <section class="section-block">
+          <h2>The decision log</h2>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 1: Verify the growth in the live property alone before touching anything else
+            </div>
+            <p>
+              Before assuming the export was wrong, the live property's own
+              dashboard was checked in isolation. It showed real growth -
+              just roughly half of what the export reported. That gap was
+              the first hard evidence something downstream was doubling up,
+              rather than the growth itself being fabricated.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">
+              Decision 2: Search the page source for every measurement ID, not just the current one
+            </div>
+            <p>
+              Rather than assuming the current implementation was the only
+              one, the full rendered page source was searched for every tag
+              matching the platform's script pattern. Two measurement IDs
+              turned up. Only one was supposed to still exist.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">Decision 3: Confirm the old property was actually receiving live data</div>
+            <p>
+              Finding a leftover tag in the source doesn't prove it's still
+              active - it might be disabled server-side or blocked by a
+              since-added rule. Checking the old property's own real-time
+              report directly, and watching a test purchase land in it live,
+              removed any doubt.
+            </p>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-title">Decision 4: Remove the tag, not just exclude the property from future reports</div>
+            <p>
+              Filtering the retired property out of future exports would
+              have stopped the double-count without stopping the underlying
+              cause - the old tag would still be firing, still be
+              collectible by the next person who builds a report without
+              knowing to exclude it. The actual fix was deleting the script
+              from the template entirely, so there was nothing left to
+              accidentally include again.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>Before and after</h2>
+          <div class="compare-grid">
+            <div class="compare-card before">
+              <h3 class="size-h4">Before</h3>
+              <ul>
+                <li>Two live properties tagged on every checkout page</li>
+                <li>Quarterly export summing both without knowing it</li>
+                <li>Conversions reported roughly double the real figure</li>
+                <li>A campaign getting credit for growth that wasn't there</li>
+              </ul>
+            </div>
+            <div class="compare-card after">
+              <h3 class="size-h4">After</h3>
+              <ul>
+                <li>Retired property's script removed from the template entirely</li>
+                <li>One measurement ID live on the site, verifiable in source</li>
+                <li>Quarterly numbers matched the live dashboard exactly</li>
+                <li>Real, smaller growth figure - trusted, not inflated</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <h2>What this actually took</h2>
+          <p>
+            One line removed from a page template, and about an hour
+            confirming which of two properties was the ghost. The harder
+            part was psychological, not technical - a number that's going
+            up in the direction everyone wants rarely gets the same scrutiny
+            as one going the wrong way. Auditing what's actually still
+            wired up, not just what the dashboard shows, is part of the
+            <a href="/analytics-data.html">Analytics &amp; Data</a> practice
+            on every re-platform, not just the ones that look suspicious.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2>Frequently asked questions</h2>
+
+          <h3>How common is a leftover tag like this?</h3>
+          <p>
+            More common than a single missed cleanup step suggests - any
+            re-platform, agency handoff, or migration that doesn't include
+            an explicit "remove the old tag" step in its checklist is a
+            candidate, and the symptom rarely announces itself the way a
+            broken tag does.
+          </p>
+
+          <h3>Why didn't the live property's own report catch this?</h3>
+          <p>
+            It had no way to know a second property existed - each property
+            only sees its own data. The overlap was only visible from
+            outside either one, in a tool pulling from both at once.
+          </p>
+
+          <h3>Is inflated data actually worse than missing data?</h3>
+          <p>
+            In some ways, yes - missing data usually looks broken and gets
+            investigated quickly. Inflated data that trends the direction
+            everyone hopes for can survive multiple reporting cycles before
+            anyone questions it.
+          </p>
+
+          <h3>How do you check for this on an existing site?</h3>
+          <p>
+            View the rendered page source and search for every tag matching
+            the analytics platform's script pattern, then confirm each
+            measurement ID found actually corresponds to a property still
+            meant to be active - not just the one shown in the current
+            dashboard.
+          </p>
+        </section>
+
+        <section>
+          <div
+            style="
+              margin: 2rem 0 4rem 0;
+              padding: 4rem 2rem;
+              background: rgba(248, 250, 252, 1);
+              border-radius: 8px;
+              text-align: center;
+              border: 1px solid #1e3a5f;
+              box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(15, 23, 42, 0.04);
+            ">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
+              Wondering if last quarter's growth was actually growth?
+            </h3>
+            <p
+              style="
+                margin-bottom: 2.5rem;
+                font-size: 1.15rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+              ">
+              It usually takes checking the source, not the dashboard, to
+              find out for sure.
+            </p>
+            <ul
+              class="actions stacked"
+              style="display: flex; justify-content: center; gap: 1.5rem">
+              <li>
+                <a href="../contact.html" class="button big wide alt"
+                  >Get in Touch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c" defer></script>
+      <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
+      <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
+      <script src="/assets/js/main.js?v=88fb08ab17" defer></script>
+      <script src="/assets/js/footer-min.js?v=8a364de27b" defer></script>
+      <scott-footer
+        description="Conversions looked strong for weeks - two analytics properties, both live, both receiving the same events, nobody had told either one about the other."></scott-footer>
+    </div>
+  </body>
+</html>
