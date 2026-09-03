@@ -138,6 +138,12 @@ class ScottFooter extends HTMLElement {
                 </li>
 
                 <li>
+                  <a href="/advertising-media-buying.html">
+                    Campaigns
+                  </a>
+                </li>
+
+                <li>
                   <a href="/services.html">
                     Services
                   </a>
@@ -336,6 +342,23 @@ class ScottFooter extends HTMLElement {
 
                     <span class="label">
                       LinkedIn
+                    </span>
+
+                  </a>
+                </li>
+
+                <li>
+
+                    <a href="https://share.google/t2HAQFr5JcJnzOxPN"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="icon brands style2 fa-google"
+                    aria-label="Google"
+                    title="Google"
+                    >
+
+                    <span class="label">
+                      Google
                     </span>
 
                   </a>

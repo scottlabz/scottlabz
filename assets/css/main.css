@@ -9122,7 +9122,7 @@ body.is-preload .items.onload-fade-in > * > .inner {
      visible text size. */
   display: inline-block;
   padding: 0.45rem 0.25rem;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.35rem;
 }
 
 .logo-wrapper a {
