@@ -248,6 +248,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://scottlabz.com/field-notes/why-we-stopped-trusting-the-sample-size.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://scottlabz.com/find-us.html</loc>
     <lastmod>2026-09-03</lastmod>
     <changefreq>yearly</changefreq>
@@ -285,6 +291,12 @@
   </url>
   <url>
     <loc>https://scottlabz.com/insights/cart-abandonment-measurement-gap.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://scottlabz.com/insights/consent-mode-changes-your-numbers.html</loc>
     <lastmod>2026-09-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
