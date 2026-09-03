@@ -9792,6 +9792,12 @@ body.is-preload .items.onload-fade-in > * > .inner {
 .market-icon.icon-integration {
   background: #6366f1;
 }
+.market-icon.icon-optimization {
+  background: #0d9488;
+}
+.market-icon.icon-campaigns {
+  background: #9333ea;
+}
 
 .market-link-card.card-web {
   background: rgba(37, 99, 235, 0.06);
@@ -9816,6 +9822,14 @@ body.is-preload .items.onload-fade-in > * > .inner {
 .market-link-card.card-integration {
   background: rgba(99, 102, 241, 0.06);
   border-color: rgba(99, 102, 241, 0.2);
+}
+.market-link-card.card-optimization {
+  background: rgba(13, 148, 136, 0.06);
+  border-color: rgba(13, 148, 136, 0.2);
+}
+.market-link-card.card-campaigns {
+  background: rgba(147, 51, 234, 0.06);
+  border-color: rgba(147, 51, 234, 0.2);
 }
 
 .market-link-card h1 {
