@@ -140,24 +140,16 @@
         margin: 2rem 0;
       }
 
-      /* Two-column services layout */
+      /* Two-column, two-row services layout */
       .service-directory {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 4rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem 4rem;
         margin: 0;
       }
 
       .service-column {
-        flex: 1;
         min-width: 0;
-      }
-
-      @media (max-width: 736px) {
-        .service-column {
-          min-width: 100%;
-        }
       }
 
       .service-column h3 {
@@ -234,7 +226,7 @@
 
       @media (max-width: 736px) {
         .service-directory {
-          flex-direction: column;
+          grid-template-columns: 1fr;
           gap: 1rem;
         }
       }
@@ -347,14 +339,9 @@
             </div>
 
             <div class="service-column">
-              <h2 class="size-h5">Development &amp; Systems</h2>
+              <h2 class="size-h5">Web &amp; Digital</h2>
 
               <ul class="service-links">
-                <li>
-                  <a href="case-studies/digital-experience-optimization.html"
-                    >Experience Optimization</a
-                  >
-                </li>
                 <li>
                   <a href="case-studies/website-performance-optimization.html"
                     >Performance Optimization</a
@@ -375,6 +362,30 @@
                   <a
                     href="case-studies/digital-infrastructure-modernization.html"
                     >Digital Infrastructure</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="service-column">
+              <h2 class="size-h5">Optimization</h2>
+
+              <ul class="service-links">
+                <li>
+                  <a href="case-studies/digital-experience-optimization.html"
+                    >Experience Optimization</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="service-column">
+              <h2 class="size-h5">Advertising &amp; Media Buying</h2>
+
+              <ul class="service-links">
+                <li>
+                  <a href="case-studies/advertising-media-buying.html"
+                    >Campaign Strategy &amp; Media Buying</a
                   >
                 </li>
               </ul>
