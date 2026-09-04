@@ -44,3 +44,10 @@ jobs:
             echo "Purge failed"
             exit 1
           fi
+
+      - name: Warm cache
+        run: |
+          curl -s https://scottlabz.com/sitemap.xml | grep -oP '(?<=<loc>)[^<]+' | while read -r url; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+            echo "$code $url"
+          done
