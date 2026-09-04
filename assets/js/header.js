@@ -52,7 +52,7 @@
   _paq.push(["trackPageView"]);
   _paq.push(["enableLinkTracking"]);
   (function () {
-    var u = "//scottlabz.net/matomo/";
+    var u = "//scottlabz.net/matomo-data/";
     _paq.push(["setTrackerUrl", u + "matomo.php"]);
     _paq.push(["setSiteId", "1"]);
     var d = document,
