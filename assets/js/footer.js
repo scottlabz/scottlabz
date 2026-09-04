@@ -291,7 +291,7 @@ class ScottFooter extends HTMLElement {
               Scott Labz, LLC.
               All rights reserved.
               <br />
-              Analytics &middot; Data &middot; Web Development &middot; Digital Infrastructure
+              Analytics<span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>Data<span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>Web Development<span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>Digital Infrastructure
               <br />
               Independent Analytics &amp; Digital Engineering Firm
               <br />
