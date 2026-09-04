@@ -295,7 +295,7 @@ class ScottFooter extends HTMLElement {
               <br />
               Independent Analytics &amp; Digital Engineering Firm
               <br />
-              <span style="font-size:small;"><a href="/markets/bloomington-normal-il.html" style="text-decoration: underline; background: linear-gradient(90deg, #1e3a5f, #4c8bf5); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Bloomington-Normal, McLean County, Illinois, USA</a></span>
+              <span style="font-size:small;"><a href="/markets/bloomington-normal-il.html" style="text-decoration: none; background: linear-gradient(90deg, #1e3a5f, #4c8bf5); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Bloomington-Normal, McLean County, Illinois, USA</a></span>
             </p>
 
             <p style="font-size: 0.85rem; opacity: 0.7; margin: 0 0 1.25rem;">
