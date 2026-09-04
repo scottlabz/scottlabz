@@ -181,6 +181,34 @@ class ScottFooter extends HTMLElement {
                 </li>
 
                 <li>
+                  <span
+                    style="
+                      color:#000000;
+                      text-decoration:underline;
+                      display:inline-block;
+                      padding:0.45rem 0.25rem;
+                      margin-bottom:0.35rem;
+                      cursor:default;
+                    ">
+                    Signals
+                  </span>
+                </li>
+
+                <li>
+                  <span
+                    style="
+                      color:#000000;
+                      text-decoration:underline;
+                      display:inline-block;
+                      padding:0.45rem 0.25rem;
+                      margin-bottom:0.35rem;
+                      cursor:default;
+                    ">
+                    Research
+                  </span>
+                </li>
+
+                <li>
                   <a href="/insights.html">
                     Insights
                   </a>
@@ -189,12 +217,6 @@ class ScottFooter extends HTMLElement {
                 <li>
                   <a href="/field-notes/">
                     Field Notes
-                  </a>
-                </li>
-
-                <li>
-                  <a href="/faq.html">
-                    FAQ
                   </a>
                 </li>
 
@@ -243,6 +265,12 @@ class ScottFooter extends HTMLElement {
                 <li>
                   <a href="/find-us.html">
                     Credentials
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/faq.html">
+                    FAQ
                   </a>
                 </li>
 
