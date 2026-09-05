@@ -196,7 +196,7 @@ class ScottFooter extends HTMLElement {
                       margin-bottom:0.35rem;
                       cursor:default;
                     ">
-                    Research
+                    Findings
                   </span>
                 </li>
 
