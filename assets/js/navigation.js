@@ -56,12 +56,11 @@ class ScottNav extends HTMLElement {
         ],
       },
       { href: "/case-studies.html", label: "Work", height: 20, color: "#ca8a04" },
-      { href: "/insights.html", label: "Insights", height: 25, color: "#b45309" },
-      { href: "/field-notes/", label: "Field Notes", height: 30, color: "#1e3a5f" },
+      { href: "/field-notes/", label: "Field Notes", height: 25, color: "#1e3a5f" },
       {
         href: "/about.html",
         label: "About",
-        height: 35,
+        height: 30,
         color: "#7c3aed",
         // founder.html and clients.html are standalone pages, not
         // subpages under an /about/ directory, so they can't be caught
@@ -69,6 +68,7 @@ class ScottNav extends HTMLElement {
         // explicitly.
         aliases: ["/founder.html", "/clients.html"],
       },
+      { href: "/why-us.html", label: "Why Us", height: 35, color: "#0891b2" },
       { href: "/contact.html", label: "Contact", height: 40, color: "#15803d" },
     ];
 
