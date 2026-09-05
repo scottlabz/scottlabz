@@ -291,9 +291,9 @@ class ScottFooter extends HTMLElement {
               Scott Labz, LLC.
               All rights reserved.
               <br />
-              Analytics<span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>Data<span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>Web Development<span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>Digital Infrastructure
+              Analytics &amp; Data<span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>Web &amp; Digital<span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>Optimization<span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>Campaigns
               <br />
-              Independent Analytics &amp; Digital Engineering Firm
+              Independent Analytics &amp; Digital Firm
               <br />
               <span style="font-size:small;"><a href="/markets/bloomington-normal-il.html" style="text-decoration: none; background: linear-gradient(90deg, #1e3a5f, #4c8bf5); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Bloomington-Normal, McLean County, Illinois, USA</a></span>
             </p>
