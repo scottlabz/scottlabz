@@ -374,12 +374,6 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://scottlabz.com/lab.html</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
     <loc>https://scottlabz.com/landing.html</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
