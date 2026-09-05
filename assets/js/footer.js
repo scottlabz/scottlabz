@@ -213,9 +213,17 @@ class ScottFooter extends HTMLElement {
                 </li>
 
                 <li>
-                  <a href="/lab.html">
+                  <span
+                    style="
+                      color:#000000;
+                      text-decoration:underline;
+                      display:inline-block;
+                      padding:0.45rem 0.25rem;
+                      margin-bottom:0.35rem;
+                      cursor:default;
+                    ">
                     Lab
-                  </a>
+                  </span>
                 </li>
               </ul>
             </div>
