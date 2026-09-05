@@ -181,17 +181,9 @@ class ScottFooter extends HTMLElement {
                 </li>
 
                 <li>
-                  <span
-                    style="
-                      color:#000000;
-                      text-decoration:underline;
-                      display:inline-block;
-                      padding:0.45rem 0.25rem;
-                      margin-bottom:0.35rem;
-                      cursor:default;
-                    ">
+                  <a href="/signals/">
                     Signals
-                  </span>
+                  </a>
                 </li>
 
                 <li>

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) (loads on first interaction, or after 5s) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      (function (w, d, s, id) {
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s);
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+          f.parentNode.insertBefore(j, f);
+          gtag("js", new Date());
+          gtag("config", id);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
+        });
+        var fallback = setTimeout(trigger, 5000);
+      })(window, document, "script", "G-08JHY36N39");
+    </script>
+    <!-- End Google tag (gtag.js) -->
+
+    <!-- Matomo -->
+    <script>
+      var _paq = (window._paq = window._paq || []);
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+      (function () {
+        var u = "//scottlabz.net/matomo-data/";
+        _paq.push(["setTrackerUrl", u + "matomo.php"]);
+        _paq.push(["setSiteId", "1"]);
+        var d = document,
+          g = d.createElement("script"),
+          s = d.getElementsByTagName("script")[0];
+        g.async = true;
+        g.src = u + "matomo.js";
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+
+    <title>Signals | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="Short, sharp field observations on measurement, monitoring, and the habits that catch what dashboards miss." />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/main-min.css?v=faffa47582" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript-min.css?v=30b0cb2b12" />
+    </noscript>
+
+    <script src="/assets/js/header-min.js?v=0b07c49366" async></script>
+    <script src="/assets/js/favicon-min.js?v=d2e76e98d0" async></script>
+    <script src="/assets/js/navigation-min.js?v=69e6b093de" defer></script>
+
+    <link rel="canonical" href="https://scottlabz.com/signals/" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://scottlabz.com/#organization",
+            "name": "Scott Labz, LLC",
+            "description": "Scott Labz provides web development, analytics consulting, automation, SEO, and digital infrastructure services focused on performance, reliability, and measurable business growth.",
+            "url": "https://scottlabz.com/",
+            "telephone": "+1-309-324-2875",
+            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "priceRange": "$$",
+            "slogan": "Measure. Build. Improve.",
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "McLean County, Illinois"
+            },
+            "sameAs": [
+              "https://github.com/scottlabz",
+              "https://www.linkedin.com/company/scottlabz",
+              "https://www.linkedin.com/in/scotttaylor369"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-309-324-2875",
+              "contactType": "Scott Labz"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://scottlabz.com/#scotttaylor",
+            "name": "Scott Taylor",
+            "jobTitle": "Founder",
+            "description": "Scott Taylor is the founder of Scott Labz, where he combines web development, analytics, automation, and digital strategy to help businesses create faster, smarter, and more effective digital experiences.",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "url": "https://scottlabz.com/",
+            "email": "mailto:info@scottlabz.com",
+            "knowsAbout": [
+              "Analytics Solutions",
+              "Web Development",
+              "Digital Infrastructure",
+              "Digital Analytics Consulting"
+            ],
+            "worksFor": { "@id": "https://scottlabz.com/#organization" },
+            "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://scottlabz.com/signals/#collection",
+            "name": "Signals",
+            "description": "Short, sharp field observations on measurement, monitoring, and the habits that catch what dashboards miss.",
+            "url": "https://scottlabz.com/signals/",
+            "isPartOf": { "@id": "https://scottlabz.com/#organization" },
+            "mainEntity": {
+              "@type": "ItemList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "url": "https://scottlabz.com/signals/three-days-of-silence.html"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    </script>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta property="og:title" content="Signals | Scott Labz" />
+    <meta
+      property="og:description"
+      content="Short, sharp field observations on measurement, monitoring, and the habits that catch what dashboards miss." />
+    <meta property="og:url" content="https://scottlabz.com/signals/" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .about-process-item.signal-link:hover h3 {
+        color: #1e3a5f;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <scott-nav></scott-nav>
+
+    <div id="wrapper" class="divided">
+      <main id="main-content">
+        <section
+          class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+          <div class="content">
+            <p class="brand-mark">
+              <a href="/index.html" style="border-bottom: none">
+                <img
+                  src="/images/scottlabz-clear.webp"
+                  width="130"
+                  height="170"
+                  alt="S"
+                  title="S"
+                  class="logo"
+                  style="margin-right: 0" />cott Labz
+              </a>
+            </p>
+
+            <h1 class="major">Signals</h1>
+
+            <p>
+              Field observations on measurement, monitoring, and the subtle
+              behaviors that often reveal more than a dashboard ever will. These
+              pieces examine the signals, patterns, anomalies, and gaps that
+              appear throughout digital systems and what they can tell us when
+              we take the time to look beyond the obvious.
+            </p>
+            <p>
+              From analytics implementation and data quality to user behavior,
+              tracking failures, technical inconsistencies, and unexpected
+              patterns, each observation focuses on the details that are easy to
+              overlook but can have a meaningful impact on decisions.
+            </p>
+            <p>
+              The goal isn't simply to collect more data. It's to understand
+              what the data is actually saying, recognize when something doesn't
+              add up, and develop better habits for finding the evidence hidden
+              between the numbers.
+            </p>
+            <p></p>
+
+            <ul class="actions stacked">
+              <li>
+                <a href="#first" class="button big wide smooth-scroll">
+                  Browse Signals
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="image">
+            <img
+              src="/images/signals.jpg"
+              width="1920"
+              height="2880"
+              alt="A traffic signal against a clear blue sky, its green light lit while the red and amber lenses stay dark"
+              title="A traffic signal against a clear blue sky, its green light lit while the red and amber lenses stay dark" />
+          </div>
+        </section>
+
+        <section
+          id="first"
+          class="service-content"
+          style="max-width: 1180px; margin: 0 auto; padding: 4rem 1.5rem">
+          <h2 class="size-h3" style="margin-bottom: 2rem">Latest Signals</h2>
+
+          <div
+            class="about-process box"
+            style="
+              box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                0 8px 28px rgba(15, 23, 42, 0.16);
+            ">
+            <a
+              href="/signals/three-days-of-silence.html"
+              class="about-process-item signal-link"
+              style="text-decoration: none; color: inherit; padding: 0.5rem">
+              <span class="icon solid style2 major fa-wave-square"></span>
+              <div>
+                <h3 style="margin-top: 0.2rem">Three Days of Silence</h3>
+                <p>
+                  What a dead tracking script taught me about watching, not just
+                  monitoring.
+                </p>
+              </div>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
+      <script
+        src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3"
+        defer></script>
+      <script
+        src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c"
+        defer></script>
+      <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
+      <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
+      <script src="/assets/js/main.js?v=88fb08ab17" defer></script>
+      <script src="/assets/js/footer-min.js?v=a7cd2c6a81" defer></script>
+
+      <scott-footer
+        description="Short, sharp field observations on measurement, monitoring, and the habits that catch what dashboards miss.">
+      </scott-footer>
+    </div>
+  </body>
+</html>
