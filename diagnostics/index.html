@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) (loads on first interaction, or after 5s) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      (function (w, d, s, id) {
+        var loaded = false;
+        function boot() {
+          if (loaded) return;
+          loaded = true;
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s);
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+          f.parentNode.insertBefore(j, f);
+          gtag("js", new Date());
+          gtag("config", id);
+        }
+        var events = ["scroll", "click", "touchstart", "keydown", "mousemove"];
+        function trigger() {
+          events.forEach(function (e) {
+            w.removeEventListener(e, trigger);
+          });
+          clearTimeout(fallback);
+          boot();
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, trigger, { passive: true, once: true });
+        });
+        var fallback = setTimeout(trigger, 5000);
+      })(window, document, "script", "G-08JHY36N39");
+    </script>
+    <!-- End Google tag (gtag.js) -->
+
+    <!-- Matomo -->
+    <script>
+      var _paq = (window._paq = window._paq || []);
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+      (function () {
+        var u = "//scottlabz.net/matomo-data/";
+        _paq.push(["setTrackerUrl", u + "matomo.php"]);
+        _paq.push(["setSiteId", "1"]);
+        var d = document,
+          g = d.createElement("script"),
+          s = d.getElementsByTagName("script")[0];
+        g.async = true;
+        g.src = u + "matomo.js";
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+
+
+    <title>Diagnostics - Find the cause before you see the fix | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="Four interactive case files across analytics, web builds, conversion, and campaigns. Read the evidence, name the root cause, then see if you were right." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../assets/css/main-min.css?v=e259a359d2" />
+
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript-min.css?v=30b0cb2b12" />
+    </noscript>
+
+    <script src="../assets/js/header-min.js?v=0b07c49366" async></script>
+    <script src="../assets/js/favicon-min.js?v=d2e76e98d0" async></script>
+    <script src="../assets/js/navigation-min.js?v=b6401eb4b7" defer></script>
+
+    <link rel="canonical" href="https://scottlabz.com/diagnostics/" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": "https://scottlabz.com/diagnostics/",
+        "name": "Diagnostics",
+        "description": "Four interactive case files across analytics, web builds, conversion, and campaigns. Read the evidence, name the root cause, then see if you were right.",
+        "url": "https://scottlabz.com/diagnostics/",
+        "about": {
+          "@id": "https://scottlabz.com/#organization"
+        },
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "WebPage",
+              "position": 1,
+              "name": "Analytics & Data",
+              "url": "https://scottlabz.com/diagnostics/crime-scene.html"
+            },
+            {
+              "@type": "WebPage",
+              "position": 2,
+              "name": "Web & Digital",
+              "url": "https://scottlabz.com/diagnostics/web-crime-scene.html"
+            },
+            {
+              "@type": "WebPage",
+              "position": 3,
+              "name": "Optimization",
+              "url": "https://scottlabz.com/diagnostics/optimization-crime-scene.html"
+            },
+            {
+              "@type": "WebPage",
+              "position": 4,
+              "name": "Campaigns",
+              "url": "https://scottlabz.com/diagnostics/campaigns-crime-scene.html"
+            }
+          ]
+        }
+      }
+    </script>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta property="og:title" content="Diagnostics | Scott Labz" />
+    <meta
+      property="og:description"
+      content="Four interactive case files across analytics, web builds, conversion, and campaigns. Read the evidence, name the root cause, then see if you were right." />
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/diagnostics/" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/scottlabz-clear.png" />
+
+    <style>
+      .section-block::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: var(--accent, #1e3a5f);
+      }
+      .service-content h3 {
+        font-size: 1.05rem;
+        color: #1e3a5f;
+      }
+      .dg-card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        cursor: pointer;
+        transition:
+          opacity 0.18s ease,
+          transform 0.18s ease;
+      }
+
+      .dg-card-link .section-block {
+        transition:
+          border-color 0.2s ease,
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .dg-card-link:hover .section-block {
+        border-color: #1e3a5f;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(30, 58, 95, 0.12);
+      }
+
+      .dg-card-link .fa-arrow-right {
+        transition: transform 0.2s ease;
+        display: inline-block;
+      }
+
+      .dg-card-link:hover .fa-arrow-right {
+        transform: translateX(4px);
+      }
+
+      .dg-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .dg-grid .dg-card-link {
+        height: 100%;
+      }
+
+      .dg-grid .dg-card-link .section-block {
+        height: 100%;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem 1.5rem 1.5rem 2rem;
+      }
+
+      .dg-grid h2 {
+        font-size: 1.02rem;
+        line-height: 1.35;
+        margin-bottom: 0.6rem;
+        padding-right: 1.4rem;
+      }
+
+      .dg-grid p {
+        font-size: 0.82rem;
+        line-height: 1.55;
+      }
+
+      .dg-card-icon {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 0.8rem;
+        color: var(--accent, #1e3a5f);
+        opacity: 0.55;
+      }
+
+      @media screen and (max-width: 640px) {
+        .dg-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <scott-nav skip-target="#first"></scott-nav>
+
+    <div id="wrapper" class="divided">
+      <section
+        class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+        <div class="content">
+          <p class="brand-mark">
+            <a href="../index.html" style="border-bottom: none">
+              <img
+                src="../images/scottlabz-clear.webp"
+                width="130"
+                height="170"
+                alt="S"
+                title="S"
+                class="logo"
+                style="margin-right: 0" />cott Labz
+            </a>
+          </p>
+          <h1 class="major">Diagnostics</h1>
+          <p class="major">
+            Four interactive case files, one for each side of the work. Read
+            the evidence, name the cause, then see whether the reasoning
+            holds up.
+          </p>
+          <ul class="actions stacked">
+            <li>
+              <a href="#first" class="button big wide smooth-scroll"
+                >Browse Diagnostics</a
+              >
+            </li>
+            <li>
+              <a href="../case-studies.html" class="button big wide alt"
+                >See Case Studies</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="image">
+          <img
+            src="../images/diagnostics.jpg"
+            width="1728"
+            height="2592"
+            alt="Close-up of a blue combination lock's number wheels, each dial showing a run of digits, evoking the search for the right combination behind a problem"
+            title="Close-up of a blue combination lock's number wheels, each dial showing a run of digits, evoking the search for the right combination behind a problem" />
+        </div>
+      </section>
+
+      <main
+        class="service-content"
+        id="first"
+        style="max-width: 1180px; margin: 0 auto; padding: 4rem 1.5rem">
+        <div class="dg-grid">
+          <a
+            href="crime-scene.html"
+            class="dg-card-link">
+            <section class="section-block" style="--accent: #2563eb">
+              <i class="fas fa-arrow-right dg-card-icon"></i>
+              <h2>Analytics & Data</h2>
+              <p>
+                Every report looks correct until you trace the number back to
+                where it actually came from.
+              </p>
+            </section>
+          </a>
+
+          <a
+            href="web-crime-scene.html"
+            class="dg-card-link">
+            <section class="section-block" style="--accent: #0f766e">
+              <i class="fas fa-arrow-right dg-card-icon"></i>
+              <h2>Web & Digital</h2>
+              <p>
+                The bug only shows up for some browsers, some regions, or
+                some deploys - never all of them at once.
+              </p>
+            </section>
+          </a>
+
+          <a
+            href="optimization-crime-scene.html"
+            class="dg-card-link">
+            <section class="section-block" style="--accent: #ca8a04">
+              <i class="fas fa-arrow-right dg-card-icon"></i>
+              <h2>Optimization</h2>
+              <p>
+                A test result that looks decisive on day one can mean
+                something different by day ten.
+              </p>
+            </section>
+          </a>
+
+          <a
+            href="campaigns-crime-scene.html"
+            class="dg-card-link">
+            <section class="section-block" style="--accent: #7c2d92">
+              <i class="fas fa-arrow-right dg-card-icon"></i>
+              <h2>Campaigns</h2>
+              <p>
+                Ad spend and platform reporting rarely disagree by accident -
+                there's always a reason.
+              </p>
+            </section>
+          </a>
+        </div>
+      </main>
+
+      <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
+      <script src="/assets/js/jquery.scrollex.min.js?v=fc25b75fb3" defer></script>
+      <script src="/assets/js/jquery.scrolly.min.js?v=8b6571ea2c" defer></script>
+      <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
+      <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
+      <script src="/assets/js/main.js?v=88fb08ab17" defer></script>
+      <script src="/assets/js/footer-min.js?v=1e822a8a90" defer></script>
+      <scott-footer
+        description="Four interactive case files across analytics, web builds, conversion, and campaigns."></scott-footer>
+    </div>
+  </body>
+</html>
