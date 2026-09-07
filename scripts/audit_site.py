@@ -13,6 +13,8 @@ Exit code 0 = clean. Exit code 1 = one or more checks failed.
 
 from __future__ import annotations
 
+import html.parser
+import json
 import os
 import re
 import sys
@@ -57,6 +59,27 @@ HTML_ANCHOR_HREF_PATTERN = re.compile(
 JS_HREF_PATTERN = re.compile(r'href\s*[:=]\s*["\']([^"\']+)["\']')
 
 SKIP_HREF_PREFIXES = ("mailto:", "tel:", "javascript:", "data:", "#")
+
+# --- structured-data consistency ---
+LDJSON_PATTERN = re.compile(
+    r'<script\s+type="application/ld\+json">(.*?)</script>', re.IGNORECASE | re.DOTALL
+)
+OG_URL_PATTERN = re.compile(r'<meta\s+property="og:url"\s+content="([^"]*)"', re.IGNORECASE | re.DOTALL)
+
+# --- meta title/description ---
+TITLE_PATTERN = re.compile(r"<title>(.*?)</title>", re.IGNORECASE | re.DOTALL)
+META_DESC_PATTERN = re.compile(
+    r'<meta\s+name="description"\s+content="([^"]*)"', re.IGNORECASE | re.DOTALL
+)
+
+# --- trust pages ---
+TRUST_HUB_FILES = ("legal.html", "security-trust.html")
+
+# --- HTML tag balance ---
+VOID_ELEMENTS = {
+    "area", "base", "br", "col", "embed", "hr", "img", "input",
+    "link", "meta", "param", "source", "track", "wbr",
+}
 
 
 def all_files(pattern: str) -> list[Path]:
@@ -223,7 +246,9 @@ def check_orphan_pages(html_files: list[Path], js_files: list[Path], sitemap_url
 
     orphans = sorted(
         p
-        for p in sitemap_relpaths - linked_pages - {"index.html"}
+        # landing.html is a standalone ad-landing page reached only via
+        # external traffic - never expected to have an inbound link.
+        for p in sitemap_relpaths - linked_pages - {"index.html", "landing.html"}
         if p not in EXCLUDE_FROM_SITEMAP_AND_ORPHAN_CHECKS
         and not is_redirect_stub(REPO_ROOT / p)
     )
@@ -248,6 +273,155 @@ def check_image_alt_title(html_files: list[Path], js_files: list[Path]):
     return missing_alt, missing_title
 
 
+def check_trust_pages(html_files: list[Path]):
+    """Every real page under /trust/ should have a front-door link from one
+    of the two trust hub pages, so a visitor (or a search crawler) never has
+    to stumble onto it incidentally."""
+    trust_pages = {
+        rel(f) for f in html_files if rel(f).startswith("trust/") and f.name != "index.html"
+    }
+
+    linked_from_hub: set[str] = set()
+    for hub_name in TRUST_HUB_FILES:
+        hub_path = REPO_ROOT / hub_name
+        if not hub_path.is_file():
+            continue
+        text = hub_path.read_text(encoding="utf-8", errors="replace")
+        for m in HTML_ANCHOR_HREF_PATTERN.finditer(text):
+            resolved = resolve_ref(hub_path, m.group(1))
+            if resolved and resolved.startswith("trust/"):
+                linked_from_hub.add(resolved)
+
+    return sorted(trust_pages - linked_from_hub)
+
+
+def _extract_jsonld_urls(text: str) -> set[str]:
+    """Collect the 'url' field of each entity that sits directly under
+    @graph (the page's own identity: ProfessionalService, Person,
+    CollectionPage, etc). Deliberately does not recurse into nested
+    fields like mainEntity/hasPart/itemListElement, since hub pages
+    legitimately list their child pages' URLs there - that's a listing,
+    not a claim about what page this JSON-LD block itself describes."""
+    urls: set[str] = set()
+    for m in LDJSON_PATTERN.finditer(text):
+        try:
+            data = json.loads(m.group(1))
+        except json.JSONDecodeError:
+            continue
+        if isinstance(data, dict):
+            nodes = data.get("@graph", [data])
+        elif isinstance(data, list):
+            nodes = data
+        else:
+            continue
+        for node in nodes:
+            if isinstance(node, dict) and isinstance(node.get("url"), str):
+                urls.add(node["url"])
+    return urls
+
+
+def check_structured_data_consistency(html_files: list[Path]):
+    """Canonical, og:url, and every JSON-LD 'url' field should all agree.
+    Skips pages with no canonical tag at all - those are already reported
+    by check_canonicals, and there's nothing to compare against here."""
+    problems = []
+    for f in html_files:
+        if is_redirect_stub(f):
+            continue
+        text = f.read_text(encoding="utf-8", errors="replace")
+        canonical_m = CANONICAL_PATTERN.search(text)
+        if not canonical_m:
+            continue
+        canonical = canonical_m.group(1)
+
+        mismatches = []
+        og_m = OG_URL_PATTERN.search(text)
+        if og_m and og_m.group(1) != canonical:
+            mismatches.append(f"og:url is {og_m.group(1)!r}")
+
+        bad_jsonld = sorted(u for u in _extract_jsonld_urls(text) if u != canonical)
+        if bad_jsonld:
+            mismatches.append(f"JSON-LD url is {bad_jsonld!r}")
+
+        if mismatches:
+            problems.append((rel(f), canonical, mismatches))
+    return problems
+
+
+def check_html_tag_balance(html_files: list[Path]):
+    problems = []
+    for f in html_files:
+        text = f.read_text(encoding="utf-8", errors="replace")
+        stack: list[tuple[str, int]] = []
+        errors: list[str] = []
+
+        class _Checker(html.parser.HTMLParser):
+            def handle_starttag(self_, tag, attrs):
+                if tag not in VOID_ELEMENTS:
+                    stack.append((tag, self_.getpos()[0]))
+
+            def handle_startendtag(self_, tag, attrs):
+                pass  # explicitly self-closed (e.g. <path ... />) - nothing to balance
+
+            def handle_endtag(self_, tag):
+                if tag in VOID_ELEMENTS:
+                    return
+                for i in range(len(stack) - 1, -1, -1):
+                    if stack[i][0] == tag:
+                        skipped = stack[i + 1:]
+                        if skipped:
+                            names = ", ".join(f"<{t}> (opened line {ln})" for t, ln in skipped)
+                            errors.append(
+                                f"line {self_.getpos()[0]}: </{tag}> closes past unclosed {names}"
+                            )
+                        del stack[i:]
+                        return
+                errors.append(f"line {self_.getpos()[0]}: </{tag}> has no matching open tag")
+
+        parser = _Checker(convert_charrefs=True)
+        try:
+            parser.feed(text)
+        except Exception as e:  # pragma: no cover - defensive only
+            problems.append((rel(f), [f"parser error: {e}"]))
+            continue
+
+        for tag, ln in stack:
+            errors.append(f"line {ln}: <{tag}> never closed")
+        if errors:
+            problems.append((rel(f), errors))
+    return problems
+
+
+def check_meta_title_description(html_files: list[Path]):
+    titles: dict[str, list[str]] = {}
+    descriptions: dict[str, list[str]] = {}
+    missing_title = []
+    missing_description = []
+
+    for f in html_files:
+        if is_redirect_stub(f):
+            continue
+        text = f.read_text(encoding="utf-8", errors="replace")
+
+        tm = TITLE_PATTERN.search(text)
+        title = re.sub(r"\s+", " ", tm.group(1)).strip() if tm else ""
+        if not title:
+            missing_title.append(rel(f))
+        else:
+            titles.setdefault(title, []).append(rel(f))
+
+        dm = META_DESC_PATTERN.search(text)
+        desc = re.sub(r"\s+", " ", dm.group(1)).strip() if dm else ""
+        if not desc:
+            missing_description.append(rel(f))
+        else:
+            descriptions.setdefault(desc, []).append(rel(f))
+
+    duplicate_titles = {t: fs for t, fs in titles.items() if len(fs) > 1}
+    duplicate_descriptions = {d: fs for d, fs in descriptions.items() if len(fs) > 1}
+    return missing_title, missing_description, duplicate_titles, duplicate_descriptions
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -270,6 +444,15 @@ def main() -> int:
     broken_links = check_broken_internal_links(html_files, js_files)
     orphan_pages = check_orphan_pages(html_files, js_files, sitemap_urls)
     missing_alt, missing_title = check_image_alt_title(html_files, js_files)
+    orphan_trust_pages = check_trust_pages(html_files)
+    structured_data_problems = check_structured_data_consistency(html_files)
+    tag_balance_problems = check_html_tag_balance(html_files)
+    (
+        missing_page_title,
+        missing_page_description,
+        duplicate_titles,
+        duplicate_descriptions,
+    ) = check_meta_title_description(html_files)
 
     emit("=== Sitemap completeness ===")
     if missing_from_sitemap:
@@ -329,6 +512,68 @@ def main() -> int:
                 emit(f"  - {path}: {src}")
     else:
         emit("OK - every <img> tag across .html and .js files has alt and title.")
+
+    emit()
+    emit("=== Trust page coverage (linked from legal.html / security-trust.html) ===")
+    if orphan_trust_pages:
+        failed = True
+        emit(f"{len(orphan_trust_pages)} /trust/ page(s) with no front-door link from either hub:")
+        for p in orphan_trust_pages:
+            emit(f"  - {p}")
+    else:
+        emit("OK - every /trust/ page is linked from legal.html or security-trust.html.")
+
+    emit()
+    emit("=== Structured data consistency (canonical vs og:url vs JSON-LD) ===")
+    if structured_data_problems:
+        failed = True
+        emit(f"{len(structured_data_problems)} page(s) with disagreeing URLs:")
+        for path, canonical, mismatches in structured_data_problems:
+            emit(f"  - {path}: canonical is {canonical!r}, but " + "; ".join(mismatches))
+    else:
+        emit("OK - canonical, og:url, and JSON-LD url all agree on every page.")
+
+    emit()
+    emit("=== HTML tag balance ===")
+    if tag_balance_problems:
+        failed = True
+        emit(f"{len(tag_balance_problems)} file(s) with unbalanced tags:")
+        for path, errors in tag_balance_problems:
+            emit(f"  - {path}:")
+            for err in errors:
+                emit(f"      {err}")
+    else:
+        emit("OK - every file's tags open and close in balance.")
+
+    emit()
+    emit("=== Meta title / description ===")
+    meta_clean = True
+    if missing_page_title:
+        failed = True
+        meta_clean = False
+        emit(f"{len(missing_page_title)} page(s) missing a <title>:")
+        for p in missing_page_title:
+            emit(f"  - {p}")
+    if missing_page_description:
+        failed = True
+        meta_clean = False
+        emit(f"{len(missing_page_description)} page(s) missing a meta description:")
+        for p in missing_page_description:
+            emit(f"  - {p}")
+    if duplicate_titles:
+        failed = True
+        meta_clean = False
+        emit(f"{len(duplicate_titles)} duplicate title(s) shared across pages:")
+        for title, files in duplicate_titles.items():
+            emit(f"  - {title!r}: {', '.join(files)}")
+    if duplicate_descriptions:
+        failed = True
+        meta_clean = False
+        emit(f"{len(duplicate_descriptions)} duplicate meta description(s) shared across pages:")
+        for desc, files in duplicate_descriptions.items():
+            emit(f"  - {desc[:60]!r}...: {', '.join(files)}")
+    if meta_clean:
+        emit("OK - every page has a unique title and meta description.")
 
     emit()
     emit("=== FAILED ===" if failed else "=== ALL CHECKS PASSED ===")

@@ -1,0 +1,15 @@
+name: External Link Check
+
+on:
+  schedule:
+    - cron: "30 12 * * 1"  # every Monday, 12:30 UTC
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check external links
+        run: python3 scripts/check_external_links.py
