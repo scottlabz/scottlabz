@@ -13,6 +13,7 @@ Exit code 0 = clean. Exit code 1 = one or more checks failed.
 
 from __future__ import annotations
 
+import os
 import re
 import sys
 from pathlib import Path
@@ -258,6 +259,11 @@ def main() -> int:
     sitemap_urls = load_sitemap_urls()
 
     failed = False
+    lines: list[str] = []
+
+    def emit(text: str = "") -> None:
+        print(text)
+        lines.append(text)
 
     missing_from_sitemap, stale_in_sitemap = check_sitemap_completeness(html_files, sitemap_urls)
     canonical_problems = check_canonicals(html_files)
@@ -265,67 +271,74 @@ def main() -> int:
     orphan_pages = check_orphan_pages(html_files, js_files, sitemap_urls)
     missing_alt, missing_title = check_image_alt_title(html_files, js_files)
 
-    print("=== Sitemap completeness ===")
+    emit("=== Sitemap completeness ===")
     if missing_from_sitemap:
         failed = True
-        print(f"{len(missing_from_sitemap)} file(s) missing from sitemap.xml:")
+        emit(f"{len(missing_from_sitemap)} file(s) missing from sitemap.xml:")
         for p in missing_from_sitemap:
-            print(f"  - {p}")
+            emit(f"  - {p}")
     else:
-        print("OK - every on-disk HTML file has a sitemap entry.")
+        emit("OK - every on-disk HTML file has a sitemap entry.")
     if stale_in_sitemap:
         failed = True
-        print(f"{len(stale_in_sitemap)} sitemap URL(s) with no matching file:")
+        emit(f"{len(stale_in_sitemap)} sitemap URL(s) with no matching file:")
         for u in stale_in_sitemap:
-            print(f"  - {u}")
+            emit(f"  - {u}")
 
-    print()
-    print("=== Canonical tags ===")
+    emit()
+    emit("=== Canonical tags ===")
     if canonical_problems:
         failed = True
-        print(f"{len(canonical_problems)} file(s) with missing/incorrect canonical:")
+        emit(f"{len(canonical_problems)} file(s) with missing/incorrect canonical:")
         for path, actual, expected in canonical_problems:
-            print(f"  - {path}: found {actual!r}, expected {expected!r}")
+            emit(f"  - {path}: found {actual!r}, expected {expected!r}")
     else:
-        print("OK - every file's canonical tag matches its path.")
+        emit("OK - every file's canonical tag matches its path.")
 
-    print()
-    print("=== Broken internal links ===")
+    emit()
+    emit("=== Broken internal links ===")
     if broken_links:
         failed = True
-        print(f"{len(broken_links)} broken internal reference(s):")
+        emit(f"{len(broken_links)} broken internal reference(s):")
         for source, href, resolved in broken_links:
-            print(f"  - {source} -> {href!r} (resolved: {resolved}, file not found)")
+            emit(f"  - {source} -> {href!r} (resolved: {resolved}, file not found)")
     else:
-        print("OK - every internal href/src resolves to a real file.")
+        emit("OK - every internal href/src resolves to a real file.")
 
-    print()
-    print("=== Orphaned pages (in sitemap, zero inbound links) ===")
+    emit()
+    emit("=== Orphaned pages (in sitemap, zero inbound links) ===")
     if orphan_pages:
         failed = True
-        print(f"{len(orphan_pages)} orphaned page(s):")
+        emit(f"{len(orphan_pages)} orphaned page(s):")
         for p in orphan_pages:
-            print(f"  - {p}")
+            emit(f"  - {p}")
     else:
-        print("OK - every sitemap page has at least one inbound link.")
+        emit("OK - every sitemap page has at least one inbound link.")
 
-    print()
-    print("=== Image alt/title coverage ===")
+    emit()
+    emit("=== Image alt/title coverage ===")
     if missing_alt or missing_title:
         failed = True
         if missing_alt:
-            print(f"{len(missing_alt)} <img> tag(s) missing alt:")
+            emit(f"{len(missing_alt)} <img> tag(s) missing alt:")
             for path, src in missing_alt:
-                print(f"  - {path}: {src}")
+                emit(f"  - {path}: {src}")
         if missing_title:
-            print(f"{len(missing_title)} <img> tag(s) missing title:")
+            emit(f"{len(missing_title)} <img> tag(s) missing title:")
             for path, src in missing_title:
-                print(f"  - {path}: {src}")
+                emit(f"  - {path}: {src}")
     else:
-        print("OK - every <img> tag across .html and .js files has alt and title.")
+        emit("OK - every <img> tag across .html and .js files has alt and title.")
 
-    print()
-    print("=== FAILED ===" if failed else "=== ALL CHECKS PASSED ===")
+    emit()
+    emit("=== FAILED ===" if failed else "=== ALL CHECKS PASSED ===")
+
+    summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summary_path:
+        heading = "## :x: Site Audit - FAILED" if failed else "## :white_check_mark: Site Audit - passed"
+        with open(summary_path, "a", encoding="utf-8") as f:
+            f.write(f"{heading}\n\n```\n" + "\n".join(lines) + "\n```\n")
+
     return 1 if failed else 0
 
 
