@@ -430,6 +430,10 @@ class ScottFooter extends HTMLElement {
     };
 
     this.querySelectorAll('a[href^="/"]').forEach((link) => {
+      // The brand logo link isn't a wayfinding item - skip it so it
+      // never picks up the current-page chip styling.
+      if (link.closest(".logo-wrapper")) return;
+
       const itemPath = normalize(link.getAttribute("href"));
       const sectionPath = itemPath.replace(/\.html$/, "");
       const isCurrent =
