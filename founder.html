@@ -167,13 +167,8 @@
     <style>
       /* --- CLIENT ROSTER HIGHLIGHT --- */
       .bio-highlight {
-        background: rgba(0, 0, 0, 0.02);
-        padding: 3rem 2rem;
-        border-radius: 12px;
-        margin: 2rem 0;
-        box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.01);
-        border: 2px solid rgba(0, 0, 0, 0.06);
-        border-left: 6px solid #005a9c;
+        padding: 0;
+        margin: 0;
       }
 
       .highlight-grid {
@@ -203,6 +198,7 @@
         padding: 1rem 1.25rem;
         border: 1px solid rgba(0, 0, 0, 0.06);
         border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
       }
 
       .highlight-group:last-child {
@@ -432,18 +428,19 @@
 
             <!-- CLIENT ROSTER HIGHLIGHT -->
             <div class="bio-highlight">
-              <h2 class="about-statement" style="margin-bottom: 1rem">
-                Client Roster
-              </h2>
-              <p style="margin-bottom: 2rem">
-                Throughout my career, I've had the privilege of building
-                <a href="/case-studies.html">custom e-commerce platforms</a>,
-                tracking analytics, and live-event infrastructure for
-                organizations spanning professional sports, collegiate
-                athletics, motorsports, healthcare, higher education, and
-                national consumer brands, including:
-              </p>
-
+              <div class="idea-block" style="margin: 2rem 0">
+                <h2 class="about-statement" style="margin-bottom: 1rem">
+                  Client Roster
+                </h2>
+                <p style="margin: 0">
+                  Throughout my career, I've had the privilege of building
+                  <a href="/case-studies.html">custom e-commerce platforms</a>,
+                  tracking analytics, and live-event infrastructure for
+                  organizations spanning professional sports, collegiate
+                  athletics, motorsports, healthcare, higher education, and
+                  national consumer brands, including:
+                </p>
+              </div>
               <div class="highlight-group accent-consumer">
                 <h3>National consumer/corporate brands</h3>
                 <div class="highlight-grid">
@@ -531,7 +528,7 @@
                 </div>
               </div>
 
-              <p class="roster-link">
+              <p class="roster-link box" style="margin-bottom: 0">
                 <a href="/clients.html"
                   >See the full client list, 280+ organizations across
                   professional sports, collegiate athletics, motorsports,
