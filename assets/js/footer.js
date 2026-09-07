@@ -446,10 +446,14 @@ class ScottFooter extends HTMLElement {
       if (isCurrent) {
         link.style.fontWeight = "700";
         link.style.textDecoration = "none";
-        link.style.color = "#ffffff";
-        link.style.background = "linear-gradient(90deg, #1e3a5f, #4c8bf5)";
-        link.style.borderRadius = "4px";
-        link.style.padding = "8px";
+        link.style.color = "#1e3a5f";
+
+        link.addEventListener("mouseenter", () => {
+          link.style.color = "#000000";
+        });
+        link.addEventListener("mouseleave", () => {
+          link.style.color = "#1e3a5f";
+        });
       }
     });
 
