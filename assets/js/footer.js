@@ -9,7 +9,7 @@ class ScottFooter extends HTMLElement {
 
         <div class="inner"
           style="
-            max-width:1100px;
+            max-width:min(1100px, 100%);
             margin:0 auto;
             padding:2rem 1rem;
             border-top: 1px solid rgba(160, 160, 160, .2);
@@ -411,6 +411,43 @@ class ScottFooter extends HTMLElement {
     if (yearSpan) {
       yearSpan.textContent = new Date().getFullYear();
     }
+
+    // Bold, no underline, and inverted (filled) colors for whichever
+    // footer link matches the current page, mirroring the current-page
+    // treatment in scott-nav - including subpages under a link's own
+    // directory (e.g. /field-notes/ stays "on" for
+    // /field-notes/some-post.html, /insights.html for
+    // /insights/some-article.html), the same rule scott-nav uses.
+    const normalize = (href) =>
+      href.replace(/index\.html$/, "").replace(/\/$/, "") || "/";
+    const currentPath = normalize(window.location.pathname);
+
+    // Standalone pages that live outside their section's own directory
+    // but should still light up that section's footer link, mirroring
+    // scott-nav's alias list for the same pages.
+    const ALIASES = {
+      "/about.html": ["/founder.html", "/clients.html"],
+    };
+
+    this.querySelectorAll('a[href^="/"]').forEach((link) => {
+      const itemPath = normalize(link.getAttribute("href"));
+      const sectionPath = itemPath.replace(/\.html$/, "");
+      const isCurrent =
+        itemPath === currentPath ||
+        currentPath.startsWith(sectionPath + "/") ||
+        (ALIASES[itemPath] || []).some(
+          (alias) => normalize(alias) === currentPath
+        );
+
+      if (isCurrent) {
+        link.style.fontWeight = "700";
+        link.style.textDecoration = "none";
+        link.style.color = "#ffffff";
+        link.style.background = "linear-gradient(90deg, #1e3a5f, #4c8bf5)";
+        link.style.borderRadius = "4px";
+        link.style.padding = "8px";
+      }
+    });
 
     const topBtn = this.querySelector("#backToTop");
 
