@@ -31,6 +31,7 @@ class ScottFooter extends HTMLElement {
                       alt="S"
                       title="S"
                       class="logo"
+                      loading="lazy"
                       style="display:block;max-height: 4vh;margin-right: 2px;">
                     <span style="font-size: x-large;">cott Labz</span>
                   </span>
@@ -66,6 +67,7 @@ class ScottFooter extends HTMLElement {
                       height="68"
                       alt="Scott Labz BBB Business Review"
                       title="Scott Labz BBB Business Review"
+                      loading="lazy"
                     >
                   </a>
                 </li>
@@ -90,6 +92,7 @@ class ScottFooter extends HTMLElement {
                       height="260"
                       alt="McLean County Chamber of Commerce"
                       title="McLean County Chamber of Commerce"
+                      loading="lazy"
                       style="
                         display:block;
                         width:100%;
