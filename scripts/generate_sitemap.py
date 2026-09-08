@@ -1,3 +1,4 @@
+import subprocess
 from datetime import datetime
 from pathlib import Path
 
@@ -49,6 +50,60 @@ CASE_STUDY = ("0.7", "yearly")
 
 today = datetime.utcnow().strftime("%Y-%m-%d")
 
+
+# This is the sitemap workflow's own auto-commit message (see
+# .github/workflows/sitemap.yml). That commit only rewrites the
+# ?v=<hash> cache-bust query string on <link>/<script> tags whenever a
+# shared CSS/JS file's content changes - it touches nearly every HTML
+# file at once (92 of 96, last time it ran) but isn't a real content
+# change to any of them. Left uncorrected for, it reproduces the exact
+# bug this function exists to fix: almost every page would get today's
+# date on almost every push, just one workflow run later than before.
+AUTO_COMMIT_MESSAGE = "Auto-update sitemap.xml and asset cache-bust versions"
+
+
+def build_lastmod_map() -> dict[str, str]:
+  """One pass over the full commit history: map every path to the date
+  of the most recent commit that made a real change to it, skipping the
+  cache-bust workflow's own auto-commits (see AUTO_COMMIT_MESSAGE).
+  Falls back to an empty map (every page then gets today's date, the old
+  behavior) if git isn't available or this isn't a git checkout.
+
+  Requires full history - a shallow clone (the actions/checkout default,
+  fetch-depth: 1) only knows about its single boundary commit, so every
+  file that exists there would look like it was "last touched" on that
+  commit regardless of when it actually last changed. sitemap.yml's
+  checkout step needs fetch-depth: 0 for this to report real dates.
+  """
+  try:
+    result = subprocess.run(
+      ["git", "log", "--name-only", "--format=COMMIT:%cd|%s", "--date=short"],
+      cwd=ROOT,
+      capture_output=True,
+      text=True,
+      check=True,
+    )
+  except (subprocess.CalledProcessError, FileNotFoundError):
+    return {}
+
+  lastmod_map: dict[str, str] = {}
+  current_date = None
+  skip_commit = False
+  for line in result.stdout.splitlines():
+    if line.startswith("COMMIT:"):
+      date_part, _, subject = line[len("COMMIT:"):].partition("|")
+      current_date = date_part
+      skip_commit = subject == AUTO_COMMIT_MESSAGE
+    elif line.strip() and current_date and not skip_commit:
+      # First time we see a path is its most recent real-change commit,
+      # since git log lists commits newest-first - don't overwrite with
+      # an older date if the path shows up again further down the log.
+      lastmod_map.setdefault(line.strip(), current_date)
+  return lastmod_map
+
+
+lastmod_map = build_lastmod_map()
+
 pages = []
 
 for file in sorted(ROOT.rglob("*.html")):
@@ -77,9 +132,13 @@ for file in sorted(ROOT.rglob("*.html")):
   else:
     priority, freq = MAIN_PAGES.get(relative, DEFAULT)
 
+  # A file with no git history yet (brand new, not committed) has no
+  # entry in lastmod_map - today is the only accurate date it could have.
+  lastmod = lastmod_map.get(relative, today)
+
   pages.append(f"""  <url>
     <loc>{url}</loc>
-    <lastmod>{today}</lastmod>
+    <lastmod>{lastmod}</lastmod>
     <changefreq>{freq}</changefreq>
     <priority>{priority}</priority>
   </url>""")
