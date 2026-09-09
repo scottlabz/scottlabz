@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -71,146 +71,1332 @@
     </script>
     <!-- End Matomo Code -->
 
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Scott Labz // Campaign Crime Scene</title>
-<link rel="canonical" href="https://scottlabz.com/diagnostics/campaigns-crime-scene.html">
-<meta name="description" content="32 simulated campaign cases across pixels, platforms, budgets, and audiences. Read the evidence, name the root cause, then see if you were right.">
-<style>
-:root{--bg:#070b10;--p:#0d141c;--p2:#111b24;--line:#263441;--txt:#e8eef5;--muted:#7d8b99;--cyan:#5de0ff;--green:#57e59a;--amber:#ffc857;--red:#ff667a;--purple:#b69cff}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 75% -5%,#172d3d 0,transparent 32%),var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif}button{font:inherit}.app{max-width:1450px;margin:auto;padding:20px}
-.top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:13px 0 18px}.backlink{display:inline-flex;align-items:center;gap:6px;color:var(--cyan);text-decoration:none;font:800 11px ui-monospace,monospace;letter-spacing:.05em;border:1px solid var(--cyan);background:rgba(93,224,255,.1);padding:7px 12px;border-radius:4px;transition:background .15s ease,transform .15s ease}.backlink:hover{color:#061218;background:var(--cyan);border-color:var(--cyan);transform:translateX(-2px)}.brand{font-weight:900;letter-spacing:.14em;font-size:13px}.brand i{color:var(--cyan);font-style:normal}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.caseid{color:var(--muted);font-size:11px}
-.hero{padding:35px 0 25px;display:grid;grid-template-columns:1fr 310px;gap:28px}.eyebrow{font:11px ui-monospace,monospace;letter-spacing:.17em;color:var(--cyan)}h1{font-size:clamp(38px,5.5vw,70px);line-height:.94;letter-spacing:-.055em;margin:10px 0 16px}.hero p{color:#9ba8b5;max-width:750px;font-size:16px;line-height:1.6}.status{border:1px solid #493c1c;background:#121109;padding:18px;align-self:end}.status strong{display:block;color:var(--amber);font-size:26px;margin:4px 0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:15px 0 22px}.stat{border:1px solid var(--line);background:#0b1118;padding:13px}.stat b{display:block;font-size:20px}.stat span{color:var(--muted);font:9px ui-monospace,monospace}.layout{display:grid;grid-template-columns:285px 1fr;gap:13px}.sidebar,.main{border:1px solid var(--line);background:rgba(9,14,20,.94)}.sidebar{padding:10px}.sidehead{padding:8px;color:var(--muted);font:10px ui-monospace,monospace;letter-spacing:.14em}.sidebarlist{display:flex;flex-direction:column;gap:4px}.casebtn{width:100%;text-align:left;border:1px solid transparent;background:transparent;color:#b8c4ce;padding:12px;border-radius:5px;cursor:pointer;margin-bottom:4px}.casebtn:hover,.casebtn.active{background:#121c25;border-color:#304251;color:#fff}.casebtn b{display:block;font-size:12px}.casebtn small{display:block;color:#687785;margin-top:4px}.casebtn.done{border-left:3px solid var(--green)}.main{padding:20px;min-height:650px}.mainhead{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:17px}.mainhead h2{margin:0;font-size:18px}.badge{font:9px ui-monospace,monospace;border:1px solid var(--line);padding:5px 8px;color:var(--muted)}
-.pagenav{display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}.pagebtn{background:transparent;border:1px solid var(--line);color:#9daab6;padding:7px 10px;border-radius:4px;cursor:pointer;font:10px ui-monospace,monospace;letter-spacing:.05em}.pagebtn:hover:not(:disabled){border-color:#526677;color:#fff}.pagebtn:disabled{opacity:.35;cursor:default}.pageindicator{color:var(--muted);font:10px ui-monospace,monospace}
-.evidence{display:none}.evidence.active{display:block}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}.card{border:1px solid var(--line);background:#0a1017;padding:16px}.card h3{font-size:11px;margin:0 0 11px;letter-spacing:.1em;color:#b9c6d0}.card p{font:11px/1.65 ui-monospace,monospace;color:#82909d;margin:0}.code{background:#060a0f;border:1px solid #202b35;padding:17px;font:11px/1.75 ui-monospace,monospace;overflow:auto;white-space:pre-wrap}.ok{color:var(--green)}.bad{color:var(--red)}.warn{color:var(--amber)}.key{color:#8fdcff}.browser{border:1px solid var(--line);background:#080c11}.bar{padding:9px 12px;border-bottom:1px solid var(--line);color:#73818e;font:10px ui-monospace,monospace}.browserbody{padding:27px;min-height:300px}.nav{display:flex;justify-content:space-between;border-bottom:1px solid #26313b;padding-bottom:13px;margin-bottom:22px}.logo{font-weight:900;letter-spacing:.08em}.product{display:grid;grid-template-columns:1fr 1fr;gap:25px}.productimg{height:165px;background:linear-gradient(135deg,#17232d,#2a3b48);display:grid;place-items:center;color:#6e7d8b}.price{font-size:20px;margin:13px 0}.fakebtn{display:inline-block;background:var(--green);color:#06110b;padding:10px 17px;font-weight:800}.timeline{display:grid;gap:8px}.row{display:grid;grid-template-columns:90px 1fr 90px;gap:10px;border:1px solid var(--line);padding:11px;font:10px ui-monospace,monospace}.row span:last-child{text-align:right}.diagnose{margin-top:20px;border-top:1px solid var(--line);padding-top:17px}.diagnose h3{font-size:11px;letter-spacing:.14em;color:var(--muted)}.choices{display:flex;flex-wrap:wrap;gap:8px}.choice{border:1px solid var(--line);background:#0d151d;color:#9daab6;padding:9px 11px;border-radius:4px;cursor:pointer}.choice:hover{border-color:#526677;color:white}.choice.correct{border-color:var(--green);color:var(--green);background:#0c1914}.choice.wrong{border-color:var(--red);color:var(--red)}.report{display:none;margin-top:14px;border:1px solid var(--green);background:#0b1713;padding:17px;font-size:12px;line-height:1.65}.report.show{display:block}.hint{margin-top:9px;color:#71808d;font:10px ui-monospace,monospace}.next{display:none;margin-top:12px}.next.show{display:inline-block}.pill{display:inline-block;font:9px ui-monospace,monospace;padding:4px 7px;border:1px solid var(--line);color:var(--muted);margin:2px}.footer{color:#566574;font:9px ui-monospace,monospace;padding:17px 0;display:flex;justify-content:space-between}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.layout{grid-template-columns:1fr}.sidebar,.main{min-width:0}.sidebarlist{flex-direction:row;overflow:auto;-webkit-mask-image:linear-gradient(to right,#000 88%,transparent);mask-image:linear-gradient(to right,#000 88%,transparent)}.sidehead{display:none}.casebtn{min-width:220px}.stats{grid-template-columns:repeat(2,1fr)}.product,.grid{grid-template-columns:1fr}}
-</style>
-</head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript>
-  <iframe
-    src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
-    height="0"
-    width="0"
-    style="display: none; visibility: hidden"></iframe>
-</noscript>
-<!-- End Google Tag Manager (noscript) -->
-<div class="app">
-<header class="top"><div style="display:flex;align-items:center;gap:14px"><a class="backlink" href="/diagnostics/">← Diagnostics</a><div class="brand">SCOTT LABZ // CAMPAIGN FORENSICS</div></div><div class="caseid">CASE FILE SYSTEM · PUBLIC</div></header>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Scott Labz // Campaign Crime Scene</title>
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/diagnostics/campaigns-crime-scene.html" />
+    <meta
+      name="description"
+      content="32 simulated campaign cases across pixels, platforms, budgets, and audiences. Read the evidence, name the root cause, then see if you were right." />
+    <style>
+      :root {
+        --bg: #070b10;
+        --p: #0d141c;
+        --p2: #111b24;
+        --line: #263441;
+        --txt: #e8eef5;
+        --muted: #7d8b99;
+        --cyan: #5de0ff;
+        --green: #57e59a;
+        --amber: #ffc857;
+        --red: #ff667a;
+        --purple: #b69cff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 75% -5%, #172d3d 0, transparent 32%),
+          var(--bg);
+        color: var(--txt);
+        font-family: Inter, system-ui, sans-serif;
+      }
+      button {
+        font: inherit;
+      }
+      .app {
+        max-width: 1450px;
+        margin: auto;
+        padding: 20px;
+      }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--line);
+        padding: 13px 0 18px;
+      }
+      .backlink {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--cyan);
+        text-decoration: none;
+        font:
+          800 11px ui-monospace,
+          monospace;
+        letter-spacing: 0.05em;
+        border: 1px solid var(--cyan);
+        background: rgba(93, 224, 255, 0.1);
+        padding: 7px 12px;
+        border-radius: 4px;
+        transition:
+          background 0.15s ease,
+          transform 0.15s ease;
+      }
+      .backlink:hover {
+        color: #061218;
+        background: var(--cyan);
+        border-color: var(--cyan);
+        transform: translateX(-2px);
+      }
+      .brand {
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        font-size: 13px;
+      }
+      .brand i {
+        color: var(--cyan);
+        font-style: normal;
+      }
+      .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+      .caseid {
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .hero {
+        padding: 35px 0 25px;
+        display: grid;
+        grid-template-columns: 1fr 310px;
+        gap: 28px;
+      }
+      .eyebrow {
+        font:
+          11px ui-monospace,
+          monospace;
+        letter-spacing: 0.17em;
+        color: var(--cyan);
+      }
+      h1 {
+        font-size: clamp(38px, 5.5vw, 70px);
+        line-height: 0.94;
+        letter-spacing: -0.055em;
+        margin: 10px 0 16px;
+      }
+      .hero p {
+        color: #9ba8b5;
+        max-width: 750px;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+      .status {
+        border: 1px solid #493c1c;
+        background: #121109;
+        padding: 18px;
+        align-self: end;
+      }
+      .status strong {
+        display: block;
+        color: var(--amber);
+        font-size: 26px;
+        margin: 4px 0;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 9px;
+        margin: 15px 0 22px;
+      }
+      .stat {
+        border: 1px solid var(--line);
+        background: #0b1118;
+        padding: 13px;
+      }
+      .stat b {
+        display: block;
+        font-size: 20px;
+      }
+      .stat span {
+        color: var(--muted);
+        font:
+          9px ui-monospace,
+          monospace;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: 285px 1fr;
+        gap: 13px;
+      }
+      .sidebar,
+      .main {
+        border: 1px solid var(--line);
+        background: rgba(9, 14, 20, 0.94);
+      }
+      .sidebar {
+        padding: 10px;
+      }
+      .sidehead {
+        padding: 8px;
+        color: var(--muted);
+        font:
+          10px ui-monospace,
+          monospace;
+        letter-spacing: 0.14em;
+      }
+      .sidebarlist {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .casebtn {
+        width: 100%;
+        text-align: left;
+        border: 1px solid transparent;
+        background: transparent;
+        color: #b8c4ce;
+        padding: 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 4px;
+      }
+      .casebtn:hover,
+      .casebtn.active {
+        background: #121c25;
+        border-color: #304251;
+        color: #fff;
+      }
+      .casebtn b {
+        display: block;
+        font-size: 12px;
+      }
+      .casebtn small {
+        display: block;
+        color: #687785;
+        margin-top: 4px;
+      }
+      .casebtn.done {
+        border-left: 3px solid var(--green);
+      }
+      .main {
+        padding: 20px;
+        min-height: 650px;
+      }
+      .mainhead {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 14px;
+        margin-bottom: 17px;
+      }
+      .mainhead h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+      .badge {
+        font:
+          9px ui-monospace,
+          monospace;
+        border: 1px solid var(--line);
+        padding: 5px 8px;
+        color: var(--muted);
+      }
+      .pagenav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid var(--line);
+      }
+      .pagebtn {
+        background: transparent;
+        border: 1px solid var(--line);
+        color: #9daab6;
+        padding: 7px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font:
+          10px ui-monospace,
+          monospace;
+        letter-spacing: 0.05em;
+      }
+      .pagebtn:hover:not(:disabled) {
+        border-color: #526677;
+        color: #fff;
+      }
+      .pagebtn:disabled {
+        opacity: 0.35;
+        cursor: default;
+      }
+      .pageindicator {
+        color: var(--muted);
+        font:
+          10px ui-monospace,
+          monospace;
+      }
+      .evidence {
+        display: none;
+      }
+      .evidence.active {
+        display: block;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 11px;
+      }
+      .card {
+        border: 1px solid var(--line);
+        background: #0a1017;
+        padding: 16px;
+      }
+      .card h3 {
+        font-size: 11px;
+        margin: 0 0 11px;
+        letter-spacing: 0.1em;
+        color: #b9c6d0;
+      }
+      .card p {
+        font:
+          11px/1.65 ui-monospace,
+          monospace;
+        color: #82909d;
+        margin: 0;
+      }
+      .code {
+        background: #060a0f;
+        border: 1px solid #202b35;
+        padding: 17px;
+        font:
+          11px/1.75 ui-monospace,
+          monospace;
+        overflow: auto;
+        white-space: pre-wrap;
+      }
+      .ok {
+        color: var(--green);
+      }
+      .bad {
+        color: var(--red);
+      }
+      .warn {
+        color: var(--amber);
+      }
+      .key {
+        color: #8fdcff;
+      }
+      .browser {
+        border: 1px solid var(--line);
+        background: #080c11;
+      }
+      .bar {
+        padding: 9px 12px;
+        border-bottom: 1px solid var(--line);
+        color: #73818e;
+        font:
+          10px ui-monospace,
+          monospace;
+      }
+      .browserbody {
+        padding: 27px;
+        min-height: 300px;
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #26313b;
+        padding-bottom: 13px;
+        margin-bottom: 22px;
+      }
+      .logo {
+        font-weight: 900;
+        letter-spacing: 0.08em;
+      }
+      .product {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+      .productimg {
+        height: 165px;
+        background: linear-gradient(135deg, #17232d, #2a3b48);
+        display: grid;
+        place-items: center;
+        color: #6e7d8b;
+      }
+      .price {
+        font-size: 20px;
+        margin: 13px 0;
+      }
+      .fakebtn {
+        display: inline-block;
+        background: var(--green);
+        color: #06110b;
+        padding: 10px 17px;
+        font-weight: 800;
+      }
+      .timeline {
+        display: grid;
+        gap: 8px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 90px 1fr 90px;
+        gap: 10px;
+        border: 1px solid var(--line);
+        padding: 11px;
+        font:
+          10px ui-monospace,
+          monospace;
+      }
+      .row span:last-child {
+        text-align: right;
+      }
+      .diagnose {
+        margin-top: 20px;
+        border-top: 1px solid var(--line);
+        padding-top: 17px;
+      }
+      .diagnose h3 {
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        color: var(--muted);
+      }
+      .choices {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .choice {
+        border: 1px solid var(--line);
+        background: #0d151d;
+        color: #9daab6;
+        padding: 9px 11px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .choice:hover {
+        border-color: #526677;
+        color: white;
+      }
+      .choice.correct {
+        border-color: var(--green);
+        color: var(--green);
+        background: #0c1914;
+      }
+      .choice.wrong {
+        border-color: var(--red);
+        color: var(--red);
+      }
+      .report {
+        display: none;
+        margin-top: 14px;
+        border: 1px solid var(--green);
+        background: #0b1713;
+        padding: 17px;
+        font-size: 12px;
+        line-height: 1.65;
+      }
+      .report.show {
+        display: block;
+      }
+      .hint {
+        margin-top: 9px;
+        color: #71808d;
+        font:
+          10px ui-monospace,
+          monospace;
+      }
+      .next {
+        display: none;
+        margin-top: 12px;
+      }
+      .next.show {
+        display: inline-block;
+      }
+      .pill {
+        display: inline-block;
+        font:
+          9px ui-monospace,
+          monospace;
+        padding: 4px 7px;
+        border: 1px solid var(--line);
+        color: var(--muted);
+        margin: 2px;
+      }
+      .footer {
+        color: #566574;
+        font:
+          9px ui-monospace,
+          monospace;
+        padding: 17px 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        .sidebar,
+        .main {
+          min-width: 0;
+        }
+        .sidebarlist {
+          flex-direction: row;
+          overflow: auto;
+          -webkit-mask-image: linear-gradient(to right, #000 88%, transparent);
+          mask-image: linear-gradient(to right, #000 88%, transparent);
+        }
+        .sidehead {
+          display: none;
+        }
+        .casebtn {
+          min-width: 220px;
+        }
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .product,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="app">
+      <header class="top">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <a class="backlink" href="/diagnostics/">← Diagnostics</a>
+          <div class="brand">SCOTT LABZ // CAMPAIGN FORENSICS</div>
+        </div>
+        <div class="caseid">CASE FILE SYSTEM · PUBLIC</div>
+      </header>
 
-<section class="hero">
-<div><div class="eyebrow">CAMPAIGNS / FORENSIC INVESTIGATION</div><h1>Find what's<br>burning budget.</h1><p>A collection of simulated campaign failures. Follow the evidence across pixels, platforms, budgets, and audiences. Every case has a hidden failure.</p></div>
-<aside class="status"><div class="eyebrow">INVESTIGATION STATUS</div><strong id="globalStatus">0 / 32 CASES</strong><div class="mono" style="color:#778592;font-size:10px">Solve a case to unlock the next file.</div></aside>
-</section>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">CAMPAIGNS / FORENSIC INVESTIGATION</div>
+          <h1>Find what's<br />burning the budget.</h1>
+          <p>
+            A collection of simulated campaign failures. Follow the evidence
+            across pixels, platforms, budgets, and audiences. Every case has a
+            hidden failure.
+          </p>
+        </div>
+        <aside class="status">
+          <div class="eyebrow">INVESTIGATION STATUS</div>
+          <strong id="globalStatus">0 / 32 CASES</strong>
+          <div class="mono" style="color: #778592; font-size: 10px">
+            Solve a case to unlock the next file.
+          </div>
+        </aside>
+      </section>
 
-<div class="stats">
-<div class="stat"><b id="solved">0</b><span>CASES SOLVED</span></div><div class="stat"><b>32</b><span>ACTIVE FILES</span></div><div class="stat"><b id="score">0</b><span>FORENSIC SCORE</span></div><div class="stat"><b id="rank">ROOKIE</b><span>INVESTIGATOR RANK</span></div>
-</div>
+      <div class="stats">
+        <div class="stat"><b id="solved">0</b><span>CASES SOLVED</span></div>
+        <div class="stat"><b>32</b><span>ACTIVE FILES</span></div>
+        <div class="stat"><b id="score">0</b><span>FORENSIC SCORE</span></div>
+        <div class="stat">
+          <b id="rank">ROOKIE</b><span>INVESTIGATOR RANK</span>
+        </div>
+      </div>
 
-<section class="layout">
-<aside class="sidebar">
-<div class="sidehead">CASE FILES</div>
-<div class="sidebarlist" id="sidebarList"></div>
-<div class="pagenav">
-<button class="pagebtn" id="prevPageBtn" onclick="prevPage()">&larr; PREV</button>
-<span class="pageindicator" id="pageIndicator"></span>
-<button class="pagebtn" id="nextPageBtn" onclick="nextPage()">NEXT &rarr;</button>
-</div>
-</aside>
+      <section class="layout">
+        <aside class="sidebar">
+          <div class="sidehead">CASE FILES</div>
+          <div class="sidebarlist" id="sidebarList"></div>
+          <div class="pagenav">
+            <button class="pagebtn" id="prevPageBtn" onclick="prevPage()">
+              &larr; PREV
+            </button>
+            <span class="pageindicator" id="pageIndicator"></span>
+            <button class="pagebtn" id="nextPageBtn" onclick="nextPage()">
+              NEXT &rarr;
+            </button>
+          </div>
+        </aside>
 
-<main class="main">
-<div class="mainhead"><h2 id="title">Case</h2><span class="badge" id="badge">UNSOLVED</span></div>
-<div id="scene"></div>
-<div class="diagnose"><h3>IDENTIFY THE CULPRIT</h3><div class="choices" id="choices"></div><div class="hint" id="hint"></div><div class="report" id="report"></div><button class="choice next" id="next" onclick="nextCase()">NEXT CASE &rarr;</button></div>
-</main>
-</section>
-<div class="footer"><span>SCOTT LABZ // CAMPAIGN CRIME SCENE</span><span>SIMULATED FORENSIC ENVIRONMENT · CASE SERIES 001-032</span></div>
-</div>
+        <main class="main">
+          <div class="mainhead">
+            <h2 id="title">Case</h2>
+            <span class="badge" id="badge">UNSOLVED</span>
+          </div>
+          <div id="scene"></div>
+          <div class="diagnose">
+            <h3>IDENTIFY THE CULPRIT</h3>
+            <div class="choices" id="choices"></div>
+            <div class="hint" id="hint"></div>
+            <div class="report" id="report"></div>
+            <button class="choice next" id="next" onclick="nextCase()">
+              NEXT CASE &rarr;
+            </button>
+          </div>
+        </main>
+      </section>
+      <div class="footer">
+        <span>SCOTT LABZ // CAMPAIGN CRIME SCENE</span
+        ><span>SIMULATED FORENSIC ENVIRONMENT · CASE SERIES 001-032</span>
+      </div>
+    </div>
 
-<script>
-const cases=[{"title": "#001 · The Doubled Purchase Pixel", "badge": "MEASUREMENT / DUPLICATE CONVERSIONS", "story": "A campaign's reported return on ad spend looks unbelievably strong, roughly twice what the order data in the commerce platform supports.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>BROWSER PIXEL</h3><div class=\"code\">purchase event fires\non order confirmation page</div></div><div class=\"card\"><h3>SERVER-SIDE API</h3><div class=\"code\">purchase event also sent\n<span class=\"bad\">for the same order, no deduplication key</span></div></div><div class=\"card\"><h3>AD PLATFORM</h3><div class=\"code\">Conversions counted: <span class=\"bad\">2 per actual order</span></div></div></div>", "choices": ["Attribution window issue", "Ad disapproval", "Currency mismatch", "Browser and server-side conversion events aren't deduplicated", "Sales genuinely doubled"], "answer": 3, "report": "ROOT CAUSE: Both a browser pixel and a server-side conversion send the same purchase event without a shared deduplication identifier.<br><br>IMPACT: Reported return on ad spend looks roughly double what actually occurred, risking budget decisions based on inflated results.<br><br>FIX: Send a consistent event identifier on both paths so the ad platform can deduplicate the same conversion.", "cat": "Measurement / Duplicate Conversions"}, {"title": "#002 · The Late Import", "badge": "ATTRIBUTION / OFFLINE CONVERSION LAG", "story": "A campaign that closed leads over the phone shows almost no attributed conversions in the ad platform, despite a healthy sales pipeline.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>SALES CLOSE DATE</h3><div class=\"code\">Lead closed: <span class=\"ok\">14 days after ad click</span></div></div><div class=\"card\"><h3>IMPORT WINDOW</h3><div class=\"code\">Offline conversion import lookback: <span class=\"bad\">7 days</span></div></div><div class=\"card\"><h3>RESULT</h3><div class=\"code\">Conversion: <span class=\"bad\">outside the lookback window, never imported</span></div></div></div>", "choices": ["Frequency capping", "The offline conversion import window is shorter than the actual sales cycle", "Ad disapproval", "Currency mismatch", "The campaign isn't working"], "answer": 1, "report": "ROOT CAUSE: The offline conversion import's lookback window is shorter than how long it actually takes for a lead to close.<br><br>IMPACT: Real, attributable sales never get credited back to the campaign that generated them.<br><br>FIX: Extend the import lookback window to match the true average sales cycle length.", "cat": "Attribution / Offline Conversion Lag"}, {"title": "#003 · The Self-Competing Campaigns", "badge": "TARGETING / AUDIENCE OVERLAP", "story": "Two campaigns aimed at similar audiences show rising costs for both, with each one seemingly bidding against the other for the same people.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>CAMPAIGN A AUDIENCE</h3><div class=\"code\">Interest-based, broad</div></div><div class=\"card\"><h3>CAMPAIGN B AUDIENCE</h3><div class=\"code\"><span class=\"bad\">Overlaps heavily with Campaign A</span></div></div><div class=\"card\"><h3>AUCTION DATA</h3><div class=\"code\">Both campaigns\n<span class=\"bad\">entering the same auctions</span></div></div><div class=\"card\"><h3>COST TREND</h3><div class=\"code\">CPC rising for both\n<span class=\"bad\">without external market change</span></div></div></div>", "choices": ["Currency mismatch", "The market got more competitive", "Budget pacing issue", "Ad disapproval", "Two campaigns with overlapping audiences are bidding against each other"], "answer": 4, "report": "ROOT CAUSE: Two campaigns targeting overlapping audiences compete in the same auctions, driving up cost for both without added reach.<br><br>IMPACT: Budget is spent bidding against the brand's own campaigns rather than expanding audience or efficiency.<br><br>FIX: Review audience definitions across active campaigns and consolidate or exclude overlap where it doesn't serve a specific purpose.", "cat": "Targeting / Audience Overlap"}, {"title": "#004 · The Diluted Match", "badge": "SEARCH / MATCH TYPE", "story": "A tightly targeted search campaign starts showing for loosely related terms, and cost per acquisition climbs even as click volume grows.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>ORIGINAL KEYWORD SETTING</h3><div class=\"code\">Match type: <span class=\"ok\">exact match</span></div></div><div class=\"card\"><h3>PLATFORM SUGGESTION</h3><div class=\"code\">\"Broad match expansion\" <span class=\"bad\">auto-applied</span></div></div><div class=\"card\"><h3>SEARCH TERM REPORT</h3><div class=\"code\">Impressions for\n<span class=\"bad\">unrelated, loosely matched terms</span></div></div><div class=\"card\"><h3>COST PER ACQUISITION</h3><div class=\"code\"><span class=\"bad\">up 40% over two weeks</span></div></div></div>", "choices": ["An auto-applied match type expansion diluted keyword intent", "Ad disapproval", "Frequency capping", "The product became less relevant", "Currency mismatch"], "answer": 0, "report": "ROOT CAUSE: An automatic match type expansion feature broadened targeting beyond the originally intended exact-match keywords.<br><br>IMPACT: Spend shifts toward less relevant searches, raising acquisition cost without improving results.<br><br>FIX: Review and opt out of automatic match expansion where tight intent matters, and monitor the search term report regularly.", "cat": "Search / Match Type"}, {"title": "#005 · The Same Face", "badge": "DELIVERY / FREQUENCY CAPPING", "story": "A retargeting campaign generates complaints from customers who say they see the exact same ad dozens of times a day.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>FREQUENCY CAP SETTING</h3><div class=\"code\"><span class=\"bad\">not configured (unlimited)</span></div></div><div class=\"card\"><h3>IMPRESSION LOG (single user)</h3><div class=\"code\">34 impressions\n<span class=\"bad\">in one day</span></div></div><div class=\"card\"><h3>CUSTOMER FEEDBACK</h3><div class=\"code\">\"I keep seeing this everywhere\"</div></div><div class=\"card\"><h3>CLICK-THROUGH RATE</h3><div class=\"code\"><span class=\"bad\">declining as impressions accumulate</span></div></div></div>", "choices": ["The audience is too small", "Currency mismatch", "Budget pacing issue", "No frequency cap is set, allowing unlimited repeat impressions", "Ad disapproval"], "answer": 3, "report": "ROOT CAUSE: The campaign has no frequency cap configured, so the same person can see the same ad an unlimited number of times per day.<br><br>IMPACT: Repeated exposure fatigues the audience, hurts brand perception, and wastes spend on diminishing returns.<br><br>FIX: Set a reasonable frequency cap per user per time period and monitor for fatigue in click-through trends.", "cat": "Delivery / Frequency Capping"}, {"title": "#006 · The Mismatched Window", "badge": "ATTRIBUTION / WINDOW MISMATCH", "story": "The ad platform reports significantly more conversions than the internal reporting system for the identical campaign and date range.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>AD PLATFORM SETTING</h3><div class=\"code\">Attribution window: <span class=\"bad\">30-day click, 7-day view</span></div></div><div class=\"card\"><h3>INTERNAL REPORTING</h3><div class=\"code\">Attribution window: <span class=\"bad\">last-click, 7-day</span></div></div><div class=\"card\"><h3>SAME CAMPAIGN</h3><div class=\"code\">Platform-reported conversions: 420\nInternal system: <span class=\"bad\">260</span></div></div></div>", "choices": ["Currency mismatch", "Frequency capping", "The two systems use different attribution windows for the same data", "Ad disapproval", "One system is broken"], "answer": 2, "report": "ROOT CAUSE: The ad platform and the internal reporting system count a conversion as attributable over different windows and view-versus-click rules.<br><br>IMPACT: The same underlying activity produces two different, both technically valid, conversion counts.<br><br>FIX: Document each system's attribution methodology and compare trend direction rather than treating either number as the single source of truth.", "cat": "Attribution / Window Mismatch"}, {"title": "#007 · The Cannibalized Brand Term", "badge": "SEARCH / NEGATIVE KEYWORDS", "story": "Spend on branded search terms rises steadily even though brand awareness campaigns haven't changed, and cost per branded click climbs unexpectedly.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>NEGATIVE KEYWORD LIST</h3><div class=\"code\">Last synced: <span class=\"bad\">3 months ago</span></div></div><div class=\"card\"><h3>NEW CAMPAIGN LAUNCH</h3><div class=\"code\">Generic campaign\n<span class=\"bad\">not excluded from branded terms</span></div></div><div class=\"card\"><h3>SEARCH TERM REPORT</h3><div class=\"code\">Generic campaign showing for\n<span class=\"bad\">the brand's own name</span></div></div></div>", "choices": ["Currency mismatch", "Competitors are bidding on the brand name", "Ad disapproval", "Frequency capping", "A newer campaign isn't excluded from the brand's own negative keyword list"], "answer": 4, "report": "ROOT CAUSE: A newly launched campaign was never added to the shared negative keyword list that prevents non-brand campaigns from competing on branded terms.<br><br>IMPACT: The business ends up bidding against itself for traffic that would likely have converted for free or at lower cost.<br><br>FIX: Maintain a shared negative keyword list across all campaigns and add new campaigns to it before launch.", "cat": "Search / Negative Keywords"}, {"title": "#008 · The Stuck Rotation", "badge": "CREATIVE / ROTATION OPTIMIZATION", "story": "A campaign with five creative variants has been showing the same underperforming ad almost exclusively for weeks, despite an \"optimize for performance\" setting.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>CREATIVE SET</h3><div class=\"code\">5 variants uploaded</div></div><div class=\"card\"><h3>DELIVERY DATA</h3><div class=\"code\">Variant 3: <span class=\"bad\">92% of impressions</span>\nOthers: barely served</div></div><div class=\"card\"><h3>EARLY LEARNING PHASE</h3><div class=\"code\">Variant 3 got early clicks\n<span class=\"bad\">from a data anomaly before other variants had a fair test</span></div></div></div>", "choices": ["Variant 3 is genuinely the best", "Frequency capping", "Currency mismatch", "Budget pacing issue", "An early data anomaly locked in a variant before others got a fair test"], "answer": 4, "report": "ROOT CAUSE: The optimization algorithm locked onto an early leading variant before the others had enough delivery to be fairly evaluated.<br><br>IMPACT: Potentially stronger creative variants never get a real chance to prove themselves.<br><br>FIX: Force even rotation for a minimum learning period before allowing performance-based optimization to concentrate delivery.", "cat": "Creative / Rotation Optimization"}, {"title": "#009 · The Midday Exhaustion", "badge": "BUDGET / PACING", "story": "A campaign consistently runs out of budget by early afternoon, missing the evening hours when the audience is historically most likely to convert.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>DAILY BUDGET</h3><div class=\"code\">$500</div></div><div class=\"card\"><h3>PACING SETTING</h3><div class=\"code\"><span class=\"bad\">accelerated delivery</span></div></div><div class=\"card\"><h3>SPEND TIMELINE</h3><div class=\"code\">80% of budget spent by <span class=\"bad\">1:00 PM</span></div></div><div class=\"card\"><h3>CONVERSION HISTORY</h3><div class=\"code\">Peak conversion hours: <span class=\"bad\">7-10 PM (budget already exhausted)</span></div></div></div>", "choices": ["Frequency capping", "Ad disapproval", "Currency mismatch", "Accelerated pacing exhausts budget before the highest-converting hours", "The budget is too small overall"], "answer": 3, "report": "ROOT CAUSE: The campaign's pacing setting front-loads spend early in the day instead of distributing it toward known peak conversion hours.<br><br>IMPACT: Budget runs out before the audience is most likely to convert, capping performance well below potential.<br><br>FIX: Switch to standard or even pacing so budget is available through the hours that historically convert best.", "cat": "Budget / Pacing"}, {"title": "#010 · The Overwritten Tag", "badge": "ATTRIBUTION / AUTO-TAGGING CONFLICT", "story": "Campaign-level performance reporting shows healthy click volume, but the corresponding landing page analytics show almost no attributed sessions from that source.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>AD CLICK URL</h3><div class=\"code\">/landing?utm_source=custom&utm_campaign=fall</div></div><div class=\"card\"><h3>PLATFORM AUTO-TAGGING</h3><div class=\"code\"><span class=\"bad\">Enabled, appends its own click parameter</span></div></div><div class=\"card\"><h3>LANDING PAGE RECEIVED URL</h3><div class=\"code\"><span class=\"bad\">Custom UTM parameters stripped/overwritten</span></div></div><div class=\"card\"><h3>ANALYTICS ATTRIBUTION</h3><div class=\"code\">Sessions: <span class=\"bad\">misattributed as direct or unknown</span></div></div></div>", "choices": ["Frequency capping", "The campaign isn't driving clicks", "Currency mismatch", "The platform's auto-tagging overwrites the custom UTM parameters", "Budget pacing issue"], "answer": 3, "report": "ROOT CAUSE: The ad platform's own auto-tagging feature conflicts with and overwrites the manually set UTM parameters on the same link.<br><br>IMPACT: Landing page analytics can't correctly attribute sessions back to the campaign, even though clicks are genuinely happening.<br><br>FIX: Configure the platform's auto-tagging and custom UTM parameters to work together, or disable one in favor of a consistent single tagging approach.", "cat": "Attribution / Auto-tagging Conflict"}, {"title": "#011 · The Stale Seed", "badge": "AUDIENCES / LOOKALIKE SEED DATA", "story": "A lookalike audience built to find new customers similar to top buyers instead performs close to a cold, untargeted audience.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>SEED LIST</h3><div class=\"code\">Uploaded: <span class=\"bad\">14 months ago</span></div></div><div class=\"card\"><h3>SEED LIST COMPOSITION</h3><div class=\"code\"><span class=\"bad\">Includes since-discontinued product buyers</span></div></div><div class=\"card\"><h3>LOOKALIKE PERFORMANCE</h3><div class=\"code\">Conversion rate: <span class=\"bad\">near baseline, not meaningfully better than broad targeting</span></div></div></div>", "choices": ["The seed list is outdated and no longer reflects current best customers", "Lookalike audiences don't work for this business", "Ad disapproval", "Frequency capping", "Currency mismatch"], "answer": 0, "report": "ROOT CAUSE: The seed audience used to build the lookalike hasn't been refreshed and reflects outdated customer characteristics.<br><br>IMPACT: The resulting audience resembles customers who are no longer representative of current buyers, weakening its targeting value.<br><br>FIX: Refresh the seed list regularly from current best-customer data and rebuild the lookalike audience on that basis.", "cat": "Audiences / Lookalike Seed Data"}, {"title": "#012 · The Overshoot", "badge": "TARGETING / GEOTARGETING UNITS", "story": "A local campaign meant to target a single metro area is spending a large share of budget on clicks from hundreds of miles away.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>INTENDED TARGET</h3><div class=\"code\">25 <span class=\"bad\">(unit ambiguous)</span> radius around city center</div></div><div class=\"card\"><h3>CONFIGURED VALUE</h3><div class=\"code\">Radius set as: <span class=\"bad\">25 (interpreted in a larger unit than intended)</span></div></div><div class=\"card\"><h3>CLICK LOCATIONS</h3><div class=\"code\">Meaningful share of clicks: <span class=\"bad\">200+ miles from intended market</span></div></div></div>", "choices": ["Ad disapproval", "A radius targeting value was set in the wrong unit", "Frequency capping", "The campaign has bad creative", "Currency mismatch"], "answer": 1, "report": "ROOT CAUSE: The geotargeting radius was configured using the wrong distance unit, expanding the target area far beyond the intended market.<br><br>IMPACT: Budget is spent reaching people well outside any realistic service or delivery area.<br><br>FIX: Double-check unit settings when configuring radius targeting and verify the resulting target area on a map before launch.", "cat": "Targeting / Geotargeting Units"}, {"title": "#013 · The Wrong Clock, Again", "badge": "SCHEDULING / DAYPARTING TIMEZONE", "story": "A campaign scheduled to run only during business hours is instead showing ads and spending budget overnight.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>DAYPART SCHEDULE</h3><div class=\"code\">9 AM - 6 PM</div></div><div class=\"card\"><h3>ACCOUNT TIMEZONE SETTING</h3><div class=\"code\"><span class=\"bad\">UTC</span></div></div><div class=\"card\"><h3>BUSINESS LOCAL TIMEZONE</h3><div class=\"code\"><span class=\"bad\">Eastern (5 hours offset)</span></div></div><div class=\"card\"><h3>ACTUAL DELIVERY</h3><div class=\"code\">Ads showing: <span class=\"bad\">2 AM - 11 AM local time</span></div></div></div>", "choices": ["Budget pacing issue", "The schedule wasn't saved correctly", "Frequency capping", "Currency mismatch", "The dayparting schedule uses a different timezone than the business operates in"], "answer": 4, "report": "ROOT CAUSE: The campaign's dayparting schedule runs against the account's configured timezone, which doesn't match the business's actual local timezone.<br><br>IMPACT: Ads run during hours the business intended to avoid, missing the actual target window entirely.<br><br>FIX: Confirm the account timezone matches the business's operating timezone before setting any time-based schedule.", "cat": "Scheduling / Dayparting Timezone"}, {"title": "#014 · The Merged Budget", "badge": "ACCOUNT STRUCTURE / BUDGET SHARING", "story": "After combining several campaigns under one umbrella for easier management, one previously well-performing product line sees its budget consistently absorbed by a louder, lower-margin campaign.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>BEFORE MERGE</h3><div class=\"code\">Product A campaign: dedicated budget</div></div><div class=\"card\"><h3>AFTER MERGE</h3><div class=\"code\">Shared budget pool\n<span class=\"bad\">across multiple product campaigns</span></div></div><div class=\"card\"><h3>BUDGET ALLOCATION</h3><div class=\"code\">Product B (aggressive bidding): <span class=\"bad\">consumes majority of shared pool</span></div></div><div class=\"card\"><h3>PRODUCT A DELIVERY</h3><div class=\"code\"><span class=\"bad\">Underfunded despite historically strong performance</span></div></div></div>", "choices": ["Currency mismatch", "Frequency capping", "Ad disapproval", "Merging campaigns under a shared budget let one campaign absorb most of the spend", "Product A lost demand"], "answer": 3, "report": "ROOT CAUSE: Combining campaigns under a shared budget allows the most aggressive bidder to consume a disproportionate share of spend.<br><br>IMPACT: A strong-performing product line gets starved of budget it previously had dedicated to it.<br><br>FIX: Keep separate budgets for product lines with different margins or bidding behavior, even when campaigns are organized under one account structure.", "cat": "Account Structure / Budget Sharing"}, {"title": "#015 · The Phantom Clicks", "badge": "TRAFFIC QUALITY / CLICK FRAUD", "story": "Click volume on a display campaign spikes dramatically overnight with no corresponding increase in site engagement, leads, or sales.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>CLICK VOLUME</h3><div class=\"code\">Up <span class=\"bad\">380% overnight</span></div></div><div class=\"card\"><h3>SESSION BEHAVIOR</h3><div class=\"code\">Bounce rate: <span class=\"bad\">98%</span>\nTime on site: near zero</div></div><div class=\"card\"><h3>CLICK SOURCE PATTERN</h3><div class=\"code\">High concentration from\n<span class=\"bad\">a narrow set of IP ranges</span></div></div><div class=\"card\"><h3>CONVERSION IMPACT</h3><div class=\"code\"><span class=\"bad\">Zero, despite click surge</span></div></div></div>", "choices": ["Currency mismatch", "Budget pacing issue", "Interest genuinely spiked overnight", "Ad disapproval", "A pattern consistent with automated, fraudulent click activity"], "answer": 4, "report": "ROOT CAUSE: Click volume shows patterns consistent with automated non-human activity rather than genuine audience interest.<br><br>IMPACT: Budget is consumed by clicks with no realistic chance of converting, while genuine performance metrics get distorted.<br><br>FIX: Report suspicious traffic patterns to the ad platform, apply available fraud filtering, and monitor for concentrated click sources.", "cat": "Traffic Quality / Click Fraud"}, {"title": "#016 · The Broken Customization", "badge": "CREATIVE / DYNAMIC PARAMETERS", "story": "A dynamic product ad campaign starts sending everyone to the same generic landing page instead of the specific product each ad features.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>AD TEMPLATE</h3><div class=\"code\">Destination URL includes\n{product_id} placeholder</div></div><div class=\"card\"><h3>LANDING PAGE HANDLER</h3><div class=\"code\">Expected parameter: <span class=\"bad\">product_id</span></div></div><div class=\"card\"><h3>ACTUAL REQUEST</h3><div class=\"code\">Parameter: <span class=\"bad\">missing after a recent URL structure change</span></div></div><div class=\"card\"><h3>RESULT</h3><div class=\"code\">Every click lands on\n<span class=\"bad\">the generic homepage</span></div></div></div>", "choices": ["Ad disapproval", "Currency mismatch", "The ads are broken visually", "A URL structure change dropped the dynamic product parameter", "Frequency capping"], "answer": 3, "report": "ROOT CAUSE: A change to the site's URL structure broke the dynamic parameter the ad platform relies on to send each click to its matching product.<br><br>IMPACT: Every dynamic ad sends its click to a generic page instead of the specific product it advertised, hurting relevance and conversion.<br><br>FIX: Update the dynamic ad template to match the current URL structure and test the full click path for a sample of products.", "cat": "Creative / Dynamic Parameters"}, {"title": "#017 · The Double-Counted Customer", "badge": "ATTRIBUTION / CROSS-DEVICE", "story": "Reported new customer counts from a campaign exceed the actual number of new accounts created in the same period.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>DEVICE A (mobile)</h3><div class=\"code\">Click recorded, <span class=\"bad\">no immediate conversion</span></div></div><div class=\"card\"><h3>DEVICE B (desktop, same person)</h3><div class=\"code\">Conversion recorded\n<span class=\"bad\">later, same day</span></div></div><div class=\"card\"><h3>CROSS-DEVICE MATCHING</h3><div class=\"code\"><span class=\"bad\">Not enabled between platforms</span></div></div><div class=\"card\"><h3>REPORTED COUNT</h3><div class=\"code\">Two conversions recorded\n<span class=\"bad\">for one actual new customer</span></div></div></div>", "choices": ["Currency mismatch", "Cross-device attribution isn't linking the same person's two devices", "Budget pacing issue", "New account creation is broken", "Frequency capping"], "answer": 1, "report": "ROOT CAUSE: Without cross-device matching enabled, the same person's mobile click and desktop conversion are recorded as two separate people.<br><br>IMPACT: Reported new customer counts and cost per acquisition look better than they actually are.<br><br>FIX: Enable available cross-device matching where supported and treat cross-device attribution gaps as a known limitation in reporting.", "cat": "Attribution / Cross-device"}, {"title": "#018 · The Wrong Goal", "badge": "BIDDING / OPTIMIZATION GOAL", "story": "An automated bidding strategy successfully hits its target cost per action, but revenue from the campaign has been declining the whole time.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>OPTIMIZATION GOAL</h3><div class=\"code\"><span class=\"bad\">\"add to cart\" event</span></div></div><div class=\"card\"><h3>ACTUAL BUSINESS GOAL</h3><div class=\"code\">Completed, paid purchase</div></div><div class=\"card\"><h3>BIDDING RESULT</h3><div class=\"code\">Cost per add-to-cart: <span class=\"ok\">on target</span></div></div><div class=\"card\"><h3>DOWNSTREAM</h3><div class=\"code\">Add-to-cart to purchase rate: <span class=\"bad\">declining</span></div></div></div>", "choices": ["Currency mismatch", "The bidding strategy is broken", "Ad disapproval", "Frequency capping", "Automated bidding is optimizing toward a low-value action instead of actual revenue"], "answer": 4, "report": "ROOT CAUSE: The bidding strategy is set to optimize toward an early funnel action rather than the actual purchase it's meant to drive.<br><br>IMPACT: The campaign successfully hits its configured target while revenue quietly declines underneath it.<br><br>FIX: Optimize bidding toward the value-generating action itself, or a value-weighted event that reflects actual revenue outcomes.", "cat": "Bidding / Optimization Goal"}, {"title": "#019 · The Currency Confusion", "badge": "REPORTING / CURRENCY MISMATCH", "story": "A weekly performance dashboard shows return on ad spend numbers that don't reconcile with the ad platform's own reporting for the identical campaign.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>AD ACCOUNT SETTING</h3><div class=\"code\">Currency: <span class=\"bad\">GBP</span></div></div><div class=\"card\"><h3>REPORTING DASHBOARD</h3><div class=\"code\">Currency assumption: <span class=\"bad\">USD, no conversion applied</span></div></div><div class=\"card\"><h3>SAME SPEND FIGURE</h3><div class=\"code\">Platform: £4,200\nDashboard displayed as: <span class=\"bad\">$4,200</span></div></div></div>", "choices": ["Frequency capping", "Ad disapproval", "The dashboard doesn't convert currency and displays the raw figure under the wrong symbol", "Budget pacing issue", "The ad account is set up wrong"], "answer": 2, "report": "ROOT CAUSE: The reporting dashboard pulls the raw spend figure from an account billed in a different currency without applying any conversion.<br><br>IMPACT: Every derived metric, including return on ad spend, is calculated against the wrong currency basis.<br><br>FIX: Apply the correct currency conversion in the reporting pipeline and confirm the account's billing currency explicitly.", "cat": "Reporting / Currency Mismatch"}, {"title": "#020 · The Quiet Disapproval", "badge": "DELIVERY / AD DISAPPROVAL ALERTS", "story": "A campaign's delivery drops to near zero mid-flight, and nobody notices for several days because the account still shows as active.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>AD STATUS</h3><div class=\"code\"><span class=\"bad\">Disapproved (policy review)</span></div></div><div class=\"card\"><h3>ACCOUNT STATUS</h3><div class=\"code\">Campaign: <span class=\"ok\">still shows \"active\"</span></div></div><div class=\"card\"><h3>NOTIFICATION SETTING</h3><div class=\"code\">Disapproval alerts: <span class=\"bad\">not routed to anyone actively monitoring</span></div></div><div class=\"card\"><h3>DELIVERY</h3><div class=\"code\">Impressions: <span class=\"bad\">near zero for 6 days</span></div></div></div>", "choices": ["An ad was disapproved and the notification never reached anyone monitoring the account", "Frequency capping", "Budget pacing issue", "Currency mismatch", "Interest in the campaign dropped"], "answer": 0, "report": "ROOT CAUSE: The ad was disapproved during a policy review, and the resulting notification wasn't routed to anyone actively watching the account.<br><br>IMPACT: A campaign silently stops delivering while the dashboard still shows it as running, wasting the flight window.<br><br>FIX: Route disapproval and policy notifications to an actively monitored channel and check delivery status against spend regularly.", "cat": "Delivery / Ad Disapproval Alerts"}, {"title": "#021 · The Wasted Reach", "badge": "AUDIENCES / RETARGETING EXCLUSIONS", "story": "A retargeting campaign continues showing ads to people well after they've already completed a purchase, driving up frequency and cost with no upside.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>RETARGETING POOL</h3><div class=\"code\">Website visitors, <span class=\"bad\">last 30 days, no purchase exclusion</span></div></div><div class=\"card\"><h3>CONVERTED CUSTOMERS</h3><div class=\"code\"><span class=\"bad\">Still included in the retargeting audience</span></div></div><div class=\"card\"><h3>AD SPEND</h3><div class=\"code\">Meaningful share directed at\n<span class=\"bad\">people who already bought</span></div></div></div>", "choices": ["Currency mismatch", "Ad disapproval", "Converted customers were never excluded from the retargeting audience", "Repeat purchases are the goal", "Frequency capping"], "answer": 2, "report": "ROOT CAUSE: The retargeting audience definition doesn't exclude people who have already completed a purchase.<br><br>IMPACT: Budget continues chasing customers who've already converted instead of reaching people still deciding.<br><br>FIX: Add a purchase-exclusion rule to the retargeting audience, refreshed on the same cadence as the retargeting window itself.", "cat": "Audiences / Retargeting Exclusions"}, {"title": "#022 · The Ghost Product", "badge": "FEEDS / SYNC RELIABILITY", "story": "Shopping ads continue to promote a product line that was fully discontinued weeks earlier, generating clicks that lead to a dead product page.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>PRODUCT CATALOG</h3><div class=\"code\">SKU-1188: <span class=\"bad\">marked discontinued 3 weeks ago</span></div></div><div class=\"card\"><h3>AD PLATFORM FEED</h3><div class=\"code\">Last sync: <span class=\"bad\">6 weeks ago (sync job failing)</span></div></div><div class=\"card\"><h3>AD DELIVERY</h3><div class=\"code\">Discontinued product\n<span class=\"bad\">still actively shown and clicked</span></div></div></div>", "choices": ["Frequency capping", "The product page has a bug", "Currency mismatch", "The product feed sync to the ad platform has been failing", "Budget pacing issue"], "answer": 3, "report": "ROOT CAUSE: The scheduled sync between the product catalog and the ad platform's feed has been failing without anyone noticing.<br><br>IMPACT: Discontinued products keep generating paid clicks that land on a dead end, wasting spend and hurting experience.<br><br>FIX: Add monitoring and alerting to the feed sync job, and manually verify feed freshness on a regular schedule.", "cat": "Feeds / Sync Reliability"}, {"title": "#023 · The Organic Illusion", "badge": "MEASUREMENT / INCREMENTALITY", "story": "A channel that reports a strong volume of conversions shows almost no measurable drop in total conversions when its budget is paused entirely for a test period.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>CHANNEL REPORTED CONVERSIONS</h3><div class=\"code\">800/month</div></div><div class=\"card\"><h3>BUDGET PAUSE TEST</h3><div class=\"code\">Channel spend: <span class=\"bad\">$0 for 2 weeks</span></div></div><div class=\"card\"><h3>TOTAL SITE CONVERSIONS</h3><div class=\"code\"><span class=\"bad\">Nearly unchanged during the pause</span></div></div><div class=\"card\"><h3>INCREMENTALITY ESTIMATE</h3><div class=\"code\">True incremental lift: <span class=\"bad\">far below reported conversions</span></div></div></div>", "choices": ["Currency mismatch", "Frequency capping", "Most of the channel's reported conversions would have happened anyway", "Ad disapproval", "The test period was unusual"], "answer": 2, "report": "ROOT CAUSE: A large share of the channel's reported conversions come from people who were already going to convert regardless of that channel's involvement.<br><br>IMPACT: Budget allocated based on reported conversions overstates the channel's actual contribution.<br><br>FIX: Run periodic incrementality tests by pausing spend and comparing total outcomes, rather than relying solely on last-touch reported conversions.", "cat": "Measurement / Incrementality"}, {"title": "#024 · The Shifted Credit", "badge": "ATTRIBUTION / MODEL CHANGE", "story": "Following an unannounced change to how credit is assigned across marketing touchpoints, one channel's reported performance drops sharply while another's rises, with no change in actual campaign activity.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>PREVIOUS MODEL</h3><div class=\"code\"><span class=\"ok\">Last-click</span></div></div><div class=\"card\"><h3>NEW MODEL</h3><div class=\"code\"><span class=\"bad\">Data-driven, applied retroactively</span></div></div><div class=\"card\"><h3>CHANNEL A (top-of-funnel)</h3><div class=\"code\">Reported conversions: <span class=\"bad\">down 35%</span></div></div><div class=\"card\"><h3>CHANNEL B (bottom-of-funnel)</h3><div class=\"code\">Reported conversions: <span class=\"bad\">up 30%</span></div></div></div>", "choices": ["Channel A's campaigns got worse", "Ad disapproval", "Currency mismatch", "Frequency capping", "An attribution model change redistributed credit without any real performance change"], "answer": 4, "report": "ROOT CAUSE: A change in how the reporting system assigns credit across touchpoints shifts how conversions get distributed, independent of any real change in campaign performance.<br><br>IMPACT: Comparing performance before and after the model change makes healthy channels look like they declined.<br><br>FIX: Note the date of any attribution model change clearly in reporting and avoid comparing pre- and post-change numbers directly.", "cat": "Attribution / Model Change"}, {"title": "#025 · The Wrong Period", "badge": "REPORTING / FISCAL PERIOD MISMATCH", "story": "A quarterly performance review shows an unusually high cost per acquisition, but the underlying campaigns performed normally throughout the period in question.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>AD SPEND RECORDED</h3><div class=\"code\">Billed and recorded in: <span class=\"bad\">Q1 (calendar)</span></div></div><div class=\"card\"><h3>RESULTING CONVERSIONS</h3><div class=\"code\">Delayed sales cycle\n<span class=\"bad\">landed in Q2 (fiscal)</span></div></div><div class=\"card\"><h3>QUARTERLY REPORT</h3><div class=\"code\">Q1 cost: high\nQ1 conversions attributed: <span class=\"bad\">artificially low</span></div></div></div>", "choices": ["Currency mismatch", "The campaigns underperformed", "Spend and the conversions it generated fall in different reporting periods", "Ad disapproval", "Frequency capping"], "answer": 2, "report": "ROOT CAUSE: A delayed sales cycle means the spend and the resulting conversions land in two different fiscal reporting periods.<br><br>IMPACT: Any single period's cost-per-acquisition figure can look artificially high or low depending on where the cycle happens to fall.<br><br>FIX: Evaluate campaign efficiency over a window that matches the actual sales cycle length rather than a fixed calendar period.", "cat": "Reporting / Fiscal Period Mismatch"}, {"title": "#026 · The Skewed Split", "badge": "CREATIVE / TEST OVERRIDE", "story": "A planned even split between two ad creatives ends up delivering one variant to the vast majority of the audience almost immediately.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>INTENDED SPLIT</h3><div class=\"code\">50/50 between creative A and B</div></div><div class=\"card\"><h3>PLATFORM OPTIMIZATION SETTING</h3><div class=\"code\"><span class=\"bad\">\"Automatically show better-performing ad\" enabled</span></div></div><div class=\"card\"><h3>DELIVERY DATA</h3><div class=\"code\">Creative A: <span class=\"bad\">89% of impressions within 48 hours</span></div></div></div>", "choices": ["Currency mismatch", "Creative A is definitively better", "A platform optimization setting overrode the intended even split before enough data existed", "Ad disapproval", "Frequency capping"], "answer": 2, "report": "ROOT CAUSE: An automatic optimization setting shifted delivery toward one creative before either had enough impressions for a reliable comparison.<br><br>IMPACT: A real head-to-head creative test never actually happens, and the 'winner' may just be whichever variant got an early lead.<br><br>FIX: Disable automatic optimization settings when running a deliberate creative test, and re-enable them only after a fair comparison period.", "cat": "Creative / Test Override"}, {"title": "#027 · The Undercounted Signal", "badge": "MEASUREMENT / CONSENT MODE", "story": "Reported ad-driven conversions drop noticeably after a consent update, even though checkout volume and revenue stay flat.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>CONSENT DEFAULT</h3><div class=\"code\">Ad measurement: <span class=\"bad\">denied by default in one region</span></div></div><div class=\"card\"><h3>ACTUAL PURCHASES</h3><div class=\"code\"><span class=\"ok\">Unchanged</span></div></div><div class=\"card\"><h3>AD PLATFORM CONVERSIONS</h3><div class=\"code\"><span class=\"bad\">Undercounted for consented-denied sessions</span></div></div><div class=\"card\"><h3>MODELING</h3><div class=\"code\">Conversion modeling to fill the gap: <span class=\"bad\">not enabled</span></div></div></div>", "choices": ["Ad performance genuinely declined", "Frequency capping", "Consent defaults block conversion signal without a modeling fallback", "Currency mismatch", "Ad disapproval"], "answer": 2, "report": "ROOT CAUSE: A consent default blocks ad conversion signal for a share of sessions, and no modeling fallback is enabled to estimate the gap.<br><br>IMPACT: Reported conversions understate real, ad-driven purchases even though revenue itself hasn't changed.<br><br>FIX: Enable available conversion modeling to account for consent-denied sessions and clearly separate consent impact from real performance change.", "cat": "Measurement / Consent Mode"}, {"title": "#028 · The Broken Grouping", "badge": "REPORTING / NAMING CONVENTION", "story": "An automated reporting dashboard that groups campaigns by category starts showing several active campaigns as \"uncategorized,\" breaking the summary view.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>NAMING CONVENTION</h3><div class=\"code\">Expected pattern: <span class=\"ok\">[category]_[campaign name]</span></div></div><div class=\"card\"><h3>NEW CAMPAIGNS</h3><div class=\"code\">Named: <span class=\"bad\">without the category prefix</span></div></div><div class=\"card\"><h3>DASHBOARD LOGIC</h3><div class=\"code\">Groups campaigns by\n<span class=\"bad\">parsing the name prefix</span></div></div><div class=\"card\"><h3>RESULT</h3><div class=\"code\">New campaigns: <span class=\"bad\">fall into an \"uncategorized\" bucket</span></div></div></div>", "choices": ["Currency mismatch", "Frequency capping", "Ad disapproval", "New campaigns weren't named according to the convention the dashboard depends on", "The dashboard is broken"], "answer": 3, "report": "ROOT CAUSE: The reporting dashboard groups campaigns by parsing a naming convention, and newer campaigns weren't created following that same pattern.<br><br>IMPACT: The automated summary silently loses visibility into active campaigns instead of erroring out.<br><br>FIX: Enforce the naming convention at campaign creation, or rebuild the dashboard's grouping logic on a more durable identifier.", "cat": "Reporting / Naming Convention"}, {"title": "#029 · The Returning Opt-Out", "badge": "AUDIENCES / EXCLUSION LIST EXPIRATION", "story": "A group of customers who explicitly opted out of retargeting months ago start seeing ads again, generating complaints.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>EXCLUSION LIST</h3><div class=\"code\">Uploaded: <span class=\"bad\">expired after 180 days per platform policy</span></div></div><div class=\"card\"><h3>LIST REFRESH</h3><div class=\"code\">Scheduled re-upload: <span class=\"bad\">not set up</span></div></div><div class=\"card\"><h3>AFFECTED USERS</h3><div class=\"code\">Previously opted-out customers\n<span class=\"bad\">re-included in the active audience</span></div></div></div>", "choices": ["The exclusion list expired and was never refreshed", "The opt-out request was never processed", "Frequency capping", "Ad disapproval", "Currency mismatch"], "answer": 0, "report": "ROOT CAUSE: The platform's exclusion list has an expiration policy, and no process exists to refresh it before that expiration.<br><br>IMPACT: Customers who deliberately opted out get re-included in ad audiences, creating a trust and compliance problem.<br><br>FIX: Automate regular re-upload of exclusion lists well before their expiration and treat opt-out handling as an ongoing process, not a one-time task.", "cat": "Audiences / Exclusion List Expiration"}, {"title": "#030 · The Noisy Target", "badge": "BIDDING / TARGET CALIBRATION", "story": "An automated bidding strategy set a cost-per-acquisition target based on a single unusually strong week, and performance has struggled to hit that target ever since.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>TARGET-SETTING PERIOD</h3><div class=\"code\"><span class=\"bad\">7 days, included a one-time promotional spike</span></div></div><div class=\"card\"><h3>RESULTING TARGET CPA</h3><div class=\"code\"><span class=\"bad\">Set well below sustainable normal levels</span></div></div><div class=\"card\"><h3>ONGOING PERFORMANCE</h3><div class=\"code\">Actual CPA: <span class=\"bad\">consistently above target</span>\nDelivery: <span class=\"bad\">throttled trying to hit an unrealistic goal</span></div></div></div>", "choices": ["Ad disapproval", "Frequency capping", "The campaign fundamentally isn't working", "The bidding target was set from an unrepresentative short window", "Currency mismatch"], "answer": 3, "report": "ROOT CAUSE: The automated bidding target was calibrated from a short window that happened to include an unusual promotional spike.<br><br>IMPACT: The resulting target is unrealistic for normal conditions, and the algorithm throttles delivery trying to hit it.<br><br>FIX: Set bidding targets from a longer, more representative performance window, and recalibrate after any known promotional anomaly.", "cat": "Bidding / Target Calibration"}, {"title": "#031 · The Throttled Delivery", "badge": "BUDGET / ACCOUNT-LEVEL CAPS", "story": "A campaign with an adequate campaign-level budget still underdelivers consistently, capped well below what its budget should allow.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>CAMPAIGN BUDGET</h3><div class=\"code\">$200/day</div></div><div class=\"card\"><h3>ACCOUNT-LEVEL CAP</h3><div class=\"code\"><span class=\"bad\">$150/day across all campaigns combined</span></div></div><div class=\"card\"><h3>OTHER ACTIVE CAMPAIGNS</h3><div class=\"code\"><span class=\"bad\">Consuming most of the shared account cap</span></div></div><div class=\"card\"><h3>DELIVERY</h3><div class=\"code\">This campaign: <span class=\"bad\">throttled below its own budget</span></div></div></div>", "choices": ["A shared account-level budget cap conflicts with individual campaign budgets", "The campaign's bids are too low", "Ad disapproval", "Frequency capping", "Currency mismatch"], "answer": 0, "report": "ROOT CAUSE: An account-level spending cap set below the sum of individual campaign budgets silently throttles delivery across all of them.<br><br>IMPACT: A campaign can look underfunded or underperforming when the real constraint is a conflicting cap elsewhere in the account.<br><br>FIX: Reconcile account-level caps with the sum of active campaign budgets, and check for this conflict before diagnosing individual campaign performance.", "cat": "Budget / Account-level Caps"}, {"title": "#032 · The Missing Alert", "badge": "ACCOUNT STRUCTURE / CROSS-ACCOUNT VISIBILITY", "story": "A campaign under a separate sub-account quietly overspends its monthly allocation by a wide margin before anyone in the main account notices.", "scene": "<div class=\"grid\"><div class=\"card\"><h3>SUB-ACCOUNT BUDGET</h3><div class=\"code\">Monthly allocation: $5,000</div></div><div class=\"card\"><h3>ACTUAL SPEND</h3><div class=\"code\"><span class=\"bad\">$8,400 by mid-month</span></div></div><div class=\"card\"><h3>MAIN ACCOUNT VISIBILITY</h3><div class=\"code\">Sub-account spend: <span class=\"bad\">not rolled up into shared reporting</span></div></div><div class=\"card\"><h3>ALERTING</h3><div class=\"code\">Budget threshold alerts: <span class=\"bad\">configured only at the sub-account level, unseen by main account managers</span></div></div></div>", "choices": ["Ad disapproval", "The monthly budget was set wrong", "Sub-account spend and alerts aren't visible from the main account", "Frequency capping", "Currency mismatch"], "answer": 2, "report": "ROOT CAUSE: Budget alerts and spend reporting are configured only within the sub-account, with no rollup or visibility to whoever manages the main account.<br><br>IMPACT: Overspending can run for weeks before anyone positioned to catch it actually sees it.<br><br>FIX: Set up cross-account reporting and alerting so spend anomalies in any sub-account surface to whoever holds overall budget responsibility.", "cat": "Account Structure / Cross-account Visibility"}];
-const PAGE_SIZE=5;
-const DIAG_PAGE='campaigns';
-function track(name,params){if(window.gtag)gtag('event',name,Object.assign({diagnostics_pillar:DIAG_PAGE},params||{}));}
+    <script>
+      const cases = [
+        {
+          title: "#001 · The Doubled Purchase Pixel",
+          badge: "MEASUREMENT / DUPLICATE CONVERSIONS",
+          story:
+            "A campaign's reported return on ad spend looks unbelievably strong, roughly twice what the order data in the commerce platform supports.",
+          scene:
+            '<div class="grid"><div class="card"><h3>BROWSER PIXEL</h3><div class="code">purchase event fires\non order confirmation page</div></div><div class="card"><h3>SERVER-SIDE API</h3><div class="code">purchase event also sent\n<span class="bad">for the same order, no deduplication key</span></div></div><div class="card"><h3>AD PLATFORM</h3><div class="code">Conversions counted: <span class="bad">2 per actual order</span></div></div></div>',
+          choices: [
+            "Attribution window issue",
+            "Ad disapproval",
+            "Currency mismatch",
+            "Browser and server-side conversion events aren't deduplicated",
+            "Sales genuinely doubled",
+          ],
+          answer: 3,
+          report:
+            "ROOT CAUSE: Both a browser pixel and a server-side conversion send the same purchase event without a shared deduplication identifier.<br><br>IMPACT: Reported return on ad spend looks roughly double what actually occurred, risking budget decisions based on inflated results.<br><br>FIX: Send a consistent event identifier on both paths so the ad platform can deduplicate the same conversion.",
+          cat: "Measurement / Duplicate Conversions",
+        },
+        {
+          title: "#002 · The Late Import",
+          badge: "ATTRIBUTION / OFFLINE CONVERSION LAG",
+          story:
+            "A campaign that closed leads over the phone shows almost no attributed conversions in the ad platform, despite a healthy sales pipeline.",
+          scene:
+            '<div class="grid"><div class="card"><h3>SALES CLOSE DATE</h3><div class="code">Lead closed: <span class="ok">14 days after ad click</span></div></div><div class="card"><h3>IMPORT WINDOW</h3><div class="code">Offline conversion import lookback: <span class="bad">7 days</span></div></div><div class="card"><h3>RESULT</h3><div class="code">Conversion: <span class="bad">outside the lookback window, never imported</span></div></div></div>',
+          choices: [
+            "Frequency capping",
+            "The offline conversion import window is shorter than the actual sales cycle",
+            "Ad disapproval",
+            "Currency mismatch",
+            "The campaign isn't working",
+          ],
+          answer: 1,
+          report:
+            "ROOT CAUSE: The offline conversion import's lookback window is shorter than how long it actually takes for a lead to close.<br><br>IMPACT: Real, attributable sales never get credited back to the campaign that generated them.<br><br>FIX: Extend the import lookback window to match the true average sales cycle length.",
+          cat: "Attribution / Offline Conversion Lag",
+        },
+        {
+          title: "#003 · The Self-Competing Campaigns",
+          badge: "TARGETING / AUDIENCE OVERLAP",
+          story:
+            "Two campaigns aimed at similar audiences show rising costs for both, with each one seemingly bidding against the other for the same people.",
+          scene:
+            '<div class="grid"><div class="card"><h3>CAMPAIGN A AUDIENCE</h3><div class="code">Interest-based, broad</div></div><div class="card"><h3>CAMPAIGN B AUDIENCE</h3><div class="code"><span class="bad">Overlaps heavily with Campaign A</span></div></div><div class="card"><h3>AUCTION DATA</h3><div class="code">Both campaigns\n<span class="bad">entering the same auctions</span></div></div><div class="card"><h3>COST TREND</h3><div class="code">CPC rising for both\n<span class="bad">without external market change</span></div></div></div>',
+          choices: [
+            "Currency mismatch",
+            "The market got more competitive",
+            "Budget pacing issue",
+            "Ad disapproval",
+            "Two campaigns with overlapping audiences are bidding against each other",
+          ],
+          answer: 4,
+          report:
+            "ROOT CAUSE: Two campaigns targeting overlapping audiences compete in the same auctions, driving up cost for both without added reach.<br><br>IMPACT: Budget is spent bidding against the brand's own campaigns rather than expanding audience or efficiency.<br><br>FIX: Review audience definitions across active campaigns and consolidate or exclude overlap where it doesn't serve a specific purpose.",
+          cat: "Targeting / Audience Overlap",
+        },
+        {
+          title: "#004 · The Diluted Match",
+          badge: "SEARCH / MATCH TYPE",
+          story:
+            "A tightly targeted search campaign starts showing for loosely related terms, and cost per acquisition climbs even as click volume grows.",
+          scene:
+            '<div class="grid"><div class="card"><h3>ORIGINAL KEYWORD SETTING</h3><div class="code">Match type: <span class="ok">exact match</span></div></div><div class="card"><h3>PLATFORM SUGGESTION</h3><div class="code">"Broad match expansion" <span class="bad">auto-applied</span></div></div><div class="card"><h3>SEARCH TERM REPORT</h3><div class="code">Impressions for\n<span class="bad">unrelated, loosely matched terms</span></div></div><div class="card"><h3>COST PER ACQUISITION</h3><div class="code"><span class="bad">up 40% over two weeks</span></div></div></div>',
+          choices: [
+            "An auto-applied match type expansion diluted keyword intent",
+            "Ad disapproval",
+            "Frequency capping",
+            "The product became less relevant",
+            "Currency mismatch",
+          ],
+          answer: 0,
+          report:
+            "ROOT CAUSE: An automatic match type expansion feature broadened targeting beyond the originally intended exact-match keywords.<br><br>IMPACT: Spend shifts toward less relevant searches, raising acquisition cost without improving results.<br><br>FIX: Review and opt out of automatic match expansion where tight intent matters, and monitor the search term report regularly.",
+          cat: "Search / Match Type",
+        },
+        {
+          title: "#005 · The Same Face",
+          badge: "DELIVERY / FREQUENCY CAPPING",
+          story:
+            "A retargeting campaign generates complaints from customers who say they see the exact same ad dozens of times a day.",
+          scene:
+            '<div class="grid"><div class="card"><h3>FREQUENCY CAP SETTING</h3><div class="code"><span class="bad">not configured (unlimited)</span></div></div><div class="card"><h3>IMPRESSION LOG (single user)</h3><div class="code">34 impressions\n<span class="bad">in one day</span></div></div><div class="card"><h3>CUSTOMER FEEDBACK</h3><div class="code">"I keep seeing this everywhere"</div></div><div class="card"><h3>CLICK-THROUGH RATE</h3><div class="code"><span class="bad">declining as impressions accumulate</span></div></div></div>',
+          choices: [
+            "The audience is too small",
+            "Currency mismatch",
+            "Budget pacing issue",
+            "No frequency cap is set, allowing unlimited repeat impressions",
+            "Ad disapproval",
+          ],
+          answer: 3,
+          report:
+            "ROOT CAUSE: The campaign has no frequency cap configured, so the same person can see the same ad an unlimited number of times per day.<br><br>IMPACT: Repeated exposure fatigues the audience, hurts brand perception, and wastes spend on diminishing returns.<br><br>FIX: Set a reasonable frequency cap per user per time period and monitor for fatigue in click-through trends.",
+          cat: "Delivery / Frequency Capping",
+        },
+        {
+          title: "#006 · The Mismatched Window",
+          badge: "ATTRIBUTION / WINDOW MISMATCH",
+          story:
+            "The ad platform reports significantly more conversions than the internal reporting system for the identical campaign and date range.",
+          scene:
+            '<div class="grid"><div class="card"><h3>AD PLATFORM SETTING</h3><div class="code">Attribution window: <span class="bad">30-day click, 7-day view</span></div></div><div class="card"><h3>INTERNAL REPORTING</h3><div class="code">Attribution window: <span class="bad">last-click, 7-day</span></div></div><div class="card"><h3>SAME CAMPAIGN</h3><div class="code">Platform-reported conversions: 420\nInternal system: <span class="bad">260</span></div></div></div>',
+          choices: [
+            "Currency mismatch",
+            "Frequency capping",
+            "The two systems use different attribution windows for the same data",
+            "Ad disapproval",
+            "One system is broken",
+          ],
+          answer: 2,
+          report:
+            "ROOT CAUSE: The ad platform and the internal reporting system count a conversion as attributable over different windows and view-versus-click rules.<br><br>IMPACT: The same underlying activity produces two different, both technically valid, conversion counts.<br><br>FIX: Document each system's attribution methodology and compare trend direction rather than treating either number as the single source of truth.",
+          cat: "Attribution / Window Mismatch",
+        },
+        {
+          title: "#007 · The Cannibalized Brand Term",
+          badge: "SEARCH / NEGATIVE KEYWORDS",
+          story:
+            "Spend on branded search terms rises steadily even though brand awareness campaigns haven't changed, and cost per branded click climbs unexpectedly.",
+          scene:
+            '<div class="grid"><div class="card"><h3>NEGATIVE KEYWORD LIST</h3><div class="code">Last synced: <span class="bad">3 months ago</span></div></div><div class="card"><h3>NEW CAMPAIGN LAUNCH</h3><div class="code">Generic campaign\n<span class="bad">not excluded from branded terms</span></div></div><div class="card"><h3>SEARCH TERM REPORT</h3><div class="code">Generic campaign showing for\n<span class="bad">the brand\'s own name</span></div></div></div>',
+          choices: [
+            "Currency mismatch",
+            "Competitors are bidding on the brand name",
+            "Ad disapproval",
+            "Frequency capping",
+            "A newer campaign isn't excluded from the brand's own negative keyword list",
+          ],
+          answer: 4,
+          report:
+            "ROOT CAUSE: A newly launched campaign was never added to the shared negative keyword list that prevents non-brand campaigns from competing on branded terms.<br><br>IMPACT: The business ends up bidding against itself for traffic that would likely have converted for free or at lower cost.<br><br>FIX: Maintain a shared negative keyword list across all campaigns and add new campaigns to it before launch.",
+          cat: "Search / Negative Keywords",
+        },
+        {
+          title: "#008 · The Stuck Rotation",
+          badge: "CREATIVE / ROTATION OPTIMIZATION",
+          story:
+            'A campaign with five creative variants has been showing the same underperforming ad almost exclusively for weeks, despite an "optimize for performance" setting.',
+          scene:
+            '<div class="grid"><div class="card"><h3>CREATIVE SET</h3><div class="code">5 variants uploaded</div></div><div class="card"><h3>DELIVERY DATA</h3><div class="code">Variant 3: <span class="bad">92% of impressions</span>\nOthers: barely served</div></div><div class="card"><h3>EARLY LEARNING PHASE</h3><div class="code">Variant 3 got early clicks\n<span class="bad">from a data anomaly before other variants had a fair test</span></div></div></div>',
+          choices: [
+            "Variant 3 is genuinely the best",
+            "Frequency capping",
+            "Currency mismatch",
+            "Budget pacing issue",
+            "An early data anomaly locked in a variant before others got a fair test",
+          ],
+          answer: 4,
+          report:
+            "ROOT CAUSE: The optimization algorithm locked onto an early leading variant before the others had enough delivery to be fairly evaluated.<br><br>IMPACT: Potentially stronger creative variants never get a real chance to prove themselves.<br><br>FIX: Force even rotation for a minimum learning period before allowing performance-based optimization to concentrate delivery.",
+          cat: "Creative / Rotation Optimization",
+        },
+        {
+          title: "#009 · The Midday Exhaustion",
+          badge: "BUDGET / PACING",
+          story:
+            "A campaign consistently runs out of budget by early afternoon, missing the evening hours when the audience is historically most likely to convert.",
+          scene:
+            '<div class="grid"><div class="card"><h3>DAILY BUDGET</h3><div class="code">$500</div></div><div class="card"><h3>PACING SETTING</h3><div class="code"><span class="bad">accelerated delivery</span></div></div><div class="card"><h3>SPEND TIMELINE</h3><div class="code">80% of budget spent by <span class="bad">1:00 PM</span></div></div><div class="card"><h3>CONVERSION HISTORY</h3><div class="code">Peak conversion hours: <span class="bad">7-10 PM (budget already exhausted)</span></div></div></div>',
+          choices: [
+            "Frequency capping",
+            "Ad disapproval",
+            "Currency mismatch",
+            "Accelerated pacing exhausts budget before the highest-converting hours",
+            "The budget is too small overall",
+          ],
+          answer: 3,
+          report:
+            "ROOT CAUSE: The campaign's pacing setting front-loads spend early in the day instead of distributing it toward known peak conversion hours.<br><br>IMPACT: Budget runs out before the audience is most likely to convert, capping performance well below potential.<br><br>FIX: Switch to standard or even pacing so budget is available through the hours that historically convert best.",
+          cat: "Budget / Pacing",
+        },
+        {
+          title: "#010 · The Overwritten Tag",
+          badge: "ATTRIBUTION / AUTO-TAGGING CONFLICT",
+          story:
+            "Campaign-level performance reporting shows healthy click volume, but the corresponding landing page analytics show almost no attributed sessions from that source.",
+          scene:
+            '<div class="grid"><div class="card"><h3>AD CLICK URL</h3><div class="code">/landing?utm_source=custom&utm_campaign=fall</div></div><div class="card"><h3>PLATFORM AUTO-TAGGING</h3><div class="code"><span class="bad">Enabled, appends its own click parameter</span></div></div><div class="card"><h3>LANDING PAGE RECEIVED URL</h3><div class="code"><span class="bad">Custom UTM parameters stripped/overwritten</span></div></div><div class="card"><h3>ANALYTICS ATTRIBUTION</h3><div class="code">Sessions: <span class="bad">misattributed as direct or unknown</span></div></div></div>',
+          choices: [
+            "Frequency capping",
+            "The campaign isn't driving clicks",
+            "Currency mismatch",
+            "The platform's auto-tagging overwrites the custom UTM parameters",
+            "Budget pacing issue",
+          ],
+          answer: 3,
+          report:
+            "ROOT CAUSE: The ad platform's own auto-tagging feature conflicts with and overwrites the manually set UTM parameters on the same link.<br><br>IMPACT: Landing page analytics can't correctly attribute sessions back to the campaign, even though clicks are genuinely happening.<br><br>FIX: Configure the platform's auto-tagging and custom UTM parameters to work together, or disable one in favor of a consistent single tagging approach.",
+          cat: "Attribution / Auto-tagging Conflict",
+        },
+        {
+          title: "#011 · The Stale Seed",
+          badge: "AUDIENCES / LOOKALIKE SEED DATA",
+          story:
+            "A lookalike audience built to find new customers similar to top buyers instead performs close to a cold, untargeted audience.",
+          scene:
+            '<div class="grid"><div class="card"><h3>SEED LIST</h3><div class="code">Uploaded: <span class="bad">14 months ago</span></div></div><div class="card"><h3>SEED LIST COMPOSITION</h3><div class="code"><span class="bad">Includes since-discontinued product buyers</span></div></div><div class="card"><h3>LOOKALIKE PERFORMANCE</h3><div class="code">Conversion rate: <span class="bad">near baseline, not meaningfully better than broad targeting</span></div></div></div>',
+          choices: [
+            "The seed list is outdated and no longer reflects current best customers",
+            "Lookalike audiences don't work for this business",
+            "Ad disapproval",
+            "Frequency capping",
+            "Currency mismatch",
+          ],
+          answer: 0,
+          report:
+            "ROOT CAUSE: The seed audience used to build the lookalike hasn't been refreshed and reflects outdated customer characteristics.<br><br>IMPACT: The resulting audience resembles customers who are no longer representative of current buyers, weakening its targeting value.<br><br>FIX: Refresh the seed list regularly from current best-customer data and rebuild the lookalike audience on that basis.",
+          cat: "Audiences / Lookalike Seed Data",
+        },
+        {
+          title: "#012 · The Overshoot",
+          badge: "TARGETING / GEOTARGETING UNITS",
+          story:
+            "A local campaign meant to target a single metro area is spending a large share of budget on clicks from hundreds of miles away.",
+          scene:
+            '<div class="grid"><div class="card"><h3>INTENDED TARGET</h3><div class="code">25 <span class="bad">(unit ambiguous)</span> radius around city center</div></div><div class="card"><h3>CONFIGURED VALUE</h3><div class="code">Radius set as: <span class="bad">25 (interpreted in a larger unit than intended)</span></div></div><div class="card"><h3>CLICK LOCATIONS</h3><div class="code">Meaningful share of clicks: <span class="bad">200+ miles from intended market</span></div></div></div>',
+          choices: [
+            "Ad disapproval",
+            "A radius targeting value was set in the wrong unit",
+            "Frequency capping",
+            "The campaign has bad creative",
+            "Currency mismatch",
+          ],
+          answer: 1,
+          report:
+            "ROOT CAUSE: The geotargeting radius was configured using the wrong distance unit, expanding the target area far beyond the intended market.<br><br>IMPACT: Budget is spent reaching people well outside any realistic service or delivery area.<br><br>FIX: Double-check unit settings when configuring radius targeting and verify the resulting target area on a map before launch.",
+          cat: "Targeting / Geotargeting Units",
+        },
+        {
+          title: "#013 · The Wrong Clock, Again",
+          badge: "SCHEDULING / DAYPARTING TIMEZONE",
+          story:
+            "A campaign scheduled to run only during business hours is instead showing ads and spending budget overnight.",
+          scene:
+            '<div class="grid"><div class="card"><h3>DAYPART SCHEDULE</h3><div class="code">9 AM - 6 PM</div></div><div class="card"><h3>ACCOUNT TIMEZONE SETTING</h3><div class="code"><span class="bad">UTC</span></div></div><div class="card"><h3>BUSINESS LOCAL TIMEZONE</h3><div class="code"><span class="bad">Eastern (5 hours offset)</span></div></div><div class="card"><h3>ACTUAL DELIVERY</h3><div class="code">Ads showing: <span class="bad">2 AM - 11 AM local time</span></div></div></div>',
+          choices: [
+            "Budget pacing issue",
+            "The schedule wasn't saved correctly",
+            "Frequency capping",
+            "Currency mismatch",
+            "The dayparting schedule uses a different timezone than the business operates in",
+          ],
+          answer: 4,
+          report:
+            "ROOT CAUSE: The campaign's dayparting schedule runs against the account's configured timezone, which doesn't match the business's actual local timezone.<br><br>IMPACT: Ads run during hours the business intended to avoid, missing the actual target window entirely.<br><br>FIX: Confirm the account timezone matches the business's operating timezone before setting any time-based schedule.",
+          cat: "Scheduling / Dayparting Timezone",
+        },
+        {
+          title: "#014 · The Merged Budget",
+          badge: "ACCOUNT STRUCTURE / BUDGET SHARING",
+          story:
+            "After combining several campaigns under one umbrella for easier management, one previously well-performing product line sees its budget consistently absorbed by a louder, lower-margin campaign.",
+          scene:
+            '<div class="grid"><div class="card"><h3>BEFORE MERGE</h3><div class="code">Product A campaign: dedicated budget</div></div><div class="card"><h3>AFTER MERGE</h3><div class="code">Shared budget pool\n<span class="bad">across multiple product campaigns</span></div></div><div class="card"><h3>BUDGET ALLOCATION</h3><div class="code">Product B (aggressive bidding): <span class="bad">consumes majority of shared pool</span></div></div><div class="card"><h3>PRODUCT A DELIVERY</h3><div class="code"><span class="bad">Underfunded despite historically strong performance</span></div></div></div>',
+          choices: [
+            "Currency mismatch",
+            "Frequency capping",
+            "Ad disapproval",
+            "Merging campaigns under a shared budget let one campaign absorb most of the spend",
+            "Product A lost demand",
+          ],
+          answer: 3,
+          report:
+            "ROOT CAUSE: Combining campaigns under a shared budget allows the most aggressive bidder to consume a disproportionate share of spend.<br><br>IMPACT: A strong-performing product line gets starved of budget it previously had dedicated to it.<br><br>FIX: Keep separate budgets for product lines with different margins or bidding behavior, even when campaigns are organized under one account structure.",
+          cat: "Account Structure / Budget Sharing",
+        },
+        {
+          title: "#015 · The Phantom Clicks",
+          badge: "TRAFFIC QUALITY / CLICK FRAUD",
+          story:
+            "Click volume on a display campaign spikes dramatically overnight with no corresponding increase in site engagement, leads, or sales.",
+          scene:
+            '<div class="grid"><div class="card"><h3>CLICK VOLUME</h3><div class="code">Up <span class="bad">380% overnight</span></div></div><div class="card"><h3>SESSION BEHAVIOR</h3><div class="code">Bounce rate: <span class="bad">98%</span>\nTime on site: near zero</div></div><div class="card"><h3>CLICK SOURCE PATTERN</h3><div class="code">High concentration from\n<span class="bad">a narrow set of IP ranges</span></div></div><div class="card"><h3>CONVERSION IMPACT</h3><div class="code"><span class="bad">Zero, despite click surge</span></div></div></div>',
+          choices: [
+            "Currency mismatch",
+            "Budget pacing issue",
+            "Interest genuinely spiked overnight",
+            "Ad disapproval",
+            "A pattern consistent with automated, fraudulent click activity",
+          ],
+          answer: 4,
+          report:
+            "ROOT CAUSE: Click volume shows patterns consistent with automated non-human activity rather than genuine audience interest.<br><br>IMPACT: Budget is consumed by clicks with no realistic chance of converting, while genuine performance metrics get distorted.<br><br>FIX: Report suspicious traffic patterns to the ad platform, apply available fraud filtering, and monitor for concentrated click sources.",
+          cat: "Traffic Quality / Click Fraud",
+        },
+        {
+          title: "#016 · The Broken Customization",
+          badge: "CREATIVE / DYNAMIC PARAMETERS",
+          story:
+            "A dynamic product ad campaign starts sending everyone to the same generic landing page instead of the specific product each ad features.",
+          scene:
+            '<div class="grid"><div class="card"><h3>AD TEMPLATE</h3><div class="code">Destination URL includes\n{product_id} placeholder</div></div><div class="card"><h3>LANDING PAGE HANDLER</h3><div class="code">Expected parameter: <span class="bad">product_id</span></div></div><div class="card"><h3>ACTUAL REQUEST</h3><div class="code">Parameter: <span class="bad">missing after a recent URL structure change</span></div></div><div class="card"><h3>RESULT</h3><div class="code">Every click lands on\n<span class="bad">the generic homepage</span></div></div></div>',
+          choices: [
+            "Ad disapproval",
+            "Currency mismatch",
+            "The ads are broken visually",
+            "A URL structure change dropped the dynamic product parameter",
+            "Frequency capping",
+          ],
+          answer: 3,
+          report:
+            "ROOT CAUSE: A change to the site's URL structure broke the dynamic parameter the ad platform relies on to send each click to its matching product.<br><br>IMPACT: Every dynamic ad sends its click to a generic page instead of the specific product it advertised, hurting relevance and conversion.<br><br>FIX: Update the dynamic ad template to match the current URL structure and test the full click path for a sample of products.",
+          cat: "Creative / Dynamic Parameters",
+        },
+        {
+          title: "#017 · The Double-Counted Customer",
+          badge: "ATTRIBUTION / CROSS-DEVICE",
+          story:
+            "Reported new customer counts from a campaign exceed the actual number of new accounts created in the same period.",
+          scene:
+            '<div class="grid"><div class="card"><h3>DEVICE A (mobile)</h3><div class="code">Click recorded, <span class="bad">no immediate conversion</span></div></div><div class="card"><h3>DEVICE B (desktop, same person)</h3><div class="code">Conversion recorded\n<span class="bad">later, same day</span></div></div><div class="card"><h3>CROSS-DEVICE MATCHING</h3><div class="code"><span class="bad">Not enabled between platforms</span></div></div><div class="card"><h3>REPORTED COUNT</h3><div class="code">Two conversions recorded\n<span class="bad">for one actual new customer</span></div></div></div>',
+          choices: [
+            "Currency mismatch",
+            "Cross-device attribution isn't linking the same person's two devices",
+            "Budget pacing issue",
+            "New account creation is broken",
+            "Frequency capping",
+          ],
+          answer: 1,
+          report:
+            "ROOT CAUSE: Without cross-device matching enabled, the same person's mobile click and desktop conversion are recorded as two separate people.<br><br>IMPACT: Reported new customer counts and cost per acquisition look better than they actually are.<br><br>FIX: Enable available cross-device matching where supported and treat cross-device attribution gaps as a known limitation in reporting.",
+          cat: "Attribution / Cross-device",
+        },
+        {
+          title: "#018 · The Wrong Goal",
+          badge: "BIDDING / OPTIMIZATION GOAL",
+          story:
+            "An automated bidding strategy successfully hits its target cost per action, but revenue from the campaign has been declining the whole time.",
+          scene:
+            '<div class="grid"><div class="card"><h3>OPTIMIZATION GOAL</h3><div class="code"><span class="bad">"add to cart" event</span></div></div><div class="card"><h3>ACTUAL BUSINESS GOAL</h3><div class="code">Completed, paid purchase</div></div><div class="card"><h3>BIDDING RESULT</h3><div class="code">Cost per add-to-cart: <span class="ok">on target</span></div></div><div class="card"><h3>DOWNSTREAM</h3><div class="code">Add-to-cart to purchase rate: <span class="bad">declining</span></div></div></div>',
+          choices: [
+            "Currency mismatch",
+            "The bidding strategy is broken",
+            "Ad disapproval",
+            "Frequency capping",
+            "Automated bidding is optimizing toward a low-value action instead of actual revenue",
+          ],
+          answer: 4,
+          report:
+            "ROOT CAUSE: The bidding strategy is set to optimize toward an early funnel action rather than the actual purchase it's meant to drive.<br><br>IMPACT: The campaign successfully hits its configured target while revenue quietly declines underneath it.<br><br>FIX: Optimize bidding toward the value-generating action itself, or a value-weighted event that reflects actual revenue outcomes.",
+          cat: "Bidding / Optimization Goal",
+        },
+        {
+          title: "#019 · The Currency Confusion",
+          badge: "REPORTING / CURRENCY MISMATCH",
+          story:
+            "A weekly performance dashboard shows return on ad spend numbers that don't reconcile with the ad platform's own reporting for the identical campaign.",
+          scene:
+            '<div class="grid"><div class="card"><h3>AD ACCOUNT SETTING</h3><div class="code">Currency: <span class="bad">GBP</span></div></div><div class="card"><h3>REPORTING DASHBOARD</h3><div class="code">Currency assumption: <span class="bad">USD, no conversion applied</span></div></div><div class="card"><h3>SAME SPEND FIGURE</h3><div class="code">Platform: £4,200\nDashboard displayed as: <span class="bad">$4,200</span></div></div></div>',
+          choices: [
+            "Frequency capping",
+            "Ad disapproval",
+            "The dashboard doesn't convert currency and displays the raw figure under the wrong symbol",
+            "Budget pacing issue",
+            "The ad account is set up wrong",
+          ],
+          answer: 2,
+          report:
+            "ROOT CAUSE: The reporting dashboard pulls the raw spend figure from an account billed in a different currency without applying any conversion.<br><br>IMPACT: Every derived metric, including return on ad spend, is calculated against the wrong currency basis.<br><br>FIX: Apply the correct currency conversion in the reporting pipeline and confirm the account's billing currency explicitly.",
+          cat: "Reporting / Currency Mismatch",
+        },
+        {
+          title: "#020 · The Quiet Disapproval",
+          badge: "DELIVERY / AD DISAPPROVAL ALERTS",
+          story:
+            "A campaign's delivery drops to near zero mid-flight, and nobody notices for several days because the account still shows as active.",
+          scene:
+            '<div class="grid"><div class="card"><h3>AD STATUS</h3><div class="code"><span class="bad">Disapproved (policy review)</span></div></div><div class="card"><h3>ACCOUNT STATUS</h3><div class="code">Campaign: <span class="ok">still shows "active"</span></div></div><div class="card"><h3>NOTIFICATION SETTING</h3><div class="code">Disapproval alerts: <span class="bad">not routed to anyone actively monitoring</span></div></div><div class="card"><h3>DELIVERY</h3><div class="code">Impressions: <span class="bad">near zero for 6 days</span></div></div></div>',
+          choices: [
+            "An ad was disapproved and the notification never reached anyone monitoring the account",
+            "Frequency capping",
+            "Budget pacing issue",
+            "Currency mismatch",
+            "Interest in the campaign dropped",
+          ],
+          answer: 0,
+          report:
+            "ROOT CAUSE: The ad was disapproved during a policy review, and the resulting notification wasn't routed to anyone actively watching the account.<br><br>IMPACT: A campaign silently stops delivering while the dashboard still shows it as running, wasting the flight window.<br><br>FIX: Route disapproval and policy notifications to an actively monitored channel and check delivery status against spend regularly.",
+          cat: "Delivery / Ad Disapproval Alerts",
+        },
+        {
+          title: "#021 · The Wasted Reach",
+          badge: "AUDIENCES / RETARGETING EXCLUSIONS",
+          story:
+            "A retargeting campaign continues showing ads to people well after they've already completed a purchase, driving up frequency and cost with no upside.",
+          scene:
+            '<div class="grid"><div class="card"><h3>RETARGETING POOL</h3><div class="code">Website visitors, <span class="bad">last 30 days, no purchase exclusion</span></div></div><div class="card"><h3>CONVERTED CUSTOMERS</h3><div class="code"><span class="bad">Still included in the retargeting audience</span></div></div><div class="card"><h3>AD SPEND</h3><div class="code">Meaningful share directed at\n<span class="bad">people who already bought</span></div></div></div>',
+          choices: [
+            "Currency mismatch",
+            "Ad disapproval",
+            "Converted customers were never excluded from the retargeting audience",
+            "Repeat purchases are the goal",
+            "Frequency capping",
+          ],
+          answer: 2,
+          report:
+            "ROOT CAUSE: The retargeting audience definition doesn't exclude people who have already completed a purchase.<br><br>IMPACT: Budget continues chasing customers who've already converted instead of reaching people still deciding.<br><br>FIX: Add a purchase-exclusion rule to the retargeting audience, refreshed on the same cadence as the retargeting window itself.",
+          cat: "Audiences / Retargeting Exclusions",
+        },
+        {
+          title: "#022 · The Ghost Product",
+          badge: "FEEDS / SYNC RELIABILITY",
+          story:
+            "Shopping ads continue to promote a product line that was fully discontinued weeks earlier, generating clicks that lead to a dead product page.",
+          scene:
+            '<div class="grid"><div class="card"><h3>PRODUCT CATALOG</h3><div class="code">SKU-1188: <span class="bad">marked discontinued 3 weeks ago</span></div></div><div class="card"><h3>AD PLATFORM FEED</h3><div class="code">Last sync: <span class="bad">6 weeks ago (sync job failing)</span></div></div><div class="card"><h3>AD DELIVERY</h3><div class="code">Discontinued product\n<span class="bad">still actively shown and clicked</span></div></div></div>',
+          choices: [
+            "Frequency capping",
+            "The product page has a bug",
+            "Currency mismatch",
+            "The product feed sync to the ad platform has been failing",
+            "Budget pacing issue",
+          ],
+          answer: 3,
+          report:
+            "ROOT CAUSE: The scheduled sync between the product catalog and the ad platform's feed has been failing without anyone noticing.<br><br>IMPACT: Discontinued products keep generating paid clicks that land on a dead end, wasting spend and hurting experience.<br><br>FIX: Add monitoring and alerting to the feed sync job, and manually verify feed freshness on a regular schedule.",
+          cat: "Feeds / Sync Reliability",
+        },
+        {
+          title: "#023 · The Organic Illusion",
+          badge: "MEASUREMENT / INCREMENTALITY",
+          story:
+            "A channel that reports a strong volume of conversions shows almost no measurable drop in total conversions when its budget is paused entirely for a test period.",
+          scene:
+            '<div class="grid"><div class="card"><h3>CHANNEL REPORTED CONVERSIONS</h3><div class="code">800/month</div></div><div class="card"><h3>BUDGET PAUSE TEST</h3><div class="code">Channel spend: <span class="bad">$0 for 2 weeks</span></div></div><div class="card"><h3>TOTAL SITE CONVERSIONS</h3><div class="code"><span class="bad">Nearly unchanged during the pause</span></div></div><div class="card"><h3>INCREMENTALITY ESTIMATE</h3><div class="code">True incremental lift: <span class="bad">far below reported conversions</span></div></div></div>',
+          choices: [
+            "Currency mismatch",
+            "Frequency capping",
+            "Most of the channel's reported conversions would have happened anyway",
+            "Ad disapproval",
+            "The test period was unusual",
+          ],
+          answer: 2,
+          report:
+            "ROOT CAUSE: A large share of the channel's reported conversions come from people who were already going to convert regardless of that channel's involvement.<br><br>IMPACT: Budget allocated based on reported conversions overstates the channel's actual contribution.<br><br>FIX: Run periodic incrementality tests by pausing spend and comparing total outcomes, rather than relying solely on last-touch reported conversions.",
+          cat: "Measurement / Incrementality",
+        },
+        {
+          title: "#024 · The Shifted Credit",
+          badge: "ATTRIBUTION / MODEL CHANGE",
+          story:
+            "Following an unannounced change to how credit is assigned across marketing touchpoints, one channel's reported performance drops sharply while another's rises, with no change in actual campaign activity.",
+          scene:
+            '<div class="grid"><div class="card"><h3>PREVIOUS MODEL</h3><div class="code"><span class="ok">Last-click</span></div></div><div class="card"><h3>NEW MODEL</h3><div class="code"><span class="bad">Data-driven, applied retroactively</span></div></div><div class="card"><h3>CHANNEL A (top-of-funnel)</h3><div class="code">Reported conversions: <span class="bad">down 35%</span></div></div><div class="card"><h3>CHANNEL B (bottom-of-funnel)</h3><div class="code">Reported conversions: <span class="bad">up 30%</span></div></div></div>',
+          choices: [
+            "Channel A's campaigns got worse",
+            "Ad disapproval",
+            "Currency mismatch",
+            "Frequency capping",
+            "An attribution model change redistributed credit without any real performance change",
+          ],
+          answer: 4,
+          report:
+            "ROOT CAUSE: A change in how the reporting system assigns credit across touchpoints shifts how conversions get distributed, independent of any real change in campaign performance.<br><br>IMPACT: Comparing performance before and after the model change makes healthy channels look like they declined.<br><br>FIX: Note the date of any attribution model change clearly in reporting and avoid comparing pre- and post-change numbers directly.",
+          cat: "Attribution / Model Change",
+        },
+        {
+          title: "#025 · The Wrong Period",
+          badge: "REPORTING / FISCAL PERIOD MISMATCH",
+          story:
+            "A quarterly performance review shows an unusually high cost per acquisition, but the underlying campaigns performed normally throughout the period in question.",
+          scene:
+            '<div class="grid"><div class="card"><h3>AD SPEND RECORDED</h3><div class="code">Billed and recorded in: <span class="bad">Q1 (calendar)</span></div></div><div class="card"><h3>RESULTING CONVERSIONS</h3><div class="code">Delayed sales cycle\n<span class="bad">landed in Q2 (fiscal)</span></div></div><div class="card"><h3>QUARTERLY REPORT</h3><div class="code">Q1 cost: high\nQ1 conversions attributed: <span class="bad">artificially low</span></div></div></div>',
+          choices: [
+            "Currency mismatch",
+            "The campaigns underperformed",
+            "Spend and the conversions it generated fall in different reporting periods",
+            "Ad disapproval",
+            "Frequency capping",
+          ],
+          answer: 2,
+          report:
+            "ROOT CAUSE: A delayed sales cycle means the spend and the resulting conversions land in two different fiscal reporting periods.<br><br>IMPACT: Any single period's cost-per-acquisition figure can look artificially high or low depending on where the cycle happens to fall.<br><br>FIX: Evaluate campaign efficiency over a window that matches the actual sales cycle length rather than a fixed calendar period.",
+          cat: "Reporting / Fiscal Period Mismatch",
+        },
+        {
+          title: "#026 · The Skewed Split",
+          badge: "CREATIVE / TEST OVERRIDE",
+          story:
+            "A planned even split between two ad creatives ends up delivering one variant to the vast majority of the audience almost immediately.",
+          scene:
+            '<div class="grid"><div class="card"><h3>INTENDED SPLIT</h3><div class="code">50/50 between creative A and B</div></div><div class="card"><h3>PLATFORM OPTIMIZATION SETTING</h3><div class="code"><span class="bad">"Automatically show better-performing ad" enabled</span></div></div><div class="card"><h3>DELIVERY DATA</h3><div class="code">Creative A: <span class="bad">89% of impressions within 48 hours</span></div></div></div>',
+          choices: [
+            "Currency mismatch",
+            "Creative A is definitively better",
+            "A platform optimization setting overrode the intended even split before enough data existed",
+            "Ad disapproval",
+            "Frequency capping",
+          ],
+          answer: 2,
+          report:
+            "ROOT CAUSE: An automatic optimization setting shifted delivery toward one creative before either had enough impressions for a reliable comparison.<br><br>IMPACT: A real head-to-head creative test never actually happens, and the 'winner' may just be whichever variant got an early lead.<br><br>FIX: Disable automatic optimization settings when running a deliberate creative test, and re-enable them only after a fair comparison period.",
+          cat: "Creative / Test Override",
+        },
+        {
+          title: "#027 · The Undercounted Signal",
+          badge: "MEASUREMENT / CONSENT MODE",
+          story:
+            "Reported ad-driven conversions drop noticeably after a consent update, even though checkout volume and revenue stay flat.",
+          scene:
+            '<div class="grid"><div class="card"><h3>CONSENT DEFAULT</h3><div class="code">Ad measurement: <span class="bad">denied by default in one region</span></div></div><div class="card"><h3>ACTUAL PURCHASES</h3><div class="code"><span class="ok">Unchanged</span></div></div><div class="card"><h3>AD PLATFORM CONVERSIONS</h3><div class="code"><span class="bad">Undercounted for consented-denied sessions</span></div></div><div class="card"><h3>MODELING</h3><div class="code">Conversion modeling to fill the gap: <span class="bad">not enabled</span></div></div></div>',
+          choices: [
+            "Ad performance genuinely declined",
+            "Frequency capping",
+            "Consent defaults block conversion signal without a modeling fallback",
+            "Currency mismatch",
+            "Ad disapproval",
+          ],
+          answer: 2,
+          report:
+            "ROOT CAUSE: A consent default blocks ad conversion signal for a share of sessions, and no modeling fallback is enabled to estimate the gap.<br><br>IMPACT: Reported conversions understate real, ad-driven purchases even though revenue itself hasn't changed.<br><br>FIX: Enable available conversion modeling to account for consent-denied sessions and clearly separate consent impact from real performance change.",
+          cat: "Measurement / Consent Mode",
+        },
+        {
+          title: "#028 · The Broken Grouping",
+          badge: "REPORTING / NAMING CONVENTION",
+          story:
+            'An automated reporting dashboard that groups campaigns by category starts showing several active campaigns as "uncategorized," breaking the summary view.',
+          scene:
+            '<div class="grid"><div class="card"><h3>NAMING CONVENTION</h3><div class="code">Expected pattern: <span class="ok">[category]_[campaign name]</span></div></div><div class="card"><h3>NEW CAMPAIGNS</h3><div class="code">Named: <span class="bad">without the category prefix</span></div></div><div class="card"><h3>DASHBOARD LOGIC</h3><div class="code">Groups campaigns by\n<span class="bad">parsing the name prefix</span></div></div><div class="card"><h3>RESULT</h3><div class="code">New campaigns: <span class="bad">fall into an "uncategorized" bucket</span></div></div></div>',
+          choices: [
+            "Currency mismatch",
+            "Frequency capping",
+            "Ad disapproval",
+            "New campaigns weren't named according to the convention the dashboard depends on",
+            "The dashboard is broken",
+          ],
+          answer: 3,
+          report:
+            "ROOT CAUSE: The reporting dashboard groups campaigns by parsing a naming convention, and newer campaigns weren't created following that same pattern.<br><br>IMPACT: The automated summary silently loses visibility into active campaigns instead of erroring out.<br><br>FIX: Enforce the naming convention at campaign creation, or rebuild the dashboard's grouping logic on a more durable identifier.",
+          cat: "Reporting / Naming Convention",
+        },
+        {
+          title: "#029 · The Returning Opt-Out",
+          badge: "AUDIENCES / EXCLUSION LIST EXPIRATION",
+          story:
+            "A group of customers who explicitly opted out of retargeting months ago start seeing ads again, generating complaints.",
+          scene:
+            '<div class="grid"><div class="card"><h3>EXCLUSION LIST</h3><div class="code">Uploaded: <span class="bad">expired after 180 days per platform policy</span></div></div><div class="card"><h3>LIST REFRESH</h3><div class="code">Scheduled re-upload: <span class="bad">not set up</span></div></div><div class="card"><h3>AFFECTED USERS</h3><div class="code">Previously opted-out customers\n<span class="bad">re-included in the active audience</span></div></div></div>',
+          choices: [
+            "The exclusion list expired and was never refreshed",
+            "The opt-out request was never processed",
+            "Frequency capping",
+            "Ad disapproval",
+            "Currency mismatch",
+          ],
+          answer: 0,
+          report:
+            "ROOT CAUSE: The platform's exclusion list has an expiration policy, and no process exists to refresh it before that expiration.<br><br>IMPACT: Customers who deliberately opted out get re-included in ad audiences, creating a trust and compliance problem.<br><br>FIX: Automate regular re-upload of exclusion lists well before their expiration and treat opt-out handling as an ongoing process, not a one-time task.",
+          cat: "Audiences / Exclusion List Expiration",
+        },
+        {
+          title: "#030 · The Noisy Target",
+          badge: "BIDDING / TARGET CALIBRATION",
+          story:
+            "An automated bidding strategy set a cost-per-acquisition target based on a single unusually strong week, and performance has struggled to hit that target ever since.",
+          scene:
+            '<div class="grid"><div class="card"><h3>TARGET-SETTING PERIOD</h3><div class="code"><span class="bad">7 days, included a one-time promotional spike</span></div></div><div class="card"><h3>RESULTING TARGET CPA</h3><div class="code"><span class="bad">Set well below sustainable normal levels</span></div></div><div class="card"><h3>ONGOING PERFORMANCE</h3><div class="code">Actual CPA: <span class="bad">consistently above target</span>\nDelivery: <span class="bad">throttled trying to hit an unrealistic goal</span></div></div></div>',
+          choices: [
+            "Ad disapproval",
+            "Frequency capping",
+            "The campaign fundamentally isn't working",
+            "The bidding target was set from an unrepresentative short window",
+            "Currency mismatch",
+          ],
+          answer: 3,
+          report:
+            "ROOT CAUSE: The automated bidding target was calibrated from a short window that happened to include an unusual promotional spike.<br><br>IMPACT: The resulting target is unrealistic for normal conditions, and the algorithm throttles delivery trying to hit it.<br><br>FIX: Set bidding targets from a longer, more representative performance window, and recalibrate after any known promotional anomaly.",
+          cat: "Bidding / Target Calibration",
+        },
+        {
+          title: "#031 · The Throttled Delivery",
+          badge: "BUDGET / ACCOUNT-LEVEL CAPS",
+          story:
+            "A campaign with an adequate campaign-level budget still underdelivers consistently, capped well below what its budget should allow.",
+          scene:
+            '<div class="grid"><div class="card"><h3>CAMPAIGN BUDGET</h3><div class="code">$200/day</div></div><div class="card"><h3>ACCOUNT-LEVEL CAP</h3><div class="code"><span class="bad">$150/day across all campaigns combined</span></div></div><div class="card"><h3>OTHER ACTIVE CAMPAIGNS</h3><div class="code"><span class="bad">Consuming most of the shared account cap</span></div></div><div class="card"><h3>DELIVERY</h3><div class="code">This campaign: <span class="bad">throttled below its own budget</span></div></div></div>',
+          choices: [
+            "A shared account-level budget cap conflicts with individual campaign budgets",
+            "The campaign's bids are too low",
+            "Ad disapproval",
+            "Frequency capping",
+            "Currency mismatch",
+          ],
+          answer: 0,
+          report:
+            "ROOT CAUSE: An account-level spending cap set below the sum of individual campaign budgets silently throttles delivery across all of them.<br><br>IMPACT: A campaign can look underfunded or underperforming when the real constraint is a conflicting cap elsewhere in the account.<br><br>FIX: Reconcile account-level caps with the sum of active campaign budgets, and check for this conflict before diagnosing individual campaign performance.",
+          cat: "Budget / Account-level Caps",
+        },
+        {
+          title: "#032 · The Missing Alert",
+          badge: "ACCOUNT STRUCTURE / CROSS-ACCOUNT VISIBILITY",
+          story:
+            "A campaign under a separate sub-account quietly overspends its monthly allocation by a wide margin before anyone in the main account notices.",
+          scene:
+            '<div class="grid"><div class="card"><h3>SUB-ACCOUNT BUDGET</h3><div class="code">Monthly allocation: $5,000</div></div><div class="card"><h3>ACTUAL SPEND</h3><div class="code"><span class="bad">$8,400 by mid-month</span></div></div><div class="card"><h3>MAIN ACCOUNT VISIBILITY</h3><div class="code">Sub-account spend: <span class="bad">not rolled up into shared reporting</span></div></div><div class="card"><h3>ALERTING</h3><div class="code">Budget threshold alerts: <span class="bad">configured only at the sub-account level, unseen by main account managers</span></div></div></div>',
+          choices: [
+            "Ad disapproval",
+            "The monthly budget was set wrong",
+            "Sub-account spend and alerts aren't visible from the main account",
+            "Frequency capping",
+            "Currency mismatch",
+          ],
+          answer: 2,
+          report:
+            "ROOT CAUSE: Budget alerts and spend reporting are configured only within the sub-account, with no rollup or visibility to whoever manages the main account.<br><br>IMPACT: Overspending can run for weeks before anyone positioned to catch it actually sees it.<br><br>FIX: Set up cross-account reporting and alerting so spend anomalies in any sub-account surface to whoever holds overall budget responsibility.",
+          cat: "Account Structure / Cross-account Visibility",
+        },
+      ];
+      const PAGE_SIZE = 5;
+      const DIAG_PAGE = "campaigns";
+      function track(name, params) {
+        if (window.gtag)
+          gtag(
+            "event",
+            name,
+            Object.assign({ diagnostics_pillar: DIAG_PAGE }, params || {}),
+          );
+      }
 
-let current=0, solved=new Set(), score=0, sidebarPage=0;
+      let current = 0,
+        solved = new Set(),
+        score = 0,
+        sidebarPage = 0;
 
-function renderSidebar(){
- const start=sidebarPage*PAGE_SIZE;
- const end=Math.min(start+PAGE_SIZE, cases.length);
- let html='';
- for(let idx=start; idx<end; idx++){
-   const c=cases[idx];
-   let cls='casebtn';
-   if(idx===current)cls+=' active';
-   if(solved.has(idx))cls+=' done';
-   html+=`<button class="${cls}" onclick="loadCase(${idx})"><b>${c.title}</b><small>${c.cat}</small></button>`;
- }
- document.getElementById('sidebarList').innerHTML=html;
- document.getElementById('pageIndicator').textContent=(start+1)+'-'+end+' of '+cases.length;
- document.getElementById('prevPageBtn').disabled=(sidebarPage===0);
- document.getElementById('nextPageBtn').disabled=(end>=cases.length);
-}
-function prevPage(){
- if(sidebarPage>0){sidebarPage--;renderSidebar();}
-}
-function nextPage(){
- if((sidebarPage+1)*PAGE_SIZE<cases.length){sidebarPage++;renderSidebar();}
-}
-function loadCase(i){
- current=i;
- sidebarPage=Math.floor(i/PAGE_SIZE);
- renderSidebar();
- const c=cases[i];
- document.getElementById('title').textContent=c.title;
- document.getElementById('badge').textContent=c.badge;
- document.getElementById('scene').innerHTML=c.scene;
- document.getElementById('choices').innerHTML=c.choices.map((x,n)=>`<button class="choice" onclick="answer(${n},this)">${x}</button>`).join('');
- document.getElementById('hint').textContent=c.hint||'Follow the evidence across the panels. Look for a mismatch between what should happen and what actually happens.';
- document.getElementById('report').className='report';
- document.getElementById('report').innerHTML='';
- document.getElementById('next').className='choice next';
- document.getElementById('badge').style.color=solved.has(i)?'var(--green)':'var(--muted)';
- document.getElementById('badge').textContent=solved.has(i)?'SOLVED':c.badge;
- track('diagnostics_case_view',{case_id:c.title,case_category:c.cat});
-}
-function answer(n,btn){
- const c=cases[current];
- if(n===c.answer){
-   btn.classList.add('correct');
-   document.querySelectorAll('.choice').forEach(x=>x.disabled=true);
-   if(!solved.has(current)){
-     solved.add(current);score+=100;updateStats();
-     track('diagnostics_case_solved',{case_id:c.title,case_category:c.cat,score:score});
-     if(solved.size===cases.length){track('diagnostics_quiz_completed',{score:score});}
-   }
-   document.getElementById('badge').textContent='SOLVED';
-   document.getElementById('badge').style.color='var(--green)';
-   document.getElementById('report').innerHTML='<b>CASE CLOSED.</b><br><br>'+c.report;
-   document.getElementById('report').classList.add('show');
-   document.getElementById('next').classList.add('show');
- }else{
-   btn.classList.add('wrong');
-   score=Math.max(0,score-10);updateStats();
-   track('diagnostics_case_incorrect',{case_id:c.title,case_category:c.cat});
-   setTimeout(()=>btn.classList.remove('wrong'),700);
- }
-}
-function nextCase(){
- let n=(current+1)%cases.length;
- loadCase(n);
- document.querySelector('.main').scrollIntoView({behavior:'smooth',block:'start'});
-}
-function updateStats(){
- document.getElementById('solved').textContent=solved.size;
- document.getElementById('score').textContent=score;
- const rank=score>=2400?'CHIEF':score>=1600?'LEAD':score>=800?'ANALYST':score>=300?'DETECTIVE':'ROOKIE';
- document.getElementById('rank').textContent=rank;
- document.getElementById('globalStatus').textContent=solved.size+' / 32 CASES';
- renderSidebar();
-}
-loadCase(0);
-</script>
-</body>
+      function renderSidebar() {
+        const start = sidebarPage * PAGE_SIZE;
+        const end = Math.min(start + PAGE_SIZE, cases.length);
+        let html = "";
+        for (let idx = start; idx < end; idx++) {
+          const c = cases[idx];
+          let cls = "casebtn";
+          if (idx === current) cls += " active";
+          if (solved.has(idx)) cls += " done";
+          html += `<button class="${cls}" onclick="loadCase(${idx})"><b>${c.title}</b><small>${c.cat}</small></button>`;
+        }
+        document.getElementById("sidebarList").innerHTML = html;
+        document.getElementById("pageIndicator").textContent =
+          start + 1 + "-" + end + " of " + cases.length;
+        document.getElementById("prevPageBtn").disabled = sidebarPage === 0;
+        document.getElementById("nextPageBtn").disabled = end >= cases.length;
+      }
+      function prevPage() {
+        if (sidebarPage > 0) {
+          sidebarPage--;
+          renderSidebar();
+        }
+      }
+      function nextPage() {
+        if ((sidebarPage + 1) * PAGE_SIZE < cases.length) {
+          sidebarPage++;
+          renderSidebar();
+        }
+      }
+      function loadCase(i) {
+        current = i;
+        sidebarPage = Math.floor(i / PAGE_SIZE);
+        renderSidebar();
+        const c = cases[i];
+        document.getElementById("title").textContent = c.title;
+        document.getElementById("badge").textContent = c.badge;
+        document.getElementById("scene").innerHTML = c.scene;
+        document.getElementById("choices").innerHTML = c.choices
+          .map(
+            (x, n) =>
+              `<button class="choice" onclick="answer(${n},this)">${x}</button>`,
+          )
+          .join("");
+        document.getElementById("hint").textContent =
+          c.hint ||
+          "Follow the evidence across the panels. Look for a mismatch between what should happen and what actually happens.";
+        document.getElementById("report").className = "report";
+        document.getElementById("report").innerHTML = "";
+        document.getElementById("next").className = "choice next";
+        document.getElementById("badge").style.color = solved.has(i)
+          ? "var(--green)"
+          : "var(--muted)";
+        document.getElementById("badge").textContent = solved.has(i)
+          ? "SOLVED"
+          : c.badge;
+        track("diagnostics_case_view", {
+          case_id: c.title,
+          case_category: c.cat,
+        });
+      }
+      function answer(n, btn) {
+        const c = cases[current];
+        if (n === c.answer) {
+          btn.classList.add("correct");
+          document
+            .querySelectorAll(".choice")
+            .forEach((x) => (x.disabled = true));
+          if (!solved.has(current)) {
+            solved.add(current);
+            score += 100;
+            updateStats();
+            track("diagnostics_case_solved", {
+              case_id: c.title,
+              case_category: c.cat,
+              score: score,
+            });
+            if (solved.size === cases.length) {
+              track("diagnostics_quiz_completed", { score: score });
+            }
+          }
+          document.getElementById("badge").textContent = "SOLVED";
+          document.getElementById("badge").style.color = "var(--green)";
+          document.getElementById("report").innerHTML =
+            "<b>CASE CLOSED.</b><br><br>" + c.report;
+          document.getElementById("report").classList.add("show");
+          document.getElementById("next").classList.add("show");
+        } else {
+          btn.classList.add("wrong");
+          score = Math.max(0, score - 10);
+          updateStats();
+          track("diagnostics_case_incorrect", {
+            case_id: c.title,
+            case_category: c.cat,
+          });
+          setTimeout(() => btn.classList.remove("wrong"), 700);
+        }
+      }
+      function nextCase() {
+        let n = (current + 1) % cases.length;
+        loadCase(n);
+        document
+          .querySelector(".main")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      function updateStats() {
+        document.getElementById("solved").textContent = solved.size;
+        document.getElementById("score").textContent = score;
+        const rank =
+          score >= 2400
+            ? "CHIEF"
+            : score >= 1600
+              ? "LEAD"
+              : score >= 800
+                ? "ANALYST"
+                : score >= 300
+                  ? "DETECTIVE"
+                  : "ROOKIE";
+        document.getElementById("rank").textContent = rank;
+        document.getElementById("globalStatus").textContent =
+          solved.size + " / 32 CASES";
+        renderSidebar();
+      }
+      loadCase(0);
+    </script>
+  </body>
 </html>
