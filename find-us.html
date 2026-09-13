@@ -197,13 +197,22 @@
 
       .cred-mark {
         flex-shrink: 0;
-        width: 72px;
-        height: 72px;
+        width: 110px;
+        height: 110px;
         border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
+      }
+
+      .cred-mark a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        border-bottom: none;
       }
 
       .cred-mark img {
@@ -213,15 +222,15 @@
       }
 
       .cred-mark .icon {
-        font-size: 1.9rem;
+        font-size: 3rem;
         color: var(--cred-accent, #1e3a5f);
       }
 
       .cred-mark.cred-mark-wordmark {
         width: auto;
-        min-width: 120px;
-        height: 56px;
-        padding: 0 0.75rem;
+        min-width: 160px;
+        height: 110px;
+        padding: 0 1rem;
         background: transparent;
       }
 
@@ -322,6 +331,17 @@
           margin-left: 0 !important;
           margin-right: 0 !important;
           transform: none !important;
+        }
+
+        .cred-mark {
+          width: 72px;
+          height: 72px;
+        }
+
+        .cred-mark.cred-mark-wordmark {
+          width: auto;
+          min-width: 120px;
+          height: 56px;
         }
       }
 
@@ -426,13 +446,18 @@
                   --cred-tint: rgba(0, 48, 87, 0.06);
                 ">
                 <div class="cred-mark cred-mark-wordmark">
-                  <img
-                    src="https://seal-heartofillinois.bbb.org/seals/blue-seal-120-61-bbb-1000039342.png"
-                    width="137"
-                    height="70"
-                    alt="Better Business Bureau Accredited Business seal linking to the verified Scott Labz BBB profile and customer reviews"
-                    title="Better Business Bureau Accredited Business seal linking to the verified Scott Labz BBB profile and customer reviews"
-                    loading="lazy" />
+                  <a
+                    href="https://www.bbb.org/us/il/normal/profile/data-analytics/scott-labz-0724-1000039342"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <img
+                      src="https://seal-heartofillinois.bbb.org/seals/blue-seal-120-61-bbb-1000039342.png"
+                      width="137"
+                      height="70"
+                      alt="Better Business Bureau Accredited Business seal linking to the verified Scott Labz BBB profile and customer reviews"
+                      title="Better Business Bureau Accredited Business seal linking to the verified Scott Labz BBB profile and customer reviews"
+                      loading="lazy" />
+                  </a>
                 </div>
                 <div class="cred-body">
                   <span class="cred-kicker">Accreditation</span>
@@ -458,13 +483,18 @@
                   --cred-tint: rgba(66, 133, 244, 0.06);
                 ">
                 <div class="cred-mark cred-mark-wordmark">
-                  <img
-                    src="images/google.png"
-                    width="215"
-                    height="219"
-                    alt="Google logo representing the Scott Labz Google Business Profile listing with customer reviews and search visibility"
-                    title="Google logo representing the Scott Labz Google Business Profile listing with customer reviews and search visibility"
-                    loading="lazy" />
+                  <a
+                    href="https://share.google/t2HAQFr5JcJnzOxPN"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <img
+                      src="images/google.png"
+                      width="215"
+                      height="219"
+                      alt="Google logo representing the Scott Labz Google Business Profile listing with customer reviews and search visibility"
+                      title="Google logo representing the Scott Labz Google Business Profile listing with customer reviews and search visibility"
+                      loading="lazy" />
+                  </a>
                 </div>
                 <div class="cred-body">
                   <span class="cred-kicker">Business Profile</span>
@@ -490,7 +520,13 @@
                   --cred-tint: rgba(10, 102, 194, 0.06);
                 ">
                 <div class="cred-mark cred-mark-wordmark">
-                  <span class="icon brands fa-linkedin"></span>
+                  <a
+                    href="https://www.linkedin.com/company/scottlabz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View Scott Labz on LinkedIn">
+                    <span class="icon brands fa-linkedin"></span>
+                  </a>
                 </div>
                 <div class="cred-body">
                   <span class="cred-kicker">Company Profile</span>
@@ -512,17 +548,22 @@
               <div
                 class="cred-block"
                 style="
-                  --cred-accent: #1e3a5f;
-                  --cred-tint: rgba(30, 58, 95, 0.06);
+                  --cred-accent: #0078c0;
+                  --cred-tint: rgba(0, 120, 192, 0.06);
                 ">
                 <div class="cred-mark cred-mark-wordmark">
-                  <img
-                    src="images/Chamber-Member-Logo.webp"
-                    width="260"
-                    height="260"
-                    alt="McLean County Chamber of Commerce member logo confirming Scott Labz's active local business membership"
-                    title="McLean County Chamber of Commerce member logo confirming Scott Labz's active local business membership"
-                    loading="lazy" />
+                  <a
+                    href="https://mcleancountychamberofcommerce.growthzoneapp.com/active-member-directory/Details/member-directory-info-4951023"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <img
+                      src="images/Chamber-Member-Logo.webp"
+                      width="260"
+                      height="260"
+                      alt="McLean County Chamber of Commerce member logo confirming Scott Labz's active local business membership"
+                      title="McLean County Chamber of Commerce member logo confirming Scott Labz's active local business membership"
+                      loading="lazy" />
+                  </a>
                 </div>
                 <div class="cred-body">
                   <span class="cred-kicker">Membership</span>
@@ -548,13 +589,18 @@
                   --cred-tint: rgba(230, 36, 20, 0.06);
                 ">
                 <div class="cred-mark cred-mark-wordmark">
-                  <img
-                    src="images/clutch.png"
-                    width="161"
-                    height="54"
-                    alt="Clutch logo linking to verified client reviews and ratings for Scott Labz on the Clutch B2B research platform"
-                    title="Clutch logo linking to verified client reviews and ratings for Scott Labz on the Clutch B2B research platform"
-                    loading="lazy" />
+                  <a
+                    href="https://clutch.co/profile/scott-labz"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <img
+                      src="images/clutch.png"
+                      width="161"
+                      height="54"
+                      alt="Clutch logo linking to verified client reviews and ratings for Scott Labz on the Clutch B2B research platform"
+                      title="Clutch logo linking to verified client reviews and ratings for Scott Labz on the Clutch B2B research platform"
+                      loading="lazy" />
+                  </a>
                 </div>
                 <div class="cred-body">
                   <span class="cred-kicker">B2B Review Platform</span>
@@ -580,13 +626,18 @@
                   --cred-tint: rgba(149, 27, 67, 0.06);
                 ">
                 <div class="cred-mark cred-mark-wordmark">
-                  <img
-                    src="images/themanifest.png"
-                    width="91"
-                    height="53"
-                    alt="The Manifest logo linking to Scott Labz's verified company profile on The Manifest B2B research platform"
-                    title="The Manifest logo linking to Scott Labz's verified company profile on The Manifest B2B research platform"
-                    loading="lazy" />
+                  <a
+                    href="https://themanifest.com/company/scott-labz"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <img
+                      src="images/themanifest.png"
+                      width="91"
+                      height="53"
+                      alt="The Manifest logo linking to Scott Labz's verified company profile on The Manifest B2B research platform"
+                      title="The Manifest logo linking to Scott Labz's verified company profile on The Manifest B2B research platform"
+                      loading="lazy" />
+                  </a>
                 </div>
                 <div class="cred-body">
                   <span class="cred-kicker">B2B Research Platform</span>
@@ -654,13 +705,18 @@
                   --cred-tint: rgba(196, 158, 70, 0.06);
                 ">
                 <div class="cred-mark cred-mark-wordmark">
-                  <img
-                    src="images/goodfirms.png"
-                    width="161"
-                    height="42"
-                    alt="Goodfirms logo linking to the verified Scott Labz company profile on the Goodfirms review platform"
-                    title="Goodfirms logo linking to the verified Scott Labz company profile on the Goodfirms review platform"
-                    loading="lazy" />
+                  <a
+                    href="https://www.goodfirms.co/company/scott-labz-llc"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <img
+                      src="images/goodfirms.png"
+                      width="161"
+                      height="42"
+                      alt="Goodfirms logo linking to the verified Scott Labz company profile on the Goodfirms review platform"
+                      title="Goodfirms logo linking to the verified Scott Labz company profile on the Goodfirms review platform"
+                      loading="lazy" />
+                  </a>
                 </div>
                 <div class="cred-body">
                   <span class="cred-kicker">B2B Research Platform</span>
@@ -686,13 +742,18 @@
                   --cred-tint: rgba(53, 203, 250, 0.06);
                 ">
                 <div class="cred-mark cred-mark-wordmark">
-                  <img
-                    src="images/agencyspotter.png"
-                    width="103"
-                    height="48"
-                    alt="Agency Spotter logo linking to the verified Scott Labz company profile on the Agency Spotter directory"
-                    title="Agency Spotter logo linking to the verified Scott Labz company profile on the Agency Spotter directory"
-                    loading="lazy" />
+                  <a
+                    href="https://www.agencyspotter.com/scott-labz-llc"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <img
+                      src="images/agencyspotter.png"
+                      width="103"
+                      height="48"
+                      alt="Agency Spotter logo linking to the verified Scott Labz company profile on the Agency Spotter directory"
+                      title="Agency Spotter logo linking to the verified Scott Labz company profile on the Agency Spotter directory"
+                      loading="lazy" />
+                  </a>
                 </div>
                 <div class="cred-body">
                   <span class="cred-kicker">Agency Directory</span>
@@ -719,13 +780,18 @@
                   --cred-tint: rgba(15, 13, 9, 0.06);
                 ">
                 <div class="cred-mark cred-mark-wordmark">
-                  <img
-                    src="images/sortlist.png"
-                    width="131"
-                    height="49"
-                    alt="Sortlist logo linking to the verified Scott Labz company profile on the Sortlist agency directory"
-                    title="Sortlist logo linking to the verified Scott Labz company profile on the Sortlist agency directory"
-                    loading="lazy" />
+                  <a
+                    href="https://www.sortlist.com/agency/scott-labz-llc"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <img
+                      src="images/sortlist.png"
+                      width="131"
+                      height="49"
+                      alt="Sortlist logo linking to the verified Scott Labz company profile on the Sortlist agency directory"
+                      title="Sortlist logo linking to the verified Scott Labz company profile on the Sortlist agency directory"
+                      loading="lazy" />
+                  </a>
                 </div>
                 <div class="cred-body">
                   <span class="cred-kicker">Agency Directory</span>
@@ -751,13 +817,18 @@
                   --cred-tint: rgba(54, 114, 255, 0.06);
                 ">
                 <div class="cred-mark cred-mark-wordmark">
-                  <img
-                    src="images/techbehemoths.png"
-                    width="167"
-                    height="73"
-                    alt="TechBehemoths logo linking to the verified Scott Labz company profile on the TechBehemoths agency directory"
-                    title="TechBehemoths logo linking to the verified Scott Labz company profile on the TechBehemoths agency directory"
-                    loading="lazy" />
+                  <a
+                    href="https://techbehemoths.com/company/scott-labz-llc"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <img
+                      src="images/techbehemoths.png"
+                      width="167"
+                      height="73"
+                      alt="TechBehemoths logo linking to the verified Scott Labz company profile on the TechBehemoths agency directory"
+                      title="TechBehemoths logo linking to the verified Scott Labz company profile on the TechBehemoths agency directory"
+                      loading="lazy" />
+                  </a>
                 </div>
                 <div class="cred-body">
                   <span class="cred-kicker">Agency Directory</span>
@@ -784,13 +855,18 @@
                   --cred-tint: rgba(109, 50, 216, 0.06);
                 ">
                 <div class="cred-mark cred-mark-wordmark">
-                  <img
-                    src="images/alignable.png"
-                    width="156"
-                    height="63"
-                    alt="Alignable logo linking to the verified Scott Labz LLC business profile and local business network in Bloomington, Illinois"
-                    title="Alignable logo linking to the verified Scott Labz LLC business profile and local business network in Bloomington, Illinois"
-                    loading="lazy" />
+                  <a
+                    href="https://www.alignable.com/bloomington-il/scott-labz-llc"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <img
+                      src="images/alignable.png"
+                      width="156"
+                      height="63"
+                      alt="Alignable logo linking to the verified Scott Labz LLC business profile and local business network in Bloomington, Illinois"
+                      title="Alignable logo linking to the verified Scott Labz LLC business profile and local business network in Bloomington, Illinois"
+                      loading="lazy" />
+                  </a>
                 </div>
                 <div class="cred-body">
                   <span class="cred-kicker">Local Business Network</span>
@@ -816,13 +892,18 @@
                   --cred-tint: rgba(29, 135, 81, 0.06);
                 ">
                 <div class="cred-mark cred-mark-wordmark">
-                  <img
-                    src="images/nextdoor.png"
-                    width="151"
-                    height="38"
-                    alt="Nextdoor logo linking to the Scott Labz LLC business page and neighborhood reviews in Normal, Illinois"
-                    title="Nextdoor logo linking to the Scott Labz LLC business page and neighborhood reviews in Normal, Illinois"
-                    loading="lazy" />
+                  <a
+                    href="https://nextdoor.com/page/scott-labz-llc-normal-il"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <img
+                      src="images/nextdoor.png"
+                      width="151"
+                      height="38"
+                      alt="Nextdoor logo linking to the Scott Labz LLC business page and neighborhood reviews in Normal, Illinois"
+                      title="Nextdoor logo linking to the Scott Labz LLC business page and neighborhood reviews in Normal, Illinois"
+                      loading="lazy" />
+                  </a>
                 </div>
                 <div class="cred-body">
                   <span class="cred-kicker">Local Presence</span>
@@ -848,13 +929,18 @@
                   --cred-tint: rgba(3, 75, 5, 0.06);
                 ">
                 <div class="cred-mark cred-mark-wordmark">
-                  <img
-                    src="images/patch.png"
-                    width="84"
-                    height="37"
-                    alt="Patch logo linking to the Scott Labz LLC business listing in Bloomington, Illinois"
-                    title="Patch logo linking to the Scott Labz LLC business listing in Bloomington, Illinois"
-                    loading="lazy" />
+                  <a
+                    href="https://patch.com/illinois/bloomington-il/business/listing/591057/scott-labz-llc"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <img
+                      src="images/patch.png"
+                      width="84"
+                      height="37"
+                      alt="Patch logo linking to the Scott Labz LLC business listing in Bloomington, Illinois"
+                      title="Patch logo linking to the Scott Labz LLC business listing in Bloomington, Illinois"
+                      loading="lazy" />
+                  </a>
                 </div>
                 <div class="cred-body">
                   <span class="cred-kicker">Local Media Directory</span>
