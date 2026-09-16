@@ -181,6 +181,10 @@ class ScottNav extends HTMLElement {
           list-style: none;
           margin: 0;
           padding: 2px 0 0 0;
+          /* Without this, a column-direction flex parent (mobile) sizes
+             this list by its children's min-content width instead of the
+             100% we set below - see .sl-bar's min-width note. */
+          min-width: 0;
         }
 
         .sl-bar {
@@ -195,6 +199,13 @@ class ScottNav extends HTMLElement {
           text-decoration: none;
           border-radius: 6px;
           border: 2px solid transparent;
+          /* A flex item's default min-width is auto (its content's
+             min-content size), not 0 - without this, a bar whose label is
+             wider than 48px (e.g. "Field Notes" as one nowrap line) forces
+             itself wider than the explicit width above, which on mobile
+             breaks the wrap and pushes items past the viewport edge
+             instead of onto the next row. */
+          min-width: 0;
         }
         .sl-bar:focus-visible {
           border-color: var(--bar-color, #1e3a5f);
@@ -224,6 +235,7 @@ class ScottNav extends HTMLElement {
           font-weight: 500;
           color: var(--text-color, #111111);
           white-space: nowrap;
+          text-align: center;
         }
 
         /* Current page: tallest, filled with a flat, full-strength
@@ -252,21 +264,31 @@ class ScottNav extends HTMLElement {
           .sl-nav-inner {
             flex-direction: column;
             justify-content: center;
-            gap: 5px;
-            padding: 6px 16px;
+            gap: 4px;
+            padding: 4px 12px;
+          }
+          .sl-nav-brand img {
+            height: 30px;
           }
           .sl-nav-bars {
             flex-wrap: wrap;
             justify-content: center;
             width: 100%;
           }
+          /* True 44px minimum tap target (was 40px) - the label is
+             allowed to wrap to a second line (base rule's nowrap is
+             mobile-only here) since a fixed 46px column can't fit a
+             two-word label like "Field Notes" on one line without
+             either bug above. */
           .sl-bar {
             width: 46px;
-            min-height: 40px;
-            padding: 4px 2px 6px;
+            min-height: 44px;
+            padding: 3px 2px 4px;
           }
           .sl-bar-label {
             font-size: 11px;
+            white-space: normal;
+            overflow-wrap: break-word;
           }
         }
       `;
