@@ -2,18 +2,7 @@
 <html lang="en-US">
   <head>
     <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
-    </script>
+    <script src="/assets/js/gtm.js?v=e3d00675ef"></script>
     <!-- End Google Tag Manager -->
 
     <title>Hawkeye Fan Shop Ecommerce Case Study | Scott Labz</title>
@@ -203,6 +192,91 @@
           grid-template-columns: 1fr;
         }
       }
+
+      /* Homepage carousel banners are much wider than the page
+         screenshots above (2.5:1 vs. the 3:2 crop those use), so
+         forcing the same aspect-ratio would crop into the banner
+         copy. This group shows each image at its natural ratio
+         instead. width:auto (rather than the base rule's 100%) plus
+         max-width:100% means a narrow source (e.g. a 534px-wide
+         checkout-icon screenshot filling a full-width grid cell)
+         displays at its own resolution instead of being stretched
+         past it and turning soft/pixelated - it still shrinks to fit
+         a column that's narrower than the source, same as before. */
+      .shot-tour.natural-ratio img {
+        aspect-ratio: auto;
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+
+      /* main.css sizes this background strip at 10% of
+         .case-study-hero's own height, which was fine when that
+         element was just a short intro banner. On this page the hero
+         section wraps every case-section added below it, so its
+         height is the whole page - 10% of a 13,000px+ page ballooned
+         the strip into a multi-thousand-pixel box, forcing the
+         1980x1485 source photo to upscale well past its native
+         resolution (especially at Retina density) and look
+         pixelated. Capping it to one viewport height keeps it sized
+         like the short intro banner it's meant to be. */
+      .case-study-hero::before {
+        height: 100vh;
+        height: 100svh;
+      }
+
+      /* Every shot-frame screenshot opens in the site's existing
+         .gallery.lightbox modal (assets/js/main.js). A border wraps
+         the image itself (not a fixed-size box around it) to
+         separate it from the dark overlay behind it. */
+      .gallery.lightbox .modal .inner img {
+        border: 3px solid #000;
+        outline: 2px solid #fff;
+        box-sizing: border-box;
+        box-shadow: 0 1rem 3rem 0 rgba(0, 0, 0, 0.5);
+      }
+
+      .shot-frame a.lightbox-trigger {
+        cursor: zoom-in;
+      }
+
+      /* These two screenshots are tall, narrow strips (756x2610 and
+         306x1734) - the shared 85vh modal cap shrinks them to fit the
+         viewport height, which makes them too small to read. Instead
+         of capping height, let them render at their own natural
+         pixel width (no upscale/blur) and make the modal scrollable
+         so the full strip is still reachable. Targeted by src since
+         the modal img is a single shared element the gallery script
+         reuses for every image on the page. */
+      .gallery.lightbox .modal:has(
+          .inner img[src*="hawkeye-fan-shop-store-locations-detail"]
+        ),
+      .gallery.lightbox .modal:has(
+          .inner img[src*="hawkeye-fan-shop-shop-all-menu"]
+        ) {
+        align-items: flex-start;
+        overflow-y: auto;
+        padding: 2.5rem 0;
+      }
+
+      .gallery.lightbox
+        .modal
+        .inner
+        img[src*="hawkeye-fan-shop-store-locations-detail"] {
+        width: 90vw;
+        max-width: 756px;
+        max-height: none;
+        height: auto;
+      }
+
+      .gallery.lightbox .modal .inner img[src*="hawkeye-fan-shop-shop-all-menu"] {
+        width: 90vw;
+        max-width: 306px;
+        max-height: none;
+        height: auto;
+      }
     </style>
   </head>
 
@@ -224,7 +298,7 @@
         <section
           class="case-study-hero banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right"
           style="--hero-bg: url(&quot;/images/case-studies11.jpg&quot;)">
-          <div class="content">
+          <div class="content gallery lightbox">
             <div class="hero-box">
               <p class="brand-mark">
                 <a href="/index.html" style="border-bottom: none">
@@ -368,17 +442,17 @@
                       <div class="url">hawkeyefanshop.com</div>
                     </div>
                     <a
-                      href="https://hawkeyefanshop.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style="border-bottom: none">
-                      <img
-                        src="/images/hawkeye-fan-shop-home.jpg"
-                        width="900"
-                        height="562"
-                        alt="Hawkeye Fan Shop homepage showing gameday-themed merchandising and a BOGO tee promotion"
-                        title="Hawkeye Fan Shop homepage showing gameday-themed merchandising and a BOGO tee promotion"
-                        loading="lazy" />
+                      href="/images/hawkeye-fan-shop-home.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-home.jpg"
+                          width="584"
+                          height="562"
+                          alt="Hawkeye Fan Shop homepage showing gameday-themed merchandising and a BOGO tee promotion"
+                          title="Hawkeye Fan Shop homepage showing gameday-themed merchandising and a BOGO tee promotion"
+                          loading="lazy" />
                     </a>
                   </div>
                   <p class="shot-caption">
@@ -399,17 +473,17 @@
                       </div>
                     </div>
                     <a
-                      href="https://hawkeyefanshop.com/collections/just-arrived"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style="border-bottom: none">
-                      <img
-                        src="/images/hawkeye-fan-shop-category.jpg"
-                        width="900"
-                        height="668"
-                        alt="Hawkeye Fan Shop New Arrivals page with faceted filters across a 137-item catalog"
-                        title="Hawkeye Fan Shop New Arrivals page with faceted filters across a 137-item catalog"
-                        loading="lazy" />
+                      href="/images/hawkeye-fan-shop-category.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-category.jpg"
+                          width="584"
+                          height="668"
+                          alt="Hawkeye Fan Shop New Arrivals page with faceted filters across a 137-item catalog"
+                          title="Hawkeye Fan Shop New Arrivals page with faceted filters across a 137-item catalog"
+                          loading="lazy" />
                     </a>
                   </div>
                   <p class="shot-caption">
@@ -430,17 +504,17 @@
                       </div>
                     </div>
                     <a
-                      href="https://hawkeyefanshop.com/products/iowa-hawkeyes-2026-football-schedule-tee?variant=49429436825752"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style="border-bottom: none">
-                      <img
-                        src="/images/hawkeye-fan-shop-pdp.jpg"
-                        width="900"
-                        height="638"
-                        alt="Hawkeye Fan Shop product page for an Iowa Hawkeyes tee, showing reviews and add-to-cart tracking points"
-                        title="Hawkeye Fan Shop product page for an Iowa Hawkeyes tee, showing reviews and add-to-cart tracking points"
-                        loading="lazy" />
+                      href="/images/hawkeye-fan-shop-pdp.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-pdp.jpg"
+                          width="584"
+                          height="638"
+                          alt="Hawkeye Fan Shop product page for an Iowa Hawkeyes tee, showing reviews and add-to-cart tracking points"
+                          title="Hawkeye Fan Shop product page for an Iowa Hawkeyes tee, showing reviews and add-to-cart tracking points"
+                          loading="lazy" />
                     </a>
                   </div>
                   <p class="shot-caption">
@@ -461,23 +535,908 @@
                       </div>
                     </div>
                     <a
-                      href="https://hawkeyefanshop.com/products/iowa-vertical-arch-w-vin-logo-cna2994-vin?variant=49689074270360"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style="border-bottom: none">
-                      <img
-                        src="/images/hawkeye-fan-shop-bogo-pdp.jpg"
-                        width="900"
-                        height="561"
-                        alt="Hawkeye Fan Shop product page with a tiered Buy 1 or Buy 2 Shirts for $30 bundle pricing option"
-                        title="Hawkeye Fan Shop product page with a tiered Buy 1 or Buy 2 Shirts for $30 bundle pricing option"
-                        loading="lazy" />
+                      href="/images/hawkeye-fan-shop-bogo-pdp.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-bogo-pdp.jpg"
+                          width="584"
+                          height="561"
+                          alt="Hawkeye Fan Shop product page with a tiered Buy 1 or Buy 2 Shirts for $30 bundle pricing option"
+                          title="Hawkeye Fan Shop product page with a tiered Buy 1 or Buy 2 Shirts for $30 bundle pricing option"
+                          loading="lazy" />
                     </a>
                   </div>
                   <p class="shot-caption">
                     Some products carry their own tiered pricing, like this "Buy
                     2 Shirts for $30" bundle. Tracking has to capture which tier
                     a fan picks, not just that something was added to cart.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-section">
+              <h3>A Closer Look: The Homepage Carousel</h3>
+
+              <p>
+                The homepage hero rotates through several promotional slides
+                rather than showing one static banner. Each slide is tracked
+                as its own creative variant, so a specific promotion's
+                click-through and conversion can be measured against every
+                other slide in the rotation - not lumped together as generic
+                "homepage traffic."
+              </p>
+
+              <div class="shot-tour natural-ratio">
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-bogo-carousel.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-bogo-carousel.jpg"
+                          width="2000"
+                          height="800"
+                          alt="Hawkeye Fan Shop homepage carousel slide promoting a Buy One Get One tee deal across six colorways"
+                          title="Hawkeye Fan Shop homepage carousel slide promoting a Buy One Get One tee deal across six colorways"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    This BOGO tees slide is one rotation among several, each
+                    carrying its own tracked link so the sale's actual lift
+                    can be attributed back to this exact placement.
+                  </p>
+                </div>
+
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-gift-carousel.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-gift-carousel.jpg"
+                          width="2000"
+                          height="800"
+                          alt="Hawkeye Fan Shop homepage carousel slide promoting Hawkeye Fan Shop gift cards"
+                          title="Hawkeye Fan Shop homepage carousel slide promoting Hawkeye Fan Shop gift cards"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    The gift card slide points to a defined landing flow
+                    rather than a generic homepage link, so gift card revenue
+                    tied to this exact placement is visible on its own.
+                  </p>
+                </div>
+
+                <div style="grid-column: 1 / -1">
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-home-giftcard.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-home-giftcard.jpg"
+                          width="1178"
+                          height="738"
+                          alt="Hawkeye Fan Shop homepage showing the gift card carousel slide in context with primary navigation, search, and cart"
+                          title="Hawkeye Fan Shop homepage showing the gift card carousel slide in context with primary navigation, search, and cart"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    Seen in context, that same banner sits inside the full
+                    homepage - navigation, search, and cart are all
+                    instrumented together, so a promotional click can be
+                    followed all the way through to checkout.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-section">
+              <h3>Category Navigation &amp; Merchandising</h3>
+
+              <p>
+                Rather than one flat product catalog, the storefront is
+                organized into a deep category structure - a dozen entry
+                points like Jersey - Personal &amp; NIL, Football, Tailgating
+                &amp; Gameday, and Collectibles, each acting as its own
+                tracked path into the catalog rather than a generic browse
+                link.
+              </p>
+
+              <div class="shot-tour natural-ratio">
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-categories-grid.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-categories-grid.jpg"
+                          width="1178"
+                          height="1202"
+                          alt="Hawkeye Fan Shop category grid with tiles for Jersey - Personal and NIL, Football, Men, Women, Kids, and eight other categories"
+                          title="Hawkeye Fan Shop category grid with tiles for Jersey - Personal and NIL, Football, Men, Women, Kids, and eight other categories"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    Twelve category tiles break the catalog into distinct
+                    entry points, from personalized jerseys to tailgating
+                    gear, with each tile's click-through tracked separately
+                    from the rest. The grid isn't static, either - tiles can
+                    be swapped, reordered, or re-themed on the fly to match
+                    the schedule, spotlighting a rivalry game or a
+                    homecoming week and then rotating back, all without
+                    touching the tracking already built around each
+                    category.
+                  </p>
+                </div>
+
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-categories-detail.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-categories-detail.jpg"
+                          width="452"
+                          height="356"
+                          alt="Detail view of the Jersey - Personal and NIL and Football category tiles"
+                          title="Detail view of the Jersey - Personal and NIL and Football category tiles"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    On mobile, this same grid trades a mile-long vertical
+                    scroll for a horizontally swipeable carousel - a smoother
+                    way to browse a dozen entry points on a small screen.
+                    Even in a quick swipe, tiles like Jersey - Personal &amp;
+                    NIL (a customizable jersey builder) and Football
+                    (refreshed each year with new arrivals like this
+                    schedule magnet) carry enough detail to make stopping
+                    worth it.
+                  </p>
+                </div>
+
+                <div style="grid-column: 1 / -1">
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-category-rows.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-category-rows.jpg"
+                          width="1178"
+                          height="1611"
+                          alt="Hawkeye Fan Shop homepage merchandising rows for Just Arrived, Hawkeye Tee's, and Shop by Brand"
+                          title="Hawkeye Fan Shop homepage merchandising rows for Just Arrived, Hawkeye Tee's, and Shop by Brand"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    That same category structure resurfaces on the homepage
+                    as merchandising rows - Just Arrived, Hawkeye Tee's, Shop
+                    by Brand - so each row's performance can be measured on
+                    its own instead of being buried inside one long product
+                    feed.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-section">
+              <h3>Product Highlights</h3>
+
+              <p>
+                Individual products get their own editorial treatment, too. A
+                "Product Highlight" module pairs marketing copy with a
+                specific product or product family, so a merchandising push
+                for one item can be measured on its own instead of
+                disappearing into overall category traffic.
+              </p>
+
+              <div class="shot-tour natural-ratio">
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-highlight-overalls.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-highlight-overalls.jpg"
+                          width="1178"
+                          height="981"
+                          alt="Hawkeye Fan Shop Product Highlight module for Gameday Bib Overalls, spanning women's, youth, toddler, and infant sizes"
+                          title="Hawkeye Fan Shop Product Highlight module for Gameday Bib Overalls, spanning women's, youth, toddler, and infant sizes"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    The Gameday Bib Overalls highlight walks a fan from the
+                    Women's Big Logo Stripe Overalls down to matching Youth,
+                    Toddler, and Infant sizes, with each product tracked
+                    individually so this one promotion's performance is
+                    visible product by product.
+                  </p>
+                </div>
+
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-highlight-herky-crew.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-highlight-herky-crew.jpg"
+                          width="1178"
+                          height="972"
+                          alt="Hawkeye Fan Shop Product Highlight module for the Flying Herky Reverse Weave Crew in two colorways"
+                          title="Hawkeye Fan Shop Product Highlight module for the Flying Herky Reverse Weave Crew in two colorways"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    A single high-margin item, like this Flying Herky Reverse
+                    Weave Crew, gets its own highlight module across both
+                    colorways, so one SKU's performance can be measured as
+                    its own placement rather than folded into a category's
+                    overall numbers.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-section">
+              <h3>Filtering &amp; Category Depth</h3>
+
+              <p>
+                Category tiles are only the entry point. Once a fan lands
+                inside a collection, a full faceted filter sidebar narrows
+                things further, and the "Shop All" menu underneath the
+                homepage tiles goes well beyond the dozen highlighted
+                categories - the full list runs past thirty, with deeper
+                submenus like Shop by Sport tucked a level below that.
+              </p>
+
+              <div class="shot-tour natural-ratio">
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-filters-sidebar.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-filters-sidebar.jpg"
+                          width="289"
+                          height="550"
+                          alt="Hawkeye Fan Shop filter sidebar with Availability, Price, Brand, Size, Color, and Category facets"
+                          title="Hawkeye Fan Shop filter sidebar with Availability, Price, Brand, Size, Color, and Category facets"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    The price filter isn't hardcoded - that $399.99 ceiling
+                    is read live off the catalog's most expensive item in
+                    this viewed category, so the range moves on its own as
+                    pricing changes instead of drifting stale the way a
+                    fixed slider would.
+                  </p>
+                </div>
+
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-shop-all-menu.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-shop-all-menu.jpg"
+                          width="306"
+                          height="1734"
+                          alt="Hawkeye Fan Shop Shop All navigation menu listing over thirty product categories"
+                          title="Hawkeye Fan Shop Shop All navigation menu listing over thirty product categories"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    The full "Shop All" menu shows how deep the catalog runs
+                    - more than thirty categories, with a chevron on Shop by
+                    Sport hinting at a submenu underneath. Every one of these
+                    is its own trackable path into the catalog, not just the
+                    twelve highlighted on the homepage grid.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-section">
+              <h3>The Footer: Navigation, Signup &amp; Trust Signals</h3>
+
+              <p>
+                The footer carries almost as much weight as the homepage
+                itself. Two separate email signup forms, a full secondary
+                category menu, a brand carousel, and the complete policy link
+                set all live below the fold - so a fan who never scrolls past
+                "just browsing" still gets another shot at converting on the
+                way out.
+              </p>
+
+              <div class="shot-tour natural-ratio">
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-footer-signup.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-footer-signup.jpg"
+                          width="1180"
+                          height="139"
+                          alt="Hawkeye Fan Shop footer row with Follow Us social links, a Why Shop With Us trust statement, and a second email signup form"
+                          title="Hawkeye Fan Shop footer row with Follow Us social links, a Why Shop With Us trust statement, and a second email signup form"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    Social links, a one-line trust statement, and a second,
+                    separate email capture all sit in the same row - three
+                    different ways to stay connected with a fan, each one
+                    measured on its own instead of as one generic "footer
+                    engagement" number.
+                  </p>
+                </div>
+
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-footer-brands.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-footer-brands.jpg"
+                          width="1178"
+                          height="186"
+                          alt="Hawkeye Fan Shop footer brand logo row featuring Nike, Champion, and Tommy Bahama"
+                          title="Hawkeye Fan Shop footer brand logo row featuring Nike, Champion, and Tommy Bahama"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    A brand logo row for Nike, Champion, and Tommy Bahama
+                    signals this isn't a print-on-demand shop - these are
+                    licensed manufacturers fans already trust, placed right
+                    before the policy links close the page out.
+                  </p>
+                </div>
+
+                <div style="grid-column: 1 / -1">
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-footer-detail.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-footer-detail.jpg"
+                          width="1177"
+                          height="658"
+                          alt="Hawkeye Fan Shop lower footer showing the signup row, secondary category bar, brand logos, policy links, and copyright"
+                          title="Hawkeye Fan Shop lower footer showing the signup row, secondary category bar, brand logos, policy links, and copyright"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    Taken together, the footer runs three distinct jobs
+                    stacked in one place: a repeated category bar for anyone
+                    who scrolled straight to the bottom, brand logos for
+                    trust, and the policy links plus copyright line that
+                    close out every page on the site the same way.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-section">
+              <h3>Gift Cards &amp; Store Pickup</h3>
+
+              <p>
+                The gift card and store network both get closer looks of
+                their own. Each ties the online storefront back to something
+                a fan can hold - a denomination-based gift card with real
+                reviews attached, or a specific store with its own hours and
+                contact info.
+              </p>
+
+              <div class="shot-tour natural-ratio">
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">
+                        hawkeyefanshop.com/products/hawkeye-fan-shop-gift-card
+                      </div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-giftcard-detail.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-giftcard-detail.jpg"
+                          width="1178"
+                          height="1115"
+                          alt="Hawkeye Fan Shop gift card product page showing denomination options, gifting flow, and customer reviews"
+                          title="Hawkeye Fan Shop gift card product page showing denomination options, gifting flow, and customer reviews"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    Denominations run from $10 to $100, gifting goes either
+                    to the buyer's own inbox or a recipient's, and the
+                    product page carries genuine reviews right alongside the
+                    buy box, all on one page and all trackable together.
+                  </p>
+                </div>
+
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com/pages/store-locations</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-store-locations-detail.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-store-locations-detail.jpg"
+                          width="756"
+                          height="2610"
+                          alt="Hawkeye Fan Shop store locations page listing four featured stores with hours, phone, email, and directions"
+                          title="Hawkeye Fan Shop store locations page listing four featured stores with hours, phone, email, and directions"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    Four featured locations - two in Coralville, one each in
+                    Davenport and West Des Moines - each carry their own
+                    hours, phone, email, and a direct "Get Directions" link,
+                    so in-store visits tied to a specific location can be
+                    measured alongside online orders.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-section">
+              <h3>Checkout &amp; Payment Options</h3>
+
+              <p>
+                At checkout, Hawkeye Fan Shop offers four express payment
+                options beyond a standard card form - Shop Pay, PayPal,
+                Google Pay, and Venmo - each shaving steps off the path from
+                cart to completed order.
+              </p>
+
+              <div class="shot-tour natural-ratio">
+                <div style="grid-column: 1 / -1">
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com/checkout</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-payment-options.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-payment-options.jpg"
+                          width="534"
+                          height="108"
+                          alt="Hawkeye Fan Shop express checkout options: Shop Pay, PayPal, Google Pay, and Venmo"
+                          title="Hawkeye Fan Shop express checkout options: Shop Pay, PayPal, Google Pay, and Venmo"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    Each express option is its own button and its own
+                    tracked click, so if one payment method is quietly
+                    driving a disproportionate share of completed orders -
+                    or abandoned carts - that's visible instead of buried
+                    inside a single generic "checkout" event.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-section">
+              <h3>Product Page Details &amp; Refinements</h3>
+
+              <p>
+                Product pages carry more structure than a single hero image
+                and an add-to-cart button. Breadcrumbs, review counts, and
+                variant selectors all shape how a fan decides, and the
+                pattern shifts depending on what's being sold - a
+                straightforward tee doesn't need the same interface as a
+                build-your-own jersey.
+              </p>
+
+              <div class="shot-tour natural-ratio">
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">
+                        hawkeyefanshop.com/products/iowa-hawkeyes-2026-football-schedule-tee
+                      </div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-pdp-schedule-tee.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-pdp-schedule-tee.jpg"
+                          width="1178"
+                          height="918"
+                          alt="Hawkeye Fan Shop product page for the Iowa Hawkeyes 2026 Football Schedule Tee with breadcrumbs, reviews, and swatch-style variant pickers"
+                          title="Hawkeye Fan Shop product page for the Iowa Hawkeyes 2026 Football Schedule Tee with breadcrumbs, reviews, and swatch-style variant pickers"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    A breadcrumb trail, a 4.0-star review badge, and
+                    swatch-style Color and Size pickers give a fan everything
+                    needed to decide without leaving the page - five gallery
+                    thumbnails let both colorways and the printed schedule on
+                    back get seen before checkout.
+                  </p>
+                </div>
+
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">
+                        hawkeyefanshop.com/products/iowa-hawkeyes-2026-football-schedule-tee
+                      </div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-pdp-cross-sell.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-pdp-cross-sell.jpg"
+                          width="1178"
+                          height="441"
+                          alt="Hawkeye Fan Shop Fans Also Bought cross-sell row shown on a product page"
+                          title="Hawkeye Fan Shop Fans Also Bought cross-sell row shown on a product page"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    A "Fans Also Bought" row surfaces related gear right on
+                    the product page, turning a single-item view into a shot
+                    at a second sale - each recommended product carries its
+                    own click-through, tracked separately from the page it's
+                    shown on.
+                  </p>
+                </div>
+
+                <div style="grid-column: 1 / -1">
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">
+                        hawkeyefanshop.com/products/iowa-hawkeyes-nike-football-player-jersey
+                      </div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-pdp-jersey-builder.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-pdp-jersey-builder.jpg"
+                          width="1178"
+                          height="590"
+                          alt="Hawkeye Fan Shop product page for the Iowa Hawkeyes Nike Football Player Jersey with Color, Size, and Player dropdown selectors and a 71-image gallery"
+                          title="Hawkeye Fan Shop product page for the Iowa Hawkeyes Nike Football Player Jersey with Color, Size, and Player dropdown selectors and a 71-image gallery"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    The personalized Nike Football Player Jersey swaps
+                    swatches for dropdowns and adds a Player selector on top
+                    of Color and Size - interface complexity scales with the
+                    product, and a 71-image gallery lets a fan step through
+                    every angle before committing to a $144.99 purchase.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-section">
+              <h3>BOGO Tees: From Landing Page to Bundle Checkout</h3>
+
+              <p>
+                The BOGO Tees campaign gets a dedicated landing page rather
+                than just a homepage banner - hero copy, a plain-language
+                explanation of the deal, and a grid of eligible tees, each
+                with an interactive slider so a fan can compare colorways
+                without leaving the page. That same "buy the deal" logic
+                carries through to checkout, where selecting the bundle
+                option swaps a single product picker for two independent
+                ones.
+              </p>
+
+              <div class="shot-tour natural-ratio">
+                <div style="grid-column: 1 / -1">
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com/pages/bogo-tees</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-bogo-landing-full.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-bogo-landing-full.jpg"
+                          width="1178"
+                          height="2250"
+                          alt="Hawkeye Fan Shop BOGO Tees landing page from hero banner through the full grid of eligible tees"
+                          title="Hawkeye Fan Shop BOGO Tees landing page from hero banner through the full grid of eligible tees"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    The full BOGO Tees page runs hero copy straight into a
+                    grid of eligible tees - no filtering, no extra clicks,
+                    just the deal and its pricing laid out in one continuous
+                    scroll.
+                  </p>
+                </div>
+
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com/pages/bogo-tees</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-bogo-slider-vintage.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-bogo-slider-vintage.jpg"
+                          width="587"
+                          height="849"
+                          alt="BOGO Tees product card for the Iowa Hawkeyes Arch Vintage Logo Tee with a white-to-black colorway comparison slider"
+                          title="BOGO Tees product card for the Iowa Hawkeyes Arch Vintage Logo Tee with a white-to-black colorway comparison slider"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    Each product card carries its own before/after slider,
+                    letting a fan drag between colorways - like this Arch
+                    Vintage Logo Tee's white and black options - without
+                    leaving the grid or opening a separate product page.
+                  </p>
+                </div>
+
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">hawkeyefanshop.com/pages/bogo-tees</div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-bogo-slider-flash.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-bogo-slider-flash.jpg"
+                          width="587"
+                          height="851"
+                          alt="BOGO Tees product card for the Iowa Hawkeyes Arch Logo Tee with Logo Flash, showing a tan-to-pink colorway comparison slider"
+                          title="BOGO Tees product card for the Iowa Hawkeyes Arch Logo Tee with Logo Flash, showing a tan-to-pink colorway comparison slider"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    The same slider mechanic scales to less expected
+                    colorways too, like this Logo Flash tee's tan-to-pink
+                    comparison - a lightweight way to surface variety that
+                    would otherwise take a full product-page click to see.
+                  </p>
+                </div>
+
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">
+                        hawkeyefanshop.com/products/iowa-vertical-arch-w-vin-logo
+                      </div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-bundle-single.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-bundle-single.jpg"
+                          width="1178"
+                          height="1139"
+                          alt="Iowa Vertical Arch with Logo product page with Buy 1 selected at $17.99 and the Buy 2 Shirts for $30 bundle option collapsed"
+                          title="Iowa Vertical Arch with Logo product page with Buy 1 selected at $17.99 and the Buy 2 Shirts for $30 bundle option collapsed"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    On the product page itself, the deal starts as a simple
+                    toggle: Buy 1 at $17.99, or switch to Buy 2 Shirts for
+                    $30 - the second option stays collapsed until a fan opts
+                    in.
+                  </p>
+                </div>
+
+                <div>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url">
+                        hawkeyefanshop.com/products/iowa-vertical-arch-w-vin-logo
+                      </div>
+                    </div>
+                    <a
+                      href="/images/hawkeye-fan-shop-bundle-selected.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-bundle-selected.jpg"
+                          width="1178"
+                          height="1352"
+                          alt="Iowa Vertical Arch with Logo product page with the Buy 2 Shirts for $30 bundle selected, showing two independent size and color pickers"
+                          title="Iowa Vertical Arch with Logo product page with the Buy 2 Shirts for $30 bundle selected, showing two independent size and color pickers"
+                          loading="lazy" />
+                    </a>
+                  </div>
+                  <p class="shot-caption">
+                    Selecting the bundle expands into two independent
+                    product pickers, each with its own size and color
+                    options, so a fan can mix - one Arch Logo tee, one Logo
+                    Flash tee - without adding two separate items to cart by
+                    hand.
                   </p>
                 </div>
               </div>
@@ -538,17 +1497,17 @@
                       </div>
                     </div>
                     <a
-                      href="https://hawkeyefanshop.com/pages/store-locations"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style="border-bottom: none">
-                      <img
-                        src="/images/hawkeye-fan-shop-locations.jpg"
-                        width="900"
-                        height="417"
-                        alt="Hawkeye Fan Shop and The Black and Gold Shop store locator listing physical retail locations across Iowa"
-                        title="Hawkeye Fan Shop and The Black and Gold Shop store locator listing physical retail locations across Iowa"
-                        loading="lazy" />
+                      href="/images/hawkeye-fan-shop-locations.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-locations.jpg"
+                          width="584"
+                          height="417"
+                          alt="Hawkeye Fan Shop and The Black and Gold Shop store locator listing physical retail locations across Iowa"
+                          title="Hawkeye Fan Shop and The Black and Gold Shop store locator listing physical retail locations across Iowa"
+                          loading="lazy" />
                     </a>
                   </div>
                   <p class="shot-caption">
@@ -568,17 +1527,17 @@
                       <div class="url">hawkeyefanshop.com/pages/bogo-tees</div>
                     </div>
                     <a
-                      href="https://hawkeyefanshop.com/pages/bogo-tees"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style="border-bottom: none">
-                      <img
-                        src="/images/hawkeye-fan-shop-bogo.jpg"
-                        width="900"
-                        height="422"
-                        alt="Hawkeye Fan Shop BOGO Tees promotional landing page with campaign copy and a chevron divider"
-                        title="Hawkeye Fan Shop BOGO Tees promotional landing page with campaign copy and a chevron divider"
-                        loading="lazy" />
+                      href="/images/hawkeye-fan-shop-bogo.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-bogo.jpg"
+                          width="584"
+                          height="422"
+                          alt="Hawkeye Fan Shop BOGO Tees promotional landing page with campaign copy and a chevron divider"
+                          title="Hawkeye Fan Shop BOGO Tees promotional landing page with campaign copy and a chevron divider"
+                          loading="lazy" />
                     </a>
                   </div>
                   <p class="shot-caption">
@@ -599,17 +1558,17 @@
                       </div>
                     </div>
                     <a
-                      href="https://hawkeyefanshop.com/products/hawkeye-fan-shop-gift-card"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style="border-bottom: none">
-                      <img
-                        src="/images/hawkeye-fan-shop-giftcard.jpg"
-                        width="900"
-                        height="705"
-                        alt="Hawkeye Fan Shop gift card product page, redeemable online and in-store across Iowa locations"
-                        title="Hawkeye Fan Shop gift card product page, redeemable online and in-store across Iowa locations"
-                        loading="lazy" />
+                      href="/images/hawkeye-fan-shop-giftcard.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-giftcard.jpg"
+                          width="584"
+                          height="705"
+                          alt="Hawkeye Fan Shop gift card product page, redeemable online and in-store across Iowa locations"
+                          title="Hawkeye Fan Shop gift card product page, redeemable online and in-store across Iowa locations"
+                          loading="lazy" />
                     </a>
                   </div>
                   <p class="shot-caption">
@@ -629,17 +1588,17 @@
                       <div class="url">hawkeyefanshop.com/pages/sign-up</div>
                     </div>
                     <a
-                      href="https://hawkeyefanshop.com/pages/sign-up"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style="border-bottom: none">
-                      <img
-                        src="/images/hawkeye-fan-shop-fanalert.jpg"
-                        width="900"
-                        height="287"
-                        alt="Hawkeye Fan Shop Fan Alerts email signup form for gear drops and gameday sales"
-                        title="Hawkeye Fan Shop Fan Alerts email signup form for gear drops and gameday sales"
-                        loading="lazy" />
+                      href="/images/hawkeye-fan-shop-fanalert.jpg"
+                      class="lightbox-trigger"
+                      aria-label="View full-size screenshot"
+                      style="border-bottom: none; display: block">
+                        <img
+                          src="/images/hawkeye-fan-shop-fanalert.jpg"
+                          width="584"
+                          height="287"
+                          alt="Hawkeye Fan Shop Fan Alerts email signup form for gear drops and gameday sales"
+                          title="Hawkeye Fan Shop Fan Alerts email signup form for gear drops and gameday sales"
+                          loading="lazy" />
                     </a>
                   </div>
                   <p class="shot-caption">
@@ -732,7 +1691,7 @@
       <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
       <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
       <script src="/assets/js/main.js?v=88fb08ab17" defer></script>
-      <script src="/assets/js/footer-min.js?v=6a2b1bcfac" defer></script>
+      <script src="/assets/js/footer-min.js?v=ffdbf5f5f6" defer></script>
 
       <scott-footer
         description="How measurement, product-page tracking, and site reliability work have supported Hawkeye Fan Shop's storefront through a decade of gameday traffic.">

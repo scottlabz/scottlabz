@@ -19,6 +19,7 @@ EXCLUDE_DIRS = {
 
 EXCLUDE_FILES = {
     "404.html",
+    "thank-you.html",
     "nav-demo.html",
     "filter-bar-demo.html",
 }

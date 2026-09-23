@@ -2,18 +2,7 @@
 <html lang="en-US">
   <head>
     <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-TTDLMNPL");
-    </script>
+    <script src="/assets/js/gtm.js?v=e3d00675ef"></script>
     <!-- End Google Tag Manager -->
 
     <title>
@@ -287,14 +276,51 @@
 
       .button.hawkeye {
         background-color: #ffcd00;
-        box-shadow: inset 0 0 0 4px #000000;
+        box-shadow:
+          inset 0 0 0 4px #000000,
+          0 6px 14px rgba(0, 0, 0, 0.3);
         color: #000000 !important;
       }
 
       .button.hawkeye:hover {
         background-color: #000000;
-        box-shadow: inset 0 0 0 4px #ffcd00;
+        box-shadow:
+          inset 0 0 0 4px #ffcd00,
+          0 6px 14px rgba(0, 0, 0, 0.3);
         color: #ffcd00 !important;
+      }
+
+      .button.blackgold {
+        background-color: #000000;
+        box-shadow:
+          inset 0 0 0 4px #ffcd00,
+          0 6px 14px rgba(0, 0, 0, 0.3);
+        color: #ffcd00 !important;
+      }
+
+      .button.blackgold:hover {
+        background-color: #ffcd00;
+        box-shadow:
+          inset 0 0 0 4px #000000,
+          0 6px 14px rgba(0, 0, 0, 0.3);
+        color: #000000 !important;
+      }
+
+      .button.kitchens {
+        background-color: #007030;
+        box-shadow:
+          inset 0 0 0 4px #ffffff,
+          0 6px 14px rgba(0, 0, 0, 0.3);
+        color: #ffffff !important;
+        cursor: default;
+      }
+
+      .button.kitchens:hover {
+        background-color: #ffffff;
+        box-shadow:
+          inset 0 0 0 4px #007030,
+          0 6px 14px rgba(0, 0, 0, 0.3);
+        color: #007030 !important;
       }
 
       @media (max-width: 736px) {
@@ -304,14 +330,97 @@
         }
       }
 
-      .flyingherk {
-        width: stretch;
-        margin: 0;
+      .additional-cases {
+        margin-top: 3.5rem;
+        padding: 2rem 1.75rem;
+        background: rgba(0, 0, 0, 0.025);
+        border: 1px solid rgba(0, 0, 0, 0.16);
+        border-radius: 12px;
+        box-shadow:
+          0 10px 25px rgba(15, 23, 42, 0.08),
+          0 4px 10px rgba(15, 23, 42, 0.05);
+      }
+
+      .additional-cases h2 {
+        margin-top: 0;
+        text-align: center;
+      }
+
+      .additional-cases-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-top: 1.5rem;
+        align-items: start;
+      }
+
+      .additional-case {
+        text-align: center;
+        padding: 2.5rem 0;
+      }
+
+      .additional-case:first-child {
+        padding-top: 0;
+      }
+
+      .additional-case:last-child {
+        padding-bottom: 0;
+      }
+
+      .additional-case + .additional-case {
+        border-top: 1px solid rgba(0, 0, 0, 0.12);
+      }
+
+      .additional-case img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+      }
+
+      .additional-case .actions {
+        margin: 1rem 0 0 0;
       }
 
       @media (max-width: 736px) {
-        .flyingherk {
-          margin: 0 auto 1rem auto;
+        .additional-cases {
+          padding: 1.5rem 1.25rem;
+        }
+      }
+
+      /* The hero image sits in a flex row with align-items:stretch, so
+         its height normally matches whatever height the text column on
+         this page grows to (well past 2000px with all the sections
+         above). object-fit:cover was upscaling the 1980x1320 source by
+         50%+ to cover that height, which is what caused the visible
+         pixelation. Pinning the image at a real viewport height instead
+         keeps it at or below its native resolution. Landscape-only so it
+         doesn't fight the template's own portrait/mobile layout, which
+         already caps this image at a sane 45vh. */
+      @media screen and (orientation: landscape) {
+        .banner.style1.fullscreen .image {
+          position: sticky;
+          top: 0;
+          align-self: flex-start;
+          height: 100vh;
+          height: 100svh;
+        }
+
+        /* Same overflow-x:hidden -> overflow-y:auto promotion trap
+           exists two levels of the DOM: on .banner.style1 itself (for
+           its load-in slide animation) AND on #wrapper (a sitewide
+           safety net against horizontal overflow). Both silently turn
+           into scroll-clipping containers, and since neither actually
+           has its own scrollbar (their height is just auto-sized to
+           content), position:sticky ends up anchored to a container
+           that never moves - so .image just scrolls away with the
+           page instead of sticking. Once body.is-preload is gone
+           (main.js strips it ~100ms after load, animation over), lift
+           both clips so sticky measures against the real page scroll. */
+        body:not(.is-preload) #wrapper,
+        body:not(.is-preload) .banner.style1.fullscreen {
+          overflow: visible;
         }
       }
     </style>
@@ -358,7 +467,7 @@
             <a href="/field-notes/">Field Notes archive</a>.
           </p>
 
-          <hr style="margin: 0.5rem 0" />
+          <hr style="margin: 2.5rem 0" />
 
           <p
             class="about-statement"
@@ -376,19 +485,21 @@
 
           <img
             src="images/hawkeyefanshop.png"
-            width="727"
-            height="349"
+            width="456"
+            height="200"
             style="width: stretch; margin: 0"
             alt="Hawkeye Fan Shop logo, the official University of Iowa Athletic Department retailer featured in this case study"
             title="Hawkeye Fan Shop - The Official University of Iowa Athletic Department"
             loading="lazy" />
 
-          <ul class="actions stacked" style="margin: 1rem 0 1.5rem 0">
+          <ul
+            class="actions stacked"
+            style="margin: 1rem 0 1.5rem 0; text-align: center">
             <li>
               <a
                 href="case-studies/hawkeye-fan-shop.html"
                 class="button big wide smooth-scroll hawkeye">
-                View Case Study
+                View Hawkeye Fan Shop Case Study
               </a>
             </li>
           </ul>
@@ -486,26 +597,47 @@
             </div>
           </div>
 
-          <hr />
+          <div class="additional-cases">
+            <h2 class="size-h3">Additional Case Studies</h2>
 
-          <h2 class="size-h3">Additional Case Studies</h2>
-          <img
-            src="images/bgs.jpg"
-            width="724"
-            height="154"
-            class="flyingherk"
-            alt="The Black &amp; Gold Shop storefront, an ecommerce case study built for University of Iowa fans"
-            title="The Black &amp; Gold Shop"
-            loading="lazy" />
-          <ul class="actions stacked">
-            <li>
-              <a
-                href="case-studies/the-black-and-gold-shop.html"
-                class="button big wide smooth-scroll hawkeye">
-                The Black &amp; Gold Shop
-              </a>
-            </li>
-          </ul>
+            <div class="additional-cases-grid">
+              <div class="additional-case">
+                <img
+                  src="images/bgs.png"
+                  width="724"
+                  height="154"
+                  alt="The Black &amp; Gold Shop storefront, an ecommerce case study built for University of Iowa fans"
+                  title="The Black &amp; Gold Shop"
+                  loading="lazy" />
+                <ul class="actions stacked">
+                  <li>
+                    <a
+                      href="case-studies/the-black-and-gold-shop.html"
+                      class="button big wide smooth-scroll blackgold">
+                      The Black &amp; Gold Shop Case Study
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="additional-case">
+                <img
+                  src="images/kitchens.png"
+                  width="1000"
+                  height="216"
+                  alt="Kitchens logo, a long-standing client partner"
+                  title="Kitchens"
+                  loading="lazy" />
+                <ul class="actions stacked">
+                  <li>
+                    <span class="button big wide kitchens" aria-disabled="true">
+                      My Kitchens Case Study
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="image">
@@ -513,7 +645,7 @@
             src="images/case-studies.jpg"
             width="1980"
             height="1320"
-            style="object-position: top"
+            style="object-position: 52% 65%"
             alt="Banner image representing case studies in analytics modernization, digital infrastructure, and web development"
             title="Case Studies" />
         </div>
@@ -530,7 +662,7 @@
       <script src="/assets/js/browser.min.js?v=c4217feebd" defer></script>
       <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
       <script src="/assets/js/main.js?v=88fb08ab17" defer></script>
-      <script src="/assets/js/footer-min.js?v=6a2b1bcfac" defer></script>
+      <script src="/assets/js/footer-min.js?v=ffdbf5f5f6" defer></script>
 
       <scott-footer
         description="Explore case studies demonstrating modern analytics, digital infrastructure, and custom digital solutions.">

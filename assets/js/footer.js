@@ -147,12 +147,6 @@ class ScottFooter extends HTMLElement {
                 </li>
 
                 <li>
-                  <a href="/services.html">
-                    Services
-                  </a>
-                </li>
-
-                <li>
                   <a href="/industries.html">
                     Industries
                   </a>
@@ -187,20 +181,6 @@ class ScottFooter extends HTMLElement {
                   <a href="/signals/">
                     Signals
                   </a>
-                </li>
-
-                <li>
-                  <span
-                    style="
-                      color:#000000;
-                      text-decoration:underline;
-                      display:inline-block;
-                      padding:0.45rem 0.25rem;
-                      margin-bottom:0.35rem;
-                      cursor:default;
-                    ">
-                    Findings
-                  </span>
                 </li>
 
                 <li>
@@ -252,12 +232,6 @@ class ScottFooter extends HTMLElement {
                 </li>
 
                 <li>
-                  <a href="/bbb.html">
-                    Accreditation
-                  </a>
-                </li>
-
-                <li>
                   <a href="/find-us.html">
                     Credentials
                   </a>
@@ -285,8 +259,6 @@ class ScottFooter extends HTMLElement {
               <span id="footer-year"></span>
               Scott Labz, LLC.
               All rights reserved.
-              <br />
-              Analytics &amp; Data<span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>Web &amp; Digital<span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>Optimization<span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>Campaigns
               <br />
               Independent Analytics &amp; Digital Firm
               <br />
