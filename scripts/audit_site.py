@@ -26,7 +26,13 @@ DOMAIN = "scottlabz.com"
 
 EXCLUDE_DIR_NAMES = {".git", "node_modules"}
 # Not expected in sitemap.xml and not expected to receive inbound links.
-EXCLUDE_FROM_SITEMAP_AND_ORPHAN_CHECKS = {"404.html"}
+# Kept in sync with scripts/generate_sitemap.py's EXCLUDE_FILES.
+EXCLUDE_FROM_SITEMAP_AND_ORPHAN_CHECKS = {
+    "404.html",
+    "thank-you.html",
+    "nav-demo.html",
+    "filter-bar-demo.html",
+}
 
 # Directory-listing redirect stubs (auto meta-refresh to "/") live at
 # paths like assets/css/index.html, trust/index.html, etc. They aren't

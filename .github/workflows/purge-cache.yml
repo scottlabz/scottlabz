@@ -49,7 +49,7 @@ jobs:
         run: |
           rm -f /tmp/warm_results.txt
           curl -s https://scottlabz.com/sitemap.xml | grep -oP '(?<=<loc>)[^<]+' | while read -r url; do
-            code=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+            code=$(curl -s -L -o /dev/null -w "%{http_code}" "$url")
             echo "$code $url" | tee -a /tmp/warm_results.txt
           done
           if grep -qv "^200 " /tmp/warm_results.txt; then
