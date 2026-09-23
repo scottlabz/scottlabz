@@ -1,0 +1,51 @@
+name: HSTS Preload Check
+
+on:
+  schedule:
+    - cron: "30 12 * * 1"  # every Monday, 12:30 UTC
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify HSTS preload eligibility and status
+        run: |
+          domain="scottlabz.com"
+
+          echo "== Live Strict-Transport-Security header =="
+          header=$(curl -sI "https://$domain/" | grep -i '^strict-transport-security:')
+          echo "$header"
+          if [ -z "$header" ]; then
+            echo "No Strict-Transport-Security header found."
+            exit 1
+          fi
+          echo "$header" | grep -qi 'includeSubDomains' || { echo "Missing includeSubDomains."; exit 1; }
+          echo "$header" | grep -qi 'preload' || { echo "Missing preload directive."; exit 1; }
+
+          echo ""
+          echo "== hstspreload.org eligibility =="
+          preloadable=$(curl -s "https://hstspreload.org/api/v2/preloadable?domain=$domain")
+          echo "$preloadable"
+          errors=$(echo "$preloadable" | jq -r '.errors | length')
+          if [ "$errors" != "0" ]; then
+            echo "Domain is no longer eligible for HSTS preload."
+            exit 1
+          fi
+
+          echo ""
+          echo "== hstspreload.org submission status =="
+          status_response=$(curl -s "https://hstspreload.org/api/v2/status?domain=$domain")
+          echo "$status_response"
+          preload_status=$(echo "$status_response" | jq -r '.status')
+
+          if [ "$preload_status" = "unknown" ]; then
+            echo "Domain is eligible but not yet submitted. Submitting now..."
+            curl -s -X POST "https://hstspreload.org/api/v2/submit?domain=$domain"
+            echo ""
+          elif [ "$preload_status" = "rejected" ]; then
+            echo "Domain was rejected from the preload list. Check the response above for details."
+            exit 1
+          else
+            echo "Status OK: $preload_status"
+          fi
