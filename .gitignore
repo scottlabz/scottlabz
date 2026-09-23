@@ -1,4 +1,5 @@
 .DS_Store
+.vscode/
 nav-demo.html
 filter-bar-demo.html
 CONTRIBUTING.md
