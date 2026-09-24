@@ -6,5 +6,5 @@
     slides[i].classList.remove("is-active");
     i = (i + 1) % slides.length;
     slides[i].classList.add("is-active");
-  }, 4500);
+  }, 4000);
 })();
