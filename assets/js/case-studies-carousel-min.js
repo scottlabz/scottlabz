@@ -1,0 +1,1 @@
+!function(){var e=document.querySelectorAll(".hero-carousel-slide");if(!(e.length<2)){var t=0;setInterval(function(){e[t].classList.remove("is-active"),t=(t+1)%e.length,e[t].classList.add("is-active")},4500)}}();
