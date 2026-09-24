@@ -136,12 +136,22 @@
         margin: 0 auto 2.5rem auto;
       }
 
+      /* width:fit-content (not the flex column's default full-width
+         stretch) so the frame hugs each screenshot at its own real
+         resolution instead of stretching every image - many of these
+         run narrower than the column - up to a shared width and
+         visibly softening them. max-width/margin keep it from
+         overflowing on narrow viewports and centered when it's
+         narrower than the column. */
       .shot-frame {
         border: 1px solid rgba(30, 58, 95, 0.25);
         border-radius: 10px;
         overflow: hidden;
         background: #fff;
         box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 auto;
       }
 
       .shot-chrome {
@@ -157,7 +167,18 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: #d6d9de;
+      }
+
+      .shot-chrome .dot:nth-child(1) {
+        background: #ff5f57;
+      }
+
+      .shot-chrome .dot:nth-child(2) {
+        background: #febc2e;
+      }
+
+      .shot-chrome .dot:nth-child(3) {
+        background: #28c840;
       }
 
       .shot-chrome .url {
@@ -183,7 +204,8 @@
 
       .shot-frame img {
         display: block;
-        width: 100%;
+        max-width: 100%;
+        width: auto;
         height: auto;
       }
 
@@ -274,7 +296,7 @@
         position: absolute;
         inset: -3px;
         border-radius: 50%;
-        border: 3px solid rgba(234, 179, 8, 0.95);
+        border: 3px solid rgba(37, 99, 235, 0.95);
         z-index: -1;
         pointer-events: none;
         animation: hotspot-sonar 2s ease-out infinite;
