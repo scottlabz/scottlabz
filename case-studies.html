@@ -338,8 +338,10 @@
       }
 
       .additional-cases h2 {
-        margin-top: 0;
+        margin: 0 auto 2.5rem auto;
+        padding-bottom: 1rem;
         text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.16);
       }
 
       .additional-cases-grid {
@@ -419,6 +421,22 @@
           overflow: visible;
         }
       }
+
+      /* Auto-advancing hero carousel, no arrows/dots - the three real
+         storefront photos crossfade on a timer (see the script near
+         the end of <body>). Sizing/position/object-fit are already
+         handled by the shared .banner.style1 .image img rule in
+         main.css, which stacks each <img> absolutely over the same
+         50%-width column - this only needs to control which one is
+         visible. */
+      .hero-carousel-slide {
+        opacity: 0;
+        transition: opacity 1.2s ease;
+      }
+
+      .hero-carousel-slide.is-active {
+        opacity: 1;
+      }
     </style>
   </head>
 
@@ -437,216 +455,247 @@
 
     <div id="wrapper" class="divided">
       <main id="main-content">
-      <section
-        class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-        <div class="content">
-          <p class="brand-mark">
-            <a href="index.html" style="border-bottom: none">
-              <img
-                src="images/scottlabz-clear.webp"
-                width="130"
-                height="170"
-                alt="S"
-                title="S"
-                class="logo"
-                style="margin-right: 0" />cott Labz
-            </a>
-          </p>
-
-          <h1 class="major" style="margin: 0.2rem 0">Case Studies</h1>
-
-          <p style="margin: 0 0 1rem 0">
-            Explore real-world examples of analytics modernization, digital
-            infrastructure improvements, data pipelines, and custom digital
-            solutions designed to create measurable business outcomes. For the
-            technical breakdowns behind this kind of work, see the
-            <a href="/field-notes/">Field Notes archive</a>.
-          </p>
-
-          <hr style="margin: 2.5rem 0" />
-
-          <p
-            class="about-statement"
-            style="
-              margin: 0 auto 0.5rem auto;
-              font-size: 85%;
-              text-transform: uppercase;
-              font-weight: 400;
-              text-align: center;
-              padding: 0.5rem;
-            ">
-            Hawkeye Fan Shop - The Official University of Iowa Athletic
-            Department
-          </p>
-
-          <img
-            src="images/hawkeyefanshop.png"
-            width="456"
-            height="200"
-            style="width: stretch; margin: 0"
-            alt="Hawkeye Fan Shop logo, the official University of Iowa Athletic Department retailer featured in this case study"
-            title="Hawkeye Fan Shop - The Official University of Iowa Athletic Department"
-            loading="lazy" />
-
-          <ul
-            class="actions stacked"
-            style="margin: 1rem 0 1.5rem 0; text-align: center">
-            <li>
-              <a
-                href="case-studies/hawkeye-fan-shop.html"
-                class="button big wide smooth-scroll hawkeye">
-                View Hawkeye Fan Shop Case Study
-              </a>
-            </li>
-          </ul>
-
-          <div class="service-directory">
-            <div class="service-column">
-              <h2 class="size-h5">Analytics &amp; Data Intelligence</h2>
-
-              <ul class="service-links">
-                <li>
-                  <a href="case-studies/digital-measurement-strategy.html"
-                    >Measurement Strategy</a
-                  >
-                </li>
-                <li>
-                  <a href="case-studies/digital-analytics-implementation.html"
-                    >Analytics Implementation</a
-                  >
-                </li>
-                <li>
-                  <a href="case-studies/analytics-modernization.html"
-                    >Analytics Modernization</a
-                  >
-                </li>
-                <li>
-                  <a href="case-studies/analytics-dashboard-reporting.html"
-                    >Dashboard &amp; Reporting</a
-                  >
-                </li>
-                <li>
-                  <a href="case-studies/data-quality-governance.html"
-                    >Data Quality &amp; Governance</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="case-studies/analytics-dashboard-reporting-platform.html"
-                    >Reporting Platform</a
-                  >
-                </li>
-              </ul>
-            </div>
-
-            <div class="service-column">
-              <h2 class="size-h5">Web &amp; Digital</h2>
-
-              <ul class="service-links">
-                <li>
-                  <a href="case-studies/website-performance-optimization.html"
-                    >Performance Optimization</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="case-studies/website-security-performance-engineering.html"
-                    >Security &amp; Performance</a
-                  >
-                </li>
-                <li>
-                  <a href="case-studies/custom-web-application-development.html"
-                    >Custom Web Development</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="case-studies/digital-infrastructure-modernization.html"
-                    >Digital Infrastructure</a
-                  >
-                </li>
-              </ul>
-            </div>
-
-            <div class="service-column">
-              <h2 class="size-h5">Optimization</h2>
-
-              <ul class="service-links">
-                <li>
-                  <a href="case-studies/digital-experience-optimization.html"
-                    >Experience Optimization</a
-                  >
-                </li>
-              </ul>
-            </div>
-
-            <div class="service-column">
-              <h2 class="size-h5">Advertising &amp; Media Buying</h2>
-
-              <ul class="service-links">
-                <li>
-                  <a href="case-studies/advertising-media-buying.html"
-                    >Campaign Strategy &amp; Media Buying</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="additional-cases">
-            <h2 class="size-h3">Additional Case Studies</h2>
-
-            <div class="additional-cases-grid">
-              <div class="additional-case">
+        <section
+          class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+          <div class="content">
+            <p class="brand-mark">
+              <a href="index.html" style="border-bottom: none">
                 <img
-                  src="images/bgs.png"
-                  width="724"
-                  height="154"
-                  alt="The Black &amp; Gold Shop storefront, an ecommerce case study built for University of Iowa fans"
-                  title="The Black &amp; Gold Shop"
-                  loading="lazy" />
-                <ul class="actions stacked">
+                  src="images/scottlabz-clear.webp"
+                  width="130"
+                  height="170"
+                  alt="S"
+                  title="S"
+                  class="logo"
+                  style="margin-right: 0" />cott Labz
+              </a>
+            </p>
+
+            <h1 class="major" style="margin: 0.2rem 0">Case Studies</h1>
+
+            <p style="margin: 0 0 1rem 0">
+              Explore real-world examples of analytics modernization, digital
+              infrastructure improvements, data pipelines, and custom digital
+              solutions designed to create measurable business outcomes. For the
+              technical breakdowns behind this kind of work, see the
+              <a href="/field-notes/">Field Notes archive</a>.
+            </p>
+
+            <hr style="margin: 2.5rem 0" />
+
+            <p
+              class="about-statement"
+              style="
+                margin: 0 auto 0.5rem auto;
+                font-size: 85%;
+                text-transform: uppercase;
+                font-weight: 400;
+                text-align: center;
+                padding: 0.5rem;
+              ">
+              Hawkeye Fan Shop - The Official University of Iowa Athletic
+              Department
+            </p>
+
+            <img
+              src="images/hawkeyefanshop.png"
+              width="456"
+              height="200"
+              style="width: stretch; margin: 0"
+              alt="Hawkeye Fan Shop logo, the official University of Iowa Athletic Department retailer featured in this case study"
+              title="Hawkeye Fan Shop - The Official University of Iowa Athletic Department"
+              loading="lazy" />
+
+            <ul
+              class="actions stacked"
+              style="margin: 1rem 0 1.5rem 0; text-align: center">
+              <li>
+                <a
+                  href="case-studies/hawkeye-fan-shop.html"
+                  class="button big wide smooth-scroll hawkeye">
+                  View Hawkeye Fan Shop Case Study
+                </a>
+              </li>
+            </ul>
+
+            <div class="service-directory">
+              <div class="service-column">
+                <h2 class="size-h5">Analytics &amp; Data Intelligence</h2>
+
+                <ul class="service-links">
+                  <li>
+                    <a href="case-studies/digital-measurement-strategy.html"
+                      >Measurement Strategy</a
+                    >
+                  </li>
+                  <li>
+                    <a href="case-studies/digital-analytics-implementation.html"
+                      >Analytics Implementation</a
+                    >
+                  </li>
+                  <li>
+                    <a href="case-studies/analytics-modernization.html"
+                      >Analytics Modernization</a
+                    >
+                  </li>
+                  <li>
+                    <a href="case-studies/analytics-dashboard-reporting.html"
+                      >Dashboard &amp; Reporting</a
+                    >
+                  </li>
+                  <li>
+                    <a href="case-studies/data-quality-governance.html"
+                      >Data Quality &amp; Governance</a
+                    >
+                  </li>
                   <li>
                     <a
-                      href="case-studies/the-black-and-gold-shop.html"
-                      class="button big wide smooth-scroll blackgold">
-                      The Black &amp; Gold Shop Case Study
-                    </a>
+                      href="case-studies/analytics-dashboard-reporting-platform.html"
+                      >Reporting Platform</a
+                    >
                   </li>
                 </ul>
               </div>
 
-              <div class="additional-case">
-                <img
-                  src="images/kitchens.png"
-                  width="1000"
-                  height="216"
-                  alt="Kitchens logo, a long-standing client partner"
-                  title="Kitchens"
-                  loading="lazy" />
-                <ul class="actions stacked">
+              <div class="service-column">
+                <h2 class="size-h5">Web &amp; Digital</h2>
+
+                <ul class="service-links">
                   <li>
-                    <span class="button big wide kitchens" aria-disabled="true">
-                      My Kitchens Case Study
-                    </span>
+                    <a href="case-studies/website-performance-optimization.html"
+                      >Performance Optimization</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="case-studies/website-security-performance-engineering.html"
+                      >Security &amp; Performance</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="case-studies/custom-web-application-development.html"
+                      >Custom Web Development</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="case-studies/digital-infrastructure-modernization.html"
+                      >Digital Infrastructure</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div class="service-column">
+                <h2 class="size-h5">Optimization</h2>
+
+                <ul class="service-links">
+                  <li>
+                    <a href="case-studies/digital-experience-optimization.html"
+                      >Experience Optimization</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div class="service-column">
+                <h2 class="size-h5">Advertising &amp; Media Buying</h2>
+
+                <ul class="service-links">
+                  <li>
+                    <a href="case-studies/advertising-media-buying.html"
+                      >Campaign Strategy &amp; Media Buying</a
+                    >
                   </li>
                 </ul>
               </div>
             </div>
+
+            <div class="additional-cases">
+              <h2 class="size-h3">Additional Case Studies</h2>
+
+              <div class="additional-cases-grid">
+                <div class="additional-case">
+                  <img
+                    src="images/bgs.png"
+                    width="724"
+                    height="154"
+                    alt="The Black &amp; Gold Shop storefront, an ecommerce case study built for University of Iowa fans"
+                    title="The Black &amp; Gold Shop"
+                    loading="lazy" />
+                  <ul class="actions stacked">
+                    <li>
+                      <a
+                        href="case-studies/the-black-and-gold-shop.html"
+                        class="button big wide smooth-scroll blackgold">
+                        View Black &amp; Gold Shop Case Study
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="additional-case">
+                  <img
+                    src="images/kitchens.png"
+                    width="1000"
+                    height="216"
+                    alt="Kitchens logo, a long-standing client partner"
+                    title="Kitchens"
+                    loading="lazy" />
+                  <ul class="actions stacked">
+                    <li>
+                      <span
+                        class="button big wide kitchens"
+                        aria-disabled="true">
+                        View Kitchens Case Study
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="image">
-          <img
-            src="images/case-studies.jpg"
-            width="1980"
-            height="1320"
-            style="object-position: 52% 65%"
-            alt="Banner image representing case studies in analytics modernization, digital infrastructure, and web development"
-            title="Case Studies" />
-        </div>
-      </section>
-
+          <div class="image">
+            <img
+              src="images/case-studies.jpg"
+              width="1980"
+              height="1320"
+              style="object-position: 52% 65%"
+              class="hero-carousel-slide is-active"
+              alt="Iowa Hawkeyes mascot Herky on the field, representing Scott Labz case studies in ecommerce analytics and digital infrastructure"
+              title="Scott Labz Case Studies - Analytics & Digital Solutions" />
+            <img
+              src="images/case-studies-storefront-hfs.jpg"
+              width="1060"
+              height="2700"
+              class="hero-carousel-slide"
+              alt="Hawkeye Fan Shop pylon sign, the official University of Iowa Athletics retailer and a Scott Labz ecommerce case study client"
+              title="Hawkeye Fan Shop Case Study - Official Iowa Athletics Retailer" />
+            <img
+              src="images/case-studies-storefront-bgs.jpg"
+              width="2027"
+              height="1520"
+              class="hero-carousel-slide"
+              alt="The Black & Gold Shop storefront in Coralville, Iowa, an official Iowa Hawkeyes retailer and Scott Labz case study client"
+              title="The Black & Gold Shop Case Study - Coralville, Iowa" />
+            <img
+              src="images/case-studies-storefront-bgs2.jpg"
+              width="1686"
+              height="1520"
+              class="hero-carousel-slide"
+              alt="Black & Gold Shop exterior with a large Iowa Hawkeyes football team mural at its Coralville, Iowa retail location"
+              title="The Black & Gold Shop - Iowa Hawkeyes Retail Storefront" />
+            <img
+              src="images/case-studies-storefront-kitchens.jpg"
+              width="2594"
+              height="3313"
+              class="hero-carousel-slide"
+              alt="Kitchens storefront sign along a lit shopping district street at night, a long-standing Scott Labz client"
+              title="Kitchens - Scott Labz Client Storefront" />
+          </div>
+        </section>
       </main>
       <script src="/assets/js/jquery.min.js?v=ff1523fb73" defer></script>
       <script
@@ -659,6 +708,18 @@
       <script src="/assets/js/breakpoints.min.js?v=309febcd6d" defer></script>
       <script src="/assets/js/main.js?v=88fb08ab17" defer></script>
       <script src="/assets/js/footer-min.js?v=ffdbf5f5f6" defer></script>
+      <script>
+        (function () {
+          var slides = document.querySelectorAll(".hero-carousel-slide");
+          if (slides.length < 2) return;
+          var i = 0;
+          setInterval(function () {
+            slides[i].classList.remove("is-active");
+            i = (i + 1) % slides.length;
+            slides[i].classList.add("is-active");
+          }, 4500);
+        })();
+      </script>
 
       <scott-footer
         description="Explore case studies demonstrating modern analytics, digital infrastructure, and custom digital solutions.">
