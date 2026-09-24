@@ -40,6 +40,5 @@ Site content - written copy, case studies, client names and logos, photography, 
 
 [![Site Audit](https://img.shields.io/github/actions/workflow/status/scottlabz/scottlabz/audit.yml?label=site%20audit)](https://github.com/scottlabz/scottlabz/actions/workflows/audit.yml)
 [![CodeQL](https://img.shields.io/github/actions/workflow/status/scottlabz/scottlabz/codeql.yml?label=codeql)](https://github.com/scottlabz/scottlabz/actions/workflows/codeql.yml)
-[![External Link Check](https://img.shields.io/github/actions/workflow/status/scottlabz/scottlabz/external-links.yml?label=external%20links)](https://github.com/scottlabz/scottlabz/actions/workflows/external-links.yml)
 [![Cache Purge](https://img.shields.io/github/actions/workflow/status/scottlabz/scottlabz/purge-cache.yml?label=cache%20purge)](https://github.com/scottlabz/scottlabz/actions/workflows/purge-cache.yml)
 [![Deploy](https://img.shields.io/github/deployments/scottlabz/scottlabz/github-pages?label=deploy)](https://github.com/scottlabz/scottlabz/deployments/github-pages)
