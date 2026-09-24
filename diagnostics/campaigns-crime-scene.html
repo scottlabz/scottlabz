@@ -27,6 +27,7 @@
         --amber: #ffc857;
         --red: #ff667a;
         --purple: #b69cff;
+        --accent: #7c2d92;
       }
       * {
         box-sizing: border-box;
@@ -58,24 +59,25 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        color: var(--cyan);
+        color: #fff;
         text-decoration: none;
         font:
           800 11px ui-monospace,
           monospace;
         letter-spacing: 0.05em;
-        border: 1px solid var(--cyan);
-        background: rgba(93, 224, 255, 0.1);
+        border: 1px solid var(--accent);
+        background: var(--accent);
         padding: 7px 12px;
         border-radius: 4px;
         transition:
           background 0.15s ease,
+          color 0.15s ease,
           transform 0.15s ease;
       }
       .backlink:hover {
-        color: #061218;
-        background: var(--cyan);
-        border-color: var(--cyan);
+        color: var(--accent);
+        background: rgba(124, 45, 146, 0.1);
+        border-color: var(--accent);
         transform: translateX(-2px);
       }
       .brand {
