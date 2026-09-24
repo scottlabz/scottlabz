@@ -9547,7 +9547,7 @@ body.is-preload .items.onload-fade-in > * > .inner {
   top: 0;
   left: 0;
   width: 100%;
-  height: 10%;
+  height: 20%;
   background-image: var(--hero-bg);
   background-size: cover;
   background-position: center;
@@ -9561,14 +9561,8 @@ body.is-preload .items.onload-fade-in > * > .inner {
 }
 
 .case-study-hero.banner.style1 .content {
-  max-width: 40rem;
-  padding: 4rem 0;
-}
-
-@media screen and (max-width: 1280px) {
-  .case-study-hero.banner.style1 .content {
-    padding: 1rem;
-  }
+  max-width: 900px;
+  padding: 2rem;
 }
 
 /* Shared "service content" body typography (used across service/market/
