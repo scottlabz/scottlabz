@@ -72,9 +72,21 @@ class ScottNav extends HTMLElement {
       { href: "/contact.html", label: "Contact", height: 40, color: "#15803d" },
     ];
 
-    const currentPath =
-      window.location.pathname.replace(/index\.html$/, "").replace(/\/$/, "") ||
-      "/";
+    // Cloudflare 308-redirects every *.html URL to its extensionless form
+    // site-wide (e.g. /services.html -> /services), so the live
+    // location.pathname never actually carries .html - only the local dev
+    // server (no such redirect) does. Both index.html and a plain trailing
+    // .html need to be stripped here so itemPath/currentPath agree on
+    // either host; without the second replace, every href here except
+    // /field-notes/ (which was never a .html URL to begin with) silently
+    // never matches on production.
+    const stripHtml = (path) =>
+      path
+        .replace(/index\.html$/, "")
+        .replace(/\.html$/, "")
+        .replace(/\/$/, "") || "/";
+
+    const currentPath = stripHtml(window.location.pathname);
 
     // Most pages need id="main-content" added to their <main> for this to
     // work. A few pages already carry a different id that's referenced
@@ -84,8 +96,7 @@ class ScottNav extends HTMLElement {
     //   <scott-nav skip-target="#first"></scott-nav>
     const skipTarget = this.getAttribute("skip-target") || "#main-content";
 
-    const normalize = (href) =>
-      href.replace(/index\.html$/, "").replace(/\/$/, "") || "/";
+    const normalize = (href) => stripHtml(href);
 
     // Style is injected once, even if <scott-nav> somehow appears twice.
     if (!document.getElementById("scott-nav-style")) {
@@ -300,15 +311,14 @@ class ScottNav extends HTMLElement {
         // Active on the item's own page, and on any subpage under its
         // directory (e.g. /field-notes/ stays active for
         // /field-notes/some-post.html, /case-studies.html for
-        // /case-studies/some-project.html). Strip a trailing .html for
-        // the directory check specifically, since a leaf page like
-        // case-studies.html shares its name with the case-studies/
-        // directory that holds its subpages.
+        // /case-studies/some-project.html) - both sides are already
+        // .html-free via normalize()/stripHtml() above, so a leaf page
+        // like case-studies.html and the case-studies/ directory that
+        // holds its subpages both normalize to the same "/case-studies".
         const itemPath = normalize(item.href);
-        const sectionPath = itemPath.replace(/\.html$/, "");
         const isCurrent =
           itemPath === currentPath ||
-          currentPath.startsWith(sectionPath + "/") ||
+          currentPath.startsWith(itemPath + "/") ||
           (item.aliases || []).some((alias) => normalize(alias) === currentPath);
         return `
           <li class="sl-bar-item">
