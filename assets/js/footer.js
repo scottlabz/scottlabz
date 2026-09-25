@@ -393,15 +393,25 @@ class ScottFooter extends HTMLElement {
     // directory (e.g. /field-notes/ stays "on" for
     // /field-notes/some-post.html, /insights.html for
     // /insights/some-article.html), the same rule scott-nav uses.
+    // Cloudflare 308-redirects every .html URL to its extensionless
+    // form in production (no such redirect exists locally), so both
+    // index.html and a plain trailing .html need to be stripped here -
+    // without the second replace, every hardcoded /page.html href below
+    // silently never matches window.location.pathname on production,
+    // even though it matches fine on a local server. See navigation.js's
+    // stripHtml() for the same fix applied to the primary nav.
     const normalize = (href) =>
-      href.replace(/index\.html$/, "").replace(/\/$/, "") || "/";
+      href
+        .replace(/index\.html$/, "")
+        .replace(/\.html$/, "")
+        .replace(/\/$/, "") || "/";
     const currentPath = normalize(window.location.pathname);
 
     // Standalone pages that live outside their section's own directory
     // but should still light up that section's footer link, mirroring
     // scott-nav's alias list for the same pages.
     const ALIASES = {
-      "/about.html": ["/founder.html", "/clients.html"],
+      "/about": ["/founder.html", "/clients.html"],
     };
 
     this.querySelectorAll('a[href^="/"]').forEach((link) => {
@@ -410,10 +420,9 @@ class ScottFooter extends HTMLElement {
       if (link.closest(".logo-wrapper")) return;
 
       const itemPath = normalize(link.getAttribute("href"));
-      const sectionPath = itemPath.replace(/\.html$/, "");
       const isCurrent =
         itemPath === currentPath ||
-        currentPath.startsWith(sectionPath + "/") ||
+        currentPath.startsWith(itemPath + "/") ||
         (ALIASES[itemPath] || []).some(
           (alias) => normalize(alias) === currentPath
         );
