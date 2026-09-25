@@ -144,7 +144,6 @@
          overflowing on narrow viewports and centered when it's
          narrower than the column. */
       .shot-frame {
-        border: 1px solid rgba(30, 58, 95, 0.25);
         border-radius: 10px;
         overflow: hidden;
         background: #fff;
@@ -152,6 +151,14 @@
         width: fit-content;
         max-width: 100%;
         margin: 0 auto;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .shot-frame:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
       }
 
       .shot-chrome {
@@ -209,13 +216,24 @@
         height: auto;
       }
 
+      /* Styled as a callout attached to the frame it introduces - the
+         blue accent bar echoes .hotspot-pin's own color so the caption
+         and the screenshot it's captioning read as one unit, rather
+         than the plain paragraph blending into the section's body
+         copy above it. Since each one sits directly above its own
+         .shot-frame and directly below the previous one, this is the
+         only text in the immediate vicinity of every browser mockup
+         on the page. */
       .shot-lead {
+        position: relative;
         font-size: 0.95rem;
-        color: #444;
-        margin: 0 0 1.1rem;
-        padding-top: 0.15rem;
+        color: #33475b;
+        margin: 0 0 1rem;
+        padding: 0.75rem 1.1rem;
         line-height: 1.65;
-        max-width: 68ch;
+        background: rgba(37, 99, 235, 0.06);
+        border-left: 3px solid #2563eb;
+        border-radius: 0 8px 8px 0;
       }
 
       /* The interactive image area. Positioned so hotspot pins (also
@@ -402,8 +420,11 @@
 
       .hotspot-popover h4 {
         margin: 0.2rem 0 0.65rem;
+        padding-bottom: 0.4rem;
         font-size: 1.1rem;
+        font-weight: 800;
         color: #111;
+        border-bottom: 2px solid #2563eb;
       }
 
       .hotspot-popover p {
@@ -422,12 +443,6 @@
          paragraph does the explaining. */
       .shot-frame.plain img {
         cursor: default;
-      }
-
-      @media (max-width: 640px) {
-        .shot-lead {
-          max-width: none;
-        }
       }
 
       /* main.css sizes this background strip at 10% of
@@ -644,38 +659,134 @@
                       <div class="hotspot-note" id="hs-home-nav">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Ten-category primary nav</h4>
+                          <h4>A shared event taxonomy behind every click</h4>
                           <p>
-                            Home, New, Men, Women, Kids, Jersey - Personal &amp;
-                            NIL, T-Shirts, Hats, Gameday, ANF - each top-level
-                            link is its own tracked entry point into the
-                            catalog, not one generic "nav click" event.
+                            Every navigation link fires through the same
+                            standardized event schema the rebuild
+                            introduced, so a click here and a click three
+                            levels deep in the catalog land in reporting
+                            with identical field names - no more
+                            reconciling naming conventions left over from
+                            earlier redesigns.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-home-bogo">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>Rotating promotional hero</h4>
+                          <h4>Campaign parameters baked into the rotation</h4>
                           <p>
-                            This BOGO tees slide is one of several rotating
-                            creatives, each carrying its own tracked link so a
-                            specific promotion's lift can be measured on its
-                            own (a closer look at this rotation is a few
-                            sections down).
+                            Each slide gets its own tracking parameters
+                            applied automatically when it's scheduled,
+                            rather than a marketer hand-typing links before
+                            every promotion goes live - one less place for
+                            a campaign to quietly go untracked.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-home-tiles">
                         <span class="hotspot-note-num">3</span>
                         <div>
-                          <h4>Swappable homepage tiles</h4>
+                          <h4>Merchandising changes that skip the deploy pipeline</h4>
                           <p>
-                            Jersey - Personal &amp; NIL, Football, Men, and
-                            Women lead the tile row - the set can be
-                            reordered or re-themed for a rivalry week without
-                            touching the tracking already built around each
-                            category.
+                            This tile set reads from a merchandising config
+                            rather than being hardcoded into the template,
+                            so a swap ahead of a big week ships through the
+                            CMS on its own timeline instead of waiting on a
+                            code release.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="shot-lead">
+                    A closer look at the header stack - utility links, the
+                    official-retailer banner, and primary navigation - the
+                    layer every other page on the site inherits, so it was
+                    one of the first pieces rebuilt with individually
+                    tracked links instead of one shared "nav click" event.
+                  </p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-hawkeyefanshop.svg" width="128" height="14" alt="hawkeyefanshop.com" title="hawkeyefanshop.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/hawkeye-fan-shop-header-section.png"
+                        width="1272"
+                        height="854"
+                        alt="Hawkeye Fan Shop site header with utility navigation, the official-retailer banner, and primary category navigation"
+                        title="Hawkeye Fan Shop site header with utility navigation, the official-retailer banner, and primary category navigation"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 50%; top: 4%"
+                        data-target="hs-header-utility"
+                        aria-expanded="false"
+                        aria-controls="hs-header-utility"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 28%; top: 26%"
+                        data-target="hs-header-primary"
+                        aria-expanded="false"
+                        aria-controls="hs-header-primary"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 72%; top: 36%"
+                        data-target="hs-header-trust"
+                        aria-expanded="false"
+                        aria-controls="hs-header-trust"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-header-utility">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Self-service usage measured against contact volume</h4>
+                          <p>
+                            Traffic through this row gets compared against
+                            inbound support contact volume - the only way
+                            to tell whether self-service options are
+                            actually deflecting phone and email tickets, or
+                            just adding a second place a fan checks before
+                            calling anyway.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-header-primary">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Category order managed through the catalog, not the template</h4>
+                          <p>
+                            This row reads its order and labels from the
+                            same catalog system driving the rest of the
+                            site, so a category can be added, renamed, or
+                            resequenced on its own schedule without a
+                            developer touching a template file.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-header-trust">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>One messaging block, tested for placement</h4>
+                          <p>
+                            That mission line is a single reusable content
+                            block that's been tested in a few different
+                            positions across the page - its placement here
+                            is a deliberate result of that testing, not
+                            just wherever there happened to be empty space.
                           </p>
                         </div>
                       </div>
@@ -733,36 +844,42 @@
                       <div class="hotspot-note" id="hs-cat-count">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Live item count</h4>
+                          <h4>Inventory sync, not a cached snapshot</h4>
                           <p>
-                            The "137 items" total and the sort control both
-                            update live as filters are applied, so the count
-                            on screen never drifts from what's actually shown.
+                            The result count reconciles against live
+                            inventory on every filter change rather than a
+                            periodically cached catalog export, so a fan
+                            never sees a total that's already drifted from
+                            what's actually in stock by the time they
+                            click through.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-cat-filters">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>Faceted filter sidebar</h4>
+                          <h4>Faceted URLs kept out of the crawl budget</h4>
                           <p>
-                            Availability, Price, Brand, Size, and Color -
-                            each facet fires its own tracked event, so
-                            merchandising can see which filter actually moves
-                            a fan toward checkout instead of one blended
-                            "filter used" signal.
+                            Combining facets can generate thousands of
+                            near-duplicate URL variations - the rebuild
+                            routes those through canonical tags back to the
+                            base category page, so search engines spend
+                            their crawl budget on pages actually worth
+                            indexing.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-cat-grid">
                         <span class="hotspot-note-num">3</span>
                         <div>
-                          <h4>A wide price spread</h4>
+                          <h4>Sort order driven by a ranking model</h4>
                           <p>
-                            This one category alone runs from a cheap button
-                            to a premium helmet - exactly why the filter
-                            sidebar's price ceiling has to read live off the
-                            catalog instead of using a fixed number.
+                            Default sort blends recency, in-stock status,
+                            and historical conversion rate rather than a
+                            merchandiser manually pinning items to the top
+                            - the ranking recalculates on its own schedule
+                            so a stale pin from a past promotion doesn't
+                            quietly linger.
                           </p>
                         </div>
                       </div>
@@ -793,7 +910,7 @@
                         loading="lazy" />
                       <button
                         class="hotspot-pin"
-                        style="left: 55%; top: 33%"
+                        style="left: 30%; top: 25%"
                         data-target="hs-pdp-reviews"
                         aria-expanded="false"
                         aria-controls="hs-pdp-reviews"
@@ -820,35 +937,40 @@
                       <div class="hotspot-note" id="hs-pdp-reviews">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Verified review badge</h4>
+                          <h4>Review data marked up for search snippets</h4>
                           <p>
-                            The star rating and review count are pulled
-                            live from real review data, not hand-typed
-                            copy that goes stale as new reviews come in.
+                            The same feed that powers this widget also
+                            emits rating structured data on the page,
+                            which is what lets a star rating show up
+                            directly in a search result before a fan ever
+                            clicks through to the site.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-pdp-variants">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>Variant pickers</h4>
+                          <h4>Variant selection resolves to a real SKU</h4>
                           <p>
-                            Color and Size selections are tracked
-                            independently, so a merchandiser can see whether
-                            Black or Gold - or Medium versus 3X-Large - is
-                            actually moving before deciding what to restock.
+                            Choosing a variant swaps in the actual SKU
+                            behind it via a live inventory lookup, rather
+                            than just changing a label on screen - that's
+                            what lets a stockout on one specific option
+                            disable just that choice instead of taking the
+                            whole product down.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-pdp-cart">
                         <span class="hotspot-note-num">3</span>
                         <div>
-                          <h4>The add-to-cart event</h4>
+                          <h4>Add-to-cart logged server-side, not just in the browser</h4>
                           <p>
-                            The gold Add to cart button is the single most
-                            important click on the page - it's what ties a
-                            product view to an actual cart addition
-                            downstream in the funnel.
+                            This event fires from the server as well as the
+                            browser, so an ad blocker or a flaky connection
+                            on a fan's phone doesn't quietly erase a real
+                            add-to-cart from the funnel - a common gap with
+                            browser-only tracking.
                           </p>
                         </div>
                       </div>
@@ -899,24 +1021,27 @@
                       <div class="hotspot-note" id="hs-bogopdp-toggle">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Tiered pricing toggle</h4>
+                          <h4>The toggle itself is a live experiment surface</h4>
                           <p>
-                            A simple radio switch between buying one shirt
-                            or buying two as a bundle - tracking has to
-                            capture which tier a fan picks, not just that an
-                            item was added to cart.
+                            Which pricing tier renders as the default
+                            selection is controlled through a feature-flag
+                            layer, which is what let the team test a
+                            bundle-first default against a single-item-first
+                            default without shipping two separate product
+                            pages.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-bogopdp-bundle">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>Bundle line items</h4>
+                          <h4>A bundle is one order line, not two</h4>
                           <p>
-                            Selecting the bundle reveals two independent
-                            product rows beneath it, each needing its own
-                            size and color choice before checkout - a fan
-                            can mix two different designs into one deal.
+                            Behind the two pickers, the order system still
+                            records the pair as a single bundled line item
+                            with its own SKU - that distinction keeps
+                            bundle revenue reporting clean instead of it
+                            looking like two unrelated single-item sales.
                           </p>
                         </div>
                       </div>
@@ -990,25 +1115,26 @@
                       <div class="hotspot-note" id="hs-bogocar-cta">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Tracked CTA button</h4>
+                          <h4>Viewability measured before the click is</h4>
                           <p>
-                            "Shop BOGO Tees" carries its own click event
-                            separate from the slide's impression - a scroll
-                            past and an actual click-through are two
-                            different signals, not one blended "banner seen"
-                            metric.
+                            A slide only counts as seen once it's actually
+                            been in view for a minimum dwell time, not the
+                            instant it loads off-screen - without that
+                            threshold, a slide that scrolls past unread
+                            would still inflate impression counts.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-bogocar-grid">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>Six colorways, right in the slide</h4>
+                          <h4>One source image, several delivered sizes</h4>
                           <p>
-                            Black, Gold, Charcoal, Vintage Black, Old Gold,
-                            White - showing every option up front lets a fan
-                            pick a favorite before ever landing on the
-                            collection page.
+                            The carousel serves a size-appropriate crop
+                            through an image CDN rather than shipping the
+                            same large file to every device - a meaningful
+                            save on a page most fans hit first, on whatever
+                            connection they've got at a tailgate.
                           </p>
                         </div>
                       </div>
@@ -1059,26 +1185,27 @@
                       <div class="hotspot-note" id="hs-giftcar-cta">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>A dedicated landing flow</h4>
+                          <h4>Attribution survives the redirect</h4>
                           <p>
-                            "Shop Hawkeye Gift Cards" routes to its own
-                            defined page rather than a generic catalog link,
-                            so gift card revenue tied to this exact slide is
-                            visible on its own instead of folding into
-                            general homepage traffic.
+                            The link behind this slide passes through a
+                            redirect on its way to the landing page, and
+                            the rebuild made sure the campaign parameters
+                            survive that hop - a common gap where a slide's
+                            own performance quietly gets credited to
+                            "direct traffic" instead.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-giftcar-qr">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>QR-to-mobile bridge</h4>
+                          <h4>A print asset with its own analytics identity</h4>
                           <p>
-                            A "Scan to Shop" QR code bridges a fan looking at
-                            a screen - in-store, on a poster - straight to
-                            this same flow on their phone. Each scan is its
-                            own trackable entry point, separate from a typed
-                            visit.
+                            The QR code encodes a source parameter of its
+                            own, separate from anything used online - which
+                            is what makes it possible to say a scan from a
+                            printed flyer, not just a homepage click, drove
+                            a specific sale.
                           </p>
                         </div>
                       </div>
@@ -1129,25 +1256,27 @@
                       <div class="hotspot-note" id="hs-homegc-arrows">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Manual override arrows</h4>
+                          <h4>Carousel controls built for more than a mouse</h4>
                           <p>
-                            Left/right arrows let a fan step through the
-                            rotation by hand instead of waiting on the
-                            auto-advance timer - a manual advance is tracked
-                            separately from a slide's timed impression.
+                            The step controls are reachable by keyboard and
+                            announce the current slide to a screen reader,
+                            which the original carousel implementation
+                            didn't handle - a gap that mattered more once
+                            analytics started showing real traffic from
+                            assistive technology.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-homegc-context">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>The same QR code, in context</h4>
+                          <h4>Kept off the page's performance budget</h4>
                           <p>
-                            Primary nav, search, and cart sit right above the
-                            slide - a fan who scans the QR code is still
-                            inside the same instrumented session, so a
-                            promotional scan can be followed all the way
-                            through to checkout.
+                            A homepage carrying this many modules risks a
+                            slow initial render - the rebuild lazy-loads
+                            everything below this fold so the carousel and
+                            header remain the only things competing for the
+                            browser's attention on first load.
                           </p>
                         </div>
                       </div>
@@ -1223,36 +1352,40 @@
                       <div class="hotspot-note" id="hs-catgrid-jersey">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Customizable entry point</h4>
+                          <h4>Tile order responds to demand, not a fixed layout</h4>
                           <p>
-                            This tile leads straight into a jersey builder
-                            with Color, Size, and Player dropdowns - a
-                            closer look at that exact flow is coming up
-                            under Product Page Details.
+                            The lead tile position is re-evaluated on a
+                            schedule against recent click-through data
+                            rather than staying pinned to one category
+                            permanently, so the grid's own performance data
+                            feeds back into which category leads it next.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-catgrid-tailgate">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>A seasonal spotlight tile</h4>
+                          <h4>Scheduled content, not a manual swap</h4>
                           <p>
-                            Any tile in this grid can be swapped or
-                            re-themed on short notice - Tailgating &amp;
-                            Gameday is exactly the kind of tile that gets
-                            pushed forward heading into a home game.
+                            Seasonal tiles are set up with a start and end
+                            date ahead of time rather than someone
+                            remembering to swap them in and out by hand -
+                            the content scheduler handles the transition
+                            automatically, home game or not.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-catgrid-collectibles">
                         <span class="hotspot-note-num">3</span>
                         <div>
-                          <h4>Beyond apparel</h4>
+                          <h4>A second product schema for non-apparel items</h4>
                           <p>
-                            Fan Cave signage and other non-apparel
-                            collectibles round out the grid, so the
-                            category structure covers more than shirts and
-                            jerseys.
+                            Items outside apparel get their own
+                            structured-data mapping rather than being
+                            forced into the schema built for shirts and
+                            jerseys - getting that type mapping right is
+                            what keeps search engines from misclassifying
+                            the item entirely.
                           </p>
                         </div>
                       </div>
@@ -1303,24 +1436,27 @@
                       <div class="hotspot-note" id="hs-catdetail-jersey">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Same tile, mobile layout</h4>
+                          <h4>A separate interaction model below a set breakpoint</h4>
                           <p>
-                            Even in a quick swipe, Jersey - Personal &amp;
-                            NIL still leads the carousel - a customizable
-                            jersey builder is enough of a draw to keep the
-                            top spot on both desktop and mobile.
+                            Below a defined width, the grid swaps to a
+                            swipeable carousel rather than just shrinking
+                            the same layout - two different interaction
+                            patterns maintained from one shared data
+                            source, so a merchandising change only has to
+                            be made once.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-catdetail-football">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>A poker-chip schedule graphic</h4>
+                          <h4>A graphic regenerated from the schedule feed</h4>
                           <p>
-                            Football's tile doubles as a preview of the
-                            full season schedule on a poker-chip-style
-                            graphic, refreshed every year with new arrivals
-                            like this schedule magnet.
+                            That seasonal artwork pulls from the same
+                            schedule data published elsewhere on the site
+                            rather than being redesigned from scratch every
+                            year, so a schedule change upstream updates the
+                            graphic without a separate design request.
                           </p>
                         </div>
                       </div>
@@ -1379,37 +1515,40 @@
                       <div class="hotspot-note" id="hs-catrows-helmet">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>The same price ceiling</h4>
+                          <h4>Stock-level flags computed, not manually tagged</h4>
                           <p>
-                            That LightHeaded helmet is the exact item
-                            setting the filter sidebar's price ceiling seen
-                            earlier - merchandising rows and filter logic
-                            pull from the same live catalog data.
+                            A low-stock style flag, when one appears, is
+                            computed from real inventory thresholds rather
+                            than a merchandiser manually tagging an item -
+                            which matters on a site where a single popular
+                            size can sell out mid-afternoon on a Saturday.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-catrows-divider">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>Each row, its own metric</h4>
+                          <h4>Each row is its own component</h4>
                           <p>
-                            Just Arrived, Hawkeye Tee's, and Shop by Brand
-                            are three separate merchandising rows, each
-                            with its own click-through and conversion
-                            numbers instead of one blended "homepage
-                            product" stat.
+                            Every merchandising row on the homepage is
+                            built as an independent component with its own
+                            reporting hook, which is what lets one row's
+                            underperformance get diagnosed and swapped out
+                            without touching the rows around it.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-catrows-brand">
                         <span class="hotspot-note-num">3</span>
                         <div>
-                          <h4>Brand-level browsing</h4>
+                          <h4>Manufacturer catalogs synced through a shared feed</h4>
                           <p>
-                            Shop by Brand surfaces Nike alongside Iowa's
-                            own house label, letting a fan browse by
-                            manufacturer instead of hunting through the
-                            full catalog for a specific brand.
+                            Browsing by manufacturer works because each
+                            licensed brand's catalog data syncs through
+                            the same product feed as the house label - a
+                            normalization step the rebuild had to solve so
+                            differently structured supplier feeds could
+                            sit in one browsable index.
                           </p>
                         </div>
                       </div>
@@ -1482,35 +1621,41 @@
                       <div class="hotspot-note" id="hs-overalls-copy">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Long-form editorial copy</h4>
+                          <h4>Editorial copy lives outside the product record</h4>
                           <p>
-                            Construction notes and a family-sizing story
-                            live right in the module itself, not on a
-                            separate landing page a fan would have to click
-                            through to reach.
+                            Long-form copy like this is authored as its own
+                            content block rather than stuffed into the
+                            product description field, so the same
+                            write-up can be reused across a highlight
+                            module, an email, and a landing page without
+                            three copies drifting out of sync.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-overalls-women">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>Women's leads the lineup</h4>
+                          <h4>One family record behind several listed products</h4>
                           <p>
-                            The Women's Big Logo Stripe Overalls anchor the
-                            top of the price range, positioned first in the
-                            row.
+                            Products spanning multiple age and gender lines
+                            are linked under one family record in the
+                            catalog, which is what lets a highlight module
+                            like this pull a full size range automatically
+                            instead of a merchandiser hand-building the
+                            list.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-overalls-infant">
                         <span class="hotspot-note-num">3</span>
                         <div>
-                          <h4>Matching down to Infant</h4>
+                          <h4>Sell-through tracked down to individual sizes</h4>
                           <p>
-                            The lineup runs all the way to Infant Gameday
-                            Bib Overalls - each size is its own trackable
-                            SKU, so the module's performance can be broken
-                            down by which size actually sold.
+                            Even at the smallest size in a family like this,
+                            sell-through gets tracked at the individual SKU
+                            level - granular enough that a reorder decision
+                            can be made on one size without waiting for the
+                            whole line to look slow.
                           </p>
                         </div>
                       </div>
@@ -1542,7 +1687,7 @@
                         loading="lazy" />
                       <button
                         class="hotspot-pin"
-                        style="left: 50%; top: 8%"
+                        style="left: 25%; top: 8%"
                         data-target="hs-herky-price"
                         aria-expanded="false"
                         aria-controls="hs-herky-price"
@@ -1550,7 +1695,7 @@
                       </button>
                       <button
                         class="hotspot-pin"
-                        style="left: 50%; top: 22%"
+                        style="left: 75%; top: 30%"
                         data-target="hs-herky-copy"
                         aria-expanded="false"
                         aria-controls="hs-herky-copy"
@@ -1569,36 +1714,40 @@
                       <div class="hotspot-note" id="hs-herky-price">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Price in the headline</h4>
+                          <h4>Price rendered from the catalog, not typed into the copy</h4>
                           <p>
-                            The price sits right in the module's headline
-                            instead of being buried lower on the page - a
-                            fan sees the number before they see the
-                            product photo.
+                            The number here pulls live from the product's
+                            actual price field rather than being hand-typed
+                            into the marketing copy, so a price change
+                            upstream can never leave a highlight module
+                            quoting a stale number.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-herky-copy">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>Material-story copy</h4>
+                          <h4>Written to match how fans actually search</h4>
                           <p>
-                            Reverse weave construction and Champion's
-                            shrink-resistance claim both get real
-                            explanatory copy - enough to justify the price
-                            before a fan even scrolls to the product.
+                            Material and construction details here are
+                            phrased around the terms fans actually search
+                            for a specific piece, rather than generic
+                            marketing language - the kind of on-page copy
+                            that gives a single high-margin product its own
+                            shot at organic search traffic.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-herky-colorways">
                         <span class="hotspot-note-num">3</span>
                         <div>
-                          <h4>Two colorways, one highlight</h4>
+                          <h4>The module reflects stock, not a fixed layout</h4>
                           <p>
-                            Heather grey and black both ship in the same
-                            module, so one high-margin item's performance
-                            can still be split by colorway instead of
-                            averaged together.
+                            If one colorway in a highlight like this sells
+                            out, the module drops it automatically rather
+                            than continuing to show an option a fan can't
+                            actually buy - one less thing a merchandiser
+                            has to remember to edit mid-promotion.
                           </p>
                         </div>
                       </div>
@@ -1676,24 +1825,26 @@
                       <div class="hotspot-note" id="hs-filters-ceiling">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>A live-read ceiling</h4>
+                          <h4>Computed against the catalog, not configured by hand</h4>
                           <p>
-                            That range isn't typed in anywhere - it's
-                            computed from the most expensive item actually
-                            in this category right now, so the range never
-                            needs manual upkeep as pricing changes.
+                            That upper bound recalculates from whatever the
+                            most expensive in-stock item in view actually
+                            costs, rather than a number someone updates in
+                            a settings panel - one less config value that
+                            can quietly go stale as pricing changes.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-filters-collapsed">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>Expanded vs. collapsed by default</h4>
+                          <h4>Default open/closed states set by usage data</h4>
                           <p>
-                            Availability and Price start open since they
-                            narrow a catalog this size the fastest; Brand,
-                            Size, Color, and Category stay collapsed until
-                            tapped, keeping the sidebar scannable on load.
+                            Which filters start expanded versus collapsed
+                            isn't a design guess - it's set from which
+                            facets actually get used first in session
+                            recordings and click data, revisited
+                            periodically as browsing behavior shifts.
                           </p>
                         </div>
                       </div>
@@ -1734,7 +1885,7 @@
                         </button>
                         <button
                           class="hotspot-pin"
-                          style="left: 84%; top: 18%"
+                          style="left: 65%; top: 45%"
                           data-target="hs-shopall-chevron"
                           aria-expanded="false"
                           aria-controls="hs-shopall-chevron"
@@ -1746,24 +1897,26 @@
                       <div class="hotspot-note" id="hs-shopall-header">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>More than thirty categories</h4>
+                          <h4>Internal linking mapped for crawl depth</h4>
                           <p>
-                            Every entry in this menu is its own trackable
-                            path into the catalog - Jersey - Personal &amp;
-                            NIL through Holiday Items, none of them lumped
-                            into one generic "navigation click" event.
+                            This menu doubles as the site's primary
+                            internal linking structure - every category
+                            sits within a couple of clicks of the homepage
+                            on purpose, since crawl depth still shapes how
+                            quickly an updated category page gets indexed.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-shopall-chevron">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>A submenu tucked one level down</h4>
+                          <h4>Submenus rendered on demand, not all at once</h4>
                           <p>
-                            The chevron on Shop by Sport hints at a deeper
-                            submenu underneath it - depth the homepage
-                            tiles never surface, and one more layer worth
-                            tracking on its own.
+                            Deeper submenus only render once a fan actually
+                            interacts with their parent, instead of the
+                            entire nested structure loading into the page
+                            on first paint - a choice that keeps a menu
+                            this deep from dragging down initial load time.
                           </p>
                         </div>
                       </div>
@@ -1829,24 +1982,28 @@
                       <div class="hotspot-note" id="hs-footersignup-social">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Social links, individually tracked</h4>
+                          <h4>Outbound clicks tagged before a fan ever leaves</h4>
                           <p>
-                            Facebook, Instagram, TikTok, and X each carry
-                            their own click ID, so an outbound social visit
-                            isn't lumped into one generic "footer link"
-                            count.
+                            Each outbound link carries a referral tag
+                            specific to this exact placement, so if a
+                            spike in engagement shows up on a given
+                            platform, it can be traced back to this footer
+                            row instead of getting folded into that
+                            platform's own generic referral traffic.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-footersignup-email">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>A second, separate signup</h4>
+                          <h4>A separate consent record, not a shared list</h4>
                           <p>
-                            This email form is distinct from the Fan Alerts
-                            signup covered further down - two capture
-                            points, tracked as two different sources of
-                            list growth.
+                            Signing up here creates its own consent record
+                            distinct from any other list on the site,
+                            which matters for compliance - a fan who opts
+                            out of one list doesn't get silently kept on
+                            another just because both forms feed the same
+                            inbox.
                           </p>
                         </div>
                       </div>
@@ -1888,13 +2045,15 @@
                       <div class="hotspot-note" id="hs-footerbrands-logos">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>A licensed-manufacturer trust signal</h4>
+                          <h4>Licensing status pulled from a managed feed</h4>
                           <p>
-                            Nike, Champion, and Tommy Bahama placed right
-                            before the policy links reassure a fan mid-way
-                            through checkout that they're buying from
-                            recognized brands, not an unlicensed
-                            print-on-demand shop.
+                            Brand logos and their licensing status sync
+                            from a managed partner feed rather than being
+                            manually uploaded whenever an agreement
+                            changes - a detail that matters for a licensed
+                            retailer, where showing an expired partnership
+                            is a real compliance risk, not just a stale
+                            image.
                           </p>
                         </div>
                       </div>
@@ -1934,7 +2093,7 @@
                       </button>
                       <button
                         class="hotspot-pin"
-                        style="left: 50%; top: 83%"
+                        style="left: 22%; top: 83%"
                         data-target="hs-footerdetail-policy"
                         aria-expanded="false"
                         aria-controls="hs-footerdetail-policy"
@@ -1942,7 +2101,7 @@
                       </button>
                       <button
                         class="hotspot-pin"
-                        style="left: 50%; top: 92%"
+                        style="left: 78%; top: 92%"
                         data-target="hs-footerdetail-copyright"
                         aria-expanded="false"
                         aria-controls="hs-footerdetail-copyright"
@@ -1953,25 +2112,29 @@
                       <div class="hotspot-note" id="hs-footerdetail-clark">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>A culturally-tuned category</h4>
+                          <h4>Built to ship a trending moment same-day</h4>
                           <p>
-                            Between BOGO Tees and Jersey - Personal &amp;
-                            NIL sits "Clark Fever!" - a category named for
-                            Iowa alum Caitlin Clark, swapped into the
-                            secondary nav to ride a moment the regular
-                            schedule wouldn't capture on its own.
+                            The navigation and merchandising system
+                            supports slotting in a timely, culturally
+                            relevant category on short notice - a
+                            capability that matters when a specific moment
+                            in college athletics can spike search interest
+                            well before a normal content cycle would catch
+                            up to it.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-footerdetail-policy">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>Every policy link, one row</h4>
+                          <h4>One shared component, not copy-pasted per page</h4>
                           <p>
-                            Privacy Policy through Locations all live in a
-                            single scannable row - the same set closes out
-                            every page on the site the same way, so nothing
-                            has to be hunted for.
+                            This row is a single shared component included
+                            on every page rather than duplicated markup - a
+                            policy update now touches one file instead of
+                            requiring the same edit repeated across dozens
+                            of individual pages, which used to be a real
+                            source of drift.
                           </p>
                         </div>
                       </div>
@@ -2057,34 +2220,40 @@
                       <div class="hotspot-note" id="hs-gcdetail-denom">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Four fixed denominations</h4>
+                          <h4>Fixed amounts reduce a known fraud vector</h4>
                           <p>
-                            Four preset amounts rather than an open amount
-                            field, keeping every purchase inside a clean,
-                            trackable set of price points.
+                            Capping gift card purchases to a small set of
+                            preset amounts, instead of an open field, is a
+                            deliberate anti-fraud measure - open-value
+                            gift cards are a common target for
+                            card-testing schemes, and constraining the
+                            amount narrows that exposure.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-gcdetail-sendto">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>Two gifting paths</h4>
+                          <h4>Delivery runs through a dedicated transactional channel</h4>
                           <p>
-                            "My email" or "Recipient's email" - tracked
-                            separately, since a self-purchase and an actual
-                            gift represent very different customer intent.
+                            Gift card codes send through a transactional
+                            email pipeline kept separate from marketing
+                            sends, since a delayed or spam-filtered
+                            delivery here isn't just a missed newsletter -
+                            it can mean a gift arrives late or not at all.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-gcdetail-mission">
                         <span class="hotspot-note-num">3</span>
                         <div>
-                          <h4>An athletics tie-in</h4>
+                          <h4>Sales here feed a reporting obligation</h4>
                           <p>
-                            The description closes on a mission line -
-                            purchases support University of Iowa athletic
-                            programs - reinforcing why a fan buys here
-                            over a generic gift card.
+                            Because a share of gift card revenue is
+                            committed elsewhere, this product's sales data
+                            has to reconcile cleanly against an external
+                            reporting requirement, not just show up as a
+                            number in the storefront's own dashboard.
                           </p>
                         </div>
                       </div>
@@ -2116,7 +2285,7 @@
                         loading="lazy" />
                       <button
                         class="hotspot-pin"
-                        style="left: 50%; top: 24%"
+                        style="left: 30%; top: 18%"
                         data-target="hs-locations-cta"
                         aria-expanded="false"
                         aria-controls="hs-locations-cta"
@@ -2124,7 +2293,7 @@
                       </button>
                       <button
                         class="hotspot-pin"
-                        style="left: 50%; top: 28%"
+                        style="left: 68%; top: 36%"
                         data-target="hs-locations-brands"
                         aria-expanded="false"
                         aria-controls="hs-locations-brands"
@@ -2143,37 +2312,41 @@
                       <div class="hotspot-note" id="hs-locations-cta">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Two tracked CTAs per card</h4>
+                          <h4>Store data doubles as local search input</h4>
                           <p>
-                            "Get directions" and "Visit site" are separate
-                            buttons on every location card - directions
-                            clicks and website clicks are measured apart,
-                            so foot-traffic intent doesn't blend with
-                            browsing intent.
+                            The same address and hours record that powers
+                            this card also feeds structured local-business
+                            data on the page, which is what lets a store
+                            show up correctly in local search results and
+                            map listings instead of relying on a separate,
+                            easily outdated directory listing.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-locations-brands">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>Two sibling brands, one locator</h4>
+                          <h4>Two storefront names, one backend record</h4>
                           <p>
-                            The Black and Gold Shop and Hawkeye Fan Shop
-                            share this same store locator - both are
-                            Coralville-based, official Iowa Athletics
-                            retailers, just listed under different names.
+                            Two different public-facing names in the same
+                            locator resolve to a single underlying
+                            location record - keeping that mapping
+                            consistent on the backend is what prevents the
+                            same store from ever showing up twice, or with
+                            conflicting hours, in search results.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-locations-concessions">
                         <span class="hotspot-note-num">3</span>
                         <div>
-                          <h4>Beyond the four walls</h4>
+                          <h4>A demand signal the reporting calendar plans around</h4>
                           <p>
-                            A closing line points to concessions at every
-                            Kinnick Stadium home game - one more physical
-                            touchpoint beyond the four storefronts listed
-                            above.
+                            Gameday concessions traffic is predictable
+                            enough by schedule that it gets factored into
+                            staffing and inventory planning ahead of time,
+                            rather than being treated as a surprise spike
+                            after the fact each home game.
                           </p>
                         </div>
                       </div>
@@ -2284,36 +2457,41 @@
                       <div class="hotspot-note" id="hs-scheduletee-thumbs">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Five gallery thumbnails</h4>
+                          <h4>Thumbnails generated automatically at upload</h4>
                           <p>
-                            Front, back-schedule, and both colorways each
-                            get their own thumbnail, so a fan can see the
-                            printed schedule before deciding on Black or
-                            Gold.
+                            Each gallery image is processed into its
+                            display sizes automatically when it's
+                            uploaded, rather than someone manually
+                            exporting and cropping each variant - a small
+                            piece of the pipeline that matters once a
+                            catalog runs into thousands of product photos.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-scheduletee-crumb">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>A two-level breadcrumb trail</h4>
+                          <h4>Breadcrumb markup feeds the search result itself</h4>
                           <p>
-                            Home &gt; Football &gt; this tee - each
-                            breadcrumb link is its own tracked path back
-                            up the category structure, not just a visual
-                            label.
+                            This trail isn't just an on-page convenience -
+                            it's marked up as structured breadcrumb data,
+                            which is what lets a search engine show the
+                            category path directly in the result listing
+                            instead of just a bare URL.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-scheduletee-desc">
                         <span class="hotspot-note-num">3</span>
                         <div>
-                          <h4>The schedule, spelled out</h4>
+                          <h4>A listing built to expire on a schedule</h4>
                           <p>
-                            The description explicitly calls out that the
-                            back prints the full 2026 schedule - the exact
-                            selling point a thumbnail alone can't fully
-                            convey.
+                            A year-specific product like this is set up
+                            with its own review date built in, so it gets
+                            flagged for retirement or refresh once the
+                            season it references has passed, instead of
+                            silently sitting in the catalog as an outdated
+                            listing.
                           </p>
                         </div>
                       </div>
@@ -2363,26 +2541,28 @@
                       <div class="hotspot-note" id="hs-crosssell-header">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>A cross-sell, not an upsell</h4>
+                          <h4>Recommendations from a co-purchase model</h4>
                           <p>
-                            Every recommended product here carries its own
-                            click-through, tracked separately from the
-                            page it's shown on - a second sale is
-                            attributed to the row, not the original
-                            product.
+                            This row is generated from actual co-purchase
+                            patterns in the order history rather than a
+                            merchandiser manually choosing what pairs well
+                            - the model retrains on a schedule, so the
+                            pairings shift as real buying behavior shifts
+                            across a season.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-crosssell-familiar">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>A familiar face</h4>
+                          <h4>Suppressed if it's already in the cart</h4>
                           <p>
-                            That Vertical Arch tee is the same product
-                            with its own multi-shirt bundle option seen
-                            earlier in this case study - cross-sell rows
-                            can resurface a product a fan may have already
-                            come across elsewhere on the site.
+                            The recommendation logic checks a fan's
+                            current cart before rendering this row, so a
+                            product already sitting in cart doesn't get
+                            recommended right back to them - a small rule
+                            that avoids the engine looking like it isn't
+                            paying attention.
                           </p>
                         </div>
                       </div>
@@ -2441,36 +2621,44 @@
                       <div class="hotspot-note" id="hs-jerseybuilder-count">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>71 images, one counter</h4>
+                          <h4>A gallery this size needs its own cache strategy</h4>
                           <p>
-                            "1 / 71" confirms the gallery depth directly -
-                            every angle, every close-up, all reachable
-                            with the same left/right arrows used
-                            throughout the site.
+                            A product carrying a gallery this large needs
+                            deliberate cache invalidation - swap one image
+                            without a proper versioning strategy and a fan
+                            can end up looking at a stale asset pulled
+                            from an edge cache days after the real one was
+                            replaced.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-jerseybuilder-player">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>A third selector: Player</h4>
+                          <h4>A dropdown backed by a fulfillment integration</h4>
                           <p>
-                            Beyond Color and Size, a Player dropdown lets
-                            a fan choose which roster name and number goes
-                            on the back - one more variant dimension the
-                            simpler tees never need.
+                            Behind this selector sits an integration with
+                            the vendor that actually prints the
+                            personalization - the storefront has to pass
+                            the selection through cleanly enough that what
+                            a fan picks is exactly what ends up on the
+                            physical product, with no manual re-entry step
+                            in between.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-jerseybuilder-price">
                         <span class="hotspot-note-num">3</span>
                         <div>
-                          <h4>A different price tier entirely</h4>
+                          <h4>Price computed from selected options</h4>
                           <p>
-                            This personalized jersey sits far above the
-                            price range of the tees seen throughout this
-                            case study - the interface complexity above
-                            matches the price.
+                            Personalization options here carry their own
+                            price modifiers that compute at selection time
+                            rather than the product having one flat
+                            catalog price - a rule that has to be
+                            maintained carefully so a change to the base
+                            product doesn't silently break the modifier
+                            math on top of it.
                           </p>
                         </div>
                       </div>
@@ -2555,36 +2743,43 @@
                       <div class="hotspot-note" id="hs-bogofull-hero">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Colorways previewed up top</h4>
+                          <h4>A page versioned like a release</h4>
                           <p>
-                            The hero banner shows all six BOGO colorways
-                            before a fan even reaches the grid - the same
-                            preview pattern used in the homepage carousel
-                            slide covered earlier.
+                            Campaign pages like this move through the same
+                            staging and review step as any other release
+                            rather than being edited directly on the live
+                            site - which matters once a page is carrying
+                            its own tracking configuration that a typo
+                            could quietly break.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-bogofull-price">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>Not every pair costs the same</h4>
+                          <h4>Per-product overrides on a shared promotion</h4>
                           <p>
-                            Most items on this page run one bundle price,
-                            but the long sleeve tee jumps to a higher tier -
-                            the BOGO logic flexes per product instead of
-                            using one flat bundle price across the board.
+                            The bundle logic supports per-product price
+                            overrides layered on top of the campaign's
+                            default terms, so a single higher-cost item
+                            can sit inside the same promotion without
+                            needing an entirely separate campaign built
+                            just for it.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-bogofull-slider">
                         <span class="hotspot-note-num">3</span>
                         <div>
-                          <h4>A slider inside every card</h4>
+                          <h4>One component, configured per card</h4>
                           <p>
-                            Each product card embeds its own before/after
-                            comparison slider - the same interaction shown
-                            in detail in the next two screenshots, just
-                            miniaturized to fit a grid.
+                            That comparison interaction is a single shared
+                            component reused across every eligible
+                            product, configured per card through the
+                            catalog data rather than being custom-built
+                            for each one - a big part of why a campaign
+                            like this can launch across dozens of products
+                            at once.
                           </p>
                         </div>
                       </div>
@@ -2635,23 +2830,28 @@
                       <div class="hotspot-note" id="hs-slidervintage-price">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>The bundle price, up top</h4>
+                          <h4>Discount-stacking rules decided which price wins</h4>
                           <p>
-                            The bundle deal sits above the product photo,
-                            not below it - a fan sees the deal before they
-                            even see what they're buying.
+                            When a product qualifies for more than one
+                            active promotion at once, a defined precedence
+                            rule - not a manual override - decides which
+                            discount actually applies, so two overlapping
+                            campaigns can never accidentally stack into a
+                            price nobody approved.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-slidervintage-arrows">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>Step-through, not just drag</h4>
+                          <h4>Engagement measured to justify the feature's upkeep</h4>
                           <p>
-                            Small left/right arrows sit on the split image
-                            alongside the drag divider - a lower-friction
-                            way to compare colorways than needing to
-                            precisely drag every time.
+                            Drag interactions and tap-through-arrow
+                            interactions are logged as distinct engagement
+                            types, which is what let the team confirm fans
+                            were actually using this comparison feature
+                            before committing more engineering time to
+                            expanding it further.
                           </p>
                         </div>
                       </div>
@@ -2701,24 +2901,28 @@
                       <div class="hotspot-note" id="hs-sliderflash-purple">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>A third color, off to the side</h4>
+                          <h4>Color names normalized across suppliers</h4>
                           <p>
-                            The hero photo shows purple, but the slider
-                            beneath it compares tan and pink - three
-                            colorways represented in one card without
-                            stacking three separate product images.
+                            Manufacturers rarely agree on color naming, so
+                            the catalog maps each supplier's own color
+                            labels to one normalized internal palette -
+                            without that step, filtering or comparing by
+                            color across brands would quietly break every
+                            time a new vendor was added.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-sliderflash-brand">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>A different manufacturer</h4>
+                          <h4>Royalty reporting tracked at the line-item level</h4>
                           <p>
-                            This Logo Flash tee is made by CI Sport rather
-                            than the Nike or Champion pieces seen
-                            elsewhere - BOGO pairs styles across multiple
-                            licensed brands, not just one.
+                            Sales of a licensed product like this get
+                            tracked at the individual line-item level
+                            specifically so royalty reporting to the
+                            manufacturer can be generated directly from
+                            order data, rather than someone reconstructing
+                            it by hand at the end of a season.
                           </p>
                         </div>
                       </div>
@@ -2777,36 +2981,42 @@
                       <div class="hotspot-note" id="hs-bundlesingle-swatches">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Six colorways in Buy 1</h4>
+                          <h4>Swatches labeled for more than sight</h4>
                           <p>
-                            Black, Charcoal, Gold, Grey, Old Gold, and
-                            White all sit inside the simple Buy 1 tier -
-                            the same breadth of choice as the bundle,
-                            just without a second product to pick.
+                            Every color option carries a text label
+                            alongside its swatch, not just a colored
+                            square - a detail that matters for both
+                            screen readers and colorblind fans, and one
+                            that's easy to quietly lose in a purely visual
+                            redesign.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-bundlesingle-math">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>The actual math, shown</h4>
+                          <h4>The discount is recalculated at checkout</h4>
                           <p>
-                            The full two-shirt price is struck through
-                            down to the bundle price - the discount isn't
-                            just implied, the real arithmetic is right
-                            there next to the offer.
+                            Whatever price the page displays gets
+                            independently recalculated server-side at
+                            checkout rather than the client-side number
+                            being trusted outright - a basic safeguard
+                            against a manipulated price ever actually
+                            reaching payment.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-bundlesingle-maker">
                         <span class="hotspot-note-num">3</span>
                         <div>
-                          <h4>Manufacturer credited by name</h4>
+                          <h4>Manufacturer attribution routes returns correctly</h4>
                           <p>
-                            The description closes with "Made by New
-                            Agenda" - specific enough to matter to a fan
-                            who cares which company actually printed the
-                            shirt.
+                            Knowing exactly which manufacturer produced a
+                            given item matters past the sale - it's what
+                            routes a defect or warranty claim to the right
+                            supplier automatically instead of customer
+                            service tracking down who actually made a
+                            specific piece after the fact.
                           </p>
                         </div>
                       </div>
@@ -2857,24 +3067,28 @@
                       <div class="hotspot-note" id="hs-bundleselected-price">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>The math moves to the top</h4>
+                          <h4>Scroll depth cross-referenced against conversion</h4>
                           <p>
-                            Once the bundle is selected, the bundle price
-                            with the original struck through moves up next
-                            to the product title itself - the discount
-                            stays visible no matter how far a fan scrolls.
+                            Keeping the price visible through a long
+                            scroll isn't just a UX choice - it's informed
+                            by scroll-depth data showing where fans were
+                            dropping off before ever reaching the
+                            add-to-cart button, and this placement
+                            measurably closed part of that gap.
                           </p>
                         </div>
                       </div>
                       <div class="hotspot-note" id="hs-bundleselected-defaults">
                         <span class="hotspot-note-num">2</span>
                         <div>
-                          <h4>Two independent size defaults</h4>
+                          <h4>Defaults chosen by an inventory check</h4>
                           <p>
-                            Each shirt in the bundle defaults to its own
-                            in-stock size rather than mirroring the
-                            other - the first lands on Small, the second
-                            on Large, based on what's actually available.
+                            The starting selection for each item in a
+                            bundle runs an inventory check at page load
+                            rather than always defaulting to the same
+                            option - which avoids the common annoyance of
+                            a default that turns out to be out of stock
+                            the moment someone tries to check out.
                           </p>
                         </div>
                       </div>
@@ -2963,13 +3177,15 @@
                       <div class="hotspot-note" id="hs-impact-kinnick">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Ties to Kinnick Stadium, by name</h4>
+                          <h4>One dashboard, not three disconnected ones</h4>
                           <p>
-                            The intro copy name-drops "football Saturdays
-                            at Kinnick Stadium" directly - tying the
-                            online catalog to the exact physical moment
-                            driving the traffic spikes this whole case
-                            study opened with.
+                            Online sales, physical retail, and gameday
+                            concessions historically lived in three
+                            separate reporting systems - part of the
+                            ongoing work has been reconciling all three
+                            into one shared view, so a single Saturday's
+                            performance doesn't require stitching together
+                            spreadsheets afterward.
                           </p>
                         </div>
                       </div>
@@ -3012,12 +3228,14 @@
                       <div class="hotspot-note" id="hs-impact-bogotitle">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>A named page, not just a banner</h4>
+                          <h4>A URL that persists across seasons</h4>
                           <p>
-                            Even the page heading reads "BOGO Tees" - this
-                            promotion has its own real page identity
-                            rather than existing only as a temporary
-                            homepage overlay.
+                            Because this promotion lives at a stable,
+                            permanent address rather than being rebuilt
+                            fresh each time it runs, it keeps whatever
+                            search ranking and backlinks it's accumulated
+                            from prior seasons instead of starting over
+                            from zero on every relaunch.
                           </p>
                         </div>
                       </div>
@@ -3060,12 +3278,14 @@
                       <div class="hotspot-note" id="hs-impact-giftcrumb">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>One click deep from home</h4>
+                          <h4>Click depth trimmed after the data showed drop-off</h4>
                           <p>
-                            The gift card sits just one breadcrumb level
-                            below the homepage - about as few clicks as a
-                            purchase path can have, whether that purchase
-                            gets redeemed online or in-store.
+                            How many clicks a fan needs to reach a
+                            purchase page is something the team actively
+                            measures and trims where the data shows
+                            drop-off - this page's placement close to the
+                            homepage is a direct result of that analysis,
+                            not just a navigation preference.
                           </p>
                         </div>
                       </div>
@@ -3108,12 +3328,14 @@
                       <div class="hotspot-note" id="hs-impact-fanalertcopy">
                         <span class="hotspot-note-num">1</span>
                         <div>
-                          <h4>Plain-language signup copy</h4>
+                          <h4>List growth segmented before a single email goes out</h4>
                           <p>
-                            "Get in on the gold" and "No spam, just the
-                            good stuff before it sells out" - conversational
-                            copy in place of generic "Subscribe to our
-                            newsletter" boilerplate.
+                            Signups here get segmented by how and where
+                            they joined, which is what lets a send about a
+                            new gear drop reach people who've actually
+                            engaged with similar messaging before, instead
+                            of blasting the entire list the same way every
+                            time.
                           </p>
                         </div>
                       </div>
@@ -3129,6 +3351,15 @@
                 given Hawkeye Fan Shop a foundation it's built on since 2016.
               </p>
             </div>
+
+            <img
+              src="/images/flyingherk-mascot.png"
+              width="640"
+              height="631"
+              style="display: block; width: 140px; height: auto; margin: 0.5rem auto 2.5rem"
+              alt="Flying Herky, the University of Iowa Hawkeyes mascot"
+              title="Flying Herky, the University of Iowa Hawkeyes mascot"
+              loading="lazy" />
 
             <div class="case-section">
               <h3>Explore More Case Studies</h3>
