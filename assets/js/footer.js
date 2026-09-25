@@ -25,7 +25,7 @@ class ScottFooter extends HTMLElement {
                 <a href="/index.html" style="border-bottom:none;">
                   <span class="h3" style="display:inline-flex;align-items:center;">
                     <img
-                      src="/images/scottlabz-clear.webp"
+                      src="/images/scottlabz-clear.webp?v=d34943c620"
                       width="130"
                       height="170"
                       alt="S"
@@ -58,7 +58,7 @@ class ScottFooter extends HTMLElement {
                     id="bbblink"
                     class="ruhzbum"
                     target="_blank"
-                    rel="nofollow"
+                    rel="nofollow noopener"
                     style="border-bottom:none;"
                   >
                     <img
@@ -87,7 +87,7 @@ class ScottFooter extends HTMLElement {
                   >
                     <img
                       id="footer-chamber-img"
-                      src="/images/Chamber-Member-Logo.webp"
+                      src="/images/Chamber-Member-Logo.webp?v=6843972781"
                       width="260"
                       height="260"
                       alt="McLean County Chamber of Commerce"

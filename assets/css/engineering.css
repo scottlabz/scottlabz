@@ -486,16 +486,9 @@
   filter: drop-shadow(0 0 14px rgba(30, 58, 95, 0.18));
 }
 
-.ecosystem-node text {
-  pointer-events: none;
-}
-
+.ecosystem-node text,
 .node-icon {
-  font-family: "Font Awesome 5 Free";
-
-  font-weight: 900;
-
-  font-size: 26px;
+  pointer-events: none;
 }
 
 .node-label {
@@ -641,10 +634,6 @@
 
   .ecosystem-node text {
     font-size: 12px;
-  }
-
-  .node-icon {
-    font-size: 22px;
   }
 
   .center-title {

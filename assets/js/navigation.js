@@ -343,7 +343,7 @@ class ScottNav extends HTMLElement {
         <div class="sl-nav-inner">
           <a href="/index.html" class="sl-nav-brand">
             <img
-              src="/images/scottlabz-clear.webp"
+              src="/images/scottlabz-clear.webp?v=d34943c620"
               alt="Scott Labz"
               title="Scott Labz"
               width="31"

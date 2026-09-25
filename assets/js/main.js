@@ -89,10 +89,6 @@
 
 				})();
 
-	// Smooth scroll.
-		$('.smooth-scroll').scrolly();
-		$('.smooth-scroll-middle').scrolly({ anchor: 'middle' });
-
 	// Wrapper.
 		$wrapper.children()
 			.scrollex({
@@ -293,7 +289,7 @@
 							setTimeout(function() {
 
 								// Clear src.
-									$modalImg.attr('src', '');
+									$modalImg.removeAttr('src');
 
 								// Unlock.
 									$modal[0]._locked = false;
@@ -315,7 +311,7 @@
 							$modal.trigger('click');
 
 				})
-				.prepend('<div class="modal" tabIndex="-1"><div class="inner"><img src="" alt="Enlarged gallery image" /></div></div>')
+				.prepend('<div class="modal" tabIndex="-1"><div class="inner"><img alt="Enlarged gallery image" /></div></div>')
 					.find('img')
 						.on('load', function(event) {
 

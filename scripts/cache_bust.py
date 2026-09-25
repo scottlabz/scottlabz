@@ -1,17 +1,4 @@
 #!/usr/bin/env python3
-"""
-Content-hash cache busting for local CSS/JS assets referenced in HTML files.
-
-Rewrites href="...file.css" / src="...file.js" (local files only, not
-http(s):// URLs) to href="...file.css?v=<hash>", where <hash> is derived
-from the current content of the target file. Re-running this script is
-always safe: unchanged files keep the same hash, so it only touches an
-HTML file when the version string it should carry has actually changed.
-
-No manual "remember to bump the version" step - the version *is* the
-file's content hash.
-"""
-
 import hashlib
 import re
 import sys
@@ -20,8 +7,23 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 HASH_LENGTH = 10
 
+IMAGE_EXTS = r"webp|png|jpe?g|svg"
+
 ASSET_TAG_PATTERN = re.compile(
-    r'(<(?:link|script)\b[^>]*?\b(?:href|src)=")([^"]+\.(?:css|js))(\??v=[0-9a-f]+)?(")',
+    rf'(<(?:link|script|img)\b[^>]*?\b(?:href|src)=")([^"]+\.(?:css|js|{IMAGE_EXTS}))(\??v=[0-9a-f]+)?(")',
+    re.IGNORECASE,
+)
+
+BG_IMAGE_PATTERN = re.compile(
+    rf"""(background-image:\s*url\((['"]?))([^)'"]+\.(?:{IMAGE_EXTS}))(\??v=[0-9a-f]+)?(\2\))""",
+    re.IGNORECASE,
+)
+
+SRCSET_ATTR_PATTERN = re.compile(
+    r'\b(?:src|image)?srcset="([^"]*)"', re.IGNORECASE
+)
+SRCSET_URL_PATTERN = re.compile(
+    rf"([^\s,\"]+\.(?:{IMAGE_EXTS}))(\??v=[0-9a-f]+)?(\s+\d+w)",
     re.IGNORECASE,
 )
 
@@ -56,7 +58,32 @@ def process_file(html_file: Path) -> bool:
         h = content_hash(asset_path)
         return f"{prefix}{ref}?v={h}{suffix}"
 
+    def replace_bg(match: re.Match) -> str:
+        prefix, _quote, ref, _old_version, suffix = match.groups()
+        asset_path = resolve_asset_path(html_file, ref)
+        if asset_path is None:
+            return match.group(0)
+        h = content_hash(asset_path)
+        return f"{prefix}{ref}?v={h}{suffix}"
+
+    def replace_srcset_url(match: re.Match) -> str:
+        ref, _old_version, descriptor = match.groups()
+        asset_path = resolve_asset_path(html_file, ref)
+        if asset_path is None:
+            return match.group(0)
+        h = content_hash(asset_path)
+        return f"{ref}?v={h}{descriptor}"
+
+    def replace_srcset_attr(match: re.Match) -> str:
+        full_attr = match.group(0)
+        value = match.group(1)
+        new_value = SRCSET_URL_PATTERN.sub(replace_srcset_url, value)
+        return full_attr.replace(value, new_value, 1)
+
     updated = ASSET_TAG_PATTERN.sub(replace, original)
+    updated = BG_IMAGE_PATTERN.sub(replace_bg, updated)
+    updated = SRCSET_ATTR_PATTERN.sub(replace_srcset_attr, updated)
+
     if updated != original:
         html_file.write_text(updated, encoding="utf-8")
         return True

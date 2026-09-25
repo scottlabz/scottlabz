@@ -16,6 +16,7 @@ on:
       - "**.jpeg"
       - "**.webp"
       - "**.ico"
+      - "**.woff2"
   workflow_dispatch:
     inputs:
       environment:
