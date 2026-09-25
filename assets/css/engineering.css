@@ -94,6 +94,12 @@
   gap: 1rem;
 }
 
+.audience-grid {
+  grid-template-columns: repeat(3, minmax(220px, 260px));
+
+  justify-content: center;
+}
+
 /* =========================================
    Cards
 ========================================= */
