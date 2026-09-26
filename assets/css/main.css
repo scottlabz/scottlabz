@@ -1183,6 +1183,12 @@ a.icon.style2 {
   font-size: 1.25rem;
 }
 
+h1 + .icon.style2.major {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 a.icon.style2 {
   -moz-transition:
     background-color 0.2s ease-in-out,
