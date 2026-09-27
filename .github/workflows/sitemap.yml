@@ -23,6 +23,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Generate Field Notes index
+        run: python scripts/generate_field_notes.py
+
       - name: Generate sitemap
         run: python scripts/generate_sitemap.py
 

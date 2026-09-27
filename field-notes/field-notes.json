@@ -1,0 +1,271 @@
+{
+  "count": 22,
+  "notes": [
+    {
+      "slug": "stadium-internet-ecommerce-operations",
+      "file": "stadium-internet-ecommerce-operations.html",
+      "url": "https://scottlabz.com/field-notes/stadium-internet-ecommerce-operations.html",
+      "title": "What It Takes to Keep a Stadium POS System Online on Gameday",
+      "summary": "Sixty thousand phones want the same signal a payment terminal needs - satellite internet alone was never going to be the fix.",
+      "categories": [
+        "infra"
+      ],
+      "accent": "#3730a3",
+      "published": "2026-09-23"
+    },
+    {
+      "slug": "the-property-that-was-counting-twice",
+      "file": "the-property-that-was-counting-twice.html",
+      "url": "https://scottlabz.com/field-notes/the-property-that-was-counting-twice.html",
+      "title": "The Property That Was Counting Twice",
+      "summary": "Conversions looked strong for weeks - two properties, both live, both counting the same checkout.",
+      "categories": [
+        "measurement"
+      ],
+      "accent": "#db2777",
+      "published": "2026-09-03"
+    },
+    {
+      "slug": "why-we-stopped-trusting-the-sample-size",
+      "file": "why-we-stopped-trusting-the-sample-size.html",
+      "url": "https://scottlabz.com/field-notes/why-we-stopped-trusting-the-sample-size.html",
+      "title": "Why We Stopped Trusting the Sample Size",
+      "summary": "A test was called a winner on day four - it wasn't the sample size that was the problem.",
+      "categories": [
+        "measurement"
+      ],
+      "accent": "#ca8a04",
+      "published": "2026-09-03"
+    },
+    {
+      "slug": "bimi-sender-verification",
+      "file": "bimi-sender-verification.html",
+      "url": "https://scottlabz.com/field-notes/bimi-sender-verification.html",
+      "title": "Teaching Inboxes to Recognize a Real Sender",
+      "summary": "A verified brand mark next to outgoing mail wasn't a paid certificate away - it was a mail provider away.",
+      "categories": [
+        "infra"
+      ],
+      "accent": "#0d9488",
+      "published": "2026-08-26"
+    },
+    {
+      "slug": "cache-invalidation-on-deploy",
+      "file": "cache-invalidation-on-deploy.html",
+      "url": "https://scottlabz.com/field-notes/cache-invalidation-on-deploy.html",
+      "title": "Cache Clears Itself the Moment Content Changes",
+      "summary": "A manual purge step works fine until the one time someone forgets it, so the deploy step does it instead.",
+      "categories": [
+        "infra"
+      ],
+      "accent": "#ea580c",
+      "published": "2026-08-26"
+    },
+    {
+      "slug": "the-scroll-that-wouldnt-stop",
+      "file": "the-scroll-that-wouldnt-stop.html",
+      "url": "https://scottlabz.com/field-notes/the-scroll-that-wouldnt-stop.html",
+      "title": "The Scroll That Wouldn't Stop",
+      "summary": "Two pages, the same exact symptom, and two mistakes that had nothing to do with each other.",
+      "categories": [
+        "frontend"
+      ],
+      "accent": "#dc2626",
+      "published": "2026-08-23"
+    },
+    {
+      "slug": "the-widget-that-broke-two-ways",
+      "file": "the-widget-that-broke-two-ways.html",
+      "url": "https://scottlabz.com/field-notes/the-widget-that-broke-two-ways.html",
+      "title": "The Widget That Broke Two Ways",
+      "summary": "The same trust badge, added the same way, broke for two reasons that had nothing to do with each other.",
+      "categories": [
+        "frontend"
+      ],
+      "accent": "#65a30d",
+      "published": "2026-08-23"
+    },
+    {
+      "slug": "the-cleanup-pass",
+      "file": "the-cleanup-pass.html",
+      "url": "https://scottlabz.com/field-notes/the-cleanup-pass.html",
+      "title": "The Cleanup Pass",
+      "summary": "A batch of small, unrelated-looking issues that were quietly capping every score that matters.",
+      "categories": [
+        "performance"
+      ],
+      "accent": "#334155",
+      "published": "2026-08-22"
+    },
+    {
+      "slug": "async-everywhere-would-have-broken-the-footer",
+      "file": "async-everywhere-would-have-broken-the-footer.html",
+      "url": "https://scottlabz.com/field-notes/async-everywhere-would-have-broken-the-footer.html",
+      "title": "Async Everywhere Would Have Broken the Footer",
+      "summary": "A site-wide script audit, and the one script the rule said should defer but couldn't.",
+      "categories": [
+        "frontend",
+        "performance"
+      ],
+      "accent": "#059669",
+      "published": "2026-08-21"
+    },
+    {
+      "slug": "the-fix-that-dropped-the-score-first",
+      "file": "the-fix-that-dropped-the-score-first.html",
+      "url": "https://scottlabz.com/field-notes/the-fix-that-dropped-the-score-first.html",
+      "title": "The Fix That Dropped the Score First",
+      "summary": "A mobile PageSpeed audit that dropped before it improved - and why.",
+      "categories": [
+        "performance",
+        "frontend"
+      ],
+      "accent": "#1d4ed8",
+      "published": "2026-08-21"
+    },
+    {
+      "slug": "http-response-headers-read-properly",
+      "file": "http-response-headers-read-properly.html",
+      "url": "https://scottlabz.com/field-notes/http-response-headers-read-properly.html",
+      "title": "HTTP Headers, Read Properly",
+      "summary": "A live header audit - a CSP not naming its own origins.",
+      "categories": [
+        "infra"
+      ],
+      "accent": "#c2410c",
+      "published": "2026-08-18"
+    },
+    {
+      "slug": "the-address-we-took-out-of-the-schema",
+      "file": "the-address-we-took-out-of-the-schema.html",
+      "url": "https://scottlabz.com/field-notes/the-address-we-took-out-of-the-schema.html",
+      "title": "The Address We Removed",
+      "summary": "A stale address, precise coordinates, a fake 24-hour claim - removing beat correcting.",
+      "categories": [
+        "measurement"
+      ],
+      "accent": "#a21caf",
+      "published": "2026-08-18"
+    },
+    {
+      "slug": "the-purge-that-only-ran-manually",
+      "file": "the-purge-that-only-ran-manually.html",
+      "url": "https://scottlabz.com/field-notes/the-purge-that-only-ran-manually.html",
+      "title": "The Purge That Only Ran Manually",
+      "summary": "A cache-purge workflow passed every run without ever actually firing.",
+      "categories": [
+        "infra"
+      ],
+      "accent": "#0369a1",
+      "published": "2026-08-18"
+    },
+    {
+      "slug": "100vh-mobile-viewport-bug",
+      "file": "100vh-mobile-viewport-bug.html",
+      "url": "https://scottlabz.com/field-notes/100vh-mobile-viewport-bug.html",
+      "title": "100vh Isn't What You Think",
+      "summary": "Why a full-height hero cuts off its own CTA on mobile Safari.",
+      "categories": [
+        "frontend"
+      ],
+      "accent": "#0f766e",
+      "published": "2026-08-16"
+    },
+    {
+      "slug": "css-specificity-trap",
+      "file": "css-specificity-trap.html",
+      "url": "https://scottlabz.com/field-notes/css-specificity-trap.html",
+      "title": "The Specificity Trap",
+      "summary": "A shared brand style quietly shrank on eight pages - a specificity fight, not a missing class.",
+      "categories": [
+        "frontend"
+      ],
+      "accent": "#9333ea",
+      "published": "2026-08-16"
+    },
+    {
+      "slug": "cloudflare-7003-diagnosis",
+      "file": "cloudflare-7003-diagnosis.html",
+      "url": "https://scottlabz.com/field-notes/cloudflare-7003-diagnosis.html",
+      "title": "The Cloudflare 7003 Diagnosis",
+      "summary": "A silent deploy failure - a routing error, a bad secret, an exposed token.",
+      "categories": [
+        "infra"
+      ],
+      "accent": "#7c2d92",
+      "published": "2026-08-15"
+    },
+    {
+      "slug": "data-contracts-discipline",
+      "file": "data-contracts-discipline.html",
+      "url": "https://scottlabz.com/field-notes/data-contracts-discipline.html",
+      "title": "The Contract Nobody Signed",
+      "summary": "Three different bugs, one missing thing in common: a data contract.",
+      "categories": [
+        "measurement"
+      ],
+      "accent": "#4338ca",
+      "published": "2026-08-15"
+    },
+    {
+      "slug": "gtm-container-autopsy",
+      "file": "gtm-container-autopsy.html",
+      "url": "https://scottlabz.com/field-notes/gtm-container-autopsy.html",
+      "title": "The Tag Container Autopsy",
+      "summary": "What was double-firing, what was dead, and why.",
+      "categories": [
+        "measurement"
+      ],
+      "accent": "#1e3a5f",
+      "published": "2026-08-15"
+    },
+    {
+      "slug": "scd-type-2-trap",
+      "file": "scd-type-2-trap.html",
+      "url": "https://scottlabz.com/field-notes/scd-type-2-trap.html",
+      "title": "The SCD Trap",
+      "summary": "A Type 2 dimension only wrong on the days something actually changed.",
+      "categories": [
+        "measurement"
+      ],
+      "accent": "#15803d",
+      "published": "2026-08-15"
+    },
+    {
+      "slug": "schema-drift-problem",
+      "file": "schema-drift-problem.html",
+      "url": "https://scottlabz.com/field-notes/schema-drift-problem.html",
+      "title": "The Schema Drift Problem",
+      "summary": "Canonical tags, Open Graph, and JSON-LD quietly disagreeing across a dozen pages.",
+      "categories": [
+        "measurement"
+      ],
+      "accent": "#b45309",
+      "published": "2026-08-15"
+    },
+    {
+      "slug": "semantic-drift-problem",
+      "file": "semantic-drift-problem.html",
+      "url": "https://scottlabz.com/field-notes/semantic-drift-problem.html",
+      "title": "The Semantic Drift Problem",
+      "summary": "Active Users jumped with no schema or SQL change behind it.",
+      "categories": [
+        "measurement"
+      ],
+      "accent": "#be123c",
+      "published": "2026-08-15"
+    },
+    {
+      "slug": "website-measurement-gaps",
+      "file": "website-measurement-gaps.html",
+      "url": "https://scottlabz.com/field-notes/website-measurement-gaps.html",
+      "title": "What Businesses Get Wrong",
+      "summary": "What's usually missing from small business measurement, and what it costs.",
+      "categories": [
+        "measurement"
+      ],
+      "accent": "#0e7490",
+      "published": "2026-08-15"
+    }
+  ]
+}
