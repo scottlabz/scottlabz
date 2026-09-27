@@ -271,7 +271,12 @@ scott-nav {
 }
 @media screen and (max-width: 736px) {
   scott-nav {
-    min-height: auto;
+    min-height: 111px;
+  }
+}
+@media screen and (max-width: 354px) {
+  scott-nav {
+    min-height: 177px;
   }
 }
 
