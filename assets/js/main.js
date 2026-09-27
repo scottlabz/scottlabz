@@ -52,7 +52,6 @@
 
     inner.style.overflowY = mobile ? "visible" : "hidden";
     inner.style.overflowX = mobile ? "scroll" : "hidden";
-    inner.scrollLeft = 0;
 
     inner.addEventListener(
       "wheel",
