@@ -1,5 +1,6 @@
 /*
   Cache-Control: no-transform
+  Cross-Origin-Opener-Policy: same-origin
 
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable

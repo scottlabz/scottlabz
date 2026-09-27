@@ -344,6 +344,8 @@ class ScottNav extends HTMLElement {
           <a href="/index.html" class="sl-nav-brand">
             <img
               src="/images/scottlabz-clear.webp?v=d34943c620"
+              srcset="/images/scottlabz-clear-32w.webp?v=8d5d3e1b4b 32w, /images/scottlabz-clear-64w.webp?v=7b37132bec 64w, /images/scottlabz-clear-96w.webp?v=1b0fa7e3f5 96w, /images/scottlabz-clear.webp?v=d34943c620 130w"
+              sizes="(max-width: 736px) 23px, 31px"
               alt="Scott Labz"
               title="Scott Labz"
               width="31"
@@ -370,7 +372,7 @@ class ScottNav extends HTMLElement {
     const REVEAL_ZONE = 80; // px from top where the nav always stays visible
     const MIN_DELTA = 6; // ignore sub-pixel/trackpad jitter
 
-    let lastY = window.scrollY;
+    let lastY = null;
     let ticking = false;
 
     const onScroll = () => {
@@ -379,7 +381,7 @@ class ScottNav extends HTMLElement {
       requestAnimationFrame(() => {
         const nav = this.querySelector(".sl-nav");
         const y = window.scrollY;
-        const delta = y - lastY;
+        const delta = lastY === null ? 0 : y - lastY;
 
         if (nav) {
           if (y <= REVEAL_ZONE) {

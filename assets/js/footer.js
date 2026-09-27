@@ -26,6 +26,8 @@ class ScottFooter extends HTMLElement {
                   <span class="h3" style="display:inline-flex;align-items:center;">
                     <img
                       src="/images/scottlabz-clear.webp?v=d34943c620"
+                      srcset="/images/scottlabz-clear-32w.webp?v=8d5d3e1b4b 32w, /images/scottlabz-clear-64w.webp?v=7b37132bec 64w, /images/scottlabz-clear-96w.webp?v=1b0fa7e3f5 96w, /images/scottlabz-clear.webp?v=d34943c620 130w"
+                      sizes="3.1vh"
                       width="130"
                       height="170"
                       alt="S"
@@ -444,9 +446,17 @@ class ScottFooter extends HTMLElement {
     const topBtn = this.querySelector("#backToTop");
 
     if (topBtn) {
-      window.addEventListener("scroll", () => {
-        topBtn.style.display = window.scrollY > 300 ? "block" : "none";
-      });
+      let topBtnShown = null;
+      window.addEventListener(
+        "scroll",
+        () => {
+          const show = window.scrollY > 300;
+          if (show === topBtnShown) return;
+          topBtnShown = show;
+          topBtn.style.display = show ? "block" : "none";
+        },
+        { passive: true }
+      );
 
       topBtn.addEventListener("click", () => {
         window.scrollTo({
@@ -459,8 +469,10 @@ class ScottFooter extends HTMLElement {
     // Responsive footer sizing — independent of the back-to-top button
     const socialGroups = this.querySelector("#footer-social-groups");
 
+    const mobileQuery = window.matchMedia("(max-width: 736px)");
+
     const applyResponsiveFooterStyles = () => {
-      const isMobile = window.innerWidth <= 736;
+      const isMobile = mobileQuery.matches;
 
       if (socialGroups) {
         socialGroups.style.flexDirection = isMobile ? "column" : "row";
@@ -469,7 +481,7 @@ class ScottFooter extends HTMLElement {
     };
 
     applyResponsiveFooterStyles();
-    window.addEventListener("resize", applyResponsiveFooterStyles);
+    mobileQuery.addEventListener("change", applyResponsiveFooterStyles);
   }
 }
 

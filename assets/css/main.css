@@ -1139,6 +1139,7 @@ input[type="radio"]:focus + label:before {
 .icon,
 .fas,
 .far {
+  font-style: normal;
   text-decoration: none;
   border-bottom: none;
   position: relative;
