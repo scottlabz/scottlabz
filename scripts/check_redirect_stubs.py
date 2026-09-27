@@ -33,7 +33,7 @@ from urllib.parse import urlsplit
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DOMAIN = "scottlabz.com"
 
-EXCLUDE_DIR_NAMES = {".git", ".github", ".well-known", "node_modules", ".claude"}
+EXCLUDE_DIR_NAMES = {".git", ".github", ".well-known", "node_modules", ".claude", "functions"}
 
 META_REFRESH_TAG_PATTERN = re.compile(
     r'<meta\s+[^>]*http-equiv\s*=\s*["\']refresh["\'][^>]*>', re.IGNORECASE
