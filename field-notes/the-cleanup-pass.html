@@ -9,7 +9,7 @@
 
     <meta
       name="description"
-      content="A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 96 on mobile - image bugs, missing landmarks, touch targets, and alt text, one category at a time." />
+      content="A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 98 on mobile - image bugs, missing landmarks, touch targets, and alt text, one category at a time." />
 
     <meta charset="utf-8" />
 
@@ -63,7 +63,7 @@
         "@type": "Article",
         "@id": "https://scottlabz.com/field-notes/the-cleanup-pass.html",
         "headline": "The Cleanup Pass",
-        "description": "A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 96 on mobile, one category at a time.",
+        "description": "A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 98 on mobile, one category at a time.",
         "url": "https://scottlabz.com/field-notes/the-cleanup-pass.html",
         "author": {
           "@id": "https://scottlabz.com/#scotttaylor"
@@ -79,7 +79,7 @@
     <meta property="og:title" content="The Cleanup Pass | Scott Labz" />
     <meta
       property="og:description"
-      content="A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 96 on mobile, one category at a time." />
+      content="A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 98 on mobile, one category at a time." />
     <meta
       property="og:url"
       content="https://scottlabz.com/field-notes/the-cleanup-pass.html" />
@@ -88,7 +88,7 @@
       content="https://scottlabz.com/images/og-share.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="The Cleanup Pass | Scott Labz" />
-    <meta name="twitter:description" content="A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 96 on mobile, one category at a time." />
+    <meta name="twitter:description" content="A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 98 on mobile, one category at a time." />
     <meta name="twitter:image" content="https://scottlabz.com/images/og-share.png" />
 
     <style>
@@ -253,7 +253,7 @@
             - Performance, Accessibility, Best Practices, and SEO - and a page
             can look completely fine while quietly failing several of them at
             once. This is the pass that took this site's own scores from a mixed
-            bag to 100 across the board on desktop and 96 Performance with 100
+            bag to 100 across the board on desktop and 98 Performance with 100
             on the rest on mobile, not from one large fix, but from clearing a
             list of small, specific ones.
           </p>
@@ -443,7 +443,7 @@
           <h2>The scores</h2>
           <p>
             Desktop landed at 100 Performance, 100 Accessibility, 100 Best
-            Practices, and 100 SEO. Mobile now sits at 96 Performance, with
+            Practices, and 100 SEO. Mobile now sits at 98 Performance, with
             Accessibility, Best Practices, and SEO all also at 100.
           </p>
           <div class="score-shots">
@@ -461,7 +461,7 @@
                   title="Lighthouse desktop scores: 100 Performance, 100 Accessibility, 100 Best Practices, 100 SEO"
                   loading="lazy" />
                 <a
-                  href="https://pagespeed.web.dev/analysis/https-scottlabz-com/2w1iz1zn65?form_factor=desktop"
+                  href="https://pagespeed.web.dev/analysis/https-scottlabz-com/u6mhjrx7rc?form_factor=desktop"
                   target="_blank"
                   rel="noopener"
                   class="score-shot-link"
@@ -476,14 +476,14 @@
               </div>
               <div class="score-shot-body">
                 <img
-                  src="../images/pagespeed-mobile.png?v=2db037105b"
+                  src="../images/pagespeed-mobile.png?v=213fafacb7"
                   width="1382"
                   height="198"
-                  alt="Lighthouse mobile scores: 96 Performance, 100 Accessibility, 100 Best Practices, 100 SEO"
-                  title="Lighthouse mobile scores: 96 Performance, 100 Accessibility, 100 Best Practices, 100 SEO"
+                  alt="Lighthouse mobile scores: 98 Performance, 100 Accessibility, 100 Best Practices, 100 SEO"
+                  title="Lighthouse mobile scores: 98 Performance, 100 Accessibility, 100 Best Practices, 100 SEO"
                   loading="lazy" />
                 <a
-                  href="https://pagespeed.web.dev/analysis/https-scottlabz-com/2w1iz1zn65?form_factor=mobile"
+                  href="https://pagespeed.web.dev/analysis/https-scottlabz-com/u6mhjrx7rc?form_factor=mobile"
                   target="_blank"
                   rel="noopener"
                   class="score-shot-link"
@@ -494,13 +494,20 @@
           </div>
           <p>
             The mobile Performance score is the one that stayed short of full
-            marks. It finished this pass at 94 and reached 96 after a
-            follow-up round: images below the fold now load only when scrolled
-            into view, the largest images were
+            marks. It finished this pass at 94, and two follow-up rounds took
+            it to 98. Images below the fold now load only when scrolled into
+            view, the largest images were
             <a href="/signals/re-encode-from-the-original.html">re-encoded from their original files</a>,
             the tag manager waits until the page has finished loading, and a
             <a href="/signals/whats-hiding-behind-the-library.html">JS library and three plugins</a>
-            the site no longer needed came out entirely. The remaining gap
+            the site no longer needed came out entirely. The navigation and
+            footer stopped forcing the browser to recalculate layout while the
+            page was still loading, the logo now comes in several sizes so a
+            phone downloads a file sized for its screen, and the regular text
+            weight is preloaded alongside the light one. Those rounds also
+            turned up a quieter problem: the icons were set in italic by
+            default, which pulled two italic font files onto pages with no
+            italic text at all. The remaining gap
             tracks the real constraints of mobile - slower processors and
             connections than a desktop environment - and closing it further
             would mean trading against those constraints rather than fixing
@@ -602,7 +609,7 @@
       <script src="/assets/js/main-min.js?v=1642cfb5cb" defer></script>
       <script src="/assets/js/footer-min.js?v=a6201540f2" defer></script>
       <scott-footer
-        description="A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 96 on mobile, one category at a time."></scott-footer>
+        description="A walkthrough of the pass that took this site's own Lighthouse scores to 100 across the board on desktop and 98 on mobile, one category at a time."></scott-footer>
     </div>
   </body>
 </html>
