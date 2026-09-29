@@ -50,6 +50,8 @@
       sizes="96x96"
       href="images/favicon/favicon-96x96.png?v=1fac781b7c" />
     <script src="assets/js/navigation-min.js?v=8a5e5f5ff3" defer></script>
+    <script src="/assets/js/scott-filter-bar-min.js?v=a0d2b5dd01" defer></script>
+    <script src="/assets/js/clients-roster.js?v=0f31b99d3c" defer></script>
 
     <link rel="canonical" href="https://scottlabz.com/clients.html" />
 
@@ -158,11 +160,109 @@
         letter-spacing: -0.02em;
       }
 
-      .roster-list {
-        font-size: 0.92rem;
-        color: #555;
-        line-height: 1.8;
+      /* Each organization is a chip; partners get the group's accent. */
+      /* .service-content ul adds list padding; the extra class wins. */
+      .service-content .roster-chips {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
         margin: 0;
+        padding: 0;
+      }
+
+      .roster-chips li {
+        margin: 0;
+        padding: 0.2rem 0.6rem;
+        font-size: 0.82rem;
+        line-height: 1.35;
+        color: #333333;
+        background: #f4f6f9;
+        border: 1px solid rgba(30, 58, 95, 0.12);
+        border-radius: 999px;
+      }
+
+      .roster-chips li.is-partner {
+        color: #ffffff;
+        background: var(--accent, #1e3a5f);
+        border-color: var(--accent, #1e3a5f);
+        font-weight: 600;
+      }
+
+      .roster-chips li.is-partner small {
+        margin-left: 0.45em;
+        font-size: 0.72rem;
+        font-weight: 400;
+        opacity: 0.9;
+      }
+
+      .roster-count {
+        display: inline-block;
+        margin-left: 0.4em;
+        padding: 0.05em 0.55em;
+        font-size: 0.6em;
+        vertical-align: middle;
+        color: var(--accent, #1e3a5f);
+        border: 1px solid currentColor;
+        border-radius: 999px;
+      }
+
+      .roster-tools {
+        margin: 2rem 0 0.5rem;
+      }
+
+      .roster-search {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .roster-search[hidden] {
+        display: none;
+      }
+
+      .roster-search input {
+        flex: 1;
+        max-width: 420px;
+        height: 2.75rem;
+        padding: 0 1rem;
+        border: 1px solid rgba(30, 58, 95, 0.35);
+        border-radius: 999px;
+        background: #ffffff;
+        font-size: 0.95rem;
+      }
+
+      .roster-search input:focus {
+        outline: 2px solid #1e3a5f;
+        outline-offset: 1px;
+      }
+
+      .roster-status {
+        font-size: 0.85rem;
+        opacity: 0.75;
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
+
+      /* Filter/search states: .ff-* come from <scott-filter-bar>,
+         .rs-* from clients-roster.js. */
+      .roster-chips li.ff-hide,
+      .roster-chips li.rs-miss,
+      .rs-empty {
+        display: none;
+      }
+
+      .roster-chips li.ff-leaving,
+      .roster-chips li.ff-entering {
+        opacity: 0;
       }
 
       .roster-subgroup {
@@ -179,15 +279,6 @@
         text-transform: uppercase;
         letter-spacing: 0.5px;
         margin-bottom: 0.5rem;
-      }
-
-      .partner-tag {
-        color: var(--accent, #1e3a5f);
-        font-weight: 600;
-      }
-
-      .partner-name {
-        color: var(--accent, #1e3a5f);
       }
 
       .roster-section::before {
@@ -257,94 +348,180 @@
           </div>
         </div>
 
+        <div class="roster-tools">
+          <div class="roster-search" hidden>
+            <label for="roster-q" class="visually-hidden">Search organizations</label>
+            <input type="search" id="roster-q" placeholder="Search 282 organizations" autocomplete="off" aria-describedby="roster-status" />
+            <span id="roster-status" class="roster-status" aria-live="polite"></span>
+          </div>
+          <scott-filter-bar target="#roster" item-selector=".roster-chips li" all-label="All">
+            <script type="application/json">
+              [
+                { "key": "enterprise", "label": "Enterprise", "color": "#1e3a5f" },
+                { "key": "collegiate", "label": "Collegiate", "color": "#b45309" },
+                { "key": "pro-sports", "label": "Pro Sports", "color": "#0e7490" },
+                { "key": "motorsports", "label": "Motorsports", "color": "#dc2626" },
+                { "key": "team-shops", "label": "Team Shops", "color": "#7c2d92" },
+                { "key": "brands-retail", "label": "Brands & Retail", "color": "#15803d" },
+                { "key": "consulting", "label": "Consulting", "color": "#c2410c" },
+                { "key": "stelter-projects", "label": "Stelter Projects", "color": "#4338ca" }
+              ]
+            </script>
+          </scott-filter-bar>
+        </div>
+
+        <div id="roster">
         <section
-          class="section-block roster-section"
-          style="--accent: #1e3a5f; margin-top: 2rem">
-          <h2>Enterprise, Agencies &amp; Organizations</h2>
-          <p class="roster-list">
-            Ford Motor Company, Kaiser Permanente, AmGen, University of
-            Phoenix, Collegis Education, Mary Kay, Rockport, Reef, Vitamin
-            Shoppe, AutoWeb, Legrand AV, Benchmade Knife Company,
-            Plantronics.
-          </p>
+          class="section-block roster-section" id="roster-enterprise"
+          style="--accent: #1e3a5f">
+          <h2>Enterprise, Agencies &amp; Organizations <span class="roster-count">13</span></h2>
+          <ul class="roster-chips">
+            <li data-categories="enterprise">Ford Motor Company</li>
+            <li data-categories="enterprise">Kaiser Permanente</li>
+            <li data-categories="enterprise">AmGen</li>
+            <li data-categories="enterprise">University of Phoenix</li>
+            <li data-categories="enterprise">Collegis Education</li>
+            <li data-categories="enterprise">Mary Kay</li>
+            <li data-categories="enterprise">Rockport</li>
+            <li data-categories="enterprise">Reef</li>
+            <li data-categories="enterprise">Vitamin Shoppe</li>
+            <li data-categories="enterprise">AutoWeb</li>
+            <li data-categories="enterprise">Legrand AV</li>
+            <li data-categories="enterprise">Benchmade Knife Company</li>
+            <li data-categories="enterprise">Plantronics</li>
+          </ul>
         </section>
 
-        <section class="section-block roster-section" style="--accent: #b45309">
-          <h2>NCAA &amp; Collegiate Entities</h2>
-          <p class="roster-list">
-            Allstate Sugar Bowl, R+L Carriers New Orleans Bowl,
-            <span class="partner-name">Iowa Hawkeyes</span>
-            <span class="partner-tag">(Partner Since 2016)</span>, Ohio State
-            Athletics, Washington Huskies, Purdue
-            Boilermakers, Arizona State Sun Devils, Ole Miss Rebels, Kansas
-            Jayhawks, Iowa State Cyclones, Auburn Tigers, Kentucky Wildcats,
-            Washington State Cougars, Texas Tech Alumni Association, UNLV
-            Rebels, Loyola Ramblers, The Buckeye Corner, The Purdue Shop,
-            Kentucky Sports Radio Shop, LSU Tigers, KU Store, Sparky's
-            Stadium Shop, The Dawg Den, Wazzu Gear, Tech Traditions.
-          </p>
+        <section class="section-block roster-section" id="roster-collegiate" style="--accent: #b45309">
+          <h2>NCAA &amp; Collegiate Entities <span class="roster-count">25</span></h2>
+          <ul class="roster-chips">
+            <li data-categories="collegiate">Allstate Sugar Bowl</li>
+            <li data-categories="collegiate">R+L Carriers New Orleans Bowl</li>
+            <li class="is-partner" data-categories="collegiate">Iowa Hawkeyes<small>Partner since 2016</small></li>
+            <li data-categories="collegiate">Ohio State Athletics</li>
+            <li data-categories="collegiate">Washington Huskies</li>
+            <li data-categories="collegiate">Purdue Boilermakers</li>
+            <li data-categories="collegiate">Arizona State Sun Devils</li>
+            <li data-categories="collegiate">Ole Miss Rebels</li>
+            <li data-categories="collegiate">Kansas Jayhawks</li>
+            <li data-categories="collegiate">Iowa State Cyclones</li>
+            <li data-categories="collegiate">Auburn Tigers</li>
+            <li data-categories="collegiate">Kentucky Wildcats</li>
+            <li data-categories="collegiate">Washington State Cougars</li>
+            <li data-categories="collegiate">Texas Tech Alumni Association</li>
+            <li data-categories="collegiate">UNLV Rebels</li>
+            <li data-categories="collegiate">Loyola Ramblers</li>
+            <li data-categories="collegiate">The Buckeye Corner</li>
+            <li data-categories="collegiate">The Purdue Shop</li>
+            <li data-categories="collegiate">Kentucky Sports Radio Shop</li>
+            <li data-categories="collegiate">LSU Tigers</li>
+            <li data-categories="collegiate">KU Store</li>
+            <li data-categories="collegiate">Sparky's Stadium Shop</li>
+            <li data-categories="collegiate">The Dawg Den</li>
+            <li data-categories="collegiate">Wazzu Gear</li>
+            <li data-categories="collegiate">Tech Traditions</li>
+          </ul>
         </section>
 
-        <section class="section-block roster-section" style="--accent: #0e7490">
-          <h2>Professional Sports Teams (NFL &amp; MLB)</h2>
-          <p class="roster-list">
-            Chicago Cubs, New York Yankees, Los Angeles Dodgers, New York
-            Mets, New York Jets, Minnesota Vikings, New Orleans Saints,
-            Indianapolis Colts, Pittsburgh Pirates, St. Louis Cardinals.
-          </p>
+        <section class="section-block roster-section" id="roster-pro-sports" style="--accent: #0e7490">
+          <h2>Professional Sports Teams (NFL &amp; MLB) <span class="roster-count">10</span></h2>
+          <ul class="roster-chips">
+            <li data-categories="pro-sports">Chicago Cubs</li>
+            <li data-categories="pro-sports">New York Yankees</li>
+            <li data-categories="pro-sports">Los Angeles Dodgers</li>
+            <li data-categories="pro-sports">New York Mets</li>
+            <li data-categories="pro-sports">New York Jets</li>
+            <li data-categories="pro-sports">Minnesota Vikings</li>
+            <li data-categories="pro-sports">New Orleans Saints</li>
+            <li data-categories="pro-sports">Indianapolis Colts</li>
+            <li data-categories="pro-sports">Pittsburgh Pirates</li>
+            <li data-categories="pro-sports">St. Louis Cardinals</li>
+          </ul>
         </section>
 
-        <section class="section-block roster-section" style="--accent: #dc2626">
-          <h2>Motorsports (NASCAR)</h2>
-          <p class="roster-list">
-            Dale Earnhardt Shop, Chip Ganassi Racing, NASCAR Hall of Fame,
-            IndyCar.
-          </p>
+        <section class="section-block roster-section" id="roster-motorsports" style="--accent: #dc2626">
+          <h2>Motorsports (NASCAR) <span class="roster-count">4</span></h2>
+          <ul class="roster-chips">
+            <li data-categories="motorsports">Dale Earnhardt Shop</li>
+            <li data-categories="motorsports">Chip Ganassi Racing</li>
+            <li data-categories="motorsports">NASCAR Hall of Fame</li>
+            <li data-categories="motorsports">IndyCar</li>
+          </ul>
         </section>
 
-        <section class="section-block roster-section" style="--accent: #7c2d92">
-          <h2>Regional Team Shops</h2>
-          <p class="roster-list">
-            <span class="partner-name">Hawkeye Fan Shop</span>
-            <span class="partner-tag">(Partner Since 2016)</span>,
-            <span class="partner-name">The Black &amp; Gold Shop</span>
-            <span class="partner-tag">(Partner Since 2008)</span>, Cy's
-            Locker Room, Herky's Locker Room, Seattle Team Shop, Bay Area
-            Locker Room, Boston Locker Room, Chicago Locker Room,
-            Denver Locker Room, Detroit Locker Room, New York Locker Room,
-            Oklahoma Locker Room, Oregon Locker Room, Texas Locker Room,
-            Toronto Locker Room, Fan Outfitters - Kentucky, Fan Outfitters -
-            Louisville, Fan Outfitters - Oklahoma, Fan Outfitters - Oklahoma
-            State.
-          </p>
+        <section class="section-block roster-section" id="roster-team-shops" style="--accent: #7c2d92">
+          <h2>Regional Team Shops <span class="roster-count">19</span></h2>
+          <ul class="roster-chips">
+            <li class="is-partner" data-categories="team-shops">Hawkeye Fan Shop<small>Partner since 2016</small></li>
+            <li class="is-partner" data-categories="team-shops">The Black &amp; Gold Shop<small>Partner since 2008</small></li>
+            <li data-categories="team-shops">Cy's Locker Room</li>
+            <li data-categories="team-shops">Herky's Locker Room</li>
+            <li data-categories="team-shops">Seattle Team Shop</li>
+            <li data-categories="team-shops">Bay Area Locker Room</li>
+            <li data-categories="team-shops">Boston Locker Room</li>
+            <li data-categories="team-shops">Chicago Locker Room</li>
+            <li data-categories="team-shops">Denver Locker Room</li>
+            <li data-categories="team-shops">Detroit Locker Room</li>
+            <li data-categories="team-shops">New York Locker Room</li>
+            <li data-categories="team-shops">Oklahoma Locker Room</li>
+            <li data-categories="team-shops">Oregon Locker Room</li>
+            <li data-categories="team-shops">Texas Locker Room</li>
+            <li data-categories="team-shops">Toronto Locker Room</li>
+            <li data-categories="team-shops">Fan Outfitters - Kentucky</li>
+            <li data-categories="team-shops">Fan Outfitters - Louisville</li>
+            <li data-categories="team-shops">Fan Outfitters - Oklahoma</li>
+            <li data-categories="team-shops">Fan Outfitters - Oklahoma State</li>
+          </ul>
         </section>
 
-        <section class="section-block roster-section" style="--accent: #15803d">
-          <h2>Brands, Retailers &amp; Global Platforms</h2>
-          <p class="roster-list">
-            Anheuser-Busch, Budweiser / The Bud Shop, Bleacher Report, LIDS
-            Sports Group, LIDS Canada, LIDS Clubhouse, Jersey City, Macy's,
-            New Era Cap, The CFL, World Series of Poker,
-            <span class="partner-name">Kitchens</span>
-            <span class="partner-tag">(Partner Since 2016)</span>, Siopa
-            Sports, Sports Avenue.
-          </p>
+        <section class="section-block roster-section" id="roster-brands-retail" style="--accent: #15803d">
+          <h2>Brands, Retailers &amp; Global Platforms <span class="roster-count">14</span></h2>
+          <ul class="roster-chips">
+            <li data-categories="brands-retail">Anheuser-Busch</li>
+            <li data-categories="brands-retail">Budweiser / The Bud Shop</li>
+            <li data-categories="brands-retail">Bleacher Report</li>
+            <li data-categories="brands-retail">LIDS Sports Group</li>
+            <li data-categories="brands-retail">LIDS Canada</li>
+            <li data-categories="brands-retail">LIDS Clubhouse</li>
+            <li data-categories="brands-retail">Jersey City</li>
+            <li data-categories="brands-retail">Macy's</li>
+            <li data-categories="brands-retail">New Era Cap</li>
+            <li data-categories="brands-retail">The CFL</li>
+            <li data-categories="brands-retail">World Series of Poker</li>
+            <li class="is-partner" data-categories="brands-retail">Kitchens<small>Partner since 2016</small></li>
+            <li data-categories="brands-retail">Siopa Sports</li>
+            <li data-categories="brands-retail">Sports Avenue</li>
+          </ul>
         </section>
 
-        <section class="section-block roster-section" style="--accent: #c2410c">
-          <h2>Independent Consulting Engagements</h2>
-          <p class="roster-list">
-            Nonparallel New Media, Blaze Hosting, Blueprint Logic, TMone,
-            CRMone, Marketone, Discount Lists, Fromotions, AJ's Pizza Shop,
-            Destiny Cruises &amp; Tours, Cyber Name Store, EnergyTronix,
-            Computer Source of Iowa, Computers In Motion, Des Moines is Not
-            Boring, Double D Game Farm, Midwest New Media, Powerball Matrix,
-            Mega Millions Matrix, The Stelter Company.
-          </p>
+        <section class="section-block roster-section" id="roster-consulting" style="--accent: #c2410c">
+          <h2>Independent Consulting Engagements <span class="roster-count">20</span></h2>
+          <ul class="roster-chips">
+            <li data-categories="consulting">Nonparallel New Media</li>
+            <li data-categories="consulting">Blaze Hosting</li>
+            <li data-categories="consulting">Blueprint Logic</li>
+            <li data-categories="consulting">TMone</li>
+            <li data-categories="consulting">CRMone</li>
+            <li data-categories="consulting">Marketone</li>
+            <li data-categories="consulting">Discount Lists</li>
+            <li data-categories="consulting">Fromotions</li>
+            <li data-categories="consulting">AJ's Pizza Shop</li>
+            <li data-categories="consulting">Destiny Cruises &amp; Tours</li>
+            <li data-categories="consulting">Cyber Name Store</li>
+            <li data-categories="consulting">EnergyTronix</li>
+            <li data-categories="consulting">Computer Source of Iowa</li>
+            <li data-categories="consulting">Computers In Motion</li>
+            <li data-categories="consulting">Des Moines is Not Boring</li>
+            <li data-categories="consulting">Double D Game Farm</li>
+            <li data-categories="consulting">Midwest New Media</li>
+            <li data-categories="consulting">Powerball Matrix</li>
+            <li data-categories="consulting">Mega Millions Matrix</li>
+            <li data-categories="consulting">The Stelter Company</li>
+          </ul>
         </section>
 
-        <section class="section-block roster-section" style="--accent: #4338ca">
-          <h2>The Stelter Company Projects &amp; Organizations</h2>
+        <section class="section-block roster-section" id="roster-stelter-projects" style="--accent: #4338ca">
+          <h2>The Stelter Company Projects &amp; Organizations <span class="roster-count">177</span></h2>
           <p style="margin-bottom: 1.5rem; color: #555">
             A representative sample of the nonprofit, healthcare, and
             education clients supported through platform and infrastructure
@@ -352,157 +529,243 @@
           </p>
 
           <div class="roster-subgroup">
-            <h3>Higher Education &amp; Universities</h3>
-            <p class="roster-list">
-              ASU Foundation for A New American University, Boston
-              University, Bowling Green State University, Buena Vista
-              University, Butler University, California Polytechnic State
-              University Foundation, Carthage College, Central College,
-              College of Saint Benedict, Columbia College, Concordia
-              College, Cornell College, Earlham College, Fort Lewis College
-              Foundation, Georgia State University, Gulf Coast State College
-              Foundation, Hamline University, Haverford College, Hood
-              College, Hope College, Indiana University Foundation, Iowa
-              State University Foundation, Kalamazoo College, Kirkwood
-              Community College Foundation, LSU Foundation, Macalester
-              College, Minnesota State Mankato, Mount Saint Marys
-              University, Nazareth College, New Mexico State University
-              Foundation, North Idaho College Foundation, Northwest
-              Christian University, Our Lady of the Lake University, Saint
-              Xavier University, Scripps College, South Dakota State
-              University Foundation, Southeastern Louisiana University
-              Foundation, Southern Methodist University, St. John's
-              University, Temple University, Texas Southern University, The
-              Catholic University of America, Trinity University, University
-              of Houston Clear Lake, University of Arkansas at Little Rock,
-              University of Denver, University of Florida Foundation,
-              University of Houston, University of Maryland Baltimore
-              County, University of Minnesota Foundation, University of
-              Oklahoma, University of Portland, University of Southern Maine
-              (Portland), University of the Incarnate Word, USF Foundation,
-              Villanova University, Wartburg College, West Virginia State
-              University Foundation, Worcester State University.
-            </p>
+            <h3>Higher Education &amp; Universities <span class="roster-count">59</span></h3>
+            <ul class="roster-chips">
+              <li data-categories="stelter-projects">ASU Foundation for A New American University</li>
+              <li data-categories="stelter-projects">Boston University</li>
+              <li data-categories="stelter-projects">Bowling Green State University</li>
+              <li data-categories="stelter-projects">Buena Vista University</li>
+              <li data-categories="stelter-projects">Butler University</li>
+              <li data-categories="stelter-projects">California Polytechnic State University Foundation</li>
+              <li data-categories="stelter-projects">Carthage College</li>
+              <li data-categories="stelter-projects">Central College</li>
+              <li data-categories="stelter-projects">College of Saint Benedict</li>
+              <li data-categories="stelter-projects">Columbia College</li>
+              <li data-categories="stelter-projects">Concordia College</li>
+              <li data-categories="stelter-projects">Cornell College</li>
+              <li data-categories="stelter-projects">Earlham College</li>
+              <li data-categories="stelter-projects">Fort Lewis College Foundation</li>
+              <li data-categories="stelter-projects">Georgia State University</li>
+              <li data-categories="stelter-projects">Gulf Coast State College Foundation</li>
+              <li data-categories="stelter-projects">Hamline University</li>
+              <li data-categories="stelter-projects">Haverford College</li>
+              <li data-categories="stelter-projects">Hood College</li>
+              <li data-categories="stelter-projects">Hope College</li>
+              <li data-categories="stelter-projects">Indiana University Foundation</li>
+              <li data-categories="stelter-projects">Iowa State University Foundation</li>
+              <li data-categories="stelter-projects">Kalamazoo College</li>
+              <li data-categories="stelter-projects">Kirkwood Community College Foundation</li>
+              <li data-categories="stelter-projects">LSU Foundation</li>
+              <li data-categories="stelter-projects">Macalester College</li>
+              <li data-categories="stelter-projects">Minnesota State Mankato</li>
+              <li data-categories="stelter-projects">Mount Saint Marys University</li>
+              <li data-categories="stelter-projects">Nazareth College</li>
+              <li data-categories="stelter-projects">New Mexico State University Foundation</li>
+              <li data-categories="stelter-projects">North Idaho College Foundation</li>
+              <li data-categories="stelter-projects">Northwest Christian University</li>
+              <li data-categories="stelter-projects">Our Lady of the Lake University</li>
+              <li data-categories="stelter-projects">Saint Xavier University</li>
+              <li data-categories="stelter-projects">Scripps College</li>
+              <li data-categories="stelter-projects">South Dakota State University Foundation</li>
+              <li data-categories="stelter-projects">Southeastern Louisiana University Foundation</li>
+              <li data-categories="stelter-projects">Southern Methodist University</li>
+              <li data-categories="stelter-projects">St. John's University</li>
+              <li data-categories="stelter-projects">Temple University</li>
+              <li data-categories="stelter-projects">Texas Southern University</li>
+              <li data-categories="stelter-projects">The Catholic University of America</li>
+              <li data-categories="stelter-projects">Trinity University</li>
+              <li data-categories="stelter-projects">University of Houston Clear Lake</li>
+              <li data-categories="stelter-projects">University of Arkansas at Little Rock</li>
+              <li data-categories="stelter-projects">University of Denver</li>
+              <li data-categories="stelter-projects">University of Florida Foundation</li>
+              <li data-categories="stelter-projects">University of Houston</li>
+              <li data-categories="stelter-projects">University of Maryland Baltimore County</li>
+              <li data-categories="stelter-projects">University of Minnesota Foundation</li>
+              <li data-categories="stelter-projects">University of Oklahoma</li>
+              <li data-categories="stelter-projects">University of Portland</li>
+              <li data-categories="stelter-projects">University of Southern Maine (Portland)</li>
+              <li data-categories="stelter-projects">University of the Incarnate Word</li>
+              <li data-categories="stelter-projects">USF Foundation</li>
+              <li data-categories="stelter-projects">Villanova University</li>
+              <li data-categories="stelter-projects">Wartburg College</li>
+              <li data-categories="stelter-projects">West Virginia State University Foundation</li>
+              <li data-categories="stelter-projects">Worcester State University</li>
+            </ul>
           </div>
 
           <div class="roster-subgroup">
-            <h3>K-12 &amp; Preparatory Schools</h3>
-            <p class="roster-list">
-              Bellarmine College Preparatory, Bergen Catholic High School,
-              Cate School (The King's Court), Hamlin School, Katherine
-              Delmar Burke School, Notre Dame Preparatory School, Salpointe
-              Catholic High School, St. Stephen's Episcopal School, The
-              Kinkaid School, University of Detroit Jesuit, Valley Christian
-              Schools of San Jose, Wisconsin Lutheran High School
-              Foundation.
-            </p>
+            <h3>K-12 &amp; Preparatory Schools <span class="roster-count">12</span></h3>
+            <ul class="roster-chips">
+              <li data-categories="stelter-projects">Bellarmine College Preparatory</li>
+              <li data-categories="stelter-projects">Bergen Catholic High School</li>
+              <li data-categories="stelter-projects">Cate School (The King's Court)</li>
+              <li data-categories="stelter-projects">Hamlin School</li>
+              <li data-categories="stelter-projects">Katherine Delmar Burke School</li>
+              <li data-categories="stelter-projects">Notre Dame Preparatory School</li>
+              <li data-categories="stelter-projects">Salpointe Catholic High School</li>
+              <li data-categories="stelter-projects">St. Stephen's Episcopal School</li>
+              <li data-categories="stelter-projects">The Kinkaid School</li>
+              <li data-categories="stelter-projects">University of Detroit Jesuit</li>
+              <li data-categories="stelter-projects">Valley Christian Schools of San Jose</li>
+              <li data-categories="stelter-projects">Wisconsin Lutheran High School Foundation</li>
+            </ul>
           </div>
 
           <div class="roster-subgroup">
-            <h3>Healthcare Systems &amp; Medical Foundations</h3>
-            <p class="roster-list">
-              All Saints Health Foundation, Capital Health System,
-              Children's Medical Foundation, Childrens Health Care Atlanta,
-              Community Memorial Health System, Compass Regional Hospice,
-              Conquer Cancer Foundation, Eastern Virginia Medical School
-              Foundation, Edward Foundation, Evergreen Health Foundation,
-              Fred Hutchinson Cancer Research Center, Geisinger Health
-              System Foundation, Glaucoma Research Foundation, Hackensack
-              University Medical Center Foundation, Henry County Health
-              Center, Hospice of Palm Beach County, Hospital for Special
-              Care Foundation, Joslin Diabetes Center, Lakeland Health
-              Foundation, Monmouth Medical Center Foundation, National
-              Jewish Health, National MS Society - Denver, Nebraska
-              Methodist Hospital Foundation, Norman Regional Health
-              Foundation, Pinnacle Health Foundation, Planned Parenthood of
-              the Heartland, Ridgeview Foundation, Saint Luke's Foundation,
-              Skyland Trail, Southwest Autism Research and Resource Center,
-              St. Anthony Regional Hospital, St. Louis Children's Hospital
-              Foundation, Texas Childrens Hospital, Torrance Memorial
-              Medical Center, Trinity Health Foundation, UnityPoint Health
-              Foundation.
-            </p>
+            <h3>Healthcare Systems &amp; Medical Foundations <span class="roster-count">36</span></h3>
+            <ul class="roster-chips">
+              <li data-categories="stelter-projects">All Saints Health Foundation</li>
+              <li data-categories="stelter-projects">Capital Health System</li>
+              <li data-categories="stelter-projects">Children's Medical Foundation</li>
+              <li data-categories="stelter-projects">Childrens Health Care Atlanta</li>
+              <li data-categories="stelter-projects">Community Memorial Health System</li>
+              <li data-categories="stelter-projects">Compass Regional Hospice</li>
+              <li data-categories="stelter-projects">Conquer Cancer Foundation</li>
+              <li data-categories="stelter-projects">Eastern Virginia Medical School Foundation</li>
+              <li data-categories="stelter-projects">Edward Foundation</li>
+              <li data-categories="stelter-projects">Evergreen Health Foundation</li>
+              <li data-categories="stelter-projects">Fred Hutchinson Cancer Research Center</li>
+              <li data-categories="stelter-projects">Geisinger Health System Foundation</li>
+              <li data-categories="stelter-projects">Glaucoma Research Foundation</li>
+              <li data-categories="stelter-projects">Hackensack University Medical Center Foundation</li>
+              <li data-categories="stelter-projects">Henry County Health Center</li>
+              <li data-categories="stelter-projects">Hospice of Palm Beach County</li>
+              <li data-categories="stelter-projects">Hospital for Special Care Foundation</li>
+              <li data-categories="stelter-projects">Joslin Diabetes Center</li>
+              <li data-categories="stelter-projects">Lakeland Health Foundation</li>
+              <li data-categories="stelter-projects">Monmouth Medical Center Foundation</li>
+              <li data-categories="stelter-projects">National Jewish Health</li>
+              <li data-categories="stelter-projects">National MS Society - Denver</li>
+              <li data-categories="stelter-projects">Nebraska Methodist Hospital Foundation</li>
+              <li data-categories="stelter-projects">Norman Regional Health Foundation</li>
+              <li data-categories="stelter-projects">Pinnacle Health Foundation</li>
+              <li data-categories="stelter-projects">Planned Parenthood of the Heartland</li>
+              <li data-categories="stelter-projects">Ridgeview Foundation</li>
+              <li data-categories="stelter-projects">Saint Luke's Foundation</li>
+              <li data-categories="stelter-projects">Skyland Trail</li>
+              <li data-categories="stelter-projects">Southwest Autism Research and Resource Center</li>
+              <li data-categories="stelter-projects">St. Anthony Regional Hospital</li>
+              <li data-categories="stelter-projects">St. Louis Children's Hospital Foundation</li>
+              <li data-categories="stelter-projects">Texas Childrens Hospital</li>
+              <li data-categories="stelter-projects">Torrance Memorial Medical Center</li>
+              <li data-categories="stelter-projects">Trinity Health Foundation</li>
+              <li data-categories="stelter-projects">UnityPoint Health Foundation</li>
+            </ul>
           </div>
 
           <div class="roster-subgroup">
-            <h3>Faith-Based Organizations</h3>
-            <p class="roster-list">
-              Catholic Charities, Catholic Diocese of Wilmington, First
-              Methodist Church of Fort Worth Foundation, Grace Polaris
-              Church, Lutheran Social Services of the South, Lutheran World
-              Relief, Marilyn Hickey Ministries, Methodist Healthcare
-              Ministries, Phoebe Ministries, Sisters of Mercy - Northeast
-              Community, Society of St. Vincent de Paul Phoenix, Spring
-              Creek Church, Trinity Missions, Virginia Baptist Homes
-              Foundation.
-            </p>
+            <h3>Faith-Based Organizations <span class="roster-count">14</span></h3>
+            <ul class="roster-chips">
+              <li data-categories="stelter-projects">Catholic Charities</li>
+              <li data-categories="stelter-projects">Catholic Diocese of Wilmington</li>
+              <li data-categories="stelter-projects">First Methodist Church of Fort Worth Foundation</li>
+              <li data-categories="stelter-projects">Grace Polaris Church</li>
+              <li data-categories="stelter-projects">Lutheran Social Services of the South</li>
+              <li data-categories="stelter-projects">Lutheran World Relief</li>
+              <li data-categories="stelter-projects">Marilyn Hickey Ministries</li>
+              <li data-categories="stelter-projects">Methodist Healthcare Ministries</li>
+              <li data-categories="stelter-projects">Phoebe Ministries</li>
+              <li data-categories="stelter-projects">Sisters of Mercy - Northeast Community</li>
+              <li data-categories="stelter-projects">Society of St. Vincent de Paul Phoenix</li>
+              <li data-categories="stelter-projects">Spring Creek Church</li>
+              <li data-categories="stelter-projects">Trinity Missions</li>
+              <li data-categories="stelter-projects">Virginia Baptist Homes Foundation</li>
+            </ul>
           </div>
 
           <div class="roster-subgroup">
-            <h3>Human &amp; Social Services</h3>
-            <p class="roster-list">
-              Centers for Families and Children, Children's Home Foundation,
-              Compassion International, Feeding America, Girl Scouts of San
-              Diego, Jewish Social Service Agency, Make-A-Wish Foundation of
-              America, Philadelphia Freedom Valley YMCA, Second Harvest
-              Heartland, United Way of Broward County, Valparaiso YMCA,
-              Westport Weston Family YMCA, YMCA of Snohomish County.
-            </p>
+            <h3>Human &amp; Social Services <span class="roster-count">13</span></h3>
+            <ul class="roster-chips">
+              <li data-categories="stelter-projects">Centers for Families and Children</li>
+              <li data-categories="stelter-projects">Children's Home Foundation</li>
+              <li data-categories="stelter-projects">Compassion International</li>
+              <li data-categories="stelter-projects">Feeding America</li>
+              <li data-categories="stelter-projects">Girl Scouts of San Diego</li>
+              <li data-categories="stelter-projects">Jewish Social Service Agency</li>
+              <li data-categories="stelter-projects">Make-A-Wish Foundation of America</li>
+              <li data-categories="stelter-projects">Philadelphia Freedom Valley YMCA</li>
+              <li data-categories="stelter-projects">Second Harvest Heartland</li>
+              <li data-categories="stelter-projects">United Way of Broward County</li>
+              <li data-categories="stelter-projects">Valparaiso YMCA</li>
+              <li data-categories="stelter-projects">Westport Weston Family YMCA</li>
+              <li data-categories="stelter-projects">YMCA of Snohomish County</li>
+            </ul>
           </div>
 
           <div class="roster-subgroup">
-            <h3>Arts, Culture &amp; Museums</h3>
-            <p class="roster-list">
-              Aquarium of the Pacific, Broward Performing Arts Foundation,
-              Civil War Trust, Denver Museum of Nature and Science, EAA
-              Aviation Foundation, Hill Museum and Manuscript Library,
-              Lincoln Center for the Performing Arts, Nebraska Educational
-              Telecommunications, Palm Springs Art Museum, Portland Art
-              Museum, San Francisco Symphony, Straz Center, The Cable
-              Center, The Huntington Library, The Library Foundation, The
-              Smith Center.
-            </p>
+            <h3>Arts, Culture &amp; Museums <span class="roster-count">16</span></h3>
+            <ul class="roster-chips">
+              <li data-categories="stelter-projects">Aquarium of the Pacific</li>
+              <li data-categories="stelter-projects">Broward Performing Arts Foundation</li>
+              <li data-categories="stelter-projects">Civil War Trust</li>
+              <li data-categories="stelter-projects">Denver Museum of Nature and Science</li>
+              <li data-categories="stelter-projects">EAA Aviation Foundation</li>
+              <li data-categories="stelter-projects">Hill Museum and Manuscript Library</li>
+              <li data-categories="stelter-projects">Lincoln Center for the Performing Arts</li>
+              <li data-categories="stelter-projects">Nebraska Educational Telecommunications</li>
+              <li data-categories="stelter-projects">Palm Springs Art Museum</li>
+              <li data-categories="stelter-projects">Portland Art Museum</li>
+              <li data-categories="stelter-projects">San Francisco Symphony</li>
+              <li data-categories="stelter-projects">Straz Center</li>
+              <li data-categories="stelter-projects">The Cable Center</li>
+              <li data-categories="stelter-projects">The Huntington Library</li>
+              <li data-categories="stelter-projects">The Library Foundation</li>
+              <li data-categories="stelter-projects">The Smith Center</li>
+            </ul>
           </div>
 
           <div class="roster-subgroup">
-            <h3>Environmental &amp; Wildlife Organizations</h3>
-            <p class="roster-list">
-              African Wildlife, Animal Rescue League of Iowa, Houston
-              Audubon Society, Humane Society of the United States, Humane
-              Society Wildlife Land Trust, Pheasants Forever, Phoenix Zoo,
-              Seattle Humane Society, Trout Unlimited.
-            </p>
+            <h3>Environmental &amp; Wildlife Organizations <span class="roster-count">9</span></h3>
+            <ul class="roster-chips">
+              <li data-categories="stelter-projects">African Wildlife</li>
+              <li data-categories="stelter-projects">Animal Rescue League of Iowa</li>
+              <li data-categories="stelter-projects">Houston Audubon Society</li>
+              <li data-categories="stelter-projects">Humane Society of the United States</li>
+              <li data-categories="stelter-projects">Humane Society Wildlife Land Trust</li>
+              <li data-categories="stelter-projects">Pheasants Forever</li>
+              <li data-categories="stelter-projects">Phoenix Zoo</li>
+              <li data-categories="stelter-projects">Seattle Humane Society</li>
+              <li data-categories="stelter-projects">Trout Unlimited</li>
+            </ul>
           </div>
 
           <div class="roster-subgroup">
-            <h3>Civic, Advocacy &amp; Community Organizations</h3>
-            <p class="roster-list">
-              Americans United - Separation of Church and State, Compassion
-              and Choices, Horizons Foundation, Los Angeles Firemen's Relief
-              Association, MADD - Mothers Against Drunk Driving, Montana
-              Community Foundation, Navy Marine Coast Guard Residence
-              Foundation, Rose Community Foundation, The Fuller Foundation,
-              Veterans of Foreign Wars of the United States.
-            </p>
+            <h3>Civic, Advocacy &amp; Community Organizations <span class="roster-count">10</span></h3>
+            <ul class="roster-chips">
+              <li data-categories="stelter-projects">Americans United - Separation of Church and State</li>
+              <li data-categories="stelter-projects">Compassion and Choices</li>
+              <li data-categories="stelter-projects">Horizons Foundation</li>
+              <li data-categories="stelter-projects">Los Angeles Firemen's Relief Association</li>
+              <li data-categories="stelter-projects">MADD - Mothers Against Drunk Driving</li>
+              <li data-categories="stelter-projects">Montana Community Foundation</li>
+              <li data-categories="stelter-projects">Navy Marine Coast Guard Residence Foundation</li>
+              <li data-categories="stelter-projects">Rose Community Foundation</li>
+              <li data-categories="stelter-projects">The Fuller Foundation</li>
+              <li data-categories="stelter-projects">Veterans of Foreign Wars of the United States</li>
+            </ul>
           </div>
 
           <div class="roster-subgroup">
-            <h3>Professional &amp; Research Associations</h3>
-            <p class="roster-list">
-              American Association of Endodontists, American Society of
-              Civil Engineers Foundation, American Society of International
-              Law, AONE Foundation, Radiological Society of North America,
-              Society for Science and the Public.
-            </p>
+            <h3>Professional &amp; Research Associations <span class="roster-count">6</span></h3>
+            <ul class="roster-chips">
+              <li data-categories="stelter-projects">American Association of Endodontists</li>
+              <li data-categories="stelter-projects">American Society of Civil Engineers Foundation</li>
+              <li data-categories="stelter-projects">American Society of International Law</li>
+              <li data-categories="stelter-projects">AONE Foundation</li>
+              <li data-categories="stelter-projects">Radiological Society of North America</li>
+              <li data-categories="stelter-projects">Society for Science and the Public</li>
+            </ul>
           </div>
 
           <div class="roster-subgroup">
-            <h3>Greek &amp; Alumni Foundations</h3>
-            <p class="roster-list">
-              Delta Gamma Foundation, Kappa Kappa Gamma Foundation.
-            </p>
+            <h3>Greek &amp; Alumni Foundations <span class="roster-count">2</span></h3>
+            <ul class="roster-chips">
+              <li data-categories="stelter-projects">Delta Gamma Foundation</li>
+              <li data-categories="stelter-projects">Kappa Kappa Gamma Foundation</li>
+            </ul>
           </div>
         </section>
+        </div>
 
         <section>
           <div
