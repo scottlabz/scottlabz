@@ -117,7 +117,23 @@ def file_to_canonical_url(path: Path) -> str:
         return f"https://{DOMAIN}/"
     if r.endswith("/index.html"):
         return f"https://{DOMAIN}/{r[: -len('index.html')]}"
-    return f"https://{DOMAIN}/{r}"
+    # Cloudflare Pages serves the extensionless form and 308-redirects
+    # *.html to it, so that's the canonical (about.html -> /about).
+    return f"https://{DOMAIN}/{r[: -len('.html')]}"
+
+
+def page_path(rel_path: str) -> str:
+    """Map an extensionless site path to the file Cloudflare Pages serves
+    for it: /about -> about.html, falling back to about/index.html. Paths
+    that already carry an extension (assets, legacy .html links) pass
+    through unchanged."""
+    if rel_path == "" or rel_path.endswith("/"):
+        return rel_path + "index.html"
+    if "." in Path(rel_path).name:
+        return rel_path
+    if (REPO_ROOT / (rel_path + ".html")).is_file():
+        return rel_path + ".html"
+    return rel_path + "/index.html"
 
 
 def url_to_relpath(url: str) -> str | None:
@@ -129,9 +145,7 @@ def url_to_relpath(url: str) -> str | None:
     path = parts.path
     if path in ("", "/"):
         return "index.html"
-    if path.endswith("/"):
-        return path.lstrip("/") + "index.html"
-    return path.lstrip("/")
+    return page_path(path.lstrip("/"))
 
 
 def resolve_ref(source_file: Path, ref: str) -> str | None:
@@ -158,11 +172,7 @@ def resolve_ref(source_file: Path, ref: str) -> str | None:
         except ValueError:
             return None  # escapes the repo root - not our concern here
 
-    if candidate_rel == "" or candidate_rel.endswith("/"):
-        candidate_rel += "index.html"
-    elif "." not in Path(candidate_rel).name:
-        candidate_rel += "/index.html"
-    return candidate_rel
+    return page_path(candidate_rel)
 
 
 def load_sitemap_urls() -> list[str]:

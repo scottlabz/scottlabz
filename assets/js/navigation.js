@@ -41,7 +41,7 @@ class ScottNav extends HTMLElement {
     // the row reads as distinct items rather than a wall of navy.
     const items = [
       {
-        href: "/services.html",
+        href: "/services",
         label: "Services",
         height: 15,
         color: "#2563eb",
@@ -49,16 +49,16 @@ class ScottNav extends HTMLElement {
         // directory, so they can't be caught by the section-path check
         // below - they need to be listed explicitly.
         aliases: [
-          "/analytics-data.html",
-          "/web-digital.html",
-          "/conversion-optimization.html",
-          "/industries.html",
+          "/analytics-data",
+          "/web-digital",
+          "/conversion-optimization",
+          "/industries",
         ],
       },
-      { href: "/case-studies.html", label: "Work", height: 20, color: "#ca8a04" },
+      { href: "/case-studies", label: "Work", height: 20, color: "#ca8a04" },
       { href: "/field-notes/", label: "Field Notes", height: 25, color: "#1e3a5f" },
       {
-        href: "/about.html",
+        href: "/about",
         label: "About",
         height: 30,
         color: "#7c3aed",
@@ -66,10 +66,10 @@ class ScottNav extends HTMLElement {
         // subpages under an /about/ directory, so they can't be caught
         // by the section-path check below - they need to be listed
         // explicitly.
-        aliases: ["/founder.html", "/clients.html"],
+        aliases: ["/founder", "/clients"],
       },
-      { href: "/why-us.html", label: "Why Us", height: 35, color: "#0891b2" },
-      { href: "/contact.html", label: "Contact", height: 40, color: "#15803d" },
+      { href: "/why-us", label: "Why Us", height: 35, color: "#0891b2" },
+      { href: "/contact", label: "Contact", height: 40, color: "#15803d" },
     ];
 
     // Cloudflare 308-redirects every *.html URL to its extensionless form

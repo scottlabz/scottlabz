@@ -4,7 +4,7 @@
     {
       "slug": "engineering-approach",
       "file": "engineering-approach.html",
-      "url": "https://scottlabz.com/insights/engineering-approach.html",
+      "url": "https://scottlabz.com/insights/engineering-approach",
       "number": 1,
       "title": "Our Approach to Reliable Systems",
       "summary": "How systems get built to stay dependable long after launch day.",
@@ -16,7 +16,7 @@
     {
       "slug": "dashboards-nobody-opens",
       "file": "dashboards-nobody-opens.html",
-      "url": "https://scottlabz.com/insights/dashboards-nobody-opens.html",
+      "url": "https://scottlabz.com/insights/dashboards-nobody-opens",
       "number": 2,
       "title": "Dashboards Nobody Opens",
       "summary": "What separates a dashboard people actually open from one that just sits there.",
@@ -28,7 +28,7 @@
     {
       "slug": "local-seo-is-a-data-problem",
       "file": "local-seo-is-a-data-problem.html",
-      "url": "https://scottlabz.com/insights/local-seo-is-a-data-problem.html",
+      "url": "https://scottlabz.com/insights/local-seo-is-a-data-problem",
       "number": 3,
       "title": "Local SEO Is a Data Problem, Not a Marketing One",
       "summary": "Inconsistent business listings are a data integrity problem, not a marketing oversight.",
@@ -40,7 +40,7 @@
     {
       "slug": "redundant-data-entry-missing-integration",
       "file": "redundant-data-entry-missing-integration.html",
-      "url": "https://scottlabz.com/insights/redundant-data-entry-missing-integration.html",
+      "url": "https://scottlabz.com/insights/redundant-data-entry-missing-integration",
       "number": 4,
       "title": "Redundant Data Entry Is Usually a Missing Integration",
       "summary": "Typing the same information twice is rarely a training gap - it's usually a connection nobody built.",
@@ -52,7 +52,7 @@
     {
       "slug": "what-automation-shouldnt-touch",
       "file": "what-automation-shouldnt-touch.html",
-      "url": "https://scottlabz.com/insights/what-automation-shouldnt-touch.html",
+      "url": "https://scottlabz.com/insights/what-automation-shouldnt-touch",
       "number": 5,
       "title": "What Automation Shouldn't Touch",
       "summary": "The judgment calls, exceptions, and edge cases worth leaving to a person on purpose.",
@@ -64,7 +64,7 @@
     {
       "slug": "cart-abandonment-measurement-gap",
       "file": "cart-abandonment-measurement-gap.html",
-      "url": "https://scottlabz.com/insights/cart-abandonment-measurement-gap.html",
+      "url": "https://scottlabz.com/insights/cart-abandonment-measurement-gap",
       "number": 6,
       "title": "Cart Abandonment Is a Measurement Gap, Not a UX Problem",
       "summary": "Knowing where a shopper left isn't the same as knowing why.",
@@ -76,7 +76,7 @@
     {
       "slug": "automation",
       "file": "automation.html",
-      "url": "https://scottlabz.com/insights/automation.html",
+      "url": "https://scottlabz.com/insights/automation",
       "number": 7,
       "title": "Automation Built to Be Trusted",
       "summary": "Automation that earns confidence instead of quietly eroding it.",
@@ -88,7 +88,7 @@
     {
       "slug": "seo-analytics",
       "file": "seo-analytics.html",
-      "url": "https://scottlabz.com/insights/seo-analytics.html",
+      "url": "https://scottlabz.com/insights/seo-analytics",
       "number": 8,
       "title": "SEO Analytics: Why the Two Aren't Separate",
       "summary": "Search visibility and measurement are one discipline, not two departments.",
@@ -100,7 +100,7 @@
     {
       "slug": "why-redundancy-beats-a-single-stack",
       "file": "why-redundancy-beats-a-single-stack.html",
-      "url": "https://scottlabz.com/insights/why-redundancy-beats-a-single-stack.html",
+      "url": "https://scottlabz.com/insights/why-redundancy-beats-a-single-stack",
       "number": 9,
       "title": "Why Redundancy Beats a Single Stack",
       "summary": "The case for measurement architecture that doesn't depend on any one system telling the truth.",
@@ -112,7 +112,7 @@
     {
       "slug": "measurement-before-media-spend",
       "file": "measurement-before-media-spend.html",
-      "url": "https://scottlabz.com/insights/measurement-before-media-spend.html",
+      "url": "https://scottlabz.com/insights/measurement-before-media-spend",
       "number": 10,
       "title": "Measurement Before Media Spend, Not After",
       "summary": "Verifying a setup can be trusted before it's used to justify spending.",
@@ -124,7 +124,7 @@
     {
       "slug": "what-is-analytics-architecture",
       "file": "what-is-analytics-architecture.html",
-      "url": "https://scottlabz.com/insights/what-is-analytics-architecture.html",
+      "url": "https://scottlabz.com/insights/what-is-analytics-architecture",
       "number": 11,
       "title": "What Is Analytics Architecture",
       "summary": "A developer, an analyst, and a stakeholder can look at the same page and describe \"the link\" three different ways.",
@@ -136,7 +136,7 @@
     {
       "slug": "attribution-windows-are-a-policy-choice",
       "file": "attribution-windows-are-a-policy-choice.html",
-      "url": "https://scottlabz.com/insights/attribution-windows-are-a-policy-choice.html",
+      "url": "https://scottlabz.com/insights/attribution-windows-are-a-policy-choice",
       "number": 12,
       "title": "Attribution Windows Are a Policy Choice",
       "summary": "A 30-day window isn't a fact about how customers behave - it's a default nobody chose on purpose.",
@@ -148,7 +148,7 @@
     {
       "slug": "consent-mode-changes-your-numbers",
       "file": "consent-mode-changes-your-numbers.html",
-      "url": "https://scottlabz.com/insights/consent-mode-changes-your-numbers.html",
+      "url": "https://scottlabz.com/insights/consent-mode-changes-your-numbers",
       "number": 13,
       "title": "Consent Mode Changes Your Numbers, Not Just Your Compliance",
       "summary": "It swaps some real events for modeled ones - and most dashboards never say which is which.",
@@ -160,7 +160,7 @@
     {
       "slug": "delete-with-proof",
       "file": "delete-with-proof.html",
-      "url": "https://scottlabz.com/insights/delete-with-proof.html",
+      "url": "https://scottlabz.com/insights/delete-with-proof",
       "number": 14,
       "title": "Delete With Proof",
       "summary": "Removal is safe when the before-and-after check is mechanical - and when the before is actually the last known-good state.",

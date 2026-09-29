@@ -125,31 +125,31 @@ class ScottFooter extends HTMLElement {
                 ">
 
                 <li>
-                  <a href="/analytics-data.html">
+                  <a href="/analytics-data">
                     Analytics &amp; Data
                   </a>
                 </li>
 
                 <li>
-                  <a href="/web-digital.html">
+                  <a href="/web-digital">
                     Web &amp; Digital
                   </a>
                 </li>
 
                 <li>
-                  <a href="/conversion-optimization.html">
+                  <a href="/conversion-optimization">
                     Optimization
                   </a>
                 </li>
 
                 <li>
-                  <a href="/advertising-media-buying.html">
+                  <a href="/advertising-media-buying">
                     Campaigns
                   </a>
                 </li>
 
                 <li>
-                  <a href="/industries.html">
+                  <a href="/industries">
                     Industries
                   </a>
                 </li>
@@ -174,7 +174,7 @@ class ScottFooter extends HTMLElement {
                 ">
 
                 <li>
-                  <a href="/case-studies.html">
+                  <a href="/case-studies">
                     Case Studies
                   </a>
                 </li>
@@ -186,7 +186,7 @@ class ScottFooter extends HTMLElement {
                 </li>
 
                 <li>
-                  <a href="/insights.html">
+                  <a href="/insights">
                     Insights
                   </a>
                 </li>
@@ -222,31 +222,31 @@ class ScottFooter extends HTMLElement {
                 ">
 
                 <li>
-                  <a href="/about.html">
+                  <a href="/about">
                     About
                   </a>
                 </li>
 
                 <li>
-                  <a href="/why-us.html">
+                  <a href="/why-us">
                     Why Us
                   </a>
                 </li>
 
                 <li>
-                  <a href="/find-us.html">
+                  <a href="/find-us">
                     Credentials
                   </a>
                 </li>
 
                 <li>
-                  <a href="/faq.html">
+                  <a href="/faq">
                     FAQ
                   </a>
                 </li>
 
                 <li>
-                  <a href="/contact.html">
+                  <a href="/contact">
                     Contact
                   </a>
                 </li>
@@ -264,13 +264,13 @@ class ScottFooter extends HTMLElement {
               <br />
               Independent Analytics &amp; Digital Firm
               <br />
-              <span style="font-size:small;"><a href="/markets/bloomington-normal-il.html" style="text-decoration: none; background: linear-gradient(90deg, #1e3a5f, #4c8bf5); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Bloomington-Normal, McLean County, Illinois, USA</a></span>
+              <span style="font-size:small;"><a href="/markets/bloomington-normal-il" style="text-decoration: none; background: linear-gradient(90deg, #1e3a5f, #4c8bf5); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Bloomington-Normal, McLean County, Illinois, USA</a></span>
             </p>
 
             <p style="font-size: 0.85rem; opacity: 0.7; margin: 0 0 1.25rem;">
-              <a href="/security-trust.html" style="color: inherit; text-decoration: underline;">Security &amp; Trust</a>
+              <a href="/security-trust" style="color: inherit; text-decoration: underline;">Security &amp; Trust</a>
               <span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>
-              <a href="/legal.html" style="color: inherit; text-decoration: underline;">Legal &amp; Policies</a>
+              <a href="/legal" style="color: inherit; text-decoration: underline;">Legal &amp; Policies</a>
             </p>
 
             <div id="footer-social-groups" style="
@@ -393,15 +393,12 @@ class ScottFooter extends HTMLElement {
     // footer link matches the current page, mirroring the current-page
     // treatment in scott-nav - including subpages under a link's own
     // directory (e.g. /field-notes/ stays "on" for
-    // /field-notes/some-post.html, /insights.html for
-    // /insights/some-article.html), the same rule scott-nav uses.
-    // Cloudflare 308-redirects every .html URL to its extensionless
-    // form in production (no such redirect exists locally), so both
-    // index.html and a plain trailing .html need to be stripped here -
-    // without the second replace, every hardcoded /page.html href below
-    // silently never matches window.location.pathname on production,
-    // even though it matches fine on a local server. See navigation.js's
-    // stripHtml() for the same fix applied to the primary nav.
+    // /field-notes/some-post, /insights for /insights/some-article),
+    // the same rule scott-nav uses. Links here use the extensionless
+    // URLs Cloudflare serves, but a plain local server still shows
+    // .html (and index.html) in window.location.pathname, so both are
+    // stripped before comparing. See navigation.js's stripHtml() for
+    // the same normalization in the primary nav.
     const normalize = (href) =>
       href
         .replace(/index\.html$/, "")
@@ -413,7 +410,7 @@ class ScottFooter extends HTMLElement {
     // but should still light up that section's footer link, mirroring
     // scott-nav's alias list for the same pages.
     const ALIASES = {
-      "/about": ["/founder.html", "/clients.html"],
+      "/about": ["/founder", "/clients"],
     };
 
     this.querySelectorAll('a[href^="/"]').forEach((link) => {

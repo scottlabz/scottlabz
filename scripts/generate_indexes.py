@@ -29,6 +29,10 @@ Valid category keys for field-notes and insights come from the
 <scott-filter-bar> JSON block on each hub page, which stays
 hand-authored. Numbers must be unique within a section.
 
+Links and manifest URLs use the extensionless form Cloudflare Pages
+serves (/insights/some-note, not /insights/some-note.html), which is
+also what every canonical tag uses.
+
 Exits non-zero and writes nothing if any section has an error.
 
 Usage:
@@ -131,7 +135,7 @@ def fn_build(meta: dict, path: Path, ctx: dict, errors: list[str]) -> dict:
     return {
         "slug": path.stem,
         "file": path.name,
-        "url": f"{SITE}/field-notes/{path.name}",
+        "url": f"{SITE}/field-notes/{path.stem}",
         "title": norm(meta["fn-card-title"]),
         "summary": norm(meta["fn-card-summary"]),
         "categories": parse_categories(meta["fn-categories"], ctx["labels"], where, errors),
@@ -148,7 +152,7 @@ def fn_order(notes: list[dict], errors: list[str]) -> list[dict]:
 
 def fn_render(n: dict, ctx: dict) -> str:
     return (
-        f'        <a href="{attr(n["file"])}" class="fn-card-link" data-categories="{attr(" ".join(n["categories"]))}">\n'
+        f'        <a href="{attr(n["slug"])}" class="fn-card-link" data-categories="{attr(" ".join(n["categories"]))}">\n'
         f'          <section class="section-block" style="--accent: {n["accent"]}">\n'
         f'            <i class="fas fa-arrow-right fn-card-icon"></i>\n'
         f'            <h2>{text(n["title"])}</h2>\n'
@@ -165,7 +169,7 @@ def ins_build(meta: dict, path: Path, ctx: dict, errors: list[str]) -> dict:
     return {
         "slug": path.stem,
         "file": path.name,
-        "url": f"{SITE}/insights/{path.name}",
+        "url": f"{SITE}/insights/{path.stem}",
         "number": parse_number(meta["insight-number"], where, errors),
         "title": norm(meta["insight-title"]),
         "summary": norm(meta["insight-summary"]),
@@ -182,7 +186,7 @@ def ins_order(notes: list[dict], errors: list[str]) -> list[dict]:
 def ins_render(n: dict, ctx: dict) -> str:
     kicker = ctx["labels"].get(n["categories"][0], "") if n["categories"] else ""
     return (
-        f'          <a href="/insights/{attr(n["file"])}" class="idea-row" data-categories="{attr(" ".join(n["categories"]))}">\n'
+        f'          <a href="/insights/{attr(n["slug"])}" class="idea-row" data-categories="{attr(" ".join(n["categories"]))}">\n'
         f'            <span class="idea-number">{n["number"]:02d}</span>\n'
         f'            <span class="idea-body">\n'
         f'              <span class="idea-kicker">{text(kicker)}</span>\n'
@@ -204,7 +208,7 @@ def sig_build(meta: dict, path: Path, ctx: dict, errors: list[str]) -> dict:
     return {
         "slug": path.stem,
         "file": path.name,
-        "url": f"{SITE}/signals/{path.name}",
+        "url": f"{SITE}/signals/{path.stem}",
         "number": parse_number(meta["signal-number"], where, errors),
         "title": norm(meta["signal-title"]),
         "summary": norm(meta["signal-summary"]),
@@ -225,7 +229,7 @@ def sig_render(n: dict, ctx: dict) -> str:
         month = ""
     label = SIGNAL_STATUS.get(n["status"], "")
     return (
-        f'              <a href="/signals/{attr(n["file"])}" class="signal-card sig-{n["status"]}">\n'
+        f'              <a href="/signals/{attr(n["slug"])}" class="signal-card sig-{n["status"]}">\n'
         f'                <span class="signal-lamp" aria-hidden="true"></span>\n'
         f'                <div>\n'
         f'                  <span class="signal-meta">Signal {n["number"]:02d} &middot; {month} &middot; <b>{text(label)}</b></span>\n'

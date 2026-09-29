@@ -123,10 +123,15 @@ for file in sorted(ROOT.rglob("*.html")):
   if file.name == "index.html" and relative != "index.html" and relative not in INCLUDE_SUBDIR_INDEX:
     continue
 
+  # Cloudflare Pages serves clean URLs and 308-redirects *.html to them,
+  # so list the form it actually serves (same as every canonical tag):
+  # about.html -> /about, field-notes/index.html -> /field-notes/.
   if relative == "index.html":
     url = SITE + "/"
+  elif relative.endswith("/index.html"):
+    url = SITE + "/" + relative[: -len("index.html")]
   else:
-    url = SITE + "/" + relative
+    url = SITE + "/" + relative[: -len(".html")]
 
   if relative.startswith("case-studies/"):
     priority, freq = CASE_STUDY

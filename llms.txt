@@ -4,7 +4,7 @@
 
 Scott Labz is led by founder and principal analytics consultant Scott Taylor. Work covers four areas: analytics and data (measurement, tag management, dashboards, data quality), web and digital development (custom sites, ecommerce, infrastructure), conversion optimization (testing and funnel analysis), and advertising and media buying. Engagements are built on direct accountability and no unnecessary dependencies.
 
-Contact: info@scottlabz.com, +1-309-324-2875, or https://scottlabz.com/contact.html
+Contact: info@scottlabz.com, +1-309-324-2875, or https://scottlabz.com/contact
 
 Published writing lives in three sections. Each one has a JSON manifest listing every entry with its title, summary, categories, publish date, and URL, so agents can read the full index without scraping HTML:
 
@@ -14,38 +14,38 @@ Published writing lives in three sections. Each one has a JSON manifest listing 
 
 ## Services
 
-- [Services overview](https://scottlabz.com/services.html): All consulting services in one place
-- [Analytics & Data](https://scottlabz.com/analytics-data.html): Measurement foundations, tracking implementation, dashboards, and reliable reporting
-- [Web & Digital Solutions](https://scottlabz.com/web-digital.html): Custom web development, ecommerce platforms, and digital infrastructure
-- [Conversion Optimization & Testing](https://scottlabz.com/conversion-optimization.html): Structured testing, funnel analysis, and evidence-based site changes
-- [Advertising & Media Buying](https://scottlabz.com/advertising-media-buying.html): Campaign planning, media buying, and conversion tracking built on the same measurement discipline
-- [FAQ](https://scottlabz.com/faq.html): How engagements work, implementation process, and data quality standards
+- [Services overview](https://scottlabz.com/services): All consulting services in one place
+- [Analytics & Data](https://scottlabz.com/analytics-data): Measurement foundations, tracking implementation, dashboards, and reliable reporting
+- [Web & Digital Solutions](https://scottlabz.com/web-digital): Custom web development, ecommerce platforms, and digital infrastructure
+- [Conversion Optimization & Testing](https://scottlabz.com/conversion-optimization): Structured testing, funnel analysis, and evidence-based site changes
+- [Advertising & Media Buying](https://scottlabz.com/advertising-media-buying): Campaign planning, media buying, and conversion tracking built on the same measurement discipline
+- [FAQ](https://scottlabz.com/faq): How engagements work, implementation process, and data quality standards
 
 ## Company
 
-- [About](https://scottlabz.com/about.html): The practice, its approach, and how it thinks about measurement
-- [Founder](https://scottlabz.com/founder.html): Scott Taylor's background and client history
-- [Why Us](https://scottlabz.com/why-us.html): Direct accountability, no unnecessary dependencies, and results that hold up
-- [Clients](https://scottlabz.com/clients.html): Roster of 280+ organizations supported
-- [Industries](https://scottlabz.com/industries.html): Sports, athletics, healthcare, education, nonprofit, and consumer work
-- [Find Us](https://scottlabz.com/find-us.html): Verified credentials and third-party listings, including BBB accreditation and Chamber membership
-- [Contact](https://scottlabz.com/contact.html): Start a project conversation
+- [About](https://scottlabz.com/about): The practice, its approach, and how it thinks about measurement
+- [Founder](https://scottlabz.com/founder): Scott Taylor's background and client history
+- [Why Us](https://scottlabz.com/why-us): Direct accountability, no unnecessary dependencies, and results that hold up
+- [Clients](https://scottlabz.com/clients): Roster of 280+ organizations supported
+- [Industries](https://scottlabz.com/industries): Sports, athletics, healthcare, education, nonprofit, and consumer work
+- [Find Us](https://scottlabz.com/find-us): Verified credentials and third-party listings, including BBB accreditation and Chamber membership
+- [Contact](https://scottlabz.com/contact): Start a project conversation
 
 ## Writing
 
 - [Field Notes](https://scottlabz.com/field-notes/): Real breakdowns of measurement problems and technical decisions, written as they happened
-- [Insights](https://scottlabz.com/insights.html): Practical thinking on analytics, systems, automation, and search data
+- [Insights](https://scottlabz.com/insights): Practical thinking on analytics, systems, automation, and search data
 - [Signals](https://scottlabz.com/signals/): Short field observations on measurement, monitoring, and the habits that catch what dashboards miss
 
 ## Case Studies
 
-- [Case studies overview](https://scottlabz.com/case-studies.html): All client case studies
-- [Hawkeye Fan Shop](https://scottlabz.com/case-studies/hawkeye-fan-shop.html): Measurement, product-page tracking, and site reliability through a decade of gameday traffic
-- [The Black & Gold Shop](https://scottlabz.com/case-studies/the-black-and-gold-shop.html): Measurement, development, and infrastructure for a scalable storefront
-- [Analytics Infrastructure Modernization](https://scottlabz.com/case-studies/analytics-modernization.html): Connecting store, gameday, and online systems
-- [Digital Analytics Implementation](https://scottlabz.com/case-studies/digital-analytics-implementation.html): A ground-up analytics build for reliable, scalable measurement
-- [Custom Ecommerce Platform Development](https://scottlabz.com/case-studies/custom-web-application-development.html): A full ecommerce platform built from domain to storefront
-- [Data Quality & Governance](https://scottlabz.com/case-studies/data-quality-governance.html): Ongoing validation and governance standards for analytics data
+- [Case studies overview](https://scottlabz.com/case-studies): All client case studies
+- [Hawkeye Fan Shop](https://scottlabz.com/case-studies/hawkeye-fan-shop): Measurement, product-page tracking, and site reliability through a decade of gameday traffic
+- [The Black & Gold Shop](https://scottlabz.com/case-studies/the-black-and-gold-shop): Measurement, development, and infrastructure for a scalable storefront
+- [Analytics Infrastructure Modernization](https://scottlabz.com/case-studies/analytics-modernization): Connecting store, gameday, and online systems
+- [Digital Analytics Implementation](https://scottlabz.com/case-studies/digital-analytics-implementation): A ground-up analytics build for reliable, scalable measurement
+- [Custom Ecommerce Platform Development](https://scottlabz.com/case-studies/custom-web-application-development): A full ecommerce platform built from domain to storefront
+- [Data Quality & Governance](https://scottlabz.com/case-studies/data-quality-governance): Ongoing validation and governance standards for analytics data
 
 ## Diagnostics
 
@@ -53,21 +53,21 @@ Published writing lives in three sections. Each one has a JSON manifest listing 
 
 ## Policies
 
-- [AI Policy](https://scottlabz.com/trust/ai-policy.html): Responsible AI practices and guidelines across engagements
-- [Data Provenance](https://scottlabz.com/trust/provenance.html): How data is sourced, documented, transformed, and monitored
-- [Privacy Policy](https://scottlabz.com/trust/privacy.html): How personal data is handled
-- [Security & Trust](https://scottlabz.com/security-trust.html): Security, privacy, and responsible data practices
-- [Legal & Policies](https://scottlabz.com/legal.html): Index of all terms, trust, and compliance documents
+- [AI Policy](https://scottlabz.com/trust/ai-policy): Responsible AI practices and guidelines across engagements
+- [Data Provenance](https://scottlabz.com/trust/provenance): How data is sourced, documented, transformed, and monitored
+- [Privacy Policy](https://scottlabz.com/trust/privacy): How personal data is handled
+- [Security & Trust](https://scottlabz.com/security-trust): Security, privacy, and responsible data practices
+- [Legal & Policies](https://scottlabz.com/legal): Index of all terms, trust, and compliance documents
 
 ## Optional
 
-- [Analytics Dashboard & Reporting](https://scottlabz.com/case-studies/analytics-dashboard-reporting.html): Connected dashboards across retail and gameday data
-- [Analytics Reporting Platform](https://scottlabz.com/case-studies/analytics-dashboard-reporting-platform.html): A unified reporting platform for multi-channel retail data
-- [Digital Measurement Strategy](https://scottlabz.com/case-studies/digital-measurement-strategy.html): Measurement strategy for tracking reliability and business visibility
-- [Digital Experience Optimization](https://scottlabz.com/case-studies/digital-experience-optimization.html): Behavioral data and structured testing on a storefront
-- [Digital Infrastructure Modernization](https://scottlabz.com/case-studies/digital-infrastructure-modernization.html): Keeping online, retail, and gameday inventory systems in sync
-- [Website Performance Optimization](https://scottlabz.com/case-studies/website-performance-optimization.html): Speed and reliability under peak traffic
-- [Website Security & Performance](https://scottlabz.com/case-studies/website-security-performance-engineering.html): Hardened security and resilient infrastructure through peak demand
-- [Advertising & Media Buying case study](https://scottlabz.com/case-studies/advertising-media-buying.html): Campaigns and conversion tracking alongside active development work
-- [Bloomington-Normal, IL](https://scottlabz.com/markets/bloomington-normal-il.html): Local analytics and web development services in McLean County, Illinois
+- [Analytics Dashboard & Reporting](https://scottlabz.com/case-studies/analytics-dashboard-reporting): Connected dashboards across retail and gameday data
+- [Analytics Reporting Platform](https://scottlabz.com/case-studies/analytics-dashboard-reporting-platform): A unified reporting platform for multi-channel retail data
+- [Digital Measurement Strategy](https://scottlabz.com/case-studies/digital-measurement-strategy): Measurement strategy for tracking reliability and business visibility
+- [Digital Experience Optimization](https://scottlabz.com/case-studies/digital-experience-optimization): Behavioral data and structured testing on a storefront
+- [Digital Infrastructure Modernization](https://scottlabz.com/case-studies/digital-infrastructure-modernization): Keeping online, retail, and gameday inventory systems in sync
+- [Website Performance Optimization](https://scottlabz.com/case-studies/website-performance-optimization): Speed and reliability under peak traffic
+- [Website Security & Performance](https://scottlabz.com/case-studies/website-security-performance-engineering): Hardened security and resilient infrastructure through peak demand
+- [Advertising & Media Buying case study](https://scottlabz.com/case-studies/advertising-media-buying): Campaigns and conversion tracking alongside active development work
+- [Bloomington-Normal, IL](https://scottlabz.com/markets/bloomington-normal-il): Local analytics and web development services in McLean County, Illinois
 - [Sitemap](https://scottlabz.com/sitemap.xml): Every page on the site

@@ -4,7 +4,7 @@
     {
       "slug": "whats-hiding-behind-the-library",
       "file": "whats-hiding-behind-the-library.html",
-      "url": "https://scottlabz.com/signals/whats-hiding-behind-the-library.html",
+      "url": "https://scottlabz.com/signals/whats-hiding-behind-the-library",
       "number": 3,
       "title": "What's Hiding Behind the Library",
       "summary": "Removing a JS library showed what it had been holding up, including a lightbox that could never have opened.",
@@ -14,7 +14,7 @@
     {
       "slug": "re-encode-from-the-original",
       "file": "re-encode-from-the-original.html",
-      "url": "https://scottlabz.com/signals/re-encode-from-the-original.html",
+      "url": "https://scottlabz.com/signals/re-encode-from-the-original",
       "number": 2,
       "title": "Re-encode From the Original",
       "summary": "Why a second pass of compression costs quality, and where the original usually still is.",
@@ -24,7 +24,7 @@
     {
       "slug": "three-days-of-silence",
       "file": "three-days-of-silence.html",
-      "url": "https://scottlabz.com/signals/three-days-of-silence.html",
+      "url": "https://scottlabz.com/signals/three-days-of-silence",
       "number": 1,
       "title": "Three Days of Silence",
       "summary": "What a dead tracking script taught me about watching, not just monitoring.",

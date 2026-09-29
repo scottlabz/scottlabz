@@ -98,10 +98,12 @@ def resolve_target(source_file: Path, target: str) -> Path | None:
         except ValueError:
             return None
 
+    # Mirror Cloudflare Pages: /insights serves insights.html when it
+    # exists, and only falls back to the insights/ directory index.
     if rel_path == "" or rel_path.endswith("/"):
         rel_path += "index.html"
     elif "." not in Path(rel_path).name:
-        rel_path += "/index.html"
+        rel_path += ".html" if (REPO_ROOT / (rel_path + ".html")).is_file() else "/index.html"
     return REPO_ROOT / rel_path
 
 
