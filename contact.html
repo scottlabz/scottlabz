@@ -231,6 +231,67 @@
         );
         mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
       }
+
+      /* "What happens next" strip under the contact card */
+      .next-steps {
+        margin-top: 2.5rem;
+        text-align: center;
+      }
+      .next-steps h2 {
+        margin: 0 0 1.25rem;
+      }
+      .next-steps-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+      }
+      .next-steps-list li {
+        margin: 0;
+        padding: 1.25rem;
+        background: #ffffff;
+        border: 1px solid rgba(30, 58, 95, 0.2);
+        border-radius: 8px;
+      }
+      .next-num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        margin-bottom: 0.6rem;
+        border-radius: 50%;
+        background: #1e3a5f;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+      .next-steps-list h3 {
+        margin: 0 0 0.35rem;
+        font-size: 1rem;
+      }
+      .next-steps-list p {
+        margin: 0;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        color: #475569;
+      }
+      .trust-line {
+        margin: 1.5rem 0 0;
+        font-size: 0.85rem;
+        color: #64748b;
+      }
+      .trust-line span {
+        margin: 0 0.5rem;
+      }
+      @media screen and (max-width: 736px) {
+        .next-steps-list {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
 
@@ -304,7 +365,7 @@
               15-minute video call, no account needed
             </p>
 
-            <p>Or send a message below and I will respond promptly.</p>
+            <p>Or send a message below and I'll respond within one business day.</p>
 
             <form action="https://api.web3forms.com/submit" method="POST">
               <input
@@ -361,6 +422,34 @@
                 Send Message
               </button>
             </form>
+          </div>
+
+          <div class="next-steps" aria-labelledby="next-steps-title">
+            <h2 id="next-steps-title" class="size-h4">What happens next</h2>
+            <ol class="next-steps-list">
+              <li>
+                <span class="next-num" aria-hidden="true">1</span>
+                <h3>Send a note</h3>
+                <p>A few lines on your current setup and what you're trying to solve is plenty.</p>
+              </li>
+              <li>
+                <span class="next-num" aria-hidden="true">2</span>
+                <h3>Get a reply within one business day</h3>
+                <p>A direct response from Scott, with any quick questions needed to understand the situation.</p>
+              </li>
+              <li>
+                <span class="next-num" aria-hidden="true">3</span>
+                <h3>A short intro call</h3>
+                <p>Fifteen minutes to work out whether the right first step is an audit, a new implementation, or something else entirely.</p>
+              </li>
+            </ol>
+            <p class="trust-line">
+              <a href="/bbb.html">BBB Accredited</a>
+              <span aria-hidden="true">&middot;</span>
+              <a href="/find-us.html">McLean County Chamber member</a>
+              <span aria-hidden="true">&middot;</span>
+              <a href="/clients.html">280+ organizations supported</a>
+            </p>
           </div>
         </section>
       </main>
