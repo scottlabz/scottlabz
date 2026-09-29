@@ -343,8 +343,14 @@
       .faq-answer p:last-child {
         margin-bottom: 0;
       }
+      /* The hero section wraps every question, so the shared 20% band
+         would grow and rescale the photo each time an answer opens. A
+         width-based height matches the 20% look with all answers closed
+         (about 45% of the viewport width, never under 560px) and stays
+         put while questions open and close. */
       .about-hero::before {
         background-image: url("/images/faq.jpg?v=0e0dfec653");
+        height: clamp(560px, 45vw, 900px);
       }
       .light-box {
         border: 1px solid rgba(30, 58, 95, 0.75);
