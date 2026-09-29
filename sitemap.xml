@@ -266,6 +266,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://scottlabz.com/field-notes/the-diff-that-compared-two-broken-pages.html</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://scottlabz.com/field-notes/the-fix-that-dropped-the-score-first.html</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>yearly</changefreq>
@@ -357,6 +363,12 @@
   </url>
   <url>
     <loc>https://scottlabz.com/insights/dashboards-nobody-opens.html</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://scottlabz.com/insights/delete-with-proof.html</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
