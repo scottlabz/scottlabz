@@ -2679,7 +2679,7 @@ body.is-preload .banner.onload-image-fade-in .image img {
   top: 0;
   left: 0;
   width: 100%;
-  height: 25%;
+  height: 20%;
   background-image: url("/images/about.jpg");
   background-size: cover;
   background-position: center;
@@ -2730,7 +2730,7 @@ body.is-preload .banner.onload-image-fade-in .image img {
   top: 0;
   left: 0;
   width: 100%;
-  height: 25%;
+  height: 20%;
   background-image: url(/images/markets.jpg);
   background-size: cover;
   background-position: center;
