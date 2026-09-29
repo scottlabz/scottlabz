@@ -29,7 +29,7 @@
       as="font"
       type="font/woff2"
       crossorigin />
-    <link rel="stylesheet" href="assets/css/main-min.css?v=3a5654d1ee" />
+    <link rel="stylesheet" href="assets/css/main-min.css?v=f4430a6bdf" />
 
     <noscript>
       <link rel="stylesheet" href="assets/css/noscript-min.css?v=ab1c7bc451" />
@@ -221,8 +221,8 @@
         margin: 2rem 0;
       }
 
-      /* Workstream deep dives: filterable card grid. --cat is set per
-         card and matches that category's pill in the filter bar. */
+      /* Workstream deep dives: filterable card grid. The card styles
+         themselves live in main.css (shared with the service pages). */
       .cs-deep-dives {
         margin: 2.5rem 0 0;
       }
@@ -240,118 +240,6 @@
       scott-filter-bar {
         display: block;
         margin-bottom: 1.25rem;
-      }
-
-      .cs-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 1.25rem;
-      }
-
-      .cs-card {
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        background: #ffffff;
-        border: 1px solid rgba(0, 0, 0, 0.12);
-        border-top: 3px solid var(--cat, #1e3a5f);
-        border-radius: 10px;
-        color: inherit;
-        text-decoration: none;
-        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
-        transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease,
-          opacity 0.18s ease;
-      }
-
-      .cs-card:hover,
-      .cs-card:focus-visible {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 26px rgba(15, 23, 42, 0.14);
-      }
-
-      .cs-card:focus-visible {
-        outline: 2px solid var(--cat, #1e3a5f);
-        outline-offset: 3px;
-      }
-
-      .cs-card img {
-        display: block;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-        background: rgba(0, 0, 0, 0.06);
-      }
-
-      .cs-card-body {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        padding: 1rem 1.1rem 1.1rem;
-      }
-
-      .cs-card-tag {
-        font-size: 0.68rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--cat, #1e3a5f);
-      }
-
-      .cs-card .cs-card-title {
-        margin: 0.35rem 0 0.5rem;
-        font-size: 1.15rem;
-        line-height: 1.25;
-      }
-
-      .cs-card-text {
-        font-size: 0.9rem;
-        line-height: 1.55;
-        opacity: 0.85;
-      }
-
-      .cs-card-more {
-        margin-top: auto;
-        padding-top: 0.85rem;
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--cat, #1e3a5f);
-      }
-
-      .cs-card-more i {
-        margin-left: 0.45em;
-        transition: transform 0.2s ease;
-      }
-
-      .cs-card:hover .cs-card-more i {
-        transform: translateX(3px);
-      }
-
-      /* Required by <scott-filter-bar> - the cards it filters live
-         outside its shadow root, so the show/hide transition classes
-         have to be in regular page CSS. */
-      .cs-card.ff-hide {
-        display: none;
-      }
-
-      .cs-card.ff-leaving,
-      .cs-card.ff-entering {
-        opacity: 0;
-        transform: translateY(4px) scale(0.98);
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .cs-card,
-        .cs-card-more i {
-          transition: none;
-        }
-        .cs-card:hover {
-          transform: none;
-        }
       }
 
       .button.hawkeye {
