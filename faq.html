@@ -102,6 +102,116 @@
               "@id": "https://scottlabz.com/#organization"
             },
             "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://scottlabz.com/faq.html#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What's your approach to analytics?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Analytics should answer questions, not create more of them. Reliable analytics solutions help businesses understand what's happening across their digital experiences. Every implementation is designed to be accurate, scalable, and easy to maintain, creating a dependable foundation for reporting and decision-making."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you approach tracking and implementation?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Every implementation starts with a clear measurement strategy. Understanding business goals comes before any tracking is deployed. From there, a structured data layer, consistent event taxonomy, and clean implementation follow established practices. The result is higher-quality data, fewer tracking issues, and reports stakeholders can trust."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you work with our existing systems?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Solutions are built around open standards and proven implementation practices, not a single platform or vendor, and are designed to integrate with existing websites, applications, marketing tools, and data platforms while reducing disruption and improving data quality. Whether optimizing an existing implementation, modernizing a stack, or connecting data across systems, every solution is built to be flexible, scalable, and easy to maintain. The goal is helping your systems work better together, not requiring a rebuild."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you ensure data quality?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Reliable insights begin with reliable data. Every implementation includes validation, testing, and ongoing monitoring to verify data is collected accurately and consistently. Tracking issues, missing information, and reporting inconsistencies are identified early, helping maintain confidence in every dashboard and report - see a real example in our Data Quality & Governance case study."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you handle privacy and security?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Responsible data collection is built into every solution. Industry practices for privacy, access control, consent management, and data governance guide every implementation, protecting customer data while providing the insights organizations need to make informed decisions. Read more about our Security & Trust commitments."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you work with our existing teams?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Solutions are designed to support internal staff, existing processes, and long-term maintainability, so the work stays usable well after an engagement ends."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What does an engagement typically look like?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Most engagements move through four stages: understanding current systems and goals, assessing gaps and opportunities, implementing improvements, and enabling internal processes so value continues after launch - the same practical approach used across every engagement. Scope and timeline are defined upfront based on what the business actually needs."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long does a typical project take?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Timelines depend on scope. A focused measurement audit or tracking cleanup can wrap in a few weeks, while a full analytics rebuild, integration project, or custom web build runs longer. A clear timeline is set before work begins."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you provide support after a project launches?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Ongoing monitoring, maintenance, and iterative improvement are available after launch, since digital platforms and data needs continue to change after the initial build."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you handle advertising campaigns or media buying?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Campaign and media performance is only as reliable as the measurement behind it, so campaign management and media buying are supported alongside the tracking, reporting, and infrastructure that make results measurable in the first place."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you work with businesses of any size?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Engagements range from independent retailers standing up their first reliable analytics setup to established organizations modernizing a legacy stack. Every solution is scoped to the size and complexity of the business it supports."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you replace our existing analytics platforms?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Not by default. The focus is improving the analytics ecosystem already in place through better measurement practices, cleaner data, and more reliable insights. Replacing a platform is only recommended when it's genuinely the right call for the business - not as a starting assumption."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I get started?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Reach out through the contact page with a short description of the current setup and what you're trying to solve. A short conversation usually clarifies whether the right first step is an audit, a new implementation, or something else entirely."
+                }
+              }
+            ]
           }
         ]
       }
@@ -146,6 +256,93 @@
         opacity: 1;
       }
 
+      /* Questions collapse into native <details> accordions - no script
+         needed, and browser find-in-page still searches closed answers. */
+      .faq-jump {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0 0 2rem;
+      }
+      .faq-jump span {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-right: 0.25rem;
+        padding: 0.3rem 0.6rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.92);
+        color: #1e3a5f;
+      }
+      .faq-jump a {
+        font-size: 0.85rem;
+        padding: 0.35rem 0.8rem;
+        border: 1px solid rgba(30, 58, 95, 0.35);
+        border-radius: 999px;
+        text-decoration: none;
+        color: #1e3a5f;
+        background: rgba(255, 255, 255, 0.92);
+      }
+      .faq-jump a:hover {
+        background: #1e3a5f;
+        border-color: #1e3a5f;
+        color: #ffffff;
+      }
+      .faq-item {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      }
+      .faq-item:last-of-type {
+        border-bottom: 0;
+      }
+      .faq-item summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 0;
+        cursor: pointer;
+        list-style: none;
+      }
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq-item summary h3 {
+        margin: 0;
+        font-size: 1.05rem;
+      }
+      .faq-item summary::after {
+        content: "+";
+        flex: none;
+        width: 1.75rem;
+        height: 1.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(30, 58, 95, 0.35);
+        border-radius: 50%;
+        color: #1e3a5f;
+        font-size: 1.1rem;
+        line-height: 1;
+        transition: transform 0.2s ease;
+      }
+      .faq-item[open] summary::after {
+        content: "\2212";
+      }
+      .faq-item summary:hover h3 {
+        color: #1e3a5f;
+      }
+      .faq-item summary:focus-visible {
+        outline: 2px solid #1e3a5f;
+        outline-offset: 2px;
+      }
+      .faq-answer {
+        padding: 0 0 1rem;
+      }
+      .faq-answer p:last-child {
+        margin-bottom: 0;
+      }
       .about-hero::before {
         background-image: url("/images/faq.jpg?v=0e0dfec653");
       }
@@ -198,173 +395,227 @@
         class="service-content"
         id="first"
         style="max-width: 900px; margin: 2rem auto; padding: 0">
-        <section class="section-block">
+        <nav class="faq-jump" aria-label="FAQ sections">
+          <span>Jump to</span>
+          <a href="#our-approach" class="smooth-scroll">Our Approach</a>
+          <a href="#working-together" class="smooth-scroll">Working Together</a>
+          <a href="#scope-fit" class="smooth-scroll">Scope &amp; Fit</a>
+          <a href="#why-work-with-us" class="smooth-scroll">Why Work With Us?</a>
+          <a href="#getting-started" class="smooth-scroll">Getting Started</a>
+        </nav>
+
+        <section class="section-block" id="our-approach">
           <h2>Our Approach</h2>
 
-          <h3>What's your approach to analytics?</h3>
-          <p>
-            <strong
-              >Analytics should answer questions, not create more of
-              them.</strong
-            >
-          </p>
-          <p>
-            Reliable analytics solutions help businesses understand what's
-            happening across their digital experiences. Every implementation is
-            designed to be accurate, scalable, and easy to maintain, creating a
-            dependable foundation for reporting and decision-making.
-          </p>
+          <details class="faq-item">
+            <summary><h3>What's your approach to analytics?</h3></summary>
+            <div class="faq-answer">
+            <p>
+              <strong
+                >Analytics should answer questions, not create more of
+                them.</strong
+              >
+            </p>
+            <p>
+              Reliable analytics solutions help businesses understand what's
+              happening across their digital experiences. Every implementation is
+              designed to be accurate, scalable, and easy to maintain, creating a
+              dependable foundation for reporting and decision-making.
+            </p>
+            </div>
+          </details>
 
-          <h3>How do you approach tracking and implementation?</h3>
-          <p>
-            <strong
-              >Every implementation starts with a clear measurement
-              strategy.</strong
-            >
-          </p>
-          <p>
-            Understanding business goals comes before any tracking is deployed.
-            From there, a structured data layer, consistent event taxonomy, and
-            clean implementation follow established practices. The result is
-            higher-quality data, fewer tracking issues, and reports stakeholders
-            can trust.
-          </p>
+          <details class="faq-item">
+            <summary><h3>How do you approach tracking and implementation?</h3></summary>
+            <div class="faq-answer">
+            <p>
+              <strong
+                >Every implementation starts with a clear measurement
+                strategy.</strong
+              >
+            </p>
+            <p>
+              Understanding business goals comes before any tracking is deployed.
+              From there, a structured data layer, consistent event taxonomy, and
+              clean implementation follow established practices. The result is
+              higher-quality data, fewer tracking issues, and reports stakeholders
+              can trust.
+            </p>
+            </div>
+          </details>
 
-          <h3>Can you work with our existing systems?</h3>
-          <p><strong>Yes.</strong></p>
-          <p>
-            Solutions are built around open standards and proven implementation
-            practices, not a single platform or vendor, and are designed to
-            integrate with existing websites, applications, marketing
-            tools, and data platforms while reducing disruption and
-            improving data quality.
-          </p>
-          <p>
-            Whether optimizing an existing implementation, modernizing a stack,
-            or connecting data across systems, every solution is built to be
-            flexible, scalable, and easy to maintain. The goal is helping your
-            systems work better together, not requiring a rebuild.
-          </p>
+          <details class="faq-item">
+            <summary><h3>Can you work with our existing systems?</h3></summary>
+            <div class="faq-answer">
+            <p><strong>Yes.</strong></p>
+            <p>
+              Solutions are built around open standards and proven implementation
+              practices, not a single platform or vendor, and are designed to
+              integrate with existing websites, applications, marketing
+              tools, and data platforms while reducing disruption and
+              improving data quality.
+            </p>
+            <p>
+              Whether optimizing an existing implementation, modernizing a stack,
+              or connecting data across systems, every solution is built to be
+              flexible, scalable, and easy to maintain. The goal is helping your
+              systems work better together, not requiring a rebuild.
+            </p>
+            </div>
+          </details>
 
-          <h3>How do you ensure data quality?</h3>
-          <p><strong>Reliable insights begin with reliable data.</strong></p>
-          <p>
-            Every implementation includes validation, testing, and ongoing
-            monitoring to verify data is collected accurately and consistently.
-            Tracking issues, missing information, and reporting inconsistencies
-            are identified early, helping maintain confidence in every dashboard
-            and report - see a real example in our
-            <a href="/case-studies/data-quality-governance.html">Data Quality &amp; Governance case study</a>.
-          </p>
+          <details class="faq-item">
+            <summary><h3>How do you ensure data quality?</h3></summary>
+            <div class="faq-answer">
+            <p><strong>Reliable insights begin with reliable data.</strong></p>
+            <p>
+              Every implementation includes validation, testing, and ongoing
+              monitoring to verify data is collected accurately and consistently.
+              Tracking issues, missing information, and reporting inconsistencies
+              are identified early, helping maintain confidence in every dashboard
+              and report - see a real example in our
+              <a href="/case-studies/data-quality-governance.html">Data Quality &amp; Governance case study</a>.
+            </p>
+            </div>
+          </details>
 
-          <h3>How do you handle privacy and security?</h3>
-          <p>
-            <strong
-              >Responsible data collection is built into every solution.</strong
-            >
-          </p>
-          <p>
-            Industry practices for privacy, access control, consent management,
-            and data governance guide every implementation, protecting customer
-            data while providing the insights organizations need to make
-            informed decisions. Read more about our
-            <a href="/security-trust.html">Security &amp; Trust</a> commitments.
-          </p>
+          <details class="faq-item">
+            <summary><h3>How do you handle privacy and security?</h3></summary>
+            <div class="faq-answer">
+            <p>
+              <strong
+                >Responsible data collection is built into every solution.</strong
+              >
+            </p>
+            <p>
+              Industry practices for privacy, access control, consent management,
+              and data governance guide every implementation, protecting customer
+              data while providing the insights organizations need to make
+              informed decisions. Read more about our
+              <a href="/security-trust.html">Security &amp; Trust</a> commitments.
+            </p>
+            </div>
+          </details>
         </section>
 
-        <section class="section-block">
+        <section class="section-block" id="working-together">
           <h2>Working Together</h2>
 
-          <h3>Do you work with our existing teams?</h3>
-          <p>
-            Yes. Solutions are designed to support internal staff, existing
-            processes, and long-term maintainability, so the work stays usable
-            well after an engagement ends.
-          </p>
+          <details class="faq-item">
+            <summary><h3>Do you work with our existing teams?</h3></summary>
+            <div class="faq-answer">
+            <p>
+              Yes. Solutions are designed to support internal staff, existing
+              processes, and long-term maintainability, so the work stays usable
+              well after an engagement ends.
+            </p>
+            </div>
+          </details>
 
-          <h3>What does an engagement typically look like?</h3>
-          <p>
-            Most engagements move through four stages: understanding current
-            systems and goals, assessing gaps and opportunities, implementing
-            improvements, and enabling internal processes so value continues
-            after launch - the same <a href="/analytics-data.html">practical approach</a> used across every
-            engagement. Scope and timeline are defined upfront based on what
-            the business actually needs.
-          </p>
+          <details class="faq-item">
+            <summary><h3>What does an engagement typically look like?</h3></summary>
+            <div class="faq-answer">
+            <p>
+              Most engagements move through four stages: understanding current
+              systems and goals, assessing gaps and opportunities, implementing
+              improvements, and enabling internal processes so value continues
+              after launch - the same <a href="/analytics-data.html">practical approach</a> used across every
+              engagement. Scope and timeline are defined upfront based on what
+              the business actually needs.
+            </p>
+            </div>
+          </details>
 
-          <h3>How long does a typical project take?</h3>
-          <p>
-            Timelines depend on scope. A focused measurement audit or tracking
-            cleanup can wrap in a few weeks, while a full analytics rebuild,
-            integration project, or custom web build runs longer. A clear
-            timeline is set before work begins.
-          </p>
+          <details class="faq-item">
+            <summary><h3>How long does a typical project take?</h3></summary>
+            <div class="faq-answer">
+            <p>
+              Timelines depend on scope. A focused measurement audit or tracking
+              cleanup can wrap in a few weeks, while a full analytics rebuild,
+              integration project, or custom web build runs longer. A clear
+              timeline is set before work begins.
+            </p>
+            </div>
+          </details>
 
-          <h3>Do you provide support after a project launches?</h3>
-          <p>
-            Yes. Ongoing monitoring, maintenance, and iterative improvement are
-            available after launch, since digital platforms and data needs
-            continue to change after the initial build.
-          </p>
+          <details class="faq-item">
+            <summary><h3>Do you provide support after a project launches?</h3></summary>
+            <div class="faq-answer">
+            <p>
+              Yes. Ongoing monitoring, maintenance, and iterative improvement are
+              available after launch, since digital platforms and data needs
+              continue to change after the initial build.
+            </p>
+            </div>
+          </details>
         </section>
 
-        <section class="section-block">
+        <section class="section-block" id="scope-fit">
           <h2>Scope &amp; Fit</h2>
 
-          <h3>Do you handle advertising campaigns or media buying?</h3>
-          <p>
-            Yes. Campaign and media performance is only as reliable as the
-            measurement behind it, so campaign management and media buying are
-            supported alongside the tracking, reporting, and infrastructure that
-            make results measurable in the first place.
-          </p>
+          <details class="faq-item">
+            <summary><h3>Do you handle advertising campaigns or media buying?</h3></summary>
+            <div class="faq-answer">
+            <p>
+              Yes. Campaign and media performance is only as reliable as the
+              measurement behind it, so campaign management and media buying are
+              supported alongside the tracking, reporting, and infrastructure that
+              make results measurable in the first place.
+            </p>
+            </div>
+          </details>
 
-          <h3>Do you work with businesses of any size?</h3>
-          <p>
-            Yes. Engagements range from independent retailers standing up their
-            first reliable analytics setup to established organizations
-            modernizing a legacy stack. Every solution is scoped to the size and
-            complexity of the business it supports.
-          </p>
+          <details class="faq-item">
+            <summary><h3>Do you work with businesses of any size?</h3></summary>
+            <div class="faq-answer">
+            <p>
+              Yes. Engagements range from independent retailers standing up their
+              first reliable analytics setup to established organizations
+              modernizing a legacy stack. Every solution is scoped to the size and
+              complexity of the business it supports.
+            </p>
+            </div>
+          </details>
 
-          <h3>Do you replace our existing analytics platforms?</h3>
-          <p>
-            Not by default. The focus is improving the analytics ecosystem
-            already in place through better measurement practices, cleaner data,
-            and more reliable insights. Replacing a platform is only recommended
-            when it's genuinely the right call for the business - not as a
-            starting assumption.
-          </p>
+          <details class="faq-item">
+            <summary><h3>Do you replace our existing analytics platforms?</h3></summary>
+            <div class="faq-answer">
+            <p>
+              Not by default. The focus is improving the analytics ecosystem
+              already in place through better measurement practices, cleaner data,
+              and more reliable insights. Replacing a platform is only recommended
+              when it's genuinely the right call for the business - not as a
+              starting assumption.
+            </p>
+            </div>
+          </details>
         </section>
 
-        <section class="section-block">
+        <section class="section-block" id="why-work-with-us">
           <h2>Why Work With Us?</h2>
-          <p>
-            <ul class="alt">
-              <li>Independent</li>
-              <li>No proprietary platform or agency ecosystem dictates the solution.</li>
-              <li>Technical</li>
-              <li>Strategy is backed by hands-on implementation.</li>
-              <li>Measurement-driven</li>
-              <li>Recommendations are tied to observable data.</li>
-              <li>Platform-agnostic</li>
-              <li>The right architecture comes before the tool.</li>
-              <li>Built for longevity</li>
-              <li>Solutions should be maintainable after the project ends.</li>
-            </ul>
-          </p>
+          <ul class="alt">
+            <li><strong>Independent</strong> - No proprietary platform or agency ecosystem dictates the solution.</li>
+            <li><strong>Technical</strong> - Strategy is backed by hands-on implementation.</li>
+            <li><strong>Measurement-driven</strong> - Recommendations are tied to observable data.</li>
+            <li><strong>Platform-agnostic</strong> - The right architecture comes before the tool.</li>
+            <li><strong>Built for longevity</strong> - Solutions should be maintainable after the project ends.</li>
+          </ul>
         </section>
 
-        <section class="section-block" style="margin-bottom: 0">
+        <section class="section-block" id="getting-started" style="margin-bottom: 0">
           <h2>Getting Started</h2>
 
-          <h3>How do I get started?</h3>
-          <p>
-            Reach out through the contact page with a short description of the
-            current setup and what you're trying to solve. A short conversation
-            usually clarifies whether the right first step is an audit, a new
-            implementation, or something else entirely.
-          </p>
+          <details class="faq-item">
+            <summary><h3>How do I get started?</h3></summary>
+            <div class="faq-answer">
+            <p>
+              Reach out through the contact page with a short description of the
+              current setup and what you're trying to solve. A short conversation
+              usually clarifies whether the right first step is an audit, a new
+              implementation, or something else entirely.
+            </p>
+            </div>
+          </details>
         </section>
 
         <section>
