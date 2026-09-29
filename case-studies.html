@@ -53,6 +53,7 @@
       sizes="96x96"
       href="images/favicon/favicon-96x96.png?v=1fac781b7c" />
     <script src="assets/js/navigation-min.js?v=8a5e5f5ff3" defer></script>
+    <script src="/assets/js/scott-filter-bar-min.js?v=a0d2b5dd01" defer></script>
 
     <link rel="canonical" href="https://scottlabz.com/case-studies.html" />
 
@@ -220,84 +221,137 @@
         margin: 2rem 0;
       }
 
-      /* Two-column, two-row services layout */
-      .service-directory {
+      /* Workstream deep dives: filterable card grid. --cat is set per
+         card and matches that category's pill in the filter bar. */
+      .cs-deep-dives {
+        margin: 2.5rem 0 0;
+      }
+
+      .cs-deep-dives h2 {
+        margin: 0 0 0.35rem;
+      }
+
+      .cs-intro {
+        margin: 0 0 1.25rem;
+        font-size: 0.95rem;
+        opacity: 0.8;
+      }
+
+      scott-filter-bar {
+        display: block;
+        margin-bottom: 1.25rem;
+      }
+
+      .cs-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2.5rem 4rem;
-        margin: 0;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.25rem;
       }
 
-      .service-column {
-        min-width: 0;
+      .cs-card {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        border-top: 3px solid var(--cat, #1e3a5f);
+        border-radius: 10px;
+        color: inherit;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          opacity 0.18s ease;
       }
 
-      .service-column h3 {
-        margin: 0 0 0.75rem;
-        font-size: 0.9rem;
+      .cs-card:hover,
+      .cs-card:focus-visible {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 26px rgba(15, 23, 42, 0.14);
+      }
+
+      .cs-card:focus-visible {
+        outline: 2px solid var(--cat, #1e3a5f);
+        outline-offset: 3px;
+      }
+
+      .cs-card img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        background: rgba(0, 0, 0, 0.06);
+      }
+
+      .cs-card-body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 1rem 1.1rem 1.1rem;
+      }
+
+      .cs-card-tag {
+        font-size: 0.68rem;
         font-weight: 700;
         letter-spacing: 0.12em;
         text-transform: uppercase;
+        color: var(--cat, #1e3a5f);
       }
 
-      .service-column h5 {
-        margin: 0;
+      .cs-card .cs-card-title {
+        margin: 0.35rem 0 0.5rem;
+        font-size: 1.15rem;
+        line-height: 1.25;
+      }
+
+      .cs-card-text {
+        font-size: 0.9rem;
+        line-height: 1.55;
+        opacity: 0.85;
+      }
+
+      .cs-card-more {
+        margin-top: auto;
+        padding-top: 0.85rem;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
-        font-weight: 500;
+        color: var(--cat, #1e3a5f);
       }
 
-      /* Category headers were promoted from h5 to h2 for correct document
-         outline; replicate the h5 styling above exactly since .size-h5 only
-         restores font-size, not this rule's margin/case/weight. */
-      .service-column h2.size-h5 {
-        margin: 0;
-        text-transform: uppercase;
-        font-weight: 500;
-      }
-
-      .service-links {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      .service-links li {
-        margin: 0.25rem 0;
-      }
-
-      .service-links a {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        text-decoration: none;
-        font-size: 1rem;
-        font-weight: 200;
-        line-height: 1.3;
-        color: inherit;
-        transition:
-          color 0.2s ease,
-          transform 0.2s ease;
-      }
-
-      .service-links a::before {
-        content: "›";
-        opacity: 0.45;
+      .cs-card-more i {
+        margin-left: 0.45em;
         transition: transform 0.2s ease;
       }
 
-      .service-links a:hover::before {
-        content: "·";
-        opacity: 0.45;
-        transition: transform 0.2s ease;
-      }
-
-      .service-links a:hover {
-        color: var(--accent-color);
-        filter: drop-shadow(1px 1px 0 #ffcd00);
-      }
-
-      .service-links a:hover::before {
+      .cs-card:hover .cs-card-more i {
         transform: translateX(3px);
+      }
+
+      /* Required by <scott-filter-bar> - the cards it filters live
+         outside its shadow root, so the show/hide transition classes
+         have to be in regular page CSS. */
+      .cs-card.ff-hide {
+        display: none;
+      }
+
+      .cs-card.ff-leaving,
+      .cs-card.ff-entering {
+        opacity: 0;
+        transform: translateY(4px) scale(0.98);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .cs-card,
+        .cs-card-more i {
+          transition: none;
+        }
+        .cs-card:hover {
+          transform: none;
+        }
       }
 
       .button.hawkeye {
@@ -347,13 +401,6 @@
           inset 0 0 0 4px #007030,
           0 6px 14px rgba(0, 0, 0, 0.3);
         color: #007030 !important;
-      }
-
-      @media (max-width: 736px) {
-        .service-directory {
-          grid-template-columns: 1fr;
-          gap: 1rem;
-        }
       }
 
       .additional-cases {
@@ -550,99 +597,238 @@
               </li>
             </ul>
 
-            <div class="service-directory">
-              <div class="service-column">
-                <h2 class="size-h5">Analytics &amp; Data Intelligence</h2>
-
-                <ul class="service-links">
-                  <li>
-                    <a href="case-studies/digital-measurement-strategy.html"
-                      >Measurement Strategy</a
-                    >
-                  </li>
-                  <li>
-                    <a href="case-studies/digital-analytics-implementation.html"
-                      >Analytics Implementation</a
-                    >
-                  </li>
-                  <li>
-                    <a href="case-studies/analytics-modernization.html"
-                      >Analytics Modernization</a
-                    >
-                  </li>
-                  <li>
-                    <a href="case-studies/analytics-dashboard-reporting.html"
-                      >Dashboard &amp; Reporting</a
-                    >
-                  </li>
-                  <li>
-                    <a href="case-studies/data-quality-governance.html"
-                      >Data Quality &amp; Governance</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="case-studies/analytics-dashboard-reporting-platform.html"
-                      >Reporting Platform</a
-                    >
-                  </li>
-                </ul>
+            <section class="cs-deep-dives" aria-labelledby="cs-deep-dives-title">
+              <h2 class="size-h3" id="cs-deep-dives-title">Workstream Deep Dives</h2>
+              <p class="cs-intro">Each study breaks out one piece of the work - measurement, web, optimization, or media.</p>
+              <scott-filter-bar target="#cs-grid" item-selector=".cs-card" all-label="All">
+                <script type="application/json">
+                  [
+                    { "key": "analytics", "label": "Analytics & Data", "color": "#2563eb" },
+                    { "key": "web", "label": "Web & Digital", "color": "#0f766e" },
+                    { "key": "optimization", "label": "Optimization", "color": "#b45309" },
+                    { "key": "advertising", "label": "Advertising & Media", "color": "#7c2d92" }
+                  ]
+                </script>
+              </scott-filter-bar>
+              <div class="cs-grid" id="cs-grid">
+                <a href="case-studies/digital-measurement-strategy.html" class="cs-card" data-categories="analytics" style="--cat: #2563eb">
+                  <img
+                    src="images/cs-thumb-digital-measurement-strategy-480w.webp?v=3885b94ae9"
+                    srcset="images/cs-thumb-digital-measurement-strategy-480w.webp?v=3885b94ae9 480w, images/cs-thumb-digital-measurement-strategy-960w.webp?v=22de343003 960w"
+                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
+                    width="480"
+                    height="270"
+                    alt="Iowa women's basketball player signing a basketball courtside for fans"
+                    title="Iowa women's basketball player signing a basketball courtside for fans"
+                    loading="lazy"
+                    decoding="async" />
+                  <span class="cs-card-body">
+                    <span class="cs-card-tag">Analytics &amp; Data</span>
+                    <h3 class="cs-card-title">Measurement Strategy</h3>
+                    <span class="cs-card-text">A ground-up measurement strategy that improved analytics consistency, tracking reliability, and business visibility.</span>
+                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                  </span>
+                </a>
+                <a href="case-studies/digital-analytics-implementation.html" class="cs-card" data-categories="analytics" style="--cat: #2563eb">
+                  <img
+                    src="images/cs-thumb-digital-analytics-implementation-480w.webp?v=bee7433fb9"
+                    srcset="images/cs-thumb-digital-analytics-implementation-480w.webp?v=bee7433fb9 480w, images/cs-thumb-digital-analytics-implementation-960w.webp?v=717502dd97 960w"
+                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
+                    width="480"
+                    height="270"
+                    alt="Iowa flag runners carrying I-O-W-A flags across the football field on gameday"
+                    title="Iowa flag runners carrying I-O-W-A flags across the football field on gameday"
+                    loading="lazy"
+                    decoding="async" />
+                  <span class="cs-card-body">
+                    <span class="cs-card-tag">Analytics &amp; Data</span>
+                    <h3 class="cs-card-title">Analytics Implementation</h3>
+                    <span class="cs-card-text">A ground-up analytics build that created reliable, scalable measurement systems.</span>
+                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                  </span>
+                </a>
+                <a href="case-studies/analytics-modernization.html" class="cs-card" data-categories="analytics" style="--cat: #2563eb">
+                  <img
+                    src="images/cs-thumb-analytics-modernization-480w.webp?v=9ee3749ac8"
+                    srcset="images/cs-thumb-analytics-modernization-480w.webp?v=9ee3749ac8 480w, images/cs-thumb-analytics-modernization-960w.webp?v=7e14e45ec6 960w"
+                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
+                    width="480"
+                    height="270"
+                    alt="Packed Iowa football stadium under the lights with fireworks overhead"
+                    title="Packed Iowa football stadium under the lights with fireworks overhead"
+                    loading="lazy"
+                    decoding="async" />
+                  <span class="cs-card-body">
+                    <span class="cs-card-tag">Analytics &amp; Data</span>
+                    <h3 class="cs-card-title">Analytics Modernization</h3>
+                    <span class="cs-card-text">Store, gameday, and online systems connected into one modern analytics infrastructure.</span>
+                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                  </span>
+                </a>
+                <a href="case-studies/analytics-dashboard-reporting.html" class="cs-card" data-categories="analytics" style="--cat: #2563eb">
+                  <img
+                    src="images/cs-thumb-analytics-dashboard-reporting-480w.webp?v=36be910f30"
+                    srcset="images/cs-thumb-analytics-dashboard-reporting-480w.webp?v=36be910f30 480w, images/cs-thumb-analytics-dashboard-reporting-960w.webp?v=95d801f6cf 960w"
+                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
+                    width="480"
+                    height="270"
+                    alt="Iowa marching band and flag runners on the field during a football pregame"
+                    title="Iowa marching band and flag runners on the field during a football pregame"
+                    loading="lazy"
+                    decoding="async" />
+                  <span class="cs-card-body">
+                    <span class="cs-card-tag">Analytics &amp; Data</span>
+                    <h3 class="cs-card-title">Dashboard &amp; Reporting</h3>
+                    <span class="cs-card-text">Connected dashboards that turned raw retail and gameday data into insight.</span>
+                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                  </span>
+                </a>
+                <a href="case-studies/data-quality-governance.html" class="cs-card" data-categories="analytics" style="--cat: #2563eb">
+                  <img
+                    src="images/cs-thumb-data-quality-governance-480w.webp?v=eedcba8ea3"
+                    srcset="images/cs-thumb-data-quality-governance-480w.webp?v=eedcba8ea3 480w, images/cs-thumb-data-quality-governance-960w.webp?v=329371d322 960w"
+                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
+                    width="480"
+                    height="270"
+                    alt="Herky the Hawk mascot holding a flag in front of a full stadium"
+                    title="Herky the Hawk mascot holding a flag in front of a full stadium"
+                    loading="lazy"
+                    decoding="async" />
+                  <span class="cs-card-body">
+                    <span class="cs-card-tag">Analytics &amp; Data</span>
+                    <h3 class="cs-card-title">Data Quality &amp; Governance</h3>
+                    <span class="cs-card-text">Ongoing validation and governance standards that built lasting confidence in analytics data.</span>
+                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                  </span>
+                </a>
+                <a href="case-studies/analytics-dashboard-reporting-platform.html" class="cs-card" data-categories="analytics" style="--cat: #2563eb">
+                  <img
+                    src="images/cs-thumb-analytics-dashboard-reporting-platform-480w.webp?v=a2ef8d0e69"
+                    srcset="images/cs-thumb-analytics-dashboard-reporting-platform-480w.webp?v=a2ef8d0e69 480w, images/cs-thumb-analytics-dashboard-reporting-platform-960w.webp?v=9e3bebf84e 960w"
+                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
+                    width="480"
+                    height="270"
+                    alt="Herky the Hawk mascot running with a Tigerhawk flag across the end zone"
+                    title="Herky the Hawk mascot running with a Tigerhawk flag across the end zone"
+                    loading="lazy"
+                    decoding="async" />
+                  <span class="cs-card-body">
+                    <span class="cs-card-tag">Analytics &amp; Data</span>
+                    <h3 class="cs-card-title">Reporting Platform</h3>
+                    <span class="cs-card-text">A unified reporting platform that turned complex, multi-channel retail data into trusted business intelligence.</span>
+                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                  </span>
+                </a>
+                <a href="case-studies/website-performance-optimization.html" class="cs-card" data-categories="web" style="--cat: #0f766e">
+                  <img
+                    src="images/cs-thumb-website-performance-optimization-480w.webp?v=f14bbc0388"
+                    srcset="images/cs-thumb-website-performance-optimization-480w.webp?v=f14bbc0388 480w, images/cs-thumb-website-performance-optimization-960w.webp?v=5c46cad810 960w"
+                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
+                    width="480"
+                    height="270"
+                    alt="Full Iowa football stadium at dusk before kickoff"
+                    title="Full Iowa football stadium at dusk before kickoff"
+                    loading="lazy"
+                    decoding="async" />
+                  <span class="cs-card-body">
+                    <span class="cs-card-tag">Web &amp; Digital</span>
+                    <h3 class="cs-card-title">Performance Optimization</h3>
+                    <span class="cs-card-text">Speed and reliability improvements that kept a gameday storefront fast under peak traffic.</span>
+                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                  </span>
+                </a>
+                <a href="case-studies/website-security-performance-engineering.html" class="cs-card" data-categories="web" style="--cat: #0f766e">
+                  <img
+                    src="images/cs-thumb-website-security-performance-engineering-480w.webp?v=35ab956491"
+                    srcset="images/cs-thumb-website-security-performance-engineering-480w.webp?v=35ab956491 480w, images/cs-thumb-website-security-performance-engineering-960w.webp?v=fd9823badf 960w"
+                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
+                    width="480"
+                    height="270"
+                    alt="Silver hawk sculpture against a pink sunset sky"
+                    title="Silver hawk sculpture against a pink sunset sky"
+                    loading="lazy"
+                    decoding="async" />
+                  <span class="cs-card-body">
+                    <span class="cs-card-tag">Web &amp; Digital</span>
+                    <h3 class="cs-card-title">Security &amp; Performance</h3>
+                    <span class="cs-card-text">Hardened security practices and resilient infrastructure that protected a storefront through peak gameday demand.</span>
+                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                  </span>
+                </a>
+                <a href="case-studies/custom-web-application-development.html" class="cs-card" data-categories="web" style="--cat: #0f766e">
+                  <img
+                    src="images/cs-thumb-custom-web-application-development-480w.webp?v=726b543caf"
+                    srcset="images/cs-thumb-custom-web-application-development-480w.webp?v=726b543caf 480w, images/cs-thumb-custom-web-application-development-960w.webp?v=f0a740d53c 960w"
+                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
+                    width="480"
+                    height="270"
+                    alt="Herky the Hawk mascot crowd-surfing over the student section"
+                    title="Herky the Hawk mascot crowd-surfing over the student section"
+                    loading="lazy"
+                    decoding="async" />
+                  <span class="cs-card-body">
+                    <span class="cs-card-tag">Web &amp; Digital</span>
+                    <h3 class="cs-card-title">Custom Web Development</h3>
+                    <span class="cs-card-text">A full-scale ecommerce platform built from the ground up, from domain to storefront.</span>
+                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                  </span>
+                </a>
+                <a href="case-studies/digital-infrastructure-modernization.html" class="cs-card" data-categories="web" style="--cat: #0f766e">
+                  <img
+                    src="images/cs-thumb-digital-infrastructure-modernization-480w.webp?v=ca2ba9dcc4"
+                    srcset="images/cs-thumb-digital-infrastructure-modernization-480w.webp?v=ca2ba9dcc4 480w, images/cs-thumb-digital-infrastructure-modernization-960w.webp?v=1487c7f991 960w"
+                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
+                    width="480"
+                    height="270"
+                    alt="Iowa flag runners with I-O-W-A flags on the field in front of the stands"
+                    title="Iowa flag runners with I-O-W-A flags on the field in front of the stands"
+                    loading="lazy"
+                    decoding="async" />
+                  <span class="cs-card-body">
+                    <span class="cs-card-tag">Web &amp; Digital</span>
+                    <h3 class="cs-card-title">Digital Infrastructure</h3>
+                    <span class="cs-card-text">Connected inventory and infrastructure that kept online, retail, and gameday systems in sync.</span>
+                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                  </span>
+                </a>
+                <a href="case-studies/digital-experience-optimization.html" class="cs-card" data-categories="optimization" style="--cat: #b45309">
+                  <img
+                    src="images/cs-thumb-digital-experience-optimization-480w.webp?v=1c0346982b"
+                    srcset="images/cs-thumb-digital-experience-optimization-480w.webp?v=1c0346982b 480w, images/cs-thumb-digital-experience-optimization-960w.webp?v=78a89cf9f5 960w"
+                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
+                    width="480"
+                    height="270"
+                    alt="Iowa football players lifting a trophy after a win"
+                    title="Iowa football players lifting a trophy after a win"
+                    loading="lazy"
+                    decoding="async" />
+                  <span class="cs-card-body">
+                    <span class="cs-card-tag">Optimization</span>
+                    <h3 class="cs-card-title">Experience Optimization</h3>
+                    <span class="cs-card-text">Behavioral data and structured testing that improved the storefront experience.</span>
+                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                  </span>
+                </a>
+                <a href="case-studies/advertising-media-buying.html" class="cs-card" data-categories="advertising" style="--cat: #7c2d92">
+                  <img
+                    src="images/cs-thumb-advertising-media-buying-480w.webp?v=c1e004eede"
+                    srcset="images/cs-thumb-advertising-media-buying-480w.webp?v=c1e004eede 480w, images/cs-thumb-advertising-media-buying-960w.webp?v=22a39fb3f0 960w"
+                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
+                    width="480"
+                    height="270"
+                    alt="Packed stadium at night with fireworks over the field"
+                    title="Packed stadium at night with fireworks over the field"
+                    loading="lazy"
+                    decoding="async" />
+                  <span class="cs-card-body">
+                    <span class="cs-card-tag">Advertising &amp; Media</span>
+                    <h3 class="cs-card-title">Campaign Strategy &amp; Media Buying</h3>
+                    <span class="cs-card-text">Campaign strategy, media buying, and conversion tracking run alongside active development work for two long-standing retail clients.</span>
+                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                  </span>
+                </a>
               </div>
-
-              <div class="service-column">
-                <h2 class="size-h5">Web &amp; Digital</h2>
-
-                <ul class="service-links">
-                  <li>
-                    <a href="case-studies/website-performance-optimization.html"
-                      >Performance Optimization</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="case-studies/website-security-performance-engineering.html"
-                      >Security &amp; Performance</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="case-studies/custom-web-application-development.html"
-                      >Custom Web Development</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="case-studies/digital-infrastructure-modernization.html"
-                      >Digital Infrastructure</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <div class="service-column">
-                <h2 class="size-h5">Optimization</h2>
-
-                <ul class="service-links">
-                  <li>
-                    <a href="case-studies/digital-experience-optimization.html"
-                      >Experience Optimization</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <div class="service-column">
-                <h2 class="size-h5">Advertising &amp; Media Buying</h2>
-
-                <ul class="service-links">
-                  <li>
-                    <a href="case-studies/advertising-media-buying.html"
-                      >Campaign Strategy &amp; Media Buying</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
+            </section>
 
             <div class="additional-cases">
               <h2 class="size-h3">Additional Case Studies</h2>
