@@ -22,7 +22,7 @@ class ScottFooter extends HTMLElement {
 
             <div style="flex:2;min-width:260px;">
               <div class="logo-wrapper" style="margin-bottom:.75rem;">
-                <a href="/index.html" style="border-bottom:none;">
+                <a href="/" style="border-bottom:none;">
                   <span class="h3" style="display:inline-flex;align-items:center;">
                     <img
                       src="/images/scottlabz-clear.webp?v=d34943c620"

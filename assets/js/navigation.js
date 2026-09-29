@@ -341,7 +341,7 @@ class ScottNav extends HTMLElement {
 
       <nav class="sl-nav" aria-label="Primary">
         <div class="sl-nav-inner">
-          <a href="/index.html" class="sl-nav-brand">
+          <a href="/" class="sl-nav-brand">
             <img
               src="/images/scottlabz-clear.webp?v=d34943c620"
               srcset="/images/scottlabz-clear-32w.webp?v=8d5d3e1b4b 32w, /images/scottlabz-clear-64w.webp?v=7b37132bec 64w, /images/scottlabz-clear-96w.webp?v=1b0fa7e3f5 96w, /images/scottlabz-clear.webp?v=d34943c620 130w"
