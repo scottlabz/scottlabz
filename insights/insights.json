@@ -1,5 +1,5 @@
 {
-  "count": 13,
+  "count": 14,
   "notes": [
     {
       "slug": "engineering-approach",
@@ -156,6 +156,18 @@
         "measurement"
       ],
       "published": "2026-08-30"
+    },
+    {
+      "slug": "delete-with-proof",
+      "file": "delete-with-proof.html",
+      "url": "https://scottlabz.com/insights/delete-with-proof.html",
+      "number": 14,
+      "title": "Delete With Proof",
+      "summary": "Removal is safe when the before-and-after check is mechanical - and when the before is actually the last known-good state.",
+      "categories": [
+        "systems"
+      ],
+      "published": "2026-09-29"
     }
   ]
 }

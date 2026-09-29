@@ -1,6 +1,19 @@
 {
-  "count": 22,
+  "count": 23,
   "notes": [
+    {
+      "slug": "the-diff-that-compared-two-broken-pages",
+      "file": "the-diff-that-compared-two-broken-pages.html",
+      "url": "https://scottlabz.com/field-notes/the-diff-that-compared-two-broken-pages.html",
+      "title": "The Diff That Compared Two Broken Pages",
+      "summary": "A pixel-by-pixel check passed on every page while two visible regressions were live - because the baseline already had them.",
+      "categories": [
+        "frontend",
+        "performance"
+      ],
+      "accent": "#334155",
+      "published": "2026-09-29"
+    },
     {
       "slug": "stadium-internet-ecommerce-operations",
       "file": "stadium-internet-ecommerce-operations.html",
