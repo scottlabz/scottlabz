@@ -23,11 +23,21 @@
       as="font"
       type="font/woff2"
       crossorigin />
+    <!-- Two preloads mirror the banner <picture>: the square crop where it applies, the full frame everywhere else. AVIF only, so browsers without AVIF skip both instead of fetching a file the page won't use. -->
     <link
       rel="preload"
       as="image"
-      href="images/banner-1600w.webp?v=661ca1c179"
-      imagesrcset="images/banner-800w.webp?v=a66c0f72d9 800w, images/banner-1600w.webp?v=661ca1c179 1600w"
+      type="image/avif"
+      media="(orientation: portrait) and (max-aspect-ratio: 1/2), (orientation: landscape) and (max-aspect-ratio: 2/1)"
+      imagesrcset="images/banner-crop-900w.avif?v=64fe7e9c38 900w"
+      imagesizes="(orientation: portrait) 50vh, 100vh"
+      fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      media="(orientation: portrait) and (min-aspect-ratio: 1001/2000), (orientation: landscape) and (min-aspect-ratio: 2001/1000)"
+      imagesrcset="images/banner-800w.avif?v=8562abda85 800w, images/banner-1600w.avif?v=22335ccb3c 1600w"
       imagesizes="100vw"
       fetchpriority="high" />
     <link rel="stylesheet" href="assets/css/main-min.css?v=08b627124e" />
@@ -177,18 +187,39 @@
             </ul>
           </div>
           <div class="image">
-            <img
-              src="images/banner-1600w.webp?v=661ca1c179"
-              srcset="
-                images/banner-800w.webp?v=a66c0f72d9   800w,
-                images/banner-1600w.webp?v=661ca1c179 1600w
-              "
-              sizes="100vw"
-              width="1600"
-              height="900"
-              fetchpriority="high"
-              alt="Enterprise analytics and modern data infrastructure banner shown on the homepage"
-              title="Enterprise analytics and modern data infrastructure banner shown on the homepage" />
+            <picture>
+              <!-- The banner is anchored right (object-position: 100% 50%). Its box is 100vw x 50vh in portrait and 50vw x at least 100vh in landscape, so within these aspect ratios the box is never wider than square and only the right-hand square of the image is ever visible. Everything else gets the full frame. -->
+              <source
+                type="image/avif"
+                media="(orientation: portrait) and (max-aspect-ratio: 1/2), (orientation: landscape) and (max-aspect-ratio: 2/1)"
+                srcset="images/banner-crop-900w.avif?v=64fe7e9c38 900w"
+                sizes="(orientation: portrait) 50vh, 100vh"
+                width="900"
+                height="900" />
+              <source
+                type="image/webp"
+                media="(orientation: portrait) and (max-aspect-ratio: 1/2), (orientation: landscape) and (max-aspect-ratio: 2/1)"
+                srcset="images/banner-crop-900w.webp?v=1874008c30 900w"
+                sizes="(orientation: portrait) 50vh, 100vh"
+                width="900"
+                height="900" />
+              <source
+                type="image/avif"
+                srcset="images/banner-800w.avif?v=8562abda85 800w, images/banner-1600w.avif?v=22335ccb3c 1600w"
+                sizes="100vw" />
+              <img
+                src="images/banner-1600w.webp?v=661ca1c179"
+                srcset="
+                  images/banner-800w.webp?v=a66c0f72d9   800w,
+                  images/banner-1600w.webp?v=661ca1c179 1600w
+                "
+                sizes="100vw"
+                width="1600"
+                height="900"
+                fetchpriority="high"
+                alt="Enterprise analytics and modern data infrastructure banner shown on the homepage"
+                title="Enterprise analytics and modern data infrastructure banner shown on the homepage" />
+            </picture>
           </div>
         </section>
         <section
@@ -238,19 +269,40 @@
             </ul>
           </div>
           <div class="image">
-            <img
-              src="images/spotlight01-1600w.webp?v=fc14978d08"
-              srcset="
-                images/spotlight01-800w.webp?v=a8f8f8b38e   800w,
-                images/spotlight01-1600w.webp?v=fc14978d08 1600w
-              "
-              sizes="100vw"
-              loading="lazy"
-              decoding="async"
-              width="1600"
-              height="900"
-              alt="Illustration of measurement architecture, telemetry frameworks, and audit pipelines"
-              title="Illustration of measurement architecture, telemetry frameworks, and audit pipelines" />
+            <picture>
+              <!-- On desktop up to 2560px wide the spotlight box is never wider than 0.9:1, so only the centered 0.9:1 slice is ever visible. Phones show the whole frame. -->
+              <source
+                type="image/avif"
+                media="(min-width: 737px) and (max-width: 2560px)"
+                srcset="images/spotlight01-crop-810w.avif?v=43d47672c8 810w"
+                sizes="35vw"
+                width="810"
+                height="900" />
+              <source
+                type="image/webp"
+                media="(min-width: 737px) and (max-width: 2560px)"
+                srcset="images/spotlight01-crop-810w.webp?v=454857ae49 810w"
+                sizes="35vw"
+                width="810"
+                height="900" />
+              <source
+                type="image/avif"
+                srcset="images/spotlight01-800w.avif?v=1fcd18a775 800w, images/spotlight01-1600w.avif?v=77635e793a 1600w"
+                sizes="100vw" />
+              <img
+                src="images/spotlight01-1600w.webp?v=fc14978d08"
+                srcset="
+                  images/spotlight01-800w.webp?v=a8f8f8b38e   800w,
+                  images/spotlight01-1600w.webp?v=fc14978d08 1600w
+                "
+                sizes="100vw"
+                loading="lazy"
+                decoding="async"
+                width="1600"
+                height="900"
+                alt="Illustration of measurement architecture, telemetry frameworks, and audit pipelines"
+                title="Illustration of measurement architecture, telemetry frameworks, and audit pipelines" />
+            </picture>
           </div>
         </section>
         <section
@@ -299,19 +351,39 @@
             </ul>
           </div>
           <div class="image">
-            <img
-              src="images/spotlight02-1600w.webp?v=6d975b883e"
-              srcset="
-                images/spotlight02-800w.webp?v=9fa6a576d7   800w,
-                images/spotlight02-1600w.webp?v=6d975b883e 1600w
-              "
-              sizes="100vw"
-              loading="lazy"
-              decoding="async"
-              width="1600"
-              height="900"
-              alt="Illustration of executive reporting dashboards and strategic data translation advisory work"
-              title="Illustration of executive reporting dashboards and strategic data translation advisory work" />
+            <picture>
+              <source
+                type="image/avif"
+                media="(min-width: 737px) and (max-width: 2560px)"
+                srcset="images/spotlight02-crop-810w.avif?v=535e1a7ea5 810w"
+                sizes="35vw"
+                width="810"
+                height="900" />
+              <source
+                type="image/webp"
+                media="(min-width: 737px) and (max-width: 2560px)"
+                srcset="images/spotlight02-crop-810w.webp?v=00fcab62f5 810w"
+                sizes="35vw"
+                width="810"
+                height="900" />
+              <source
+                type="image/avif"
+                srcset="images/spotlight02-800w.avif?v=f5b7fadf45 800w, images/spotlight02-1600w.avif?v=2f17bd9aed 1600w"
+                sizes="100vw" />
+              <img
+                src="images/spotlight02-1600w.webp?v=6d975b883e"
+                srcset="
+                  images/spotlight02-800w.webp?v=9fa6a576d7   800w,
+                  images/spotlight02-1600w.webp?v=6d975b883e 1600w
+                "
+                sizes="100vw"
+                loading="lazy"
+                decoding="async"
+                width="1600"
+                height="900"
+                alt="Illustration of executive reporting dashboards and strategic data translation advisory work"
+                title="Illustration of executive reporting dashboards and strategic data translation advisory work" />
+            </picture>
           </div>
         </section>
         <section
@@ -360,19 +432,39 @@
             </ul>
           </div>
           <div class="image">
-            <img
-              src="images/spotlight03-1600w.webp?v=03e8d879e9"
-              srcset="
-                images/spotlight03-800w.webp?v=c9ca69487a   800w,
-                images/spotlight03-1600w.webp?v=03e8d879e9 1600w
-              "
-              sizes="100vw"
-              loading="lazy"
-              decoding="async"
-              width="1600"
-              height="1200"
-              alt="Illustration of A/B/n testing experimentation and eCommerce performance optimization"
-              title="Illustration of A/B/n testing experimentation and eCommerce performance optimization" />
+            <picture>
+              <source
+                type="image/avif"
+                media="(min-width: 737px) and (max-width: 2560px)"
+                srcset="images/spotlight03-crop-1080w.avif?v=6da31f707d 1080w"
+                sizes="35vw"
+                width="1080"
+                height="1200" />
+              <source
+                type="image/webp"
+                media="(min-width: 737px) and (max-width: 2560px)"
+                srcset="images/spotlight03-crop-1080w.webp?v=57067104d5 1080w"
+                sizes="35vw"
+                width="1080"
+                height="1200" />
+              <source
+                type="image/avif"
+                srcset="images/spotlight03-800w.avif?v=b243a0efa7 800w, images/spotlight03-1600w.avif?v=115c27b53b 1600w"
+                sizes="100vw" />
+              <img
+                src="images/spotlight03-1600w.webp?v=03e8d879e9"
+                srcset="
+                  images/spotlight03-800w.webp?v=c9ca69487a   800w,
+                  images/spotlight03-1600w.webp?v=03e8d879e9 1600w
+                "
+                sizes="100vw"
+                loading="lazy"
+                decoding="async"
+                width="1600"
+                height="1200"
+                alt="Illustration of A/B/n testing experimentation and eCommerce performance optimization"
+                title="Illustration of A/B/n testing experimentation and eCommerce performance optimization" />
+            </picture>
           </div>
         </section>
         <section class="wrapper style1 align-center" id="fourth">

@@ -7,7 +7,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 HASH_LENGTH = 10
 
-IMAGE_EXTS = r"webp|png|jpe?g|svg"
+IMAGE_EXTS = r"avif|webp|png|jpe?g|svg"
 
 ASSET_TAG_PATTERN = re.compile(
     rf'(<(?:link|script|img)\b[^>]*?\b(?:href|src)=")([^"]+\.(?:css|js|{IMAGE_EXTS}))(\??v=[0-9a-f]+)?(")',
