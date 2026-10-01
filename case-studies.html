@@ -125,67 +125,67 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "url": "https://scottlabz.com/case-studies/digital-measurement-strategy"
+                  "url": "https://scottlabz.com/case-studies/the-black-and-gold-shop"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "url": "https://scottlabz.com/case-studies/digital-analytics-implementation"
+                  "url": "https://scottlabz.com/case-studies/digital-measurement-strategy"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "url": "https://scottlabz.com/case-studies/analytics-modernization"
+                  "url": "https://scottlabz.com/case-studies/digital-analytics-implementation"
                 },
                 {
                   "@type": "ListItem",
                   "position": 5,
-                  "url": "https://scottlabz.com/case-studies/analytics-dashboard-reporting"
+                  "url": "https://scottlabz.com/case-studies/analytics-modernization"
                 },
                 {
                   "@type": "ListItem",
                   "position": 6,
-                  "url": "https://scottlabz.com/case-studies/data-quality-governance"
+                  "url": "https://scottlabz.com/case-studies/analytics-dashboard-reporting"
                 },
                 {
                   "@type": "ListItem",
                   "position": 7,
-                  "url": "https://scottlabz.com/case-studies/analytics-dashboard-reporting-platform"
+                  "url": "https://scottlabz.com/case-studies/data-quality-governance"
                 },
                 {
                   "@type": "ListItem",
                   "position": 8,
-                  "url": "https://scottlabz.com/case-studies/website-performance-optimization"
+                  "url": "https://scottlabz.com/case-studies/analytics-dashboard-reporting-platform"
                 },
                 {
                   "@type": "ListItem",
                   "position": 9,
-                  "url": "https://scottlabz.com/case-studies/website-security-performance-engineering"
+                  "url": "https://scottlabz.com/case-studies/website-performance-optimization"
                 },
                 {
                   "@type": "ListItem",
                   "position": 10,
-                  "url": "https://scottlabz.com/case-studies/custom-web-application-development"
+                  "url": "https://scottlabz.com/case-studies/website-security-performance-engineering"
                 },
                 {
                   "@type": "ListItem",
                   "position": 11,
-                  "url": "https://scottlabz.com/case-studies/digital-infrastructure-modernization"
+                  "url": "https://scottlabz.com/case-studies/custom-web-application-development"
                 },
                 {
                   "@type": "ListItem",
                   "position": 12,
-                  "url": "https://scottlabz.com/case-studies/digital-experience-optimization"
+                  "url": "https://scottlabz.com/case-studies/digital-infrastructure-modernization"
                 },
                 {
                   "@type": "ListItem",
                   "position": 13,
-                  "url": "https://scottlabz.com/case-studies/advertising-media-buying"
+                  "url": "https://scottlabz.com/case-studies/digital-experience-optimization"
                 },
                 {
                   "@type": "ListItem",
                   "position": 14,
-                  "url": "https://scottlabz.com/case-studies/the-black-and-gold-shop"
+                  "url": "https://scottlabz.com/case-studies/advertising-media-buying"
                 }
               ]
             }
@@ -223,8 +223,12 @@
 
       /* Workstream deep dives: filterable card grid. The card styles
          themselves live in main.css (shared with the service pages). */
+      /* Heavier rule than the thin lines between client blocks, so it
+         reads as a new section rather than a fourth client. */
       .cs-deep-dives {
         margin: 2.5rem 0 0;
+        padding-top: 2.5rem;
+        border-top: 2px solid #1e3a5f;
       }
 
       .cs-deep-dives h2 {
@@ -291,65 +295,52 @@
         color: #007030 !important;
       }
 
-      .additional-cases {
-        margin-top: 3.5rem;
-        padding: 2rem 1.75rem;
-        background: rgba(0, 0, 0, 0.025);
-        border: 1px solid rgba(0, 0, 0, 0.16);
-        border-radius: 12px;
-        box-shadow:
-          0 10px 25px rgba(15, 23, 42, 0.08),
-          0 4px 10px rgba(15, 23, 42, 0.05);
+      /* Clients: one equal-weight block per client, stacked in the
+         content column. The logos have very different shapes (Hawkeye
+         is near-square, the others are wide wordmarks), so a shared
+         height makes Hawkeye read small. Each logo shows at its file's
+         own size instead, scaled down only when the column is narrower. */
+      .cs-clients {
+        margin: 0;
       }
 
-      .additional-cases h2 {
-        margin: 0 auto 2.5rem auto;
-        padding-bottom: 1rem;
-        text-align: center;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.16);
-      }
-
-      .additional-cases-grid {
+      .cs-clients-grid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 0;
-        margin-top: 1.5rem;
-        align-items: start;
       }
 
-      .additional-case {
+      .cs-client {
         text-align: center;
-        padding: 2.5rem 0;
+        padding: 2rem 0;
       }
 
-      .additional-case:first-child {
+      .cs-client:first-child {
         padding-top: 0;
       }
 
-      .additional-case:last-child {
-        padding-bottom: 0;
-      }
-
-      .additional-case + .additional-case {
+      .cs-client + .cs-client {
         border-top: 1px solid rgba(0, 0, 0, 0.12);
       }
 
-      .additional-case img {
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-        margin: 0 auto;
+      .cs-client img {
         display: block;
+        /* Native size, never enlarged; only shrinks to fit the column. */
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        margin: 0 auto;
       }
 
-      .additional-case .actions {
+      .cs-client-caption {
+        margin: 0.75rem 0 0;
+        font-size: 85%;
+        text-transform: uppercase;
+        font-weight: 400;
+      }
+
+      .cs-client .actions {
         margin: 1rem 0 0 0;
-      }
-
-      @media (max-width: 736px) {
-        .additional-cases {
-          padding: 1.5rem 1.25rem;
-        }
       }
 
       /* The hero image sits in a flex row with align-items:stretch, so
@@ -450,44 +441,72 @@
 
             <hr style="margin: 2.5rem 0" />
 
-            <p
-              class="about-statement"
-              style="
-                margin: 0 auto 0.5rem auto;
-                font-size: 85%;
-                text-transform: uppercase;
-                font-weight: 400;
-                text-align: center;
-                padding: 0.5rem;
-              ">
-              Hawkeye Fan Shop - The Official University of Iowa Athletic
-              Department
-            </p>
+            <section class="cs-clients" aria-label="Clients">
 
-            <img
-              src="images/hawkeyefanshop.png?v=f6a8566869"
-              width="456"
-              height="200"
-              style="width: stretch; margin: 0"
-              alt="Hawkeye Fan Shop logo, the official University of Iowa Athletic Department retailer featured in this case study"
-              title="Hawkeye Fan Shop - The Official University of Iowa Athletic Department"
-              loading="lazy" />
+              <div class="cs-clients-grid">
+                <div class="cs-client">
+                  <img
+                    src="images/hawkeyefanshop.png?v=94c259525f"
+                    width="721"
+                    height="346"
+                    alt="Hawkeye Fan Shop logo, the official University of Iowa Athletic Department retailer"
+                    title="Hawkeye Fan Shop"
+                    loading="lazy" />
+                  <p class="cs-client-caption">Official University of Iowa Athletic Department retailer</p>
+                  <ul class="actions stacked">
+                    <li>
+                      <a href="case-studies/hawkeye-fan-shop"
+                        class="button big wide smooth-scroll hawkeye">
+                        View Hawkeye Fan Shop Case Study
+                      </a>
+                    </li>
+                  </ul>
+                </div>
 
-            <ul
-              class="actions stacked"
-              style="margin: 1rem 0 1.5rem 0; text-align: center">
-              <li>
-                <a
-                  href="case-studies/hawkeye-fan-shop"
-                  class="button big wide smooth-scroll hawkeye">
-                  View Hawkeye Fan Shop Case Study
-                </a>
-              </li>
-            </ul>
+                <div class="cs-client">
+                  <img
+                    src="images/bgs.png?v=e6e59c6dbd"
+                    width="724"
+                    height="154"
+                    alt="The Black &amp; Gold Shop logo, an official Iowa Hawkeyes retailer"
+                    title="The Black &amp; Gold Shop"
+                    loading="lazy" />
+                  <p class="cs-client-caption">Official Hawkeyes retail partner</p>
+                  <ul class="actions stacked">
+                    <li>
+                      <a href="case-studies/the-black-and-gold-shop"
+                        class="button big wide smooth-scroll blackgold">
+                        View Black &amp; Gold Shop Case Study
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="cs-client">
+                  <img
+                    src="images/kitchens.png?v=0120038784"
+                    width="1000"
+                    height="216"
+                    alt="Kitchens logo, a family-owned cookware, cutlery, and gourmet foods retailer"
+                    title="Kitchens"
+                    loading="lazy" />
+                  <p class="cs-client-caption">Family-owned cookware, cutlery, and gourmet foods retailer</p>
+                  <ul class="actions stacked">
+                    <li>
+                      <span
+                        class="button big wide kitchens"
+                        aria-disabled="true">
+                        View Kitchens Case Study
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
 
             <section class="cs-deep-dives" aria-labelledby="cs-deep-dives-title">
-              <h2 class="size-h3" id="cs-deep-dives-title">Workstream Deep Dives</h2>
-              <p class="cs-intro">Each study breaks out one piece of the work - measurement, web, optimization, or media.</p>
+              <h2 class="size-h3" id="cs-deep-dives-title">Hawkeye Fan Shop - Workstream Deep Dives</h2>
+              <p class="cs-intro">Each study breaks out one piece of the Hawkeye Fan Shop work - measurement, web, optimization, or media.</p>
               <scott-filter-bar target="#cs-grid" item-selector=".cs-card" all-label="All">
                 <script type="application/json">
                   [
@@ -717,50 +736,6 @@
                 </a>
               </div>
             </section>
-
-            <div class="additional-cases">
-              <h2 class="size-h3">Additional Case Studies</h2>
-
-              <div class="additional-cases-grid">
-                <div class="additional-case">
-                  <img
-                    src="images/bgs.png?v=e6e59c6dbd"
-                    width="724"
-                    height="154"
-                    alt="The Black &amp; Gold Shop storefront, an ecommerce case study built for University of Iowa fans"
-                    title="The Black &amp; Gold Shop"
-                    loading="lazy" />
-                  <ul class="actions stacked">
-                    <li>
-                      <a
-                        href="case-studies/the-black-and-gold-shop"
-                        class="button big wide smooth-scroll blackgold">
-                        View Black &amp; Gold Shop Case Study
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="additional-case">
-                  <img
-                    src="images/kitchens.png?v=0120038784"
-                    width="1000"
-                    height="216"
-                    alt="Kitchens logo, a long-standing client partner"
-                    title="Kitchens"
-                    loading="lazy" />
-                  <ul class="actions stacked">
-                    <li>
-                      <span
-                        class="button big wide kitchens"
-                        aria-disabled="true">
-                        View Kitchens Case Study
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div class="image">
