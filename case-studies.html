@@ -343,6 +343,15 @@
         margin: 1rem 0 0 0;
       }
 
+      .cs-client-soon {
+        margin: 0.75rem 0 0;
+        font-size: 80%;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #555;
+      }
+
       /* The hero image sits in a flex row with align-items:stretch, so
          its height normally matches whatever height the text column on
          this page grows to (well past 2000px with all the sections
@@ -495,11 +504,13 @@
                     <li>
                       <span
                         class="button big wide kitchens"
-                        aria-disabled="true">
+                        aria-disabled="true"
+                        aria-describedby="kitchens-soon">
                         View Kitchens Case Study
                       </span>
                     </li>
                   </ul>
+                  <p class="cs-client-soon" id="kitchens-soon">Coming soon</p>
                 </div>
               </div>
             </section>
