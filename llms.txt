@@ -6,11 +6,12 @@ Scott Labz is led by founder and principal analytics consultant Scott Taylor. Wo
 
 Contact: info@scottlabz.com, +1-309-324-2875, or https://scottlabz.com/contact
 
-Published writing lives in three sections. Each one has a JSON manifest listing every entry with its title, summary, categories, publish date, and URL, so agents can read the full index without scraping HTML:
+Published writing lives in three sections, and case studies have their own index. Each one has a JSON manifest listing every entry with its title, summary, categories, publish date, and URL, so agents can read the full index without scraping HTML:
 
 - Field Notes manifest: https://scottlabz.com/field-notes/field-notes.json
 - Insights manifest: https://scottlabz.com/insights/insights.json
 - Signals manifest: https://scottlabz.com/signals/signals.json
+- Case Studies manifest: https://scottlabz.com/case-studies/case-studies.json (client case studies and the workstream deep dives, with title, summary, categories, and URL)
 
 ## Services
 
@@ -30,10 +31,12 @@ Published writing lives in three sections. Each one has a JSON manifest listing 
 - [Industries](https://scottlabz.com/industries): Sports, athletics, healthcare, education, nonprofit, and consumer work
 - [Find Us](https://scottlabz.com/find-us): Verified credentials and third-party listings, including BBB accreditation and Chamber membership
 - [Contact](https://scottlabz.com/contact): Start a project conversation
+- [Website Grant](https://scottlabz.com/website-grant): Two independently owned Illinois businesses a year receive a new website at no cost, selected by application review; applications close March 31 each year
 
 ## Writing
 
 - [Field Notes](https://scottlabz.com/field-notes/): Real breakdowns of measurement problems and technical decisions, written as they happened
+- Field Notes by topic: [Measurement & Data](https://scottlabz.com/field-notes/topics/measurement), [Frontend & CSS](https://scottlabz.com/field-notes/topics/frontend), [Infrastructure & Ops](https://scottlabz.com/field-notes/topics/infra), [Performance](https://scottlabz.com/field-notes/topics/performance)
 - [Insights](https://scottlabz.com/insights): Practical thinking on analytics, systems, automation, and search data
 - [Signals](https://scottlabz.com/signals/): Short field observations on measurement, monitoring, and the habits that catch what dashboards miss
 

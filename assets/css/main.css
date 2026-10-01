@@ -3167,6 +3167,65 @@ body.is-preload .banner.onload-image-fade-in .image img {
   margin-bottom: 3rem;
 }
 
+/* Website Grant callout: the small promo block that points to
+   /website-grant from the homepage, /web-digital and the Bloomington-Normal
+   market pages. Soft blue wash with the footer's navy-to-blue gradient as
+   a left edge, matching the grant page's own accents. */
+.grant-callout {
+  position: relative;
+  margin: 0 0 3rem;
+  padding: 1.75rem 2rem 1.75rem 2.4rem;
+  border: 1px solid rgba(76, 139, 245, 0.35);
+  border-radius: 14px;
+  overflow: hidden;
+  text-align: left;
+  background:
+    radial-gradient(circle at 90% 20%, rgba(76, 139, 245, 0.12), transparent 55%),
+    linear-gradient(135deg, #f3f7fd 0%, #ffffff 75%);
+}
+
+.grant-callout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 5px;
+  background: linear-gradient(180deg, #1e3a5f, #4c8bf5);
+}
+
+.grant-callout .grant-callout-kicker {
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #2f7a5b;
+}
+
+.grant-callout h2 {
+  margin: 0 0 0.6rem;
+}
+
+.grant-callout p {
+  margin: 0 0 1rem;
+}
+
+.grant-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.grant-callout .grant-callout-link {
+  font-weight: 600;
+  color: #1e3a5f;
+}
+
+@media screen and (max-width: 736px) {
+  .grant-callout {
+    padding: 1.5rem 1.25rem 1.5rem 1.6rem;
+  }
+}
+
 /* services.html: the auto-fit(minmax(320px,...)) and fixed 2-col grids
    force a hard minimum column width wider than a mobile viewport, causing
    horizontal overflow - collapse both to a single column below 736px. */

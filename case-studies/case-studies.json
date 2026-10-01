@@ -1,0 +1,193 @@
+{
+  "count": 14,
+  "notes": [
+    {
+      "slug": "hawkeye-fan-shop",
+      "file": "hawkeye-fan-shop.html",
+      "url": "https://scottlabz.com/case-studies/hawkeye-fan-shop",
+      "type": "client",
+      "order": 1,
+      "title": "Hawkeye Fan Shop",
+      "summary": "How measurement, product-page tracking, and site reliability work have supported Hawkeye Fan Shop's storefront through a decade of gameday traffic.",
+      "caption": "Official University of Iowa Athletic Department retailer",
+      "logo": "images/hawkeyefanshop.png",
+      "logo_width": "721",
+      "logo_height": "346",
+      "logo_alt": "Hawkeye Fan Shop logo, the official University of Iowa Athletic Department retailer",
+      "button_class": "hawkeye",
+      "button_text": "View Hawkeye Fan Shop Case Study"
+    },
+    {
+      "slug": "the-black-and-gold-shop",
+      "file": "the-black-and-gold-shop.html",
+      "url": "https://scottlabz.com/case-studies/the-black-and-gold-shop",
+      "type": "client",
+      "order": 2,
+      "title": "The Black & Gold Shop",
+      "summary": "How measurement, development, and infrastructure work came together to run a reliable, scalable storefront for The Black & Gold Shop.",
+      "caption": "Official Hawkeyes retail partner",
+      "logo": "images/bgs.png",
+      "logo_width": "724",
+      "logo_height": "154",
+      "logo_alt": "The Black & Gold Shop logo, an official Iowa Hawkeyes retailer",
+      "button_class": "blackgold",
+      "button_text": "View Black & Gold Shop Case Study"
+    },
+    {
+      "slug": "digital-measurement-strategy",
+      "file": "digital-measurement-strategy.html",
+      "url": "https://scottlabz.com/case-studies/digital-measurement-strategy",
+      "type": "deep-dive",
+      "order": 1,
+      "title": "Measurement Strategy",
+      "summary": "A ground-up measurement strategy that improved analytics consistency, tracking reliability, and business visibility.",
+      "categories": [
+        "analytics"
+      ],
+      "image_alt": "Iowa women's basketball player signing a basketball courtside for fans"
+    },
+    {
+      "slug": "digital-analytics-implementation",
+      "file": "digital-analytics-implementation.html",
+      "url": "https://scottlabz.com/case-studies/digital-analytics-implementation",
+      "type": "deep-dive",
+      "order": 2,
+      "title": "Analytics Implementation",
+      "summary": "A ground-up analytics build that created reliable, scalable measurement systems.",
+      "categories": [
+        "analytics"
+      ],
+      "image_alt": "Iowa flag runners carrying I-O-W-A flags across the football field on gameday"
+    },
+    {
+      "slug": "analytics-modernization",
+      "file": "analytics-modernization.html",
+      "url": "https://scottlabz.com/case-studies/analytics-modernization",
+      "type": "deep-dive",
+      "order": 3,
+      "title": "Analytics Modernization",
+      "summary": "Store, gameday, and online systems connected into one modern analytics infrastructure.",
+      "categories": [
+        "analytics"
+      ],
+      "image_alt": "Packed Iowa football stadium under the lights with fireworks overhead"
+    },
+    {
+      "slug": "analytics-dashboard-reporting",
+      "file": "analytics-dashboard-reporting.html",
+      "url": "https://scottlabz.com/case-studies/analytics-dashboard-reporting",
+      "type": "deep-dive",
+      "order": 4,
+      "title": "Dashboard & Reporting",
+      "summary": "Connected dashboards that turned raw retail and gameday data into insight.",
+      "categories": [
+        "analytics"
+      ],
+      "image_alt": "Iowa marching band and flag runners on the field during a football pregame"
+    },
+    {
+      "slug": "data-quality-governance",
+      "file": "data-quality-governance.html",
+      "url": "https://scottlabz.com/case-studies/data-quality-governance",
+      "type": "deep-dive",
+      "order": 5,
+      "title": "Data Quality & Governance",
+      "summary": "Ongoing validation and governance standards that built lasting confidence in analytics data.",
+      "categories": [
+        "analytics"
+      ],
+      "image_alt": "Herky the Hawk mascot holding a flag in front of a full stadium"
+    },
+    {
+      "slug": "analytics-dashboard-reporting-platform",
+      "file": "analytics-dashboard-reporting-platform.html",
+      "url": "https://scottlabz.com/case-studies/analytics-dashboard-reporting-platform",
+      "type": "deep-dive",
+      "order": 6,
+      "title": "Reporting Platform",
+      "summary": "A unified reporting platform that turned complex, multi-channel retail data into trusted business intelligence.",
+      "categories": [
+        "analytics"
+      ],
+      "image_alt": "Herky the Hawk mascot running with a Tigerhawk flag across the end zone"
+    },
+    {
+      "slug": "website-performance-optimization",
+      "file": "website-performance-optimization.html",
+      "url": "https://scottlabz.com/case-studies/website-performance-optimization",
+      "type": "deep-dive",
+      "order": 7,
+      "title": "Performance Optimization",
+      "summary": "Speed and reliability improvements that kept a gameday storefront fast under peak traffic.",
+      "categories": [
+        "web"
+      ],
+      "image_alt": "Full Iowa football stadium at dusk before kickoff"
+    },
+    {
+      "slug": "website-security-performance-engineering",
+      "file": "website-security-performance-engineering.html",
+      "url": "https://scottlabz.com/case-studies/website-security-performance-engineering",
+      "type": "deep-dive",
+      "order": 8,
+      "title": "Security & Performance",
+      "summary": "Hardened security practices and resilient infrastructure that protected a storefront through peak gameday demand.",
+      "categories": [
+        "web"
+      ],
+      "image_alt": "Silver hawk sculpture against a pink sunset sky"
+    },
+    {
+      "slug": "custom-web-application-development",
+      "file": "custom-web-application-development.html",
+      "url": "https://scottlabz.com/case-studies/custom-web-application-development",
+      "type": "deep-dive",
+      "order": 9,
+      "title": "Custom Web Development",
+      "summary": "A full-scale ecommerce platform built from the ground up, from domain to storefront.",
+      "categories": [
+        "web"
+      ],
+      "image_alt": "Herky the Hawk mascot crowd-surfing over the student section"
+    },
+    {
+      "slug": "digital-infrastructure-modernization",
+      "file": "digital-infrastructure-modernization.html",
+      "url": "https://scottlabz.com/case-studies/digital-infrastructure-modernization",
+      "type": "deep-dive",
+      "order": 10,
+      "title": "Digital Infrastructure",
+      "summary": "Connected inventory and infrastructure that kept online, retail, and gameday systems in sync.",
+      "categories": [
+        "web"
+      ],
+      "image_alt": "Iowa flag runners with I-O-W-A flags on the field in front of the stands"
+    },
+    {
+      "slug": "digital-experience-optimization",
+      "file": "digital-experience-optimization.html",
+      "url": "https://scottlabz.com/case-studies/digital-experience-optimization",
+      "type": "deep-dive",
+      "order": 11,
+      "title": "Experience Optimization",
+      "summary": "Behavioral data and structured testing that improved the storefront experience.",
+      "categories": [
+        "optimization"
+      ],
+      "image_alt": "Iowa football players lifting a trophy after a win"
+    },
+    {
+      "slug": "advertising-media-buying",
+      "file": "advertising-media-buying.html",
+      "url": "https://scottlabz.com/case-studies/advertising-media-buying",
+      "type": "deep-dive",
+      "order": 12,
+      "title": "Campaign Strategy & Media Buying",
+      "summary": "Campaign strategy, media buying, and conversion tracking run alongside active development work for two long-standing retail clients.",
+      "categories": [
+        "advertising"
+      ],
+      "image_alt": "Packed stadium at night with fireworks over the field"
+    }
+  ]
+}

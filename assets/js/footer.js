@@ -202,6 +202,12 @@ class ScottFooter extends HTMLElement {
                     Diagnostics
                   </a>
                 </li>
+
+                <li>
+                  <a href="/website-grant">
+                    Website Grant
+                  </a>
+                </li>
               </ul>
             </div>
 
