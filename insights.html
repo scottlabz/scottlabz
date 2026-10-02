@@ -27,7 +27,7 @@
       as="font"
       type="font/woff2"
       crossorigin />
-    <link rel="stylesheet" href="/assets/css/main-min.css?v=66d25c24f3" />
+    <link rel="stylesheet" href="/assets/css/main-min.css?v=f03850acbe" />
 
     <noscript>
       <link rel="stylesheet" href="/assets/css/noscript-min.css?v=ab1c7bc451" />
@@ -555,13 +555,20 @@
           <!-- INSIGHT-ROWS:END -->
         </div>
 
-        <ul class="actions" style="justify-content: center; margin-top: 3rem">
-          <li>
-            <a href="/field-notes/" class="button big wide alt">
-              Browse Field Notes
-            </a>
-          </li>
-        </ul>
+        <!-- Links to the sibling writing hubs; same row on Field Notes, Insights and Signals (.hub-links in main.css) -->
+        <nav class="hub-links" aria-label="More writing">
+          <p class="hub-links-kicker">More from the lab</p>
+          <ul>
+            <li>
+              <a href="/field-notes/">Field Notes<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              <span>Breakdowns the way they happened, from first symptom to fix</span>
+            </li>
+            <li>
+              <a href="/signals/">Signals<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              <span>Short field observations on what broke, what to watch and what improved</span>
+            </li>
+          </ul>
+        </nav>
       </section>
 
       </main>

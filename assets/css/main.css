@@ -3226,6 +3226,71 @@ body.is-preload .banner.onload-image-fade-in .image img {
   }
 }
 
+/* Writing hubs: the "More from the lab" row at the bottom of
+   /field-notes/, /insights and /signals/, linking each hub to the other
+   two. Kept quiet (text links, not buttons) so it doesn't compete with
+   the filter bar or search at the top of the page. */
+.hub-links {
+  margin: 4rem 0 0;
+  padding: 2.5rem 0 0;
+  border-top: 1px solid #dbe3ec;
+  text-align: center;
+}
+
+.hub-links .hub-links-kicker {
+  margin: 0 0 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.hub-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem 3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hub-links li {
+  max-width: 22rem;
+  margin: 0;
+  padding: 0;
+}
+
+.hub-links a {
+  font-weight: 700;
+  color: #1e3a5f;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.hub-links a:hover {
+  color: #2563eb;
+}
+
+.hub-links a i {
+  margin-left: 0.4rem;
+  font-size: 0.8em;
+  transition: transform 0.2s ease;
+}
+
+.hub-links a:hover i {
+  transform: translateX(3px);
+}
+
+.hub-links span {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #475569;
+}
+
 /* services.html: the auto-fit(minmax(320px,...)) and fixed 2-col grids
    force a hard minimum column width wider than a mobile viewport, causing
    horizontal overflow - collapse both to a single column below 736px. */
