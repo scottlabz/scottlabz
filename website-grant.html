@@ -595,6 +595,39 @@
         color: var(--g-muted);
       }
 
+      /* Timeline panel: lifts the section off the page with a soft
+         panel washed in faint versions of the four step colors (blue
+         and amber along the top, green and purple along the bottom),
+         so it reads as its own moment without a hard color block.
+         Each number gets a pale halo in its own color. */
+      #how-it-works {
+        padding: 2.25rem 2rem 2rem;
+        border: 1px solid rgba(30, 58, 95, 0.1);
+        border-radius: 16px;
+        background:
+          radial-gradient(circle at 0% 0%, rgba(76, 139, 245, 0.09), transparent 45%),
+          radial-gradient(circle at 38% 0%, rgba(217, 119, 6, 0.06), transparent 40%),
+          radial-gradient(circle at 70% 100%, rgba(58, 154, 110, 0.07), transparent 45%),
+          radial-gradient(circle at 100% 100%, rgba(124, 45, 146, 0.07), transparent 45%),
+          #ffffff;
+        box-shadow: 0 12px 32px -20px rgba(30, 58, 95, 0.25);
+      }
+      .grant-timeline li::before {
+        box-shadow: 0 0 0 5px rgba(76, 139, 245, 0.14);
+      }
+      .grant-timeline li:nth-child(2)::before {
+        box-shadow: 0 0 0 5px rgba(217, 119, 6, 0.14);
+      }
+      .grant-timeline li:nth-child(3)::before {
+        box-shadow: 0 0 0 5px rgba(58, 154, 110, 0.14);
+      }
+      .grant-timeline li:nth-child(4)::before {
+        box-shadow: 0 0 0 5px rgba(124, 45, 146, 0.14);
+      }
+      .grant-timeline li::after {
+        border-radius: 2px;
+      }
+
       /* After launch */
       .grant-return {
         display: grid;
@@ -849,6 +882,9 @@
         .grant-frames {
           height: 270px;
           max-width: 440px;
+        }
+        #how-it-works {
+          padding: 1.75rem 1.25rem 1.5rem;
         }
         .grant-timeline {
           grid-template-columns: 1fr;
