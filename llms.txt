@@ -30,6 +30,7 @@ Published writing lives in three sections, and case studies have their own index
 - [Clients](https://scottlabz.com/clients): Roster of 280+ organizations supported
 - [Industries](https://scottlabz.com/industries): Sports, athletics, healthcare, education, nonprofit, and consumer work
 - [Find Us](https://scottlabz.com/find-us): Verified credentials and third-party listings, including BBB accreditation and Chamber membership
+- [BBB Accreditation](https://scottlabz.com/bbb): Better Business Bureau accreditation, A- rating, and a link to the BBB profile
 - [Contact](https://scottlabz.com/contact): Start a project conversation
 - [Website Grant](https://scottlabz.com/website-grant): Two independently owned Illinois businesses a year receive a new website at no cost, selected by application review; applications close March 31 each year
 
