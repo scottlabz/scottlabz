@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <!-- Google Tag Manager -->
-    <script src="/assets/js/gtm.js?v=347fce4450" async></script>
+    <script src="/assets/js/gtm.js?v=e143c9ba5d" async></script>
     <!-- End Google Tag Manager -->
 
     <meta charset="utf-8" />
@@ -506,7 +506,12 @@
           grid-template-columns: 1fr;
         }
       }
-    </style>
+    
+/* Route to /contact: after a solved case (.report-cta, added by the game
+   script) and in the footer strip */
+.report-cta{display:block;width:fit-content;margin-top:16px;color:var(--green);font-weight:700;text-decoration:none;border-bottom:1px solid transparent}.report-cta:hover{border-bottom-color:var(--green)}
+.footer{flex-wrap:wrap;gap:8px 18px}.footer-cta{color:#9fb3c8;text-decoration:none;letter-spacing:.06em}.footer-cta:hover{color:#fff}
+</style>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -589,11 +594,11 @@
       </section>
       <div class="footer">
         <span>SCOTT LABZ // CAMPAIGN CRIME SCENE</span
-        ><span>SIMULATED FORENSIC ENVIRONMENT · CASE SERIES 001-032</span>
+        ><a class="footer-cta" href="/contact">REAL SITE, REAL PROBLEM? START A CONVERSATION &rarr;</a><span>SIMULATED FORENSIC ENVIRONMENT · CASE SERIES 001-032</span>
       </div>
     </div>
 
-    <script src="/assets/js/diagnostics/campaigns-crime-scene.js?v=6a1e7f7827"></script>
+    <script src="/assets/js/diagnostics/campaigns-crime-scene.js?v=9cbc5604df"></script>
 <script src="/assets/js/diagnostics/guide.js?v=9cf2538cb6" defer></script>
   </body>
 </html>

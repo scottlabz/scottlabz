@@ -707,7 +707,7 @@
           document.getElementById("badge").textContent = "SOLVED";
           document.getElementById("badge").style.color = "var(--green)";
           document.getElementById("report").innerHTML =
-            "<b>CASE CLOSED.</b><br><br>" + c.report;
+            "<b>CASE CLOSED.</b><br><br>" + c.report + '<a class="report-cta" href="/contact">Seeing this on your own site? Start a conversation &rarr;</a>';
           document.getElementById("report").classList.add("show");
           document.getElementById("next").classList.add("show");
         } else {

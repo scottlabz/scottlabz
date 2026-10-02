@@ -2,7 +2,7 @@
 <html lang="en-US">
   <head>
     <!-- Google Tag Manager -->
-    <script src="assets/js/gtm.js?v=347fce4450" async></script>
+    <script src="assets/js/gtm.js?v=e143c9ba5d" async></script>
     <!-- End Google Tag Manager -->
 
     <title>Scott Labz | Analytics &amp; Digital Platforms</title>
@@ -136,7 +136,17 @@
         height: 250px;
       }
 
-      /* Hero h1: the three verbs of the Measure / Build / Improve
+      /* Tailored Digital Platforms gallery: the theme turns caption links
+         navy on hover, which disappears over the dark photo overlay. Keep
+         them white and underline on hover/focus instead. */
+      .gallery.style2 .caption p a:hover,
+      .gallery.style2 .caption p a:focus-visible {
+        color: #ffffff;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      /* Hero h1 and the matching section h2s: the three verbs of the Measure / Build / Improve
          framework in bold accent colors against the light (300) heading.
          Amber is #b45309, not the nav's #ca8a04, which is too pale for
          readable text on white. */
@@ -151,6 +161,241 @@
       }
       .hero-verb.is-improve {
         color: #15803d;
+      }
+
+      /* Closing call to action: full-width soft blue wash, the same
+         gradient as the Website Grant hero, so it reads as its own ending */
+      .home-cta {
+        background:
+          radial-gradient(circle at 85% 30%, rgba(76, 139, 245, 0.12), transparent 55%),
+          linear-gradient(135deg, #f3f7fd 0%, #ffffff 70%);
+      }
+      .home-cta .actions {
+        justify-content: center;
+      }
+
+      /* Scalable Data Precision tiles: each links to the page that shows
+         the work. The link's ::after covers the whole tile, so the tile is
+         one click target with a single, descriptive link inside it. */
+      #scalable-precision .items > section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        /* Room under the link instead of between text and link */
+        padding-bottom: 2.25rem;
+        transition: background-color 0.2s ease;
+      }
+      #scalable-precision .items > section p {
+        margin-bottom: 0;
+      }
+      /* main.js wraps each tile's content in div.inner; that wrapper
+         fills the tile so the link can sit at its bottom */
+      #scalable-precision .items > section > .inner {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+      }
+      #scalable-precision .items > section:hover {
+        background-color: #f5f8fb;
+      }
+      /* Each tile's color, from its link type. On hover or keyboard
+         focus the tile gets a very light wash and the icon's symbol and
+         ring take the color; the circle itself stays unfilled. */
+      #scalable-precision .items > section:has(.is-service) {
+        --dp: #2563eb;
+        --dp-wash: rgba(37, 99, 235, 0.07);
+      }
+      #scalable-precision .items > section:has(.is-insight) {
+        --dp: #b45309;
+        --dp-wash: rgba(180, 83, 9, 0.07);
+      }
+      #scalable-precision .items > section:has(.is-fieldnote) {
+        --dp: #15803d;
+        --dp-wash: rgba(21, 128, 61, 0.07);
+      }
+      #scalable-precision .items > section:has(.is-casestudy) {
+        --dp: #7c3aed;
+        --dp-wash: rgba(124, 58, 237, 0.07);
+      }
+      #scalable-precision .items > section:has(.is-diagnostics) {
+        --dp: #be123c;
+        --dp-wash: rgba(190, 18, 60, 0.07);
+      }
+      #scalable-precision .items > section:has(.is-whyus) {
+        --dp: #1e3a5f;
+        --dp-wash: rgba(30, 58, 95, 0.07);
+      }
+      #scalable-precision .items > section .icon {
+        transition: color 0.2s ease, box-shadow 0.2s ease;
+      }
+      #scalable-precision .items > section:hover,
+      #scalable-precision .items > section:has(.dp-link:focus-visible) {
+        background-color: var(--dp-wash, #f5f8fb);
+      }
+      #scalable-precision .items > section:hover .icon,
+      #scalable-precision .items > section:has(.dp-link:focus-visible) .icon {
+        color: var(--dp, #1e3a5f);
+        box-shadow: inset 0 0 0 1px var(--dp, #1e3a5f);
+      }
+      #scalable-precision .dp-link {
+        display: inline-block;
+        /* Pinned to the tile's bottom so links line up across a row */
+        margin-top: auto;
+        padding-top: 1rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: #1e3a5f;
+        text-decoration: none;
+        border-bottom: none;
+      }
+      /* Link colors by destination type, one color each. All pass
+         WCAG AA contrast on white (4.5:1 or better). */
+      #scalable-precision .dp-link.is-service {
+        color: #2563eb; /* blue */
+      }
+      #scalable-precision .dp-link.is-insight {
+        color: #b45309; /* amber */
+      }
+      #scalable-precision .dp-link.is-fieldnote {
+        color: #15803d; /* green */
+      }
+      #scalable-precision .dp-link.is-casestudy {
+        color: #7c3aed; /* purple */
+      }
+      #scalable-precision .dp-link.is-diagnostics {
+        color: #be123c; /* rose */
+      }
+      #scalable-precision .dp-link.is-whyus {
+        color: #1e3a5f; /* navy, the brand color */
+      }
+      #scalable-precision .dp-link::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+      }
+      #scalable-precision .dp-link i {
+        margin-left: 0.4rem;
+        font-size: 0.8em;
+        transition: transform 0.2s ease;
+      }
+      #scalable-precision .items > section:hover .dp-link i,
+      #scalable-precision .dp-link:focus-visible i {
+        transform: translateX(3px);
+      }
+      #scalable-precision .dp-link:focus-visible {
+        outline: 2px solid #2563eb;
+        outline-offset: 2px;
+      }
+
+      /* Latest from the lab: three cards, newest writing across the
+         three hubs. Left-aligned text inside a centered section. */
+      .home-latest-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0 0;
+        text-align: left;
+      }
+      .home-latest-card {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        padding: 0;
+        border: 1px solid #dbe3ec;
+        border-radius: 12px;
+        border-bottom: 1px solid #dbe3ec;
+        color: inherit;
+        text-decoration: none;
+        transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .home-latest-card:hover {
+        border-color: #1e3a5f;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px -16px rgba(30, 58, 95, 0.45);
+      }
+      /* Thumbnail flush across the top, same 16:9 as the Case Studies cards */
+      .home-latest-card img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+      .home-latest-body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 1.25rem 1.5rem 1.5rem;
+      }
+      .home-latest-kind {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #64748b;
+      }
+      .home-latest-card h3 {
+        margin: 0.5rem 0;
+        font-size: 1.1rem;
+      }
+      .home-latest-card p {
+        margin: 0 0 1rem;
+        font-size: 0.92rem;
+        line-height: 1.55;
+        color: #475569;
+      }
+      .home-latest-more {
+        margin-top: auto;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #1e3a5f;
+      }
+      .home-latest-more i {
+        margin-left: 0.4rem;
+        font-size: 0.8em;
+      }
+      /* Card colors by type, matching the Scalable Data Precision links:
+         Field Note green, Insight amber, Signal teal. The type label and
+         "Read more" take the color; hover/focus colors the border and adds
+         the same very light wash as the tiles. */
+      .home-latest-card.is-field-note {
+        --hl: #15803d;
+        --hl-wash: rgba(21, 128, 61, 0.05);
+      }
+      .home-latest-card.is-insight {
+        --hl: #b45309;
+        --hl-wash: rgba(180, 83, 9, 0.05);
+      }
+      .home-latest-card.is-signal {
+        --hl: #0e7490;
+        --hl-wash: rgba(14, 116, 144, 0.05);
+      }
+      .home-latest-card .home-latest-kind,
+      .home-latest-card .home-latest-more {
+        color: var(--hl, #1e3a5f);
+      }
+      .home-latest-card:hover,
+      .home-latest-card:focus-visible {
+        border-color: var(--hl, #1e3a5f);
+        background-color: var(--hl-wash, transparent);
+      }
+      .home-latest-card:focus-visible {
+        outline: 2px solid var(--hl, #2563eb);
+        outline-offset: 2px;
+      }
+      .home-latest-card .home-latest-more i {
+        transition: transform 0.2s ease;
+      }
+      .home-latest-card:hover .home-latest-more i,
+      .home-latest-card:focus-visible .home-latest-more i {
+        transform: translateX(3px);
+      }
+      @media screen and (max-width: 980px) {
+        .home-latest-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -194,14 +439,11 @@
               and connected data replace assumptions with evidence.
             </p>
             <p class="major">
-              We build the digital systems that collect, measure, and improve
-              business performance.
+              Scott Labz builds the digital systems that collect, measure, and improve business performance.
             </p>
             <ul class="actions stacked">
               <li>
-                <a href="#first" class="button big wide smooth-scroll-middle"
-                  >Get Started
-                </a>
+                <a href="/contact" class="button big wide">Get Started</a>
               </li>
             </ul>
           </div>
@@ -245,7 +487,7 @@
           class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in"
           id="first">
           <div class="content">
-            <h2>Measure</h2>
+            <h2 class="hero-verb is-measure">Measure</h2>
             <h3>Analytics &amp; Data Solutions</h3>
             <dl>
               <dt>
@@ -253,8 +495,7 @@
               </dt>
               <dd>
                 <p>
-                  We instrument sites, apps, and products around how your team
-                  actually makes decisions - not around whatever a tag manager
+                  Sites, apps, and products get instrumented around how your team actually makes decisions - not around whatever a tag manager
                   sets up by default.
                 </p>
               </dd>
@@ -264,8 +505,7 @@
               <dd>
                 <p>
                   Broken tags and duplicate events erode trust in your numbers
-                  fast. We catch the silent failures before they end up in a
-                  board deck.
+                  fast. Scott Labz catches the silent failures before they end up in a board deck.
                 </p>
               </dd>
               <dt>
@@ -274,16 +514,13 @@
               <dd>
                 <p>
                   Your CRM, ad platforms, and product analytics rarely tell the
-                  same story. We reconcile them into one view your team can
-                  actually act on.
+                  same story. Scott Labz reconciles them into one view your team can actually act on.
                 </p>
               </dd>
             </dl>
             <ul class="actions stacked">
               <li>
-                <a href="#second" class="button big wide smooth-scroll-middle"
-                  >Learn More
-                </a>
+                <a href="/analytics-data" class="button big wide">Explore Analytics &amp; Data</a>
               </li>
             </ul>
           </div>
@@ -328,7 +565,7 @@
           class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in"
           id="second">
           <div class="content">
-            <h2>Build</h2>
+            <h2 class="hero-verb is-build">Build</h2>
             <h3>Web Development & Digital Solutions</h3>
             <dl>
               <dt>
@@ -336,9 +573,7 @@
               </dt>
               <dd>
                 <p>
-                  We design and ship sites around how your specific visitors
-                  browse and buy, instead of stretching a generic template to
-                  fit.
+                  Sites are designed and shipped around how your specific visitors browse and buy, instead of stretching a generic template to fit.
                 </p>
               </dd>
               <dt>
@@ -346,8 +581,7 @@
               </dt>
               <dd>
                 <p>
-                  From internal tools to customer-facing apps, we build on top
-                  of the systems your business already runs, rather than forcing
+                  From internal tools to customer-facing apps, every build sits on top of the systems your business already runs, rather than forcing
                   a rebuild from scratch.
                 </p>
               </dd>
@@ -363,9 +597,7 @@
             </dl>
             <ul class="actions stacked">
               <li>
-                <a href="#third" class="button big wide smooth-scroll-middle"
-                  >Learn More
-                </a>
+                <a href="/web-digital" class="button big wide">Explore Web &amp; Digital</a>
               </li>
             </ul>
           </div>
@@ -409,7 +641,7 @@
           class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in"
           id="third">
           <div class="content">
-            <h2>Improve</h2>
+            <h2 class="hero-verb is-improve">Improve</h2>
             <h3>Optimization & Continuous Improvement</h3>
             <dl>
               <dt>
@@ -417,8 +649,7 @@
               </dt>
               <dd>
                 <p>
-                  Session recordings, funnels, and heatmaps show us exactly
-                  where people hesitate, stall out, or click away - not just
+                  Session recordings, funnels, and heatmaps show exactly where people hesitate, stall out, or click away - not just
                   that they left.
                 </p>
               </dd>
@@ -427,9 +658,7 @@
               </dt>
               <dd>
                 <p>
-                  Instead of guessing which version works better, we run
-                  structured tests so the call gets made on evidence, not
-                  opinion.
+                  Instead of guessing which version works better, structured tests make the call on evidence, not opinion.
                 </p>
               </dd>
               <dt>
@@ -437,16 +666,13 @@
               </dt>
               <dd>
                 <p>
-                  Launch day is day one, not the finish line. We keep tuning
-                  speed and usability as your product and traffic evolve.
+                  Launch day is day one, not the finish line. Speed and usability keep getting tuned as your product and traffic evolve.
                 </p>
               </dd>
             </dl>
             <ul class="actions stacked">
               <li>
-                <a href="#fourth" class="button big wide smooth-scroll-middle"
-                  >Learn More
-                </a>
+                <a href="/conversion-optimization" class="button big wide">Explore Conversion Optimization</a>
               </li>
             </ul>
           </div>
@@ -490,10 +716,10 @@
           <div class="inner">
             <h2>Tailored Digital Platforms</h2>
             <p>
-              Every platform we build starts from a real operational problem,
+              Every Scott Labz platform starts from a real operational problem,
               not a template. Whether that's a retailer selling out of a stadium
               concourse on game day or a neighborhood shop moving online for the
-              first time, we design systems that hold up under real-world
+              first time, the systems are designed to hold up under real-world
               pressure - traffic spikes, inventory chaos, and everything in
               between.
             </p>
@@ -559,34 +785,6 @@
             </article>
             <article>
               <img
-                src="images/gallery/thumbs/04.webp?v=865a4cb7e5"
-                width="309"
-                height="250"
-                class="image"
-                alt="Omni-channel inventory systems keeping in-store and online stock counts in sync"
-                title="Omni-channel inventory systems keeping in-store and online stock counts in sync"
-                loading="lazy" />
-              <div class="caption">
-                <h3>Connected Inventory</h3>
-                <p>Stock counts that always match reality.</p>
-              </div>
-            </article>
-            <article>
-              <img
-                src="images/gallery/thumbs/05.webp?v=177681edf3"
-                width="309"
-                height="250"
-                class="image"
-                alt="Pop-up retail operations built for fast gameday setup and teardown"
-                title="Pop-up retail operations built for fast gameday setup and teardown"
-                loading="lazy" />
-              <div class="caption">
-                <h3>Gameday Retail</h3>
-                <p>Pop-up shops built to move fast.</p>
-              </div>
-            </article>
-            <article>
-              <img
                 src="images/gallery/thumbs/06.webp?v=88035024ad"
                 width="309"
                 height="250"
@@ -597,51 +795,9 @@
               <div class="caption">
                 <h3>Fast Checkout</h3>
                 <p>
-                  POS systems tuned to keep lines moving.
+                  Checkout kept fast when gameday traffic peaks.
                   <a href="/case-studies/website-performance-optimization" aria-label="Read the case study: Website Performance Optimization">Read the case study</a>.
                 </p>
-              </div>
-            </article>
-            <article>
-              <img
-                src="images/gallery/thumbs/07.webp?v=64d9f9d116"
-                width="309"
-                height="250"
-                class="image"
-                alt="Gameday atmosphere and fan experience at a University of Iowa Hawkeyes retail partner"
-                title="Gameday atmosphere and fan experience at a University of Iowa Hawkeyes retail partner"
-                loading="lazy" />
-              <div class="caption">
-                <h3>Game Day</h3>
-                <p>Built for the stadium's game-day energy.</p>
-              </div>
-            </article>
-            <article>
-              <img
-                src="images/gallery/thumbs/08.webp?v=134ad2a523"
-                width="309"
-                height="250"
-                class="image"
-                alt="Mobile fan shop and concourse retail pop-up serving gameday crowds"
-                title="Mobile fan shop and concourse retail pop-up serving gameday crowds"
-                loading="lazy" />
-              <div class="caption">
-                <h3>Mobile Fan Shops</h3>
-                <p>Merch wherever the crowd is.</p>
-              </div>
-            </article>
-            <article>
-              <img
-                src="images/gallery/thumbs/09.webp?v=9375f497be"
-                width="309"
-                height="250"
-                class="image"
-                alt="Behind-the-scenes retail logistics supporting a gameday venue"
-                title="Behind-the-scenes retail logistics supporting a gameday venue"
-                loading="lazy" />
-              <div class="caption">
-                <h3>Behind the Scenes</h3>
-                <p>The logistics work nobody sees.</p>
               </div>
             </article>
             <article>
@@ -659,20 +815,6 @@
                   Enterprise tools, small-shop budget.
                   <a href="/case-studies/the-black-and-gold-shop" aria-label="Read the case study: The Black &amp; Gold Shop">Read the case study</a>.
                 </p>
-              </div>
-            </article>
-            <article>
-              <img
-                src="images/gallery/thumbs/11.webp?v=0c5f399f3f"
-                width="309"
-                height="250"
-                class="image"
-                alt="University of Iowa Hawkeyes fans celebrating gameday traditions"
-                title="University of Iowa Hawkeyes fans celebrating gameday traditions"
-                loading="lazy" />
-              <div class="caption">
-                <h3>Fan Traditions</h3>
-                <p>The rivalries fans show up for.</p>
               </div>
             </article>
             <article>
@@ -698,18 +840,18 @@
           <div class="inner">
             <h2>Scalable Data Precision</h2>
             <p>
-              The sections above cover what we do. This is how we do it - the
+              The sections above cover what Scott Labz does. This is how the work gets done - the
               specific disciplines that keep a data platform honest as it grows
               past the first dashboard.
             </p>
             <div class="items style1 medium">
               <section>
-                <span class="icon style2 major fa-building"></span>
+                <span class="icon solid style2 major fa-layer-group"></span>
                 <h3>Architecture</h3>
                 <p>
-                  We map how data should flow before a single tag goes live, so
-                  the system doesn't need to be torn up and redone in a year.
+                  Data flow gets mapped before a single tag goes live, so the system doesn't need to be torn up and redone in a year.
                 </p>
+                <a href="/insights/what-is-analytics-architecture" class="dp-link is-insight" aria-label="Insight: What Is Analytics Architecture">Insight<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
               <section>
                 <span class="icon solid style2 major fa-satellite-dish"></span>
@@ -719,22 +861,24 @@
                   versioned, so nobody's guessing what a metric actually
                   measures.
                 </p>
+                <a href="/field-notes/gtm-container-autopsy" class="dp-link is-fieldnote" aria-label="Field Note: GTM Container Autopsy">Field Note<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
               <section>
-                <span class="icon solid style2 major fa-school"></span>
+                <span class="icon solid style2 major fa-check-circle"></span>
                 <h3>Data Quality</h3>
                 <p>
                   Automated checks flag anomalies - a metric that jumps 40%
                   overnight gets a second look before it reaches your team.
                 </p>
+                <a href="/case-studies/data-quality-governance" class="dp-link is-casestudy" aria-label="Case study: Data Quality &amp; Governance">Case study<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
               <section>
                 <span class="icon solid style2 major fa-tools"></span>
                 <h3>Auditing</h3>
                 <p>
-                  We open the hood on an existing setup and hand you a plain
-                  list of what's broken, what's missing, and what to fix first.
+                  A look under the hood of an existing setup, with a plain list of what's broken, what's missing, and what to fix first.
                 </p>
+                <a href="/diagnostics/" class="dp-link is-diagnostics" aria-label="Diagnostics: the crime-scene case files">Diagnostics<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
               <section>
                 <span class="icon solid style2 major fa-plug"></span>
@@ -743,6 +887,7 @@
                   Marketing platforms, CRMs, and internal databases get wired
                   together so nobody's stitching CSVs by hand every Monday.
                 </p>
+                <a href="/insights/redundant-data-entry-missing-integration" class="dp-link is-insight" aria-label="Insight: Redundant Data Entry Is Usually a Missing Integration">Insight<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
               <section>
                 <span class="icon style2 major fa-star"></span>
@@ -751,15 +896,16 @@
                   Test frameworks built with proper statistical guardrails, so a
                   "winning" variant is actually winning and not just noise.
                 </p>
+                <a href="/field-notes/why-we-stopped-trusting-the-sample-size" class="dp-link is-fieldnote" aria-label="Field Note: Why We Stopped Trusting the Sample Size">Field Note<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
               <section>
                 <span class="icon solid style2 major fa-key"></span>
                 <h3>Optimization</h3>
                 <p>
-                  We look for the specific friction points costing you
-                  conversions - a slow checkout step, a confusing form, a
+                  Finding the specific friction points costing you conversions - a slow checkout step, a confusing form, a
                   dead-end page.
                 </p>
+                <a href="/conversion-optimization" class="dp-link is-service" aria-label="Service: Conversion Optimization">Service<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
               <section>
                 <span class="icon solid style2 major fa-chart-bar"></span>
@@ -768,6 +914,7 @@
                   Dashboards built for the people who'll actually open them
                   weekly, not a wall of charts nobody reads twice.
                 </p>
+                <a href="/insights/dashboards-nobody-opens" class="dp-link is-insight" aria-label="Insight: Dashboards Nobody Opens">Insight<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
               <section>
                 <span class="icon solid style2 major fa-code-branch"></span>
@@ -777,14 +924,15 @@
                   loudly when something upstream breaks, instead of quietly
                   going stale.
                 </p>
+                <a href="/field-notes/data-contracts-discipline" class="dp-link is-fieldnote" aria-label="Field Note: Data Contracts Discipline">Field Note<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
               <section>
                 <span class="icon solid style2 major fa-lightbulb"></span>
                 <h3>Data Strategy</h3>
                 <p>
-                  We help you decide what's actually worth measuring before you
-                  spend budget instrumenting things nobody will look at.
+                  Deciding what's actually worth measuring before budget goes into instrumenting things nobody will look at.
                 </p>
+                <a href="/insights/measurement-before-media-spend" class="dp-link is-insight" aria-label="Insight: Measurement Before Media Spend">Insight<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
               <section>
                 <span class="icon solid style2 major fa-road"></span>
@@ -793,6 +941,7 @@
                   A sequenced plan for what gets built next, tied to business
                   priorities rather than whatever's technically easiest.
                 </p>
+                <a href="/case-studies/digital-measurement-strategy" class="dp-link is-casestudy" aria-label="Case study: Digital Measurement Strategy">Case study<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
               <section>
                 <span class="icon solid style2 major fa-users"></span>
@@ -801,8 +950,85 @@
                   An outside second opinion when your team needs to sanity check
                   a vendor pitch, a migration, or a build-vs-buy call.
                 </p>
+                <a href="/why-us" class="dp-link is-whyus" aria-label="Why Us: why clients work with Scott Labz">Why Us<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
             </div>
+          </div>
+        </section>
+
+        <!-- Latest from the lab: the three newest Field Notes, Insights or
+             Signals, kept current by scripts/generate_indexes.py ("home") -->
+        <section class="wrapper style1 align-center home-latest" aria-labelledby="home-latest-title">
+          <div class="inner">
+            <h2 id="home-latest-title">Latest from the lab</h2>
+            <div class="home-latest-grid">
+              <!-- HOME-LATEST:START - generated by scripts/generate_indexes.py, do not edit by hand -->
+              <a href="/field-notes/the-diff-that-compared-two-broken-pages" class="home-latest-card is-field-note">
+                <img
+                  src="images/home-latest-field-note-480w.webp?v=e3ddf40e09"
+                  srcset="images/home-latest-field-note-480w.webp?v=e3ddf40e09 480w, images/home-latest-field-note-960w.webp?v=1768052c1a 960w"
+                  sizes="(max-width: 980px) 100vw, 33vw"
+                  width="480"
+                  height="270"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" />
+                <span class="home-latest-body">
+                <span class="home-latest-kind">Field Note</span>
+                <h3>The Diff That Compared Two Broken Pages</h3>
+                <p>A pixel-by-pixel check passed on every page while two visible regressions were live - because the baseline already had them.</p>
+                <span class="home-latest-more">Read more<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                </span>
+              </a>
+              <a href="/insights/delete-with-proof" class="home-latest-card is-insight">
+                <img
+                  src="images/home-latest-insight-480w.webp?v=ffd39a95da"
+                  srcset="images/home-latest-insight-480w.webp?v=ffd39a95da 480w, images/home-latest-insight-960w.webp?v=9c0c6f8606 960w"
+                  sizes="(max-width: 980px) 100vw, 33vw"
+                  width="480"
+                  height="270"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" />
+                <span class="home-latest-body">
+                <span class="home-latest-kind">Insight</span>
+                <h3>Delete With Proof</h3>
+                <p>Removal is safe when the before-and-after check is mechanical - and when the before is actually the last known-good state.</p>
+                <span class="home-latest-more">Read more<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                </span>
+              </a>
+              <a href="/signals/whats-hiding-behind-the-library" class="home-latest-card is-signal">
+                <img
+                  src="images/home-latest-signal-480w.webp?v=ef84588ee3"
+                  srcset="images/home-latest-signal-480w.webp?v=ef84588ee3 480w, images/home-latest-signal-960w.webp?v=30bd29e5d1 960w"
+                  sizes="(max-width: 980px) 100vw, 33vw"
+                  width="480"
+                  height="270"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" />
+                <span class="home-latest-body">
+                <span class="home-latest-kind">Signal</span>
+                <h3>What's Hiding Behind the Library</h3>
+                <p>Removing a JS library showed what it had been holding up, including a lightbox that could never have opened.</p>
+                <span class="home-latest-more">Read more<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                </span>
+              </a>
+              <!-- HOME-LATEST:END -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Closing call to action: the page's only in-content route to /contact -->
+        <section class="wrapper style1 align-center home-cta">
+          <div class="inner">
+            <h2>Ready to see what your data is telling you?</h2>
+            <p>Start with a 15-minute conversation about your goals and a practical first step.</p>
+            <ul class="actions special">
+              <li>
+                <a href="/contact" class="button big wide alt">Start a Conversation</a>
+              </li>
+            </ul>
           </div>
         </section>
       </main>
