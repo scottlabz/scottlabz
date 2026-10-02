@@ -135,6 +135,23 @@
         width: 360px;
         height: 250px;
       }
+
+      /* Hero h1: the three verbs of the Measure / Build / Improve
+         framework in bold accent colors against the light (300) heading.
+         Amber is #b45309, not the nav's #ca8a04, which is too pale for
+         readable text on white. */
+      .hero-verb {
+        font-weight: 700;
+      }
+      .hero-verb.is-measure {
+        color: #2563eb;
+      }
+      .hero-verb.is-build {
+        color: #b45309;
+      }
+      .hero-verb.is-improve {
+        color: #15803d;
+      }
     </style>
   </head>
   <body class="is-preload">
@@ -167,7 +184,9 @@
                 class="logo" />cott Labz
             </p>
             <h1 class="major">
-              Measure what matters. Build it right. Improve it continuously.
+              <span class="hero-verb is-measure">Measure</span> what matters.
+              <span class="hero-verb is-build">Build</span> it right.
+              <span class="hero-verb is-improve">Improve</span> it continuously.
             </h1>
             <p class="major">
               Every digital experience creates a story. The value comes from
