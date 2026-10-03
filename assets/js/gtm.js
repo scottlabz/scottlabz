@@ -1,5 +1,28 @@
 (function (w, d, s, l, i) {
   w[l] = w[l] || [];
+  // Google Consent Mode v2 defaults. Must run before the gtm.js event.
+  // No banner: EEA/UK/CH default to denied, everywhere else analytics is
+  // granted. Ad signals are denied everywhere (no Google Ads running).
+  function gtag() {
+    w[l].push(arguments);
+  }
+  gtag("consent", "default", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: "denied",
+    region: [
+      "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE",
+      "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT",
+      "RO", "SK", "SI", "ES", "SE", "IS", "LI", "NO", "GB", "CH"
+    ],
+  });
+  gtag("consent", "default", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: "granted",
+  });
   w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
   function load() {
     var f = d.getElementsByTagName(s)[0],
