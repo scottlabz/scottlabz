@@ -22,3 +22,12 @@
 
 /*.svg
   Cache-Control: public, max-age=31536000, immutable
+
+/AGENTS.md
+  X-Robots-Tag: noindex
+
+/CLAUDE.md
+  X-Robots-Tag: noindex
+
+/README.md
+  X-Robots-Tag: noindex

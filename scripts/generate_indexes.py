@@ -740,6 +740,12 @@ def generate_case_studies(name: str, cfg: dict) -> tuple[list[tuple[Path, str]],
 # --- Homepage: Latest from the lab -----------------------------------------
 
 LATEST_COUNT = 3
+# Alt and title for each thumbnail (every content image needs both)
+LATEST_THUMB_TEXT = {
+    "field-note": "Open notebook and pen resting on a tree stump in a field",
+    "insight": "Glowing ring of light surrounded by streaks of blue particles",
+    "signal": "Traffic signal against a blue sky with its green light lit",
+}
 # (section, card label, URL prefix, thumbnail key)
 LATEST_KINDS = (
     ("field-notes", "Field Note", "/field-notes/", "field-note"),
@@ -771,7 +777,8 @@ def home_render(label: str, href: str, n: dict, thumb: str) -> str:
         f'                  sizes="(max-width: 980px) 100vw, 33vw"\n'
         f'                  width="480"\n'
         f'                  height="270"\n'
-        f'                  alt=""\n'
+        f'                  alt="{attr(LATEST_THUMB_TEXT[thumb])}"\n'
+        f'                  title="{attr(LATEST_THUMB_TEXT[thumb])}"\n'
         f'                  loading="lazy"\n'
         f'                  decoding="async" />\n'
         f'                <span class="home-latest-body">\n'

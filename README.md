@@ -41,4 +41,5 @@ Site content - written copy, case studies, client names and logos, photography, 
 [![Site Audit](https://img.shields.io/github/actions/workflow/status/scottlabz/scottlabz/audit.yml?label=site%20audit)](https://github.com/scottlabz/scottlabz/actions/workflows/audit.yml)
 [![CodeQL](https://img.shields.io/github/actions/workflow/status/scottlabz/scottlabz/codeql.yml?label=codeql)](https://github.com/scottlabz/scottlabz/actions/workflows/codeql.yml)
 [![Cache Purge](https://img.shields.io/github/actions/workflow/status/scottlabz/scottlabz/purge-cache.yml?label=cache%20purge)](https://github.com/scottlabz/scottlabz/actions/workflows/purge-cache.yml)
-[![Deploy](https://img.shields.io/github/deployments/scottlabz/scottlabz/github-pages?label=deploy)](https://github.com/scottlabz/scottlabz/deployments/github-pages)
+[![Build](https://img.shields.io/github/actions/workflow/status/scottlabz/scottlabz/sitemap.yml?label=build)](https://github.com/scottlabz/scottlabz/actions/workflows/sitemap.yml)
+[![Site Status](https://img.shields.io/website?url=https%3A%2F%2Fscottlabz.com&label=site&up_message=online&down_message=offline)](https://scottlabz.com)
