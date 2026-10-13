@@ -106,11 +106,17 @@ These apply to all visible on-site text: body copy, headings, meta descriptions,
 
 Pick the right section before writing anything. Do not create pages that are not backed by real work.
 
-- **Field Notes** (`field-notes/`): closed incident stories. Written once, stand alone.
+There are three content types:
+
+- **Field Notes** (`field-notes/`): closed incident stories. Written once, stand alone. A confirmed result or later follow-up on a Field Note goes into that Field Note as a dated update, or into a new Field Note that links back to it.
 - **Insights** (`insights/`): evergreen, principle-driven pieces.
-- **Findings**: must link back to a published Signal. A Finding with no Signal does not get published.
-- **Diagnostics** (`diagnostics/`): interactive pillar tools. The old Lab section is retired; do not recreate it.
-- **Signals** was retired in October 2026 and folded into Field Notes; do not recreate it. Old `/signals/` URLs are 301-redirected by the `REDIRECTS` map in `functions/_middleware.js`.
+- **Diagnostics** (`diagnostics/`): interactive pillar tools.
+
+Retired types; do not recreate them or add new content types without Scott:
+
+- **Signals**: folded into Field Notes in October 2026. Old `/signals/` URLs are 301-redirected by the `REDIRECTS` map in `functions/_middleware.js`.
+- **Findings**: planned as the confirmed follow-up to a Signal and never published. Field Notes already cover confirmed results (see above).
+- **Lab**: the old Lab section.
 
 ## Retiring a page
 
