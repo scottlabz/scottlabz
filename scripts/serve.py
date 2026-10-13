@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Local preview server that resolves clean URLs the way Cloudflare Pages does.
 
-Site links are extensionless (/about, /insights/delete-with-proof), which
+Site links are extensionless (/about, /insights/seo-analytics), which
 `python -m http.server` can't map to about.html. This tries the path as-is,
 then path + ".html", then path/index.html, and serves 404.html otherwise.
 

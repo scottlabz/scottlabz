@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-"""Generate the hub listings for Field Notes, Insights, Signals, and Case
-Studies from per-page metadata, plus one JSON manifest per section, and
-the homepage's "Latest from the lab" strip.
+"""Generate the hub listings for Field Notes, Insights, and Case Studies
+from per-page metadata, plus one JSON manifest per section.
 
 Each article carries its own card data as <meta> tags in <head>. This
 script reads them, validates them, and rewrites only the region between
@@ -25,8 +24,8 @@ field-notes  hub: field-notes/index.html   articles: field-notes/*.html
         inserted before its closing call-to-action section: the notes
         sharing the most categories, newest first, topped up with the
         newest notes, plus a link to the article's first topic page
-    The Insights and Signals hubs' JSON-LD ItemLists are kept in card
-    order the same way (hub_list_post).
+    The Insights hub's JSON-LD ItemList is kept in card order the same
+    way (hub_list_post).
     Topic descriptions come from a "description" key in the hub's
     <scott-filter-bar> JSON. Generated pages in topics/ and page/ that no
     longer apply are deleted.
@@ -37,12 +36,6 @@ insights     hub: insights.html            articles: insights/*.html
     Order: insight-number ascending. Kicker text is the filter-bar label
     of the first category.
 
-signals      hub: signals/index.html       articles: signals/*.html
-    signal-number, signal-title, signal-summary, signal-status,
-    signal-published
-    Order: signal-number descending (newest first). Status is one of
-    red, amber, green. The "Sep 2026" label comes from signal-published.
-
 case-studies  hub: case-studies.html       pages: case-studies/*.html
     Every page: cs-type (client or deep-dive), cs-order, cs-title,
     cs-summary.
@@ -52,23 +45,20 @@ case-studies  hub: case-studies.html       pages: case-studies/*.html
                Case Study").
     deep-dive: cs-categories, cs-image-alt. Thumbnails must exist at
                images/cs-thumb-<slug>-480w.webp and -960w.webp.
-    Writes two marker regions (CS-CLIENTS, CS-CARDS) plus the
-    CollectionPage ItemList in the hub's JSON-LD: clients first, then
-    deep dives, each by cs-order. Image ?v= hashes match cache_bust.py
+    The hub is a client showcase: the CS-CLIENTS marker region holds
+    one card per client page (by cs-order), and the hub's JSON-LD
+    CollectionPage ItemList lists those client pages. Deep-dive cards
+    fill the CS-CARDS region on each page in CS_CARD_PAGES (the Hawkeye
+    Fan Shop case study), with root-absolute links and <h4> card titles.
+    Deep-dive category keys, labels and colors come from the
+    <scott-filter-bar> JSON on CS_CATEGORY_PAGE, not the hub. Image ?v= hashes match cache_bust.py
     so the two scripts never undo each other. Clients that don't have a
     page yet (Kitchens) stay hand-authored after CS-CLIENTS:END.
 
-home         page: index.html (no articles of its own)
-    The homepage's "Latest from the lab" strip (HOME-LATEST markers):
-    the LATEST_COUNT newest pieces across Field Notes, Insights and
-    Signals by published date, ties broken by each section's own
-    newest-first order. Reuses the notes the three sections above
-    collected in the same run, so a new article lands on the homepage
-    in the same pass.
-
-Valid category keys for field-notes, insights and case-studies come from the
-<scott-filter-bar> JSON block on each hub page, which stays
-hand-authored. Numbers must be unique within a section.
+Valid category keys for field-notes and insights come from the
+<scott-filter-bar> JSON block on each hub page; case-study deep-dive keys
+come from the one on CS_CATEGORY_PAGE (the Hawkeye Fan Shop case study).
+Those blocks stay hand-authored. Numbers must be unique within a section.
 
 Links and manifest URLs use the extensionless form Cloudflare Pages
 serves (/insights/some-note, not /insights/some-note.html), which is
@@ -79,7 +69,7 @@ Exits non-zero and writes nothing if any section has an error.
 Usage:
     python scripts/generate_indexes.py                # write all sections
     python scripts/generate_indexes.py --check        # exit 1 if anything is out of date
-    python scripts/generate_indexes.py --section signals
+    python scripts/generate_indexes.py --section insights
 """
 import hashlib
 import html
@@ -99,13 +89,6 @@ FILTER_JSON_RE = re.compile(
 )
 # Skipped when collecting articles: hubs and meta-refresh redirect stubs.
 SKIP_FILES = {"index.html"}
-
-SIGNAL_STATUS = {
-    "red": "Something broke",
-    "amber": "Worth watching",
-    "green": "Improved",
-}
-
 
 def text(s: str) -> str:
     return html.escape(s, quote=False)
@@ -253,7 +236,7 @@ def set_item_list(page: str, notes: list[dict], where: str, kind: str = "Article
 
 def hub_list_post(kind: str):
     """post hook that keeps a hub's JSON-LD ItemList in the same order as
-    its generated cards (Insights, Signals)."""
+    its generated cards (Insights)."""
     def post(notes: list[dict], hub: str, ctx: dict, cfg: dict) -> tuple[str, list]:
         return set_item_list(hub, notes, cfg["hub"], kind), []
     return post
@@ -512,49 +495,6 @@ def ins_render(n: dict, ctx: dict) -> str:
     )
 
 
-# --- Signals ---------------------------------------------------------------
-
-def sig_build(meta: dict, path: Path, ctx: dict, errors: list[str]) -> dict:
-    where = f"signals/{path.name}"
-    status = meta["signal-status"].strip().lower()
-    if status not in SIGNAL_STATUS:
-        errors.append(f"{where}: signal-status must be one of {', '.join(SIGNAL_STATUS)}, got {status!r}")
-    return {
-        "slug": path.stem,
-        "file": path.name,
-        "url": f"{SITE}/signals/{path.stem}",
-        "number": parse_number(meta["signal-number"], where, errors),
-        "title": norm(meta["signal-title"]),
-        "summary": norm(meta["signal-summary"]),
-        "status": status,
-        "published": parse_date(meta["signal-published"], where, errors),
-    }
-
-
-def sig_order(notes: list[dict], errors: list[str]) -> list[dict]:
-    unique_numbers(notes, "signals", errors)
-    return sorted(notes, key=lambda n: n["number"], reverse=True)
-
-
-def sig_render(n: dict, ctx: dict) -> str:
-    try:
-        month = date.fromisoformat(n["published"]).strftime("%b %Y")
-    except ValueError:
-        month = ""
-    label = SIGNAL_STATUS.get(n["status"], "")
-    return (
-        f'              <a href="/signals/{attr(n["slug"])}" class="signal-card sig-{n["status"]}">\n'
-        f'                <span class="signal-lamp" aria-hidden="true"></span>\n'
-        f'                <div>\n'
-        f'                  <span class="signal-meta">Signal {n["number"]:02d} &middot; {month} &middot; <b>{text(label)}</b></span>\n'
-        f'                  <h3>{text(n["title"])}</h3>\n'
-        f'                  <p>{text(n["summary"])}</p>\n'
-        f'                  <span class="signal-read">Read signal<i class="fas fa-arrow-right" aria-hidden="true"></i></span>\n'
-        f'                </div>\n'
-        f'              </a>\n'
-    )
-
-
 # --- Case Studies ----------------------------------------------------------
 
 CS_TYPES = ("client", "deep-dive")
@@ -620,38 +560,51 @@ def cs_build(meta: dict, path: Path, ctx: dict, errors: list[str]) -> dict | Non
 
 
 def cs_render_client(n: dict) -> str:
+    """One client showcase card on the hub. cs-button-class (e.g.
+    hawkeye) sets both the branded button and the card's is-<class>
+    accent; cs-button-text becomes the button's accessible name."""
     logo = f'{n["logo"]}?v={asset_version(n["logo"])}'
-    button = " ".join(c for c in ("button big wide smooth-scroll", n["button_class"]) if c)
+    brand = n["button_class"]
+    card = " ".join(c for c in ("cs-showcase-card", f"is-{brand}" if brand else "") if c)
+    button = " ".join(c for c in ("button wide", brand) if c)
     return (
-        f'                <div class="cs-client">\n'
+        f'              <article class="{attr(card)}">\n'
+        f'                <div class="cs-showcase-logo">\n'
         f'                  <img\n'
         f'                    src="{attr(logo)}"\n'
         f'                    width="{n["logo_width"]}"\n'
         f'                    height="{n["logo_height"]}"\n'
         f'                    alt="{attr(n["logo_alt"])}"\n'
-        f'                    title="{attr(n["title"])}"\n'
         f'                    loading="lazy" />\n'
-        f'                  <p class="cs-client-caption">{text(n["caption"])}</p>\n'
-        f'                  <ul class="actions stacked">\n'
-        f'                    <li>\n'
-        f'                      <a href="case-studies/{attr(n["slug"])}"\n'
-        f'                        class="{attr(button)}">\n'
-        f'                        {text(n["button_text"])}\n'
-        f'                      </a>\n'
-        f'                    </li>\n'
-        f'                  </ul>\n'
         f'                </div>\n'
+        f'                <div class="cs-showcase-body">\n'
+        f'                  <h2 class="cs-showcase-name">{text(n["title"])}</h2>\n'
+        f'                  <p class="cs-showcase-caption">{text(n["caption"])}</p>\n'
+        f'                  <p class="cs-showcase-summary">{text(n["summary"])}</p>\n'
+        f'                  <a href="case-studies/{attr(n["slug"])}" class="{attr(button)}" aria-label="{attr(n["button_text"])}">View Case Study</a>\n'
+        f'                </div>\n'
+        f'              </article>\n'
     )
 
 
-def cs_render_card(n: dict, ctx: dict) -> str:
+# Pages besides the hub that show the deep-dive cards in their own
+# CS-CARDS region. Links there are root-absolute ("/case-studies/...")
+# because the page sits one folder down, and card titles are <h4> because
+# the page's own section headings are <h3>.
+CS_CARD_PAGES = ("case-studies/hawkeye-fan-shop.html",)
+# Hand-authored <scott-filter-bar> JSON that defines the deep-dive
+# categories (key, label, color). It lives with the deep-dive cards.
+CS_CATEGORY_PAGE = "case-studies/hawkeye-fan-shop.html"
+
+
+def cs_render_card(n: dict, ctx: dict, root: str = "", title_tag: str = "h3") -> str:
     first = n["categories"][0]
     small = f'images/cs-thumb-{n["slug"]}-480w.webp'
     large = f'images/cs-thumb-{n["slug"]}-960w.webp'
-    small_v = f"{small}?v={asset_version(small)}"
-    large_v = f"{large}?v={asset_version(large)}"
+    small_v = f"{root}{small}?v={asset_version(small)}"
+    large_v = f"{root}{large}?v={asset_version(large)}"
     return (
-        f'                <a href="case-studies/{attr(n["slug"])}" class="cs-card" data-categories="{attr(" ".join(n["categories"]))}" style="--cat: {ctx["colors"].get(first, "")}">\n'
+        f'                <a href="{root}case-studies/{attr(n["slug"])}" class="cs-card" data-categories="{attr(" ".join(n["categories"]))}" style="--cat: {ctx["colors"].get(first, "")}">\n'
         f'                  <img\n'
         f'                    src="{small_v}"\n'
         f'                    srcset="{small_v} 480w, {large_v} 960w"\n'
@@ -659,12 +612,11 @@ def cs_render_card(n: dict, ctx: dict) -> str:
         f'                    width="480"\n'
         f'                    height="270"\n'
         f'                    alt="{attr(n["image_alt"])}"\n'
-        f'                    title="{attr(n["image_alt"])}"\n'
         f'                    loading="lazy"\n'
         f'                    decoding="async" />\n'
         f'                  <span class="cs-card-body">\n'
         f'                    <span class="cs-card-tag">{text(ctx["labels"].get(first, ""))}</span>\n'
-        f'                    <h3 class="cs-card-title">{text(n["title"])}</h3>\n'
+        f'                    <{title_tag} class="cs-card-title">{text(n["title"])}</{title_tag}>\n'
         f'                    <span class="cs-card-text">{text(n["summary"])}</span>\n'
         f'                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>\n'
         f'                  </span>\n'
@@ -672,19 +624,20 @@ def cs_render_card(n: dict, ctx: dict) -> str:
     )
 
 
-def replace_region(hub_html: str, marker: str, body: str, where: str) -> str:
+def replace_region(hub_html: str, marker: str, body: str, where: str, indent: str = "                ") -> str:
     start, end = f"<!-- {marker}:START -->", f"<!-- {marker}:END -->"
     if hub_html.count(start) != 1 or hub_html.count(end) != 1:
         raise SectionError(f"{where} must contain exactly one {start} and one {end}")
     before, rest = hub_html.split(start, 1)
     _, after = rest.split(end, 1)
-    return f"{before}{start}\n{body}                {end}{after}"
+    return f"{before}{start}\n{body}{indent}{end}{after}"
 
 
 def generate_case_studies(name: str, cfg: dict) -> tuple[list[tuple[Path, str]], int]:
     hub_path = ROOT / cfg["hub"]
     hub_html = hub_path.read_text(encoding="utf-8")
-    ctx = {"labels": filter_labels(hub_html, cfg["hub"]), "colors": filter_colors(hub_html)}
+    cat_html = (ROOT / CS_CATEGORY_PAGE).read_text(encoding="utf-8")
+    ctx = {"labels": filter_labels(cat_html, CS_CATEGORY_PAGE), "colors": filter_colors(cat_html)}
 
     errors: list[str] = []
     notes: list[dict] = []
@@ -712,8 +665,7 @@ def generate_case_studies(name: str, cfg: dict) -> tuple[list[tuple[Path, str]],
     if errors:
         raise SectionError("\n  - ".join([f"{name}: {len(errors)} problem(s)"] + errors))
 
-    new_hub = replace_region(hub_html, "CS-CLIENTS", "\n".join(cs_render_client(n) for n in clients), cfg["hub"])
-    new_hub = replace_region(new_hub, "CS-CARDS", "".join(cs_render_card(n, ctx) for n in deep), cfg["hub"])
+    new_hub = replace_region(hub_html, "CS-CLIENTS", "".join(cs_render_client(n) for n in clients), cfg["hub"], indent="              ")
 
     m = CS_ITEMS_RE.search(new_hub)
     if not m or len(CS_ITEMS_RE.findall(new_hub)) != 1:
@@ -721,7 +673,7 @@ def generate_case_studies(name: str, cfg: dict) -> tuple[list[tuple[Path, str]],
     pad = m.group(4) + "  "
     items = ",\n".join(
         f'{pad}{{\n{pad}  "@type": "ListItem",\n{pad}  "position": {i},\n{pad}  "url": "{n["url"]}"\n{pad}}}'
-        for i, n in enumerate(clients + deep, 1)
+        for i, n in enumerate(clients, 1)
     )
     new_hub = new_hub[: m.start(2)] + items + new_hub[m.end(2):]
 
@@ -734,87 +686,14 @@ def generate_case_studies(name: str, cfg: dict) -> tuple[list[tuple[Path, str]],
     old_manifest = manifest_path.read_text(encoding="utf-8") if manifest_path.exists() else ""
     if new_manifest != old_manifest:
         out.append((manifest_path, new_manifest))
+    for rel_page in CS_CARD_PAGES:
+        page_path = ROOT / rel_page
+        page = page_path.read_text(encoding="utf-8")
+        cards = "".join(cs_render_card(n, ctx, root="/", title_tag="h4") for n in deep)
+        new_page = replace_region(page, "CS-CARDS", cards, rel_page)
+        if new_page != page:
+            out.append((page_path, new_page))
     return out, len(ordered)
-
-
-# --- Homepage: Latest from the lab -----------------------------------------
-
-LATEST_COUNT = 3
-# Alt and title for each thumbnail (every content image needs both)
-LATEST_THUMB_TEXT = {
-    "field-note": "Open notebook and pen resting on a tree stump in a field",
-    "insight": "Glowing ring of light surrounded by streaks of blue particles",
-    "signal": "Traffic signal against a blue sky with its green light lit",
-}
-# (section, card label, URL prefix, thumbnail key)
-LATEST_KINDS = (
-    ("field-notes", "Field Note", "/field-notes/", "field-note"),
-    ("insights", "Insight", "/insights/", "insight"),
-    ("signals", "Signal", "/signals/", "signal"),
-)
-# The thumbnail key also sets the card's color class (is-field-note,
-# is-insight, is-signal; colors live in index.html).
-# Articles carry no images of their own, so each card shows its hub's hero
-# image (images/field-notes.jpg, insights.jpg, signals.jpg), cropped to
-# 16:9 as images/home-latest-<key>-480w/960w.webp. Recrop if a hub's
-# hero image changes.
-# Notes each section collected this run, filled in by generate()
-COLLECTED: dict[str, list[dict]] = {}
-
-
-def home_render(label: str, href: str, n: dict, thumb: str) -> str:
-    small = f"images/home-latest-{thumb}-480w.webp"
-    large = f"images/home-latest-{thumb}-960w.webp"
-    for rel in (small, large):
-        if not (ROOT / rel).exists():
-            raise SectionError(f"home: missing thumbnail {rel}")
-    small_v, large_v = f"{small}?v={asset_version(small)}", f"{large}?v={asset_version(large)}"
-    return (
-        f'              <a href="{attr(href)}" class="home-latest-card is-{thumb}">\n'
-        f'                <img\n'
-        f'                  src="{small_v}"\n'
-        f'                  srcset="{small_v} 480w, {large_v} 960w"\n'
-        f'                  sizes="(max-width: 980px) 100vw, 33vw"\n'
-        f'                  width="480"\n'
-        f'                  height="270"\n'
-        f'                  alt="{attr(LATEST_THUMB_TEXT[thumb])}"\n'
-        f'                  title="{attr(LATEST_THUMB_TEXT[thumb])}"\n'
-        f'                  loading="lazy"\n'
-        f'                  decoding="async" />\n'
-        f'                <span class="home-latest-body">\n'
-        f'                <span class="home-latest-kind">{text(label)}</span>\n'
-        f'                <h3>{text(n["title"])}</h3>\n'
-        f'                <p>{text(n["summary"])}</p>\n'
-        f'                <span class="home-latest-more">Read more<i class="fas fa-arrow-right" aria-hidden="true"></i></span>\n'
-        f'                </span>\n'
-        f'              </a>\n'
-    )
-
-
-def generate_home_latest(name: str, cfg: dict) -> tuple[list[tuple[Path, str]], int]:
-    pool = []
-    for section, label, prefix, thumb in LATEST_KINDS:
-        if section not in COLLECTED:
-            # Run with --section home: collect without writing anything
-            generate(section, SECTIONS[section])
-        notes = COLLECTED[section]
-        for i, n in enumerate(notes):
-            # Same-day tie-break: Field Notes are already newest first;
-            # Insights and Signals number upward as they're published
-            recency = len(notes) - i if section == "field-notes" else n["number"]
-            pool.append((n["published"], recency, section, label, prefix + n["slug"], n, thumb))
-    pool.sort(key=lambda t: t[:3], reverse=True)
-    body = "".join(home_render(label, href, n, thumb) for _, _, _, label, href, n, thumb in pool[:LATEST_COUNT])
-
-    path = ROOT / cfg["hub"]
-    page = path.read_text(encoding="utf-8")
-    start, end = "<!-- HOME-LATEST:START - generated by scripts/generate_indexes.py, do not edit by hand -->", "<!-- HOME-LATEST:END -->"
-    if page.count(start) != 1 or page.count(end) != 1:
-        raise SectionError(f"{cfg['hub']} must contain exactly one HOME-LATEST:START and one HOME-LATEST:END marker")
-    before, rest = page.split(start, 1)
-    after = rest.split(end, 1)[1]
-    new_page = f"{before}{start}\n{body}              {end}{after}"
-    return ([(path, new_page)] if new_page != page else []), min(len(pool), LATEST_COUNT)
 
 
 SECTIONS = {
@@ -845,30 +724,12 @@ SECTIONS = {
         "render": ins_render,
         "post": hub_list_post("Article"),
     },
-    "signals": {
-        "hub": "signals/index.html",
-        "dir": "signals",
-        "manifest": "signals/signals.json",
-        "marker": "SIGNAL-CARDS",
-        "indent": "              ",
-        "required": ("signal-number", "signal-title", "signal-summary", "signal-status", "signal-published"),
-        "uses_filter": False,
-        "build": sig_build,
-        "order": sig_order,
-        "render": sig_render,
-        "post": hub_list_post("ListItem"),
-    },
     "case-studies": {
         "hub": "case-studies.html",
         "dir": "case-studies",
         "manifest": "case-studies/case-studies.json",
         "required": ("cs-type", "cs-order", "cs-title", "cs-summary"),
         "generate": generate_case_studies,
-    },
-    # Last, so the three writing sections have already been collected
-    "home": {
-        "hub": "index.html",
-        "generate": generate_home_latest,
     },
 }
 
@@ -905,7 +766,6 @@ def generate(name: str, cfg: dict) -> tuple[list[tuple[Path, str]], int]:
     notes = cfg["order"](notes, errors)
     if errors:
         raise SectionError("\n  - ".join([f"{name}: {len(errors)} problem(s)"] + errors))
-    COLLECTED[name] = notes
 
     indent = cfg["indent"]
     start_line = f"<!-- {marker}:START - generated by scripts/generate_indexes.py, do not edit by hand -->"

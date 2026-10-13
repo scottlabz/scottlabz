@@ -24,20 +24,24 @@ Do not do these by hand. CI does them and commits the result.
 
 - `sitemap.xml` - regenerated automatically on every push to `main` by `scripts/generate_sitemap.py` and auto-committed. Never add, remove, or edit entries by hand, and never run `generate_sitemap.py` locally and commit the result. Adding or deleting a page is all it takes.
 - `?v=` hash query strings on CSS, JS, and image references - set by `scripts/cache_bust.py`. Leave existing hashes alone; CI recomputes them.
-- Anything between `START`/`END` marker comments on hub pages and the homepage (Field Notes, Insights, Signals, Case Studies, `HOME-LATEST`, `FN-TOPICS`, `FN-PAGER`, `FN-RELATED`, `CS-CLIENTS`, `CS-CARDS`), plus hub JSON-LD ItemLists.
-- Section JSON manifests: `field-notes/field-notes.json`, `insights/insights.json`, `signals/signals.json`, `case-studies/case-studies.json`.
+- Anything between `START`/`END` marker comments on hub pages (Field Notes, Insights, Case Studies, `FN-TOPICS`, `FN-PAGER`, `FN-RELATED`, `CS-CLIENTS`, `CS-CARDS`), plus hub JSON-LD ItemLists.
+- Section JSON manifests: `field-notes/field-notes.json`, `insights/insights.json`, `case-studies/case-studies.json`.
 - Generated pages under `field-notes/topics/` and `field-notes/page/`.
 
-To change a card, listing, or manifest entry, edit the `<meta>` tags in the article's own `<head>` (for example `fn-card-title`, `insight-summary`, `signal-status`, `cs-order`). The full field list for each section is in the docstring at the top of `scripts/generate_indexes.py`. Read it before adding or editing any article.
+To change a card, listing, or manifest entry, edit the `<meta>` tags in the article's own `<head>` (for example `fn-card-title`, `insight-summary`, `cs-order`). The full field list for each section is in the docstring at the top of `scripts/generate_indexes.py`. Read it before adding or editing any article.
 
-Category keys must already exist in the `<scott-filter-bar>` JSON block on that section's hub page. That block is hand-authored; add a new key there first if one is needed.
+Category keys must already exist in the `<scott-filter-bar>` JSON block on that section's hub page. That block is hand-authored; add a new key there first if one is needed. Exception: case-study deep-dive categories live in the filter bar on `case-studies/hawkeye-fan-shop.html`, next to the deep-dive cards.
+
+`/case-studies` is a client showcase: one generated card per client page (`cs-type` `client`), large logo beside the details. A client's `cs-button-class` sets both its branded button and its card accent; add matching `.button.<class>` and `.cs-showcase-card.is-<class>` rules to `case-studies.html` for a new client. Deep-dive cards (`cs-type` `deep-dive`) are generated onto the Hawkeye Fan Shop case study, not the hub.
 
 ## CSS and JS assets
 
 - Pages load minified files from `assets/js/` and `assets/css/` (for example `footer-min.js`, `navigation-min.js`, `main-min.css`).
 - Every minified file has a readable source next to it (`footer.js`, `navigation.js`, `main.css`, `scott-filter-bar.js`, and so on).
 - Edit the source file, then regenerate the matching `-min` file. Both must change in the same commit. Never edit only the `-min` file.
-- Minified files are produced by the MinifyAll VS Code extension (it writes the `-min` suffix). It cannot be run from the terminal: its npm CLI fails to run on current Node and does not handle JS. So after editing any source `.js` or `.css` file, stop and tell Scott exactly which source files changed so he can run MinifyAll on them in VS Code. Do not write or hand-edit the `-min` file yourself, and do not use any other minifier (terser, esbuild, clean-css, and so on).
+- JS: regenerate with `node scripts/minifyall.cjs assets/js/<file>.js`. It runs the installed MinifyAll VS Code extension's own code from the terminal (its npm CLI doesn't work on current Node) and writes the `-min` sibling. It reproduces the committed `footer-min.js`, `navigation-min.js`, `header-min.js`, `main-min.js`, and `case-study-hotspots-min.js` byte for byte. `scott-filter-bar-min.js` was built differently, so its first regeneration produces a larger diff than the source change; say so in the report. Do not use any other minifier (terser directly, esbuild, and so on).
+- CSS: the committed `main-min.css` was not produced by MinifyAll (different output style), and MinifyAll's CSS minifier would rewrite the whole file. When a source change only deletes whole rules, delete the matching contiguous run of rules from the `-min` file and confirm the neighboring rules are untouched. For any other CSS change, stop and tell Scott which source file changed.
+- After regenerating, diff the `-min` file and confirm the only change is the intended one.
 - Site-wide UI is built as custom elements: `<scott-nav>` (`assets/js/navigation.js`), `<scott-footer>` (`assets/js/footer.js`), `<scott-filter-bar>` (`assets/js/scott-filter-bar.js`, uses shadow DOM). New shared UI follows this same custom-element pattern rather than copy-pasted HTML.
 
 ## Headers, CSP, and things that are not in this repo
@@ -48,9 +52,22 @@ Category keys must already exist in the `<scott-filter-bar>` JSON block on that 
 - Analytics is GA4 through GTM only. Do not add any other analytics, session replay, heatmap, or tracking script.
 - The contact form posts to Web3Forms.
 
+## Status page
+
+- `/status` (`status.html`, rendered by `assets/js/status.js`) shows every monitor on the UptimeRobot account, so a monitor added there appears with no code change. Don't hard-code monitor names.
+- Data comes from the Pages Function `functions/api/status.js` (`GET /api/status`). It calls UptimeRobot server-side with the read-only key in the `UPTIMEROBOT_API_KEY` secret (Cloudflare Pages > Settings > Variables and Secrets) and returns only the fields the page needs. The key must never reach the browser or the repo. Locally it lives in `.dev.vars` (gitignored), which `wrangler pages dev` loads.
+- The Cloudflare Pages project is `scottlabz` in the "Scott Labz" account (ID `92debb682bcd6940aee7dac4082d8efa`); the same login also sees unrelated accounts, so pass the ID. Set or rotate the key without the dashboard: `sed -n 's/^UPTIMEROBOT_API_KEY=//p' .dev.vars | tr -d '\n' | CLOUDFLARE_ACCOUNT_ID=92debb682bcd6940aee7dac4082d8efa npx wrangler@3 pages secret put UPTIMEROBOT_API_KEY --project-name scottlabz`. A secret applies from the next deploy.
+- UptimeRobot's free plan allows 10 API calls a minute, so the function caches responses for 60 seconds and keeps the last good response for a day as a fallback. Keep that caching if you change the function.
+- No CSP change is involved: the browser only fetches same-origin `/api/status`.
+- Body copy on the page must not name the monitoring service (third-party tool rule).
+
 ## Pages excluded from the sitemap and orphan checks
 
 `404.html`, `thank-you.html`, `nav-demo.html`, `filter-bar-demo.html`, and `landing.html` (ad landing page reached only by external traffic). Subdirectory `index.html` files are usually meta-refresh redirect stubs; every directory must have one. Check `scripts/audit_site.py` and `scripts/generate_sitemap.py` before adding to these lists, and keep the two lists in sync.
+
+## Local preview
+
+Run `npx wrangler@3 pages dev . --port 8788` from the repo root and open http://127.0.0.1:8788. It serves extensionless URLs and runs `functions/_middleware.js`, so the retired-page 301s work locally too. `python3 scripts/serve.py` (port 8000) is a lighter option that resolves clean URLs but runs no Functions: redirects don't fire and `/status` loads no data there because `/api/status` returns 404. Use wrangler for anything involving `functions/`. `.wrangler/` is local state and is gitignored.
 
 ## Checks to run before every commit
 
@@ -66,12 +83,12 @@ python3 scripts/check_redirect_stubs.py
 
 Because the sitemap only updates after push, `audit_site.py` will report pages added or deleted in this change as missing from (or stale in) `sitemap.xml`. That specific failure is expected; ignore it for pages this change added or removed and do not fix it by editing the sitemap. Any other sitemap failure is real.
 
-`audit_site.py` covers sitemap completeness, canonical URLs, broken internal links, orphan pages, `<img>` alt and title coverage, trust page links, JSON-LD consistency, meta titles and descriptions, and HTML tag balance. If it fails, fix the cause; do not edit the audit script to make it pass.
+`audit_site.py` covers sitemap completeness, canonical URLs, broken internal links, orphan pages, `<img>` alt coverage (and no `title` on any `<img>`), trust page links, JSON-LD consistency, meta titles and descriptions, and HTML tag balance. If it fails, fix the cause; do not edit the audit script to make it pass.
 
 ## HTML formatting rules
 
 - `<a href=` must always stay on the same line as the opening `<a`, never split across lines, no matter how many attributes follow on later lines.
-- Every content `<img>` needs `alt` and `title`.
+- Every content `<img>` needs `alt`. Do not add a `title` attribute to `<img>` (removed sitewide 2026-10-13; `audit_site.py` flags any that come back).
 
 ## Copy rules (enforced sitewide)
 
@@ -80,7 +97,7 @@ These apply to all visible on-site text: body copy, headings, meta descriptions,
 - No em dashes and no en dashes anywhere. Hyphens only. Before committing, search changed files for U+2014 (em dash) and U+2013 (en dash) and replace them, for example `LC_ALL=C.UTF-8 grep -nP '\x{2014}|\x{2013}' <files>`.
 - No superlatives.
 - No named third-party tools or platforms in body copy.
-- Do not use the words "engineering," "technology," or "team" in body copy. Signals pages may be an exception; ask Scott before using them there.
+- Do not use the words "engineering," "technology," or "team" in body copy.
 - Voice: new copy uses "Scott Labz" sparingly in place of "we" or "I", and prefers neutral phrasing ("see the case study", "Who it's for"). Field Notes body copy does not use "Scott Labz". Visitor-voice text stays first person (FAQ questions like "Can I apply again next year?", form labels like "I've read..."). Legal and trust pages keep "we".
 - Do not change existing "we", "I", or "Scott Labz" wording anywhere on the site unless Scott asks. The current wording was set deliberately.
 - Tone: short, direct, action-oriented.
@@ -91,9 +108,13 @@ Pick the right section before writing anything. Do not create pages that are not
 
 - **Field Notes** (`field-notes/`): closed incident stories. Written once, stand alone.
 - **Insights** (`insights/`): evergreen, principle-driven pieces.
-- **Signals** (`signals/`): short, timely single observations. Status is `red`, `amber`, or `green`.
 - **Findings**: must link back to a published Signal. A Finding with no Signal does not get published.
 - **Diagnostics** (`diagnostics/`): interactive pillar tools. The old Lab section is retired; do not recreate it.
+- **Signals** was retired in October 2026 and folded into Field Notes; do not recreate it. Old `/signals/` URLs are 301-redirected by the `REDIRECTS` map in `functions/_middleware.js`.
+
+## Retiring a page
+
+Cloudflare Pages ignores a `_redirects` file here because `functions/_middleware.js` runs on every route. To remove a page, delete it, fix every link that `audit_site.py` reports as broken, and add its extensionless path to the `REDIRECTS` map in `functions/_middleware.js`, pointing at the closest kept page.
 
 ## Reporting back to Scott
 

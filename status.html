@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <!-- Google Tag Manager -->
+    <script src="assets/js/gtm.js?v=a142f1f758" async></script>
+    <!-- End Google Tag Manager -->
+    <title>System Status | Scott Labz</title>
+    <meta
+      name="description"
+      content="Live availability for the sites Scott Labz runs and supports: current status, daily uptime for the last 90 days, response times, and recent incidents." />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="preload"
+      href="assets/fonts/source-sans-pro-300.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin />
+    <link
+      rel="preload"
+      href="assets/fonts/source-sans-pro-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin />
+    <link rel="stylesheet" href="assets/css/main-min.css?v=f03850acbe" />
+    <noscript>
+      <link rel="stylesheet" href="assets/css/noscript-min.css?v=ab1c7bc451" />
+    </noscript>
+    <script src="assets/js/header-min.js?v=0d09452115" async></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon/favicon-32x32.png?v=d06ceab0dd" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon/favicon-16x16.png?v=2664f5c356" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="images/favicon/favicon-96x96.png?v=1fac781b7c" />
+    <script src="assets/js/navigation-min.js?v=dec1f34e3e" defer></script>
+    <link rel="canonical" href="https://scottlabz.com/status" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://scottlabz.com/#organization",
+            "name": "Scott Labz, LLC",
+            "description": "Live availability for the sites Scott Labz runs and supports: current status, daily uptime for the last 90 days, response times, and recent incidents.",
+            "url": "https://scottlabz.com/status",
+            "telephone": "+1-309-324-2875",
+            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "priceRange": "$$",
+            "slogan": "Measure. Build. Improve.",
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "McLean County, Illinois"
+            },
+            "sameAs": [
+              "https://github.com/scottlabz",
+              "https://www.linkedin.com/company/scottlabz",
+              "https://www.linkedin.com/in/scotttaylor369"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-309-324-2875",
+              "contactType": "Scott Labz"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://scottlabz.com/status#webpage",
+            "name": "System Status",
+            "description": "Live availability for the sites Scott Labz runs and supports: current status, daily uptime for the last 90 days, response times, and recent incidents.",
+            "url": "https://scottlabz.com/status",
+            "isPartOf": { "@id": "https://scottlabz.com/#organization" }
+          }
+        ]
+      }
+    </script>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Scott Labz" />
+    <meta property="og:title" content="System Status | Scott Labz" />
+    <meta
+      property="og:description"
+      content="Live availability for the sites Scott Labz runs and supports, with 90 days of uptime history." />
+    <meta property="og:url" content="https://scottlabz.com/status" />
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/og-share.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="System Status | Scott Labz" />
+    <meta name="twitter:description" content="Live availability for the sites Scott Labz runs and supports, with 90 days of uptime history." />
+    <meta name="twitter:image" content="https://scottlabz.com/images/og-share.png" />
+    <style>
+      /* Header: the site's standard hero without its photo half, sized to
+         its content (same treatment as /case-studies). */
+      .banner.style1.status-hero .content {
+        width: 100%;
+        max-width: 1180px;
+        padding: 3rem 1.5rem 1rem;
+      }
+
+      .status-hero h1 {
+        margin: 0.2rem 0 1rem;
+      }
+
+      .status-hero .status-lede {
+        max-width: 46rem;
+        margin: 0;
+      }
+
+      .status-main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 4rem;
+      }
+
+      /* Shared status colors. */
+      .status-dot {
+        display: inline-block;
+        flex: none;
+        width: 0.7rem;
+        height: 0.7rem;
+        border-radius: 50%;
+        background: #94a3b8;
+      }
+
+      .status-dot.is-up {
+        background: #16a34a;
+      }
+
+      .status-dot.is-warn,
+      .status-dot.is-degraded {
+        background: #d97706;
+      }
+
+      .status-dot.is-down {
+        background: #dc2626;
+      }
+
+      .status-summary {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 0 0 2rem;
+        padding: 1.1rem 1.5rem;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        background: #f0fdf4;
+        border: 1px solid #bbf7d0;
+      }
+
+      .status-summary.is-warn {
+        background: #fffbeb;
+        border-color: #fde68a;
+      }
+
+      .status-summary.is-down {
+        background: #fef2f2;
+        border-color: #fecaca;
+      }
+
+      .status-list {
+        display: grid;
+        gap: 1.25rem;
+      }
+
+      .status-card {
+        padding: 1.5rem;
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        border-radius: 10px;
+      }
+
+      .status-card-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
+        margin: 0 0 1.1rem;
+      }
+
+      .status-card-name h2 {
+        margin: 0;
+        font-size: 1.25rem;
+      }
+
+      .status-host {
+        display: inline-block;
+        margin-top: 0.15rem;
+        font-size: 0.95rem;
+        color: #2563eb;
+      }
+
+      a.status-host {
+        border-bottom: 1px solid rgba(37, 99, 235, 0.35);
+        text-decoration: none;
+      }
+
+      a.status-host:hover {
+        border-bottom-color: #2563eb;
+      }
+
+      .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        flex: none;
+        padding: 0.3rem 0.75rem;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        background: #f1f5f9;
+        color: #334155;
+      }
+
+      .status-badge.is-up {
+        background: #f0fdf4;
+        color: #15803d;
+      }
+
+      .status-badge.is-degraded {
+        background: #fffbeb;
+        color: #b45309;
+      }
+
+      .status-badge.is-down {
+        background: #fef2f2;
+        color: #b91c1c;
+      }
+
+      /* 90-day history: one bar per UTC day. */
+      .status-days {
+        display: flex;
+        gap: 2px;
+        height: 34px;
+      }
+
+      .status-day {
+        flex: 1 1 0;
+        min-width: 0;
+        border-radius: 2px;
+        background: #e2e8f0;
+      }
+
+      .status-day.is-up {
+        background: #22c55e;
+      }
+
+      .status-day.is-warn {
+        background: #f59e0b;
+      }
+
+      .status-day.is-down {
+        background: #ef4444;
+      }
+
+      .status-days-scale {
+        display: flex;
+        justify-content: space-between;
+        margin: 0.35rem 0 1.25rem;
+        font-size: 0.75rem;
+        color: #64748b;
+      }
+
+      .status-stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 2fr);
+        gap: 1rem;
+        align-items: end;
+      }
+
+      .status-stat {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .status-stat-value {
+        font-size: 1.15rem;
+        font-weight: 600;
+      }
+
+      .status-stat-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #64748b;
+      }
+
+      .status-stat-rt {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 1rem;
+        align-items: end;
+      }
+
+      .status-stat-rt .status-spark {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        justify-self: end;
+        color: #2563eb;
+      }
+
+      .status-spark svg {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .status-incidents {
+        margin: 3rem 0 0;
+      }
+
+      .status-incidents h2 {
+        font-size: 1.35rem;
+        margin: 0 0 1rem;
+      }
+
+      .status-incident-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .status-incident-list li {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) auto;
+        gap: 1rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .status-empty,
+      .status-note,
+      .status-error {
+        color: #475569;
+      }
+
+      .status-note {
+        margin: 2.5rem 0 0;
+        font-size: 0.85rem;
+      }
+
+      .status-loading {
+        color: #64748b;
+      }
+
+      .status-scale-short {
+        display: none;
+      }
+
+      @media screen and (max-width: 736px) {
+        /* 90 bars are too thin on a phone: show the last 30 days. */
+        .status-day:nth-last-child(n + 31) {
+          display: none;
+        }
+
+        .status-scale-long {
+          display: none;
+        }
+
+        .status-scale-short {
+          display: inline;
+        }
+
+        .status-stats {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .status-stat-rt {
+          grid-column: 1 / -1;
+        }
+
+        .status-incident-list li {
+          grid-template-columns: 1fr;
+          gap: 0.15rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <scott-nav skip-target="#status-app"></scott-nav>
+
+    <div id="wrapper" class="divided">
+      <main id="main-content">
+        <section class="banner style1 orient-left content-align-left status-hero">
+          <div class="content">
+            <p class="brand-mark">
+              <a href="/" style="border-bottom: none">
+                <img
+                  src="images/scottlabz-clear.webp?v=d34943c620"
+                  srcset="images/scottlabz-clear-32w.webp?v=8d5d3e1b4b 32w, images/scottlabz-clear-64w.webp?v=7b37132bec 64w, images/scottlabz-clear-96w.webp?v=1b0fa7e3f5 96w, images/scottlabz-clear.webp?v=d34943c620 130w"
+                  sizes="(max-width: 736px) 28px, 55px"
+                  width="130"
+                  height="170"
+                  alt="S"
+                  class="logo"
+                  style="margin-right: 0" />cott Labz
+              </a>
+            </p>
+
+            <h1 class="major">System Status</h1>
+
+            <p class="status-lede">
+              Live availability for the sites Scott Labz runs and supports,
+              including this one. Each card shows current status, daily uptime
+              for the last 90 days, and response times. For how sites are kept
+              secure and online, see
+              <a href="/security-trust">Security &amp; Trust</a>.
+            </p>
+          </div>
+        </section>
+
+        <section class="status-main" aria-label="Site status">
+          <div id="status-app" aria-live="polite" aria-busy="true">
+            <p class="status-loading">Loading current status...</p>
+            <noscript>
+              <p class="status-error">This page needs JavaScript to load live status.</p>
+            </noscript>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/smooth-scroll.js?v=2418fdee53" defer></script>
+      <script src="/assets/js/main-min.js?v=f697f0f060" defer></script>
+      <script src="/assets/js/footer-min.js?v=ac2035ccd3" defer></script>
+      <script src="/assets/js/status-min.js" defer></script>
+      <scott-footer
+        description="Live availability for the sites Scott Labz runs and supports, with 90 days of uptime history."></scott-footer>
+    </div>
+  </body>
+</html>

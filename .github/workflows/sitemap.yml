@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Generate hub indexes (Field Notes, Insights, Signals, Case Studies)
+      - name: Generate hub indexes (Field Notes, Insights, Case Studies)
         run: python scripts/generate_indexes.py
 
       - name: Generate sitemap

@@ -53,7 +53,6 @@
       sizes="96x96"
       href="images/favicon/favicon-96x96.png?v=1fac781b7c" />
     <script src="assets/js/navigation-min.js?v=dec1f34e3e" defer></script>
-    <script src="/assets/js/scott-filter-bar-min.js?v=a0d2b5dd01" defer></script>
 
     <link rel="canonical" href="https://scottlabz.com/case-studies" />
 
@@ -126,66 +125,6 @@
                   "@type": "ListItem",
                   "position": 2,
                   "url": "https://scottlabz.com/case-studies/the-black-and-gold-shop"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "url": "https://scottlabz.com/case-studies/digital-measurement-strategy"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 4,
-                  "url": "https://scottlabz.com/case-studies/digital-analytics-implementation"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 5,
-                  "url": "https://scottlabz.com/case-studies/analytics-modernization"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 6,
-                  "url": "https://scottlabz.com/case-studies/analytics-dashboard-reporting"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 7,
-                  "url": "https://scottlabz.com/case-studies/data-quality-governance"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 8,
-                  "url": "https://scottlabz.com/case-studies/analytics-dashboard-reporting-platform"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 9,
-                  "url": "https://scottlabz.com/case-studies/website-performance-optimization"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 10,
-                  "url": "https://scottlabz.com/case-studies/website-security-performance-engineering"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 11,
-                  "url": "https://scottlabz.com/case-studies/custom-web-application-development"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 12,
-                  "url": "https://scottlabz.com/case-studies/digital-infrastructure-modernization"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 13,
-                  "url": "https://scottlabz.com/case-studies/digital-experience-optimization"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 14,
-                  "url": "https://scottlabz.com/case-studies/advertising-media-buying"
                 }
               ]
             }
@@ -215,26 +154,159 @@
     <meta name="twitter:image" content="https://scottlabz.com/images/og-share.png" />
 
     <style>
-      hr {
-        border: 0;
-        border-bottom: solid 1px;
-        margin: 2rem 0;
+      /* Header: the site's standard hero without its photo half, sized
+         to its content instead of the full viewport. */
+      .banner.style1.cs-hero .content {
+        width: 100%;
+        max-width: 1180px;
+        padding: 3rem 1.5rem 1rem;
       }
 
-      /* Workstream deep dives: filterable card grid. The card styles
-         themselves live in main.css (shared with the service pages). */
-      /* Heavier rule than the thin lines between client blocks, so it
-         reads as a new section rather than a fourth client. */
-      .cs-deep-dives {
-        margin: 2.5rem 0 0;
-        padding-top: 2.5rem;
-        border-top: 2px solid #1e3a5f;
+      .cs-hero h1 {
+        margin: 0.2rem 0 1rem;
+      }
+
+      .cs-hero .cs-lede {
+        max-width: 46rem;
+        margin: 0;
+      }
+
+      /* Client showcase: one full-width row per client - a large logo
+         panel beside the details - stacking on narrow screens. New
+         clients just add rows. */
+      .cs-showcase {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 4rem;
+      }
+
+      .cs-showcase-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .cs-showcase-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+        overflow: hidden;
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        border-top: 4px solid var(--brand, #1e3a5f);
+        border-radius: 10px;
+        transition:
+          box-shadow 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .cs-showcase-card:hover,
+      .cs-showcase-card:focus-within {
+        box-shadow: 0 10px 28px rgba(15, 23, 42, 0.1);
+        transform: translateY(-2px);
+      }
+
+      /* Each client's accent, from its cs-button-class. */
+      .cs-showcase-card.is-hawkeye {
+        --brand: #ffcd00;
+      }
+
+      .cs-showcase-card.is-blackgold {
+        --brand: #000000;
+      }
+
+      .cs-showcase-card.is-kitchens {
+        --brand: #007030;
+      }
+
+      .cs-showcase-card.is-couchletics {
+        --brand: #5980a6;
+      }
+
+      /* Logos stay large: each shows at its file's own size, scaled
+         down only when the panel is narrower (Hawkeye is near-square,
+         the others are wide wordmarks, so a shared height would make
+         Hawkeye read small). */
+      .cs-showcase-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 300px;
+        padding: 2.5rem;
+        /* White, not a tint: the Hawkeye logo file has a white edge that
+           shows as a halo on any colored panel. */
+        background: #ffffff;
+        border-right: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .cs-showcase-logo img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+      }
+
+      .cs-showcase-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem 2.25rem;
+      }
+
+      @media screen and (max-width: 860px) {
+        .cs-showcase-card {
+          grid-template-columns: 1fr;
+        }
+
+        .cs-showcase-logo {
+          min-height: 0;
+          padding: 2rem 1.5rem;
+          border-right: 0;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .cs-showcase-body {
+          padding: 1.5rem;
+        }
+      }
+
+      .cs-showcase-name {
+        margin: 0 0 0.35rem;
+        font-size: 1.35rem;
+      }
+
+      .cs-showcase-caption {
+        margin: 0 0 0.85rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #64748b;
+      }
+
+      .cs-showcase-summary {
+        margin: 0 0 1.5rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .cs-showcase-body .button {
+        margin: 0;
+      }
+
+      .cs-showcase-soon {
+        margin: 0.6rem 0 0;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-align: center;
+        text-transform: uppercase;
+        color: #555555;
       }
 
       /* Closing call to action after the cards: the page is where
          visitors judge the work, so give them a next step. */
       .cs-cta {
-        margin: 3rem 0 0;
+        margin: 3.5rem 0 0;
         padding-top: 2.5rem;
         border-top: 1px solid #dbe3ec;
         text-align: center;
@@ -247,21 +319,6 @@
       .cs-cta p {
         margin: 0 auto 1.5rem;
         max-width: 34rem;
-      }
-
-      .cs-deep-dives h2 {
-        margin: 0 0 0.35rem;
-      }
-
-      .cs-intro {
-        margin: 0 0 1.25rem;
-        font-size: 0.95rem;
-        opacity: 0.8;
-      }
-
-      scott-filter-bar {
-        display: block;
-        margin-bottom: 1.25rem;
       }
 
       .button.hawkeye {
@@ -305,120 +362,16 @@
         cursor: default;
       }
 
-      .button.kitchens:hover {
-        background-color: #ffffff;
+      /* Couchletics brand tokens from couchletics.com: their primary
+         button blue (accent-700) with the deepest accent as the ring;
+         the card accent above is their main brand blue (accent). */
+      .button.couchletics {
+        background-color: #416180;
         box-shadow:
-          inset 0 0 0 4px #007030,
+          inset 0 0 0 4px #1d2d3d,
           0 6px 14px rgba(0, 0, 0, 0.3);
-        color: #007030 !important;
-      }
-
-      /* Clients: one equal-weight block per client, stacked in the
-         content column. The logos have very different shapes (Hawkeye
-         is near-square, the others are wide wordmarks), so a shared
-         height makes Hawkeye read small. Each logo shows at its file's
-         own size instead, scaled down only when the column is narrower. */
-      .cs-clients {
-        margin: 0;
-      }
-
-      .cs-clients-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
-
-      .cs-client {
-        text-align: center;
-        padding: 2rem 0;
-      }
-
-      .cs-client:first-child {
-        padding-top: 0;
-      }
-
-      .cs-client + .cs-client {
-        border-top: 1px solid rgba(0, 0, 0, 0.12);
-      }
-
-      .cs-client img {
-        display: block;
-        /* Native size, never enlarged; only shrinks to fit the column. */
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        margin: 0 auto;
-      }
-
-      .cs-client-caption {
-        margin: 0.75rem 0 0;
-        font-size: 85%;
-        text-transform: uppercase;
-        font-weight: 400;
-      }
-
-      .cs-client .actions {
-        margin: 1rem 0 0 0;
-      }
-
-      .cs-client-soon {
-        margin: 0.75rem 0 0;
-        font-size: 80%;
-        font-weight: 600;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: #555;
-      }
-
-      /* The hero image sits in a flex row with align-items:stretch, so
-         its height normally matches whatever height the text column on
-         this page grows to (well past 2000px with all the sections
-         above). object-fit:cover was upscaling the 1980x1320 source by
-         50%+ to cover that height, which is what caused the visible
-         pixelation. Pinning the image at a real viewport height instead
-         keeps it at or below its native resolution. Landscape-only so it
-         doesn't fight the template's own portrait/mobile layout, which
-         already caps this image at a sane 45vh. */
-      @media screen and (orientation: landscape) {
-        .banner.style1.fullscreen .image {
-          position: sticky;
-          top: 0;
-          align-self: flex-start;
-          height: 100vh;
-          height: 100svh;
-        }
-
-        /* Same overflow-x:hidden -> overflow-y:auto promotion trap
-           exists two levels of the DOM: on .banner.style1 itself (for
-           its load-in slide animation) AND on #wrapper (a sitewide
-           safety net against horizontal overflow). Both silently turn
-           into scroll-clipping containers, and since neither actually
-           has its own scrollbar (their height is just auto-sized to
-           content), position:sticky ends up anchored to a container
-           that never moves - so .image just scrolls away with the
-           page instead of sticking. Once body.is-preload is gone
-           (main.js strips it ~100ms after load, animation over), lift
-           both clips so sticky measures against the real page scroll. */
-        body:not(.is-preload) #wrapper,
-        body:not(.is-preload) .banner.style1.fullscreen {
-          overflow: visible;
-        }
-      }
-
-      /* Auto-advancing hero carousel, no arrows/dots - the three real
-         storefront photos crossfade on a timer (see the script near
-         the end of <body>). Sizing/position/object-fit are already
-         handled by the shared .banner.style1 .image img rule in
-         main.css, which stacks each <img> absolutely over the same
-         50%-width column - this only needs to control which one is
-         visible. */
-      .hero-carousel-slide {
-        opacity: 0;
-        transition: opacity 1.2s ease;
-      }
-
-      .hero-carousel-slide.is-active {
-        opacity: 1;
+        color: #ffffff !important;
+        cursor: default;
       }
     </style>
   </head>
@@ -438,8 +391,7 @@
 
     <div id="wrapper" class="divided">
       <main id="main-content">
-        <section
-          class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+        <section class="banner style1 orient-left content-align-left cs-hero">
           <div class="content">
             <p class="brand-mark">
               <a href="/" style="border-bottom: none">
@@ -450,390 +402,112 @@
                   width="130"
                   height="170"
                   alt="S"
-                  title="S"
                   class="logo"
                   style="margin-right: 0" />cott Labz
               </a>
             </p>
 
-            <h1 class="major" style="margin: 0.2rem 0">Case Studies</h1>
+            <h1 class="major">Case Studies</h1>
 
-            <p style="margin: 0 0 1rem 0">
-              Explore real-world examples of analytics modernization, digital
-              infrastructure improvements, data pipelines, and custom digital
-              solutions designed to create measurable business outcomes. For the
+            <p class="cs-lede">
+              Client work across measurement, web development, optimization,
+              and media. Each case study covers what was measured, built, and
+              improved, and what it changed for the business. For the
               technical breakdowns behind this kind of work, see the
               <a href="/field-notes/">Field Notes archive</a>.
             </p>
+          </div>
+        </section>
 
-            <hr style="margin: 2.5rem 0" />
-
-            <section class="cs-clients" aria-label="Clients">
-
-              <div class="cs-clients-grid">
-                <!-- CS-CLIENTS:START -->
-                <div class="cs-client">
+        <section class="cs-showcase" aria-label="Clients">
+          <div class="cs-showcase-grid">
+              <!-- CS-CLIENTS:START -->
+              <article class="cs-showcase-card is-hawkeye">
+                <div class="cs-showcase-logo">
                   <img
                     src="images/hawkeyefanshop.png?v=94c259525f"
                     width="721"
                     height="346"
                     alt="Hawkeye Fan Shop logo, the official University of Iowa Athletic Department retailer"
-                    title="Hawkeye Fan Shop"
                     loading="lazy" />
-                  <p class="cs-client-caption">Official University of Iowa Athletic Department retailer</p>
-                  <ul class="actions stacked">
-                    <li>
-                      <a href="case-studies/hawkeye-fan-shop"
-                        class="button big wide smooth-scroll hawkeye">
-                        View Hawkeye Fan Shop Case Study
-                      </a>
-                    </li>
-                  </ul>
                 </div>
-
-                <div class="cs-client">
+                <div class="cs-showcase-body">
+                  <h2 class="cs-showcase-name">Hawkeye Fan Shop</h2>
+                  <p class="cs-showcase-caption">Official University of Iowa Athletic Department retailer</p>
+                  <p class="cs-showcase-summary">How measurement, product-page tracking, and site reliability work have supported Hawkeye Fan Shop's storefront through a decade of gameday traffic.</p>
+                  <a href="case-studies/hawkeye-fan-shop" class="button wide hawkeye" aria-label="View Hawkeye Fan Shop Case Study">View Case Study</a>
+                </div>
+              </article>
+              <article class="cs-showcase-card is-blackgold">
+                <div class="cs-showcase-logo">
                   <img
                     src="images/bgs.png?v=e6e59c6dbd"
                     width="724"
                     height="154"
                     alt="The Black &amp; Gold Shop logo, an official Iowa Hawkeyes retailer"
-                    title="The Black &amp; Gold Shop"
                     loading="lazy" />
-                  <p class="cs-client-caption">Official Hawkeyes retail partner</p>
-                  <ul class="actions stacked">
-                    <li>
-                      <a href="case-studies/the-black-and-gold-shop"
-                        class="button big wide smooth-scroll blackgold">
-                        View Black &amp; Gold Shop Case Study
-                      </a>
-                    </li>
-                  </ul>
                 </div>
-                <!-- CS-CLIENTS:END -->
+                <div class="cs-showcase-body">
+                  <h2 class="cs-showcase-name">The Black &amp; Gold Shop</h2>
+                  <p class="cs-showcase-caption">Official Hawkeyes retail partner</p>
+                  <p class="cs-showcase-summary">How measurement, development, and infrastructure work came together to run a reliable, scalable storefront for The Black &amp; Gold Shop.</p>
+                  <a href="case-studies/the-black-and-gold-shop" class="button wide blackgold" aria-label="View Black &amp; Gold Shop Case Study">View Case Study</a>
+                </div>
+              </article>
+              <!-- CS-CLIENTS:END -->
 
-                <!-- Hand-authored until the Kitchens case study page is
-                     published; then delete this block and give that page
-                     cs-* meta tags like the other client pages. -->
-                <div class="cs-client">
+              <!-- Hand-authored until the Kitchens case study page is
+                   published; then delete this card and give that page
+                   cs-* meta tags like the other client pages. -->
+              <article class="cs-showcase-card is-kitchens">
+                <div class="cs-showcase-logo">
                   <img
                     src="images/kitchens.png?v=0120038784"
                     width="1000"
                     height="216"
                     alt="Kitchens logo, a family-owned cookware, cutlery, and gourmet foods retailer"
-                    title="Kitchens"
                     loading="lazy" />
-                  <p class="cs-client-caption">Family-owned cookware, cutlery, and gourmet foods retailer</p>
-                  <ul class="actions stacked">
-                    <li>
-                      <span
-                        class="button big wide kitchens"
-                        aria-disabled="true"
-                        aria-describedby="kitchens-soon">
-                        View Kitchens Case Study
-                      </span>
-                    </li>
-                  </ul>
-                  <p class="cs-client-soon" id="kitchens-soon">Coming soon</p>
                 </div>
-              </div>
-            </section>
+                <div class="cs-showcase-body">
+                  <h2 class="cs-showcase-name">Kitchens</h2>
+                  <p class="cs-showcase-caption">Family-owned cookware, cutlery, and gourmet foods retailer</p>
+                  <p class="cs-showcase-summary">A long-standing web development and analytics client. The full case study is in progress.</p>
+                  <span class="button wide kitchens" aria-disabled="true" aria-describedby="kitchens-soon">View Case Study</span>
+                  <p class="cs-showcase-soon" id="kitchens-soon">Coming soon</p>
+                </div>
+              </article>
 
-            <section class="cs-deep-dives" aria-labelledby="cs-deep-dives-title">
-              <h2 class="size-h3" id="cs-deep-dives-title">Hawkeye Fan Shop - Workstream Deep Dives</h2>
-              <p class="cs-intro">Each study breaks out one piece of the Hawkeye Fan Shop work - measurement, web, optimization, or media.</p>
-              <scott-filter-bar target="#cs-grid" item-selector=".cs-card" all-label="All">
-                <script type="application/json">
-                  [
-                    { "key": "analytics", "label": "Analytics & Data", "color": "#2563eb" },
-                    { "key": "web", "label": "Web & Digital", "color": "#0f766e" },
-                    { "key": "optimization", "label": "Optimization", "color": "#b45309" },
-                    { "key": "advertising", "label": "Advertising & Media", "color": "#7c2d92" }
-                  ]
-                </script>
-              </scott-filter-bar>
-              <div class="cs-grid" id="cs-grid">
-                <!-- CS-CARDS:START -->
-                <a href="case-studies/digital-measurement-strategy" class="cs-card" data-categories="analytics" style="--cat: #2563eb">
+              <!-- Hand-authored until the Couchletics case study page is
+                   published, same as Kitchens above. -->
+              <article class="cs-showcase-card is-couchletics">
+                <div class="cs-showcase-logo">
                   <img
-                    src="images/cs-thumb-digital-measurement-strategy-480w.webp?v=3885b94ae9"
-                    srcset="images/cs-thumb-digital-measurement-strategy-480w.webp?v=3885b94ae9 480w, images/cs-thumb-digital-measurement-strategy-960w.webp?v=22de343003 960w"
-                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
-                    width="480"
-                    height="270"
-                    alt="Iowa women's basketball player signing a basketball courtside for fans"
-                    title="Iowa women's basketball player signing a basketball courtside for fans"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Analytics &amp; Data</span>
-                    <h3 class="cs-card-title">Measurement Strategy</h3>
-                    <span class="cs-card-text">A ground-up measurement strategy that improved analytics consistency, tracking reliability, and business visibility.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-                <a href="case-studies/digital-analytics-implementation" class="cs-card" data-categories="analytics" style="--cat: #2563eb">
-                  <img
-                    src="images/cs-thumb-digital-analytics-implementation-480w.webp?v=bee7433fb9"
-                    srcset="images/cs-thumb-digital-analytics-implementation-480w.webp?v=bee7433fb9 480w, images/cs-thumb-digital-analytics-implementation-960w.webp?v=717502dd97 960w"
-                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
-                    width="480"
-                    height="270"
-                    alt="Iowa flag runners carrying I-O-W-A flags across the football field on gameday"
-                    title="Iowa flag runners carrying I-O-W-A flags across the football field on gameday"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Analytics &amp; Data</span>
-                    <h3 class="cs-card-title">Analytics Implementation</h3>
-                    <span class="cs-card-text">A ground-up analytics build that created reliable, scalable measurement systems.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-                <a href="case-studies/analytics-modernization" class="cs-card" data-categories="analytics" style="--cat: #2563eb">
-                  <img
-                    src="images/cs-thumb-analytics-modernization-480w.webp?v=9ee3749ac8"
-                    srcset="images/cs-thumb-analytics-modernization-480w.webp?v=9ee3749ac8 480w, images/cs-thumb-analytics-modernization-960w.webp?v=7e14e45ec6 960w"
-                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
-                    width="480"
-                    height="270"
-                    alt="Packed Iowa football stadium under the lights with fireworks overhead"
-                    title="Packed Iowa football stadium under the lights with fireworks overhead"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Analytics &amp; Data</span>
-                    <h3 class="cs-card-title">Analytics Modernization</h3>
-                    <span class="cs-card-text">Store, gameday, and online systems connected into one modern analytics infrastructure.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-                <a href="case-studies/analytics-dashboard-reporting" class="cs-card" data-categories="analytics" style="--cat: #2563eb">
-                  <img
-                    src="images/cs-thumb-analytics-dashboard-reporting-480w.webp?v=36be910f30"
-                    srcset="images/cs-thumb-analytics-dashboard-reporting-480w.webp?v=36be910f30 480w, images/cs-thumb-analytics-dashboard-reporting-960w.webp?v=95d801f6cf 960w"
-                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
-                    width="480"
-                    height="270"
-                    alt="Iowa marching band and flag runners on the field during a football pregame"
-                    title="Iowa marching band and flag runners on the field during a football pregame"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Analytics &amp; Data</span>
-                    <h3 class="cs-card-title">Dashboard &amp; Reporting</h3>
-                    <span class="cs-card-text">Connected dashboards that turned raw retail and gameday data into insight.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-                <a href="case-studies/data-quality-governance" class="cs-card" data-categories="analytics" style="--cat: #2563eb">
-                  <img
-                    src="images/cs-thumb-data-quality-governance-480w.webp?v=eedcba8ea3"
-                    srcset="images/cs-thumb-data-quality-governance-480w.webp?v=eedcba8ea3 480w, images/cs-thumb-data-quality-governance-960w.webp?v=329371d322 960w"
-                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
-                    width="480"
-                    height="270"
-                    alt="Herky the Hawk mascot holding a flag in front of a full stadium"
-                    title="Herky the Hawk mascot holding a flag in front of a full stadium"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Analytics &amp; Data</span>
-                    <h3 class="cs-card-title">Data Quality &amp; Governance</h3>
-                    <span class="cs-card-text">Ongoing validation and governance standards that built lasting confidence in analytics data.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-                <a href="case-studies/analytics-dashboard-reporting-platform" class="cs-card" data-categories="analytics" style="--cat: #2563eb">
-                  <img
-                    src="images/cs-thumb-analytics-dashboard-reporting-platform-480w.webp?v=a2ef8d0e69"
-                    srcset="images/cs-thumb-analytics-dashboard-reporting-platform-480w.webp?v=a2ef8d0e69 480w, images/cs-thumb-analytics-dashboard-reporting-platform-960w.webp?v=9e3bebf84e 960w"
-                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
-                    width="480"
-                    height="270"
-                    alt="Herky the Hawk mascot running with a Tigerhawk flag across the end zone"
-                    title="Herky the Hawk mascot running with a Tigerhawk flag across the end zone"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Analytics &amp; Data</span>
-                    <h3 class="cs-card-title">Reporting Platform</h3>
-                    <span class="cs-card-text">A unified reporting platform that turned complex, multi-channel retail data into trusted business intelligence.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-                <a href="case-studies/website-performance-optimization" class="cs-card" data-categories="web" style="--cat: #0f766e">
-                  <img
-                    src="images/cs-thumb-website-performance-optimization-480w.webp?v=f14bbc0388"
-                    srcset="images/cs-thumb-website-performance-optimization-480w.webp?v=f14bbc0388 480w, images/cs-thumb-website-performance-optimization-960w.webp?v=5c46cad810 960w"
-                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
-                    width="480"
-                    height="270"
-                    alt="Full Iowa football stadium at dusk before kickoff"
-                    title="Full Iowa football stadium at dusk before kickoff"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Web &amp; Digital</span>
-                    <h3 class="cs-card-title">Performance Optimization</h3>
-                    <span class="cs-card-text">Speed and reliability improvements that kept a gameday storefront fast under peak traffic.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-                <a href="case-studies/website-security-performance-engineering" class="cs-card" data-categories="web" style="--cat: #0f766e">
-                  <img
-                    src="images/cs-thumb-website-security-performance-engineering-480w.webp?v=35ab956491"
-                    srcset="images/cs-thumb-website-security-performance-engineering-480w.webp?v=35ab956491 480w, images/cs-thumb-website-security-performance-engineering-960w.webp?v=fd9823badf 960w"
-                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
-                    width="480"
-                    height="270"
-                    alt="Silver hawk sculpture against a pink sunset sky"
-                    title="Silver hawk sculpture against a pink sunset sky"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Web &amp; Digital</span>
-                    <h3 class="cs-card-title">Security &amp; Performance</h3>
-                    <span class="cs-card-text">Hardened security practices and resilient infrastructure that protected a storefront through peak gameday demand.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-                <a href="case-studies/custom-web-application-development" class="cs-card" data-categories="web" style="--cat: #0f766e">
-                  <img
-                    src="images/cs-thumb-custom-web-application-development-480w.webp?v=726b543caf"
-                    srcset="images/cs-thumb-custom-web-application-development-480w.webp?v=726b543caf 480w, images/cs-thumb-custom-web-application-development-960w.webp?v=f0a740d53c 960w"
-                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
-                    width="480"
-                    height="270"
-                    alt="Herky the Hawk mascot crowd-surfing over the student section"
-                    title="Herky the Hawk mascot crowd-surfing over the student section"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Web &amp; Digital</span>
-                    <h3 class="cs-card-title">Custom Web Development</h3>
-                    <span class="cs-card-text">A full-scale ecommerce platform built from the ground up, from domain to storefront.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-                <a href="case-studies/digital-infrastructure-modernization" class="cs-card" data-categories="web" style="--cat: #0f766e">
-                  <img
-                    src="images/cs-thumb-digital-infrastructure-modernization-480w.webp?v=ca2ba9dcc4"
-                    srcset="images/cs-thumb-digital-infrastructure-modernization-480w.webp?v=ca2ba9dcc4 480w, images/cs-thumb-digital-infrastructure-modernization-960w.webp?v=1487c7f991 960w"
-                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
-                    width="480"
-                    height="270"
-                    alt="Iowa flag runners with I-O-W-A flags on the field in front of the stands"
-                    title="Iowa flag runners with I-O-W-A flags on the field in front of the stands"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Web &amp; Digital</span>
-                    <h3 class="cs-card-title">Digital Infrastructure</h3>
-                    <span class="cs-card-text">Connected inventory and infrastructure that kept online, retail, and gameday systems in sync.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-                <a href="case-studies/digital-experience-optimization" class="cs-card" data-categories="optimization" style="--cat: #b45309">
-                  <img
-                    src="images/cs-thumb-digital-experience-optimization-480w.webp?v=1c0346982b"
-                    srcset="images/cs-thumb-digital-experience-optimization-480w.webp?v=1c0346982b 480w, images/cs-thumb-digital-experience-optimization-960w.webp?v=78a89cf9f5 960w"
-                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
-                    width="480"
-                    height="270"
-                    alt="Iowa football players lifting a trophy after a win"
-                    title="Iowa football players lifting a trophy after a win"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Optimization</span>
-                    <h3 class="cs-card-title">Experience Optimization</h3>
-                    <span class="cs-card-text">Behavioral data and structured testing that improved the storefront experience.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-                <a href="case-studies/advertising-media-buying" class="cs-card" data-categories="advertising" style="--cat: #7c2d92">
-                  <img
-                    src="images/cs-thumb-advertising-media-buying-480w.webp?v=c1e004eede"
-                    srcset="images/cs-thumb-advertising-media-buying-480w.webp?v=c1e004eede 480w, images/cs-thumb-advertising-media-buying-960w.webp?v=22a39fb3f0 960w"
-                    sizes="(max-width: 600px) 100vw, (orientation: portrait) 50vw, 25vw"
-                    width="480"
-                    height="270"
-                    alt="Packed stadium at night with fireworks over the field"
-                    title="Packed stadium at night with fireworks over the field"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Advertising &amp; Media</span>
-                    <h3 class="cs-card-title">Campaign Strategy &amp; Media Buying</h3>
-                    <span class="cs-card-text">Campaign strategy, media buying, and conversion tracking run alongside active development work for two long-standing retail clients.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-                <!-- CS-CARDS:END -->
-              </div>
-            </section>
-
-            <section class="cs-cta" aria-label="Start a project">
-              <h2>Facing a similar challenge?</h2>
-              <p>Start with a 15-minute conversation about your goals and a practical first step.</p>
-              <a href="/contact" class="button big wide alt">Talk to Scott</a>
-            </section>
+                    src="images/couchletics-logo.png"
+                    width="1188"
+                    height="161"
+                    alt="Couchletics logo, sports loungewear and game day gear for football fans"
+                    loading="lazy" />
+                </div>
+                <div class="cs-showcase-body">
+                  <h2 class="cs-showcase-name">Couchletics</h2>
+                  <p class="cs-showcase-caption">Sports loungewear and game day gear for football fans</p>
+                  <p class="cs-showcase-summary">Oversized hoodies, fleece sweats, heavyweight tees, hats, and sherpa blankets from the Athletic Department of Rest, designed in the USA. The full case study is in progress.</p>
+                  <span class="button wide couchletics" aria-disabled="true" aria-describedby="couchletics-soon">View Case Study</span>
+                  <p class="cs-showcase-soon" id="couchletics-soon">Coming soon</p>
+                </div>
+              </article>
           </div>
 
-          <div class="image">
-            <img
-              src="images/case-studies.jpg?v=2b03663fea"
-              width="1980"
-              height="1320"
-              style="object-position: 52% 65%"
-              class="hero-carousel-slide is-active"
-              alt="Iowa Hawkeyes mascot Herky on the field, representing a Scott Labz ecommerce analytics and digital infrastructure case study"
-              title="Scott Labz Case Studies - Ecommerce Analytics & Digital Infrastructure" />
-            <img
-              src="images/case-studies-storefront-hfs.jpg?v=dbe5501377"
-              width="1060"
-              height="2700"
-              class="hero-carousel-slide"
-              alt="Hawkeye Fan Shop pylon sign, official University of Iowa Athletics retailer and Scott Labz ecommerce analytics case study client"
-              title="Hawkeye Fan Shop Case Study - Ecommerce Analytics for an Official Iowa Athletics Retailer" />
-            <img
-              src="images/case-studies-storefront-bgs.jpg?v=d502602831"
-              width="2027"
-              height="1520"
-              style="object-position: center top"
-              class="hero-carousel-slide"
-              alt="The Black & Gold Shop storefront in Coralville, Iowa, an official Iowa Hawkeyes retailer and Scott Labz digital analytics case study client"
-              title="The Black & Gold Shop Case Study - Digital Analytics for an Official Iowa Hawkeyes Retailer" />
-            <img
-              src="images/case-studies-storefront-bgs2.jpg?v=37b97738eb"
-              width="1686"
-              height="1520"
-              style="object-position: center top"
-              class="hero-carousel-slide"
-              alt="Black & Gold Shop exterior with a large Iowa Hawkeyes football team mural, Coralville Iowa retail location and Scott Labz case study client"
-              title="The Black & Gold Shop Case Study - Iowa Hawkeyes Retail Storefront" />
-            <img
-              src="images/case-studies-storefront-kitchens.jpg?v=801183db49"
-              width="2594"
-              height="3313"
-              class="hero-carousel-slide"
-              alt="Kitchens storefront sign along a lit shopping district street at night, a long-standing Scott Labz web development and analytics client"
-              title="Kitchens Case Study - Web Development & Analytics for a Longtime Retail Client" />
-            <img
-              src="images/case-studies-storefront-kitchens2.jpg?v=d0088ab555"
-              width="2027"
-              height="1140"
-              style="object-position: center top"
-              class="hero-carousel-slide"
-              alt="Kitchens storefront entrance and window display in a daytime shopping district, a long-standing Scott Labz retail client"
-              title="Kitchens Case Study - Storefront Entrance for a Longtime Retail Client" />
-          </div>
+          <section class="cs-cta" aria-label="Start a project">
+            <h2>Could your business be the next case study?</h2>
+            <p>Share what you're measuring, building, or trying to fix, and get a practical plan for where to start.</p>
+            <a href="/contact" class="button big wide alt">Talk to Scott</a>
+          </section>
         </section>
       </main>
       <script src="/assets/js/smooth-scroll.js?v=2418fdee53" defer></script>
       <script src="/assets/js/main-min.js?v=f697f0f060" defer></script>
       <script src="/assets/js/footer-min.js?v=ac2035ccd3" defer></script>
-      <script src="/assets/js/case-studies-carousel-min.js?v=a2738633c6" defer></script>
 
       <scott-footer
         description="Explore case studies demonstrating modern analytics, digital infrastructure, and custom digital solutions.">

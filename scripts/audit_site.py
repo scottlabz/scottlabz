@@ -2,7 +2,8 @@
 """
 Site audit for the hand-authored HTML site: sitemap completeness,
 canonical URL correctness, internal link integrity, orphaned pages,
-and <img> alt/title coverage.
+<img> alt coverage, and no title attribute on any <img> (removed
+sitewide 2026-10-13).
 
 Runs entirely against files on disk - no network calls, no build step.
 Meant to run in CI on every push to main (see .github/workflows/audit.yml)
@@ -273,20 +274,22 @@ def check_orphan_pages(html_files: list[Path], js_files: list[Path], sitemap_url
 
 def check_image_alt_title(html_files: list[Path], js_files: list[Path]):
     missing_alt = []
-    missing_title = []
+    has_title = []
     for f in list(html_files) + list(js_files):
         text = f.read_text(encoding="utf-8", errors="replace")
         for m in IMG_TAG_PATTERN.finditer(text):
             tag = m.group(0)
             src_m = ATTR_SRC_PATTERN.search(tag)
             src = src_m.group(1) if src_m else ""
+            # Images carry alt only; a title attribute is flagged even on
+            # JS-populated placeholders.
+            if ATTR_TITLE_PATTERN.search(tag):
+                has_title.append((rel(f), src or "(no src)"))
             if src == "":
                 continue  # JS-populated placeholder (e.g. lightbox shell), not a content image
             if not ATTR_ALT_PATTERN.search(tag):
                 missing_alt.append((rel(f), src))
-            if not ATTR_TITLE_PATTERN.search(tag):
-                missing_title.append((rel(f), src))
-    return missing_alt, missing_title
+    return missing_alt, has_title
 
 
 def check_trust_pages(html_files: list[Path]):
@@ -459,7 +462,7 @@ def main() -> int:
     canonical_problems = check_canonicals(html_files)
     broken_links = check_broken_internal_links(html_files, js_files)
     orphan_pages = check_orphan_pages(html_files, js_files, sitemap_urls)
-    missing_alt, missing_title = check_image_alt_title(html_files, js_files)
+    missing_alt, img_has_title = check_image_alt_title(html_files, js_files)
     orphan_trust_pages = check_trust_pages(html_files)
     structured_data_problems = check_structured_data_consistency(html_files)
     tag_balance_problems = check_html_tag_balance(html_files)
@@ -515,19 +518,19 @@ def main() -> int:
         emit("OK - every sitemap page has at least one inbound link.")
 
     emit()
-    emit("=== Image alt/title coverage ===")
-    if missing_alt or missing_title:
+    emit("=== Image alt / no title ===")
+    if missing_alt or img_has_title:
         failed = True
         if missing_alt:
             emit(f"{len(missing_alt)} <img> tag(s) missing alt:")
             for path, src in missing_alt:
                 emit(f"  - {path}: {src}")
-        if missing_title:
-            emit(f"{len(missing_title)} <img> tag(s) missing title:")
-            for path, src in missing_title:
+        if img_has_title:
+            emit(f"{len(img_has_title)} <img> tag(s) with a title attribute (images carry alt only):")
+            for path, src in img_has_title:
                 emit(f"  - {path}: {src}")
     else:
-        emit("OK - every <img> tag across .html and .js files has alt and title.")
+        emit("OK - every <img> tag across .html and .js files has alt and no title.")
 
     emit()
     emit("=== Trust page coverage (linked from legal.html / security-trust.html) ===")

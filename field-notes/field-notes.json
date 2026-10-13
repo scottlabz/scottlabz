@@ -1,19 +1,6 @@
 {
-  "count": 23,
+  "count": 9,
   "notes": [
-    {
-      "slug": "the-diff-that-compared-two-broken-pages",
-      "file": "the-diff-that-compared-two-broken-pages.html",
-      "url": "https://scottlabz.com/field-notes/the-diff-that-compared-two-broken-pages",
-      "title": "The Diff That Compared Two Broken Pages",
-      "summary": "A pixel-by-pixel check passed on every page while two visible regressions were live - because the baseline already had them.",
-      "categories": [
-        "frontend",
-        "performance"
-      ],
-      "accent": "#334155",
-      "published": "2026-09-29"
-    },
     {
       "slug": "stadium-internet-ecommerce-operations",
       "file": "stadium-internet-ecommerce-operations.html",
@@ -25,6 +12,18 @@
       ],
       "accent": "#3730a3",
       "published": "2026-09-23"
+    },
+    {
+      "slug": "three-days-of-silence",
+      "file": "three-days-of-silence.html",
+      "url": "https://scottlabz.com/field-notes/three-days-of-silence",
+      "title": "Three Days of Silence",
+      "summary": "What a dead tracking script taught me about watching, not just monitoring.",
+      "categories": [
+        "measurement"
+      ],
+      "accent": "#0f766e",
+      "published": "2026-09-05"
     },
     {
       "slug": "the-property-that-was-counting-twice",
@@ -49,164 +48,6 @@
       ],
       "accent": "#ca8a04",
       "published": "2026-09-03"
-    },
-    {
-      "slug": "bimi-sender-verification",
-      "file": "bimi-sender-verification.html",
-      "url": "https://scottlabz.com/field-notes/bimi-sender-verification",
-      "title": "Teaching Inboxes to Recognize a Real Sender",
-      "summary": "A verified brand mark next to outgoing mail wasn't a paid certificate away - it was a mail provider away.",
-      "categories": [
-        "infra"
-      ],
-      "accent": "#0d9488",
-      "published": "2026-08-26"
-    },
-    {
-      "slug": "cache-invalidation-on-deploy",
-      "file": "cache-invalidation-on-deploy.html",
-      "url": "https://scottlabz.com/field-notes/cache-invalidation-on-deploy",
-      "title": "Cache Clears Itself the Moment Content Changes",
-      "summary": "A manual purge step works fine until the one time someone forgets it, so the deploy step does it instead.",
-      "categories": [
-        "infra"
-      ],
-      "accent": "#ea580c",
-      "published": "2026-08-26"
-    },
-    {
-      "slug": "the-scroll-that-wouldnt-stop",
-      "file": "the-scroll-that-wouldnt-stop.html",
-      "url": "https://scottlabz.com/field-notes/the-scroll-that-wouldnt-stop",
-      "title": "The Scroll That Wouldn't Stop",
-      "summary": "Two pages, the same exact symptom, and two mistakes that had nothing to do with each other.",
-      "categories": [
-        "frontend"
-      ],
-      "accent": "#dc2626",
-      "published": "2026-08-23"
-    },
-    {
-      "slug": "the-widget-that-broke-two-ways",
-      "file": "the-widget-that-broke-two-ways.html",
-      "url": "https://scottlabz.com/field-notes/the-widget-that-broke-two-ways",
-      "title": "The Widget That Broke Two Ways",
-      "summary": "The same trust badge, added the same way, broke for two reasons that had nothing to do with each other.",
-      "categories": [
-        "frontend"
-      ],
-      "accent": "#65a30d",
-      "published": "2026-08-23"
-    },
-    {
-      "slug": "the-cleanup-pass",
-      "file": "the-cleanup-pass.html",
-      "url": "https://scottlabz.com/field-notes/the-cleanup-pass",
-      "title": "The Cleanup Pass",
-      "summary": "A batch of small, unrelated-looking issues that were quietly capping every score that matters.",
-      "categories": [
-        "performance"
-      ],
-      "accent": "#334155",
-      "published": "2026-08-22"
-    },
-    {
-      "slug": "async-everywhere-would-have-broken-the-footer",
-      "file": "async-everywhere-would-have-broken-the-footer.html",
-      "url": "https://scottlabz.com/field-notes/async-everywhere-would-have-broken-the-footer",
-      "title": "Async Everywhere Would Have Broken the Footer",
-      "summary": "A site-wide script audit, and the one script the rule said should defer but couldn't.",
-      "categories": [
-        "frontend",
-        "performance"
-      ],
-      "accent": "#059669",
-      "published": "2026-08-21"
-    },
-    {
-      "slug": "the-fix-that-dropped-the-score-first",
-      "file": "the-fix-that-dropped-the-score-first.html",
-      "url": "https://scottlabz.com/field-notes/the-fix-that-dropped-the-score-first",
-      "title": "The Fix That Dropped the Score First",
-      "summary": "A mobile PageSpeed audit that dropped before it improved - and why.",
-      "categories": [
-        "performance",
-        "frontend"
-      ],
-      "accent": "#1d4ed8",
-      "published": "2026-08-21"
-    },
-    {
-      "slug": "http-response-headers-read-properly",
-      "file": "http-response-headers-read-properly.html",
-      "url": "https://scottlabz.com/field-notes/http-response-headers-read-properly",
-      "title": "HTTP Headers, Read Properly",
-      "summary": "A live header audit - a CSP not naming its own origins.",
-      "categories": [
-        "infra"
-      ],
-      "accent": "#c2410c",
-      "published": "2026-08-18"
-    },
-    {
-      "slug": "the-address-we-took-out-of-the-schema",
-      "file": "the-address-we-took-out-of-the-schema.html",
-      "url": "https://scottlabz.com/field-notes/the-address-we-took-out-of-the-schema",
-      "title": "The Address We Removed",
-      "summary": "A stale address, precise coordinates, a fake 24-hour claim - removing beat correcting.",
-      "categories": [
-        "measurement"
-      ],
-      "accent": "#a21caf",
-      "published": "2026-08-18"
-    },
-    {
-      "slug": "the-purge-that-only-ran-manually",
-      "file": "the-purge-that-only-ran-manually.html",
-      "url": "https://scottlabz.com/field-notes/the-purge-that-only-ran-manually",
-      "title": "The Purge That Only Ran Manually",
-      "summary": "A cache-purge workflow passed every run without ever actually firing.",
-      "categories": [
-        "infra"
-      ],
-      "accent": "#0369a1",
-      "published": "2026-08-18"
-    },
-    {
-      "slug": "100vh-mobile-viewport-bug",
-      "file": "100vh-mobile-viewport-bug.html",
-      "url": "https://scottlabz.com/field-notes/100vh-mobile-viewport-bug",
-      "title": "100vh Isn't What You Think",
-      "summary": "Why a full-height hero cuts off its own CTA on mobile Safari.",
-      "categories": [
-        "frontend"
-      ],
-      "accent": "#0f766e",
-      "published": "2026-08-16"
-    },
-    {
-      "slug": "css-specificity-trap",
-      "file": "css-specificity-trap.html",
-      "url": "https://scottlabz.com/field-notes/css-specificity-trap",
-      "title": "The Specificity Trap",
-      "summary": "A shared brand style quietly shrank on eight pages - a specificity fight, not a missing class.",
-      "categories": [
-        "frontend"
-      ],
-      "accent": "#9333ea",
-      "published": "2026-08-16"
-    },
-    {
-      "slug": "cloudflare-7003-diagnosis",
-      "file": "cloudflare-7003-diagnosis.html",
-      "url": "https://scottlabz.com/field-notes/cloudflare-7003-diagnosis",
-      "title": "The Cloudflare 7003 Diagnosis",
-      "summary": "A silent deploy failure - a routing error, a bad secret, an exposed token.",
-      "categories": [
-        "infra"
-      ],
-      "accent": "#7c2d92",
-      "published": "2026-08-15"
     },
     {
       "slug": "data-contracts-discipline",
@@ -266,18 +107,6 @@
         "measurement"
       ],
       "accent": "#be123c",
-      "published": "2026-08-15"
-    },
-    {
-      "slug": "website-measurement-gaps",
-      "file": "website-measurement-gaps.html",
-      "url": "https://scottlabz.com/field-notes/website-measurement-gaps",
-      "title": "What Businesses Get Wrong",
-      "summary": "What's usually missing from small business measurement, and what it costs.",
-      "categories": [
-        "measurement"
-      ],
-      "accent": "#0e7490",
       "published": "2026-08-15"
     }
   ]

@@ -6,3 +6,6 @@ filter-bar-demo.html
 CONTRIBUTING.md
 NAVIGATION-README.md
 FILTER-BAR-README.md
+.wrangler/
+.dev.vars
+node_modules/.cache/

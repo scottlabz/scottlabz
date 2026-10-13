@@ -31,7 +31,6 @@ EXCLUDE_FILES = {
 INCLUDE_SUBDIR_INDEX = {
     "field-notes/index.html",
     "diagnostics/index.html",
-    "signals/index.html",
 }
 
 MAIN_PAGES = {

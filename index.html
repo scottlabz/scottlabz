@@ -288,115 +288,6 @@
         outline: 2px solid #2563eb;
         outline-offset: 2px;
       }
-
-      /* Latest from the lab: three cards, newest writing across the
-         three hubs. Left-aligned text inside a centered section. */
-      .home-latest-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.5rem;
-        margin: 2rem 0 0;
-        text-align: left;
-      }
-      .home-latest-card {
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        padding: 0;
-        border: 1px solid #dbe3ec;
-        border-radius: 12px;
-        border-bottom: 1px solid #dbe3ec;
-        color: inherit;
-        text-decoration: none;
-        transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-      }
-      .home-latest-card:hover {
-        border-color: #1e3a5f;
-        transform: translateY(-2px);
-        box-shadow: 0 10px 24px -16px rgba(30, 58, 95, 0.45);
-      }
-      /* Thumbnail flush across the top, same 16:9 as the Case Studies cards */
-      .home-latest-card img {
-        display: block;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-      }
-      .home-latest-body {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        padding: 1.25rem 1.5rem 1.5rem;
-      }
-      .home-latest-kind {
-        font-size: 0.75rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: #64748b;
-      }
-      .home-latest-card h3 {
-        margin: 0.5rem 0;
-        font-size: 1.1rem;
-      }
-      .home-latest-card p {
-        margin: 0 0 1rem;
-        font-size: 0.92rem;
-        line-height: 1.55;
-        color: #475569;
-      }
-      .home-latest-more {
-        margin-top: auto;
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: #1e3a5f;
-      }
-      .home-latest-more i {
-        margin-left: 0.4rem;
-        font-size: 0.8em;
-      }
-      /* Card colors by type, matching the Scalable Data Precision links:
-         Field Note green, Insight amber, Signal teal. The type label and
-         "Read more" take the color; hover/focus colors the border and adds
-         the same very light wash as the tiles. */
-      .home-latest-card.is-field-note {
-        --hl: #15803d;
-        --hl-wash: rgba(21, 128, 61, 0.05);
-      }
-      .home-latest-card.is-insight {
-        --hl: #b45309;
-        --hl-wash: rgba(180, 83, 9, 0.05);
-      }
-      .home-latest-card.is-signal {
-        --hl: #0e7490;
-        --hl-wash: rgba(14, 116, 144, 0.05);
-      }
-      .home-latest-card .home-latest-kind,
-      .home-latest-card .home-latest-more {
-        color: var(--hl, #1e3a5f);
-      }
-      .home-latest-card:hover,
-      .home-latest-card:focus-visible {
-        border-color: var(--hl, #1e3a5f);
-        background-color: var(--hl-wash, transparent);
-      }
-      .home-latest-card:focus-visible {
-        outline: 2px solid var(--hl, #2563eb);
-        outline-offset: 2px;
-      }
-      .home-latest-card .home-latest-more i {
-        transition: transform 0.2s ease;
-      }
-      .home-latest-card:hover .home-latest-more i,
-      .home-latest-card:focus-visible .home-latest-more i {
-        transform: translateX(3px);
-      }
-      @media screen and (max-width: 980px) {
-        .home-latest-grid {
-          grid-template-columns: 1fr;
-        }
-      }
     </style>
   </head>
   <body class="is-preload">
@@ -425,7 +316,6 @@
                 width="130"
                 height="170"
                 alt="S"
-                title="S"
                 class="logo" />cott Labz
             </p>
             <h1 class="major">
@@ -478,8 +368,7 @@
                 width="1600"
                 height="900"
                 fetchpriority="high"
-                alt="Enterprise analytics and modern data infrastructure banner shown on the homepage"
-                title="Enterprise analytics and modern data infrastructure banner shown on the homepage" />
+                alt="Enterprise analytics and modern data infrastructure banner shown on the homepage" />
             </picture>
           </div>
         </section>
@@ -556,8 +445,7 @@
                 decoding="async"
                 width="1600"
                 height="900"
-                alt="Illustration of measurement architecture, telemetry frameworks, and audit pipelines"
-                title="Illustration of measurement architecture, telemetry frameworks, and audit pipelines" />
+                alt="Illustration of measurement architecture, telemetry frameworks, and audit pipelines" />
             </picture>
           </div>
         </section>
@@ -632,8 +520,7 @@
                 decoding="async"
                 width="1600"
                 height="900"
-                alt="Illustration of executive reporting dashboards and strategic data translation advisory work"
-                title="Illustration of executive reporting dashboards and strategic data translation advisory work" />
+                alt="Illustration of executive reporting dashboards and strategic data translation advisory work" />
             </picture>
           </div>
         </section>
@@ -707,8 +594,7 @@
                 decoding="async"
                 width="1600"
                 height="1200"
-                alt="Illustration of A/B/n testing experimentation and eCommerce performance optimization"
-                title="Illustration of A/B/n testing experimentation and eCommerce performance optimization" />
+                alt="Illustration of A/B/n testing experimentation and eCommerce performance optimization" />
             </picture>
           </div>
         </section>
@@ -732,7 +618,6 @@
                 height="250"
                 class="image"
                 alt="Hawkeye Fan Shop storefront, the official University of Iowa Athletics retailer"
-                title="Hawkeye Fan Shop storefront, the official University of Iowa Athletics retailer"
                 loading="lazy" />
               <div class="caption">
                 <h3>Hawkeye Fan Shop</h3>
@@ -751,7 +636,6 @@
                 height="250"
                 class="image"
                 alt="The Black and Gold Shop storefront, the official Hawkeyes retail partner"
-                title="The Black and Gold Shop storefront, the official Hawkeyes retail partner"
                 loading="lazy" />
               <div class="caption">
                 <h3>The Black &amp; Gold Shop</h3>
@@ -773,7 +657,6 @@
                 height="250"
                 class="image"
                 alt="Retail systems connecting online and in-store data into one record"
-                title="Retail systems connecting online and in-store data into one record"
                 loading="lazy" />
               <div class="caption">
                 <h3>Retail Systems</h3>
@@ -790,7 +673,6 @@
                 height="250"
                 class="image"
                 alt="Point-of-sale checkout systems tuned to keep gameday lines moving"
-                title="Point-of-sale checkout systems tuned to keep gameday lines moving"
                 loading="lazy" />
               <div class="caption">
                 <h3>Fast Checkout</h3>
@@ -807,7 +689,6 @@
                 height="250"
                 class="image"
                 alt="A local retail shop running on enterprise-grade tools scaled to a small-shop budget"
-                title="A local retail shop running on enterprise-grade tools scaled to a small-shop budget"
                 loading="lazy" />
               <div class="caption">
                 <h3>Local Business</h3>
@@ -824,7 +705,6 @@
                 height="250"
                 class="image"
                 alt="A Main Street storefront running on modern point-of-sale tools for a decades-old business"
-                title="A Main Street storefront running on modern point-of-sale tools for a decades-old business"
                 loading="lazy" />
               <div class="caption">
                 <h3>Main Street</h3>
@@ -861,33 +741,24 @@
                   versioned, so nobody's guessing what a metric actually
                   measures.
                 </p>
-                <a href="/field-notes/gtm-container-autopsy" class="dp-link is-fieldnote" aria-label="Field Note: GTM Container Autopsy">Field Note<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                <a href="/field-notes/gtm-container-autopsy" class="dp-link is-fieldnote" aria-label="Field Note: The Tag Container Autopsy">Field Note<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
               <section>
                 <span class="icon solid style2 major fa-check-circle"></span>
                 <h3>Data Quality</h3>
                 <p>
                   Automated checks flag anomalies - a metric that jumps 40%
-                  overnight gets a second look before it reaches your team.
+                  overnight gets a second look before anyone makes a decision on it.
                 </p>
-                <a href="/case-studies/data-quality-governance" class="dp-link is-casestudy" aria-label="Case study: Data Quality &amp; Governance">Case study<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                <a href="/field-notes/the-property-that-was-counting-twice" class="dp-link is-fieldnote" aria-label="Field Note: The Property That Was Counting Twice">Field Note<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
               <section>
-                <span class="icon solid style2 major fa-tools"></span>
-                <h3>Auditing</h3>
+                <span class="icon solid style2 major fa-lightbulb"></span>
+                <h3>Data Strategy</h3>
                 <p>
-                  A look under the hood of an existing setup, with a plain list of what's broken, what's missing, and what to fix first.
+                  Deciding what's actually worth measuring before budget goes into instrumenting things nobody will look at.
                 </p>
-                <a href="/diagnostics/" class="dp-link is-diagnostics" aria-label="Diagnostics: the crime-scene case files">Diagnostics<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-              </section>
-              <section>
-                <span class="icon solid style2 major fa-plug"></span>
-                <h3>Data Integration</h3>
-                <p>
-                  Marketing platforms, CRMs, and internal databases get wired
-                  together so nobody's stitching CSVs by hand every Monday.
-                </p>
-                <a href="/insights/redundant-data-entry-missing-integration" class="dp-link is-insight" aria-label="Insight: Redundant Data Entry Is Usually a Missing Integration">Insight<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                <a href="/insights/measurement-before-media-spend" class="dp-link is-insight" aria-label="Insight: Measurement Before Media Spend">Insight<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
               <section>
                 <span class="icon style2 major fa-star"></span>
@@ -899,125 +770,13 @@
                 <a href="/field-notes/why-we-stopped-trusting-the-sample-size" class="dp-link is-fieldnote" aria-label="Field Note: Why We Stopped Trusting the Sample Size">Field Note<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
               <section>
-                <span class="icon solid style2 major fa-key"></span>
-                <h3>Optimization</h3>
+                <span class="icon solid style2 major fa-tools"></span>
+                <h3>Auditing</h3>
                 <p>
-                  Finding the specific friction points costing you conversions - a slow checkout step, a confusing form, a
-                  dead-end page.
+                  A look under the hood of an existing setup, with a plain list of what's broken, what's missing, and what to fix first.
                 </p>
-                <a href="/conversion-optimization" class="dp-link is-service" aria-label="Service: Conversion Optimization">Service<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                <a href="/diagnostics/" class="dp-link is-diagnostics" aria-label="Diagnostics: the crime-scene case files">Diagnostics<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </section>
-              <section>
-                <span class="icon solid style2 major fa-chart-bar"></span>
-                <h3>Analytics</h3>
-                <p>
-                  Dashboards built for the people who'll actually open them
-                  weekly, not a wall of charts nobody reads twice.
-                </p>
-                <a href="/insights/dashboards-nobody-opens" class="dp-link is-insight" aria-label="Insight: Dashboards Nobody Opens">Insight<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-              </section>
-              <section>
-                <span class="icon solid style2 major fa-code-branch"></span>
-                <h3>Data Pipelines</h3>
-                <p>
-                  SQL and Python pipelines that run on a schedule and fail
-                  loudly when something upstream breaks, instead of quietly
-                  going stale.
-                </p>
-                <a href="/field-notes/data-contracts-discipline" class="dp-link is-fieldnote" aria-label="Field Note: Data Contracts Discipline">Field Note<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-              </section>
-              <section>
-                <span class="icon solid style2 major fa-lightbulb"></span>
-                <h3>Data Strategy</h3>
-                <p>
-                  Deciding what's actually worth measuring before budget goes into instrumenting things nobody will look at.
-                </p>
-                <a href="/insights/measurement-before-media-spend" class="dp-link is-insight" aria-label="Insight: Measurement Before Media Spend">Insight<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-              </section>
-              <section>
-                <span class="icon solid style2 major fa-road"></span>
-                <h3>Roadmaps</h3>
-                <p>
-                  A sequenced plan for what gets built next, tied to business
-                  priorities rather than whatever's technically easiest.
-                </p>
-                <a href="/case-studies/digital-measurement-strategy" class="dp-link is-casestudy" aria-label="Case study: Digital Measurement Strategy">Case study<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-              </section>
-              <section>
-                <span class="icon solid style2 major fa-users"></span>
-                <h3>Advisory</h3>
-                <p>
-                  An outside second opinion when your team needs to sanity check
-                  a vendor pitch, a migration, or a build-vs-buy call.
-                </p>
-                <a href="/why-us" class="dp-link is-whyus" aria-label="Why Us: why clients work with Scott Labz">Why Us<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-              </section>
-            </div>
-          </div>
-        </section>
-
-        <!-- Latest from the lab: the three newest Field Notes, Insights or
-             Signals, kept current by scripts/generate_indexes.py ("home") -->
-        <section class="wrapper style1 align-center home-latest" aria-labelledby="home-latest-title">
-          <div class="inner">
-            <h2 id="home-latest-title">Latest from the lab</h2>
-            <div class="home-latest-grid">
-              <!-- HOME-LATEST:START - generated by scripts/generate_indexes.py, do not edit by hand -->
-              <a href="/field-notes/the-diff-that-compared-two-broken-pages" class="home-latest-card is-field-note">
-                <img
-                  src="images/home-latest-field-note-480w.webp?v=e3ddf40e09"
-                  srcset="images/home-latest-field-note-480w.webp?v=e3ddf40e09 480w, images/home-latest-field-note-960w.webp?v=1768052c1a 960w"
-                  sizes="(max-width: 980px) 100vw, 33vw"
-                  width="480"
-                  height="270"
-                  alt="Open notebook and pen resting on a tree stump in a field"
-                  title="Open notebook and pen resting on a tree stump in a field"
-                  loading="lazy"
-                  decoding="async" />
-                <span class="home-latest-body">
-                <span class="home-latest-kind">Field Note</span>
-                <h3>The Diff That Compared Two Broken Pages</h3>
-                <p>A pixel-by-pixel check passed on every page while two visible regressions were live - because the baseline already had them.</p>
-                <span class="home-latest-more">Read more<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                </span>
-              </a>
-              <a href="/insights/delete-with-proof" class="home-latest-card is-insight">
-                <img
-                  src="images/home-latest-insight-480w.webp?v=ffd39a95da"
-                  srcset="images/home-latest-insight-480w.webp?v=ffd39a95da 480w, images/home-latest-insight-960w.webp?v=9c0c6f8606 960w"
-                  sizes="(max-width: 980px) 100vw, 33vw"
-                  width="480"
-                  height="270"
-                  alt="Glowing ring of light surrounded by streaks of blue particles"
-                  title="Glowing ring of light surrounded by streaks of blue particles"
-                  loading="lazy"
-                  decoding="async" />
-                <span class="home-latest-body">
-                <span class="home-latest-kind">Insight</span>
-                <h3>Delete With Proof</h3>
-                <p>Removal is safe when the before-and-after check is mechanical - and when the before is actually the last known-good state.</p>
-                <span class="home-latest-more">Read more<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                </span>
-              </a>
-              <a href="/signals/whats-hiding-behind-the-library" class="home-latest-card is-signal">
-                <img
-                  src="images/home-latest-signal-480w.webp?v=ef84588ee3"
-                  srcset="images/home-latest-signal-480w.webp?v=ef84588ee3 480w, images/home-latest-signal-960w.webp?v=30bd29e5d1 960w"
-                  sizes="(max-width: 980px) 100vw, 33vw"
-                  width="480"
-                  height="270"
-                  alt="Traffic signal against a blue sky with its green light lit"
-                  title="Traffic signal against a blue sky with its green light lit"
-                  loading="lazy"
-                  decoding="async" />
-                <span class="home-latest-body">
-                <span class="home-latest-kind">Signal</span>
-                <h3>What's Hiding Behind the Library</h3>
-                <p>Removing a JS library showed what it had been holding up, including a lightbox that could never have opened.</p>
-                <span class="home-latest-more">Read more<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                </span>
-              </a>
-              <!-- HOME-LATEST:END -->
             </div>
           </div>
         </section>

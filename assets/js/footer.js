@@ -31,7 +31,6 @@ class ScottFooter extends HTMLElement {
                       width="130"
                       height="170"
                       alt="S"
-                      title="S"
                       class="logo"
                       loading="lazy"
                       style="display:block;max-height: 4vh;margin-right: 2px;">
@@ -68,7 +67,6 @@ class ScottFooter extends HTMLElement {
                       width="300"
                       height="68"
                       alt="Scott Labz BBB Business Review"
-                      title="Scott Labz BBB Business Review"
                       loading="lazy"
                     >
                   </a>
@@ -93,7 +91,6 @@ class ScottFooter extends HTMLElement {
                       width="260"
                       height="260"
                       alt="McLean County Chamber of Commerce"
-                      title="McLean County Chamber of Commerce"
                       loading="lazy"
                       style="
                         display:block;
@@ -176,12 +173,6 @@ class ScottFooter extends HTMLElement {
                 <li>
                   <a href="/case-studies">
                     Case Studies
-                  </a>
-                </li>
-
-                <li>
-                  <a href="/signals/">
-                    Signals
                   </a>
                 </li>
 
@@ -469,7 +460,7 @@ class ScottFooter extends HTMLElement {
       });
     }
 
-    // Responsive footer sizing — independent of the back-to-top button
+    // Responsive footer sizing - independent of the back-to-top button
     const socialGroups = this.querySelector("#footer-social-groups");
 
     const mobileQuery = window.matchMedia("(max-width: 736px)");

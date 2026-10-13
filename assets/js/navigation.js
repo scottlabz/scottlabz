@@ -347,7 +347,6 @@ class ScottNav extends HTMLElement {
               srcset="/images/scottlabz-clear-32w.webp?v=8d5d3e1b4b 32w, /images/scottlabz-clear-64w.webp?v=7b37132bec 64w, /images/scottlabz-clear-96w.webp?v=1b0fa7e3f5 96w, /images/scottlabz-clear.webp?v=d34943c620 130w"
               sizes="(max-width: 736px) 23px, 31px"
               alt="Scott Labz"
-              title="Scott Labz"
               width="31"
               height="40" />
           </a>

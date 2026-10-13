@@ -1,4 +1,56 @@
+// 301s for retired pages. These live here, not in a _redirects file,
+// because this middleware runs on every route (_routes.json includes /*)
+// and Cloudflare Pages does not apply _redirects to requests served by
+// Functions. Keys are extensionless paths; the .html form and a trailing
+// slash are normalized away before lookup.
+const REDIRECTS = {
+  // Content cut, Oct 2026: site-maintenance Field Notes
+  "/field-notes/100vh-mobile-viewport-bug": "/field-notes/",
+  "/field-notes/async-everywhere-would-have-broken-the-footer": "/field-notes/",
+  "/field-notes/bimi-sender-verification": "/field-notes/",
+  "/field-notes/cache-invalidation-on-deploy": "/field-notes/",
+  "/field-notes/cloudflare-7003-diagnosis": "/field-notes/",
+  "/field-notes/css-specificity-trap": "/field-notes/",
+  "/field-notes/http-response-headers-read-properly": "/field-notes/",
+  "/field-notes/the-address-we-took-out-of-the-schema": "/field-notes/schema-drift-problem",
+  "/field-notes/the-cleanup-pass": "/field-notes/",
+  "/field-notes/the-diff-that-compared-two-broken-pages": "/field-notes/",
+  "/field-notes/the-fix-that-dropped-the-score-first": "/field-notes/",
+  "/field-notes/the-purge-that-only-ran-manually": "/field-notes/",
+  "/field-notes/the-scroll-that-wouldnt-stop": "/field-notes/",
+  "/field-notes/the-widget-that-broke-two-ways": "/field-notes/",
+  "/field-notes/website-measurement-gaps": "/insights/measurement-before-media-spend",
+  "/field-notes/topics/frontend": "/field-notes/",
+  "/field-notes/topics/performance": "/field-notes/",
+  // Content cut, Oct 2026: Insights
+  "/insights/automation": "/insights",
+  "/insights/what-automation-shouldnt-touch": "/insights",
+  "/insights/redundant-data-entry-missing-integration": "/insights/what-is-analytics-architecture",
+  "/insights/local-seo-is-a-data-problem": "/insights/seo-analytics",
+  "/insights/why-redundancy-beats-a-single-stack": "/insights/what-is-analytics-architecture",
+  "/insights/delete-with-proof": "/insights",
+  "/insights/engineering-approach": "/about",
+  // Signals folded into Field Notes, Oct 2026
+  "/signals": "/field-notes/",
+  "/signals/index": "/field-notes/",
+  "/signals/signals.json": "/field-notes/field-notes.json",
+  "/signals/three-days-of-silence": "/field-notes/three-days-of-silence",
+  "/signals/re-encode-from-the-original": "/field-notes/",
+  "/signals/whats-hiding-behind-the-library": "/field-notes/",
+};
+
+function redirectFor(url) {
+  let path = url.pathname;
+  if (path.length > 1 && path.endsWith("/")) path = path.slice(0, -1);
+  if (path.endsWith(".html")) path = path.slice(0, -5);
+  const target = REDIRECTS[path];
+  return target ? Response.redirect(new URL(target, url.origin).toString(), 301) : null;
+}
+
 export async function onRequest(context) {
+  const redirect = redirectFor(new URL(context.request.url));
+  if (redirect) return redirect;
+
   const response = await context.next();
 
   const type = response.headers.get("content-type") || "";
