@@ -46,7 +46,7 @@ Every push carries all twelve keys. A key that doesn't apply is `undefined`, whi
 | `click_path` | `/contact` | Same-site links only |
 | `click_domain` | `linkedin.com` | Links only |
 | `link_type` | `internal`, `external`, `email`, `phone`, `download`, `anchor` | Links only |
-| `click_section` | `latest_from_the_lab`, `hero`, `nav`, `footer` | Where the click happened, in this order: a `data-analytics-section` override; `nav`, `footer` or `filter_bar` for the shared components; `hero` for page banners; otherwise the nearest section's h1/h2, snake_cased and cut at a word boundary to 40 characters |
+| `click_section` | `latest_from_the_lab`, `hero`, `nav`, `footer` | Where the click happened, in this order: a `data-analytics-section` override; `nav`, `footer` or `filter_bar` for the shared components; `hero` for page banners (pages whose hero isn't a `.banner`, like the homepage and the Solutions pages, set `data-analytics-section="hero"` on it); otherwise the nearest section's h1/h2, snake_cased and cut at a word boundary to 40 characters |
 | `click_element` | `a`, `button`, `summary` | |
 | `click_id` | `backToTop` | The element's id, if it has one |
 | `click_action` | `open`, `close`, `select`, `clear`, `correct`, `wrong`, `email`, `phone` | Event-specific |
