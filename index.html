@@ -174,119 +174,99 @@
         justify-content: center;
       }
 
-      /* Scalable Data Precision tiles: each links to the page that shows
-         the work. The link's ::after covers the whole tile, so the tile is
-         one click target with a single, descriptive link inside it. */
-      #scalable-precision .items > section {
-        position: relative;
+      /* Live reliability band, between the platforms gallery and the
+         closing call to action. The whole band links to /status; its text
+         starts as a static fallback and assets/js/home-status.js swaps in
+         the live count. */
+      .home-reliability .inner {
+        max-width: 60rem;
+      }
+      .reliability-band {
         display: flex;
-        flex-direction: column;
-        /* Room under the link instead of between text and link */
-        padding-bottom: 2.25rem;
-        transition: background-color 0.2s ease;
+        align-items: center;
+        gap: 1.25rem;
+        padding: 1.5rem 1.75rem;
+        border: 1px solid #dbe3ec;
+        border-radius: 12px;
+        background: #f8fafc;
+        color: inherit;
+        text-align: left;
+        text-decoration: none;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease;
       }
-      #scalable-precision .items > section p {
-        margin-bottom: 0;
+      .reliability-band:hover,
+      .reliability-band:focus-visible {
+        border-color: #94a3b8;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
       }
-      /* main.js wraps each tile's content in div.inner; that wrapper
-         fills the tile so the link can sit at its bottom */
-      #scalable-precision .items > section > .inner {
+      .reliability-band:focus-visible {
+        outline: 2px solid #2563eb;
+        outline-offset: 2px;
+      }
+      .reliability-dot {
+        flex: none;
+        width: 0.9rem;
+        height: 0.9rem;
+        border-radius: 50%;
+        background: #94a3b8;
+        box-shadow: 0 0 0 5px rgba(148, 163, 184, 0.2);
+      }
+      .reliability-band.is-up .reliability-dot {
+        background: #16a34a;
+        box-shadow: 0 0 0 5px rgba(22, 163, 74, 0.18);
+      }
+      .reliability-band.is-warn .reliability-dot {
+        background: #d97706;
+        box-shadow: 0 0 0 5px rgba(217, 119, 6, 0.18);
+      }
+      .reliability-band.is-down .reliability-dot {
+        background: #dc2626;
+        box-shadow: 0 0 0 5px rgba(220, 38, 38, 0.18);
+      }
+      .reliability-text {
         display: flex;
         flex: 1;
         flex-direction: column;
-        align-items: center;
+        gap: 0.2rem;
       }
-      #scalable-precision .items > section:hover {
-        background-color: #f5f8fb;
+      .reliability-text strong {
+        font-size: 1.2rem;
       }
-      /* Each tile's color, from its link type. On hover or keyboard
-         focus the tile gets a very light wash and the icon's symbol and
-         ring take the color; the circle itself stays unfilled. */
-      #scalable-precision .items > section:has(.is-service) {
-        --dp: #2563eb;
-        --dp-wash: rgba(37, 99, 235, 0.07);
+      .reliability-text span {
+        font-size: 0.95rem;
+        color: #475569;
       }
-      #scalable-precision .items > section:has(.is-insight) {
-        --dp: #b45309;
-        --dp-wash: rgba(180, 83, 9, 0.07);
-      }
-      #scalable-precision .items > section:has(.is-fieldnote) {
-        --dp: #15803d;
-        --dp-wash: rgba(21, 128, 61, 0.07);
-      }
-      #scalable-precision .items > section:has(.is-casestudy) {
-        --dp: #7c3aed;
-        --dp-wash: rgba(124, 58, 237, 0.07);
-      }
-      #scalable-precision .items > section:has(.is-diagnostics) {
-        --dp: #be123c;
-        --dp-wash: rgba(190, 18, 60, 0.07);
-      }
-      #scalable-precision .items > section:has(.is-whyus) {
-        --dp: #1e3a5f;
-        --dp-wash: rgba(30, 58, 95, 0.07);
-      }
-      #scalable-precision .items > section .icon {
-        transition: color 0.2s ease, box-shadow 0.2s ease;
-      }
-      #scalable-precision .items > section:hover,
-      #scalable-precision .items > section:has(.dp-link:focus-visible) {
-        background-color: var(--dp-wash, #f5f8fb);
-      }
-      #scalable-precision .items > section:hover .icon,
-      #scalable-precision .items > section:has(.dp-link:focus-visible) .icon {
-        color: var(--dp, #1e3a5f);
-        box-shadow: inset 0 0 0 1px var(--dp, #1e3a5f);
-      }
-      #scalable-precision .dp-link {
-        display: inline-block;
-        /* Pinned to the tile's bottom so links line up across a row */
-        margin-top: auto;
-        padding-top: 1rem;
-        font-size: 0.85rem;
+      .reliability-more {
+        flex: none;
+        font-size: 0.8rem;
         font-weight: 600;
-        letter-spacing: 0.04em;
-        color: #1e3a5f;
-        text-decoration: none;
-        border-bottom: none;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #2563eb;
       }
-      /* Link colors by destination type, one color each. All pass
-         WCAG AA contrast on white (4.5:1 or better). */
-      #scalable-precision .dp-link.is-service {
-        color: #2563eb; /* blue */
-      }
-      #scalable-precision .dp-link.is-insight {
-        color: #b45309; /* amber */
-      }
-      #scalable-precision .dp-link.is-fieldnote {
-        color: #15803d; /* green */
-      }
-      #scalable-precision .dp-link.is-casestudy {
-        color: #7c3aed; /* purple */
-      }
-      #scalable-precision .dp-link.is-diagnostics {
-        color: #be123c; /* rose */
-      }
-      #scalable-precision .dp-link.is-whyus {
-        color: #1e3a5f; /* navy, the brand color */
-      }
-      #scalable-precision .dp-link::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-      }
-      #scalable-precision .dp-link i {
+      .reliability-more i {
         margin-left: 0.4rem;
-        font-size: 0.8em;
         transition: transform 0.2s ease;
       }
-      #scalable-precision .items > section:hover .dp-link i,
-      #scalable-precision .dp-link:focus-visible i {
+      .reliability-band:hover .reliability-more i,
+      .reliability-band:focus-visible .reliability-more i {
         transform: translateX(3px);
       }
-      #scalable-precision .dp-link:focus-visible {
-        outline: 2px solid #2563eb;
-        outline-offset: 2px;
+      @media screen and (max-width: 736px) {
+        .reliability-band {
+          flex-wrap: wrap;
+          align-items: flex-start;
+          padding: 1.25rem;
+        }
+        .reliability-dot {
+          margin-top: 0.45rem;
+        }
+        .reliability-more {
+          width: 100%;
+          padding-left: 2.15rem;
+        }
       }
     </style>
   </head>
@@ -716,68 +696,20 @@
             </article>
           </div>
         </section>
-        <section id="scalable-precision" class="wrapper style1 align-center">
+        <!-- Live reliability band: evidence for the "hold up under
+             real-world pressure" claim above. Static text is the no-JS
+             fallback; assets/js/home-status.js fills in the live count from
+             /api/status (functions/api/status.js). -->
+        <section class="wrapper style1 align-center home-reliability" aria-labelledby="home-reliability-title">
           <div class="inner">
-            <h2>Scalable Data Precision</h2>
-            <p>
-              The sections above cover what Scott Labz does. This is how the work gets done - the
-              specific disciplines that keep a data platform honest as it grows
-              past the first dashboard.
-            </p>
-            <div class="items style1 medium">
-              <section>
-                <span class="icon solid style2 major fa-layer-group"></span>
-                <h3>Architecture</h3>
-                <p>
-                  Data flow gets mapped before a single tag goes live, so the system doesn't need to be torn up and redone in a year.
-                </p>
-                <a href="/insights/what-is-analytics-architecture" class="dp-link is-insight" aria-label="Insight: What Is Analytics Architecture">Insight<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-              </section>
-              <section>
-                <span class="icon solid style2 major fa-satellite-dish"></span>
-                <h3>Tracking</h3>
-                <p>
-                  Event names, parameters, and triggers get documented and
-                  versioned, so nobody's guessing what a metric actually
-                  measures.
-                </p>
-                <a href="/field-notes/gtm-container-autopsy" class="dp-link is-fieldnote" aria-label="Field Note: The Tag Container Autopsy">Field Note<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-              </section>
-              <section>
-                <span class="icon solid style2 major fa-check-circle"></span>
-                <h3>Data Quality</h3>
-                <p>
-                  Automated checks flag anomalies - a metric that jumps 40%
-                  overnight gets a second look before anyone makes a decision on it.
-                </p>
-                <a href="/field-notes/the-property-that-was-counting-twice" class="dp-link is-fieldnote" aria-label="Field Note: The Property That Was Counting Twice">Field Note<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-              </section>
-              <section>
-                <span class="icon solid style2 major fa-lightbulb"></span>
-                <h3>Data Strategy</h3>
-                <p>
-                  Deciding what's actually worth measuring before budget goes into instrumenting things nobody will look at.
-                </p>
-                <a href="/insights/measurement-before-media-spend" class="dp-link is-insight" aria-label="Insight: Measurement Before Media Spend">Insight<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-              </section>
-              <section>
-                <span class="icon style2 major fa-star"></span>
-                <h3>Experimentation</h3>
-                <p>
-                  Test frameworks built with proper statistical guardrails, so a
-                  "winning" variant is actually winning and not just noise.
-                </p>
-                <a href="/field-notes/why-we-stopped-trusting-the-sample-size" class="dp-link is-fieldnote" aria-label="Field Note: Why We Stopped Trusting the Sample Size">Field Note<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-              </section>
-              <section>
-                <span class="icon solid style2 major fa-tools"></span>
-                <h3>Auditing</h3>
-                <p>
-                  A look under the hood of an existing setup, with a plain list of what's broken, what's missing, and what to fix first.
-                </p>
-                <a href="/diagnostics/" class="dp-link is-diagnostics" aria-label="Diagnostics: the crime-scene case files">Diagnostics<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-              </section>
-            </div>
+            <a href="/status" class="reliability-band">
+              <span class="reliability-dot" aria-hidden="true"></span>
+              <span class="reliability-text">
+                <strong id="home-reliability-title" data-status-headline>Every site, monitored around the clock</strong>
+                <span data-status-detail>The sites Scott Labz runs and supports, checked every few minutes.</span>
+              </span>
+              <span class="reliability-more">View live status<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
           </div>
         </section>
 
@@ -797,6 +729,7 @@
       <script src="/assets/js/smooth-scroll.js?v=2418fdee53" defer></script>
       <script src="/assets/js/main-min.js?v=f697f0f060" defer></script>
       <script src="/assets/js/footer-min.js?v=977db99110" defer></script>
+      <script src="/assets/js/home-status-min.js" defer></script>
       <scott-footer></scott-footer>
     </div>
   </body>
