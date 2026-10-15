@@ -2188,13 +2188,49 @@ body:not(.is-preload) .sx-suspects li.is-culprit {
   font-weight: 600;
   color: inherit;
 }
+/* Market hero cards: the BBB seal and the Chamber badge, centered side by
+   side. The BBB image is a two-panel sprite (the seal, then "Click for
+   Profile"), so the link shows one 80px panel and hover slides to the
+   other, as BBB's own widget CSS does. These links don't reuse the
+   footer's id="bbblink", which keeps that id unique on the page. */
 .sx-seal-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
   margin: 1.1rem 0 0;
-  padding-top: 1rem;
+  padding-top: 1.25rem;
   border-top: 1px solid #eef2f7;
 }
-.sx-seal-row .sx-seal {
-  margin: 0;
+.sx-bbb,
+.sx-chamber {
+  display: block;
+  flex: none;
+  border-bottom: 0;
+}
+.sx-bbb {
+  position: relative;
+  width: 80px;
+  height: 144px;
+  overflow: hidden;
+}
+.sx-bbb img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160px;
+  max-width: none;
+  height: 144px;
+}
+.sx-bbb:hover img,
+.sx-bbb:focus-visible img {
+  left: -80px;
+}
+.sx-chamber img {
+  display: block;
+  width: 124px;
+  height: 124px;
 }
 .sx-statement .sx-quote a {
   color: inherit;
