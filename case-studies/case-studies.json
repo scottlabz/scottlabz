@@ -1,5 +1,5 @@
 {
-  "count": 14,
+  "count": 9,
   "notes": [
     {
       "slug": "hawkeye-fan-shop",
@@ -38,49 +38,19 @@
       "button_text": "View Black & Gold Shop Case Study"
     },
     {
-      "slug": "digital-measurement-strategy",
-      "path": "hawkeye-fan-shop/digital-measurement-strategy",
-      "client": "hawkeye-fan-shop",
-      "file": "hawkeye-fan-shop/digital-measurement-strategy.html",
-      "url": "https://scottlabz.com/case-studies/hawkeye-fan-shop/digital-measurement-strategy",
-      "type": "deep-dive",
-      "order": 1,
-      "title": "Measurement Strategy",
-      "summary": "A ground-up measurement strategy that improved analytics consistency, tracking reliability, and business visibility.",
-      "categories": [
-        "analytics"
-      ],
-      "image_alt": "Iowa women's basketball player signing a basketball courtside for fans"
-    },
-    {
       "slug": "digital-analytics-implementation",
       "path": "hawkeye-fan-shop/digital-analytics-implementation",
       "client": "hawkeye-fan-shop",
       "file": "hawkeye-fan-shop/digital-analytics-implementation.html",
       "url": "https://scottlabz.com/case-studies/hawkeye-fan-shop/digital-analytics-implementation",
       "type": "deep-dive",
-      "order": 2,
-      "title": "Analytics Implementation",
-      "summary": "A ground-up analytics build that created reliable, scalable measurement systems.",
+      "order": 1,
+      "title": "Measurement Strategy & Implementation",
+      "summary": "A ground-up measurement strategy and analytics build that delivered reliable, validated tracking from launch.",
       "categories": [
         "analytics"
       ],
       "image_alt": "Iowa flag runners carrying I-O-W-A flags across the football field on gameday"
-    },
-    {
-      "slug": "analytics-modernization",
-      "path": "hawkeye-fan-shop/analytics-modernization",
-      "client": "hawkeye-fan-shop",
-      "file": "hawkeye-fan-shop/analytics-modernization.html",
-      "url": "https://scottlabz.com/case-studies/hawkeye-fan-shop/analytics-modernization",
-      "type": "deep-dive",
-      "order": 3,
-      "title": "Analytics Modernization",
-      "summary": "Store, gameday, and online systems connected into one modern analytics infrastructure.",
-      "categories": [
-        "analytics"
-      ],
-      "image_alt": "Packed Iowa football stadium under the lights with fireworks overhead"
     },
     {
       "slug": "analytics-dashboard-reporting",
@@ -89,9 +59,9 @@
       "file": "hawkeye-fan-shop/analytics-dashboard-reporting.html",
       "url": "https://scottlabz.com/case-studies/hawkeye-fan-shop/analytics-dashboard-reporting",
       "type": "deep-dive",
-      "order": 4,
-      "title": "Dashboard & Reporting",
-      "summary": "Connected dashboards that turned raw retail and gameday data into insight.",
+      "order": 2,
+      "title": "Connected Reporting",
+      "summary": "Store, gameday, and online systems connected into one reporting platform, with dashboards each stakeholder group can act on.",
       "categories": [
         "analytics"
       ],
@@ -104,7 +74,7 @@
       "file": "hawkeye-fan-shop/data-quality-governance.html",
       "url": "https://scottlabz.com/case-studies/hawkeye-fan-shop/data-quality-governance",
       "type": "deep-dive",
-      "order": 5,
+      "order": 3,
       "title": "Data Quality & Governance",
       "summary": "Ongoing validation and governance standards that built lasting confidence in analytics data.",
       "categories": [
@@ -113,19 +83,19 @@
       "image_alt": "Herky the Hawk mascot holding a flag in front of a full stadium"
     },
     {
-      "slug": "analytics-dashboard-reporting-platform",
-      "path": "hawkeye-fan-shop/analytics-dashboard-reporting-platform",
+      "slug": "custom-web-application-development",
+      "path": "hawkeye-fan-shop/custom-web-application-development",
       "client": "hawkeye-fan-shop",
-      "file": "hawkeye-fan-shop/analytics-dashboard-reporting-platform.html",
-      "url": "https://scottlabz.com/case-studies/hawkeye-fan-shop/analytics-dashboard-reporting-platform",
+      "file": "hawkeye-fan-shop/custom-web-application-development.html",
+      "url": "https://scottlabz.com/case-studies/hawkeye-fan-shop/custom-web-application-development",
       "type": "deep-dive",
-      "order": 6,
-      "title": "Reporting Platform",
-      "summary": "A unified reporting platform that turned complex, multi-channel retail data into trusted business intelligence.",
+      "order": 4,
+      "title": "Custom Storefront & Infrastructure",
+      "summary": "A full-scale ecommerce platform built from the ground up, with inventory kept in sync across every store and the website.",
       "categories": [
-        "analytics"
+        "web"
       ],
-      "image_alt": "Herky the Hawk mascot running with a Tigerhawk flag across the end zone"
+      "image_alt": "Herky the Hawk mascot crowd-surfing over the student section"
     },
     {
       "slug": "website-performance-optimization",
@@ -134,58 +104,13 @@
       "file": "hawkeye-fan-shop/website-performance-optimization.html",
       "url": "https://scottlabz.com/case-studies/hawkeye-fan-shop/website-performance-optimization",
       "type": "deep-dive",
-      "order": 7,
-      "title": "Performance Optimization",
-      "summary": "Speed and reliability improvements that kept a gameday storefront fast under peak traffic.",
+      "order": 5,
+      "title": "Performance & Security",
+      "summary": "Speed, security, and uptime work that kept a gameday storefront fast and protected under peak traffic.",
       "categories": [
         "web"
       ],
       "image_alt": "Full Iowa football stadium at dusk before kickoff"
-    },
-    {
-      "slug": "website-security-performance-engineering",
-      "path": "hawkeye-fan-shop/website-security-performance-engineering",
-      "client": "hawkeye-fan-shop",
-      "file": "hawkeye-fan-shop/website-security-performance-engineering.html",
-      "url": "https://scottlabz.com/case-studies/hawkeye-fan-shop/website-security-performance-engineering",
-      "type": "deep-dive",
-      "order": 8,
-      "title": "Security & Performance",
-      "summary": "Hardened security practices and resilient infrastructure that protected a storefront through peak gameday demand.",
-      "categories": [
-        "web"
-      ],
-      "image_alt": "Silver hawk sculpture against a pink sunset sky"
-    },
-    {
-      "slug": "custom-web-application-development",
-      "path": "hawkeye-fan-shop/custom-web-application-development",
-      "client": "hawkeye-fan-shop",
-      "file": "hawkeye-fan-shop/custom-web-application-development.html",
-      "url": "https://scottlabz.com/case-studies/hawkeye-fan-shop/custom-web-application-development",
-      "type": "deep-dive",
-      "order": 9,
-      "title": "Custom Web Development",
-      "summary": "A full-scale ecommerce platform built from the ground up, from domain to storefront.",
-      "categories": [
-        "web"
-      ],
-      "image_alt": "Herky the Hawk mascot crowd-surfing over the student section"
-    },
-    {
-      "slug": "digital-infrastructure-modernization",
-      "path": "hawkeye-fan-shop/digital-infrastructure-modernization",
-      "client": "hawkeye-fan-shop",
-      "file": "hawkeye-fan-shop/digital-infrastructure-modernization.html",
-      "url": "https://scottlabz.com/case-studies/hawkeye-fan-shop/digital-infrastructure-modernization",
-      "type": "deep-dive",
-      "order": 10,
-      "title": "Digital Infrastructure",
-      "summary": "Connected inventory and infrastructure that kept online, retail, and gameday systems in sync.",
-      "categories": [
-        "web"
-      ],
-      "image_alt": "Iowa flag runners with I-O-W-A flags on the field in front of the stands"
     },
     {
       "slug": "digital-experience-optimization",
@@ -194,7 +119,7 @@
       "file": "hawkeye-fan-shop/digital-experience-optimization.html",
       "url": "https://scottlabz.com/case-studies/hawkeye-fan-shop/digital-experience-optimization",
       "type": "deep-dive",
-      "order": 11,
+      "order": 6,
       "title": "Experience Optimization",
       "summary": "Behavioral data and structured testing that improved the storefront experience.",
       "categories": [
@@ -209,7 +134,7 @@
       "file": "hawkeye-fan-shop/advertising-media-buying.html",
       "url": "https://scottlabz.com/case-studies/hawkeye-fan-shop/advertising-media-buying",
       "type": "deep-dive",
-      "order": 12,
+      "order": 7,
       "title": "Campaign Strategy & Media Buying",
       "summary": "Campaign strategy, media buying, and conversion tracking run alongside active development work for two long-standing retail clients.",
       "categories": [

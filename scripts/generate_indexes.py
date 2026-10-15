@@ -48,7 +48,7 @@ case-studies  hub: case-studies.html
     deep-dive: cs-categories, cs-image-alt. Thumbnails must exist at
                images/cs-thumb-<slug>-480w.webp and -960w.webp. A deep
                dive lives in the folder named after its client page
-               (case-studies/hawkeye-fan-shop/digital-measurement-strategy.html
+               (case-studies/hawkeye-fan-shop/digital-analytics-implementation.html
                belongs to case-studies/hawkeye-fan-shop.html), so its URL
                is /case-studies/<client>/<slug>.
     The hub is a client showcase: the CS-CLIENTS marker region holds

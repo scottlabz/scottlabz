@@ -39,17 +39,23 @@ const REDIRECTS = {
   "/signals/whats-hiding-behind-the-library": "/field-notes/",
   // Hawkeye Fan Shop deep dives moved under the client, Oct 2026
   "/case-studies/advertising-media-buying": "/case-studies/hawkeye-fan-shop/advertising-media-buying",
-  "/case-studies/analytics-dashboard-reporting-platform": "/case-studies/hawkeye-fan-shop/analytics-dashboard-reporting-platform",
+  "/case-studies/analytics-dashboard-reporting-platform": "/case-studies/hawkeye-fan-shop/analytics-dashboard-reporting",
   "/case-studies/analytics-dashboard-reporting": "/case-studies/hawkeye-fan-shop/analytics-dashboard-reporting",
-  "/case-studies/analytics-modernization": "/case-studies/hawkeye-fan-shop/analytics-modernization",
+  "/case-studies/analytics-modernization": "/case-studies/hawkeye-fan-shop/analytics-dashboard-reporting",
   "/case-studies/custom-web-application-development": "/case-studies/hawkeye-fan-shop/custom-web-application-development",
   "/case-studies/data-quality-governance": "/case-studies/hawkeye-fan-shop/data-quality-governance",
   "/case-studies/digital-analytics-implementation": "/case-studies/hawkeye-fan-shop/digital-analytics-implementation",
   "/case-studies/digital-experience-optimization": "/case-studies/hawkeye-fan-shop/digital-experience-optimization",
-  "/case-studies/digital-infrastructure-modernization": "/case-studies/hawkeye-fan-shop/digital-infrastructure-modernization",
-  "/case-studies/digital-measurement-strategy": "/case-studies/hawkeye-fan-shop/digital-measurement-strategy",
+  "/case-studies/digital-infrastructure-modernization": "/case-studies/hawkeye-fan-shop/custom-web-application-development",
+  "/case-studies/digital-measurement-strategy": "/case-studies/hawkeye-fan-shop/digital-analytics-implementation",
   "/case-studies/website-performance-optimization": "/case-studies/hawkeye-fan-shop/website-performance-optimization",
-  "/case-studies/website-security-performance-engineering": "/case-studies/hawkeye-fan-shop/website-security-performance-engineering",
+  "/case-studies/website-security-performance-engineering": "/case-studies/hawkeye-fan-shop/website-performance-optimization",
+  // Hawkeye Fan Shop deep dives merged 12 to 7, Oct 2026
+  "/case-studies/hawkeye-fan-shop/digital-measurement-strategy": "/case-studies/hawkeye-fan-shop/digital-analytics-implementation",
+  "/case-studies/hawkeye-fan-shop/analytics-modernization": "/case-studies/hawkeye-fan-shop/analytics-dashboard-reporting",
+  "/case-studies/hawkeye-fan-shop/analytics-dashboard-reporting-platform": "/case-studies/hawkeye-fan-shop/analytics-dashboard-reporting",
+  "/case-studies/hawkeye-fan-shop/digital-infrastructure-modernization": "/case-studies/hawkeye-fan-shop/custom-web-application-development",
+  "/case-studies/hawkeye-fan-shop/website-security-performance-engineering": "/case-studies/hawkeye-fan-shop/website-performance-optimization",
 };
 
 function redirectFor(url) {
