@@ -85,6 +85,10 @@ Because the sitemap only updates after push, `audit_site.py` will report pages a
 
 `audit_site.py` covers sitemap completeness, canonical URLs, broken internal links, orphan pages, `<img>` alt coverage (and no `title` on any `<img>`), trust page links, JSON-LD consistency, meta titles and descriptions, and HTML tag balance. If it fails, fix the cause; do not edit the audit script to make it pass.
 
+## Images
+
+- Never delete files from `images/`, even when no page uses them anymore. Scott may reuse them later. When a page stops using an image, just remove the reference. To make a lighter copy (for example a small WebP for a logo strip), add a new file next to the original instead of replacing it.
+
 ## HTML formatting rules
 
 - `<a href=` must always stay on the same line as the opening `<a`, never split across lines, no matter how many attributes follow on later lines.
