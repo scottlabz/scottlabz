@@ -165,134 +165,31 @@
 
       /* Closing call to action: full-width soft blue wash, the same
          gradient as the Website Grant hero, so it reads as its own ending */
+      /* Closing call to action: a deep navy band that continues straight
+         out of the dark storefront photos in the gallery above, so the two
+         read as one closing section, then hands off to the white footer. */
       .home-cta {
         background:
-          radial-gradient(circle at 85% 30%, rgba(76, 139, 245, 0.12), transparent 55%),
-          linear-gradient(135deg, #f3f7fd 0%, #ffffff 70%);
+          radial-gradient(circle at 85% 20%, rgba(76, 139, 245, 0.28), transparent 55%),
+          linear-gradient(180deg, #0f1c2e 0%, #1e3a5f 100%);
+      }
+      .home-cta h2 {
+        color: #ffffff;
+      }
+      .home-cta p {
+        color: rgba(255, 255, 255, 0.82);
       }
       .home-cta .actions {
         justify-content: center;
       }
-
-      /* Live reliability band, between the platforms gallery and the
-         closing call to action. The whole band links to /status; its text
-         starts as a static fallback and assets/js/home-status.js swaps in
-         the live count. */
-      .home-reliability .inner {
-        max-width: 60rem;
+      .home-cta .button.alt {
+        background-color: #ffffff;
+        box-shadow: none;
+        color: #1e3a5f !important;
       }
-      .reliability-band {
-        display: flex;
-        align-items: flex-start;
-        gap: 1.25rem;
-        padding: 1.5rem 1.75rem;
-        border: 1px solid #dbe3ec;
-        border-radius: 12px;
-        background: #f8fafc;
-        color: inherit;
-        text-align: left;
-        text-decoration: none;
-        transition:
-          border-color 0.2s ease,
-          box-shadow 0.2s ease;
-      }
-      .reliability-band:hover,
-      .reliability-band:focus-visible {
-        border-color: #94a3b8;
-        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-      }
-      .reliability-band:focus-visible {
-        outline: 2px solid #2563eb;
-        outline-offset: 2px;
-      }
-      .reliability-dot {
-        flex: none;
-        margin-top: 0.45rem;
-        width: 0.9rem;
-        height: 0.9rem;
-        border-radius: 50%;
-        background: #94a3b8;
-        box-shadow: 0 0 0 5px rgba(148, 163, 184, 0.2);
-      }
-      .reliability-band.is-up .reliability-dot {
-        background: #16a34a;
-        box-shadow: 0 0 0 5px rgba(22, 163, 74, 0.18);
-      }
-      .reliability-band.is-warn .reliability-dot {
-        background: #d97706;
-        box-shadow: 0 0 0 5px rgba(217, 119, 6, 0.18);
-      }
-      .reliability-band.is-down .reliability-dot {
-        background: #dc2626;
-        box-shadow: 0 0 0 5px rgba(220, 38, 38, 0.18);
-      }
-      .reliability-text {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        gap: 0.2rem;
-      }
-      .reliability-text strong {
-        font-size: 1.2rem;
-      }
-      .reliability-text span {
-        font-size: 0.95rem;
-        color: #475569;
-      }
-      .reliability-sites {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.4rem 1.1rem;
-        margin-top: 0.55rem;
-      }
-      .reliability-text .reliability-site {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        font-size: 0.85rem;
-        color: #334155;
-      }
-      .reliability-site-dot {
-        width: 0.55rem;
-        height: 0.55rem;
-        border-radius: 50%;
-        background: #94a3b8;
-      }
-      .reliability-site.is-up .reliability-site-dot {
-        background: #16a34a;
-      }
-      .reliability-site.is-warn .reliability-site-dot {
-        background: #d97706;
-      }
-      .reliability-site.is-down .reliability-site-dot {
-        background: #dc2626;
-      }
-      .reliability-more {
-        flex: none;
-        align-self: center;
-        font-size: 0.8rem;
-        font-weight: 600;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #2563eb;
-      }
-      .reliability-more i {
-        margin-left: 0.4rem;
-        transition: transform 0.2s ease;
-      }
-      .reliability-band:hover .reliability-more i,
-      .reliability-band:focus-visible .reliability-more i {
-        transform: translateX(3px);
-      }
-      @media screen and (max-width: 736px) {
-        .reliability-band {
-          flex-wrap: wrap;
-          padding: 1.25rem;
-        }
-        .reliability-more {
-          width: 100%;
-          padding-left: 2.15rem;
-        }
+      .home-cta .button.alt:hover,
+      .home-cta .button.alt:focus-visible {
+        background-color: #dbe7fb;
       }
     </style>
   </head>
@@ -722,32 +619,6 @@
             </article>
           </div>
         </section>
-        <!-- Live reliability band: evidence for the "hold up under
-             real-world pressure" claim above. Static text is the no-JS
-             fallback; assets/js/home-status.js fills in the live count from
-             /api/status (functions/api/status.js). -->
-        <section class="wrapper style1 align-center home-reliability" aria-labelledby="home-reliability-title">
-          <div class="inner">
-            <!-- data-monitors: the monitors shown here, by their name on the
-                 monitoring account, separated by |. /status shows them all. -->
-            <a href="/status" class="reliability-band" data-monitors="Scott Labz|Hawkeye Fan Shop|Black &amp; Gold Shop|Kitchens|Couchletics">
-              <span class="reliability-dot" aria-hidden="true"></span>
-              <span class="reliability-text">
-                <strong id="home-reliability-title" data-status-headline>Monitored around the clock</strong>
-                <span data-status-detail>Client storefronts and this site, checked every few minutes.</span>
-                <span class="reliability-sites">
-                  <span class="reliability-site"><span class="reliability-site-dot" aria-hidden="true"></span>Scott Labz</span>
-                  <span class="reliability-site"><span class="reliability-site-dot" aria-hidden="true"></span>Hawkeye Fan Shop</span>
-                  <span class="reliability-site"><span class="reliability-site-dot" aria-hidden="true"></span>Black &amp; Gold Shop</span>
-                  <span class="reliability-site"><span class="reliability-site-dot" aria-hidden="true"></span>Kitchens</span>
-                  <span class="reliability-site"><span class="reliability-site-dot" aria-hidden="true"></span>Couchletics</span>
-                </span>
-              </span>
-              <span class="reliability-more">View live status<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-            </a>
-          </div>
-        </section>
-
         <!-- Closing call to action: the page's only in-content route to /contact -->
         <section class="wrapper style1 align-center home-cta">
           <div class="inner">
@@ -764,7 +635,6 @@
       <script src="/assets/js/smooth-scroll.js?v=2418fdee53" defer></script>
       <script src="/assets/js/main-min.js?v=f697f0f060" defer></script>
       <script src="/assets/js/footer-min.js?v=977db99110" defer></script>
-      <script src="/assets/js/home-status-min.js?v=7f27180c53" defer></script>
       <scott-footer></scott-footer>
     </div>
   </body>
