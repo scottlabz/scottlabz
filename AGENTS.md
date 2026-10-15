@@ -48,6 +48,7 @@ Category keys must already exist in the `<scott-filter-bar>` JSON block on that 
 ## Solutions, Company, and content hub pages
 
 - `services.html`, `analytics-data.html`, `web-digital.html`, `conversion-optimization.html`, `advertising-media-buying.html`, and `industries.html` share `assets/css/solutions.css` (classes `sx-*`). It carries the homepage's look; the homepage itself keeps its `hx-*` styles inline in `index.html`.
+- The homepage "Trusted by" strip scrolls on a loop on phones (wraps in place under reduced motion). The loop needs a second copy of the logos (`li.is-dup`, `aria-hidden="true"`, `alt=""`), hidden on wider screens, so adding or removing a logo means changing both copies.
 - The Company pages use the same stylesheet: `about.html`, `why-us.html`, `founder.html`, `find-us.html` (Credentials), `faq.html`, and `contact.html`.
   - `contact.html`: the Web3Forms `<form>` (action, hidden `access_key`, `subject`, `from_name`, `redirect`, `botcheck`, and the field names) must stay exactly as is. Restyle around it, never inside it.
   - `faq.html`: every visible question and answer must match the `FAQPage` JSON-LD in its head. Change both together or neither.

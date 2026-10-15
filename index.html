@@ -494,6 +494,17 @@
       .hx-logos img.is-badge {
         height: 54px;
       }
+      .hx-logos li.is-dup {
+        display: none;
+      }
+      @keyframes hx-logo-scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
       /* Shared section frame for the new sections. */
       .hx-section-inner {
         max-width: 1180px;
@@ -716,15 +727,33 @@
         .hx-chip-b {
           left: 0;
         }
+        /* Phones: the logos run in one row that scrolls on a loop. The list
+           holds two copies, and moving it by half its width brings the
+           second copy exactly where the first started. Spacing is padding,
+           not gap, so both halves measure the same. */
         .hx-proof-inner {
+          overflow: hidden;
           padding: 1.5rem 1.25rem;
+          -webkit-mask-image: linear-gradient(to right, transparent, #000 1.25rem, #000 calc(100% - 1.25rem), transparent);
+          mask-image: linear-gradient(to right, transparent, #000 1.25rem, #000 calc(100% - 1.25rem), transparent);
         }
         .hx-proof-label {
           width: 100%;
         }
         .hx-logos {
+          flex: none;
+          flex-wrap: nowrap;
           justify-content: flex-start;
-          gap: 1.25rem 1.75rem;
+          gap: 0;
+          width: max-content;
+          animation: hx-logo-scroll 20s linear infinite;
+        }
+        .hx-logos li {
+          flex: none;
+          padding-right: 2.5rem;
+        }
+        .hx-logos li.is-dup {
+          display: block;
         }
         .hx-logos img {
           height: 26px;
@@ -756,6 +785,27 @@
         .hx-row-after,
         .hx-row-before del::after {
           transition: none;
+        }
+      }
+      /* Phones with reduced motion: no scrolling strip, the logos wrap in
+         place, one copy only. */
+      @media screen and (max-width: 736px) and (prefers-reduced-motion: reduce) {
+        .hx-proof-inner {
+          -webkit-mask-image: none;
+          mask-image: none;
+        }
+        .hx-logos {
+          flex: 1;
+          flex-wrap: wrap;
+          gap: 1.25rem 1.75rem;
+          width: auto;
+          animation: none;
+        }
+        .hx-logos li {
+          padding-right: 0;
+        }
+        .hx-logos li.is-dup {
+          display: none;
         }
       }
 
@@ -1009,6 +1059,11 @@
               <li><img src="images/logo-strip-bgs.webp?v=1594bb7efe" width="451" height="96" alt="The Black &amp; Gold Shop" /></li>
               <li><img src="images/logo-strip-kitchens.webp?v=644d7abe72" width="444" height="96" alt="Kitchens" /></li>
               <li><img src="images/logo-strip-couchletics.webp?v=90cf50784b" width="708" height="96" alt="Couchletics" /></li>
+              <!-- Second copy for the seamless phone scroll; hidden elsewhere and from screen readers. -->
+              <li class="is-dup" aria-hidden="true"><img src="images/logo-strip-hawkeyefanshop.webp?v=518a418344" width="200" height="96" alt="" class="is-badge" /></li>
+              <li class="is-dup" aria-hidden="true"><img src="images/logo-strip-bgs.webp?v=1594bb7efe" width="451" height="96" alt="" /></li>
+              <li class="is-dup" aria-hidden="true"><img src="images/logo-strip-kitchens.webp?v=644d7abe72" width="444" height="96" alt="" /></li>
+              <li class="is-dup" aria-hidden="true"><img src="images/logo-strip-couchletics.webp?v=90cf50784b" width="708" height="96" alt="" /></li>
             </ul>
           </div>
         </section>
