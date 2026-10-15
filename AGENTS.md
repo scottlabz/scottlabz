@@ -52,6 +52,7 @@ Category keys must already exist in the `<scott-filter-bar>` JSON block on that 
 - Service page order: hero, Sound familiar (3 symptoms), What gets done (4 services plus capability tags), the 4-step process band, Related work (`id="work"`, the shared `.cs-card` and `.related-notes` markup), FAQ as `<details>`, navy CTA. The service name is the eyebrow inside the `<h1>`.
 - `services.html` is the hub. Its hero card links the four practices; each practice card keeps that practice's sub-service copy and links to its page. Practice accents are set per card (`.sx-practice.is-measure` and so on).
 - Each service page's hero card illustrates one real Field Note or Insight and links to it, with a caption saying so. Use only facts and figures that piece already publishes; never invent numbers for a card.
+- The hero `<section>` carries `data-analytics-section="hero"`; without it `gtm.js` labels hero clicks with the headline, since only `.banner` heroes are detected automatically.
 - The cards animate once `main.js` removes `body.is-preload`. Their starting and ending states are pure CSS, with transitions switched off under `prefers-reduced-motion`.
 
 ## Headers, CSP, and things that are not in this repo
