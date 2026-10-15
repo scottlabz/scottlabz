@@ -2159,6 +2159,90 @@ body:not(.is-preload) .sx-suspects li.is-culprit {
   margin: 0 0 0.35rem;
 }
 
+/* ---------- Markets (Bloomington-Normal pages) ----------
+   Each page sets --sx on <main> to a darker shade of its market icon
+   color; the icons themselves come from main.css (.market-icon). */
+.sx-market-badge {
+  display: inline-flex;
+  margin: 0 0 1.1rem;
+}
+.sx-market-badge .market-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  font-size: 1.3rem;
+}
+.sx-statement .sx-quote {
+  max-width: 44rem;
+  margin: 0 auto;
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  font-weight: 300;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: #0f172a;
+}
+.sx-statement.is-dark .sx-quote {
+  color: #ffffff;
+}
+.sx-statement .sx-quote strong {
+  font-weight: 600;
+  color: inherit;
+}
+.sx-seal-row {
+  margin: 1.1rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid #eef2f7;
+}
+.sx-seal-row .sx-seal {
+  margin: 0;
+}
+.sx-statement .sx-quote a {
+  color: inherit;
+}
+.sx-market-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.sx-market-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.sx-market-card:hover,
+.sx-market-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.1);
+}
+.sx-market-card .market-icon {
+  margin: 0 0 0.9rem;
+}
+.sx-market-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  color: #0f172a;
+}
+.sx-market-card p {
+  flex: 1;
+  margin: 0 0 0.9rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #475569;
+}
+.sx-market-card .sx-pillar-more {
+  color: #2563eb;
+}
+
 /* ---------- Responsive ---------- */
 @media screen and (max-width: 980px) {
   .sx-hero-inner {
@@ -2185,7 +2269,8 @@ body:not(.is-preload) .sx-suspects li.is-culprit {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .sx-pillars,
-  .sx-pillars.is-three {
+  .sx-pillars.is-three,
+  .sx-market-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .sx-group-head {
@@ -2243,7 +2328,8 @@ body:not(.is-preload) .sx-suspects li.is-culprit {
   .sx-sector-grid,
   .sx-sector-grid.is-featured,
   .sx-pillars,
-  .sx-pillars.is-three {
+  .sx-pillars.is-three,
+  .sx-market-grid {
     grid-template-columns: 1fr;
   }
   .sx-steps {
@@ -2325,6 +2411,7 @@ body:not(.is-preload) .sx-suspects li.is-culprit {
   .sx-jump-list li,
   .sx-suspects li,
   .sx-case,
+  .sx-market-card,
   .sx-pillar {
     transition: none;
   }

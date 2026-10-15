@@ -62,6 +62,10 @@ Category keys must already exist in the `<scott-filter-bar>` JSON block on that 
   - On `clients.html`, the roster sections, chip `<li>`s, filter JSON, and search box stay as they are, because `clients-roster.js` and `<scott-filter-bar>` depend on that markup.
   - `404.html` is served at any missing path, so its asset links must stay root-absolute (`/assets/...`).
   - `thank-you.html` keeps the `data-thanks-message` and `data-thanks-next` hooks that `thank-you.js` rewrites for grant applicants.
+- The nine Bloomington-Normal pages in `markets/` use it too.
+  - Each service page sets `--sx`/`--sx-soft` inline on `<main>` to a darker shade of its `.market-icon` color (icons and colors come from `main.css`).
+  - The service pages share one layout: hero with the market icon and a "Working locally" card with the BBB seal link, the prose section, a dark statement line, the Website Grant callout (web development and website design only), the FAQ, a closing statement line, and the "Partner with us" CTA.
+  - New market pages should copy an existing one rather than the old banner layout.
 - Keep `case-studies.html`, the client case-study pages, and `website-grant.html` in their current design (Scott, 2026-10-14). Content updates are fine; don't move them to the sx-* look. The one exception Scott okayed: the dotted backdrop behind the `/case-studies` header.
 - Each page sets its accent on `<main class="sx-page ...">`: `is-measure` (blue), `is-build` (amber), `is-improve` (green), or `is-campaigns` (purple).
 - Service page order: hero, Sound familiar (3 symptoms), What gets done (4 services plus capability tags), the 4-step process band, Related work (`id="work"`, the shared `.cs-card` and `.related-notes` markup), FAQ as `<details>`, navy CTA. The service name is the eyebrow inside the `<h1>`.
