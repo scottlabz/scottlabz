@@ -23,23 +23,6 @@
       as="font"
       type="font/woff2"
       crossorigin />
-    <!-- Two preloads mirror the banner <picture>: the square crop where it applies, the full frame everywhere else. AVIF only, so browsers without AVIF skip both instead of fetching a file the page won't use. -->
-    <link
-      rel="preload"
-      as="image"
-      type="image/avif"
-      media="(orientation: portrait) and (max-aspect-ratio: 1/2), (orientation: landscape) and (max-aspect-ratio: 2/1)"
-      imagesrcset="images/banner-crop-900w.avif?v=64fe7e9c38 900w"
-      imagesizes="(orientation: portrait) 50vh, 100vh"
-      fetchpriority="high" />
-    <link
-      rel="preload"
-      as="image"
-      type="image/avif"
-      media="(orientation: portrait) and (min-aspect-ratio: 1001/2000), (orientation: landscape) and (min-aspect-ratio: 2001/1000)"
-      imagesrcset="images/banner-800w.avif?v=8562abda85 800w, images/banner-1600w.avif?v=22335ccb3c 1600w"
-      imagesizes="100vw"
-      fetchpriority="high" />
     <link rel="stylesheet" href="assets/css/main-min.css?v=65235697fb" />
     <noscript>
       <link rel="stylesheet" href="assets/css/noscript-min.css?v=ab1c7bc451" />
@@ -146,27 +129,637 @@
         text-underline-offset: 3px;
       }
 
-      /* Hero h1 and the matching section h2s: the three verbs of the Measure / Build / Improve
-         framework in bold accent colors against the light (300) heading.
-         Amber is #b45309, not the nav's #ca8a04, which is too pale for
-         readable text on white. */
-      .hero-verb {
-        font-weight: 700;
+      /* ---------- Homepage redesign (2026-10) ----------
+         Palette: navy #1e3a5f, ink #0f172a, slate #475569, link blue
+         #2563eb, and the Measure / Build / Improve accents (blue #2563eb,
+         amber #b45309, green #15803d; amber is darker than the nav's
+         #ca8a04 so it reads on white). */
+
+      /* Hero: copy on the left, an animated card on the right that retells
+         a real Field Note (two properties counting the same checkout). */
+      .hx-hero {
+        position: relative;
+        overflow: hidden;
+        background: #ffffff;
       }
-      .hero-verb.is-measure {
+      .hx-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(30, 58, 95, 0.16) 1px, transparent 1px);
+        background-size: 22px 22px;
+        -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 85%);
+        mask-image: linear-gradient(to bottom, #000 0%, transparent 85%);
+        pointer-events: none;
+      }
+      .hx-hero-inner {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        gap: 3.5rem;
+        align-items: center;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 5.5rem 1.5rem 4.5rem;
+      }
+      .hx-eyebrow {
+        margin: 0 0 1.1rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #1e3a5f;
+      }
+      .hx-title {
+        margin: 0 0 1.25rem;
+        font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+        color: #0f172a;
+      }
+      .hx-title em {
+        font-style: normal;
         color: #2563eb;
       }
-      .hero-verb.is-build {
-        color: #b45309;
+      .hx-lede {
+        max-width: 34rem;
+        margin: 0 0 2rem;
+        font-size: 1.15rem;
+        line-height: 1.65;
+        color: #475569;
       }
-      .hero-verb.is-improve {
-        color: #15803d;
+      .hx-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1.25rem 2rem;
+      }
+      .hx-actions .button {
+        margin: 0;
+      }
+      .hx-link,
+      .hx-pillar-link,
+      .hx-card-link {
+        font-weight: 600;
+        color: #2563eb;
+        text-decoration: none;
+        border-bottom: none;
+      }
+      .hx-link i,
+      .hx-pillar-link i,
+      .hx-card-link i {
+        margin-left: 0.45rem;
+        font-size: 0.85em;
+        transition: transform 0.2s ease;
+      }
+      .hx-link:hover i,
+      .hx-pillar-link:hover i,
+      .hx-card-link:hover i {
+        transform: translateX(3px);
       }
 
-      /* Closing call to action: full-width soft blue wash, the same
-         gradient as the Website Grant hero, so it reads as its own ending */
-      /* Tailored Digital Platforms image scroller: 3px black rules above
-         and below. */
+      .hx-visual {
+        position: relative;
+        margin: 0;
+        padding: 1.5rem 0 2.5rem;
+      }
+      .hx-card {
+        position: relative;
+        padding: 1.5rem 1.6rem 1.35rem;
+        background: #ffffff;
+        border: 1px solid #dbe3ec;
+        border-radius: 16px;
+        box-shadow:
+          0 1px 2px rgba(15, 23, 42, 0.04),
+          0 24px 48px -12px rgba(15, 23, 42, 0.18);
+      }
+      .hx-card-head {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        margin: 0 0 1.1rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #0f172a;
+      }
+      .hx-card-head .hx-tag {
+        margin-left: auto;
+        padding: 0.15rem 0.6rem;
+        border-radius: 999px;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: #f0fdf4;
+        color: #15803d;
+      }
+      .hx-pulse {
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 50%;
+        background: #2563eb;
+      }
+      .hx-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+      }
+      .hx-row-label {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #64748b;
+      }
+      .hx-row-value {
+        font-size: 1.05rem;
+        color: #0f172a;
+      }
+      .hx-row-before del {
+        position: relative;
+        color: #94a3b8;
+        text-decoration: none;
+      }
+      /* The strike draws across once the page is ready. */
+      .hx-row-before del::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 55%;
+        height: 2px;
+        background: #dc2626;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.7s ease 1.4s;
+      }
+      body:not(.is-preload) .hx-row-before del::after {
+        transform: scaleX(1);
+      }
+      .hx-chart {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 1rem 0 0.75rem;
+      }
+      .hx-chart .hx-axis {
+        stroke: #e2e8f0;
+        stroke-width: 1;
+      }
+      .hx-chart .hx-inflated {
+        fill: rgba(220, 38, 38, 0.08);
+        stroke: rgba(220, 38, 38, 0.35);
+        stroke-dasharray: 4 4;
+      }
+      .hx-chart .hx-note {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        fill: #dc2626;
+        text-transform: uppercase;
+      }
+      .hx-chart .hx-line {
+        fill: none;
+        stroke: #1e3a5f;
+        stroke-width: 2.5;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+        stroke-dasharray: 480;
+        stroke-dashoffset: 480;
+        transition: stroke-dashoffset 1.4s ease 0.2s;
+      }
+      .hx-chart .hx-fixed {
+        fill: none;
+        stroke: #16a34a;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        opacity: 0;
+        transition: opacity 0.5s ease 2.1s;
+      }
+      body:not(.is-preload) .hx-chart .hx-line {
+        stroke-dashoffset: 0;
+      }
+      body:not(.is-preload) .hx-chart .hx-fixed {
+        opacity: 1;
+      }
+      .hx-flag {
+        display: flex;
+        gap: 0.5rem;
+        align-items: flex-start;
+        margin: 0 0 1rem;
+        padding: 0.65rem 0.8rem;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        line-height: 1.45;
+        background: #fef2f2;
+        color: #991b1b;
+      }
+      .hx-row-after .hx-row-value {
+        color: #15803d;
+        font-weight: 600;
+      }
+      .hx-row-after {
+        opacity: 0;
+        transform: translateY(4px);
+        transition:
+          opacity 0.5s ease 2.2s,
+          transform 0.5s ease 2.2s;
+      }
+      body:not(.is-preload) .hx-row-after {
+        opacity: 1;
+        transform: none;
+      }
+      .hx-card-link {
+        display: inline-block;
+        margin-top: 1.1rem;
+        font-size: 0.85rem;
+      }
+      .hx-chip {
+        position: absolute;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.55rem 0.9rem;
+        border: 1px solid #dbe3ec;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        white-space: nowrap;
+        background: #ffffff;
+        color: #0f172a;
+        box-shadow: 0 12px 24px -10px rgba(15, 23, 42, 0.25);
+        animation: hx-float 6s ease-in-out infinite;
+      }
+      .hx-chip-a {
+        top: 0;
+        right: -0.75rem;
+      }
+      .hx-chip-b {
+        bottom: 0.75rem;
+        left: -1.25rem;
+        animation-delay: -3s;
+      }
+      .hx-chip-dot {
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 50%;
+        background: #16a34a;
+        box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.18);
+      }
+      .hx-chip-b .hx-chip-dot {
+        background: #b45309;
+        box-shadow: 0 0 0 4px rgba(180, 83, 9, 0.16);
+      }
+      @keyframes hx-float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      .hx-caption {
+        margin-top: 0.85rem;
+        font-size: 0.75rem;
+        text-align: right;
+        color: #64748b;
+      }
+
+      /* Trust strip: client logos in grayscale, color on hover. */
+      .hx-proof {
+        border-top: 1px solid #e2e8f0;
+        border-bottom: 1px solid #e2e8f0;
+        background: #ffffff;
+      }
+      .hx-proof-inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1.25rem 2.5rem;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 1.75rem 1.5rem;
+      }
+      .hx-proof-label {
+        margin: 0;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #64748b;
+      }
+      .hx-logos {
+        display: flex;
+        flex: 1;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem 2.5rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .hx-logos li {
+        margin: 0;
+        padding: 0;
+      }
+      .hx-logos img {
+        display: block;
+        width: auto;
+        height: 36px;
+        filter: grayscale(1);
+        opacity: 0.7;
+        transition:
+          filter 0.25s ease,
+          opacity 0.25s ease;
+      }
+      .hx-logos img:hover {
+        filter: none;
+        opacity: 1;
+      }
+      .hx-logos img.is-badge {
+        height: 54px;
+      }
+      .hx-stat {
+        margin: 1.75rem 0 0;
+        font-size: 0.9rem;
+        color: #64748b;
+      }
+      .hx-stat a {
+        color: #1e3a5f;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(30, 58, 95, 0.3);
+      }
+      .hx-stat strong {
+        font-weight: 700;
+      }
+
+      /* Shared section frame for the new sections. */
+      .hx-section-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 5rem 1.5rem;
+      }
+      .hx-kicker {
+        margin: 0 0 0.75rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #2563eb;
+      }
+      .hx-section-head {
+        max-width: 46rem;
+        margin: 0 0 2.75rem;
+      }
+      .hx-section-head h2 {
+        margin: 0 0 0.75rem;
+      }
+      .hx-section-head p {
+        margin: 0;
+        font-size: 1.05rem;
+        color: #475569;
+      }
+
+      /* What Scott Labz does: the problem a retailer feels, then the fix,
+         in Measure / Build / Improve colors. Replaces the three tall
+         image sections. */
+      .hx-problems {
+        background: #f5f7fb;
+      }
+      .hx-pillars {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+      }
+      .hx-pillar {
+        display: flex;
+        flex-direction: column;
+        padding: 1.75rem;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-top: 4px solid var(--hx, #1e3a5f);
+        border-radius: 12px;
+      }
+      .hx-pillar.is-measure {
+        --hx: #2563eb;
+      }
+      .hx-pillar.is-build {
+        --hx: #b45309;
+      }
+      .hx-pillar.is-improve {
+        --hx: #15803d;
+      }
+      .hx-verb {
+        margin: 0 0 0.6rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--hx);
+      }
+      .hx-pillar h3 {
+        margin: 0 0 0.75rem;
+        font-size: 1.3rem;
+        line-height: 1.3;
+        color: #0f172a;
+      }
+      .hx-pillar > p:not(.hx-verb) {
+        margin: 0 0 1.1rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #475569;
+      }
+      .hx-pillar ul {
+        flex: 1;
+        margin: 0 0 1.25rem;
+        padding: 1rem 0 0;
+        border-top: 1px solid #eef2f7;
+        list-style: none;
+      }
+      .hx-pillar li {
+        position: relative;
+        margin: 0 0 0.4rem;
+        padding: 0 0 0 1.1rem;
+        font-size: 0.9rem;
+        color: #334155;
+      }
+      .hx-pillar li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.6em;
+        width: 0.4rem;
+        height: 0.4rem;
+        border-radius: 50%;
+        background: var(--hx);
+      }
+      .hx-pillar-link {
+        color: var(--hx);
+      }
+      .hx-also {
+        margin: 2rem 0 0;
+        font-size: 0.95rem;
+        text-align: center;
+        color: #475569;
+      }
+
+      /* How an engagement works: the four stages from the FAQ on a dark
+         band, joined by a line on wide screens. */
+      .hx-process {
+        background: #0f1c2e;
+        color: rgba(255, 255, 255, 0.82);
+      }
+      .hx-process .hx-kicker {
+        color: #93c5fd;
+      }
+      .hx-process h2 {
+        color: #ffffff;
+      }
+      .hx-process .hx-section-head p {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .hx-steps {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.5rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: none;
+      }
+      .hx-steps::before {
+        content: "";
+        position: absolute;
+        top: 1.35rem;
+        left: 1.35rem;
+        right: 1.35rem;
+        height: 2px;
+        background: linear-gradient(90deg, #2563eb, #b45309, #15803d, #93c5fd);
+        opacity: 0.6;
+      }
+      .hx-steps li {
+        position: relative;
+        margin: 0;
+        padding: 0;
+      }
+      .hx-step-n {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.7rem;
+        height: 2.7rem;
+        margin-bottom: 1.1rem;
+        border: 2px solid rgba(255, 255, 255, 0.35);
+        border-radius: 50%;
+        font-size: 0.85rem;
+        font-weight: 700;
+        background: #0f1c2e;
+        color: #ffffff;
+      }
+      .hx-steps h3 {
+        margin: 0 0 0.4rem;
+        font-size: 1.15rem;
+        color: #ffffff;
+      }
+      .hx-steps p {
+        margin: 0;
+        font-size: 0.92rem;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.72);
+      }
+      .hx-process-note {
+        margin: 2.75rem 0 0;
+        padding-top: 1.75rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .hx-process-note a {
+        color: #ffffff;
+      }
+
+      /* Client work heading link under the intro. */
+      .hx-work-link {
+        margin: 1.25rem 0 0;
+      }
+
+      @media screen and (max-width: 980px) {
+        .hx-hero-inner {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+          padding: 3.5rem 1.5rem 3rem;
+        }
+        .hx-visual {
+          max-width: 34rem;
+        }
+        .hx-pillars {
+          grid-template-columns: 1fr;
+        }
+        .hx-steps {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 2rem 1.5rem;
+        }
+        .hx-steps::before {
+          display: none;
+        }
+      }
+      @media screen and (max-width: 736px) {
+        .hx-section-inner {
+          padding: 3.5rem 1.25rem;
+        }
+        .hx-chip-a {
+          right: 0;
+        }
+        .hx-chip-b {
+          left: 0;
+        }
+        .hx-proof-inner {
+          padding: 1.5rem 1.25rem;
+        }
+        .hx-proof-label {
+          width: 100%;
+        }
+        .hx-logos {
+          justify-content: flex-start;
+          gap: 1.25rem 1.75rem;
+        }
+        .hx-logos img {
+          height: 26px;
+        }
+        .hx-logos img.is-badge {
+          height: 40px;
+        }
+        .hx-steps {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        /* Number beside the text on phones, not above it. */
+        .hx-steps li {
+          display: grid;
+          grid-template-columns: 2.7rem minmax(0, 1fr);
+          column-gap: 1rem;
+        }
+        .hx-step-n {
+          grid-row: 1 / span 2;
+          margin-bottom: 0;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hx-chip {
+          animation: none;
+        }
+        .hx-chart .hx-line,
+        .hx-chart .hx-fixed,
+        .hx-row-after,
+        .hx-row-before del::after {
+          transition: none;
+        }
+      }
+
+      /* Client work image scroller: 3px black rules above and below. */
       #fourth .gallery {
         border-top: 3px solid #000000;
         border-bottom: 3px solid #000000;
@@ -294,302 +887,147 @@
 
     <div id="wrapper" class="divided">
       <main id="main-content">
-        <section
-          class="banner style1 orient-left content-align-left image-position-right fullscreen">
-          <div class="content">
-            <p class="brand-mark">
-              <img
-                src="images/scottlabz-clear.webp?v=d34943c620"
-                srcset="images/scottlabz-clear-32w.webp?v=8d5d3e1b4b 32w, images/scottlabz-clear-64w.webp?v=7b37132bec 64w, images/scottlabz-clear-96w.webp?v=1b0fa7e3f5 96w, images/scottlabz-clear.webp?v=d34943c620 130w"
-                sizes="(max-width: 736px) 28px, 55px"
-                width="130"
-                height="170"
-                alt="S"
-                class="logo" />cott Labz
-            </p>
-            <h1 class="major">
-              <span class="hero-verb is-measure">Measure</span> what matters.
-              <span class="hero-verb is-build">Build</span> it right.
-              <span class="hero-verb is-improve">Improve</span> it continuously.
-            </h1>
-            <p class="major">
-              Every digital experience creates a story. The value comes from
-              understanding what it's really telling you. Reliable measurement
-              and connected data replace assumptions with evidence.
-            </p>
-            <p class="major">
-              Scott Labz builds the digital systems that collect, measure, and improve business performance.
-            </p>
-            <ul class="actions stacked">
-              <li>
-                <a href="/contact" class="button big wide">Get Started</a>
-              </li>
-            </ul>
-          </div>
-          <div class="image">
-            <picture>
-              <!-- The banner is anchored right (object-position: 100% 50%). Its box is 100vw x 50vh in portrait and 50vw x at least 100vh in landscape, so within these aspect ratios the box is never wider than square and only the right-hand square of the image is ever visible. Everything else gets the full frame. -->
-              <source
-                type="image/avif"
-                media="(orientation: portrait) and (max-aspect-ratio: 1/2), (orientation: landscape) and (max-aspect-ratio: 2/1)"
-                srcset="images/banner-crop-900w.avif?v=64fe7e9c38 900w"
-                sizes="(orientation: portrait) 50vh, 100vh"
-                width="900"
-                height="900" />
-              <source
-                type="image/webp"
-                media="(orientation: portrait) and (max-aspect-ratio: 1/2), (orientation: landscape) and (max-aspect-ratio: 2/1)"
-                srcset="images/banner-crop-900w.webp?v=1874008c30 900w"
-                sizes="(orientation: portrait) 50vh, 100vh"
-                width="900"
-                height="900" />
-              <source
-                type="image/avif"
-                srcset="images/banner-800w.avif?v=8562abda85 800w, images/banner-1600w.avif?v=22335ccb3c 1600w"
-                sizes="100vw" />
-              <img
-                src="images/banner-1600w.webp?v=661ca1c179"
-                srcset="
-                  images/banner-800w.webp?v=a66c0f72d9   800w,
-                  images/banner-1600w.webp?v=661ca1c179 1600w
-                "
-                sizes="100vw"
-                width="1600"
-                height="900"
-                fetchpriority="high"
-                alt="Enterprise analytics and modern data infrastructure banner shown on the homepage" />
-            </picture>
+        <!-- Hero: who this is for and the outcome. The card retells a real
+             Field Note (two properties counting the same checkout) as an
+             illustration, without invented figures. -->
+        <section class="hx-hero" aria-labelledby="hx-title">
+          <div class="hx-hero-inner">
+            <div class="hx-copy">
+              <p class="hx-eyebrow">Measurement &amp; storefront systems for retail and sports brands</p>
+              <h1 id="hx-title" class="hx-title">Numbers that hold up on your <em>busiest day</em>.</h1>
+              <p class="hx-lede">Scott Labz builds and fixes the tracking, storefronts, and reporting behind growing retail brands, so the site stays fast when traffic spikes and every sale gets counted once.</p>
+              <div class="hx-actions">
+                <a href="/contact" class="button primary">Start a Conversation</a>
+                <a href="/case-studies" class="hx-link">See the client work<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+              <p class="hx-stat"><a href="/clients"><strong>280+</strong> organizations supported</a> across sports, healthcare, higher education, and consumer brands.</p>
+            </div>
+            <figure class="hx-visual">
+              <div class="hx-card">
+                <p class="hx-card-head"><span class="hx-pulse" aria-hidden="true"></span>Checkout conversions <span class="hx-tag">Fixed</span></p>
+                <div class="hx-row hx-row-before">
+                  <span class="hx-row-label">Reported</span>
+                  <span class="hx-row-value"><del>Up double digits, three weeks running</del></span>
+                </div>
+                <svg class="hx-chart" viewBox="0 0 320 96" aria-hidden="true" focusable="false">
+                  <line class="hx-axis" x1="0" y1="84" x2="320" y2="84" />
+                  <rect class="hx-inflated" x="130" y="12" width="112" height="72" rx="4" />
+                  <text class="hx-note" x="186" y="28" text-anchor="middle">Counted twice</text>
+                  <polyline class="hx-line" points="0,64 30,62 60,65 92,61 124,63 134,40 150,36 182,38 214,35 238,37 248,62" />
+                  <polyline class="hx-fixed" points="248,62 280,60 320,62" />
+                </svg>
+                <p class="hx-flag">Two analytics properties were counting the same checkout.</p>
+                <div class="hx-row hx-row-after">
+                  <span class="hx-row-label">After the fix</span>
+                  <span class="hx-row-value">One property. One count.</span>
+                </div>
+                <a href="/field-notes/the-property-that-was-counting-twice" class="hx-card-link">Read how it was found<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+              <p class="hx-chip hx-chip-a" aria-hidden="true"><span class="hx-chip-dot"></span>Game day traffic spike, storefront holding</p>
+              <p class="hx-chip hx-chip-b" aria-hidden="true"><span class="hx-chip-dot"></span>Tracking validated before launch</p>
+              <figcaption class="hx-caption">Illustration of a real Field Note</figcaption>
+            </figure>
           </div>
         </section>
-        <section
-          class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in"
-          id="first">
-          <div class="content">
-            <h2 class="hero-verb is-measure">Measure</h2>
-            <h3>Analytics &amp; Data Solutions</h3>
-            <dl>
-              <dt>
-                <span class="fweight">Analytics Implementation</span>
-              </dt>
-              <dd>
-                <p>
-                  Sites, apps, and products get instrumented around how your team actually makes decisions - not around whatever a tag manager
-                  sets up by default.
-                </p>
-              </dd>
-              <dt>
-                <span class="fweight">Data Quality & Validation</span>
-              </dt>
-              <dd>
-                <p>
-                  Broken tags and duplicate events erode trust in your numbers
-                  fast. Scott Labz catches the silent failures before they end up in a board deck.
-                </p>
-              </dd>
-              <dt>
-                <span class="fweight">Reporting & Data Integration</span>
-              </dt>
-              <dd>
-                <p>
-                  Your CRM, ad platforms, and product analytics rarely tell the
-                  same story. Scott Labz reconciles them into one view your team can actually act on.
-                </p>
-              </dd>
-            </dl>
-            <ul class="actions stacked">
-              <li>
-                <a href="/analytics-data" class="button big wide">Explore Analytics &amp; Data</a>
-              </li>
+
+        <!-- Trust strip: client logos (small WebP copies) and the 280+ fact. -->
+        <section class="hx-proof" aria-label="Clients">
+          <div class="hx-proof-inner">
+            <p class="hx-proof-label">Trusted by</p>
+            <ul class="hx-logos">
+              <li><img src="images/logo-strip-hawkeyefanshop.webp" width="200" height="96" alt="Hawkeye Fan Shop" class="is-badge" /></li>
+              <li><img src="images/logo-strip-bgs.webp" width="451" height="96" alt="The Black &amp; Gold Shop" /></li>
+              <li><img src="images/logo-strip-kitchens.webp" width="444" height="96" alt="Kitchens" /></li>
+              <li><img src="images/logo-strip-couchletics.webp" width="708" height="96" alt="Couchletics" /></li>
             </ul>
           </div>
-          <div class="image">
-            <picture>
-              <!-- On desktop up to 2560px wide the spotlight box is never wider than 0.9:1, so only the centered 0.9:1 slice is ever visible. Phones show the whole frame. -->
-              <source
-                type="image/avif"
-                media="(min-width: 737px) and (max-width: 2560px)"
-                srcset="images/spotlight01-crop-810w.avif?v=43d47672c8 810w"
-                sizes="35vw"
-                width="810"
-                height="900" />
-              <source
-                type="image/webp"
-                media="(min-width: 737px) and (max-width: 2560px)"
-                srcset="images/spotlight01-crop-810w.webp?v=454857ae49 810w"
-                sizes="35vw"
-                width="810"
-                height="900" />
-              <source
-                type="image/avif"
-                srcset="images/spotlight01-800w.avif?v=1fcd18a775 800w, images/spotlight01-1600w.avif?v=77635e793a 1600w"
-                sizes="100vw" />
-              <img
-                src="images/spotlight01-1600w.webp?v=fc14978d08"
-                srcset="
-                  images/spotlight01-800w.webp?v=a8f8f8b38e   800w,
-                  images/spotlight01-1600w.webp?v=fc14978d08 1600w
-                "
-                sizes="100vw"
-                loading="lazy"
-                decoding="async"
-                width="1600"
-                height="900"
-                alt="Illustration of measurement architecture, telemetry frameworks, and audit pipelines" />
-            </picture>
+        </section>
+
+        <!-- What Scott Labz does: problem first, then the fix. -->
+        <section class="hx-problems" aria-labelledby="hx-problems-title">
+          <div class="hx-section-inner">
+            <div class="hx-section-head">
+              <p class="hx-kicker">What Scott Labz does</p>
+              <h2 id="hx-problems-title">The expensive problems are the ones that look fine</h2>
+              <p>Most days the site is up and the dashboard looks healthy. These are the three places that hides something.</p>
+            </div>
+            <div class="hx-pillars">
+              <article class="hx-pillar is-measure">
+                <p class="hx-verb">Measure</p>
+                <h3>Conversions look great. Some of them aren't real.</h3>
+                <p>Duplicate tags, double-fired events, and drifting definitions inflate the numbers decisions get made on. Tracking gets rebuilt around how the business decides, then checked so it stays right.</p>
+                <ul>
+                  <li>Analytics implementation</li>
+                  <li>Data quality &amp; validation</li>
+                  <li>Reporting &amp; data integration</li>
+                </ul>
+                <a href="/analytics-data" class="hx-pillar-link">Analytics &amp; Data<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              </article>
+              <article class="hx-pillar is-build">
+                <p class="hx-verb">Build</p>
+                <h3>The site is fine until the day it matters.</h3>
+                <p>A launch, a sale, or a game day sends traffic up all at once, and a slow checkout costs the most right then. Storefronts and integrations get built to hold that load and years of changes after it.</p>
+                <ul>
+                  <li>Custom website development</li>
+                  <li>Web applications &amp; integrations</li>
+                  <li>Performance &amp; scalability</li>
+                </ul>
+                <a href="/web-digital" class="hx-pillar-link">Web &amp; Digital<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              </article>
+              <article class="hx-pillar is-improve">
+                <p class="hx-verb">Improve</p>
+                <h3>Shoppers leave, and nobody knows why.</h3>
+                <p>Knowing where someone dropped off isn't the same as knowing why. Behavior data finds the friction, and structured tests prove which fix works.</p>
+                <ul>
+                  <li>User behavior analysis</li>
+                  <li>Experimentation &amp; validation</li>
+                  <li>Ongoing performance tuning</li>
+                </ul>
+                <a href="/conversion-optimization" class="hx-pillar-link">Conversion Optimization<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              </article>
+            </div>
+            <p class="hx-also">Running paid campaigns too? <a href="/advertising-media-buying">Campaign strategy and media buying</a>, read from the same numbers.</p>
           </div>
         </section>
-        <section
-          class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in"
-          id="second">
-          <div class="content">
-            <h2 class="hero-verb is-build">Build</h2>
-            <h3>Web Development & Digital Solutions</h3>
-            <dl>
-              <dt>
-                <span class="fweight">Custom Website Development</span>
-              </dt>
-              <dd>
-                <p>
-                  Sites are designed and shipped around how your specific visitors browse and buy, instead of stretching a generic template to fit.
-                </p>
-              </dd>
-              <dt>
-                <span class="fweight">Web Applications & Integrations</span>
-              </dt>
-              <dd>
-                <p>
-                  From internal tools to customer-facing apps, every build sits on top of the systems your business already runs, rather than forcing
-                  a rebuild from scratch.
-                </p>
-              </dd>
-              <dt>
-                <span class="fweight">Performance & Scalability</span>
-              </dt>
-              <dd>
-                <p>
-                  Code that holds up under a traffic spike and three years of
-                  feature changes, not just a clean first demo.
-                </p>
-              </dd>
-            </dl>
-            <ul class="actions stacked">
+
+        <!-- How an engagement works: the four stages from the FAQ. -->
+        <section class="hx-process" aria-labelledby="hx-process-title">
+          <div class="hx-section-inner">
+            <div class="hx-section-head">
+              <p class="hx-kicker">How an engagement works</p>
+              <h2 id="hx-process-title">From first look to numbers you can stand behind</h2>
+              <p>Scope and timeline are set before any work begins.</p>
+            </div>
+            <ol class="hx-steps">
               <li>
-                <a href="/web-digital" class="button big wide">Explore Web &amp; Digital</a>
+                <span class="hx-step-n">01</span>
+                <h3>Understand</h3>
+                <p>Current systems, goals, and where the numbers actually get used.</p>
               </li>
-            </ul>
-          </div>
-          <div class="image">
-            <picture>
-              <source
-                type="image/avif"
-                media="(min-width: 737px) and (max-width: 2560px)"
-                srcset="images/spotlight02-crop-810w.avif?v=535e1a7ea5 810w"
-                sizes="35vw"
-                width="810"
-                height="900" />
-              <source
-                type="image/webp"
-                media="(min-width: 737px) and (max-width: 2560px)"
-                srcset="images/spotlight02-crop-810w.webp?v=00fcab62f5 810w"
-                sizes="35vw"
-                width="810"
-                height="900" />
-              <source
-                type="image/avif"
-                srcset="images/spotlight02-800w.avif?v=f5b7fadf45 800w, images/spotlight02-1600w.avif?v=2f17bd9aed 1600w"
-                sizes="100vw" />
-              <img
-                src="images/spotlight02-1600w.webp?v=6d975b883e"
-                srcset="
-                  images/spotlight02-800w.webp?v=9fa6a576d7   800w,
-                  images/spotlight02-1600w.webp?v=6d975b883e 1600w
-                "
-                sizes="100vw"
-                loading="lazy"
-                decoding="async"
-                width="1600"
-                height="900"
-                alt="Illustration of executive reporting dashboards and strategic data translation advisory work" />
-            </picture>
-          </div>
-        </section>
-        <section
-          class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in"
-          id="third">
-          <div class="content">
-            <h2 class="hero-verb is-improve">Improve</h2>
-            <h3>Optimization & Continuous Improvement</h3>
-            <dl>
-              <dt>
-                <span class="fweight">User Behavior Analysis</span>
-              </dt>
-              <dd>
-                <p>
-                  Session recordings, funnels, and heatmaps show exactly where people hesitate, stall out, or click away - not just
-                  that they left.
-                </p>
-              </dd>
-              <dt>
-                <span class="fweight">Experimentation & Validation</span>
-              </dt>
-              <dd>
-                <p>
-                  Instead of guessing which version works better, structured tests make the call on evidence, not opinion.
-                </p>
-              </dd>
-              <dt>
-                <span class="fweight">Performance Optimization</span>
-              </dt>
-              <dd>
-                <p>
-                  Launch day is day one, not the finish line. Speed and usability keep getting tuned as your product and traffic evolve.
-                </p>
-              </dd>
-            </dl>
-            <ul class="actions stacked">
               <li>
-                <a href="/conversion-optimization" class="button big wide">Explore Conversion Optimization</a>
+                <span class="hx-step-n">02</span>
+                <h3>Assess</h3>
+                <p>A plain list of what's broken, what's missing, and what to fix first.</p>
               </li>
-            </ul>
-          </div>
-          <div class="image">
-            <picture>
-              <source
-                type="image/avif"
-                media="(min-width: 737px) and (max-width: 2560px)"
-                srcset="images/spotlight03-crop-1080w.avif?v=6da31f707d 1080w"
-                sizes="35vw"
-                width="1080"
-                height="1200" />
-              <source
-                type="image/webp"
-                media="(min-width: 737px) and (max-width: 2560px)"
-                srcset="images/spotlight03-crop-1080w.webp?v=57067104d5 1080w"
-                sizes="35vw"
-                width="1080"
-                height="1200" />
-              <source
-                type="image/avif"
-                srcset="images/spotlight03-800w.avif?v=b243a0efa7 800w, images/spotlight03-1600w.avif?v=115c27b53b 1600w"
-                sizes="100vw" />
-              <img
-                src="images/spotlight03-1600w.webp?v=03e8d879e9"
-                srcset="
-                  images/spotlight03-800w.webp?v=c9ca69487a   800w,
-                  images/spotlight03-1600w.webp?v=03e8d879e9 1600w
-                "
-                sizes="100vw"
-                loading="lazy"
-                decoding="async"
-                width="1600"
-                height="1200"
-                alt="Illustration of A/B/n testing experimentation and eCommerce performance optimization" />
-            </picture>
+              <li>
+                <span class="hx-step-n">03</span>
+                <h3>Implement</h3>
+                <p>The fixes and builds, in priority order, with each one verified.</p>
+              </li>
+              <li>
+                <span class="hx-step-n">04</span>
+                <h3>Enable</h3>
+                <p>Checks and handoff, so the value holds after launch.</p>
+              </li>
+            </ol>
+            <p class="hx-process-note">A focused measurement audit or tracking cleanup can wrap in a few weeks. <a href="/faq">More on how engagements work</a></p>
           </div>
         </section>
+
         <section class="wrapper style1 align-center" id="fourth">
           <div class="inner">
-            <h2>Tailored Digital Platforms</h2>
+            <p class="hx-kicker">Client work</p>
+            <h2>Built for the days that test it</h2>
             <p>
               Every Scott Labz platform starts from a real operational problem,
               not a template. Whether that's a retailer selling out of a stadium
@@ -598,6 +1036,7 @@
               pressure - traffic spikes, inventory chaos, and everything in
               between.
             </p>
+            <p class="hx-work-link"><a href="/case-studies" class="hx-link">See the case studies<i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
           </div>
           <div class="gallery style2 medium lightbox onscroll-fade-in">
             <article>
