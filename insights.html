@@ -188,7 +188,7 @@
         display: flex;
         align-items: flex-start;
         gap: 2rem;
-        padding: 2.25rem 0;
+        padding: 1.5rem 0;
         border-bottom: 1px solid rgba(30, 58, 95, 0.15);
         text-decoration: none;
         color: inherit;
@@ -205,43 +205,60 @@
         font-size: 1.9rem;
         font-weight: 300;
         line-height: 1;
-        color: rgba(30, 58, 95, 0.25);
+        color: rgba(37, 99, 235, 0.3);
         transition: color 0.25s ease;
       }
 
       .idea-row:hover .idea-number {
-        color: #1e3a5f;
+        color: #2563eb;
       }
 
       .idea-body {
         flex: 1 1 auto;
         min-width: 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        column-gap: 1.5rem;
+        align-items: center;
       }
 
       .idea-kicker {
-        display: block;
-        font-size: 0.72rem;
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        padding: 0.25rem 0.7rem;
+        border-radius: 999px;
+        font-size: 0.68rem;
         font-weight: 700;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: #1e3a5f;
-        opacity: 0.6;
-        margin-bottom: 0.5rem;
+        white-space: nowrap;
+        background: #eef2f7;
+        color: #334155;
+      }
+      .idea-row[data-categories~="measurement"] .idea-kicker {
+        background: #eff6ff;
+        color: #2563eb;
+      }
+      .idea-row[data-categories~="search-data"] .idea-kicker {
+        background: #fff7ed;
+        color: #b45309;
       }
 
       .idea-title {
-        font-size: 1.35rem;
+        grid-column: 1;
+        font-size: 1.3rem;
         line-height: 1.3;
-        margin: 0 0 0.5rem 0;
-        color: #111111;
+        margin: 0 0 0.35rem 0;
+        color: #0f172a;
       }
 
       .idea-excerpt {
         font-size: 0.92rem;
         line-height: 1.55;
-        opacity: 0.75;
+        color: #475569;
         margin: 0;
-        max-width: 560px;
+        max-width: 46rem;
+        grid-column: 1;
       }
 
       .idea-arrow {
@@ -273,6 +290,13 @@
         .idea-title {
           font-size: 1.1rem;
         }
+        .idea-body {
+          display: block;
+        }
+        .idea-kicker {
+          display: inline-block;
+          margin-bottom: 0.5rem;
+        }
         .idea-arrow {
           display: none;
         }
@@ -301,6 +325,7 @@
         margin-bottom: 1rem;
       }
     </style>
+    <link rel="stylesheet" href="assets/css/solutions-min.css" />
   </head>
 
   <body class="is-preload">
@@ -317,59 +342,36 @@
     <scott-nav></scott-nav>
 
     <div id="wrapper" class="divided">
-      <main id="main-content">
-      <section
-        class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-        <div class="content">
-          <p class="brand-mark">
-            <a href="/" style="border-bottom: none">
-              <img
-                src="/images/scottlabz-clear.webp?v=d34943c620"
-                srcset="/images/scottlabz-clear-32w.webp?v=8d5d3e1b4b 32w, /images/scottlabz-clear-64w.webp?v=7b37132bec 64w, /images/scottlabz-clear-96w.webp?v=1b0fa7e3f5 96w, /images/scottlabz-clear.webp?v=d34943c620 130w"
-                sizes="(max-width: 736px) 28px, 55px"
-                width="130"
-                height="170"
-                alt="S"
-                class="logo"
-                style="margin-right: 0" />cott Labz
-            </a>
-          </p>
+      <main id="main-content" class="sx-page is-measure">
+        <section class="sx-hero" aria-labelledby="sx-title" data-analytics-section="hero">
+          <div class="sx-hero-inner">
+            <div class="sx-copy">
+              <h1 id="sx-title" class="sx-title"><span class="sx-eyebrow">Insights</span>The thinking behind <em>numbers you can trust</em>.</h1>
+              <p class="sx-lede">Explore practical insights on systems, analytics, and digital solutions that help organizations simplify complexity and move forward with confidence.</p>
+              <div class="sx-actions">
+                <a href="#ideas" class="button primary smooth-scroll">Browse Insights</a>
+              </div>
+            </div>
+            <div class="sx-visual">
+              <div class="sx-card">
+                <p class="sx-card-head"><span class="sx-pulse" aria-hidden="true"></span>Three ways in</p>
+                <ul class="sx-jump-list">
+                  <li><a href="/field-notes/"><span><span class="sx-jump-name">Field Notes</span><span class="sx-jump-sub">Real incidents, written the way they happened</span></span><span class="sx-jump-meta"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></a></li>
+                  <li><div class="sx-jump-here"><span><span class="sx-jump-name">Insights</span><span class="sx-jump-sub">The principles behind the work</span></span><span class="sx-here">You're here</span></div></li>
+                  <li><a href="/diagnostics/"><span><span class="sx-jump-name">Diagnostics</span><span class="sx-jump-sub">Interactive case files: name the cause</span></span><span class="sx-jump-meta"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
-          <h1 class="major">Ideas &amp; Perspectives</h1>
-
-          <p>
-            Explore practical insights on systems, analytics, and digital
-            solutions that help organizations simplify complexity and move
-            forward with confidence.
-          </p>
-
-          <ul class="actions stacked">
-            <li>
-              <a href="#first" class="button big wide smooth-scroll">
-                Browse Insights
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="image">
-          <img
-            src="/images/insights.jpg?v=20361976bb"
-            width="1050"
-            height="1550"
-            alt="Banner image representing insights on analytics, systems, and digital strategy for businesses" />
-        </div>
-      </section>
-
-      <section
-        id="first"
-        class="service-content"
-        style="max-width: 1180px; margin: 0 auto; padding: 4rem 1.5rem">
-        <h2 class="size-h3" style="margin-bottom: 2rem">
-          Building What Matters
-        </h2>
-
-        <scott-filter-bar target="#idea-index" item-selector=".idea-row" all-label="All">
+        <section class="sx-signs" id="ideas" aria-labelledby="sx-ideas-title">
+          <div class="sx-section-inner">
+            <div class="sx-section-head">
+              <p class="sx-kicker">Ideas &amp; Perspectives</p>
+              <h2 id="sx-ideas-title">Every Insight, in order</h2>
+            </div>
+            <scott-filter-bar target="#idea-index" item-selector=".idea-row" all-label="All">
           <script type="application/json">
             [
               { "key": "measurement",  "label": "Measurement", "color": "#2563eb" },
@@ -379,7 +381,7 @@
           </script>
         </scott-filter-bar>
 
-        <div class="idea-index" id="idea-index">
+            <div class="idea-index" id="idea-index">
           <!-- INSIGHT-ROWS:START - generated by scripts/generate_indexes.py, do not edit by hand -->
           <a href="/insights/dashboards-nobody-opens" class="idea-row" data-categories="measurement">
             <span class="idea-number">01</span>
@@ -445,11 +447,23 @@
             <i class="fas fa-arrow-right idea-arrow"></i>
           </a>
           <!-- INSIGHT-ROWS:END -->
-        </div>
+            </div>
+          </div>
+        </section>
 
-      </section>
-
+        <section class="sx-cta" aria-labelledby="sx-cta-title">
+          <div class="sx-section-inner">
+            <h2 id="sx-cta-title">Ready to see what your data is telling you?</h2>
+            <p>Start with a 15-minute conversation about your goals and a practical first step.</p>
+            <ul class="actions special">
+              <li>
+                <a href="/contact" class="button big wide alt">Start a Conversation</a>
+              </li>
+            </ul>
+          </div>
+        </section>
       </main>
+
       <script src="/assets/js/smooth-scroll.js?v=2418fdee53" defer></script>
       <script src="/assets/js/main-min.js?v=f697f0f060" defer></script>
       <script src="/assets/js/footer-min.js?v=977db99110" defer></script>

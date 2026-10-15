@@ -1937,6 +1937,207 @@ body:not(.is-preload) .sx-jump-list li {
   color: #475569;
 }
 
+/* ---------- Content hubs (Insights, Field Notes, Diagnostics) ---------- */
+
+/* "Three ways in": the current hub is marked instead of linked. */
+.sx-jump-here {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0.75rem;
+  margin: 0 -0.75rem;
+  border-radius: 10px;
+  background: var(--sx-soft);
+}
+.sx-here {
+  flex: none;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #ffffff;
+  color: var(--sx);
+}
+.sx-jump-sub {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #475569;
+}
+
+/* Diagnostics hero card: a case file playing out. */
+.sx-evidence {
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  background: #0f1c2e;
+  color: #cbd5e1;
+}
+.sx-evidence > span {
+  display: block;
+}
+.sx-evidence b {
+  display: inline-block;
+  min-width: 6.5rem;
+  font-weight: 400;
+  color: #93c5fd;
+}
+.sx-evidence em {
+  font-style: normal;
+}
+.sx-evidence .is-ok {
+  color: #86efac;
+}
+.sx-evidence .is-bad {
+  color: #fca5a5;
+}
+.sx-suspects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.4rem 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+.sx-suspects li {
+  position: relative;
+  margin: 0;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #dbe3ec;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  color: #334155;
+  background: #ffffff;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    opacity 0.3s ease;
+}
+.sx-suspects li.is-cleared {
+  text-decoration: line-through;
+  text-decoration-color: transparent;
+  transition:
+    text-decoration-color 0.3s ease,
+    opacity 0.3s ease;
+}
+.sx-suspects li.is-cleared:nth-child(1) {
+  transition-delay: 1.3s;
+}
+.sx-suspects li.is-cleared:nth-child(2) {
+  transition-delay: 1.7s;
+}
+body:not(.is-preload) .sx-suspects li.is-cleared {
+  opacity: 0.45;
+  text-decoration-color: #dc2626;
+}
+.sx-suspects li.is-culprit {
+  transition-delay: 2.2s;
+}
+body:not(.is-preload) .sx-suspects li.is-culprit {
+  border-color: #15803d;
+  background: #f0fdf4;
+  color: #15803d;
+  font-weight: 600;
+}
+
+/* Diagnostics case cards. */
+.sx-case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.sx-case {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid var(--sx);
+  border-radius: 12px;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.sx-case:hover,
+.sx-case:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.1);
+}
+.sx-case.is-measure {
+  --sx: #2563eb;
+}
+.sx-case.is-build {
+  --sx: #b45309;
+}
+.sx-case.is-improve {
+  --sx: #15803d;
+}
+.sx-case.is-campaigns {
+  --sx: #7c2d92;
+}
+.sx-case-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 0.75rem;
+}
+.sx-case h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  color: #0f172a;
+}
+.sx-case-count {
+  flex: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sx);
+}
+.sx-case p {
+  flex: 1;
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #334155;
+}
+.sx-case-first {
+  margin: 0 0 1rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  background: #f8fafc;
+  color: #475569;
+}
+.sx-case-first b {
+  font-weight: 600;
+  color: #0f172a;
+}
+.sx-case-more {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sx);
+}
+.sx-case-more i {
+  margin-left: 0.4rem;
+  transition: transform 0.2s ease;
+}
+.sx-case:hover .sx-case-more i {
+  transform: translateX(3px);
+}
+
 /* ---------- Responsive ---------- */
 @media screen and (max-width: 980px) {
   .sx-hero-inner {
@@ -2071,7 +2272,8 @@ body:not(.is-preload) .sx-jump-list li {
   .sx-cred-mark {
     justify-content: flex-start;
   }
-  .sx-roster {
+  .sx-roster,
+  .sx-case-grid {
     grid-template-columns: 1fr;
   }
   .sx-form-card {
@@ -2098,6 +2300,8 @@ body:not(.is-preload) .sx-jump-list li {
   .sx-order li,
   .sx-turn,
   .sx-jump-list li,
+  .sx-suspects li,
+  .sx-case,
   .sx-pillar {
     transition: none;
   }

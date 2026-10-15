@@ -166,6 +166,26 @@
         margin: 0.2rem 0 1rem;
       }
 
+      /* Dotted backdrop fading out downward, the same as the redesigned
+         heroes on the Solutions and Company pages. */
+      .banner.style1.cs-hero {
+        position: relative;
+        overflow: hidden;
+      }
+      .cs-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(30, 58, 95, 0.16) 1px, transparent 1px);
+        background-size: 22px 22px;
+        -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 85%);
+        mask-image: linear-gradient(to bottom, #000 0%, transparent 85%);
+        pointer-events: none;
+      }
+      .banner.style1.cs-hero .content {
+        position: relative;
+      }
+
       .cs-hero .cs-lede {
         max-width: 46rem;
         margin: 0;

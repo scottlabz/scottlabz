@@ -317,8 +317,16 @@ def fn_derive(hub: str, *, url: str, title: str, social_title: str, description:
     page, n = LD_RE.subn(lambda m: m.group(1) + ld_text + m.group(3), page, count=1)
     if n != 1:
         raise SectionError(f"{url}: could not find the hub's JSON-LD block to replace")
-    page = re.sub(r'<h1 class="major">.*?</h1>', f'<h1 class="major">{text(h1)}</h1>', page, count=1, flags=re.S)
-    page = re.sub(r'(</h1>\s*<p class="major">).*?(</p>)', lambda m: m.group(1) + "\n            " + text(intro) + "\n          " + m.group(2), page, count=1, flags=re.S)
+    # The hub's hero marks its headline and lede with data-fn-h1 and
+    # data-fn-intro; the "Field Notes" eyebrow stays, the rest is replaced.
+    page, n = re.subn(r'(<h1\b[^>]*\bdata-fn-h1\b[^>]*>\s*<span class="sx-eyebrow">[^<]*</span>).*?(</h1>)',
+                      lambda m: m.group(1) + text(h1) + m.group(2), page, count=1, flags=re.S)
+    if n != 1:
+        raise SectionError(f"{url}: could not find the hub's data-fn-h1 headline to replace")
+    page, n = re.subn(r'(<p\b[^>]*\bdata-fn-intro\b[^>]*>).*?(</p>)',
+                      lambda m: m.group(1) + text(intro) + m.group(2), page, count=1, flags=re.S)
+    if n != 1:
+        raise SectionError(f"{url}: could not find the hub's data-fn-intro lede to replace")
     if not keep_filter:
         # Anchor on the element's own attributes: the hub's CSS comments
         # also mention "<scott-filter-bar>".
@@ -412,7 +420,7 @@ def fn_post(notes: list[dict], hub: str, ctx: dict, cfg: dict) -> tuple[str, lis
             hub, url=url,
             title=f"{t['label']} - Field Notes | Scott Labz",
             social_title=f"{t['label']} Field Notes | Scott Labz",
-            description=desc, h1=f"Field Notes: {t['label']}", intro=desc,
+            description=desc, h1=t["label"], intro=desc,
             cards=abs_cards(group), topics_nav=fn_topics_nav(topics, t["key"]), pager="",
             notes=group, keep_filter=False,
         )
@@ -427,7 +435,7 @@ def fn_post(notes: list[dict], hub: str, ctx: dict, cfg: dict) -> tuple[str, lis
             title=f"Field Notes - Page {no} | Scott Labz",
             social_title=f"Field Notes, Page {no} | Scott Labz",
             description=f"Older Field Notes, page {no} of {len(pages)}: real breakdowns of measurement problems and technical decisions, written as they happened.",
-            h1="Field Notes", intro=f"Older notes, page {no} of {len(pages)}.",
+            h1=f"Page {no} of {len(pages)}", intro=f"Older notes, page {no} of {len(pages)}.",
             cards=abs_cards(group), topics_nav=fn_topics_nav(topics, None), pager=fn_pager(no, len(pages)),
             notes=group, keep_filter=True,
         )
