@@ -114,6 +114,7 @@ These apply to all visible on-site text: body copy, headings, meta descriptions,
 - Voice: new copy uses "Scott Labz" sparingly in place of "we" or "I", and prefers neutral phrasing ("see the case study", "Who it's for"). Field Notes body copy does not use "Scott Labz". Visitor-voice text stays first person (FAQ questions like "Can I apply again next year?", form labels like "I've read..."). Legal and trust pages keep "we".
 - Do not change existing "we", "I", or "Scott Labz" wording anywhere on the site unless Scott asks. The current wording was set deliberately.
 - Tone: short, direct, action-oriented.
+- The "280+ organizations" figure appears only on the founder page (`founder.html`) and on the client roster it links to (`clients.html`, where it's the count of the list). Don't use it on any other page, in meta or social descriptions, or in `llms.txt`.
 
 ## Content taxonomy
 

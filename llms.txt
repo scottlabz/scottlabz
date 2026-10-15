@@ -1,6 +1,6 @@
 # Scott Labz
 
-> Scott Labz, LLC is an independent analytics and digital practice based in Bloomington-Normal, Illinois. It builds the tracking, platforms, and reporting that turn messy business data into decisions organizations can trust, and has supported 280+ organizations across professional sports, collegiate athletics, motorsports, healthcare, higher education, nonprofits, and consumer brands.
+> Scott Labz, LLC is an independent analytics and digital practice based in Bloomington-Normal, Illinois. It builds the tracking, platforms, and reporting that turn messy business data into decisions organizations can trust, with work across professional sports, collegiate athletics, motorsports, healthcare, higher education, nonprofits, and consumer brands.
 
 Scott Labz is led by founder and principal analytics consultant Scott Taylor. Work covers four areas: analytics and data (measurement, tag management, dashboards, data quality), web and digital development (custom sites, ecommerce, infrastructure), conversion optimization (testing and funnel analysis), and advertising and media buying. Engagements are built on direct accountability and no unnecessary dependencies.
 
