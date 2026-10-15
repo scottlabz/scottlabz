@@ -128,277 +128,7 @@
     <meta name="twitter:description" content="Verified credentials and third-party listings for Scott Labz, LLC - BBB accreditation, Chamber membership, and independent B2B reviews." />
     <meta name="twitter:image" content="https://scottlabz.com/images/og-share.png" />
 
-    <style>
-      .cred-page {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 4rem 1.5rem 2rem;
-      }
-
-      .cred-intro {
-        max-width: 640px;
-        margin-bottom: 3.5rem;
-      }
-
-      .cred-intro p {
-        font-size: 1.02rem;
-        line-height: 1.7;
-        opacity: 0.85;
-      }
-
-      /* Offset stacked blocks */
-      .cred-stack {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        margin-bottom: 4rem;
-      }
-
-      .cred-block {
-        position: relative;
-        display: flex;
-        align-items: center;
-        gap: 1.75rem;
-        background: #ffffff;
-        border: 1px solid rgba(30, 58, 95, 0.15);
-        border-radius: 14px;
-        padding: 1.75rem 2rem;
-        box-shadow:
-          0 10px 25px rgba(15, 23, 42, 0.05),
-          0 4px 10px rgba(15, 23, 42, 0.03);
-        transition:
-          transform 0.25s ease,
-          box-shadow 0.25s ease,
-          border-color 0.25s ease;
-      }
-
-      .cred-block:hover {
-        transform: rotate(0deg) translateY(-3px) !important;
-        box-shadow:
-          0 16px 35px rgba(15, 23, 42, 0.1),
-          0 6px 14px rgba(15, 23, 42, 0.05);
-        border-color: rgba(30, 58, 95, 0.3);
-      }
-
-      .cred-block:nth-child(odd) {
-        margin-right: 6%;
-        transform: rotate(-0.4deg);
-      }
-
-      .cred-block:nth-child(even) {
-        margin-left: 6%;
-        transform: rotate(0.4deg);
-      }
-
-      .cred-block::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 6px;
-        height: 100%;
-        border-radius: 14px 0 0 14px;
-        background: var(--cred-accent, #1e3a5f);
-      }
-
-      .cred-mark {
-        flex-shrink: 0;
-        width: 110px;
-        height: 110px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-      }
-
-      .cred-mark a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        border-bottom: none;
-      }
-
-      .cred-mark img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-      }
-
-      .cred-mark .icon {
-        font-size: 3rem;
-        color: var(--cred-accent, #1e3a5f);
-      }
-
-      .cred-mark.cred-mark-wordmark {
-        width: auto;
-        min-width: 160px;
-        height: 110px;
-        padding: 0 1rem;
-        background: transparent;
-      }
-
-      .cred-mark.cred-mark-wordmark svg {
-        width: 100%;
-        height: 100%;
-      }
-
-      .cred-body {
-        flex: 1;
-        min-width: 0;
-      }
-
-      .cred-body .cred-kicker {
-        display: block;
-        font-size: 0.75rem;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--cred-accent, #1e3a5f);
-        margin-bottom: 0.35rem;
-      }
-
-      .cred-body h3 {
-        font-size: 1.15rem;
-        margin: 0 0 0.4rem;
-      }
-
-      /* Credential titles were promoted from h3 to h2 (flat top-level
-         entries, no intervening h2 section existed); replicate the h3
-         sizing above exactly since it's page-specific, not the global size. */
-      .cred-body h2 {
-        font-size: 1.15rem;
-        margin: 0 0 0.4rem;
-      }
-
-      .cred-body p {
-        font-size: 0.92rem;
-        line-height: 1.6;
-        opacity: 0.8;
-        margin: 0 0 0.9rem;
-      }
-
-      .cred-body a.cred-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: var(--cred-accent, #1e3a5f);
-        text-decoration: none;
-        border-bottom: 1px solid transparent;
-        transition: border-color 0.2s ease;
-      }
-
-      .cred-body a.cred-link:hover {
-        border-bottom-color: var(--cred-accent, #1e3a5f);
-      }
-
-      .cred-block.pending {
-        border-style: dashed;
-      }
-
-      .cred-body span.cred-link-pending {
-        display: inline-flex;
-        align-items: center;
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: #94a3b8;
-      }
-
-      .cred-divider {
-        display: flex;
-        align-items: center;
-        gap: 1.25rem;
-        margin: 0.5rem 0 2.5rem;
-        color: #94a3b8;
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      .cred-divider::before,
-      .cred-divider::after {
-        content: "";
-        flex: 1;
-        height: 1px;
-        background: rgba(30, 58, 95, 0.15);
-      }
-
-      @media screen and (max-width: 700px) {
-        .cred-block {
-          flex-direction: column;
-          align-items: flex-start;
-          margin-left: 0 !important;
-          margin-right: 0 !important;
-          transform: none !important;
-        }
-
-        .cred-mark {
-          width: 72px;
-          height: 72px;
-        }
-
-        .cred-mark.cred-mark-wordmark {
-          width: auto;
-          min-width: 120px;
-          height: 56px;
-        }
-      }
-
-      .cred-note {
-        padding: 2rem;
-        border-top: 2px solid #1e3a5f;
-        text-align: center;
-      }
-
-      .cred-note p {
-        max-width: 560px;
-        margin: 0 auto 1.5rem;
-        opacity: 0.8;
-      }
-
-      .about-hero {
-        position: relative;
-        overflow: hidden;
-        min-height: 100vh;
-        min-height: 100svh;
-      }
-
-      .about-hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 20%;
-        background-image: url("/images/find-us.jpg?v=ff05dd1aa8");
-        background-size: cover;
-        background-position: center;
-        -webkit-mask-image: linear-gradient(
-          to bottom,
-          black 60%,
-          transparent 100%
-        );
-        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-      }
-
-      .about-hero > * {
-        position: relative;
-        z-index: 1;
-      }
-
-      .light-box {
-        border: 1px solid rgba(30, 58, 95, 0.75);
-        margin-bottom: 2rem;
-        background: rgb(248 250 252 / 85%);
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/solutions-min.css" />
   </head>
 
   <body class="is-preload">
@@ -415,48 +145,41 @@
     <scott-nav></scott-nav>
 
     <div id="wrapper" class="divided">
-      <main id="main-content">
-        <section
-          class="banner about-hero style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-          <div class="content">
-            <!-- Hero -->
-            <div class="light-box">
-              <p class="brand-mark">
-                <a href="/" style="border-bottom: none">
-                  <img
-                    src="images/scottlabz-clear.webp?v=d34943c620"
-                    srcset="images/scottlabz-clear-32w.webp?v=8d5d3e1b4b 32w, images/scottlabz-clear-64w.webp?v=7b37132bec 64w, images/scottlabz-clear-96w.webp?v=1b0fa7e3f5 96w, images/scottlabz-clear.webp?v=d34943c620 130w"
-                    sizes="(max-width: 736px) 28px, 55px"
-                    width="130"
-                    height="170"
-                    alt="S"
-                    class="logo"
-                    style="margin-right: 0" />cott Labz
-                </a>
-              </p>
-              <h1 class="major">Credentials &amp; Recognition</h1>
-
-              <div class="cred-intro">
-                <p>
-                  Every claim on this site can be checked somewhere else, too.
-                  Instead of ten tabs, here's one place to verify accreditation,
-                  membership, and independent reviews for Scott Labz, LLC.
-                </p>
+      <main id="main-content" class="sx-page is-measure">
+        <section class="sx-hero" aria-labelledby="sx-title" data-analytics-section="hero">
+          <div class="sx-hero-inner">
+            <div class="sx-copy">
+              <h1 id="sx-title" class="sx-title"><span class="sx-eyebrow">Credentials &amp; Recognition</span>Check the claims <em>yourself</em>.</h1>
+              <p class="sx-lede">Every claim on this site can be checked somewhere else, too. Instead of ten tabs, here's one place to verify accreditation, membership, and independent reviews for Scott Labz, LLC.</p>
+              <div class="sx-actions">
+                <a href="https://www.bbb.org/us/il/normal/profile/data-analytics/scott-labz-0724-1000039342/" target="_blank" rel="noopener noreferrer" class="button primary">View BBB Profile</a>
+                <a href="/bbb" class="sx-link">About the accreditation<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </div>
             </div>
+            <div class="sx-visual">
+              <div class="sx-card">
+                <p class="sx-card-head"><span class="sx-pulse" aria-hidden="true"></span>What's on this page</p>
+                <ul class="sx-jump-list">
+                  <li><a href="#standing" class="smooth-scroll"><span class="sx-jump-name">Verified standing</span><span class="sx-jump-meta">BBB, Google, Chamber, LinkedIn<i class="fas fa-arrow-right" aria-hidden="true"></i></span></a></li>
+                  <li><a href="#reviews" class="smooth-scroll"><span class="sx-jump-name">Independent reviews</span><span class="sx-jump-meta">4 platforms<i class="fas fa-arrow-right" aria-hidden="true"></i></span></a></li>
+                  <li><a href="#listings" class="smooth-scroll"><span class="sx-jump-name">Directories &amp; local listings</span><span class="sx-jump-meta">6 listings<i class="fas fa-arrow-right" aria-hidden="true"></i></span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            <div class="cred-stack">
-              <div
-                class="cred-block"
-                style="
-                  --cred-accent: #003057;
-                  --cred-tint: rgba(0, 48, 87, 0.06);
-                ">
-                <div class="cred-mark cred-mark-wordmark">
-                  <a
-                    href="https://www.bbb.org/us/il/normal/profile/data-analytics/scott-labz-0724-1000039342/"
-                    target="_blank"
-                    rel="noopener noreferrer">
+        <section class="sx-work" id="standing" aria-labelledby="sx-standing-title">
+          <div class="sx-section-inner">
+            <div class="sx-section-head">
+              <p class="sx-kicker">Verified standing</p>
+              <h2 id="sx-standing-title">Accreditation, membership, and profiles</h2>
+              <p>The first places a prospect usually checks.</p>
+            </div>
+            <div class="sx-cred-grid">
+              <article class="sx-cred" style="--cred: #003057">
+                <div class="sx-cred-mark">
+                  <a href="https://www.bbb.org/us/il/normal/profile/data-analytics/scott-labz-0724-1000039342/" target="_blank" rel="noopener noreferrer">
                     <img
                       src="https://seal-heartofillinois.bbb.org/seals/blue-seal-120-61-bbb-1000039342.png"
                       width="137"
@@ -465,34 +188,16 @@
                       loading="lazy" />
                   </a>
                 </div>
-                <div class="cred-body">
-                  <span class="cred-kicker">Accreditation</span>
-                  <h2>Better Business Bureau</h2>
-                  <p>
-                    Accredited business profile, rating history, and complaint
-                    record for Scott Labz, LLC.
-                  </p>
-                  <a
-                    class="cred-link"
-                    href="https://www.bbb.org/us/il/normal/profile/data-analytics/scott-labz-0724-1000039342/"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View BBB Profile <i class="fas fa-arrow-right"></i>
-                  </a>
+                <div class="sx-cred-body">
+                  <span class="sx-cred-kicker">Accreditation</span>
+                  <h3>Better Business Bureau</h3>
+                  <p>Accredited business profile, rating history, and complaint record for Scott Labz, LLC.</p>
+                  <a href="https://www.bbb.org/us/il/normal/profile/data-analytics/scott-labz-0724-1000039342/" target="_blank" rel="noopener noreferrer" class="sx-cred-link">View BBB Profile<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
-              </div>
-
-              <div
-                class="cred-block"
-                style="
-                  --cred-accent: #4285f4;
-                  --cred-tint: rgba(66, 133, 244, 0.06);
-                ">
-                <div class="cred-mark cred-mark-wordmark">
-                  <a
-                    href="https://share.google/t2HAQFr5JcJnzOxPN"
-                    target="_blank"
-                    rel="noopener noreferrer">
+              </article>
+              <article class="sx-cred" style="--cred: #4285f4">
+                <div class="sx-cred-mark">
+                  <a href="https://share.google/t2HAQFr5JcJnzOxPN" target="_blank" rel="noopener noreferrer">
                     <img
                       src="images/google.png?v=e8ad158a89"
                       width="215"
@@ -501,66 +206,16 @@
                       loading="lazy" />
                   </a>
                 </div>
-                <div class="cred-body">
-                  <span class="cred-kicker">Business Profile</span>
-                  <h2>Google Business Profile</h2>
-                  <p>
-                    Usually the first thing a prospect checks before reaching
-                    out - reviews and ratings surfaced directly in search.
-                  </p>
-                  <a
-                    class="cred-link"
-                    href="https://share.google/t2HAQFr5JcJnzOxPN"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View Google Profile <i class="fas fa-arrow-right"></i>
-                  </a>
+                <div class="sx-cred-body">
+                  <span class="sx-cred-kicker">Business Profile</span>
+                  <h3>Google Business Profile</h3>
+                  <p>Usually the first thing a prospect checks before reaching out - reviews and ratings surfaced directly in search.</p>
+                  <a href="https://share.google/t2HAQFr5JcJnzOxPN" target="_blank" rel="noopener noreferrer" class="sx-cred-link">View Google Profile<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
-              </div>
-
-              <div
-                class="cred-block"
-                style="
-                  --cred-accent: #0a66c2;
-                  --cred-tint: rgba(10, 102, 194, 0.06);
-                ">
-                <div class="cred-mark cred-mark-wordmark">
-                  <a
-                    href="https://www.linkedin.com/company/scottlabz"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="View Scott Labz on LinkedIn">
-                    <span class="icon brands fa-linkedin"></span>
-                  </a>
-                </div>
-                <div class="cred-body">
-                  <span class="cred-kicker">Company Profile</span>
-                  <h2>LinkedIn</h2>
-                  <p>
-                    Company page with engagement history, team updates, and a
-                    consistent professional footprint.
-                  </p>
-                  <a
-                    class="cred-link"
-                    href="https://www.linkedin.com/company/scottlabz"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View LinkedIn Page <i class="fas fa-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div
-                class="cred-block"
-                style="
-                  --cred-accent: #0078c0;
-                  --cred-tint: rgba(0, 120, 192, 0.06);
-                ">
-                <div class="cred-mark cred-mark-wordmark">
-                  <a
-                    href="https://business.mcleancochamber.org/active-member-directory/Details/scott-labz-llc-4951023"
-                    target="_blank"
-                    rel="noopener noreferrer">
+              </article>
+              <article class="sx-cred" style="--cred: #0078c0">
+                <div class="sx-cred-mark">
+                  <a href="https://business.mcleancochamber.org/active-member-directory/Details/scott-labz-llc-4951023" target="_blank" rel="noopener noreferrer">
                     <img
                       src="images/Chamber-Member-Logo.webp?v=6843972781"
                       width="260"
@@ -569,34 +224,41 @@
                       loading="lazy" />
                   </a>
                 </div>
-                <div class="cred-body">
-                  <span class="cred-kicker">Membership</span>
-                  <h2>McLean County Chamber of Commerce</h2>
-                  <p>
-                    Active member listing in the local business directory for
-                    Bloomington-Normal, Illinois.
-                  </p>
-                  <a
-                    class="cred-link"
-                    href="https://business.mcleancochamber.org/active-member-directory/Details/scott-labz-llc-4951023"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View Member Directory <i class="fas fa-arrow-right"></i>
+                <div class="sx-cred-body">
+                  <span class="sx-cred-kicker">Membership</span>
+                  <h3>McLean County Chamber of Commerce</h3>
+                  <p>Active member listing in the local business directory for Bloomington-Normal, Illinois.</p>
+                  <a href="https://business.mcleancochamber.org/active-member-directory/Details/scott-labz-llc-4951023" target="_blank" rel="noopener noreferrer" class="sx-cred-link">View Member Directory<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+              </article>
+              <article class="sx-cred" style="--cred: #0a66c2">
+                <div class="sx-cred-mark">
+                  <a href="https://www.linkedin.com/company/scottlabz" target="_blank" rel="noopener noreferrer" aria-label="View Scott Labz on LinkedIn">
+                    <span class="icon brands fa-linkedin"></span>
                   </a>
                 </div>
-              </div>
+                <div class="sx-cred-body">
+                  <span class="sx-cred-kicker">Company Profile</span>
+                  <h3>LinkedIn</h3>
+                  <p>Company page with engagement history, team updates, and a consistent professional footprint.</p>
+                  <a href="https://www.linkedin.com/company/scottlabz" target="_blank" rel="noopener noreferrer" class="sx-cred-link">View LinkedIn Page<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
 
-              <div
-                class="cred-block"
-                style="
-                  --cred-accent: #e62414;
-                  --cred-tint: rgba(230, 36, 20, 0.06);
-                ">
-                <div class="cred-mark cred-mark-wordmark">
-                  <a
-                    href="https://clutch.co/profile/scott-labz"
-                    target="_blank"
-                    rel="noopener noreferrer">
+        <section class="sx-band" id="reviews" aria-labelledby="sx-reviews-title">
+          <div class="sx-section-inner">
+            <div class="sx-section-head">
+              <p class="sx-kicker">Independent reviews</p>
+              <h2 id="sx-reviews-title">Review and research platforms</h2>
+              <p>Third-party profiles used to research and compare service providers.</p>
+            </div>
+            <div class="sx-cred-grid is-four">
+              <article class="sx-cred" style="--cred: #e62414">
+                <div class="sx-cred-mark">
+                  <a href="https://clutch.co/profile/scott-labz" target="_blank" rel="noopener noreferrer">
                     <img
                       src="images/clutch.png?v=ea6e5cb3f4"
                       width="161"
@@ -605,34 +267,16 @@
                       loading="lazy" />
                   </a>
                 </div>
-                <div class="cred-body">
-                  <span class="cred-kicker">B2B Review Platform</span>
-                  <h2>Clutch</h2>
-                  <p>
-                    Independent verified-review profile used to evaluate B2B
-                    service providers.
-                  </p>
-                  <a
-                    class="cred-link"
-                    href="https://clutch.co/profile/scott-labz"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View Clutch Profile <i class="fas fa-arrow-right"></i>
-                  </a>
+                <div class="sx-cred-body">
+                  <span class="sx-cred-kicker">B2B Review Platform</span>
+                  <h3>Clutch</h3>
+                  <p>Independent verified-review profile used to evaluate B2B service providers.</p>
+                  <a href="https://clutch.co/profile/scott-labz" target="_blank" rel="noopener noreferrer" class="sx-cred-link">View Clutch Profile<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
-              </div>
-
-              <div
-                class="cred-block"
-                style="
-                  --cred-accent: #951b43;
-                  --cred-tint: rgba(149, 27, 67, 0.06);
-                ">
-                <div class="cred-mark cred-mark-wordmark">
-                  <a
-                    href="https://themanifest.com/company/scott-labz"
-                    target="_blank"
-                    rel="noopener noreferrer">
+              </article>
+              <article class="sx-cred" style="--cred: #951b43">
+                <div class="sx-cred-mark">
+                  <a href="https://themanifest.com/company/scott-labz" target="_blank" rel="noopener noreferrer">
                     <img
                       src="images/themanifest.png?v=2d7c660177"
                       width="91"
@@ -641,30 +285,15 @@
                       loading="lazy" />
                   </a>
                 </div>
-                <div class="cred-body">
-                  <span class="cred-kicker">B2B Research Platform</span>
-                  <h2>The Manifest</h2>
-                  <p>
-                    Company profile and client feedback aggregated for
-                    researching and comparing service providers.
-                  </p>
-                  <a
-                    class="cred-link"
-                    href="https://themanifest.com/company/scott-labz"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View Manifest Profile <i class="fas fa-arrow-right"></i>
-                  </a>
+                <div class="sx-cred-body">
+                  <span class="sx-cred-kicker">B2B Research Platform</span>
+                  <h3>The Manifest</h3>
+                  <p>Company profile and client feedback aggregated for researching and comparing service providers.</p>
+                  <a href="https://themanifest.com/company/scott-labz" target="_blank" rel="noopener noreferrer" class="sx-cred-link">View Manifest Profile<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
-              </div>
-
-              <div
-                class="cred-block"
-                style="
-                  --cred-accent: #08235e;
-                  --cred-tint: rgba(8, 35, 94, 0.06);
-                ">
-                <div class="cred-mark cred-mark-wordmark">
+              </article>
+              <article class="sx-cred" style="--cred: #08235e">
+                <div class="sx-cred-mark">
                   <script
                     type="text/javascript"
                     src="https://www.designrush.com/topbest/js/widgets/agency-reviews.js"></script>
@@ -673,44 +302,18 @@
                     data-agency-id="123871"
                     data-style="dark"
                     aria-label="DesignRush agency reviews section"></div>
-                  <noscript
-                    ><a
-                      href="https://www.designrush.com/agency/profile/scott-labz-llc#reviews"
-                      target="_blank"
-                      rel="noopener"
-                      aria-label="Visit Scott Labz, LLC reviews on DesignRush"
-                      >REVIEW US ON DESIGNRUSH</a
-                    ></noscript
-                  >
+                  <noscript><a href="https://www.designrush.com/agency/profile/scott-labz-llc#reviews" target="_blank" rel="noopener" aria-label="Visit Scott Labz, LLC reviews on DesignRush">REVIEW US ON DESIGNRUSH</a></noscript>
                 </div>
-                <div class="cred-body">
-                  <span class="cred-kicker">Agency Directory</span>
-                  <h2>DesignRush</h2>
-                  <p>
-                    Agency directory and ranking profile used to research and
-                    compare digital service providers.
-                  </p>
-                  <a
-                    class="cred-link"
-                    href="https://www.designrush.com/agency/profile/scott-labz-llc"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View DesignRush Profile <i class="fas fa-arrow-right"></i>
-                  </a>
+                <div class="sx-cred-body">
+                  <span class="sx-cred-kicker">Agency Directory</span>
+                  <h3>DesignRush</h3>
+                  <p>Agency directory and ranking profile used to research and compare digital service providers.</p>
+                  <a href="https://www.designrush.com/agency/profile/scott-labz-llc" target="_blank" rel="noopener noreferrer" class="sx-cred-link">View DesignRush Profile<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
-              </div>
-
-              <div
-                class="cred-block"
-                style="
-                  --cred-accent: #c49e46;
-                  --cred-tint: rgba(196, 158, 70, 0.06);
-                ">
-                <div class="cred-mark cred-mark-wordmark">
-                  <a
-                    href="https://www.goodfirms.co/company/scott-labz-llc"
-                    target="_blank"
-                    rel="noopener noreferrer">
+              </article>
+              <article class="sx-cred" style="--cred: #c49e46">
+                <div class="sx-cred-mark">
+                  <a href="https://www.goodfirms.co/company/scott-labz-llc" target="_blank" rel="noopener noreferrer">
                     <img
                       src="images/goodfirms.png?v=87db613a6a"
                       width="161"
@@ -719,34 +322,28 @@
                       loading="lazy" />
                   </a>
                 </div>
-                <div class="cred-body">
-                  <span class="cred-kicker">B2B Research Platform</span>
-                  <h2>Goodfirms</h2>
-                  <p>
-                    Research and review platform used to evaluate software and
-                    service providers.
-                  </p>
-                  <a
-                    class="cred-link"
-                    href="https://www.goodfirms.co/company/scott-labz-llc"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View Goodfirms Profile <i class="fas fa-arrow-right"></i>
-                  </a>
+                <div class="sx-cred-body">
+                  <span class="sx-cred-kicker">B2B Research Platform</span>
+                  <h3>Goodfirms</h3>
+                  <p>Research and review platform used to evaluate software and service providers.</p>
+                  <a href="https://www.goodfirms.co/company/scott-labz-llc" target="_blank" rel="noopener noreferrer" class="sx-cred-link">View Goodfirms Profile<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
-              </div>
+              </article>
+            </div>
+          </div>
+        </section>
 
-              <div
-                class="cred-block"
-                style="
-                  --cred-accent: #35cbfa;
-                  --cred-tint: rgba(53, 203, 250, 0.06);
-                ">
-                <div class="cred-mark cred-mark-wordmark">
-                  <a
-                    href="https://www.agencyspotter.com/scott-labz-llc"
-                    target="_blank"
-                    rel="noopener noreferrer">
+        <section class="sx-work" id="listings" aria-labelledby="sx-listings-title">
+          <div class="sx-section-inner">
+            <div class="sx-section-head">
+              <p class="sx-kicker">Directories &amp; local listings</p>
+              <h2 id="sx-listings-title">Directories and local presence</h2>
+              <p>Agency directories and Bloomington-Normal business networks.</p>
+            </div>
+            <div class="sx-cred-grid is-compact">
+              <article class="sx-cred" style="--cred: #35cbfa">
+                <div class="sx-cred-mark">
+                  <a href="https://www.agencyspotter.com/scott-labz-llc" target="_blank" rel="noopener noreferrer">
                     <img
                       src="images/agencyspotter.png?v=d401a76107"
                       width="103"
@@ -755,35 +352,16 @@
                       loading="lazy" />
                   </a>
                 </div>
-                <div class="cred-body">
-                  <span class="cred-kicker">Agency Directory</span>
-                  <h2>Agency Spotter</h2>
-                  <p>
-                    Agency directory used to research and compare digital
-                    service providers.
-                  </p>
-                  <a
-                    class="cred-link"
-                    href="https://www.agencyspotter.com/scott-labz-llc"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View Agency Spotter Profile
-                    <i class="fas fa-arrow-right"></i>
-                  </a>
+                <div class="sx-cred-body">
+                  <span class="sx-cred-kicker">Agency Directory</span>
+                  <h3>Agency Spotter</h3>
+                  <p>Agency directory used to research and compare digital service providers.</p>
+                  <a href="https://www.agencyspotter.com/scott-labz-llc" target="_blank" rel="noopener noreferrer" class="sx-cred-link">View Agency Spotter Profile<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
-              </div>
-
-              <div
-                class="cred-block"
-                style="
-                  --cred-accent: #0f0d09;
-                  --cred-tint: rgba(15, 13, 9, 0.06);
-                ">
-                <div class="cred-mark cred-mark-wordmark">
-                  <a
-                    href="https://www.sortlist.com/agency/scott-labz-llc"
-                    target="_blank"
-                    rel="noopener noreferrer">
+              </article>
+              <article class="sx-cred" style="--cred: #0f0d09">
+                <div class="sx-cred-mark">
+                  <a href="https://www.sortlist.com/agency/scott-labz-llc" target="_blank" rel="noopener noreferrer">
                     <img
                       src="images/sortlist.png?v=5109328253"
                       width="131"
@@ -792,34 +370,16 @@
                       loading="lazy" />
                   </a>
                 </div>
-                <div class="cred-body">
-                  <span class="cred-kicker">Agency Directory</span>
-                  <h2>Sortlist</h2>
-                  <p>
-                    Agency directory used to research and compare digital
-                    service providers.
-                  </p>
-                  <a
-                    class="cred-link"
-                    href="https://www.sortlist.com/agency/scott-labz-llc"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View Sortlist Profile <i class="fas fa-arrow-right"></i>
-                  </a>
+                <div class="sx-cred-body">
+                  <span class="sx-cred-kicker">Agency Directory</span>
+                  <h3>Sortlist</h3>
+                  <p>Agency directory used to research and compare digital service providers.</p>
+                  <a href="https://www.sortlist.com/agency/scott-labz-llc" target="_blank" rel="noopener noreferrer" class="sx-cred-link">View Sortlist Profile<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
-              </div>
-
-              <div
-                class="cred-block"
-                style="
-                  --cred-accent: #3672ff;
-                  --cred-tint: rgba(54, 114, 255, 0.06);
-                ">
-                <div class="cred-mark cred-mark-wordmark">
-                  <a
-                    href="https://techbehemoths.com/company/scott-labz-llc"
-                    target="_blank"
-                    rel="noopener noreferrer">
+              </article>
+              <article class="sx-cred" style="--cred: #3672ff">
+                <div class="sx-cred-mark">
+                  <a href="https://techbehemoths.com/company/scott-labz-llc" target="_blank" rel="noopener noreferrer">
                     <img
                       src="images/techbehemoths.png?v=38126a806e"
                       width="167"
@@ -828,35 +388,16 @@
                       loading="lazy" />
                   </a>
                 </div>
-                <div class="cred-body">
-                  <span class="cred-kicker">Agency Directory</span>
-                  <h2>TechBehemoths</h2>
-                  <p>
-                    Agency directory used to research and compare digital
-                    service providers.
-                  </p>
-                  <a
-                    class="cred-link"
-                    href="https://techbehemoths.com/company/scott-labz-llc"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View TechBehemoths Profile
-                    <i class="fas fa-arrow-right"></i>
-                  </a>
+                <div class="sx-cred-body">
+                  <span class="sx-cred-kicker">Agency Directory</span>
+                  <h3>TechBehemoths</h3>
+                  <p>Agency directory used to research and compare digital service providers.</p>
+                  <a href="https://techbehemoths.com/company/scott-labz-llc" target="_blank" rel="noopener noreferrer" class="sx-cred-link">View TechBehemoths Profile<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
-              </div>
-
-              <div
-                class="cred-block"
-                style="
-                  --cred-accent: #6d32d8;
-                  --cred-tint: rgba(109, 50, 216, 0.06);
-                ">
-                <div class="cred-mark cred-mark-wordmark">
-                  <a
-                    href="https://www.alignable.com/bloomington-il/scott-labz-llc"
-                    target="_blank"
-                    rel="noopener noreferrer">
+              </article>
+              <article class="sx-cred" style="--cred: #6d32d8">
+                <div class="sx-cred-mark">
+                  <a href="https://www.alignable.com/bloomington-il/scott-labz-llc" target="_blank" rel="noopener noreferrer">
                     <img
                       src="images/alignable.png?v=327a21622e"
                       width="156"
@@ -865,34 +406,16 @@
                       loading="lazy" />
                   </a>
                 </div>
-                <div class="cred-body">
-                  <span class="cred-kicker">Local Business Network</span>
-                  <h2>Alignable</h2>
-                  <p>
-                    Local business network and referral community profile
-                    covering Bloomington-Normal, Illinois.
-                  </p>
-                  <a
-                    class="cred-link"
-                    href="https://www.alignable.com/bloomington-il/scott-labz-llc"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View Alignable Profile <i class="fas fa-arrow-right"></i>
-                  </a>
+                <div class="sx-cred-body">
+                  <span class="sx-cred-kicker">Local Business Network</span>
+                  <h3>Alignable</h3>
+                  <p>Local business network and referral community profile covering Bloomington-Normal, Illinois.</p>
+                  <a href="https://www.alignable.com/bloomington-il/scott-labz-llc" target="_blank" rel="noopener noreferrer" class="sx-cred-link">View Alignable Profile<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
-              </div>
-
-              <div
-                class="cred-block"
-                style="
-                  --cred-accent: #1d8751;
-                  --cred-tint: rgba(29, 135, 81, 0.06);
-                ">
-                <div class="cred-mark cred-mark-wordmark">
-                  <a
-                    href="https://nextdoor.com/page/scott-labz-llc-normal-il"
-                    target="_blank"
-                    rel="noopener noreferrer">
+              </article>
+              <article class="sx-cred" style="--cred: #1d8751">
+                <div class="sx-cred-mark">
+                  <a href="https://nextdoor.com/page/scott-labz-llc-normal-il" target="_blank" rel="noopener noreferrer">
                     <img
                       src="images/nextdoor.png?v=334e604fed"
                       width="151"
@@ -901,34 +424,16 @@
                       loading="lazy" />
                   </a>
                 </div>
-                <div class="cred-body">
-                  <span class="cred-kicker">Local Presence</span>
-                  <h2>Nextdoor</h2>
-                  <p>
-                    Business page within the local Bloomington-Normal
-                    neighborhood network.
-                  </p>
-                  <a
-                    class="cred-link"
-                    href="https://nextdoor.com/page/scott-labz-llc-normal-il"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View Nextdoor Page <i class="fas fa-arrow-right"></i>
-                  </a>
+                <div class="sx-cred-body">
+                  <span class="sx-cred-kicker">Local Presence</span>
+                  <h3>Nextdoor</h3>
+                  <p>Business page within the local Bloomington-Normal neighborhood network.</p>
+                  <a href="https://nextdoor.com/page/scott-labz-llc-normal-il" target="_blank" rel="noopener noreferrer" class="sx-cred-link">View Nextdoor Page<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
-              </div>
-
-              <div
-                class="cred-block"
-                style="
-                  --cred-accent: #034b05;
-                  --cred-tint: rgba(3, 75, 5, 0.06);
-                ">
-                <div class="cred-mark cred-mark-wordmark">
-                  <a
-                    href="https://patch.com/illinois/bloomington-il/business/listing/591057/scott-labz-llc"
-                    target="_blank"
-                    rel="noopener noreferrer">
+              </article>
+              <article class="sx-cred" style="--cred: #034b05">
+                <div class="sx-cred-mark">
+                  <a href="https://patch.com/illinois/bloomington-il/business/listing/591057/scott-labz-llc" target="_blank" rel="noopener noreferrer">
                     <img
                       src="images/patch.png?v=903d1bc1b6"
                       width="84"
@@ -937,40 +442,44 @@
                       loading="lazy" />
                   </a>
                 </div>
-                <div class="cred-body">
-                  <span class="cred-kicker">Local Media Directory</span>
-                  <h2>Patch</h2>
-                  <p>
-                    Local news and business directory listing covering
-                    Bloomington-Normal.
-                  </p>
-                  <a
-                    class="cred-link"
-                    href="https://patch.com/illinois/bloomington-il/business/listing/591057/scott-labz-llc"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View Patch Listing <i class="fas fa-arrow-right"></i>
-                  </a>
+                <div class="sx-cred-body">
+                  <span class="sx-cred-kicker">Local Media Directory</span>
+                  <h3>Patch</h3>
+                  <p>Local news and business directory listing covering Bloomington-Normal.</p>
+                  <a href="https://patch.com/illinois/bloomington-il/business/listing/591057/scott-labz-llc" target="_blank" rel="noopener noreferrer" class="sx-cred-link">View Patch Listing<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
-              </div>
-            </div>
-
-            <div class="cred-note">
-              <p>
-                Every link above opens the third party's own site, not a
-                reproduction of it - so what's shown is always current.
-              </p>
+              </article>
             </div>
           </div>
         </section>
-      </main>
-      <script src="assets/js/smooth-scroll.js?v=2418fdee53" defer></script>
-      <script src="assets/js/main-min.js?v=f697f0f060" defer></script>
-      <script src="assets/js/footer-min.js?v=977db99110" defer></script>
 
+        <section class="sx-work" aria-label="About these links">
+          <div class="sx-section-inner" style="padding-top: 0">
+            <p class="sx-fine">Every link above opens the third party's own site, not a reproduction of it - so what's shown is always current.</p>
+          </div>
+        </section>
+
+        <section class="sx-cta" aria-labelledby="sx-cta-title">
+          <div class="sx-section-inner">
+            <h2 id="sx-cta-title">Ready to see what your data is telling you?</h2>
+            <p>
+              Start with a 15-minute conversation about your goals and a
+              practical first step.
+            </p>
+            <ul class="actions special">
+              <li>
+                <a href="/contact" class="button big wide alt">Talk to Scott</a>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <script src="/assets/js/smooth-scroll.js?v=2418fdee53" defer></script>
+      <script src="/assets/js/main-min.js?v=f697f0f060" defer></script>
+      <script src="/assets/js/footer-min.js?v=977db99110" defer></script>
       <scott-footer
-        description="Verified credentials and third-party listings for Scott Labz, LLC - BBB accreditation, Chamber membership, and independent B2B reviews.">
-      </scott-footer>
+        description="Verified credentials and third-party listings for Scott Labz, LLC - BBB accreditation, Chamber membership, and independent B2B reviews."></scott-footer>
     </div>
   </body>
 </html>

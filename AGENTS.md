@@ -45,9 +45,14 @@ Category keys must already exist in the `<scott-filter-bar>` JSON block on that 
 - After regenerating, diff the `-min` file and confirm the only change is the intended one.
 - Site-wide UI is built as custom elements: `<scott-nav>` (`assets/js/navigation.js`), `<scott-footer>` (`assets/js/footer.js`), `<scott-filter-bar>` (`assets/js/scott-filter-bar.js`, uses shadow DOM). New shared UI follows this same custom-element pattern rather than copy-pasted HTML.
 
-## Solutions pages
+## Solutions and Company pages
 
 - `services.html`, `analytics-data.html`, `web-digital.html`, `conversion-optimization.html`, `advertising-media-buying.html`, and `industries.html` share `assets/css/solutions.css` (classes `sx-*`). It carries the homepage's look; the homepage itself keeps its `hx-*` styles inline in `index.html`.
+- The Company pages use the same stylesheet: `about.html`, `why-us.html`, `founder.html`, `find-us.html` (Credentials), `faq.html`, and `contact.html`.
+  - `contact.html`: the Web3Forms `<form>` (action, hidden `access_key`, `subject`, `from_name`, `redirect`, `botcheck`, and the field names) must stay exactly as is. Restyle around it, never inside it.
+  - `faq.html`: every visible question and answer must match the `FAQPage` JSON-LD in its head. Change both together or neither.
+  - `find-us.html` groups profiles into Verified standing, Independent reviews, and Directories & local listings. A new profile goes into the matching group.
+  - About's approach is Measure, Build, Improve, the same model as the rest of the site.
 - Each page sets its accent on `<main class="sx-page ...">`: `is-measure` (blue), `is-build` (amber), `is-improve` (green), or `is-campaigns` (purple).
 - Service page order: hero, Sound familiar (3 symptoms), What gets done (4 services plus capability tags), the 4-step process band, Related work (`id="work"`, the shared `.cs-card` and `.related-notes` markup), FAQ as `<details>`, navy CTA. The service name is the eyebrow inside the `<h1>`.
 - `services.html` is the hub. Its hero card links the four practices; each practice card keeps that practice's sub-service copy and links to its page. Practice accents are set per card (`.sx-practice.is-measure` and so on).

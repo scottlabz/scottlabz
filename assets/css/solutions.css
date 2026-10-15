@@ -851,6 +851,11 @@ body:not(.is-preload) .sx-sector-list li {
   justify-content: center;
   margin: 0;
 }
+.sx-cta p a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .sx-cta .button.alt {
   background-color: #ffffff;
   box-shadow: none;
@@ -1236,6 +1241,702 @@ body:not(.is-preload) .sx-practice-row {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+/* ---------- Company pages (About, Why Us, Founder, Credentials, FAQ,
+   Contact) ---------- */
+
+/* A large centered statement. */
+.sx-statement {
+  background: #ffffff;
+  text-align: center;
+}
+.sx-statement .sx-section-inner {
+  max-width: 52rem;
+}
+.sx-statement h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 3.6vw, 2.75rem);
+  line-height: 1.2;
+}
+.sx-statement p {
+  margin: 0 auto;
+  max-width: 40rem;
+  font-size: 1.15rem;
+  color: #475569;
+}
+
+.sx-statement.is-dark {
+  background: #0f1c2e;
+}
+.sx-statement.is-dark .sx-kicker {
+  color: #93c5fd;
+}
+.sx-statement.is-dark h2 {
+  color: #ffffff;
+}
+.sx-statement.is-dark p {
+  color: rgba(255, 255, 255, 0.78);
+}
+.sx-statement.is-dark a {
+  color: #ffffff;
+}
+.sx-sector-list li:nth-child(5) {
+  transition-delay: 1s;
+}
+
+/* Badges and short facts. */
+.sx-badges {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.sx-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.75rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  text-align: center;
+}
+.sx-badge img {
+  display: block;
+  width: auto;
+  height: 96px;
+  margin: 0 0 1.1rem;
+  object-fit: contain;
+}
+.sx-badge img.is-wide {
+  width: 100%;
+  max-width: 15rem;
+  height: auto;
+  margin: 14px 0 calc(1.1rem + 14px);
+}
+.sx-badge h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  color: #0f172a;
+}
+.sx-badge p {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: #475569;
+}
+.sx-badge p:last-child {
+  margin-bottom: 0;
+}
+.sx-center-link {
+  margin: 2rem 0 0;
+  text-align: center;
+}
+
+/* Why Us: the order, as a numbered list in the hero card and as three
+   cards below. */
+.sx-order {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sx-order li {
+  position: relative;
+  margin: 0;
+  padding: 0 0 1rem 2.6rem;
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+.sx-order li:last-child {
+  padding-bottom: 0;
+}
+.sx-order li:nth-child(1) {
+  transition-delay: 1.9s;
+}
+.sx-order li:nth-child(2) {
+  transition-delay: 2.2s;
+}
+.sx-order li:nth-child(3) {
+  transition-delay: 2.5s;
+}
+body:not(.is-preload) .sx-order li {
+  opacity: 1;
+  transform: none;
+}
+.sx-order-n {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--step, #1e3a5f);
+}
+.sx-order li:nth-child(1),
+.sx-order-card:nth-child(1) {
+  --step: #2563eb;
+}
+.sx-order li:nth-child(2),
+.sx-order-card:nth-child(2) {
+  --step: #b45309;
+}
+.sx-order li:nth-child(3),
+.sx-order-card:nth-child(3) {
+  --step: #15803d;
+}
+.sx-order-what {
+  display: block;
+  font-weight: 600;
+  color: #0f172a;
+}
+.sx-order-why {
+  display: block;
+  font-size: 0.88rem;
+  color: #475569;
+}
+.sx-turn {
+  margin: 0 0 1rem;
+  padding: 0.65rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  background: #eff6ff;
+  color: #1e3a5f;
+  opacity: 0;
+  transition: opacity 0.4s ease 1.7s;
+}
+body:not(.is-preload) .sx-turn {
+  opacity: 1;
+}
+.sx-order-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sx-order-card {
+  margin: 0;
+  padding: 1.75rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid var(--step);
+  border-radius: 12px;
+}
+.sx-order-card .sx-order-n {
+  position: static;
+  margin: 0 0 1rem;
+}
+.sx-order-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.4rem;
+  color: #0f172a;
+}
+.sx-order-card p {
+  margin: 0;
+  color: #475569;
+}
+
+/* Copy beside a grid of short proof points. */
+.sx-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 3rem;
+  align-items: start;
+}
+.sx-prose p {
+  margin: 0 0 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #334155;
+}
+.sx-prose p:last-child {
+  margin-bottom: 0;
+}
+.sx-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sx-stats li {
+  margin: 0;
+  padding: 1.4rem 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+.sx-stat-value {
+  display: block;
+  margin: 0 0 0.35rem;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--sx);
+}
+.sx-stat-label {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #475569;
+}
+
+/* Founder: portrait card in the hero, focus chips, and the roster. */
+.sx-portrait {
+  position: relative;
+  margin: 0;
+  max-width: 24rem;
+  justify-self: center;
+}
+.sx-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 24px 48px -12px rgba(15, 23, 42, 0.25);
+}
+.sx-portrait figcaption {
+  margin-top: 0.9rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #475569;
+}
+.sx-portrait figcaption strong {
+  display: block;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+.sx-role {
+  margin: -0.5rem 0 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+.sx-roster {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+.sx-roster-group {
+  padding: 1.4rem 1.5rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid var(--group, #1e3a5f);
+  border-radius: 12px;
+}
+.sx-roster-group h3 {
+  margin: 0 0 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--group, #1e3a5f);
+}
+.sx-roster-group ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sx-roster-group li {
+  margin: 0;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  background: #f8fafc;
+  color: #0f172a;
+}
+.sx-roster-group sup {
+  margin-left: 0.35rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--group, #1e3a5f);
+}
+
+/* Credentials: large cards for verified standing, compact ones below. */
+.sx-cred-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.sx-cred-grid.is-compact {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.sx-cred-grid.is-four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.sx-cred {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.75rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid var(--cred, #1e3a5f);
+  border-radius: 12px;
+}
+.sx-cred-grid.is-compact .sx-cred,
+.sx-cred-grid.is-four .sx-cred {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.4rem;
+}
+.sx-cred-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.5rem;
+}
+.sx-cred-grid.is-compact .sx-cred-mark,
+.sx-cred-grid.is-four .sx-cred-mark {
+  justify-content: flex-start;
+  min-height: 3.25rem;
+}
+.sx-cred-mark a {
+  display: inline-flex;
+  border-bottom: none;
+}
+.sx-cred-mark img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 4.5rem;
+}
+.sx-cred-grid.is-compact .sx-cred-mark img,
+.sx-cred-grid.is-four .sx-cred-mark img {
+  max-height: 2.6rem;
+}
+.sx-cred-mark .icon {
+  font-size: 3.5rem;
+  color: var(--cred, #1e3a5f);
+}
+.sx-cred-kicker {
+  display: block;
+  margin: 0 0 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cred, #1e3a5f);
+}
+.sx-cred h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  color: #0f172a;
+}
+.sx-cred p {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #475569;
+}
+.sx-cred-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+  border-bottom: none;
+}
+.sx-cred-link i {
+  margin-left: 0.4rem;
+  font-size: 0.85em;
+  transition: transform 0.2s ease;
+}
+.sx-cred-link:hover i {
+  transform: translateX(3px);
+}
+.sx-fine {
+  margin: 2.5rem 0 0;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #64748b;
+}
+.sx-jump-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sx-jump-list li {
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+.sx-jump-list li + li {
+  border-top: 1px solid #eef2f7;
+}
+.sx-jump-list li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.sx-jump-list li:nth-child(3) {
+  transition-delay: 0.4s;
+}
+.sx-jump-list li:nth-child(4) {
+  transition-delay: 0.6s;
+}
+.sx-jump-list li:nth-child(5) {
+  transition-delay: 0.8s;
+}
+body:not(.is-preload) .sx-jump-list li {
+  opacity: 1;
+  transform: none;
+}
+.sx-jump-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0.75rem;
+  margin: 0 -0.75rem;
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.sx-jump-list a:hover,
+.sx-jump-list a:focus-visible {
+  background: var(--sx-soft);
+}
+.sx-jump-name {
+  font-weight: 600;
+  color: #0f172a;
+}
+.sx-jump-meta {
+  font-size: 0.85rem;
+  color: #64748b;
+  white-space: nowrap;
+}
+.sx-jump-meta i {
+  margin-left: 0.5rem;
+  color: var(--sx);
+}
+
+/* FAQ: grouped disclosure lists and the five reasons. */
+.sx-faq-group + .sx-faq-group {
+  margin-top: 3.5rem;
+}
+.sx-faq-group > h2 {
+  margin: 0 0 1.25rem;
+  font-size: 1.75rem;
+  scroll-margin-top: 6rem;
+}
+.sx-faq-group[id] {
+  scroll-margin-top: 6rem;
+}
+.sx-faq-list summary h3 {
+  display: inline;
+  margin: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+.sx-faq-list .faq-answer {
+  max-width: 46rem;
+}
+.sx-reasons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  max-width: 52rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sx-reasons li {
+  margin: 0;
+  padding: 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-top: 3px solid var(--sx);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #475569;
+}
+.sx-reasons strong {
+  display: block;
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+/* Contact: copy and next steps on the left, the form card on the right
+   (form second on phones, before the steps). */
+.sx-contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "copy form"
+    "steps form";
+  gap: 2.5rem 4rem;
+  align-items: start;
+}
+.sx-contact-copy {
+  grid-area: copy;
+}
+.sx-contact-form {
+  grid-area: form;
+}
+.sx-contact-steps {
+  grid-area: steps;
+}
+.sx-book {
+  margin: 0 0 0.5rem;
+}
+.sx-book-note {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+.button.book-proton {
+  background-color: #6d4aff;
+}
+.button.book-proton:hover {
+  background-color: #593dd6;
+}
+.sx-form-card {
+  padding: 2rem;
+  background: #ffffff;
+  border: 1px solid #dbe3ec;
+  border-radius: 16px;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 24px 48px -12px rgba(15, 23, 42, 0.18);
+}
+.sx-form-card > p {
+  margin: 0 0 1.25rem;
+  color: #475569;
+}
+.sx-form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin: 0;
+}
+.sx-form-card .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  text-align: left;
+}
+.sx-form-card label {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e3a5f;
+}
+.sx-form-card input,
+.sx-form-card textarea {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #0f172a;
+  background: #ffffff !important;
+  border: 2px solid #dbe3ec;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.sx-form-card input:focus,
+.sx-form-card textarea:focus {
+  outline: none;
+  border-color: #1e3a5f;
+  box-shadow: 0 0 0 4px rgba(30, 58, 95, 0.15);
+}
+.sx-form-card textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+.sx-form-card button[type="submit"] {
+  width: 100%;
+  max-width: none;
+  margin: 0.5rem 0 0;
+}
+.sx-next {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sx-next li {
+  position: relative;
+  margin: 0;
+  padding: 0 0 1.25rem 3rem;
+}
+.sx-next li:last-child {
+  padding-bottom: 0;
+}
+.sx-next-n {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: #1e3a5f;
+}
+.sx-next h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  color: #0f172a;
+}
+.sx-next p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #475569;
+}
+.sx-contact-steps h2 {
+  margin: 0 0 1.25rem;
+  font-size: 1.4rem;
+}
+.sx-contact-grant {
+  margin: 1.75rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
 /* ---------- Responsive ---------- */
 @media screen and (max-width: 980px) {
   .sx-hero-inner {
@@ -1280,6 +1981,26 @@ body:not(.is-preload) .sx-practice-row {
   }
   .sx-work .cs-grid.is-four {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sx-badges,
+  .sx-order-grid {
+    grid-template-columns: 1fr;
+  }
+  .sx-split {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .sx-cred-grid,
+  .sx-cred-grid.is-compact,
+  .sx-cred-grid.is-four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sx-contact {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "form"
+      "steps";
   }
 }
 @media screen and (max-width: 736px) {
@@ -1337,6 +2058,25 @@ body:not(.is-preload) .sx-practice-row {
   .sx-practice-row .sx-verb {
     grid-column: 1 / -1;
   }
+  .sx-cred-grid,
+  .sx-cred-grid.is-compact,
+  .sx-cred-grid.is-four,
+  .sx-stats {
+    grid-template-columns: 1fr;
+  }
+  .sx-cred {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .sx-cred-mark {
+    justify-content: flex-start;
+  }
+  .sx-roster {
+    grid-template-columns: 1fr;
+  }
+  .sx-form-card {
+    padding: 1.5rem 1.25rem;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .sx-struck::after,
@@ -1355,6 +2095,9 @@ body:not(.is-preload) .sx-practice-row {
   .sx-chart .sx-fade-in,
   .sx-sector-list li,
   .sx-practice-row,
+  .sx-order li,
+  .sx-turn,
+  .sx-jump-list li,
   .sx-pillar {
     transition: none;
   }

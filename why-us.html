@@ -122,190 +122,7 @@
     <meta name="twitter:description" content="An independent analytics and digital practice built on direct accountability and results that hold up." />
     <meta name="twitter:image" content="https://scottlabz.com/images/og-share.png" />
 
-    <style>
-      .section-block {
-        position: relative;
-        background: #ffffff;
-        border-radius: 14px;
-        padding: 2rem 2rem 2rem 2.5rem;
-        border: 1px solid #dbe5ee;
-        overflow: hidden;
-      }
-
-      .section-block::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 6px;
-        height: 100%;
-        background: #1e3a5f;
-      }
-
-      .service-container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 2rem 1.5rem;
-      }
-
-      .section-block {
-        margin-bottom: 0;
-        padding: 2.5rem 2rem;
-        border-radius: 8px;
-        background: rgba(248, 250, 252, 1);
-        border: 1px solid rgba(160, 160, 160, 0.2);
-        box-shadow:
-          0 10px 25px rgba(15, 23, 42, 0.06),
-          0 4px 10px rgba(15, 23, 42, 0.04);
-      }
-
-      .wu-lead {
-        font-size: 1.15rem;
-        line-height: 1.7;
-        color: #3a4a5c;
-      }
-
-      .wu-reorder {
-        margin: 1.75rem 0 0;
-        font-weight: 600;
-        color: #1e3a5f;
-      }
-
-      .wu-steps {
-        position: relative;
-        margin: 1.75rem 0 2rem;
-        padding-left: 2.75rem;
-      }
-
-      .wu-steps::before {
-        content: "";
-        position: absolute;
-        left: 11px;
-        top: 6px;
-        bottom: 6px;
-        width: 2px;
-        background: linear-gradient(#1e3a5f, rgba(30, 58, 95, 0.15));
-      }
-
-      .wu-step {
-        position: relative;
-        margin-bottom: 1.5rem;
-      }
-
-      .wu-step:last-child {
-        margin-bottom: 0;
-      }
-
-      .wu-step::before {
-        content: attr(data-n);
-        position: absolute;
-        left: -2.75rem;
-        top: 0;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background: #1e3a5f;
-        color: #fff;
-        font-size: 0.75rem;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .wu-step:nth-child(1)::before {
-        background: #d64545;
-      }
-
-      .wu-step:nth-child(2)::before {
-        background: #3fa66c;
-      }
-
-      .wu-step:nth-child(3)::before {
-        background: #4c8bf5;
-      }
-
-      .wu-step h2 {
-        margin: 0 0 0.2rem;
-        font-size: 0.85rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #1e3a5f;
-      }
-
-      .wu-step p {
-        margin: 0;
-        color: #4a5a6c;
-      }
-
-      .wu-body {
-        margin-top: 0.75rem;
-      }
-
-      .wu-body p {
-        margin: 0 0 1.25rem;
-        line-height: 1.7;
-        color: #3a4a5c;
-      }
-
-      .wu-body p:last-child {
-        margin-bottom: 0;
-      }
-
-      .wu-close {
-        margin-top: 2rem;
-        padding-top: 1.75rem;
-        border-top: 1px solid rgba(160, 160, 160, 0.25);
-      }
-
-      .wu-close p {
-        margin: 0 0 0.5rem;
-      }
-
-      .wu-statement {
-        font-size: 1.2rem;
-        font-weight: 600;
-        background: linear-gradient(90deg, #1e3a5f, #4c8bf5);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      .wu-brand {
-        text-align: center;
-      }
-
-      .wu-brand a {
-        border-bottom: none;
-      }
-
-      /* Same page-background photo technique as contact.html's
-         #wrapper::before - full-bleed photo masked to fade into the
-         page background, sitting behind the content column rather than
-         behind any one card. */
-      #wrapper {
-        position: relative;
-        z-index: 0;
-      }
-      #wrapper::before {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 45%;
-        background-image: url(/images/why-us.jpg?v=d5745fe303);
-        background-size: cover;
-        background-position: center;
-        -webkit-mask-image: linear-gradient(
-          to bottom,
-          black 60%,
-          transparent 100%
-        );
-        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/solutions-min.css" />
   </head>
 
   <body class="is-preload">
@@ -321,111 +138,118 @@
 
     <scott-nav></scott-nav>
 
-    <div id="wrapper">
-      <main class="service-container">
-        <section class="section-block" style="margin-bottom: 2rem">
-          <p class="brand-mark wu-brand">
-            <a href="/">
-              <img
-                src="images/scottlabz-clear.webp?v=d34943c620"
-                srcset="images/scottlabz-clear-32w.webp?v=8d5d3e1b4b 32w, images/scottlabz-clear-64w.webp?v=7b37132bec 64w, images/scottlabz-clear-96w.webp?v=1b0fa7e3f5 96w, images/scottlabz-clear.webp?v=d34943c620 130w"
-                sizes="(max-width: 736px) 28px, 55px"
-                width="130"
-                height="170"
-                alt="S"
-                class="logo" />cott Labz
-            </a>
-          </p>
-
-          <h1
-            class="about-statement"
-            style="text-align: center; margin: 0 auto 1.5rem; max-width: 100%">
-            Measure first. Build second. Improve always.
-          </h1>
-
-          <p class="wu-lead">
-            A dashboard built on bad data is worse than no dashboard. A campaign
-            with no measurement plan is a guess with a budget. Most engagements
-            ship both anyway - the report still renders, the ads still spend,
-            and nobody notices until the numbers stop making sense.
-          </p>
-        </section>
-
-        <section class="section-block">
-          <p class="wu-reorder">Here, the order runs the other way.</p>
-
-          <div class="wu-steps">
-            <div class="wu-step" data-n="1">
-              <h2>Measure</h2>
-              <p>
-                First, and mean it - find out what's actually true about a
-                business's data and performance, not what the last report
-                assumed.
-              </p>
+    <div id="wrapper" class="divided">
+      <main id="main-content" class="sx-page is-measure">
+        <section class="sx-hero" aria-labelledby="sx-title" data-analytics-section="hero">
+          <div class="sx-hero-inner">
+            <div class="sx-copy">
+              <h1 id="sx-title" class="sx-title"><span class="sx-eyebrow">Why Scott Labz</span>Measure first. Build second. <em>Improve always.</em></h1>
+              <p class="sx-lede">A dashboard built on bad data is worse than no dashboard. A campaign with no measurement plan is a guess with a budget. Most engagements ship both anyway - the report still renders, the ads still spend, and nobody notices until the numbers stop making sense.</p>
+              <div class="sx-actions">
+                <a href="/contact" class="button primary">Talk to Scott</a>
+                <a href="/case-studies" class="sx-link">See the case studies<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
             </div>
-            <div class="wu-step" data-n="2">
-              <h2>Build</h2>
-              <p>
-                Second, only what's genuinely missing, nothing added for its own
-                sake.
-              </p>
-            </div>
-            <div class="wu-step" data-n="3">
-              <h2>Improve</h2>
-              <p>
-                After that, continuously, because a launch date isn't a finish
-                line - it's where the real work starts.
-              </p>
+            <div class="sx-visual">
+              <div class="sx-card">
+                <p class="sx-card-head"><span class="sx-pulse" aria-hidden="true"></span>The order of the work</p>
+                <div class="sx-row">
+                  <span class="sx-label">The usual order</span>
+                  <span class="sx-value"><del class="sx-struck">Build, launch, measure later</del></span>
+                </div>
+                <p class="sx-turn">Here, the order runs the other way.</p>
+                <ol class="sx-order">
+                  <li><span class="sx-order-n" aria-hidden="true">1</span><span class="sx-order-what">Measure</span><span class="sx-order-why">First, and mean it.</span></li>
+                  <li><span class="sx-order-n" aria-hidden="true">2</span><span class="sx-order-what">Build</span><span class="sx-order-why">Only what's genuinely missing.</span></li>
+                  <li><span class="sx-order-n" aria-hidden="true">3</span><span class="sx-order-what">Improve</span><span class="sx-order-why">Continuously, after launch.</span></li>
+                </ol>
+              </div>
             </div>
           </div>
         </section>
 
-        <section class="section-block" style="margin-top: 2rem">
-          <div class="wu-body">
-            <p>
-              Every engagement moves through that same sequence: measurement
-              strategy, dashboard reporting, web builds, conversion
-              optimization, and advertising campaigns. No step gets skipped to
-              hit a deadline faster or make a launch look shinier.
-            </p>
-
-            <p>
-              That discipline shows up in who stays. Among our client
-              relationships is one that's lasted since 2008, alongside two
-              others formed in 2016 - long enough to know that trust isn't
-              promised at the start of an engagement, it's built by holding up
-              under real scrutiny over years, not quarters.
-            </p>
-
-            <p>
-              It's backed by more than a claim. Better Business Bureau
-              accreditation. Membership in the local Chamber of Commerce. A
-              track record that includes official retail partnerships,
-              collegiate athletics programs, and specialty commerce - real
-              businesses with real stakes, not pilot programs.
-            </p>
+        <section class="sx-signs" aria-labelledby="sx-order-title">
+          <div class="sx-section-inner">
+            <div class="sx-section-head">
+              <p class="sx-kicker">The order</p>
+              <h2 id="sx-order-title">Here, the order runs the other way.</h2>
+            </div>
+            <ol class="sx-order-grid">
+              <li class="sx-order-card">
+                <span class="sx-order-n">1</span>
+                <h3>Measure</h3>
+                <p>First, and mean it - find out what's actually true about a business's data and performance, not what the last report assumed.</p>
+              </li>
+              <li class="sx-order-card">
+                <span class="sx-order-n">2</span>
+                <h3>Build</h3>
+                <p>Second, only what's genuinely missing, nothing added for its own sake.</p>
+              </li>
+              <li class="sx-order-card">
+                <span class="sx-order-n">3</span>
+                <h3>Improve</h3>
+                <p>After that, continuously, because a launch date isn't a finish line - it's where the real work starts.</p>
+              </li>
+            </ol>
           </div>
         </section>
 
-        <section class="section-block" style="margin-top: 2rem">
-          <div class="wu-body">
-            <p class="wu-statement">
-              The result is straightforward: work that still makes sense a year
-              in, because it was measured, built, and improved in that order -
-              not the reverse.
-            </p>
+        <section class="sx-band" aria-labelledby="sx-proof-title">
+          <div class="sx-section-inner">
+            <div class="sx-section-head">
+              <p class="sx-kicker">In practice</p>
+              <h2 id="sx-proof-title">It shows up in who stays</h2>
+            </div>
+            <div class="sx-split">
+              <div class="sx-prose">
+              <p>
+                Every engagement moves through that same sequence:
+                measurement strategy, dashboard reporting, web builds,
+                conversion optimization, and advertising campaigns. No
+                step gets skipped to hit a deadline faster or make a
+                launch look shinier.
+              </p>
+              <p>
+                That discipline shows up in who stays. Among our client
+                relationships is one that's lasted since 2008, alongside
+                two others formed in 2016 - long enough to know that
+                trust isn't promised at the start of an engagement, it's
+                built by holding up under real scrutiny over years, not
+                quarters.
+              </p>
+              <p>
+                It's backed by more than a claim. Better Business Bureau
+                accreditation. Membership in the local Chamber of
+                Commerce. A track record that includes official retail
+                partnerships, collegiate athletics programs, and
+                specialty commerce - real businesses with real stakes,
+                not pilot programs.
+              </p>
+              </div>
+              <ul class="sx-stats">
+                <li><span class="sx-stat-value">2008</span><span class="sx-stat-label">A client relationship that has lasted since 2008</span></li>
+                <li><span class="sx-stat-value">2016</span><span class="sx-stat-label">Two more client relationships formed</span></li>
+                <li><span class="sx-stat-value">BBB</span><span class="sx-stat-label"><a href="/bbb">Accredited business</a></span></li>
+                <li><span class="sx-stat-value">Chamber</span><span class="sx-stat-label">McLean County Chamber of Commerce member</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
-            <p style="margin-top: 1.25rem">
-              See how that plays out in our
-              <a href="/case-studies">case studies</a>.
+        <section class="sx-cta" aria-labelledby="sx-cta-title">
+          <div class="sx-section-inner">
+            <h2 id="sx-cta-title">Work that still makes sense a year in.</h2>
+            <p>
+              The result is straightforward: work that still makes sense
+              a year in, because it was measured, built, and improved in
+              that order - not the reverse. See how that plays out in
+              our <a href="/case-studies">case studies</a>.
             </p>
-
-            <a
-              href="/contact"
-              class="button big wide alt"
-              style="margin-top: 0.5rem">
-              Talk to Scott
-            </a>
+            <ul class="actions special">
+              <li>
+                <a href="/contact" class="button big wide alt">Talk to Scott</a>
+              </li>
+            </ul>
           </div>
         </section>
       </main>
@@ -433,10 +257,8 @@
       <script src="/assets/js/smooth-scroll.js?v=2418fdee53" defer></script>
       <script src="/assets/js/main-min.js?v=f697f0f060" defer></script>
       <script src="/assets/js/footer-min.js?v=977db99110" defer></script>
-
       <scott-footer
-        description="An independent analytics and digital practice built on direct accountability and results that hold up.">
-      </scott-footer>
+        description="An independent analytics and digital practice built on direct accountability and results that hold up."></scott-footer>
     </div>
   </body>
 </html>
