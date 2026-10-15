@@ -121,34 +121,7 @@
     <meta name="twitter:description" content="Explore consulting services in analytics, web and digital, and optimization solutions designed to help your business grow with confidence." />
     <meta name="twitter:image" content="https://scottlabz.com/images/og-share.png" />
 
-    <style>
-      /* A hint that these headings are clickable, not a full-strength
-         link - muted underline at rest, solidifies to navy on hover. */
-      .svc-h3-link {
-        color: inherit;
-        text-decoration: underline;
-        text-decoration-color: rgba(30, 58, 95, 0.35);
-        text-underline-offset: 4px;
-        transition:
-          color 0.2s ease,
-          text-decoration-color 0.2s ease;
-      }
-      @media (hover: hover) {
-        .svc-h3-link:hover {
-          color: #1e3a5f;
-          text-decoration-color: #1e3a5f;
-        }
-      }
-      .services-featured {
-        margin: 6rem 0 0;
-        text-align: left;
-      }
-      .services-featured h2,
-      .services-featured .related-work-intro,
-      .services-featured .related-work-all {
-        text-align: center;
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/solutions-min.css" />
   </head>
 
   <body class="is-preload">
@@ -163,972 +136,445 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <scott-nav></scott-nav>
+
     <div id="wrapper" class="divided">
-      <main id="main-content">
-        <section
-          class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-          <div class="content">
-            <p class="brand-mark">
-              <a href="/" style="border-bottom: none">
-                <img
-                  src="images/scottlabz-clear.webp?v=d34943c620"
-                  srcset="images/scottlabz-clear-32w.webp?v=8d5d3e1b4b 32w, images/scottlabz-clear-64w.webp?v=7b37132bec 64w, images/scottlabz-clear-96w.webp?v=1b0fa7e3f5 96w, images/scottlabz-clear.webp?v=d34943c620 130w"
-                  sizes="(max-width: 736px) 28px, 55px"
-                  width="130"
-                  height="170"
-                  alt="S"
-                  class="logo"
-                  style="margin-right: 0" />cott Labz
-              </a>
-            </p>
-            <h1 class="major">Measure, Build, Improve</h1>
-            <p class="major" style="font-style: italic">
-              Good decisions start with good measurement.
-            </p>
-            <p>
-              That means auditing how data moves through a business, closing
-              the gaps between what's tracked and what's true, and building a
-              foundation that holds up under real world use, not just a
-              dashboard that looks good in a demo.
-            </p>
-            <ul class="actions stacked">
+      <main id="main-content" class="sx-page is-measure">
+        <!-- Hero. The card maps the four practices, each row linking to
+             its page. -->
+        <section class="sx-hero" aria-labelledby="sx-title">
+          <div class="sx-hero-inner">
+            <div class="sx-copy">
+              <h1 id="sx-title" class="sx-title"><span class="sx-eyebrow">Services</span>Measure, build, <em>improve</em>.</h1>
+              <p class="sx-lede">Good decisions start with good measurement. That means auditing how data moves through a business, closing the gaps between what's tracked and what's true, and building a foundation that holds up under real world use, not just a dashboard that looks good in a demo.</p>
+              <div class="sx-actions">
+                <a href="/contact" class="button primary">Start a Conversation</a>
+                <a href="#services" class="sx-link smooth-scroll">Explore services<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <div class="sx-visual">
+              <div class="sx-card">
+                <p class="sx-card-head"><span class="sx-pulse" aria-hidden="true"></span>How the practices connect</p>
+                <ul class="sx-practice-rows">
+                  <li class="sx-practice-row is-measure"><a href="/analytics-data"><span class="sx-verb">Measure</span><span><span class="sx-practice-name">Analytics &amp; Data</span><span class="sx-practice-what">Tracking and reporting you can trust</span></span><i class="fas fa-arrow-right" aria-hidden="true"></i></a></li>
+                  <li class="sx-practice-row is-build"><a href="/web-digital"><span class="sx-verb">Build</span><span><span class="sx-practice-name">Web &amp; Digital</span><span class="sx-practice-what">Sites and integrations that hold up</span></span><i class="fas fa-arrow-right" aria-hidden="true"></i></a></li>
+                  <li class="sx-practice-row is-improve"><a href="/conversion-optimization"><span class="sx-verb">Improve</span><span><span class="sx-practice-name">Optimization &amp; Testing</span><span class="sx-practice-what">Changes proven before they ship</span></span><i class="fas fa-arrow-right" aria-hidden="true"></i></a></li>
+                  <li class="sx-practice-row is-campaigns"><a href="/advertising-media-buying"><span class="sx-verb">Campaigns</span><span><span class="sx-practice-name">Advertising &amp; Media Buying</span><span class="sx-practice-what">Spend read from the same numbers</span></span><i class="fas fa-arrow-right" aria-hidden="true"></i></a></li>
+                </ul>
+                <p class="sx-card-foot">Each practice works from the same measurement, so results carry from one to the next.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sx-services" id="services" aria-labelledby="sx-services-title">
+          <div class="sx-section-inner">
+            <div class="sx-section-head">
+              <p class="sx-kicker">What gets done</p>
+              <h2 id="sx-services-title">How We Help</h2>
+              <p>
+                Your systems should make your business simpler - not
+                more complicated. We design practical analytics, data,
+                and web solutions that improve visibility, reduce
+                complexity, and create a foundation for long-term
+                success - see the results in our
+                <a href="/case-studies">case studies</a>.
+              </p>
+            </div>
+            <div class="sx-practice-list">
+            <article class="sx-practice is-measure">
+              <div class="sx-practice-head">
+                <span class="sx-practice-n">01</span>
+                <h3><a href="/analytics-data">Analytics &amp; Data Solutions</a></h3>
+                <span class="sx-verb">Measure</span>
+              </div>
+              <div class="sx-subs">
+                <div class="sx-sub">
+                  <h4>Analytics Implementation</h4>
+                  <p>
+                    Every implementation starts with a measurement plan
+                    built around the decisions your business actually
+                    needs to make, then translates that plan into event
+                    tracking that holds up across browsers, devices, and
+                    platform updates.
+                  </p>
+                  <p>
+                    Server-side and client-side tracking are applied
+                    where each makes sense, and cross-domain
+                    configurations keep a single customer journey intact
+                    even when it spans multiple properties.
+                  </p>
+                </div>
+                <div class="sx-sub">
+                  <h4>Data Quality &amp; Validation</h4>
+                  <p>
+                    Automated monitoring catches broken tags, duplicate
+                    events, and silent tracking failures before they
+                    distort a report someone downstream is relying on.
+                  </p>
+                  <p>
+                    Regular reconciliation between transaction records
+                    and reported totals, paired with ongoing monitoring
+                    of the journeys that matter most, keeps confidence
+                    in the data high long after launch.
+                  </p>
+                </div>
+                <div class="sx-sub">
+                  <h4>Reporting &amp; Data Integration</h4>
+                  <p>
+                    Disconnected platforms rarely agree with each other.
+                    Data pipelines bring separate sources together into
+                    a single structure so numbers can be compared
+                    without second-guessing which one is right.
+                  </p>
+                  <p>
+                    From there, dashboards and executive reporting are
+                    built around the questions your business asks
+                    regularly, with automated workflows keeping the
+                    underlying data current.
+                  </p>
+                </div>
+              </div>
+              <p class="sx-practice-more"><a href="/analytics-data" class="sx-link">Explore Analytics &amp; Data<i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+            </article>
+            <article class="sx-practice is-build">
+              <div class="sx-practice-head">
+                <span class="sx-practice-n">02</span>
+                <h3><a href="/web-digital">Web Development &amp; Digital Solutions</a></h3>
+                <span class="sx-verb">Build</span>
+              </div>
+              <div class="sx-subs">
+                <div class="sx-sub">
+                  <h4>Custom Website Development</h4>
+                  <p>
+                    Sites are built around how your specific visitors
+                    browse, with component-based structure that keeps
+                    pages consistent and easy to extend as your needs
+                    change.
+                  </p>
+                  <p>
+                    Responsiveness and accessibility are treated as part
+                    of the build from the first line of code, not a pass
+                    added at the end, so the experience holds up across
+                    every screen size.
+                  </p>
+                </div>
+                <div class="sx-sub">
+                  <h4>Web Applications &amp; Integrations</h4>
+                  <p>
+                    Custom dashboards and internal tools are developed
+                    to simplify workflows that would otherwise depend on
+                    manual steps or spreadsheets passed between people.
+                  </p>
+                  <p>
+                    API integrations connect the systems you already run
+                    into one streamlined experience, so information
+                    moves between platforms automatically instead of
+                    being re-entered by hand.
+                  </p>
+                </div>
+                <div class="sx-sub">
+                  <h4>Performance &amp; Optimization</h4>
+                  <p>
+                    Speed is treated as a feature. Tuning covers Core
+                    Web Vitals, image optimization, and caching strategy
+                    so pages load quickly under real-world conditions,
+                    not just in a clean test environment.
+                  </p>
+                  <p>
+                    Hosting and deployment are configured to scale with
+                    traffic, so a busy day doesn't become the day
+                    something breaks.
+                  </p>
+                </div>
+              </div>
+              <p class="sx-practice-more"><a href="/web-digital" class="sx-link">Explore Web &amp; Digital<i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+            </article>
+            <article class="sx-practice is-improve">
+              <div class="sx-practice-head">
+                <span class="sx-practice-n">03</span>
+                <h3><a href="/conversion-optimization">Optimization &amp; Continuous Improvement</a></h3>
+                <span class="sx-verb">Improve</span>
+              </div>
+              <div class="sx-subs">
+                <div class="sx-sub">
+                  <h4>User Behavior Analysis</h4>
+                  <p>
+                    Funnel and journey analysis show exactly where
+                    visitors hesitate, stall, or leave, replacing
+                    assumptions about user experience with direct
+                    evidence.
+                  </p>
+                  <p>
+                    Behavioral insights and engagement reporting surface
+                    patterns over time, turning individual sessions into
+                    trends worth acting on.
+                  </p>
+                </div>
+                <div class="sx-sub">
+                  <h4>Experimentation &amp; Validation</h4>
+                  <p>
+                    Structured A/B and multivariate testing lets a
+                    change earn its place through evidence rather than
+                    opinion before it rolls out broadly.
+                  </p>
+                  <p>
+                    New features are measured against real outcomes, so
+                    a rollout decision is backed by data rather than a
+                    hunch about what should work.
+                  </p>
+                </div>
+                <div class="sx-sub">
+                  <h4>Continuous Improvement</h4>
+                  <p>
+                    A digital product is never really finished. Ongoing
+                    performance monitoring keeps small issues from
+                    becoming large ones, and accessibility reviews stay
+                    current as standards evolve.
+                  </p>
+                  <p>
+                    Every improvement is grounded in real user data, so
+                    effort goes toward the changes most likely to move
+                    outcomes that matter.
+                  </p>
+                </div>
+              </div>
+              <p class="sx-practice-more"><a href="/conversion-optimization" class="sx-link">Explore Optimization &amp; Testing<i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+            </article>
+            <article class="sx-practice is-campaigns">
+              <div class="sx-practice-head">
+                <span class="sx-practice-n">04</span>
+                <h3><a href="/advertising-media-buying">Advertising &amp; Media Buying</a></h3>
+                <span class="sx-verb">Campaigns</span>
+              </div>
+              <div class="sx-subs">
+                <div class="sx-sub">
+                  <h4>Campaign Strategy &amp; Planning</h4>
+                  <p>
+                    Budget, audience, and channel mix are built around a
+                    specific business outcome, so spend has a clear
+                    purpose before a single dollar goes out the door.
+                  </p>
+                </div>
+                <div class="sx-sub">
+                  <h4>Media Buying &amp; Execution</h4>
+                  <p>
+                    Campaigns are set up, launched, and managed
+                    day-to-day, with structure and naming conventions
+                    that keep performance data clean and usable from the
+                    start.
+                  </p>
+                </div>
+                <div class="sx-sub">
+                  <h4>Tracking &amp; Attribution</h4>
+                  <p>
+                    Conversion tracking and attribution connect ad spend
+                    to real outcomes, so results reflect what happened,
+                    not what a platform's default reporting assumes.
+                  </p>
+                </div>
+              </div>
+              <p class="sx-practice-more"><a href="/advertising-media-buying" class="sx-link">Explore Advertising &amp; Media Buying<i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+            </article>
+            </div>
+            <p class="sx-note">Every practice adapts to the sector it serves. See the <a href="/industries">industries served</a>.</p>
+          </div>
+        </section>
+
+        <section class="sx-work" aria-labelledby="sx-handled-title">
+          <div class="sx-section-inner">
+            <div class="sx-section-head">
+              <p class="sx-kicker">Supporting work</p>
+              <h2 id="sx-handled-title">Also Handled</h2>
+              <p>Every project touches more than one system. These are capabilities offered as needed to support the work above.</p>
+            </div>
+            <div class="sx-handled-grid">
+              <div class="sx-handled is-measure">
+                <h3><i class="fas fa-chart-line" aria-hidden="true"></i>Analytics</h3>
+                <ul>
+                  <li>Tag management setup and governance</li>
+                  <li>Data layer design and implementation</li>
+                  <li>Conversion and lead tracking configuration</li>
+                  <li>Consent mode and privacy-compliant tracking</li>
+                  <li>Server-side tagging</li>
+                  <li>Analytics account setup, audits, and cleanup</li>
+                  <li>Dashboards, automated reporting, and alerting</li>
+                  <li>SEO and marketing performance reporting</li>
+                </ul>
+              </div>
+              <div class="sx-handled is-build">
+                <h3><i class="fas fa-server" aria-hidden="true"></i>Web &amp; Hosting</h3>
+                <ul>
+                  <li>Technical SEO (site structure, schema markup, crawlability)</li>
+                  <li>Hosting setup and management</li>
+                  <li>Domain and DNS configuration</li>
+                  <li>SSL, security headers, and CSP configuration</li>
+                  <li>CDN, caching, and edge configuration</li>
+                  <li>Email deliverability setup (SPF/DKIM/DMARC/BIMI)</li>
+                  <li>Site migrations</li>
+                  <li>Page speed and Core Web Vitals optimization</li>
+                </ul>
+              </div>
+              <div class="sx-handled is-campaigns">
+                <h3><i class="fas fa-bullseye" aria-hidden="true"></i>Campaigns &amp; Forms</h3>
+                <ul>
+                  <li>Campaign landing page design and development</li>
+                  <li>Lead capture forms and multi-step form flows</li>
+                  <li>CRM and email platform form integrations</li>
+                  <li>Lead routing, notifications, and auto-replies</li>
+                  <li>Form spam protection and validation</li>
+                  <li>Thank-you pages and post-submit follow-up</li>
+                  <li>UTM conventions and campaign URL governance</li>
+                  <li>Landing page and form A/B testing</li>
+                </ul>
+              </div>
+              <div class="sx-handled is-infra">
+                <h3><i class="fas fa-network-wired" aria-hidden="true"></i>Infrastructure</h3>
+                <ul>
+                  <li>Server provisioning and hardening</li>
+                  <li>Reverse proxy and load balancer configuration</li>
+                  <li>CI/CD deployment pipelines</li>
+                  <li>Containerized application deployment</li>
+                  <li>Cloud and serverless platform setup</li>
+                  <li>Access control and secrets management</li>
+                  <li>Automated backups and disaster recovery</li>
+                  <li>Uptime, log, and resource monitoring</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sx-process" aria-labelledby="sx-process-title">
+          <div class="sx-section-inner">
+            <div class="sx-section-head">
+              <p class="sx-kicker">How an engagement works</p>
+              <h2 id="sx-process-title">From first look to numbers you can stand behind</h2>
+              <p>Scope and timeline are set before any work begins.</p>
+            </div>
+            <ol class="sx-steps">
               <li>
-                <a
-                  href="#services-content"
-                  class="button big wide smooth-scroll"
-                  >Explore Services</a
-                >
+                <span class="sx-step-n">01</span>
+                <h3>Understand</h3>
+                <p>Current systems, goals, and where the numbers actually get used.</p>
+              </li>
+              <li>
+                <span class="sx-step-n">02</span>
+                <h3>Assess</h3>
+                <p>A plain list of what's broken, what's missing, and what to fix first.</p>
+              </li>
+              <li>
+                <span class="sx-step-n">03</span>
+                <h3>Implement</h3>
+                <p>The fixes and builds, in priority order, with each one verified.</p>
+              </li>
+              <li>
+                <span class="sx-step-n">04</span>
+                <h3>Enable</h3>
+                <p>Checks and handoff, so the value holds after launch.</p>
+              </li>
+            </ol>
+            <p class="sx-process-note">A focused measurement audit or tracking cleanup can wrap in a few weeks. <a href="/faq">More on how engagements work</a></p>
+          </div>
+        </section>
+
+        <section class="sx-work" id="work" aria-labelledby="sx-work-title">
+          <div class="sx-section-inner">
+            <div class="sx-section-head">
+              <p class="sx-kicker">Featured work</p>
+              <h2 id="sx-work-title">One case study from each practice</h2>
+              <p>One case study from each practice area - see how the work plays out in production.</p>
+            </div>
+            <div class="cs-grid is-four">
+              <a href="/case-studies/hawkeye-fan-shop/digital-measurement-strategy" class="cs-card" style="--cat: #2563eb">
+                <img
+                  src="/images/cs-thumb-digital-measurement-strategy-480w.webp?v=3885b94ae9"
+                  srcset="/images/cs-thumb-digital-measurement-strategy-480w.webp?v=3885b94ae9 480w, /images/cs-thumb-digital-measurement-strategy-960w.webp?v=22de343003 960w"
+                  sizes="(max-width: 736px) 100vw, (max-width: 980px) 50vw, 280px"
+                  width="480"
+                  height="270"
+                  alt="Iowa women's basketball player signing a basketball courtside for fans"
+                  loading="lazy"
+                  decoding="async" />
+                <span class="cs-card-body">
+                  <span class="cs-card-tag">Analytics &amp; Data</span>
+                  <h3 class="cs-card-title">Measurement Strategy</h3>
+                  <span class="cs-card-text">A ground-up measurement strategy that improved analytics consistency, tracking reliability, and business visibility.</span>
+                  <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                </span>
+              </a>
+              <a href="/case-studies/hawkeye-fan-shop/custom-web-application-development" class="cs-card" style="--cat: #0f766e">
+                <img
+                  src="/images/cs-thumb-custom-web-application-development-480w.webp?v=726b543caf"
+                  srcset="/images/cs-thumb-custom-web-application-development-480w.webp?v=726b543caf 480w, /images/cs-thumb-custom-web-application-development-960w.webp?v=f0a740d53c 960w"
+                  sizes="(max-width: 736px) 100vw, (max-width: 980px) 50vw, 280px"
+                  width="480"
+                  height="270"
+                  alt="Herky the Hawk mascot crowd-surfing over the student section"
+                  loading="lazy"
+                  decoding="async" />
+                <span class="cs-card-body">
+                  <span class="cs-card-tag">Web &amp; Digital</span>
+                  <h3 class="cs-card-title">Custom Web Development</h3>
+                  <span class="cs-card-text">A full-scale ecommerce platform built from the ground up, from domain to storefront.</span>
+                  <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                </span>
+              </a>
+              <a href="/case-studies/hawkeye-fan-shop/digital-experience-optimization" class="cs-card" style="--cat: #b45309">
+                <img
+                  src="/images/cs-thumb-digital-experience-optimization-480w.webp?v=1c0346982b"
+                  srcset="/images/cs-thumb-digital-experience-optimization-480w.webp?v=1c0346982b 480w, /images/cs-thumb-digital-experience-optimization-960w.webp?v=78a89cf9f5 960w"
+                  sizes="(max-width: 736px) 100vw, (max-width: 980px) 50vw, 280px"
+                  width="480"
+                  height="270"
+                  alt="Iowa football players lifting a trophy after a win"
+                  loading="lazy"
+                  decoding="async" />
+                <span class="cs-card-body">
+                  <span class="cs-card-tag">Optimization</span>
+                  <h3 class="cs-card-title">Experience Optimization</h3>
+                  <span class="cs-card-text">Behavioral data and structured testing that improved the storefront experience.</span>
+                  <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                </span>
+              </a>
+              <a href="/case-studies/hawkeye-fan-shop/advertising-media-buying" class="cs-card" style="--cat: #7c2d92">
+                <img
+                  src="/images/cs-thumb-advertising-media-buying-480w.webp?v=c1e004eede"
+                  srcset="/images/cs-thumb-advertising-media-buying-480w.webp?v=c1e004eede 480w, /images/cs-thumb-advertising-media-buying-960w.webp?v=22a39fb3f0 960w"
+                  sizes="(max-width: 736px) 100vw, (max-width: 980px) 50vw, 280px"
+                  width="480"
+                  height="270"
+                  alt="Packed stadium at night with fireworks over the field"
+                  loading="lazy"
+                  decoding="async" />
+                <span class="cs-card-body">
+                  <span class="cs-card-tag">Advertising &amp; Media</span>
+                  <h3 class="cs-card-title">Campaign Strategy &amp; Media Buying</h3>
+                  <span class="cs-card-text">Campaign strategy, media buying, and conversion tracking run alongside active development work for two long-standing retail clients.</span>
+                  <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                </span>
+              </a>
+            </div>
+            <p class="sx-work-all"><a href="/case-studies" class="sx-link">See all case studies<i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+          </div>
+        </section>
+
+        <section class="sx-cta" aria-labelledby="sx-cta-title">
+          <div class="sx-section-inner">
+            <h2 id="sx-cta-title">Ready to modernize your data stack and web infrastructure?</h2>
+            <p>
+              Connect directly to discuss specific project requirements,
+              initiate a deep architecture audit, or define the
+              technical goals for your platform.
+            </p>
+            <ul class="actions special">
+              <li>
+                <a href="/contact" class="button big wide alt">Talk to Scott</a>
               </li>
             </ul>
           </div>
-          <div class="image">
-            <img
-              src="images/services.jpg?v=61857e400f"
-              width="1050"
-              height="1550"
-              alt="Diagram illustrating the granular breakdown of consulting services across analytics, web, and digital"
-              style="object-position: top" />
-          </div>
-        </section>
-        <section class="wrapper style1 align-center" id="services-content">
-          <div
-            class="inner svc-inner"
-            style="max-width: 1300px; text-align: left">
-            <header style="text-align: center; margin-bottom: 5rem">
-              <h2>How We Help</h2>
-              <p>
-                Your systems should make your business simpler - not more
-                complicated. We design practical analytics, data, and web
-                solutions that improve visibility, reduce complexity, and create
-                a foundation for long-term success - see the results in our
-                <a href="/case-studies">case studies</a>.
-              </p>
-            </header>
-
-            <div style="display: flex; flex-direction: column; gap: 5rem">
-              <div style="padding: 3rem 0; border-top: 3px solid #1e3a5f">
-                <div
-                  style="
-                    display: flex;
-                    align-items: baseline;
-                    gap: 1rem;
-                    margin-bottom: 2.5rem;
-                  ">
-                  <span
-                    style="
-                      font-size: 0.95rem;
-                      font-weight: 700;
-                      color: #1e3a5f;
-                      letter-spacing: 0.05em;
-                    ">
-                    01
-                  </span>
-                  <h3
-                    style="
-                      font-size: 1.6rem;
-                      color: var(--heading-color);
-                      margin: 0;
-                    ">
-                    <a href="/analytics-data" class="svc-h3-link">
-                      Analytics & Data Solutions
-                    </a>
-                  </h3>
-                </div>
-                <div
-                  class="svc-grid"
-                  style="
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                    gap: 0;
-                    border-top: 1px solid #dbe3ec;
-                  ">
-                  <div
-                    style="
-                      display: flex;
-                      flex-direction: column;
-                      padding: 2rem 2rem 2rem 0;
-                      border-right: 1px solid #dbe3ec;
-                    ">
-                    <h4
-                      style="
-                        margin-bottom: 1rem;
-                        font-size: 1.1rem;
-                        color: #1e3a5f;
-                      ">
-                      Analytics Implementation
-                    </h4>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                        margin-bottom: 1rem;
-                      ">
-                      Every implementation starts with a measurement plan built
-                      around the decisions your business actually needs to make,
-                      then translates that plan into event tracking that holds
-                      up across browsers, devices, and platform updates.
-                    </p>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                      ">
-                      Server-side and client-side tracking are applied where
-                      each makes sense, and cross-domain configurations keep a
-                      single customer journey intact even when it spans multiple
-                      properties.
-                    </p>
-                  </div>
-                  <div
-                    style="
-                      display: flex;
-                      flex-direction: column;
-                      padding: 2rem;
-                      border-right: 1px solid #dbe3ec;
-                    ">
-                    <h4
-                      style="
-                        margin-bottom: 1rem;
-                        font-size: 1.1rem;
-                        color: #1e3a5f;
-                      ">
-                      Data Quality & Validation
-                    </h4>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                        margin-bottom: 1rem;
-                      ">
-                      Automated monitoring catches broken tags, duplicate
-                      events, and silent tracking failures before they distort a
-                      report someone downstream is relying on.
-                    </p>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                      ">
-                      Regular reconciliation between transaction records and
-                      reported totals, paired with ongoing monitoring of the
-                      journeys that matter most, keeps confidence in the data
-                      high long after launch.
-                    </p>
-                  </div>
-                  <div
-                    style="
-                      display: flex;
-                      flex-direction: column;
-                      padding: 2rem 0 2rem 2rem;
-                    ">
-                    <h4
-                      style="
-                        margin-bottom: 1rem;
-                        font-size: 1.1rem;
-                        color: #1e3a5f;
-                      ">
-                      Reporting & Data Integration
-                    </h4>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                        margin-bottom: 1rem;
-                      ">
-                      Disconnected platforms rarely agree with each other. Data
-                      pipelines bring separate sources together into a single
-                      structure so numbers can be compared without
-                      second-guessing which one is right.
-                    </p>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                      ">
-                      From there, dashboards and executive reporting are built
-                      around the questions your business asks regularly, with
-                      automated workflows keeping the underlying data current.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div style="padding: 3rem 0; border-top: 3px solid #1e3a5f">
-                <div
-                  style="
-                    display: flex;
-                    align-items: baseline;
-                    gap: 1rem;
-                    margin-bottom: 2.5rem;
-                  ">
-                  <span
-                    style="
-                      font-size: 0.95rem;
-                      font-weight: 700;
-                      color: #1e3a5f;
-                      letter-spacing: 0.05em;
-                    ">
-                    02
-                  </span>
-                  <h3
-                    style="
-                      font-size: 1.6rem;
-                      color: var(--heading-color);
-                      margin: 0;
-                    ">
-                    <a href="/web-digital" class="svc-h3-link">
-                      Web Development & Digital Solutions
-                    </a>
-                  </h3>
-                </div>
-                <div
-                  class="svc-grid"
-                  style="
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                    gap: 0;
-                    border-top: 1px solid #dbe3ec;
-                  ">
-                  <div
-                    style="
-                      display: flex;
-                      flex-direction: column;
-                      padding: 2rem 2rem 2rem 0;
-                      border-right: 1px solid #dbe3ec;
-                    ">
-                    <h4
-                      style="
-                        margin-bottom: 1rem;
-                        font-size: 1.1rem;
-                        color: #1e3a5f;
-                      ">
-                      Custom Website Development
-                    </h4>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                        margin-bottom: 1rem;
-                      ">
-                      Sites are built around how your specific visitors browse,
-                      with component-based structure that keeps pages consistent
-                      and easy to extend as your needs change.
-                    </p>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                      ">
-                      Responsiveness and accessibility are treated as part of
-                      the build from the first line of code, not a pass added at
-                      the end, so the experience holds up across every screen
-                      size.
-                    </p>
-                  </div>
-                  <div
-                    style="
-                      display: flex;
-                      flex-direction: column;
-                      padding: 2rem;
-                      border-right: 1px solid #dbe3ec;
-                    ">
-                    <h4
-                      style="
-                        margin-bottom: 1rem;
-                        font-size: 1.1rem;
-                        color: #1e3a5f;
-                      ">
-                      Web Applications & Integrations
-                    </h4>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                        margin-bottom: 1rem;
-                      ">
-                      Custom dashboards and internal tools are developed to
-                      simplify workflows that would otherwise depend on manual
-                      steps or spreadsheets passed between people.
-                    </p>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                      ">
-                      API integrations connect the systems you already run into
-                      one streamlined experience, so information moves between
-                      platforms automatically instead of being re-entered by
-                      hand.
-                    </p>
-                  </div>
-                  <div
-                    style="
-                      display: flex;
-                      flex-direction: column;
-                      padding: 2rem 0 2rem 2rem;
-                    ">
-                    <h4
-                      style="
-                        margin-bottom: 1rem;
-                        font-size: 1.1rem;
-                        color: #1e3a5f;
-                      ">
-                      Performance & Optimization
-                    </h4>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                        margin-bottom: 1rem;
-                      ">
-                      Speed is treated as a feature. Tuning covers Core Web
-                      Vitals, image optimization, and caching strategy so pages
-                      load quickly under real-world conditions, not just in a
-                      clean test environment.
-                    </p>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                      ">
-                      Hosting and deployment are configured to scale with
-                      traffic, so a busy day doesn't become the day something
-                      breaks.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div style="padding: 3rem 0; border-top: 3px solid #1e3a5f">
-                <div
-                  style="
-                    display: flex;
-                    align-items: baseline;
-                    gap: 1rem;
-                    margin-bottom: 2.5rem;
-                  ">
-                  <span
-                    style="
-                      font-size: 0.95rem;
-                      font-weight: 700;
-                      color: #1e3a5f;
-                      letter-spacing: 0.05em;
-                    ">
-                    03
-                  </span>
-                  <h3
-                    style="
-                      font-size: 1.6rem;
-                      color: var(--heading-color);
-                      margin: 0;
-                    ">
-                    <a href="/conversion-optimization" class="svc-h3-link">
-                      Optimization & Continuous Improvement
-                    </a>
-                  </h3>
-                </div>
-                <div
-                  class="svc-grid"
-                  style="
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                    gap: 0;
-                    border-top: 1px solid #dbe3ec;
-                  ">
-                  <div
-                    style="
-                      display: flex;
-                      flex-direction: column;
-                      padding: 2rem 2rem 2rem 0;
-                      border-right: 1px solid #dbe3ec;
-                    ">
-                    <h4
-                      style="
-                        margin-bottom: 1rem;
-                        font-size: 1.1rem;
-                        color: #1e3a5f;
-                      ">
-                      User Behavior Analysis
-                    </h4>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                        margin-bottom: 1rem;
-                      ">
-                      Funnel and journey analysis show exactly where visitors
-                      hesitate, stall, or leave, replacing assumptions about
-                      user experience with direct evidence.
-                    </p>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                      ">
-                      Behavioral insights and engagement reporting surface
-                      patterns over time, turning individual sessions into
-                      trends worth acting on.
-                    </p>
-                  </div>
-                  <div
-                    style="
-                      display: flex;
-                      flex-direction: column;
-                      padding: 2rem;
-                      border-right: 1px solid #dbe3ec;
-                    ">
-                    <h4
-                      style="
-                        margin-bottom: 1rem;
-                        font-size: 1.1rem;
-                        color: #1e3a5f;
-                      ">
-                      Experimentation & Validation
-                    </h4>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                        margin-bottom: 1rem;
-                      ">
-                      Structured A/B and multivariate testing lets a change earn
-                      its place through evidence rather than opinion before it
-                      rolls out broadly.
-                    </p>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                      ">
-                      New features are measured against real outcomes, so a
-                      rollout decision is backed by data rather than a hunch
-                      about what should work.
-                    </p>
-                  </div>
-                  <div
-                    style="
-                      display: flex;
-                      flex-direction: column;
-                      padding: 2rem 0 2rem 2rem;
-                    ">
-                    <h4
-                      style="
-                        margin-bottom: 1rem;
-                        font-size: 1.1rem;
-                        color: #1e3a5f;
-                      ">
-                      Continuous Improvement
-                    </h4>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                        margin-bottom: 1rem;
-                      ">
-                      A digital product is never really finished. Ongoing
-                      performance monitoring keeps small issues from becoming
-                      large ones, and accessibility reviews stay current as
-                      standards evolve.
-                    </p>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                      ">
-                      Every improvement is grounded in real user data, so effort
-                      goes toward the changes most likely to move outcomes that
-                      matter.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div style="padding: 3rem 0; border-top: 3px solid #1e3a5f">
-                <div
-                  style="
-                    display: flex;
-                    align-items: baseline;
-                    gap: 1rem;
-                    margin-bottom: 2.5rem;
-                  ">
-                  <span
-                    style="
-                      font-size: 0.95rem;
-                      font-weight: 700;
-                      color: #1e3a5f;
-                      letter-spacing: 0.05em;
-                    ">
-                    04
-                  </span>
-                  <h3
-                    style="
-                      font-size: 1.6rem;
-                      color: var(--heading-color);
-                      margin: 0;
-                    ">
-                    <a href="/advertising-media-buying" class="svc-h3-link">
-                      Advertising & Media Buying
-                    </a>
-                  </h3>
-                </div>
-                <div
-                  class="svc-grid"
-                  style="
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                    gap: 0;
-                    border-top: 1px solid #dbe3ec;
-                  ">
-                  <div
-                    style="
-                      display: flex;
-                      flex-direction: column;
-                      padding: 2rem 2rem 2rem 0;
-                      border-right: 1px solid #dbe3ec;
-                    ">
-                    <h4
-                      style="
-                        margin-bottom: 1rem;
-                        font-size: 1.1rem;
-                        color: #1e3a5f;
-                      ">
-                      Campaign Strategy & Planning
-                    </h4>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                      ">
-                      Budget, audience, and channel mix are built around a
-                      specific business outcome, so spend has a clear purpose
-                      before a single dollar goes out the door.
-                    </p>
-                  </div>
-                  <div
-                    style="
-                      display: flex;
-                      flex-direction: column;
-                      padding: 2rem;
-                      border-right: 1px solid #dbe3ec;
-                    ">
-                    <h4
-                      style="
-                        margin-bottom: 1rem;
-                        font-size: 1.1rem;
-                        color: #1e3a5f;
-                      ">
-                      Media Buying & Execution
-                    </h4>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                      ">
-                      Campaigns are set up, launched, and managed day-to-day,
-                      with structure and naming conventions that keep
-                      performance data clean and usable from the start.
-                    </p>
-                  </div>
-                  <div
-                    style="
-                      display: flex;
-                      flex-direction: column;
-                      padding: 2rem 0 2rem 2rem;
-                    ">
-                    <h4
-                      style="
-                        margin-bottom: 1rem;
-                        font-size: 1.1rem;
-                        color: #1e3a5f;
-                      ">
-                      Tracking & Attribution
-                    </h4>
-                    <p
-                      style="
-                        line-height: 1.7;
-                        font-size: 0.92rem;
-                        opacity: 0.85;
-                      ">
-                      Conversion tracking and attribution connect ad spend to
-                      real outcomes, so results reflect what happened, not
-                      what a platform's default reporting assumes.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div style="margin-top: 2rem">
-              <h3
-                style="
-                  font-size: 1.8rem;
-                  margin-bottom: 0.75rem;
-                  text-align: center;
-                  color: var(--heading-color);
-                ">
-                Also Handled
-              </h3>
-              <p
-                style="
-                  text-align: center;
-                  max-width: 650px;
-                  margin: 0 auto 3rem auto;
-                  font-size: 0.95rem;
-                  line-height: 1.7;
-                  opacity: 0.85;
-                ">
-                Every project touches more than one system. These are
-                capabilities offered as needed to support the work above.
-              </p>
-              <div
-                class="svc-grid-2col"
-                style="
-                  display: grid;
-                  grid-template-columns: repeat(2, 1fr);
-                  gap: 1.75rem;
-                ">
-                <!-- Analytics & Data -->
-                <div
-                  style="
-                    position: relative;
-                    background: #ffffff;
-                    border-radius: 10px;
-                    padding: 2rem 2rem 2rem 2.25rem;
-                    border: 1px solid #dbe5ee;
-                    overflow: hidden;
-                  ">
-                  <div
-                    style="
-                      position: absolute;
-                      left: 0;
-                      top: 0;
-                      width: 5px;
-                      height: 100%;
-                      background: #2f7d5f;
-                    "></div>
-                  <h4
-                    style="
-                      margin-bottom: 1rem;
-                      font-size: 1.1rem;
-                      color: #2f7d5f;
-                      display: flex;
-                      align-items: center;
-                      gap: 0.6rem;
-                    ">
-                    <i class="fas fa-chart-line"></i>
-                    Analytics
-                  </h4>
-                  <ul
-                    class="alt"
-                    style="font-size: 0.9rem; line-height: 1.7; opacity: 0.85">
-                    <li>Tag management setup and governance</li>
-                    <li>Data layer design and implementation</li>
-                    <li>Conversion and lead tracking configuration</li>
-                    <li>Consent mode and privacy-compliant tracking</li>
-                    <li>Server-side tagging</li>
-                    <li>Analytics account setup, audits, and cleanup</li>
-                    <li>Dashboards, automated reporting, and alerting</li>
-                    <li>SEO and marketing performance reporting</li>
-                  </ul>
-                </div>
-
-                <!-- Web & Hosting -->
-                <div
-                  style="
-                    position: relative;
-                    background: #ffffff;
-                    border-radius: 10px;
-                    padding: 2rem 2rem 2rem 2.25rem;
-                    border: 1px solid #dbe5ee;
-                    overflow: hidden;
-                  ">
-                  <div
-                    style="
-                      position: absolute;
-                      left: 0;
-                      top: 0;
-                      width: 5px;
-                      height: 100%;
-                      background: #1e3a5f;
-                    "></div>
-                  <h4
-                    style="
-                      margin-bottom: 1rem;
-                      font-size: 1.1rem;
-                      color: #1e3a5f;
-                      display: flex;
-                      align-items: center;
-                      gap: 0.6rem;
-                    ">
-                    <i class="fas fa-server"></i>
-                    Web &amp; Hosting
-                  </h4>
-                  <ul
-                    class="alt"
-                    style="font-size: 0.9rem; line-height: 1.7; opacity: 0.85">
-                    <li>
-                      Technical SEO (site structure, schema markup,
-                      crawlability)
-                    </li>
-                    <li>Hosting setup and management</li>
-                    <li>Domain and DNS configuration</li>
-                    <li>SSL, security headers, and CSP configuration</li>
-                    <li>CDN, caching, and edge configuration</li>
-                    <li>Email deliverability setup (SPF/DKIM/DMARC/BIMI)</li>
-                    <li>Site migrations</li>
-                    <li>Page speed and Core Web Vitals optimization</li>
-                  </ul>
-                </div>
-
-                <!-- Campaigns & Forms -->
-                <div
-                  style="
-                    position: relative;
-                    background: #ffffff;
-                    border-radius: 10px;
-                    padding: 2rem 2rem 2rem 2.25rem;
-                    border: 1px solid #dbe5ee;
-                    overflow: hidden;
-                  ">
-                  <div
-                    style="
-                      position: absolute;
-                      left: 0;
-                      top: 0;
-                      width: 5px;
-                      height: 100%;
-                      background: #b3541e;
-                    "></div>
-                  <h4
-                    style="
-                      margin-bottom: 1rem;
-                      font-size: 1.1rem;
-                      color: #b3541e;
-                      display: flex;
-                      align-items: center;
-                      gap: 0.6rem;
-                    ">
-                    <i class="fas fa-bullseye"></i>
-                    Campaigns &amp; Forms
-                  </h4>
-                  <ul
-                    class="alt"
-                    style="font-size: 0.9rem; line-height: 1.7; opacity: 0.85">
-                    <li>Campaign landing page design and development</li>
-                    <li>Lead capture forms and multi-step form flows</li>
-                    <li>CRM and email platform form integrations</li>
-                    <li>Lead routing, notifications, and auto-replies</li>
-                    <li>Form spam protection and validation</li>
-                    <li>Thank-you pages and post-submit follow-up</li>
-                    <li>UTM conventions and campaign URL governance</li>
-                    <li>Landing page and form A/B testing</li>
-                  </ul>
-                </div>
-
-                <!-- Infrastructure -->
-                <div
-                  style="
-                    position: relative;
-                    background: #ffffff;
-                    border-radius: 10px;
-                    padding: 2rem 2rem 2rem 2.25rem;
-                    border: 1px solid #dbe5ee;
-                    overflow: hidden;
-                  ">
-                  <div
-                    style="
-                      position: absolute;
-                      left: 0;
-                      top: 0;
-                      width: 5px;
-                      height: 100%;
-                      background: #6a4c93;
-                    "></div>
-                  <h4
-                    style="
-                      margin-bottom: 1rem;
-                      font-size: 1.1rem;
-                      color: #6a4c93;
-                      display: flex;
-                      align-items: center;
-                      gap: 0.6rem;
-                    ">
-                    <i class="fas fa-network-wired"></i>
-                    Infrastructure
-                  </h4>
-                  <ul
-                    class="alt"
-                    style="font-size: 0.9rem; line-height: 1.7; opacity: 0.85">
-                    <li>Server provisioning and hardening</li>
-                    <li>Reverse proxy and load balancer configuration</li>
-                    <li>CI/CD deployment pipelines</li>
-                    <li>Containerized application deployment</li>
-                    <li>Cloud and serverless platform setup</li>
-                    <li>Access control and secrets management</li>
-                    <li>Automated backups and disaster recovery</li>
-                    <li>Uptime, log, and resource monitoring</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="related-work services-featured">
-              <h2>Featured Work</h2>
-              <p class="related-work-intro">One case study from each practice area - see how the work plays out in production.</p>
-              <div class="cs-grid">
-                <a href="/case-studies/hawkeye-fan-shop/digital-measurement-strategy" class="cs-card" style="--cat: #2563eb">
-                  <img
-                    src="/images/cs-thumb-digital-measurement-strategy-480w.webp?v=3885b94ae9"
-                    srcset="/images/cs-thumb-digital-measurement-strategy-480w.webp?v=3885b94ae9 480w, /images/cs-thumb-digital-measurement-strategy-960w.webp?v=22de343003 960w"
-                    sizes="(max-width: 736px) 100vw, 300px"
-                    width="480"
-                    height="270"
-                    alt="Iowa women's basketball player signing a basketball courtside for fans"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Analytics &amp; Data</span>
-                    <h3 class="cs-card-title">Measurement Strategy</h3>
-                    <span class="cs-card-text">A ground-up measurement strategy that improved analytics consistency, tracking reliability, and business visibility.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-                <a href="/case-studies/hawkeye-fan-shop/custom-web-application-development" class="cs-card" style="--cat: #0f766e">
-                  <img
-                    src="/images/cs-thumb-custom-web-application-development-480w.webp?v=726b543caf"
-                    srcset="/images/cs-thumb-custom-web-application-development-480w.webp?v=726b543caf 480w, /images/cs-thumb-custom-web-application-development-960w.webp?v=f0a740d53c 960w"
-                    sizes="(max-width: 736px) 100vw, 300px"
-                    width="480"
-                    height="270"
-                    alt="Herky the Hawk mascot crowd-surfing over the student section"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Web &amp; Digital</span>
-                    <h3 class="cs-card-title">Custom Web Development</h3>
-                    <span class="cs-card-text">A full-scale ecommerce platform built from the ground up, from domain to storefront.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-                <a href="/case-studies/hawkeye-fan-shop/digital-experience-optimization" class="cs-card" style="--cat: #b45309">
-                  <img
-                    src="/images/cs-thumb-digital-experience-optimization-480w.webp?v=1c0346982b"
-                    srcset="/images/cs-thumb-digital-experience-optimization-480w.webp?v=1c0346982b 480w, /images/cs-thumb-digital-experience-optimization-960w.webp?v=78a89cf9f5 960w"
-                    sizes="(max-width: 736px) 100vw, 300px"
-                    width="480"
-                    height="270"
-                    alt="Iowa football players lifting a trophy after a win"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Optimization</span>
-                    <h3 class="cs-card-title">Experience Optimization</h3>
-                    <span class="cs-card-text">Behavioral data and structured testing that improved the storefront experience.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-                <a href="/case-studies/hawkeye-fan-shop/advertising-media-buying" class="cs-card" style="--cat: #7c2d92">
-                  <img
-                    src="/images/cs-thumb-advertising-media-buying-480w.webp?v=c1e004eede"
-                    srcset="/images/cs-thumb-advertising-media-buying-480w.webp?v=c1e004eede 480w, /images/cs-thumb-advertising-media-buying-960w.webp?v=22a39fb3f0 960w"
-                    sizes="(max-width: 736px) 100vw, 300px"
-                    width="480"
-                    height="270"
-                    alt="Packed stadium at night with fireworks over the field"
-                    loading="lazy"
-                    decoding="async" />
-                  <span class="cs-card-body">
-                    <span class="cs-card-tag">Advertising &amp; Media</span>
-                    <h3 class="cs-card-title">Campaign Strategy &amp; Media Buying</h3>
-                    <span class="cs-card-text">Campaign strategy, media buying, and conversion tracking run alongside active development work for two long-standing retail clients.</span>
-                    <span class="cs-card-more">Read the case study<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                  </span>
-                </a>
-              </div>
-              <p class="related-work-all"><a href="/case-studies">See all case studies &rarr;</a></p>
-            </div>
-
-            <div
-              style="
-                margin: 6rem 0 0 0;
-                padding: 4rem 2rem;
-                background: rgba(248, 250, 252, 1);
-                border-radius: 8px;
-                text-align: center;
-                border: 1px solid #1e3a5f;
-                box-shadow:
-                  0 10px 25px rgba(15, 23, 42, 0.06),
-                  0 4px 10px rgba(15, 23, 42, 0.04);
-              ">
-              <h3 style="font-size: 2rem; margin-bottom: 1.5rem">
-                Ready to modernize your data stack and web infrastructure?
-              </h3>
-              <p
-                style="
-                  margin-bottom: 2.5rem;
-                  font-size: 1.15rem;
-                  opacity: 0.9;
-                  max-width: 700px;
-                  margin-left: auto;
-                  margin-right: auto;
-                ">
-                Connect directly to discuss specific project requirements,
-                initiate a deep architecture audit, or define the technical
-                goals for your platform.
-              </p>
-              <ul
-                class="actions stacked"
-                style="display: flex; justify-content: center; gap: 1.5rem">
-                <li>
-                  <a href="contact" class="button big wide alt"
-                    >Talk to Scott</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
         </section>
       </main>
+
       <script src="/assets/js/smooth-scroll.js?v=2418fdee53" defer></script>
       <script src="/assets/js/main-min.js?v=f697f0f060" defer></script>
       <script src="/assets/js/footer-min.js?v=977db99110" defer></script>

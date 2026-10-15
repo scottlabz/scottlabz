@@ -47,10 +47,11 @@ Category keys must already exist in the `<scott-filter-bar>` JSON block on that 
 
 ## Solutions pages
 
-- `analytics-data.html`, `web-digital.html`, `conversion-optimization.html`, `advertising-media-buying.html`, and `industries.html` share `assets/css/solutions.css` (classes `sx-*`). It carries the homepage's look; the homepage itself keeps its `hx-*` styles inline in `index.html`.
+- `services.html`, `analytics-data.html`, `web-digital.html`, `conversion-optimization.html`, `advertising-media-buying.html`, and `industries.html` share `assets/css/solutions.css` (classes `sx-*`). It carries the homepage's look; the homepage itself keeps its `hx-*` styles inline in `index.html`.
 - Each page sets its accent on `<main class="sx-page ...">`: `is-measure` (blue), `is-build` (amber), `is-improve` (green), or `is-campaigns` (purple).
 - Service page order: hero, Sound familiar (3 symptoms), What gets done (4 services plus capability tags), the 4-step process band, Related work (`id="work"`, the shared `.cs-card` and `.related-notes` markup), FAQ as `<details>`, navy CTA. The service name is the eyebrow inside the `<h1>`.
-- Each hero card illustrates one real Field Note or Insight and links to it, with a caption saying so. Use only facts and figures that piece already publishes; never invent numbers for a card.
+- `services.html` is the hub. Its hero card links the four practices; each practice card keeps that practice's sub-service copy and links to its page. Practice accents are set per card (`.sx-practice.is-measure` and so on).
+- Each service page's hero card illustrates one real Field Note or Insight and links to it, with a caption saying so. Use only facts and figures that piece already publishes; never invent numbers for a card.
 - The cards animate once `main.js` removes `body.is-preload`. Their starting and ending states are pure CSS, with transitions switched off under `prefers-reduced-motion`.
 
 ## Headers, CSP, and things that are not in this repo

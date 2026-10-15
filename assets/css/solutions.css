@@ -994,6 +994,248 @@ body:not(.is-preload) .sx-sector-list li {
   transform: translateX(3px);
 }
 
+/* ---------- Services hub ---------- */
+/* Accents for blocks that carry their own practice color. */
+.sx-practice.is-measure,
+.sx-handled.is-measure,
+.sx-practice-row.is-measure {
+  --sx: #2563eb;
+  --sx-soft: #eff6ff;
+}
+.sx-practice.is-build,
+.sx-handled.is-build,
+.sx-practice-row.is-build {
+  --sx: #b45309;
+  --sx-soft: #fff7ed;
+}
+.sx-practice.is-improve,
+.sx-handled.is-improve,
+.sx-practice-row.is-improve {
+  --sx: #15803d;
+  --sx-soft: #f0fdf4;
+}
+.sx-practice.is-campaigns,
+.sx-handled.is-campaigns,
+.sx-practice-row.is-campaigns {
+  --sx: #7c2d92;
+  --sx-soft: #faf5ff;
+}
+.sx-handled.is-infra {
+  --sx: #1e3a5f;
+  --sx-soft: #eef2f7;
+}
+
+/* Hero card: the four practices, each row linking to its page. */
+.sx-practice-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sx-practice-row {
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+.sx-practice-row:nth-child(2) {
+  transition-delay: 0.25s;
+}
+.sx-practice-row:nth-child(3) {
+  transition-delay: 0.5s;
+}
+.sx-practice-row:nth-child(4) {
+  transition-delay: 0.75s;
+}
+body:not(.is-preload) .sx-practice-row {
+  opacity: 1;
+  transform: none;
+}
+.sx-practice-row a {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.25rem 0.9rem;
+  padding: 0.8rem 0.75rem;
+  margin: 0 -0.75rem;
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.sx-practice-row a:hover,
+.sx-practice-row a:focus-visible {
+  background: var(--sx-soft);
+}
+.sx-practice-row + .sx-practice-row {
+  border-top: 1px solid #eef2f7;
+}
+.sx-verb {
+  justify-self: start;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--sx-soft);
+  color: var(--sx);
+}
+.sx-practice-name {
+  display: block;
+  font-weight: 600;
+  color: #0f172a;
+}
+.sx-practice-what {
+  display: block;
+  font-size: 0.85rem;
+  color: #475569;
+}
+.sx-practice-row a > i {
+  font-size: 0.8rem;
+  color: var(--sx);
+  transition: transform 0.2s ease;
+}
+.sx-practice-row a:hover > i {
+  transform: translateX(3px);
+}
+.sx-card-foot {
+  margin: 1rem 0 0;
+  padding-top: 0.9rem;
+  border-top: 1px dashed #dbe3ec;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* Practice cards: number, linked name, verb, then three sub-services. */
+.sx-practice-list {
+  display: grid;
+  gap: 1.75rem;
+}
+.sx-practice {
+  padding: 2rem 2rem 1.75rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid var(--sx);
+  border-radius: 14px;
+}
+.sx-practice-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  margin: 0 0 1.5rem;
+}
+.sx-practice-n {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--sx);
+}
+.sx-practice-head h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.25;
+}
+.sx-practice-head h3 a {
+  color: #0f172a;
+  text-decoration: underline;
+  text-decoration-color: rgba(30, 58, 95, 0.25);
+  text-underline-offset: 5px;
+  transition: text-decoration-color 0.2s ease;
+}
+.sx-practice-head h3 a:hover {
+  text-decoration-color: var(--sx);
+}
+.sx-practice-head .sx-verb {
+  align-self: center;
+}
+.sx-subs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid #eef2f7;
+}
+.sx-sub {
+  padding: 1.5rem 1.5rem 0.5rem;
+  border-left: 1px solid #eef2f7;
+}
+.sx-sub:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+.sx-sub h4 {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  color: #0f172a;
+}
+.sx-sub p {
+  margin: 0 0 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #475569;
+}
+.sx-practice-more {
+  margin: 0.75rem 0 0;
+}
+
+/* Also handled: four compact capability lists. */
+.sx-handled-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.sx-handled {
+  padding: 1.75rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid var(--sx);
+  border-radius: 12px;
+}
+.sx-handled h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  color: var(--sx);
+}
+.sx-handled ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  columns: 2;
+  column-gap: 1.5rem;
+}
+.sx-handled li {
+  position: relative;
+  margin: 0 0 0.45rem;
+  padding: 0 0 0 1rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #334155;
+  break-inside: avoid;
+}
+.sx-handled li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--sx);
+}
+.sx-work .cs-grid.is-four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 /* ---------- Responsive ---------- */
 @media screen and (max-width: 980px) {
   .sx-hero-inner {
@@ -1024,6 +1266,20 @@ body:not(.is-preload) .sx-sector-list li {
   }
   .sx-group-head {
     grid-template-columns: 1fr;
+  }
+  .sx-subs {
+    grid-template-columns: 1fr;
+  }
+  .sx-sub,
+  .sx-sub:first-child {
+    padding: 1.25rem 0 0.25rem;
+    border-left: none;
+  }
+  .sx-sub + .sx-sub {
+    border-top: 1px solid #eef2f7;
+  }
+  .sx-work .cs-grid.is-four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 @media screen and (max-width: 736px) {
@@ -1062,6 +1318,25 @@ body:not(.is-preload) .sx-sector-list li {
   .sx-faq-list summary {
     font-size: 1rem;
   }
+  .sx-practice {
+    padding: 1.5rem 1.25rem 1.25rem;
+  }
+  .sx-practice-head h3 {
+    font-size: 1.35rem;
+  }
+  .sx-handled-grid,
+  .sx-work .cs-grid.is-four {
+    grid-template-columns: 1fr;
+  }
+  .sx-handled ul {
+    columns: 1;
+  }
+  .sx-practice-row a {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .sx-practice-row .sx-verb {
+    grid-column: 1 / -1;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .sx-struck::after,
@@ -1079,6 +1354,7 @@ body:not(.is-preload) .sx-sector-list li {
   .sx-chart .sx-fade-out,
   .sx-chart .sx-fade-in,
   .sx-sector-list li,
+  .sx-practice-row,
   .sx-pillar {
     transition: none;
   }
