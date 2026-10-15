@@ -57,15 +57,14 @@ case-studies  hub: case-studies.html
     deep-dive cards (cs-order within that client) fill the CS-CARDS
     region on that client's page, with root-absolute links and <h4> card
     titles.
-    Deep-dive category keys, labels and colors come from the
-    <scott-filter-bar> JSON on CS_CATEGORY_PAGE, not the hub. Image ?v= hashes match cache_bust.py
-    so the two scripts never undo each other. Clients that don't have a
+    Deep-dive category keys, labels and colors come from CS_CATEGORIES
+    below (the deep dives have no filter bar). Image ?v= hashes match
+    cache_bust.py so the two scripts never undo each other. Clients that don't have a
     page yet (Kitchens) stay hand-authored after CS-CLIENTS:END.
 
 Valid category keys for field-notes and insights come from the
-<scott-filter-bar> JSON block on each hub page; case-study deep-dive keys
-come from the one on CS_CATEGORY_PAGE (the Hawkeye Fan Shop case study).
-Those blocks stay hand-authored. Numbers must be unique within a section.
+<scott-filter-bar> JSON block on each hub page; those blocks stay
+hand-authored. Case-study deep-dive keys come from CS_CATEGORIES. Numbers must be unique within a section.
 
 Links and manifest URLs use the extensionless form Cloudflare Pages
 serves (/insights/some-note, not /insights/some-note.html), which is
@@ -523,11 +522,6 @@ def asset_version(rel: str) -> str:
     return hashlib.sha256((ROOT / rel).read_bytes()).hexdigest()[:10]
 
 
-def filter_colors(hub_html: str) -> dict[str, str]:
-    m = FILTER_JSON_RE.search(hub_html)
-    return {c["key"]: c.get("color", "") for c in json.loads(m.group(1))} if m else {}
-
-
 def cs_build(meta: dict, path: Path, ctx: dict, errors: list[str]) -> dict | None:
     rel = path.relative_to(ROOT / "case-studies").with_suffix("").as_posix()
     where = f"case-studies/{rel}.html"
@@ -612,9 +606,16 @@ def cs_render_client(n: dict) -> str:
     )
 
 
-# Hand-authored <scott-filter-bar> JSON that defines the deep-dive
-# categories (key, label, color). It lives with the deep-dive cards.
-CS_CATEGORY_PAGE = "case-studies/hawkeye-fan-shop.html"
+# Deep-dive categories: key -> (card tag label, card accent color). These
+# lived in a <scott-filter-bar> on the Hawkeye Fan Shop page until Scott
+# removed that filter (Oct 2026); add a key here before using it in a
+# page's cs-categories.
+CS_CATEGORIES = {
+    "analytics": ("Analytics & Data", "#2563eb"),
+    "web": ("Web & Digital", "#0f766e"),
+    "optimization": ("Optimization", "#b45309"),
+    "advertising": ("Advertising & Media", "#7c2d92"),
+}
 
 
 def cs_render_card(n: dict, ctx: dict, root: str = "", title_tag: str = "h3") -> str:
@@ -656,8 +657,8 @@ def replace_region(hub_html: str, marker: str, body: str, where: str, indent: st
 def generate_case_studies(name: str, cfg: dict) -> tuple[list[tuple[Path, str]], int]:
     hub_path = ROOT / cfg["hub"]
     hub_html = hub_path.read_text(encoding="utf-8")
-    cat_html = (ROOT / CS_CATEGORY_PAGE).read_text(encoding="utf-8")
-    ctx = {"labels": filter_labels(cat_html, CS_CATEGORY_PAGE), "colors": filter_colors(cat_html)}
+    ctx = {"labels": {k: v[0] for k, v in CS_CATEGORIES.items()},
+           "colors": {k: v[1] for k, v in CS_CATEGORIES.items()}}
 
     errors: list[str] = []
     notes: list[dict] = []

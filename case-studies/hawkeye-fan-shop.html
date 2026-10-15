@@ -155,11 +155,6 @@
         margin-top: 1.75rem;
       }
 
-      /* Deep-dive filter bar above the card grid (same as the old hub). */
-      scott-filter-bar {
-        display: block;
-        margin-bottom: 1.25rem;
-      }
 
       /* width:fit-content (not the flex column's default full-width
          stretch) so the frame hugs each screenshot at its own real
@@ -3363,16 +3358,6 @@
                 Each study breaks out one piece of the Hawkeye Fan Shop work -
                 measurement, web, optimization, or media.
               </p>
-              <scott-filter-bar target="#cs-grid" item-selector=".cs-card" all-label="All">
-                <script type="application/json">
-                  [
-                    { "key": "analytics", "label": "Analytics & Data", "color": "#2563eb" },
-                    { "key": "web", "label": "Web & Digital", "color": "#0f766e" },
-                    { "key": "optimization", "label": "Optimization", "color": "#b45309" },
-                    { "key": "advertising", "label": "Advertising & Media", "color": "#7c2d92" }
-                  ]
-                </script>
-              </scott-filter-bar>
               <div class="cs-grid" id="cs-grid">
                 <!-- CS-CARDS:START -->
                 <a href="/case-studies/hawkeye-fan-shop/digital-analytics-implementation" class="cs-card" data-categories="analytics" style="--cat: #2563eb">
@@ -3560,7 +3545,6 @@
       <script src="/assets/js/main-min.js?v=f697f0f060" defer></script>
       <script src="/assets/js/footer-min.js?v=977db99110" defer></script>
       <script src="/assets/js/case-study-hotspots-min.js?v=b7d4aa3180" defer></script>
-      <script src="/assets/js/scott-filter-bar-min.js?v=a0d2b5dd01" defer></script>
 
       <scott-footer
         description="How measurement, product-page tracking, and site reliability work have supported Hawkeye Fan Shop's storefront through a decade of gameday traffic.">
