@@ -45,10 +45,10 @@ Published writing lives in two sections, and case studies have their own index. 
 - [Case studies overview](https://scottlabz.com/case-studies): All client case studies
 - [Hawkeye Fan Shop](https://scottlabz.com/case-studies/hawkeye-fan-shop): Measurement, product-page tracking, and site reliability through a decade of gameday traffic
 - [The Black & Gold Shop](https://scottlabz.com/case-studies/the-black-and-gold-shop): Measurement, development, and infrastructure for a scalable storefront
-- [Analytics Infrastructure Modernization](https://scottlabz.com/case-studies/analytics-modernization): Connecting store, gameday, and online systems
-- [Digital Analytics Implementation](https://scottlabz.com/case-studies/digital-analytics-implementation): A ground-up analytics build for reliable, scalable measurement
-- [Custom Ecommerce Platform Development](https://scottlabz.com/case-studies/custom-web-application-development): A full ecommerce platform built from domain to storefront
-- [Data Quality & Governance](https://scottlabz.com/case-studies/data-quality-governance): Ongoing validation and governance standards for analytics data
+- [Analytics Infrastructure Modernization](https://scottlabz.com/case-studies/hawkeye-fan-shop/analytics-modernization): Connecting store, gameday, and online systems
+- [Digital Analytics Implementation](https://scottlabz.com/case-studies/hawkeye-fan-shop/digital-analytics-implementation): A ground-up analytics build for reliable, scalable measurement
+- [Custom Ecommerce Platform Development](https://scottlabz.com/case-studies/hawkeye-fan-shop/custom-web-application-development): A full ecommerce platform built from domain to storefront
+- [Data Quality & Governance](https://scottlabz.com/case-studies/hawkeye-fan-shop/data-quality-governance): Ongoing validation and governance standards for analytics data
 
 ## Diagnostics
 
@@ -64,13 +64,13 @@ Published writing lives in two sections, and case studies have their own index. 
 
 ## Optional
 
-- [Analytics Dashboard & Reporting](https://scottlabz.com/case-studies/analytics-dashboard-reporting): Connected dashboards across retail and gameday data
-- [Analytics Reporting Platform](https://scottlabz.com/case-studies/analytics-dashboard-reporting-platform): A unified reporting platform for multi-channel retail data
-- [Digital Measurement Strategy](https://scottlabz.com/case-studies/digital-measurement-strategy): Measurement strategy for tracking reliability and business visibility
-- [Digital Experience Optimization](https://scottlabz.com/case-studies/digital-experience-optimization): Behavioral data and structured testing on a storefront
-- [Digital Infrastructure Modernization](https://scottlabz.com/case-studies/digital-infrastructure-modernization): Keeping online, retail, and gameday inventory systems in sync
-- [Website Performance Optimization](https://scottlabz.com/case-studies/website-performance-optimization): Speed and reliability under peak traffic
-- [Website Security & Performance](https://scottlabz.com/case-studies/website-security-performance-engineering): Hardened security and resilient infrastructure through peak demand
-- [Advertising & Media Buying case study](https://scottlabz.com/case-studies/advertising-media-buying): Campaigns and conversion tracking alongside active development work
+- [Analytics Dashboard & Reporting](https://scottlabz.com/case-studies/hawkeye-fan-shop/analytics-dashboard-reporting): Connected dashboards across retail and gameday data
+- [Analytics Reporting Platform](https://scottlabz.com/case-studies/hawkeye-fan-shop/analytics-dashboard-reporting-platform): A unified reporting platform for multi-channel retail data
+- [Digital Measurement Strategy](https://scottlabz.com/case-studies/hawkeye-fan-shop/digital-measurement-strategy): Measurement strategy for tracking reliability and business visibility
+- [Digital Experience Optimization](https://scottlabz.com/case-studies/hawkeye-fan-shop/digital-experience-optimization): Behavioral data and structured testing on a storefront
+- [Digital Infrastructure Modernization](https://scottlabz.com/case-studies/hawkeye-fan-shop/digital-infrastructure-modernization): Keeping online, retail, and gameday inventory systems in sync
+- [Website Performance Optimization](https://scottlabz.com/case-studies/hawkeye-fan-shop/website-performance-optimization): Speed and reliability under peak traffic
+- [Website Security & Performance](https://scottlabz.com/case-studies/hawkeye-fan-shop/website-security-performance-engineering): Hardened security and resilient infrastructure through peak demand
+- [Advertising & Media Buying case study](https://scottlabz.com/case-studies/hawkeye-fan-shop/advertising-media-buying): Campaigns and conversion tracking alongside active development work
 - [Bloomington-Normal, IL](https://scottlabz.com/markets/bloomington-normal-il): Local analytics and web development services in McLean County, Illinois
 - [Sitemap](https://scottlabz.com/sitemap.xml): Every page on the site

@@ -36,7 +36,9 @@ insights     hub: insights.html            articles: insights/*.html
     Order: insight-number ascending. Kicker text is the filter-bar label
     of the first category.
 
-case-studies  hub: case-studies.html       pages: case-studies/*.html
+case-studies  hub: case-studies.html
+              client pages:    case-studies/<client>.html
+              deep-dive pages: case-studies/<client>/<slug>.html
     Every page: cs-type (client or deep-dive), cs-order, cs-title,
     cs-summary.
     client:    cs-caption, cs-logo, cs-logo-width, cs-logo-height,
@@ -44,12 +46,17 @@ case-studies  hub: case-studies.html       pages: case-studies/*.html
                e.g. hawkeye) and cs-button-text (default "View <title>
                Case Study").
     deep-dive: cs-categories, cs-image-alt. Thumbnails must exist at
-               images/cs-thumb-<slug>-480w.webp and -960w.webp.
+               images/cs-thumb-<slug>-480w.webp and -960w.webp. A deep
+               dive lives in the folder named after its client page
+               (case-studies/hawkeye-fan-shop/digital-measurement-strategy.html
+               belongs to case-studies/hawkeye-fan-shop.html), so its URL
+               is /case-studies/<client>/<slug>.
     The hub is a client showcase: the CS-CLIENTS marker region holds
     one card per client page (by cs-order), and the hub's JSON-LD
-    CollectionPage ItemList lists those client pages. Deep-dive cards
-    fill the CS-CARDS region on each page in CS_CARD_PAGES (the Hawkeye
-    Fan Shop case study), with root-absolute links and <h4> card titles.
+    CollectionPage ItemList lists those client pages. Each client's
+    deep-dive cards (cs-order within that client) fill the CS-CARDS
+    region on that client's page, with root-absolute links and <h4> card
+    titles.
     Deep-dive category keys, labels and colors come from the
     <scott-filter-bar> JSON on CS_CATEGORY_PAGE, not the hub. Image ?v= hashes match cache_bust.py
     so the two scripts never undo each other. Clients that don't have a
@@ -514,15 +521,25 @@ def filter_colors(hub_html: str) -> dict[str, str]:
 
 
 def cs_build(meta: dict, path: Path, ctx: dict, errors: list[str]) -> dict | None:
-    where = f"case-studies/{path.name}"
+    rel = path.relative_to(ROOT / "case-studies").with_suffix("").as_posix()
+    where = f"case-studies/{rel}.html"
     kind = meta["cs-type"].strip()
     if kind not in CS_TYPES:
         errors.append(f"{where}: cs-type must be one of {', '.join(CS_TYPES)}, got {kind!r}")
         return None
+    client = rel.split("/")[0] if "/" in rel else None
+    if kind == "client" and client:
+        errors.append(f"{where}: a client page belongs directly in case-studies/, not a subfolder")
+        return None
+    if kind == "deep-dive" and not client:
+        errors.append(f"{where}: a deep dive belongs in its client's folder, e.g. case-studies/<client>/{path.name}")
+        return None
     note = {
         "slug": path.stem,
-        "file": path.name,
-        "url": f"{SITE}/case-studies/{path.stem}",
+        "path": rel,
+        "client": client,
+        "file": f"{rel}.html",
+        "url": f"{SITE}/case-studies/{rel}",
         "type": kind,
         "order": parse_number(meta["cs-order"], where, errors),
         "title": norm(meta["cs-title"]),
@@ -587,11 +604,6 @@ def cs_render_client(n: dict) -> str:
     )
 
 
-# Pages besides the hub that show the deep-dive cards in their own
-# CS-CARDS region. Links there are root-absolute ("/case-studies/...")
-# because the page sits one folder down, and card titles are <h4> because
-# the page's own section headings are <h3>.
-CS_CARD_PAGES = ("case-studies/hawkeye-fan-shop.html",)
 # Hand-authored <scott-filter-bar> JSON that defines the deep-dive
 # categories (key, label, color). It lives with the deep-dive cards.
 CS_CATEGORY_PAGE = "case-studies/hawkeye-fan-shop.html"
@@ -604,7 +616,7 @@ def cs_render_card(n: dict, ctx: dict, root: str = "", title_tag: str = "h3") ->
     small_v = f"{root}{small}?v={asset_version(small)}"
     large_v = f"{root}{large}?v={asset_version(large)}"
     return (
-        f'                <a href="{root}case-studies/{attr(n["slug"])}" class="cs-card" data-categories="{attr(" ".join(n["categories"]))}" style="--cat: {ctx["colors"].get(first, "")}">\n'
+        f'                <a href="{root}case-studies/{attr(n["path"])}" class="cs-card" data-categories="{attr(" ".join(n["categories"]))}" style="--cat: {ctx["colors"].get(first, "")}">\n'
         f'                  <img\n'
         f'                    src="{small_v}"\n'
         f'                    srcset="{small_v} 480w, {large_v} 960w"\n'
@@ -641,22 +653,32 @@ def generate_case_studies(name: str, cfg: dict) -> tuple[list[tuple[Path, str]],
 
     errors: list[str] = []
     notes: list[dict] = []
-    for path in sorted((ROOT / cfg["dir"]).glob("*.html")):
+    # Client pages at the top level, deep dives one folder down.
+    pages = sorted((ROOT / cfg["dir"]).glob("*.html")) + sorted((ROOT / cfg["dir"]).glob("*/*.html"))
+    for path in pages:
         if path.name in SKIP_FILES:
             continue
+        rel = path.relative_to(ROOT).as_posix()
         head = path.read_text(encoding="utf-8").split("</head>", 1)[0]
         meta = {k.lower(): html.unescape(v) for k, v in META_RE.findall(head)}
         missing = [k for k in cfg["required"] if not meta.get(k, "").strip()]
         if missing:
-            errors.append(f"{cfg['dir']}/{path.name}: missing {', '.join(missing)}")
+            errors.append(f"{rel}: missing {', '.join(missing)}")
             continue
         note = cs_build(meta, path, ctx, errors)
         if note:
             notes.append(note)
 
     clients = sorted((n for n in notes if n["type"] == "client"), key=lambda n: (n["order"], n["slug"]))
-    deep = sorted((n for n in notes if n["type"] == "deep-dive"), key=lambda n: (n["order"], n["slug"]))
-    for group, label in ((clients, "client"), (deep, "deep-dive")):
+    deep = sorted((n for n in notes if n["type"] == "deep-dive"), key=lambda n: (n["client"], n["order"], n["slug"]))
+    client_slugs = {n["slug"] for n in clients}
+    for n in deep:
+        if n["client"] not in client_slugs:
+            errors.append(f"case-studies/{n['file']}: folder {n['client']}/ has no client page case-studies/{n['client']}.html")
+    groups = [(clients, "client")] + [
+        ([n for n in deep if n["client"] == c], f"deep dives for {c}") for c in sorted({n["client"] for n in deep})
+    ]
+    for group, label in groups:
         seen: dict[int, str] = {}
         for n in group:
             if n["order"] in seen:
@@ -686,10 +708,12 @@ def generate_case_studies(name: str, cfg: dict) -> tuple[list[tuple[Path, str]],
     old_manifest = manifest_path.read_text(encoding="utf-8") if manifest_path.exists() else ""
     if new_manifest != old_manifest:
         out.append((manifest_path, new_manifest))
-    for rel_page in CS_CARD_PAGES:
+    # Each client page shows the deep dives in its own folder.
+    for client in sorted({n["client"] for n in deep}):
+        rel_page = f"case-studies/{client}.html"
         page_path = ROOT / rel_page
         page = page_path.read_text(encoding="utf-8")
-        cards = "".join(cs_render_card(n, ctx, root="/", title_tag="h4") for n in deep)
+        cards = "".join(cs_render_card(n, ctx, root="/", title_tag="h4") for n in deep if n["client"] == client)
         new_page = replace_region(page, "CS-CARDS", cards, rel_page)
         if new_page != page:
             out.append((page_path, new_page))

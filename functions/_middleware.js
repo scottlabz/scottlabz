@@ -37,6 +37,19 @@ const REDIRECTS = {
   "/signals/three-days-of-silence": "/field-notes/three-days-of-silence",
   "/signals/re-encode-from-the-original": "/field-notes/",
   "/signals/whats-hiding-behind-the-library": "/field-notes/",
+  // Hawkeye Fan Shop deep dives moved under the client, Oct 2026
+  "/case-studies/advertising-media-buying": "/case-studies/hawkeye-fan-shop/advertising-media-buying",
+  "/case-studies/analytics-dashboard-reporting-platform": "/case-studies/hawkeye-fan-shop/analytics-dashboard-reporting-platform",
+  "/case-studies/analytics-dashboard-reporting": "/case-studies/hawkeye-fan-shop/analytics-dashboard-reporting",
+  "/case-studies/analytics-modernization": "/case-studies/hawkeye-fan-shop/analytics-modernization",
+  "/case-studies/custom-web-application-development": "/case-studies/hawkeye-fan-shop/custom-web-application-development",
+  "/case-studies/data-quality-governance": "/case-studies/hawkeye-fan-shop/data-quality-governance",
+  "/case-studies/digital-analytics-implementation": "/case-studies/hawkeye-fan-shop/digital-analytics-implementation",
+  "/case-studies/digital-experience-optimization": "/case-studies/hawkeye-fan-shop/digital-experience-optimization",
+  "/case-studies/digital-infrastructure-modernization": "/case-studies/hawkeye-fan-shop/digital-infrastructure-modernization",
+  "/case-studies/digital-measurement-strategy": "/case-studies/hawkeye-fan-shop/digital-measurement-strategy",
+  "/case-studies/website-performance-optimization": "/case-studies/hawkeye-fan-shop/website-performance-optimization",
+  "/case-studies/website-security-performance-engineering": "/case-studies/hawkeye-fan-shop/website-security-performance-engineering",
 };
 
 function redirectFor(url) {

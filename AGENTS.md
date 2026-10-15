@@ -32,7 +32,7 @@ To change a card, listing, or manifest entry, edit the `<meta>` tags in the arti
 
 Category keys must already exist in the `<scott-filter-bar>` JSON block on that section's hub page. That block is hand-authored; add a new key there first if one is needed. Exception: case-study deep-dive categories live in the filter bar on `case-studies/hawkeye-fan-shop.html`, next to the deep-dive cards.
 
-`/case-studies` is a client showcase: one generated card per client page (`cs-type` `client`), large logo beside the details. A client's `cs-button-class` sets both its branded button and its card accent; add matching `.button.<class>` and `.cs-showcase-card.is-<class>` rules to `case-studies.html` for a new client. Deep-dive cards (`cs-type` `deep-dive`) are generated onto the Hawkeye Fan Shop case study, not the hub.
+`/case-studies` is a client showcase: one generated card per client page (`cs-type` `client`), large logo beside the details. A client's `cs-button-class` sets both its branded button and its card accent; add matching `.button.<class>` and `.cs-showcase-card.is-<class>` rules to `case-studies.html` for a new client. Deep dives (`cs-type` `deep-dive`) live in a folder named after their client page: `case-studies/hawkeye-fan-shop/digital-measurement-strategy.html` is served at `/case-studies/hawkeye-fan-shop/digital-measurement-strategy` and belongs to `case-studies/hawkeye-fan-shop.html`. The generator puts each folder's cards on that client's page (in its `CS-CARDS` markers), not on the hub. A new client folder needs an `index.html` redirect stub pointing at the client page, and moving a deep dive means adding its old URL to the `REDIRECTS` map.
 
 ## CSS and JS assets
 
