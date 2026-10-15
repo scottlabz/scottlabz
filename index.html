@@ -840,155 +840,229 @@
       .home-cta .button.alt:focus-visible {
         background-color: #dbe7fb;
       }
-      /* Website Grant: white section between the storefront photos and
-         the navy CTA. Copy on the left, the cycle timeline on the right.
-         Years update through website-grant.js ([data-grant-year]). */
+      /* Website Grant: the top section of /website-grant, repeated here
+         as-is (same copy, two empty site frames, rising bars). Styles are
+         copied from website-grant.html and scoped to .home-grant; years
+         and the closing countdown update through website-grant.js. */
       .home-grant {
+        --g-navy: #1e3a5f;
+        --g-muted: #475569;
+        --g-line: rgba(30, 58, 95, 0.2);
+        --g-wash: #f5f8fb;
+        --g-open: #2f7a5b;
+        --g-grad: linear-gradient(90deg, #1e3a5f, #4c8bf5);
         background: #ffffff;
       }
       .home-grant-inner {
-        display: grid;
-        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-        gap: 3.5rem;
-        align-items: center;
         max-width: 1180px;
         margin: 0 auto;
         padding: 5rem 1.5rem;
       }
-      .home-grant .hx-kicker {
-        color: #2f7a5b;
+      .home-grant .grant-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+        gap: 3rem;
+        align-items: center;
+        padding: 2.5rem 2rem;
+        border-radius: 16px;
+        background:
+          radial-gradient(circle at 85% 30%, rgba(76, 139, 245, 0.12), transparent 55%),
+          linear-gradient(135deg, #f3f7fd 0%, #ffffff 70%);
       }
       .home-grant h2 {
         margin: 0 0 1rem;
+        font-size: 3.5rem;
+        font-weight: 300;
+        line-height: 1.1;
+        letter-spacing: -0.05em;
+        background: var(--g-grad);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
-      .home-grant-copy > p {
-        max-width: 34rem;
-        margin: 0 0 1.5rem;
-        font-size: 1.05rem;
-        color: #475569;
+      .home-grant .grant-lede {
+        max-width: 62ch;
+        margin: 0 0 1.75rem;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        color: var(--g-muted);
       }
-      .home-grant-perks {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-        margin: 0 0 2rem;
-        padding: 0;
-        list-style: none;
+      .home-grant .grant-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        margin: 0 0 1.25rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--g-open);
       }
-      .home-grant-perks li {
-        margin: 0;
-        padding: 0.45rem 0.9rem;
-        border: 1px solid #cfe5da;
-        border-radius: 999px;
-        font-size: 0.85rem;
-        background: #f1f8f4;
-        color: #1f5d43;
+      .home-grant .grant-status::before {
+        content: "";
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+        background: var(--g-open);
+        box-shadow: 0 0 0 4px rgba(47, 122, 91, 0.18);
       }
-      .home-grant-actions {
+      /* Countdown appended to the status line in the last 3 weeks */
+      .home-grant .grant-countdown {
+        color: #b45309;
+      }
+      .home-grant .grant-actions {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 1.25rem 2rem;
+        gap: 1rem 1.5rem;
       }
-      .home-grant-actions .button {
+      .home-grant .grant-actions .button {
         margin: 0;
       }
-      .home-grant-card {
-        position: relative;
-        margin: 0;
-        padding: 1.75rem 1.75rem 1.5rem;
-        border: 1px solid rgba(76, 139, 245, 0.35);
-        border-radius: 16px;
-        overflow: hidden;
-        background:
-          radial-gradient(circle at 90% 10%, rgba(76, 139, 245, 0.12), transparent 55%),
-          linear-gradient(135deg, #f3f7fd 0%, #ffffff 75%);
+      .home-grant .grant-actions .button.primary {
+        background: var(--g-navy) !important;
       }
-      .home-grant-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: 5px;
-        background: linear-gradient(180deg, #1e3a5f, #4c8bf5);
+      .home-grant .grant-actions .button.primary:hover {
+        background: #2a5288 !important;
       }
-      .home-grant-card h3 {
-        margin: 0 0 1.25rem;
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: #1e3a5f;
-      }
-      .home-grant-steps {
-        position: relative;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-      .home-grant-steps::before {
-        content: "";
-        position: absolute;
-        top: 0.5rem;
-        bottom: 0.5rem;
-        left: 0.4rem;
-        width: 2px;
-        background: #cbd8ea;
-      }
-      .home-grant-steps li {
-        position: relative;
-        margin: 0;
-        padding: 0 0 1.1rem 1.75rem;
-      }
-      .home-grant-steps li:last-child {
-        padding-bottom: 0;
-      }
-      .home-grant-steps li::before {
-        content: "";
-        position: absolute;
-        top: 0.35rem;
-        left: 0;
-        width: 0.85rem;
-        height: 0.85rem;
-        border: 2px solid #1e3a5f;
-        border-radius: 50%;
-        background: #ffffff;
-      }
-      .home-grant-steps li:first-child::before {
-        background: #2f7a5b;
-        border-color: #2f7a5b;
-      }
-      .home-grant-when {
-        display: block;
-        font-size: 0.75rem;
+      .home-grant .grant-actions a.grant-quiet {
+        color: var(--g-navy);
         font-weight: 600;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+      }
+      .home-grant .grant-note {
+        margin: 1rem 0 0;
+        font-size: 0.9rem;
+        line-height: 1.7;
         color: #64748b;
       }
-      .home-grant-what {
-        display: block;
-        font-weight: 600;
-        color: #0f172a;
+      .home-grant .grant-frames {
+        position: relative;
+        height: 320px;
       }
-      .home-grant-detail {
-        display: block;
-        font-size: 0.9rem;
-        color: #475569;
+      .home-grant .grant-frame {
+        position: absolute;
+        width: 78%;
+        background: #ffffff;
+        border: 1.5px solid var(--g-navy);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
       }
-      @media screen and (max-width: 980px) {
-        .home-grant-inner {
-          grid-template-columns: 1fr;
-          gap: 2.5rem;
+      .home-grant .grant-frame:nth-child(1) {
+        top: 0;
+        left: 0;
+        transform: rotate(-2deg);
+      }
+      .home-grant .grant-frame:nth-child(2) {
+        bottom: 0;
+        right: 0;
+        transform: rotate(1.5deg);
+      }
+      .home-grant .grant-frame-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.6rem 0.75rem;
+        border-bottom: 1px solid var(--g-line);
+        background: var(--g-wash);
+      }
+      /* Window controls: red, yellow, green like a desktop browser */
+      .home-grant .grant-frame-bar i {
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 50%;
+        background: #ff5f57;
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+      }
+      .home-grant .grant-frame-bar i:nth-child(2) {
+        background: #febc2e;
+      }
+      .home-grant .grant-frame-bar i:nth-child(3) {
+        background: #28c840;
+      }
+      .home-grant .grant-frame-url {
+        flex: 1;
+        min-width: 0;
+        margin: 0 1.6rem 0 0.75rem;
+        padding: 0.15rem 0.6rem;
+        border: 1px solid var(--g-line);
+        border-radius: 999px;
+        background: #ffffff;
+        color: var(--g-muted);
+        font-size: 0.68rem;
+        line-height: 1.4;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .home-grant .grant-frame-body {
+        position: relative;
+        height: 150px;
+        padding: 1rem 1.1rem;
+      }
+      .home-grant .grant-frame-body strong {
+        display: block;
+        font-size: 1.05rem;
+        color: var(--g-navy);
+      }
+      .home-grant .grant-frame-body span {
+        display: block;
+        margin-top: 0.4rem;
+        width: 60%;
+        height: 0.45rem;
+        border-radius: 4px;
+        background: rgba(30, 58, 95, 0.12);
+      }
+      .home-grant .grant-frame-body span + span {
+        width: 42%;
+      }
+      /* Rising bars echo the logo mark */
+      .home-grant .grant-bars {
+        position: absolute;
+        right: 1.1rem;
+        bottom: 1rem;
+        display: flex;
+        align-items: flex-end;
+        gap: 0.35rem;
+        height: 70px;
+      }
+      .home-grant .grant-bars b {
+        width: 0.4rem;
+        background: linear-gradient(0deg, #1e3a5f, #4c8bf5);
+        border-radius: 1px;
+        transform-origin: bottom;
+        animation: home-grant-rise 0.9s ease-out both;
+      }
+      .home-grant .grant-bars b:nth-child(1) { height: 22%; animation-delay: 0.1s; }
+      .home-grant .grant-bars b:nth-child(2) { height: 40%; animation-delay: 0.2s; }
+      .home-grant .grant-bars b:nth-child(3) { height: 62%; animation-delay: 0.3s; }
+      .home-grant .grant-bars b:nth-child(4) { height: 100%; animation-delay: 0.4s; }
+      .home-grant .grant-bars b:nth-child(5) { height: 48%; animation-delay: 0.5s; }
+      @keyframes home-grant-rise {
+        from { transform: scaleY(0); }
+        to { transform: scaleY(1); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .home-grant .grant-bars b {
+          animation: none;
         }
-        .home-grant-card {
-          max-width: 34rem;
+      }
+      @media screen and (max-width: 860px) {
+        .home-grant .grant-hero {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          padding: 1.75rem 1.25rem;
+        }
+        .home-grant .grant-frames {
+          height: 270px;
+          max-width: 440px;
         }
       }
       @media screen and (max-width: 736px) {
         .home-grant-inner {
           padding: 3.5rem 1.25rem;
+        }
+        .home-grant h2 {
+          font-size: 2.3rem;
         }
       }
     </style>
@@ -1273,45 +1347,36 @@
              /website-grant; years roll over via website-grant.js. -->
         <section class="home-grant" aria-labelledby="home-grant-title">
           <div class="home-grant-inner">
-            <div class="home-grant-copy">
-              <p class="hx-kicker">Website Grant</p>
-              <h2 id="home-grant-title">A free website for two Illinois businesses a year</h2>
-              <p>Each year, two independently owned Illinois businesses or nonprofits receive a new website, designed, built, measured, and launched at no cost. Winners are chosen by reading every application, not by drawing names.</p>
-              <ul class="home-grant-perks">
-                <li>Custom design of up to 5 pages</li>
-                <li>Visitor tracking from day one</li>
-                <li>Check-ins at 30, 60, and 90 days</li>
-              </ul>
-              <div class="home-grant-actions">
-                <a href="/website-grant#apply" class="button primary">Apply for the <span data-grant-year>2027</span> Grant</a>
-                <a href="/website-grant" class="hx-link">See how it works<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          <div class="grant-hero">
+            <div>
+              <p class="grant-status"><span><span data-grant-year>2027</span> applications open<span class="grant-countdown" data-grant-countdown hidden></span></span></p>
+              <h2 id="home-grant-title">Illinois Small Business Website Grant</h2>
+              <p class="grant-lede">Each year, two Illinois businesses receive a new website, designed, built, measured, and launched at no cost. Winners are chosen by reading every application, not by drawing names.</p>
+              <div class="grant-actions">
+                <a href="/website-grant#apply" class="button primary">Apply for the <span data-grant-year>2027</span> grant</a>
+                <a href="/website-grant#how-it-works" class="grant-quiet">How it works</a>
+              </div>
+              <p class="grant-note">Applications close March 31, <span data-grant-year>2027</span>. No purchase or payment required.</p>
+            </div>
+            <div class="grant-frames" aria-hidden="true">
+              <div class="grant-frame">
+                <div class="grant-frame-bar"><i></i><i></i><i></i><span class="grant-frame-url">www.your-business.com</span></div>
+                <div class="grant-frame-body">
+                  <strong>Your business</strong>
+                  <span></span><span></span>
+                  <div class="grant-bars"><b></b><b></b><b></b><b></b><b></b></div>
+                </div>
+              </div>
+              <div class="grant-frame">
+                <div class="grant-frame-bar"><i></i><i></i><i></i><span class="grant-frame-url">www.your-business.com</span></div>
+                <div class="grant-frame-body">
+                  <strong>Your business</strong>
+                  <span></span><span></span>
+                  <div class="grant-bars"><b></b><b></b><b></b><b></b><b></b></div>
+                </div>
               </div>
             </div>
-            <div class="home-grant-card">
-              <h3>How the <span data-grant-year>2027</span> grant works</h3>
-              <ol class="home-grant-steps">
-                <li>
-                  <span class="home-grant-when">By March 31, <span data-grant-year>2027</span></span>
-                  <span class="home-grant-what">Apply</span>
-                  <span class="home-grant-detail">No purchase or payment required.</span>
-                </li>
-                <li>
-                  <span class="home-grant-when">April <span data-grant-year>2027</span></span>
-                  <span class="home-grant-what">Review</span>
-                  <span class="home-grant-detail">Applications are scored and finalists get a short call.</span>
-                </li>
-                <li>
-                  <span class="home-grant-when">May 1, <span data-grant-year>2027</span></span>
-                  <span class="home-grant-what">Winners announced</span>
-                  <span class="home-grant-detail">Two businesses are selected and announced on this website.</span>
-                </li>
-                <li>
-                  <span class="home-grant-when">By July 31, <span data-grant-year>2027</span></span>
-                  <span class="home-grant-what">Launch</span>
-                  <span class="home-grant-detail">Both sites go live, with check-ins after.</span>
-                </li>
-              </ol>
-            </div>
+          </div>
           </div>
         </section>
 
