@@ -12,12 +12,16 @@
  * byte-identical to the committed footer-min.js (2026-10-13). Without it
  * terser wraps arrow-function arguments in extra parentheses.
  *
- * JS only. The committed CSS -min files were not produced by MinifyAll
- * (different output style), so running its CSS minifier would rewrite the
- * whole file - see "CSS and JS assets" in AGENTS.md.
+ * CSS too, but only for stylesheets whose -min file MinifyAll built
+ * (solutions.css, added 2026-10-14). main.css, noscript.css and
+ * engineering.css are refused: their committed -min files came from a
+ * different minifier, so MinifyAll would rewrite the whole file - see
+ * "CSS and JS assets" in AGENTS.md.
  *
  * Usage: node scripts/minifyall.cjs assets/js/footer.js [more.js ...]
- * Writes assets/js/footer-min.js next to each source file.
+ *        node scripts/minifyall.cjs assets/css/solutions.css
+ * Writes the -min sibling (footer-min.js, solutions-min.css) next to each
+ * source file.
  */
 const Module = require("module");
 const fs = require("fs");
@@ -45,9 +49,19 @@ settings.terserMinifyOptions = {
 settings.disableMessages = true;
 settings.openMinifiedDocument = false;
 
+// Stylesheets whose committed -min file was not built by MinifyAll.
+const LEGACY_CSS = ["main.css", "noscript.css", "engineering.css"];
 const files = process.argv.slice(2).map((f) => path.resolve(f));
-if (!files.length || files.some((f) => path.extname(f) !== ".js" || f.endsWith("-min.js"))) {
-  console.error("Usage: node scripts/minifyall.cjs <source.js> [more.js ...]  (JS sources only, not -min files)");
+const ok = (f) => {
+  const ext = path.extname(f);
+  if (f.endsWith(`-min${ext}`)) return false;
+  return ext === ".js" || (ext === ".css" && !LEGACY_CSS.includes(path.basename(f)));
+};
+if (!files.length || !files.every(ok)) {
+  console.error(
+    "Usage: node scripts/minifyall.cjs <source.js|source.css> [...]  (sources only, not -min files; " +
+      `not ${LEGACY_CSS.join(", ")}, see AGENTS.md)`
+  );
   process.exit(1);
 }
 
@@ -89,9 +103,11 @@ function waitFor(file, since) {
 
 (async () => {
   for (const file of files) {
-    const out = file.replace(/\.js$/, `${settings.PrefixOfNewMinifiedFiles || "-min"}.js`);
+    const fileExt = path.extname(file);
+    const out = file.slice(0, -fileExt.length) + `${settings.PrefixOfNewMinifiedFiles || "-min"}${fileExt}`;
     const since = Date.now() - 1;
-    editor.document = { getText: () => fs.readFileSync(file, "utf8"), fileName: file, languageId: "javascript" };
+    const languageId = fileExt === ".css" ? "css" : "javascript";
+    editor.document = { getText: () => fs.readFileSync(file, "utf8"), fileName: file, languageId };
     await commands["extension.MinifyAll2OtherDoc"]();
     await waitFor(out, since);
     console.log(`MinifyAll ${ext.split("-").pop()}: ${path.relative(process.cwd(), file)} -> ${path.relative(process.cwd(), out)}`);

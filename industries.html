@@ -114,51 +114,9 @@
     <meta name="twitter:title" content="Industries We Serve | Scott Labz" />
     <meta name="twitter:description" content="Analytics, web development, and digital infrastructure for athletics, pro sports, healthcare, education, and nonprofits, proven across 280+ client engagements." />
     <meta name="twitter:image" content="https://scottlabz.com/images/og-share.png" />
-    <style>
-      /* Sector cards: a grid version of the shared .about-process list
-         (which stays a single column on the About page). */
-      .industry-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.25rem;
-      }
-      .industry-grid .about-process-item,
-      .industry-grid .about-process-item:last-child {
-        flex-direction: column;
-        gap: 0.75rem;
-        padding: 1.5rem;
-        background: #ffffff;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        border-top: 3px solid #1e3a5f;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
-      }
-      .industry-grid .about-process-item .icon {
-        margin: 0;
-      }
-      .industry-grid .about-process-item h3 {
-        margin-top: 0;
-      }
-      .industry-grid .about-process-item > div {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-      }
-      .industry-grid .about-process-item p {
-        margin-bottom: 0;
-      }
-      @media screen and (max-width: 736px) {
-        .industry-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-      /* Page-only spacing above the closing CTA; .about-closing in
-         main.css is shared with about, founder and three signals. */
-      .about-closing {
-        margin-top: 2rem;
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/solutions-min.css" />
   </head>
+
   <body class="is-preload">
     <!-- Google Tag Manager (noscript) -->
     <noscript>
@@ -170,267 +128,251 @@
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <scott-nav skip-target="#first"></scott-nav>
+    <scott-nav></scott-nav>
+
     <div id="wrapper" class="divided">
-      <main
-        class="service-content"
-        id="first"
-        style="max-width: 900px; margin: 0 auto; padding: 4rem 1.5rem">
-        <div class="content">
-          <p class="brand-mark">
-            <a href="/" style="border-bottom: none">
-              <img
-                src="images/scottlabz-clear.webp?v=d34943c620"
-                srcset="images/scottlabz-clear-32w.webp?v=8d5d3e1b4b 32w, images/scottlabz-clear-64w.webp?v=7b37132bec 64w, images/scottlabz-clear-96w.webp?v=1b0fa7e3f5 96w, images/scottlabz-clear.webp?v=d34943c620 130w"
-                sizes="(max-width: 736px) 28px, 55px"
-                width="130"
-                height="170"
-                alt="S"
-                class="logo"
-                style="margin-right: 0" />cott Labz
-            </a>
-          </p>
-
-          <h1 class="about-statement" style="margin-bottom: 0.5rem">
-            Industries We Serve.
-          </h1>
-
-          <p class="major">
-            Every vertical carries its own data flows, compliance standards, and
-            operating bottlenecks. Work here is shaped around what each sector
-            actually needs, not a one-size-fits-all approach.
-          </p>
-
-          <!-- The Idea -->
-          <div
-            class="idea-block"
-            style="background-color: #fff; margin: 0.5rem 0">
-            <div class="idea-label">Sector Focus</div>
-
-            <p class="about-statement" style="margin-bottom: 0.5rem">
-              Specific approaches for distinct operating environments.
-            </p>
-
-            <p class="idea-description">
-              From regulated institutional data flows to high-volume commercial
-              environments, platforms here are built to hold up under real-world
-              pressure, not just launch-day conditions.
-            </p>
+      <main id="main-content" class="sx-page is-measure">
+        <!-- Hero. The card pairs four sectors with the constraint each one
+             puts on the work, taken from the sector descriptions below. -->
+        <section class="sx-hero" aria-labelledby="sx-title">
+          <div class="sx-hero-inner">
+            <div class="sx-copy">
+              <h1 id="sx-title" class="sx-title"><span class="sx-eyebrow">Industries We Serve</span>Different sectors. Different <em>pressure points</em>.</h1>
+              <p class="sx-lede">Every vertical carries its own data flows, compliance standards, and operating bottlenecks. Work here is shaped around what each sector actually needs, not a one-size-fits-all approach.</p>
+              <div class="sx-actions">
+                <a href="/contact" class="button primary">Start a Conversation</a>
+                <a href="#sectors" class="sx-link smooth-scroll">See all 14 sectors<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <div class="sx-visual">
+              <div class="sx-card">
+                <p class="sx-card-head"><span class="sx-pulse" aria-hidden="true"></span>What each sector demands</p>
+                <ul class="sx-sector-list">
+                  <li><span class="sx-sector-name">Collegiate athletics</span><span class="sx-sector-need">Inventory in sync on game day</span></li>
+                  <li><span class="sx-sector-name">Healthcare</span><span class="sx-sector-need">Privacy-conscious tracking</span></li>
+                  <li><span class="sx-sector-name">Higher education</span><span class="sx-sector-need">Campaigns tied to enrollment</span></li>
+                  <li><span class="sx-sector-name">Social services</span><span class="sx-sector-need">Impact reporting funders can see</span></li>
+                </ul>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <!-- How We Think / Verticals Process -->
-          <h2
-            class="about-statement"
-            style="margin: 2rem 0; text-align: center">
-            By Sector
-          </h2>
-
-          <div class="about-process industry-grid">
-            <div class="about-process-item">
-              <span class="icon solid style2 major fa-football-ball"></span>
-              <div>
+        <section class="sx-work" id="sectors" aria-labelledby="sx-g-sports">
+          <div class="sx-section-inner">
+            <p class="sx-kicker">By sector</p>
+          <div class="sx-group" aria-labelledby="sx-g-sports">
+            <div class="sx-group-head">
+              <h2 id="sx-g-sports">Sports &amp; retail</h2>
+              <p>Game days, race weekends, and product drops send demand up all at once. Both current case studies, <a href="/case-studies/hawkeye-fan-shop">Hawkeye Fan Shop</a> and <a href="/case-studies/the-black-and-gold-shop">The Black &amp; Gold Shop</a>, come from here.</p>
+            </div>
+            <div class="sx-sector-grid is-featured">
+              <article class="sx-sector">
+                <span class="icon solid style2 major fa-football-ball" aria-hidden="true"></span>
                 <h3>Collegiate Athletics</h3>
                 <p>
-                  Building and maintaining official retail platforms for
-                  university athletic departments, tracking
-                  <a href="/case-studies/hawkeye-fan-shop/analytics-modernization"
-                    >gameday traffic and fan engagement</a
-                  >, and keeping merchandise inventory synchronized during
-                  high-volume events.
+                  Building and maintaining official retail platforms for university
+                  athletic departments, tracking
+                  <a href="/case-studies/hawkeye-fan-shop/analytics-modernization">gameday
+                  traffic and fan engagement</a>, and keeping merchandise inventory
+                  synchronized during high-volume events.
                 </p>
-              </div>
-            </div>
-
-            <div class="about-process-item">
-              <span class="icon solid style2 major fa-trophy"></span>
-              <div>
+              </article>
+              <article class="sx-sector">
+                <span class="icon solid style2 major fa-trophy" aria-hidden="true"></span>
                 <h3>Professional Sports</h3>
                 <p>
-                  Supporting team-affiliated retail and fan-facing digital
-                  properties with clean data collection, so front offices can
-                  see what actually drives merchandise and ticket demand.
+                  Supporting team-affiliated retail and fan-facing digital properties
+                  with clean data collection, so front offices can see what actually
+                  drives merchandise and ticket demand.
                 </p>
-              </div>
-            </div>
-
-            <div class="about-process-item">
-              <span class="icon solid style2 major fa-flag-checkered"></span>
-              <div>
+              </article>
+              <article class="sx-sector">
+                <span class="icon solid style2 major fa-flag-checkered" aria-hidden="true"></span>
                 <h3>Motorsports</h3>
                 <p>
-                  Handling season-long promotional campaigns and fan-facing
-                  digital properties for racing organizations, where traffic
-                  spikes around race weekends require infrastructure that holds
-                  up under sudden load.
+                  Handling season-long promotional campaigns and fan-facing digital
+                  properties for racing organizations, where traffic spikes around race
+                  weekends require infrastructure that holds up under sudden load.
                 </p>
-              </div>
-            </div>
-
-            <div class="about-process-item">
-              <span class="icon solid style2 major fa-shopping-cart"></span>
-              <div>
+              </article>
+              <article class="sx-sector">
+                <span class="icon solid style2 major fa-shopping-cart" aria-hidden="true"></span>
                 <h3>Consumer Brands &amp; Retail</h3>
                 <p>
-                  Building
-                  <a href="/case-studies/the-black-and-gold-shop"
-                    >storefront platforms</a
-                  >
-                  that hold up under peak demand, implementing clean server-side
-                  tracking, and refining checkout flow to reduce friction
+                  Building <a href="/case-studies/the-black-and-gold-shop">storefront
+                  platforms</a> that hold up under peak demand, implementing clean
+                  server-side tracking, and refining checkout flow to reduce friction
                   between browsing and purchase.
                 </p>
-              </div>
+              </article>
             </div>
+          </div>
 
-            <div class="about-process-item">
-              <span class="icon solid style2 major fa-graduation-cap"></span>
-              <div>
+          <div class="sx-group" aria-labelledby="sx-g-institutions">
+            <div class="sx-group-head">
+              <h2 id="sx-g-institutions">Education &amp; healthcare</h2>
+              <p>Institutions where privacy, data handling, and long decision cycles shape the measurement.</p>
+            </div>
+            <div class="sx-sector-grid">
+              <article class="sx-sector">
+                <span class="icon solid style2 major fa-graduation-cap" aria-hidden="true"></span>
                 <h3>Higher Education</h3>
                 <p>
-                  Supporting university-level digital properties beyond
-                  athletics - admissions, enrollment, institutional marketing -
-                  with measurement that connects campaign activity to actual
-                  enrollment outcomes.
+                  Supporting university-level digital properties beyond athletics -
+                  admissions, enrollment, institutional marketing - with measurement
+                  that connects campaign activity to actual enrollment outcomes.
                 </p>
-              </div>
-            </div>
-
-            <div class="about-process-item">
-              <span class="icon solid style2 major fa-school"></span>
-              <div>
+              </article>
+              <article class="sx-sector">
+                <span class="icon solid style2 major fa-school" aria-hidden="true"></span>
                 <h3>K-12 Education</h3>
                 <p>
-                  Working with independent and preparatory schools on enrollment
-                  funnel tracking and digital communications infrastructure,
-                  built for smaller teams without a dedicated data function.
+                  Working with independent and preparatory schools on enrollment funnel
+                  tracking and digital communications infrastructure, built for smaller
+                  teams without a dedicated data function.
                 </p>
-              </div>
-            </div>
-
-            <div class="about-process-item">
-              <span class="icon solid style2 major fa-hospital"></span>
-              <div>
+              </article>
+              <article class="sx-sector">
+                <span class="icon solid style2 major fa-hospital" aria-hidden="true"></span>
                 <h3>Healthcare</h3>
                 <p>
                   Supporting healthcare systems and medical foundations with
-                  privacy-conscious tracking for patient- and donor-facing
-                  digital touchpoints, and modernizing reporting workflows that
-                  outgrew their original setup.
+                  privacy-conscious tracking for patient- and donor-facing digital
+                  touchpoints, and modernizing reporting workflows that outgrew their
+                  original setup.
                 </p>
-              </div>
+              </article>
             </div>
+          </div>
 
-            <div class="about-process-item">
-              <span class="icon solid style2 major fa-place-of-worship"></span>
-              <div>
+          <div class="sx-group" aria-labelledby="sx-g-nonprofits">
+            <div class="sx-group-head">
+              <h2 id="sx-g-nonprofits">Nonprofits &amp; associations</h2>
+              <p>Organizations where funders, members, and donors need to see the outcome, not just the activity.</p>
+            </div>
+            <div class="sx-sector-grid">
+              <article class="sx-sector">
+                <span class="icon solid style2 major fa-place-of-worship" aria-hidden="true"></span>
                 <h3>Faith-Based Organizations</h3>
                 <p>
-                  Building donation and communication infrastructure for
-                  religious and faith-based organizations, where trust and data
-                  handling matter as much as the technical setup itself.
+                  Building donation and communication infrastructure for religious and
+                  faith-based organizations, where trust and data handling matter as
+                  much as the technical setup itself.
                 </p>
-              </div>
-            </div>
-
-            <div class="about-process-item">
-              <span class="icon solid style2 major fa-hands-helping"></span>
-              <div>
+              </article>
+              <article class="sx-sector">
+                <span class="icon solid style2 major fa-hands-helping" aria-hidden="true"></span>
                 <h3>Human &amp; Social Services</h3>
                 <p>
-                  Streamlining donor attribution and impact reporting for social
-                  service organizations, so program outcomes are as visible
-                  internally as they are to funders.
+                  Streamlining donor attribution and impact reporting for social service
+                  organizations, so program outcomes are as visible internally as they
+                  are to funders.
                 </p>
-              </div>
-            </div>
-
-            <div class="about-process-item">
-              <span class="icon solid style2 major fa-landmark"></span>
-              <div>
+              </article>
+              <article class="sx-sector">
+                <span class="icon solid style2 major fa-landmark" aria-hidden="true"></span>
                 <h3>Arts, Culture &amp; Museums</h3>
                 <p>
                   Supporting ticketing, membership, and visitor-facing digital
                   experiences for cultural and arts institutions, where seasonal
                   attendance patterns shape most of the measurement work.
                 </p>
-              </div>
-            </div>
-
-            <div class="about-process-item">
-              <span class="icon solid style2 major fa-leaf"></span>
-              <div>
+              </article>
+              <article class="sx-sector">
+                <span class="icon solid style2 major fa-leaf" aria-hidden="true"></span>
                 <h3>Environmental &amp; Conservation</h3>
                 <p>
-                  Building donor and membership tracking for environmental and
-                  wildlife organizations, connecting campaign activity to the
-                  conservation outcomes funders want to see.
+                  Building donor and membership tracking for environmental and wildlife
+                  organizations, connecting campaign activity to the conservation
+                  outcomes funders want to see.
                 </p>
-              </div>
-            </div>
-
-            <div class="about-process-item">
-              <span class="icon solid style2 major fa-bullhorn"></span>
-              <div>
+              </article>
+              <article class="sx-sector">
+                <span class="icon solid style2 major fa-bullhorn" aria-hidden="true"></span>
                 <h3>Civic &amp; Advocacy</h3>
                 <p>
-                  Supporting advocacy and community organizations with
-                  communication infrastructure and measurement that holds up to
-                  scrutiny from funders, members, and the public alike.
+                  Supporting advocacy and community organizations with communication
+                  infrastructure and measurement that holds up to scrutiny from funders,
+                  members, and the public alike.
                 </p>
-              </div>
-            </div>
-
-            <div class="about-process-item">
-              <span class="icon solid style2 major fa-user-graduate"></span>
-              <div>
+              </article>
+              <article class="sx-sector">
+                <span class="icon solid style2 major fa-user-graduate" aria-hidden="true"></span>
                 <h3>Professional &amp; Research Associations</h3>
                 <p>
-                  Handling membership systems and event infrastructure for
-                  professional and research associations, where renewal tracking
-                  and event logistics carry as much weight as the website
-                  itself.
+                  Handling membership systems and event infrastructure for professional
+                  and research associations, where renewal tracking and event logistics
+                  carry as much weight as the website itself.
                 </p>
-              </div>
-            </div>
-
-            <div class="about-process-item">
-              <span class="icon solid style2 major fa-users"></span>
-              <div>
+              </article>
+              <article class="sx-sector">
+                <span class="icon solid style2 major fa-users" aria-hidden="true"></span>
                 <h3>Greek &amp; Alumni Organizations</h3>
                 <p>
-                  Building alumni and member communication infrastructure for
-                  Greek organizations and foundations, where long-term
-                  relationship tracking matters more than one-time conversion.
+                  Building alumni and member communication infrastructure for Greek
+                  organizations and foundations, where long-term relationship tracking
+                  matters more than one-time conversion.
                 </p>
-              </div>
+              </article>
             </div>
           </div>
+          </div>
+        </section>
 
-          <!-- Principle -->
-          <div class="about-closing">
-            <h3 class="about-statement" style="font-size: 2rem; margin-bottom: 0.5rem">
-              Ready to talk about your industry?
-            </h3>
+        <section class="sx-band" aria-labelledby="sx-across-title">
+          <div class="sx-section-inner">
+            <div class="sx-section-head">
+              <p class="sx-kicker">Across every sector</p>
+              <h2 id="sx-across-title">Specific approaches for distinct operating environments</h2>
+              <p>From regulated institutional data flows to high-volume commercial environments, platforms here are built to hold up under real-world pressure, not just launch-day conditions.</p>
+            </div>
+            <div class="sx-pillars">
+              <a href="/analytics-data" class="sx-pillar is-measure">
+                <span class="sx-pillar-name">Analytics &amp; Data</span>
+                <span class="sx-pillar-text">Tracking, data quality, and reporting reliable enough to make decisions on.</span>
+                <span class="sx-pillar-more">Learn more<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+              <a href="/web-digital" class="sx-pillar is-build">
+                <span class="sx-pillar-name">Web &amp; Digital</span>
+                <span class="sx-pillar-text">Websites, storefronts, and integrations built for real-world pressure.</span>
+                <span class="sx-pillar-more">Learn more<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+              <a href="/conversion-optimization" class="sx-pillar is-improve">
+                <span class="sx-pillar-name">Optimization &amp; Testing</span>
+                <span class="sx-pillar-text">Behavior analysis and structured tests that show which change worked.</span>
+                <span class="sx-pillar-more">Learn more<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+              <a href="/advertising-media-buying" class="sx-pillar is-campaigns">
+                <span class="sx-pillar-name">Advertising &amp; Media Buying</span>
+                <span class="sx-pillar-text">Campaign strategy and media buying tied to measured outcomes.</span>
+                <span class="sx-pillar-more">Learn more<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+            </div>
+          </div>
+        </section>
 
+        <section class="sx-cta" aria-labelledby="sx-cta-title">
+          <div class="sx-section-inner">
+            <h2 id="sx-cta-title">Ready to talk about your industry?</h2>
             <p>
               Working with organizations across these sectors to turn complex
               data into clear, actionable direction.
             </p>
-
-            <a href="contact" class="button big wide alt">
-              Talk to Scott
-            </a>
+            <ul class="actions special">
+              <li>
+                <a href="/contact" class="button big wide alt">Talk to Scott</a>
+              </li>
+            </ul>
           </div>
-        </div>
+        </section>
       </main>
 
       <script src="/assets/js/smooth-scroll.js?v=2418fdee53" defer></script>
       <script src="/assets/js/main-min.js?v=f697f0f060" defer></script>
       <script src="/assets/js/footer-min.js?v=977db99110" defer></script>
-
       <scott-footer
-        description="An independent analytics and digital practice focused on measurement, insights, and understanding digital experiences.">
-      </scott-footer>
+        description="An independent analytics and digital practice focused on measurement, insights, and understanding digital experiences."></scott-footer>
     </div>
   </body>
 </html>

@@ -40,9 +40,18 @@ Category keys must already exist in the `<scott-filter-bar>` JSON block on that 
 - Every minified file has a readable source next to it (`footer.js`, `navigation.js`, `main.css`, `scott-filter-bar.js`, and so on).
 - Edit the source file, then regenerate the matching `-min` file. Both must change in the same commit. Never edit only the `-min` file.
 - JS: regenerate with `node scripts/minifyall.cjs assets/js/<file>.js`. It runs the installed MinifyAll VS Code extension's own code from the terminal (its npm CLI doesn't work on current Node) and writes the `-min` sibling. It reproduces the committed `footer-min.js`, `navigation-min.js`, `header-min.js`, `main-min.js`, and `case-study-hotspots-min.js` byte for byte. `scott-filter-bar-min.js` was built differently, so its first regeneration produces a larger diff than the source change; say so in the report. Do not use any other minifier (terser directly, esbuild, and so on).
-- CSS: the committed `main-min.css` was not produced by MinifyAll (different output style), and MinifyAll's CSS minifier would rewrite the whole file. When a source change only deletes whole rules, delete the matching contiguous run of rules from the `-min` file and confirm the neighboring rules are untouched. For any other CSS change, stop and tell Scott which source file changed.
+- CSS: `main.css`, `noscript.css`, and `engineering.css` have `-min` files that were not produced by MinifyAll (different output style), and MinifyAll's CSS minifier would rewrite the whole file. For those three, when a source change only deletes whole rules, delete the matching contiguous run of rules from the `-min` file and confirm the neighboring rules are untouched. For any other change to them, stop and tell Scott which source file changed. `scripts/minifyall.cjs` refuses them.
+- CSS built with MinifyAll: `solutions.css` (added 2026-10-14). Regenerate it with `node scripts/minifyall.cjs assets/css/solutions.css`. A new stylesheet should follow the same route, not the three legacy files' manual process.
 - After regenerating, diff the `-min` file and confirm the only change is the intended one.
 - Site-wide UI is built as custom elements: `<scott-nav>` (`assets/js/navigation.js`), `<scott-footer>` (`assets/js/footer.js`), `<scott-filter-bar>` (`assets/js/scott-filter-bar.js`, uses shadow DOM). New shared UI follows this same custom-element pattern rather than copy-pasted HTML.
+
+## Solutions pages
+
+- `analytics-data.html`, `web-digital.html`, `conversion-optimization.html`, `advertising-media-buying.html`, and `industries.html` share `assets/css/solutions.css` (classes `sx-*`). It carries the homepage's look; the homepage itself keeps its `hx-*` styles inline in `index.html`.
+- Each page sets its accent on `<main class="sx-page ...">`: `is-measure` (blue), `is-build` (amber), `is-improve` (green), or `is-campaigns` (purple).
+- Service page order: hero, Sound familiar (3 symptoms), What gets done (4 services plus capability tags), the 4-step process band, Related work (`id="work"`, the shared `.cs-card` and `.related-notes` markup), FAQ as `<details>`, navy CTA. The service name is the eyebrow inside the `<h1>`.
+- Each hero card illustrates one real Field Note or Insight and links to it, with a caption saying so. Use only facts and figures that piece already publishes; never invent numbers for a card.
+- The cards animate once `main.js` removes `body.is-preload`. Their starting and ending states are pure CSS, with transitions switched off under `prefers-reduced-motion`.
 
 ## Headers, CSP, and things that are not in this repo
 
