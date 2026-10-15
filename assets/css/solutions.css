@@ -2138,6 +2138,27 @@ body:not(.is-preload) .sx-suspects li.is-culprit {
   transform: translateX(3px);
 }
 
+/* ---------- Clients, BBB, 404, Thank-you ---------- */
+.sx-pillars.is-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.sx-pillar.is-navy {
+  --pillar: #1e3a5f;
+}
+.sx-seal {
+  display: block;
+  width: auto;
+  height: 72px;
+  margin: 0 0 1.25rem;
+}
+.sx-link-groups {
+  display: grid;
+  gap: 1.25rem;
+}
+.sx-link-groups .sx-label {
+  margin: 0 0 0.35rem;
+}
+
 /* ---------- Responsive ---------- */
 @media screen and (max-width: 980px) {
   .sx-hero-inner {
@@ -2163,7 +2184,8 @@ body:not(.is-preload) .sx-suspects li.is-culprit {
   .sx-sector-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .sx-pillars {
+  .sx-pillars,
+  .sx-pillars.is-three {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .sx-group-head {
@@ -2220,7 +2242,8 @@ body:not(.is-preload) .sx-suspects li.is-culprit {
   .sx-service-grid,
   .sx-sector-grid,
   .sx-sector-grid.is-featured,
-  .sx-pillars {
+  .sx-pillars,
+  .sx-pillars.is-three {
     grid-template-columns: 1fr;
   }
   .sx-steps {
