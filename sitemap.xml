@@ -111,7 +111,7 @@
   </url>
   <url>
     <loc>https://scottlabz.com/case-studies</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -147,7 +147,7 @@
   </url>
   <url>
     <loc>https://scottlabz.com/diagnostics/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -183,7 +183,7 @@
   </url>
   <url>
     <loc>https://scottlabz.com/field-notes/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -225,13 +225,13 @@
   </url>
   <url>
     <loc>https://scottlabz.com/field-notes/topics/infra</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://scottlabz.com/field-notes/topics/measurement</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -309,7 +309,7 @@
   </url>
   <url>
     <loc>https://scottlabz.com/insights</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
