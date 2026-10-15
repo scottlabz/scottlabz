@@ -790,84 +790,155 @@
       .home-cta .button.alt:focus-visible {
         background-color: #dbe7fb;
       }
-      /* From the field: its own white section between the storefront
-         photos and the navy CTA. Text-only outline cards in the site's
-         Field Note green and Insight amber. */
-      .home-reads-section {
+      /* Website Grant: white section between the storefront photos and
+         the navy CTA. Copy on the left, the cycle timeline on the right.
+         Years update through website-grant.js ([data-grant-year]). */
+      .home-grant {
         background: #ffffff;
       }
-
-      /* The theme gives .wrapper.style1 > .inner 2rem less padding at the
-         bottom than the top at every breakpoint; this 2rem evens it out so
-         the cards don't crowd the navy band below. */
-      .home-reads-grid {
-        margin-bottom: 2rem;
-        text-align: left;
+      .home-grant-inner {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.25rem;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        gap: 3.5rem;
+        align-items: center;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 5rem 1.5rem;
       }
-      .home-read {
-        display: flex;
-        flex-direction: column;
-        padding: 1.4rem 1.5rem;
-        border: 1px solid rgba(0, 0, 0, 0.12);
-        border-radius: 10px;
-        background: #ffffff;
-        color: inherit;
-        text-decoration: none;
-        transition:
-          background-color 0.2s ease,
-          border-color 0.2s ease;
+      .home-grant .hx-kicker {
+        color: #2f7a5b;
       }
-      .home-read:hover,
-      .home-read:focus-visible {
-        border-color: rgba(30, 58, 95, 0.4);
-        box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      .home-grant h2 {
+        margin: 0 0 1rem;
       }
-      .home-read-kind {
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-      .home-read.is-fieldnote .home-read-kind {
-        color: #15803d;
-      }
-      .home-read.is-insight .home-read-kind {
-        color: #b45309;
-      }
-      .home-reads-section .home-read-title {
-        margin: 0.5rem 0 0.4rem;
-        font-size: 1.15rem;
-        line-height: 1.3;
-        color: #1e3a5f;
-      }
-      .home-read-text {
-        flex: 1;
-        font-size: 0.9rem;
-        line-height: 1.55;
+      .home-grant-copy > p {
+        max-width: 34rem;
+        margin: 0 0 1.5rem;
+        font-size: 1.05rem;
         color: #475569;
       }
-      .home-read-more {
-        margin-top: 1rem;
+      .home-grant-perks {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin: 0 0 2rem;
+        padding: 0;
+        list-style: none;
+      }
+      .home-grant-perks li {
+        margin: 0;
+        padding: 0.45rem 0.9rem;
+        border: 1px solid #cfe5da;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        background: #f1f8f4;
+        color: #1f5d43;
+      }
+      .home-grant-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1.25rem 2rem;
+      }
+      .home-grant-actions .button {
+        margin: 0;
+      }
+      .home-grant-card {
+        position: relative;
+        margin: 0;
+        padding: 1.75rem 1.75rem 1.5rem;
+        border: 1px solid rgba(76, 139, 245, 0.35);
+        border-radius: 16px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 90% 10%, rgba(76, 139, 245, 0.12), transparent 55%),
+          linear-gradient(135deg, #f3f7fd 0%, #ffffff 75%);
+      }
+      .home-grant-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 5px;
+        background: linear-gradient(180deg, #1e3a5f, #4c8bf5);
+      }
+      .home-grant-card h3 {
+        margin: 0 0 1.25rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #1e3a5f;
+      }
+      .home-grant-steps {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .home-grant-steps::before {
+        content: "";
+        position: absolute;
+        top: 0.5rem;
+        bottom: 0.5rem;
+        left: 0.4rem;
+        width: 2px;
+        background: #cbd8ea;
+      }
+      .home-grant-steps li {
+        position: relative;
+        margin: 0;
+        padding: 0 0 1.1rem 1.75rem;
+      }
+      .home-grant-steps li:last-child {
+        padding-bottom: 0;
+      }
+      .home-grant-steps li::before {
+        content: "";
+        position: absolute;
+        top: 0.35rem;
+        left: 0;
+        width: 0.85rem;
+        height: 0.85rem;
+        border: 2px solid #1e3a5f;
+        border-radius: 50%;
+        background: #ffffff;
+      }
+      .home-grant-steps li:first-child::before {
+        background: #2f7a5b;
+        border-color: #2f7a5b;
+      }
+      .home-grant-when {
+        display: block;
         font-size: 0.75rem;
         font-weight: 600;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: #2563eb;
+        color: #64748b;
       }
-      .home-read-more i {
-        margin-left: 0.4rem;
-        transition: transform 0.2s ease;
+      .home-grant-what {
+        display: block;
+        font-weight: 600;
+        color: #0f172a;
       }
-      .home-read:hover .home-read-more i,
-      .home-read:focus-visible .home-read-more i {
-        transform: translateX(3px);
+      .home-grant-detail {
+        display: block;
+        font-size: 0.9rem;
+        color: #475569;
       }
-      @media screen and (max-width: 860px) {
-        .home-reads-grid {
+      @media screen and (max-width: 980px) {
+        .home-grant-inner {
           grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .home-grant-card {
+          max-width: 34rem;
+        }
+      }
+      @media screen and (max-width: 736px) {
+        .home-grant-inner {
+          padding: 3.5rem 1.25rem;
         }
       }
     </style>
@@ -1143,33 +1214,49 @@
             </article>
           </div>
         </section>
-        <!-- From the field: three hand-picked reads (not newest), one Field
-             Note and two Insights on numbers that mislead. Swap one when a
-             stronger piece is published, and don't repeat the Field Note the
-             hero card already links to. -->
-        <section class="wrapper style1 align-center home-reads-section">
-          <div class="inner">
-            <h2>From the field</h2>
-              <div class="home-reads-grid">
-              <a href="/field-notes/gtm-container-autopsy" class="home-read is-fieldnote">
-                <span class="home-read-kind">Field Note</span>
-                <h3 class="home-read-title">The Tag Container Autopsy</h3>
-                <span class="home-read-text">Revenue in reports ran roughly 18% above real orders. What was double-firing, what was dead, and why.</span>
-                <span class="home-read-more">Read<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-              </a>
-              <a href="/insights/consent-mode-changes-your-numbers" class="home-read is-insight">
-                <span class="home-read-kind">Insight</span>
-                <h3 class="home-read-title">Consent Mode Changes Your Numbers, Not Just Your Compliance</h3>
-                <span class="home-read-text">It swaps some real events for modeled ones - and most dashboards never say which is which.</span>
-                <span class="home-read-more">Read<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-              </a>
-              <a href="/insights/cart-abandonment-measurement-gap" class="home-read is-insight">
-                <span class="home-read-kind">Insight</span>
-                <h3 class="home-read-title">Cart Abandonment Is a Measurement Gap, Not a UX Problem</h3>
-                <span class="home-read-text">Knowing where a shopper left isn't the same as knowing why.</span>
-                <span class="home-read-more">Read<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-              </a>
+        <!-- Website Grant: the yearly free-website grant. Facts match
+             /website-grant; years roll over via website-grant.js. -->
+        <section class="home-grant" aria-labelledby="home-grant-title">
+          <div class="home-grant-inner">
+            <div class="home-grant-copy">
+              <p class="hx-kicker">Website Grant</p>
+              <h2 id="home-grant-title">A free website for two Illinois businesses a year</h2>
+              <p>Each year, two independently owned Illinois businesses or nonprofits receive a new website, designed, built, measured, and launched at no cost. Winners are chosen by reading every application, not by drawing names.</p>
+              <ul class="home-grant-perks">
+                <li>Custom design of up to 5 pages</li>
+                <li>Visitor tracking from day one</li>
+                <li>Check-ins at 30, 60, and 90 days</li>
+              </ul>
+              <div class="home-grant-actions">
+                <a href="/website-grant#apply" class="button primary">Apply for the <span data-grant-year>2027</span> Grant</a>
+                <a href="/website-grant" class="hx-link">See how it works<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </div>
+            </div>
+            <div class="home-grant-card">
+              <h3>How the <span data-grant-year>2027</span> grant works</h3>
+              <ol class="home-grant-steps">
+                <li>
+                  <span class="home-grant-when">By March 31, <span data-grant-year>2027</span></span>
+                  <span class="home-grant-what">Apply</span>
+                  <span class="home-grant-detail">No purchase or payment required.</span>
+                </li>
+                <li>
+                  <span class="home-grant-when">April <span data-grant-year>2027</span></span>
+                  <span class="home-grant-what">Review</span>
+                  <span class="home-grant-detail">Applications are scored and finalists get a short call.</span>
+                </li>
+                <li>
+                  <span class="home-grant-when">May 1, <span data-grant-year>2027</span></span>
+                  <span class="home-grant-what">Winners announced</span>
+                  <span class="home-grant-detail">Two businesses are selected and announced on this website.</span>
+                </li>
+                <li>
+                  <span class="home-grant-when">By July 31, <span data-grant-year>2027</span></span>
+                  <span class="home-grant-what">Launch</span>
+                  <span class="home-grant-detail">Both sites go live, with check-ins after.</span>
+                </li>
+              </ol>
+            </div>
           </div>
         </section>
 
@@ -1187,6 +1274,7 @@
         </section>
       </main>
       <script src="/assets/js/smooth-scroll.js?v=2418fdee53" defer></script>
+      <script src="/assets/js/website-grant.js?v=cf2ae632f9" defer></script>
       <script src="/assets/js/main-min.js?v=f697f0f060" defer></script>
       <script src="/assets/js/footer-min.js?v=977db99110" defer></script>
       <scott-footer></scott-footer>
