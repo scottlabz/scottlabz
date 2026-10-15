@@ -197,6 +197,92 @@
       .home-cta .button.alt:focus-visible {
         background-color: #dbe7fb;
       }
+      /* Three hand-picked reads at the top of the navy band, above the
+         ask. Text-only outline cards; type colors are light tints of the
+         site's Field Note green and Insight amber. */
+      .home-reads {
+        margin: 0 0 3.5rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        text-align: left;
+      }
+      .home-cta .home-reads-kicker {
+        margin: 0 0 1.25rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-align: center;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .home-reads-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+      .home-read {
+        display: flex;
+        flex-direction: column;
+        padding: 1.4rem 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.04);
+        color: #ffffff;
+        text-decoration: none;
+        transition:
+          background-color 0.2s ease,
+          border-color 0.2s ease;
+      }
+      .home-read:hover,
+      .home-read:focus-visible {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+      .home-read-kind {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .home-read.is-fieldnote .home-read-kind {
+        color: #86efac;
+      }
+      .home-read.is-insight .home-read-kind {
+        color: #fcd34d;
+      }
+      .home-cta .home-read-title {
+        margin: 0.5rem 0 0.4rem;
+        font-size: 1.15rem;
+        line-height: 1.3;
+        color: #ffffff;
+      }
+      .home-read-text {
+        flex: 1;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .home-read-more {
+        margin-top: 1rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #ffffff;
+      }
+      .home-read-more i {
+        margin-left: 0.4rem;
+        transition: transform 0.2s ease;
+      }
+      .home-read:hover .home-read-more i,
+      .home-read:focus-visible .home-read-more i {
+        transform: translateX(3px);
+      }
+      @media screen and (max-width: 860px) {
+        .home-reads-grid {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
   <body class="is-preload">
@@ -628,6 +714,32 @@
         <!-- Closing call to action: the page's only in-content route to /contact -->
         <section class="wrapper style1 align-center home-cta">
           <div class="inner">
+            <!-- Hand-picked reads (not newest): one Field Note and two
+                 Insights on numbers that mislead, leading into the ask.
+                 Swap one when a stronger piece is published. -->
+            <div class="home-reads">
+              <h2 class="home-reads-kicker">From the field</h2>
+              <div class="home-reads-grid">
+              <a href="/field-notes/the-property-that-was-counting-twice" class="home-read is-fieldnote">
+                <span class="home-read-kind">Field Note</span>
+                <h3 class="home-read-title">The Property That Was Counting Twice</h3>
+                <span class="home-read-text">Conversions looked strong for weeks - two properties, both live, both counting the same checkout.</span>
+                <span class="home-read-more">Read<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+              <a href="/insights/consent-mode-changes-your-numbers" class="home-read is-insight">
+                <span class="home-read-kind">Insight</span>
+                <h3 class="home-read-title">Consent Mode Changes Your Numbers, Not Just Your Compliance</h3>
+                <span class="home-read-text">It swaps some real events for modeled ones - and most dashboards never say which is which.</span>
+                <span class="home-read-more">Read<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+              <a href="/insights/cart-abandonment-measurement-gap" class="home-read is-insight">
+                <span class="home-read-kind">Insight</span>
+                <h3 class="home-read-title">Cart Abandonment Is a Measurement Gap, Not a UX Problem</h3>
+                <span class="home-read-text">Knowing where a shopper left isn't the same as knowing why.</span>
+                <span class="home-read-more">Read<i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+              </div>
+            </div>
             <h2>Ready to see what your data is telling you?</h2>
             <p>Start with a 15-minute conversation about your goals and a practical first step.</p>
             <ul class="actions special">
