@@ -177,12 +177,6 @@ class ScottFooter extends HTMLElement {
                 </li>
 
                 <li>
-                  <a href="/insights">
-                    Insights
-                  </a>
-                </li>
-
-                <li>
                   <a href="/field-notes/">
                     Field Notes
                   </a>
@@ -390,7 +384,7 @@ class ScottFooter extends HTMLElement {
     // footer link matches the current page, mirroring the current-page
     // treatment in scott-nav - including subpages under a link's own
     // directory (e.g. /field-notes/ stays "on" for
-    // /field-notes/some-post, /insights for /insights/some-article),
+    // /field-notes/some-post),
     // the same rule scott-nav uses. Links here use the extensionless
     // URLs Cloudflare serves, but a plain local server still shows
     // .html (and index.html) in window.location.pathname, so both are

@@ -24,13 +24,12 @@ Do not do these by hand. CI does them and commits the result.
 
 - `sitemap.xml` - regenerated automatically on every push to `main` by `scripts/generate_sitemap.py` and auto-committed. Never add, remove, or edit entries by hand, and never run `generate_sitemap.py` locally and commit the result. Adding or deleting a page is all it takes.
 - `?v=` hash query strings on CSS, JS, and image references - set by `scripts/cache_bust.py`. Leave existing hashes alone; CI recomputes them.
-- Anything between `START`/`END` marker comments on hub pages (Field Notes, Insights, Case Studies, `FN-TOPICS`, `FN-PAGER`, `FN-RELATED`, `CS-CLIENTS`, `CS-CARDS`), plus hub JSON-LD ItemLists.
+- Anything between `START`/`END` marker comments (`FN-CARDS` and `INSIGHT-ROWS` on the Field Notes page, `FN-RELATED` in each Field Note, `CS-CLIENTS`, `CS-CARDS`), plus hub JSON-LD ItemLists.
 - Section JSON manifests: `field-notes/field-notes.json`, `insights/insights.json`, `case-studies/case-studies.json`.
-- Generated pages under `field-notes/topics/` and `field-notes/page/`.
 
 To change a card, listing, or manifest entry, edit the `<meta>` tags in the article's own `<head>` (for example `fn-card-title`, `insight-summary`, `cs-order`). The full field list for each section is in the docstring at the top of `scripts/generate_indexes.py`. Read it before adding or editing any article.
 
-Category keys must already exist in the `<scott-filter-bar>` JSON block on that section's hub page. That block is hand-authored; add a new key there first if one is needed. Exception: case-study deep-dive categories (key, card tag label, accent color) live in `CS_CATEGORIES` in `scripts/generate_indexes.py`. The Hawkeye Fan Shop deep-dive cards have no filter bar (Scott removed it, 2026-10-15), so don't add one back.
+Category keys must already exist in `FN_CATEGORIES`, `INSIGHT_CATEGORIES`, or `CS_CATEGORIES` in `scripts/generate_indexes.py` (key and label, plus the card color for case studies); add a new key there first. None of the article lists has a filter bar, search, topic pages, or paging any more (Scott removed them, 2026-10-15), so don't add them back. An Insights row's kicker color is set per key in the Field Notes page's CSS (`.idea-row[data-categories~="..."]`).
 
 `/case-studies` is a client showcase: one generated card per client page (`cs-type` `client`), large logo beside the details. A client's `cs-button-class` sets both its branded button and its card accent; add matching `.button.<class>` and `.cs-showcase-card.is-<class>` rules to `case-studies.html` for a new client. Deep dives (`cs-type` `deep-dive`) live in a folder named after their client page: `case-studies/hawkeye-fan-shop/digital-analytics-implementation.html` is served at `/case-studies/hawkeye-fan-shop/digital-analytics-implementation` and belongs to `case-studies/hawkeye-fan-shop.html`. The generator puts each folder's cards on that client's page (in its `CS-CARDS` markers), not on the hub. A new client folder needs an `index.html` redirect stub pointing at the client page, and moving a deep dive means adding its old URL to the `REDIRECTS` map. Hawkeye Fan Shop's 12 deep dives were merged into 7 in October 2026, one per workstream (measurement and implementation, connected reporting, data quality, storefront and infrastructure, performance and security, experience optimization, campaigns). Work that fits one of them goes into that page instead of a new near-duplicate. Each deep dive's Results bullets name only what that workstream produced, and there is no separate "Approach & Capabilities" section, since it repeated "The Approach".
 
@@ -54,10 +53,10 @@ Category keys must already exist in the `<scott-filter-bar>` JSON block on that 
   - `faq.html`: every visible question and answer must match the `FAQPage` JSON-LD in its head. Change both together or neither.
   - `find-us.html` groups profiles into Verified standing, Independent reviews, and Directories & local listings. A new profile goes into the matching group.
   - About's approach is Measure, Build, Improve, the same model as the rest of the site.
-- The content hubs use it too: `insights.html`, `field-notes/index.html` (and the topic and page pages generated from it), and `diagnostics/index.html`.
-  - The Insights and Field Notes hero cards are a "Three ways in" list (Field Notes, Insights, Diagnostics) marking the current hub. They don't feature an article, so no article appears twice on the page.
-  - The Insights rows and Field Notes cards are still generated. Their styles stay in each hub's own `<style>`, which the generated topic pages copy.
-  - The Field Notes hero `<h1>` carries `data-fn-h1` (with the `sx-eyebrow` span first) and its lede carries `data-fn-intro`. `fn_derive()` in `scripts/generate_indexes.py` uses both hooks to retitle the topic and page pages, and it fails loudly if they're missing.
+- The content hubs use it too: `field-notes/index.html` and `diagnostics/index.html`.
+  - Field Notes and Insights share one page, `/field-notes/` (Scott folded the Insights hub into it, 2026-10-15): the Field Notes cards first, then the Insights as numbered rows under `id="insights"`. `/insights` 301s to `/field-notes/#insights`, each Insight's "Back to Insights" link goes there, and the article URLs (`/insights/<slug>`) stay as they were. Don't recreate `insights.html` or the Field Notes topic pages.
+  - The Field Notes hero card is a "Three ways in" list (Field Notes, Insights, Diagnostics); Insights is an in-page link. It doesn't feature an article, so no article appears twice on the page.
+  - The Field Notes cards and Insights rows are generated; their styles stay in the page's own `<style>`.
   - The Diagnostics hero card replays case #001 of `assets/js/diagnostics/crime-scene.js`. Each case card shows its file's case count and first case, so update them if the case files change.
 - `clients.html`, `bbb.html`, `404.html`, and `thank-you.html` use it too.
   - On `clients.html`, the roster sections, chip `<li>`s, filter JSON, and search box stay as they are, because `clients-roster.js` and `<scott-filter-bar>` depend on that markup.
@@ -146,7 +145,7 @@ Pick the right section before writing anything. Do not create pages that are not
 There are three content types:
 
 - **Field Notes** (`field-notes/`): closed incident stories. Written once, stand alone. A confirmed result or later follow-up on a Field Note goes into that Field Note as a dated update, or into a new Field Note that links back to it.
-- **Insights** (`insights/`): evergreen, principle-driven pieces.
+- **Insights** (`insights/`): evergreen, principle-driven pieces. They're listed on the Field Notes page, not a hub of their own.
 - **Diagnostics** (`diagnostics/`): interactive pillar tools.
 
 Retired types; do not recreate them or add new content types without Scott:

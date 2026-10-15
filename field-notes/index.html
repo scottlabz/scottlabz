@@ -9,7 +9,7 @@
 
     <meta
       name="description"
-      content="Real breakdowns of measurement problems and technical decisions, written as they happened - schema drift, tag failures, and data quality lessons. Browse all." />
+      content="Real breakdowns of measurement problems, written as they happened, plus the principles behind the work: schema drift, tag failures, and data quality lessons." />
 
     <meta charset="utf-8" />
 
@@ -50,8 +50,6 @@
       sizes="96x96"
       href="../images/favicon/favicon-96x96.png?v=1fac781b7c" />
     <script src="../assets/js/navigation-min.js?v=3f50c7223a" defer></script>
-    <script src="../assets/js/scott-filter-bar-min.js?v=a0d2b5dd01" defer></script>
-    <script src="../assets/js/fn-search.js?v=354698f03f" defer></script>
 
     <link rel="canonical" href="https://scottlabz.com/field-notes/" />
 
@@ -61,7 +59,7 @@
         "@type": "CollectionPage",
         "@id": "https://scottlabz.com/field-notes/",
         "name": "Field Notes",
-        "description": "Real breakdowns of measurement problems and technical decisions, written as they happened.",
+        "description": "Real breakdowns of measurement problems and technical decisions, written as they happened, plus the principles behind the work.",
         "url": "https://scottlabz.com/field-notes/",
         "about": {
           "@id": "https://scottlabz.com/#organization"
@@ -122,6 +120,48 @@
               "position": 9,
               "name": "The Semantic Drift Problem",
               "url": "https://scottlabz.com/field-notes/semantic-drift-problem"
+            },
+            {
+              "@type": "Article",
+              "position": 10,
+              "name": "Dashboards Nobody Opens",
+              "url": "https://scottlabz.com/insights/dashboards-nobody-opens"
+            },
+            {
+              "@type": "Article",
+              "position": 11,
+              "name": "Cart Abandonment Is a Measurement Gap, Not a UX Problem",
+              "url": "https://scottlabz.com/insights/cart-abandonment-measurement-gap"
+            },
+            {
+              "@type": "Article",
+              "position": 12,
+              "name": "SEO Analytics: Why the Two Aren't Separate",
+              "url": "https://scottlabz.com/insights/seo-analytics"
+            },
+            {
+              "@type": "Article",
+              "position": 13,
+              "name": "Measurement Before Media Spend, Not After",
+              "url": "https://scottlabz.com/insights/measurement-before-media-spend"
+            },
+            {
+              "@type": "Article",
+              "position": 14,
+              "name": "What Is Analytics Architecture",
+              "url": "https://scottlabz.com/insights/what-is-analytics-architecture"
+            },
+            {
+              "@type": "Article",
+              "position": 15,
+              "name": "Attribution Windows Are a Policy Choice",
+              "url": "https://scottlabz.com/insights/attribution-windows-are-a-policy-choice"
+            },
+            {
+              "@type": "Article",
+              "position": 16,
+              "name": "Consent Mode Changes Your Numbers, Not Just Your Compliance",
+              "url": "https://scottlabz.com/insights/consent-mode-changes-your-numbers"
             }
           ]
         }
@@ -133,7 +173,7 @@
     <meta property="og:title" content="Field Notes | Scott Labz" />
     <meta
       property="og:description"
-      content="Real breakdowns of measurement problems and technical decisions, written as they happened." />
+      content="Real breakdowns of measurement problems and technical decisions, written as they happened, plus the principles behind the work." />
     <meta
       property="og:url"
       content="https://scottlabz.com/field-notes/" />
@@ -142,7 +182,7 @@
       content="https://scottlabz.com/images/og-share.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Field Notes | Scott Labz" />
-    <meta name="twitter:description" content="Real breakdowns of measurement problems and technical decisions, written as they happened." />
+    <meta name="twitter:description" content="Real breakdowns of measurement problems and technical decisions, written as they happened, plus the principles behind the work." />
     <meta name="twitter:image" content="https://scottlabz.com/images/og-share.png" />
 
     <style>
@@ -242,144 +282,132 @@
         }
       }
 
-      /* Required by <scott-filter-bar> - the cards it filters live
-         outside its shadow root, so the show/hide transition classes
-         have to be in regular page CSS. !important on ff-hide because
-         every card also carries an inline display:block. */
-      .fn-card-link {
-        transition:
-          opacity 0.18s ease,
-          transform 0.18s ease;
-      }
-      .fn-card-link.ff-hide {
-        display: none !important;
-      }
-      .fn-card-link.ff-leaving,
-      .fn-card-link.ff-entering {
-        opacity: 0;
-        transform: translateY(4px) scale(0.98);
+      /* Insights: numbered rows under the Field Notes, moved here
+         from the old /insights hub. */
+      .idea-index {
+        border-top: 1px solid rgba(30, 58, 95, 0.15);
       }
 
-      scott-filter-bar {
-        display: block;
-        margin-bottom: 0.75rem;
+      .idea-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid rgba(30, 58, 95, 0.15);
+        text-decoration: none;
+        color: inherit;
+        transition: padding-left 0.25s ease;
       }
 
-      /* Toolbar: filters and topic links on the left, search on the
-         right, stacking on narrow screens. */
-      .fn-toolbar {
+      .idea-row:hover {
+        padding-left: 0.75rem;
+      }
+
+      .idea-number {
+        flex: 0 0 auto;
+        min-width: 3rem;
+        font-size: 1.9rem;
+        font-weight: 300;
+        line-height: 1;
+        color: rgba(37, 99, 235, 0.3);
+        transition: color 0.25s ease;
+      }
+
+      .idea-row:hover .idea-number {
+        color: #2563eb;
+      }
+
+      .idea-body {
+        flex: 1 1 auto;
+        min-width: 0;
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 22rem);
-        gap: 1rem 2.5rem;
-        align-items: end;
-        margin: 0 0 2rem;
-        padding: 0 0 1.5rem;
-        border-bottom: 1px solid #e2e8f0;
+        grid-template-columns: minmax(0, 1fr) auto;
+        column-gap: 1.5rem;
+        align-items: center;
       }
-      .fn-toolbar .fn-topics {
+
+      .idea-kicker {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        padding: 0.25rem 0.7rem;
+        border-radius: 999px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        background: #eef2f7;
+        color: #334155;
+      }
+      .idea-row[data-categories~="measurement"] .idea-kicker {
+        background: #eff6ff;
+        color: #2563eb;
+      }
+      .idea-row[data-categories~="search-data"] .idea-kicker {
+        background: #fff7ed;
+        color: #b45309;
+      }
+
+      .idea-title {
+        grid-column: 1;
+        font-size: 1.3rem;
+        line-height: 1.3;
+        margin: 0 0 0.35rem 0;
+        color: #0f172a;
+      }
+
+      .idea-excerpt {
+        font-size: 0.92rem;
+        line-height: 1.55;
+        color: #475569;
         margin: 0;
+        max-width: 46rem;
+        grid-column: 1;
       }
-      .fn-toolbar .fn-search {
-        margin: 0;
+
+      .idea-arrow {
+        flex: 0 0 auto;
+        align-self: center;
+        font-size: 1rem;
+        color: #1e3a5f;
+        opacity: 0;
+        transform: translateX(-6px);
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease;
       }
-      .fn-toolbar .fn-search input {
-        max-width: none;
+
+      .idea-row:hover .idea-arrow {
+        opacity: 1;
+        transform: translateX(0);
       }
-      @media screen and (max-width: 980px) {
-        .fn-toolbar {
-          grid-template-columns: 1fr;
+
+      @media screen and (max-width: 640px) {
+        .idea-row {
+          gap: 1.1rem;
+          padding: 1.75rem 0;
+        }
+        .idea-number {
+          min-width: 2rem;
+          font-size: 1.4rem;
+        }
+        .idea-title {
+          display: block;
+          font-size: 1.1rem;
+        }
+        .idea-body {
+          display: block;
+        }
+        .idea-kicker {
+          display: inline-block;
+          margin-bottom: 0.5rem;
+        }
+        .idea-arrow {
+          display: none;
         }
       }
-
-      /* Topic page links under the filter bar; on topic pages the
-         current topic is marked with aria-current */
-      .fn-topics {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.4rem 1.1rem;
-        margin: 0 0 1.25rem;
-        font-size: 0.85rem;
-      }
-      .fn-topics span {
-        font-weight: 600;
-        color: #475569;
-      }
-      .fn-topics a {
-        color: #1e3a5f;
-      }
-      .fn-topics a[aria-current="page"] {
-        font-weight: 700;
-        text-decoration: none;
-      }
-
-      /* .fn-grid and scott-filter-bar set their own display, which would
-         otherwise beat the [hidden] attribute fn-search.js toggles */
-      .fn-main [hidden] {
-        display: none !important;
-      }
-
-      .fn-search {
-        margin: 0 0 1.75rem;
-      }
-      .fn-search label {
-        display: block;
-        margin: 0 0 0.4rem;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: #1e3a5f;
-      }
-      .fn-search input {
-        width: 100%;
-        max-width: 28rem;
-        height: auto;
-        padding: 0.7rem 1rem;
-        border: 2px solid #dbe3ec;
-        border-radius: 10px;
-        background-color: #ffffff;
-        font-size: 1rem;
-      }
-      .fn-search input:focus {
-        outline: none;
-        border-color: #4c8bf5;
-        box-shadow: 0 0 0 4px rgba(76, 139, 245, 0.18);
-      }
-      .fn-search-status {
-        margin: 0.5rem 0 0;
-        font-size: 0.85rem;
-        color: #475569;
-      }
-      .fn-search-status:empty {
-        display: none;
-      }
-
-      /* Older/newer page links; empty until there are more notes than
-         fit on one page (see PAGE_SIZE in generate_indexes.py) */
-      .fn-pager {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5rem 1rem;
-        margin: 3rem 0 0;
-        font-size: 0.9rem;
-      }
-      .fn-pager a,
-      .fn-pager span {
-        padding: 0.35rem 0.75rem;
-        border-radius: 8px;
-      }
-      .fn-pager a {
-        border: 1px solid #dbe3ec;
-        color: #1e3a5f;
-        text-decoration: none;
-      }
-      .fn-pager a:hover {
-        border-color: #1e3a5f;
-      }
-      .fn-pager [aria-current="page"] {
-        background: #1e3a5f;
-        color: #ffffff;
+      .fn-insights {
+        background: #f8fafc;
       }
     </style>
     <link rel="stylesheet" href="../assets/css/solutions-min.css?v=8ae22f0181" />
@@ -400,14 +428,11 @@
 
     <div id="wrapper" class="divided">
       <main id="main-content" class="sx-page is-measure">
-        <!-- Hero. data-fn-h1 and data-fn-intro are the hooks
-             scripts/generate_indexes.py uses to retitle topic and page
-             pages built from this hub. -->
         <section class="sx-hero" aria-labelledby="sx-title" data-analytics-section="hero">
           <div class="sx-hero-inner">
             <div class="sx-copy">
-              <h1 id="sx-title" class="sx-title" data-fn-h1><span class="sx-eyebrow">Field Notes</span>What actually happened, and <em>what fixed it</em>.</h1>
-              <p class="sx-lede" data-fn-intro>Real breakdowns of measurement problems, technical decisions, and lessons from the work - written the way they actually happened, not as a generic checklist.</p>
+              <h1 id="sx-title" class="sx-title"><span class="sx-eyebrow">Field Notes</span>What actually happened, and <em>what fixed it</em>.</h1>
+              <p class="sx-lede">Real breakdowns of measurement problems, technical decisions, and lessons from the work - written the way they actually happened, not as a generic checklist.</p>
               <div class="sx-actions">
                 <a href="#notes" class="button primary smooth-scroll">Browse Field Notes</a>
                 <a href="../services" class="sx-link">See Our Services<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
@@ -418,7 +443,7 @@
                 <p class="sx-card-head"><span class="sx-pulse" aria-hidden="true"></span>Three ways in</p>
                 <ul class="sx-jump-list">
                   <li><div class="sx-jump-here"><span><span class="sx-jump-name">Field Notes</span><span class="sx-jump-sub">Real incidents, written the way they happened</span></span><span class="sx-here">You're here</span></div></li>
-                  <li><a href="/insights"><span><span class="sx-jump-name">Insights</span><span class="sx-jump-sub">The principles behind the work</span></span><span class="sx-jump-meta"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></a></li>
+                  <li><a href="#insights" class="smooth-scroll"><span><span class="sx-jump-name">Insights</span><span class="sx-jump-sub">The principles behind the work</span></span><span class="sx-jump-meta"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></a></li>
                   <li><a href="/diagnostics/"><span><span class="sx-jump-name">Diagnostics</span><span class="sx-jump-sub">Interactive case files: name the cause</span></span><span class="sx-jump-meta"><i class="fas fa-arrow-right" aria-hidden="true"></i></span></a></li>
                 </ul>
               </div>
@@ -426,41 +451,13 @@
           </div>
         </section>
 
-        <section class="sx-signs fn-main" id="notes" aria-label="Field Notes">
+        <section class="sx-signs" id="notes" aria-labelledby="fn-notes-title">
           <div class="sx-section-inner">
-            <div class="fn-toolbar">
-              <div class="fn-filters">
-        <scott-filter-bar target="#fn-grid" item-selector=".fn-card-link" all-label="All">
-          <script type="application/json">
-            [
-              { "key": "measurement", "label": "Measurement & Data", "color": "#2563eb",
-                "description": "Tracking, tag management, data pipelines, and the numbers they produce - where measurement went wrong and how it was traced." },
-              { "key": "infra",       "label": "Infrastructure & Ops", "color": "#7c2d92",
-                "description": "Hosting, caching, DNS, email, and the operational plumbing that keeps a site and its systems running." }
-            ]
-          </script>
-        </scott-filter-bar>
-
-        <!-- Topic page links (and, on topic pages, the topic switcher) -->
-        <!-- FN-TOPICS:START - generated by scripts/generate_indexes.py, do not edit by hand -->
-        <nav class="fn-topics" aria-label="Field Notes topics">
-          <span>Browse by topic:</span>
-          <a href="/field-notes/topics/measurement">Measurement &amp; Data</a>
-          <a href="/field-notes/topics/infra">Infrastructure &amp; Ops</a>
-        </nav>
-        <!-- FN-TOPICS:END -->
-              </div>
-
-        <!-- Search: ships hidden, revealed by fn-search.js, which searches
-             every note via field-notes.json, not just this page's cards -->
-        <div class="fn-search" hidden>
-          <label for="fn-q">Search Field Notes</label>
-          <input type="search" id="fn-q" placeholder="Search titles and summaries" autocomplete="off" />
-          <p class="fn-search-status" id="fn-search-status" aria-live="polite"></p>
-        </div>
+            <div class="sx-section-head">
+              <p class="sx-kicker">Field Notes</p>
+              <h2 id="fn-notes-title">Incidents from real projects</h2>
+              <p>Each one is a closed case: what broke, how it was traced, and what fixed it.</p>
             </div>
-        <div class="fn-grid fn-results" id="fn-results" hidden></div>
-
         <div class="fn-grid" id="fn-grid">
         <!-- FN-CARDS:START - generated by scripts/generate_indexes.py, do not edit by hand -->
         <a href="stadium-internet-ecommerce-operations" class="fn-card-link" data-categories="infra">
@@ -528,9 +525,83 @@
         </a>
         <!-- FN-CARDS:END -->
         </div>
+          </div>
+        </section>
 
-        <!-- FN-PAGER:START - generated by scripts/generate_indexes.py, do not edit by hand -->
-        <!-- FN-PAGER:END -->
+        <section class="sx-signs fn-insights" id="insights" aria-labelledby="fn-insights-title">
+          <div class="sx-section-inner">
+            <div class="sx-section-head">
+              <p class="sx-kicker">Insights</p>
+              <h2 id="fn-insights-title">The principles behind the work</h2>
+              <p>Shorter pieces on how measurement, reporting, and search data should work.</p>
+            </div>
+            <div class="idea-index" id="idea-index">
+          <!-- INSIGHT-ROWS:START - generated by scripts/generate_indexes.py, do not edit by hand -->
+          <a href="/insights/dashboards-nobody-opens" class="idea-row" data-categories="measurement">
+            <span class="idea-number">01</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Measurement</span>
+              <span class="idea-title">Dashboards Nobody Opens</span>
+              <p class="idea-excerpt">What separates a dashboard people actually open from one that just sits there.</p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+          <a href="/insights/cart-abandonment-measurement-gap" class="idea-row" data-categories="measurement">
+            <span class="idea-number">02</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Measurement</span>
+              <span class="idea-title">Cart Abandonment Is a Measurement Gap, Not a UX Problem</span>
+              <p class="idea-excerpt">Knowing where a shopper left isn't the same as knowing why.</p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+          <a href="/insights/seo-analytics" class="idea-row" data-categories="search-data">
+            <span class="idea-number">03</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Search &amp; Data</span>
+              <span class="idea-title">SEO Analytics: Why the Two Aren't Separate</span>
+              <p class="idea-excerpt">Search visibility and measurement are one discipline, not two departments.</p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+          <a href="/insights/measurement-before-media-spend" class="idea-row" data-categories="measurement">
+            <span class="idea-number">04</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Measurement</span>
+              <span class="idea-title">Measurement Before Media Spend, Not After</span>
+              <p class="idea-excerpt">Verifying a setup can be trusted before it's used to justify spending.</p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+          <a href="/insights/what-is-analytics-architecture" class="idea-row" data-categories="systems">
+            <span class="idea-number">05</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Systems</span>
+              <span class="idea-title">What Is Analytics Architecture</span>
+              <p class="idea-excerpt">A developer, an analyst, and a stakeholder can look at the same page and describe "the link" three different ways.</p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+          <a href="/insights/attribution-windows-are-a-policy-choice" class="idea-row" data-categories="measurement">
+            <span class="idea-number">06</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Measurement</span>
+              <span class="idea-title">Attribution Windows Are a Policy Choice</span>
+              <p class="idea-excerpt">A 30-day window isn't a fact about how customers behave - it's a default nobody chose on purpose.</p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+          <a href="/insights/consent-mode-changes-your-numbers" class="idea-row" data-categories="measurement">
+            <span class="idea-number">07</span>
+            <span class="idea-body">
+              <span class="idea-kicker">Measurement</span>
+              <span class="idea-title">Consent Mode Changes Your Numbers, Not Just Your Compliance</span>
+              <p class="idea-excerpt">It swaps some real events for modeled ones - and most dashboards never say which is which.</p>
+            </span>
+            <i class="fas fa-arrow-right idea-arrow"></i>
+          </a>
+          <!-- INSIGHT-ROWS:END -->
+            </div>
           </div>
         </section>
 

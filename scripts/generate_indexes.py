@@ -5,36 +5,31 @@ from per-page metadata, plus one JSON manifest per section.
 Each article carries its own card data as <meta> tags in <head>. This
 script reads them, validates them, and rewrites only the region between
 that section's START/END markers on its hub page. Everything outside the
-markers (hero, filter bar, legend, CSS) stays hand-authored.
+markers (hero, section heads, CSS) stays hand-authored.
 
 Sections
 --------
 field-notes  hub: field-notes/index.html   articles: field-notes/*.html
     fn-card-title, fn-card-summary, fn-categories, fn-accent, fn-published
-    Order: newest fn-published first, ties by slug A-Z.
+    Order: newest fn-published first, ties by slug A-Z. Every note is
+    listed on the hub (no topic pages, paging, filter or search since
+    Oct 2026).
 
     Also generated for field-notes (see fn_post):
-      - field-notes/topics/<key>.html, one page per category with notes,
-        derived from the hub (same hero, styles and scripts)
-      - field-notes/page/<n>.html once there are more than PAGE_SIZE
-        notes; the hub then shows the newest PAGE_SIZE
-      - FN-TOPICS (topic links) and FN-PAGER (page links) on the hub
-      - the hub's JSON-LD ItemList
+      - the hub's JSON-LD ItemList: every Field Note, then every Insight,
+        in the order the page shows them
       - a "Keep reading" block (FN-RELATED markers) in every article,
         inserted before its closing call-to-action section: the notes
         sharing the most categories, newest first, topped up with the
-        newest notes, plus a link to the article's first topic page
-    The Insights hub's JSON-LD ItemList is kept in card order the same
-    way (hub_list_post).
-    Topic descriptions come from a "description" key in the hub's
-    <scott-filter-bar> JSON. Generated pages in topics/ and page/ that no
-    longer apply are deleted.
+        newest notes, plus a link back to the hub
 
-insights     hub: insights.html            articles: insights/*.html
+insights     hub: field-notes/index.html   articles: insights/*.html
     insight-number, insight-title, insight-summary, insight-categories,
     insight-published
-    Order: insight-number ascending. Kicker text is the filter-bar label
-    of the first category.
+    Order: insight-number ascending. The rows fill the INSIGHT-ROWS
+    region on the Field Notes hub (the Insights hub was folded into it in
+    Oct 2026; /insights 301s there). Kicker text is the INSIGHT_CATEGORIES
+    label of the first category.
 
 case-studies  hub: case-studies.html
               client pages:    case-studies/<client>.html
@@ -62,9 +57,9 @@ case-studies  hub: case-studies.html
     cache_bust.py so the two scripts never undo each other. Clients that don't have a
     page yet (Kitchens) stay hand-authored after CS-CLIENTS:END.
 
-Valid category keys for field-notes and insights come from the
-<scott-filter-bar> JSON block on each hub page; those blocks stay
-hand-authored. Case-study deep-dive keys come from CS_CATEGORIES. Numbers must be unique within a section.
+Valid category keys come from FN_CATEGORIES, INSIGHT_CATEGORIES and
+CS_CATEGORIES in this script; add a key there before using it in an
+article. Numbers must be unique within a section.
 
 Links and manifest URLs use the extensionless form Cloudflare Pages
 serves (/insights/some-note, not /insights/some-note.html), which is
@@ -90,11 +85,30 @@ SITE = "https://scottlabz.com"
 
 META_RE = re.compile(r'<meta\s+name="([a-z]+-[a-z-]+)"\s+content="([^"]*)"\s*/?>', re.I)
 HEX_RE = re.compile(r"^#[0-9a-f]{6}$")
-FILTER_JSON_RE = re.compile(
-    r"<scott-filter-bar[^>]*>\s*<script type=\"application/json\">(.*?)</script>", re.S
-)
 # Skipped when collecting articles: hubs and meta-refresh redirect stubs.
 SKIP_FILES = {"index.html"}
+
+# Article categories: key -> label. They used to come from each hub's
+# <scott-filter-bar>, which Scott removed (Oct 2026). Field Notes
+# categories only drive the "Keep reading" picks; Insights labels are the
+# row kickers (colored per key in the hub's CSS).
+FN_CATEGORIES = {
+    "measurement": "Measurement & Data",
+    "infra": "Infrastructure & Ops",
+}
+INSIGHT_CATEGORIES = {
+    "measurement": "Measurement",
+    "search-data": "Search & Data",
+    "systems": "Systems",
+}
+
+# Field Notes and Insights both write regions of field-notes/index.html,
+# so each section reads files as the sections before it left them.
+PENDING: dict[Path, str | None] = {}
+
+
+def read_text(path: Path) -> str:
+    return PENDING[path] if path in PENDING else path.read_text(encoding="utf-8")
 
 def text(s: str) -> str:
     return html.escape(s, quote=False)
@@ -115,13 +129,6 @@ class SectionError(Exception):
 # ---------------------------------------------------------------------------
 # Section definitions
 # ---------------------------------------------------------------------------
-
-def filter_labels(hub_html: str, hub_name: str) -> dict[str, str]:
-    m = FILTER_JSON_RE.search(hub_html)
-    if not m:
-        raise SectionError(f"no <scott-filter-bar> JSON category block found in {hub_name}")
-    return {c["key"]: c["label"] for c in json.loads(m.group(1))}
-
 
 def parse_date(value: str, where: str, errors: list[str]) -> str:
     value = value.strip()
@@ -193,21 +200,12 @@ def fn_render(n: dict, ctx: dict) -> str:
     )
 
 
-# Field Notes extras: topic pages, paging, related reading -----------------
+# Field Notes extras: hub JSON-LD and related reading -----------------------
 
-PAGE_SIZE = 30
 RELATED_COUNT = 3
-FN_TOPICS_DIR = "field-notes/topics"
-FN_PAGES_DIR = "field-notes/page"
 # The array body may not run past its own <script> block
 ITEMS_RE = re.compile(r'("itemListElement": \[\n)((?:(?!</script>).)*?)(\n( *)\])', re.S)
-LD_RE = re.compile(r'(<script type="application/ld\+json">\n)(.*?)(\n *</script>)', re.S)
 FN_CTA_RE = re.compile(r"\n        <section>\n(?:(?!<section).)*?</section>\n      </main>", re.S)
-
-
-def filter_config(hub_html: str) -> list[dict]:
-    m = FILTER_JSON_RE.search(hub_html)
-    return json.loads(m.group(1)) if m else []
 
 
 def set_region(page: str, marker: str, body: str, where: str) -> str:
@@ -240,130 +238,12 @@ def set_item_list(page: str, notes: list[dict], where: str, kind: str = "Article
     return page[: m.start(2)] + item_list(notes, m.group(4) + "  ", kind) + page[m.end(2):]
 
 
-def hub_list_post(kind: str):
-    """post hook that keeps a hub's JSON-LD ItemList in the same order as
-    its generated cards (Insights)."""
-    def post(notes: list[dict], hub: str, ctx: dict, cfg: dict) -> tuple[str, list]:
-        return set_item_list(hub, notes, cfg["hub"], kind), []
-    return post
-
-
-def fn_topics_nav(topics: list[dict], current: str | None) -> str:
-    i = "        "
-    links = []
-    if current:
-        links.append(f'{i}  <a href="/field-notes/">All Field Notes</a>\n')
-    for t in topics:
-        cur = ' aria-current="page"' if t["key"] == current else ""
-        links.append(f'{i}  <a href="/field-notes/topics/{t["key"]}"{cur}>{text(t["label"])}</a>\n')
-    label = "Topics:" if current else "Browse by topic:"
-    return f'{i}<nav class="fn-topics" aria-label="Field Notes topics">\n{i}  <span>{label}</span>\n{"".join(links)}{i}</nav>\n'
-
-
-def fn_pager(page_no: int, total: int) -> str:
-    if total <= 1:
-        return ""
-    i = "        "
-
-    def href(n: int) -> str:
-        return "/field-notes/" if n == 1 else f"/field-notes/page/{n}"
-
-    parts = []
-    if page_no > 1:
-        parts.append(f'{i}  <a href="{href(page_no - 1)}" rel="prev">&larr; Newer notes</a>\n')
-    for n in range(1, total + 1):
-        if n == page_no:
-            parts.append(f'{i}  <span aria-current="page">{n}</span>\n')
-        else:
-            parts.append(f'{i}  <a href="{href(n)}">{n}</a>\n')
-    if page_no < total:
-        parts.append(f'{i}  <a href="{href(page_no + 1)}" rel="next">Older notes &rarr;</a>\n')
-    return f'{i}<nav class="fn-pager" aria-label="Field Notes pages">\n{"".join(parts)}{i}</nav>\n'
-
-
-def fn_derive(hub: str, *, url: str, title: str, social_title: str, description: str,
-              h1: str, intro: str, cards: str, topics_nav: str, pager: str,
-              notes: list[dict], keep_filter: bool) -> str:
-    """Build a standalone page from the generated hub: same hero, styles and
-    scripts, its own head tags, cards and JSON-LD. Relative ../ paths become
-    root-absolute so the page works from any folder depth."""
-    page = hub
-    page = re.sub(r"<title>.*?</title>", f"<title>{text(title)}</title>", page, count=1, flags=re.S)
-    page = re.sub(r'(<meta\s+name="description"\s+content=")[^"]*(")', lambda m: m.group(1) + attr(description) + m.group(2), page, count=1)
-    page = re.sub(r'(<link rel="canonical" href=")[^"]*(")', lambda m: m.group(1) + url + m.group(2), page, count=1)
-    for prop, value in (("og:title", social_title), ("og:description", description), ("og:url", url)):
-        page = re.sub(rf'(<meta\s+property="{prop}"\s+content=")[^"]*(")', lambda m, v=value: m.group(1) + attr(v) + m.group(2), page, count=1)
-    for name, value in (("twitter:title", social_title), ("twitter:description", description)):
-        page = re.sub(rf'(<meta\s+name="{name}"\s+content=")[^"]*(")', lambda m, v=value: m.group(1) + attr(v) + m.group(2), page, count=1)
-    ld = {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "@id": url,
-        "name": social_title.replace(" | Scott Labz", ""),
-        "description": description,
-        "url": url,
-        "isPartOf": {"@id": f"{SITE}/field-notes/"},
-        "about": {"@id": f"{SITE}/#organization"},
-        "mainEntity": {
-            "@type": "ItemList",
-            "itemListElement": [
-                {"@type": "Article", "position": i, "name": n["title"], "url": n["url"]}
-                for i, n in enumerate(notes, 1)
-            ],
-        },
-    }
-    ld_text = "\n".join("      " + line for line in json.dumps(ld, indent=2, ensure_ascii=False).splitlines())
-    page, n = LD_RE.subn(lambda m: m.group(1) + ld_text + m.group(3), page, count=1)
-    if n != 1:
-        raise SectionError(f"{url}: could not find the hub's JSON-LD block to replace")
-    # The hub's hero marks its headline and lede with data-fn-h1 and
-    # data-fn-intro; the "Field Notes" eyebrow stays, the rest is replaced.
-    page, n = re.subn(r'(<h1\b[^>]*\bdata-fn-h1\b[^>]*>\s*<span class="sx-eyebrow">[^<]*</span>).*?(</h1>)',
-                      lambda m: m.group(1) + text(h1) + m.group(2), page, count=1, flags=re.S)
-    if n != 1:
-        raise SectionError(f"{url}: could not find the hub's data-fn-h1 headline to replace")
-    page, n = re.subn(r'(<p\b[^>]*\bdata-fn-intro\b[^>]*>).*?(</p>)',
-                      lambda m: m.group(1) + text(intro) + m.group(2), page, count=1, flags=re.S)
-    if n != 1:
-        raise SectionError(f"{url}: could not find the hub's data-fn-intro lede to replace")
-    if not keep_filter:
-        # Anchor on the element's own attributes: the hub's CSS comments
-        # also mention "<scott-filter-bar>".
-        page, n = re.subn(r"\n *<scott-filter-bar target=.*?</scott-filter-bar>\n", "\n", page, count=1, flags=re.S)
-        if n != 1:
-            raise SectionError(f"{url}: could not find the hub's <scott-filter-bar> element to remove")
-        page = re.sub(r'\n *<script src="[^"]*scott-filter-bar[^"]*" defer></script>', "", page, count=1)
-    page = set_region(page, "FN-TOPICS", topics_nav, url)
-    page = set_region(page, "FN-CARDS", cards, url)
-    page = set_region(page, "FN-PAGER", pager, url)
-    page = re.sub(r'(["\s,])\.\./', r"\1/", page)
-    banner = "<!-- Generated by scripts/generate_indexes.py from field-notes/index.html - do not edit by hand -->\n"
-    return page.replace("<!doctype html>\n", "<!doctype html>\n" + banner, 1)
-
-
-def redirect_stub(target: str) -> str:
-    """Same meta-refresh stub every other folder on the site has as its
-    index.html (see scripts/check_redirect_stubs.py)."""
-    return (
-        "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n"
-        f'    <meta http-equiv="refresh" content="0; url={target}" />\n'
-        "    <title>Redirecting...</title>\n  </head>\n  <body>\n    <main>\n      <p>\n"
-        "      If you are not redirected automatically, follow this\n"
-        f'      <a href="{target}">link</a>.\n'
-        "      </p>\n    </main>\n  </body>\n</html>\n"
-    )
-
-
-def fn_related_block(note: dict, related: list[dict], topic: dict | None) -> str:
+def fn_related_block(note: dict, related: list[dict]) -> str:
     i = "        "
     items = "".join(
         f'{i}      <li><a href="/field-notes/{attr(r["slug"])}" style="--accent: {r["accent"]}">'
         f'<span class="rn-title">{text(r["title"])}</span><span class="rn-sum">{text(r["summary"])}</span></a></li>\n'
         for r in related
-    )
-    more = (
-        f'{i}  <p class="related-work-all"><a href="/field-notes/topics/{topic["key"]}">More {text(topic["label"])} notes &rarr;</a></p>\n'
-        if topic else ""
     )
     return (
         f'{i}<section class="section-block fn-related" aria-labelledby="fn-related-title">\n'
@@ -371,7 +251,7 @@ def fn_related_block(note: dict, related: list[dict], topic: dict | None) -> str
         f'{i}  <div class="related-notes">\n'
         f'{i}    <ul>\n{items}{i}    </ul>\n'
         f'{i}  </div>\n'
-        f'{more}'
+        f'{i}  <p class="related-work-all"><a href="/field-notes/">All Field Notes &rarr;</a></p>\n'
         f'{i}</section>\n'
     )
 
@@ -394,74 +274,15 @@ def fn_pick_related(note: dict, notes: list[dict]) -> list[dict]:
 
 
 def fn_post(notes: list[dict], hub: str, ctx: dict, cfg: dict) -> tuple[str, list[tuple[Path, str | None]]]:
-    config = filter_config(hub)
-    topics = [t for t in config if any(t["key"] in n["categories"] for n in notes)]
-    page_size = cfg["page_size"]
-    pages = [notes[i: i + page_size] for i in range(0, len(notes), page_size)] or [[]]
+    # The hub lists every Field Note, then every Insight below them.
+    insights = collect_notes("insights", SECTIONS["insights"])
+    hub = set_item_list(hub, notes + insights, cfg["hub"])
+
     out: list[tuple[Path, str | None]] = []
-
-    # Hub: topic links, pager, JSON-LD list (cards were limited to page 1 already)
-    hub = set_region(hub, "FN-TOPICS", fn_topics_nav(topics, None), cfg["hub"])
-    hub = set_region(hub, "FN-PAGER", fn_pager(1, len(pages)), cfg["hub"])
-    hub = set_item_list(hub, pages[0], cfg["hub"])
-
-    wanted: set[Path] = set()
-    render = cfg["render"]
-
-    def abs_cards(group: list[dict]) -> str:
-        return "".join(render(n, ctx).replace(f'<a href="{attr(n["slug"])}"', f'<a href="/field-notes/{attr(n["slug"])}"', 1) for n in group)
-
-    for t in topics:
-        group = [n for n in notes if t["key"] in n["categories"]]
-        url = f"{SITE}/field-notes/topics/{t['key']}"
-        desc = norm(t.get("description", "")) or f"Field Notes about {t['label']}."
-        page = fn_derive(
-            hub, url=url,
-            title=f"{t['label']} - Field Notes | Scott Labz",
-            social_title=f"{t['label']} Field Notes | Scott Labz",
-            description=desc, h1=t["label"], intro=desc,
-            cards=abs_cards(group), topics_nav=fn_topics_nav(topics, t["key"]), pager="",
-            notes=group, keep_filter=False,
-        )
-        path = ROOT / FN_TOPICS_DIR / f"{t['key']}.html"
-        wanted.add(path)
-        out.append((path, page))
-
-    for no, group in enumerate(pages[1:], 2):
-        url = f"{SITE}/field-notes/page/{no}"
-        page = fn_derive(
-            hub, url=url,
-            title=f"Field Notes - Page {no} | Scott Labz",
-            social_title=f"Field Notes, Page {no} | Scott Labz",
-            description=f"Older Field Notes, page {no} of {len(pages)}: real breakdowns of measurement problems and technical decisions, written as they happened.",
-            h1=f"Page {no} of {len(pages)}", intro=f"Older notes, page {no} of {len(pages)}.",
-            cards=abs_cards(group), topics_nav=fn_topics_nav(topics, None), pager=fn_pager(no, len(pages)),
-            notes=group, keep_filter=True,
-        )
-        path = ROOT / FN_PAGES_DIR / f"{no}.html"
-        wanted.add(path)
-        out.append((path, page))
-
-    # Each generated folder gets the site's usual redirect stub as its
-    # index.html, pointing back to the hub; stale pages (a topic with no
-    # notes left, a page number no longer needed) are deleted, stub too
-    # once its folder has nothing else in it.
-    for folder in (FN_TOPICS_DIR, FN_PAGES_DIR):
-        stub = ROOT / folder / "index.html"
-        if any(p.parent == ROOT / folder for p in wanted):
-            wanted.add(stub)
-            out.append((stub, redirect_stub("/field-notes/")))
-        for stale in sorted((ROOT / folder).glob("*.html")) if (ROOT / folder).is_dir() else []:
-            if stale not in wanted:
-                out.append((stale, None))
-
-    # Related reading in each article
-    by_key = {t["key"]: t for t in config}
     for n in notes:
         path = ROOT / cfg["dir"] / n["file"]
-        page = path.read_text(encoding="utf-8")
-        topic = by_key.get(n["categories"][0]) if n["categories"] else None
-        block = fn_related_block(n, fn_pick_related(n, notes), topic)
+        page = read_text(path)
+        block = fn_related_block(n, fn_pick_related(n, notes))
         if "<!-- FN-RELATED:START" not in page:
             m = FN_CTA_RE.search(page)
             if not m:
@@ -737,25 +558,23 @@ SECTIONS = {
         "marker": "FN-CARDS",
         "indent": "        ",
         "required": ("fn-card-title", "fn-card-summary", "fn-categories", "fn-accent", "fn-published"),
-        "uses_filter": True,
+        "labels": FN_CATEGORIES,
         "build": fn_build,
         "order": fn_order,
         "render": fn_render,
-        "page_size": PAGE_SIZE,
         "post": fn_post,
     },
     "insights": {
-        "hub": "insights.html",
+        "hub": "field-notes/index.html",
         "dir": "insights",
         "manifest": "insights/insights.json",
         "marker": "INSIGHT-ROWS",
         "indent": "          ",
         "required": ("insight-number", "insight-title", "insight-summary", "insight-categories", "insight-published"),
-        "uses_filter": True,
+        "labels": INSIGHT_CATEGORIES,
         "build": ins_build,
         "order": ins_order,
         "render": ins_render,
-        "post": hub_list_post("Article"),
     },
     "case-studies": {
         "hub": "case-studies.html",
@@ -771,25 +590,15 @@ SECTIONS = {
 # Engine
 # ---------------------------------------------------------------------------
 
-def generate(name: str, cfg: dict) -> tuple[list[tuple[Path, str]], int]:
-    """Return (files to write, note count). Raises SectionError on problems."""
-    hub_path = ROOT / cfg["hub"]
-    hub_html = hub_path.read_text(encoding="utf-8")
-
-    marker = cfg["marker"]
-    start_re = re.compile(rf"<!-- {marker}:START[^>]*-->")
-    end_tag = f"<!-- {marker}:END -->"
-    if len(start_re.findall(hub_html)) != 1 or hub_html.count(end_tag) != 1:
-        raise SectionError(f"{cfg['hub']} must contain exactly one {marker}:START and one {marker}:END marker")
-
-    ctx = {"labels": filter_labels(hub_html, cfg["hub"]) if cfg["uses_filter"] else {}}
-
+def collect_notes(name: str, cfg: dict) -> list[dict]:
+    """Read, validate and order a section's articles. Raises SectionError."""
+    ctx = {"labels": cfg["labels"]}
     errors: list[str] = []
     notes: list[dict] = []
     for path in sorted((ROOT / cfg["dir"]).glob("*.html")):
         if path.name in SKIP_FILES:
             continue
-        head = path.read_text(encoding="utf-8").split("</head>", 1)[0]
+        head = read_text(path).split("</head>", 1)[0]
         meta = {k.lower(): html.unescape(v) for k, v in META_RE.findall(head)}
         missing = [k for k in cfg["required"] if not meta.get(k, "").strip()]
         if missing:
@@ -799,11 +608,26 @@ def generate(name: str, cfg: dict) -> tuple[list[tuple[Path, str]], int]:
     notes = cfg["order"](notes, errors)
     if errors:
         raise SectionError("\n  - ".join([f"{name}: {len(errors)} problem(s)"] + errors))
+    return notes
+
+
+def generate(name: str, cfg: dict) -> tuple[list[tuple[Path, str]], int]:
+    """Return (files to write, note count). Raises SectionError on problems."""
+    hub_path = ROOT / cfg["hub"]
+    hub_html = read_text(hub_path)
+
+    marker = cfg["marker"]
+    start_re = re.compile(rf"<!-- {marker}:START[^>]*-->")
+    end_tag = f"<!-- {marker}:END -->"
+    if len(start_re.findall(hub_html)) != 1 or hub_html.count(end_tag) != 1:
+        raise SectionError(f"{cfg['hub']} must contain exactly one {marker}:START and one {marker}:END marker")
+
+    ctx = {"labels": cfg["labels"]}
+    notes = collect_notes(name, cfg)
 
     indent = cfg["indent"]
     start_line = f"<!-- {marker}:START - generated by scripts/generate_indexes.py, do not edit by hand -->"
-    shown = notes[: cfg["page_size"]] if cfg.get("page_size") else notes
-    cards = "".join(cfg["render"](n, ctx) for n in shown)
+    cards = "".join(cfg["render"](n, ctx) for n in notes)
     m = start_re.search(hub_html)
     before = hub_html[: m.start()]
     after = hub_html[m.end():].split(end_tag, 1)[1]
@@ -822,7 +646,7 @@ def generate(name: str, cfg: dict) -> tuple[list[tuple[Path, str]], int]:
     if new_manifest != old_manifest:
         out.append((manifest_path, new_manifest))
     for path, content in extra:
-        current = path.read_text(encoding="utf-8") if path.exists() else None
+        current = read_text(path) if path.exists() or path in PENDING else None
         if content != current:
             out.append((path, content))
     return out, len(notes)
@@ -839,15 +663,18 @@ def main() -> None:
             sys.exit(2)
         names = [args[i + 1]]
 
-    pending, problems, counts = [], [], {}
+    problems, counts = [], {}
     for name in names:
         try:
             cfg = SECTIONS[name]
             files, count = cfg.get("generate", generate)(name, cfg)
-            pending.extend(files)
+            PENDING.update(files)
             counts[name] = count
         except SectionError as e:
             problems.append(str(e))
+    # A file two sections touched appears once, with both sets of changes.
+    pending = [(p, c) for p, c in PENDING.items()
+               if c != (p.read_text(encoding="utf-8") if p.exists() else None)]
 
     if problems:
         print("generate_indexes: nothing written, fix these first:", file=sys.stderr)

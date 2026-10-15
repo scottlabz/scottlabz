@@ -101,8 +101,8 @@ def resolve_target(source_file: Path, target: str) -> Path | None:
         except ValueError:
             return None
 
-    # Mirror Cloudflare Pages: /insights serves insights.html when it
-    # exists, and only falls back to the insights/ directory index.
+    # Mirror Cloudflare Pages: /case-studies serves case-studies.html when
+    # it exists, and only falls back to the case-studies/ directory index.
     if rel_path == "" or rel_path.endswith("/"):
         rel_path += "index.html"
     elif "." not in Path(rel_path).name:

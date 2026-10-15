@@ -23,13 +23,20 @@ const REDIRECTS = {
   "/field-notes/topics/frontend": "/field-notes/",
   "/field-notes/topics/performance": "/field-notes/",
   // Content cut, Oct 2026: Insights
-  "/insights/automation": "/insights",
-  "/insights/what-automation-shouldnt-touch": "/insights",
+  "/insights/automation": "/field-notes/#insights",
+  "/insights/what-automation-shouldnt-touch": "/field-notes/#insights",
   "/insights/redundant-data-entry-missing-integration": "/insights/what-is-analytics-architecture",
   "/insights/local-seo-is-a-data-problem": "/insights/seo-analytics",
   "/insights/why-redundancy-beats-a-single-stack": "/insights/what-is-analytics-architecture",
-  "/insights/delete-with-proof": "/insights",
+  "/insights/delete-with-proof": "/field-notes/#insights",
   "/insights/engineering-approach": "/about",
+  // Insights hub folded into Field Notes; topic pages retired, Oct 2026
+  "/insights": "/field-notes/#insights",
+  "/insights/index": "/field-notes/#insights",
+  "/field-notes/topics": "/field-notes/",
+  "/field-notes/topics/index": "/field-notes/",
+  "/field-notes/topics/measurement": "/field-notes/",
+  "/field-notes/topics/infra": "/field-notes/",
   // Signals folded into Field Notes, Oct 2026
   "/signals": "/field-notes/",
   "/signals/index": "/field-notes/",

@@ -27,7 +27,7 @@ EXCLUDE_FILES = {
 # Subdirectory index.html files are, by default, redirect stubs (e.g.
 # case-studies/index.html, trust/index.html) and get skipped below. These
 # are real content hub pages, not stubs - keep them in the sitemap the
-# same way insights.html (a sibling hub page) already is.
+# same way case-studies.html (a sibling hub page) already is.
 INCLUDE_SUBDIR_INDEX = {
     "field-notes/index.html",
     "diagnostics/index.html",
