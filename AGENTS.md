@@ -61,6 +61,7 @@ Category keys must already exist in `FN_CATEGORIES`, `INSIGHT_CATEGORIES`, or `C
   - The Diagnostics hero card replays case #001 of `assets/js/diagnostics/crime-scene.js`. Each case card shows its file's case count and first case, so update them if the case files change.
 - `clients.html`, `bbb.html`, `404.html`, and `thank-you.html` use it too.
   - On `clients.html`, the roster sections, chip `<li>`s, filter JSON, and search box stay as they are, because `clients-roster.js` and `<scott-filter-bar>` depend on that markup.
+  - Partner chips are `li.is-partner` with a `<small>Partner since YYYY</small>` after the name. They take their section's accent color unless they set their own `--accent` inline (Couchletics uses its button blue, `#416180`, which keeps white text readable). When a chip is added or removed, update that section's `roster-count` to match.
   - `404.html` is served at any missing path, so its asset links must stay root-absolute (`/assets/...`).
   - `thank-you.html` keeps the `data-thanks-message` and `data-thanks-next` hooks that `thank-you.js` rewrites for grant applicants.
 - The nine Bloomington-Normal pages in `markets/` use it too.
