@@ -1,0 +1,1522 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <!-- Google Tag Manager -->
+    <script src="/assets/js/gtm.js?v=a142f1f758" async></script>
+    <!-- End Google Tag Manager -->
+
+    <title>Couchletics Ecommerce Case Study | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="How Scott Labz designed the Couchletics brand and built its custom online store, from catalog and checkout to order automation, live in 11 days." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="preload"
+      href="/assets/fonts/source-sans-pro-300.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin />
+    <link
+      rel="preload"
+      href="/assets/fonts/source-sans-pro-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin />
+    <link rel="stylesheet" href="/assets/css/main-min.css?v=65235697fb" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript-min.css?v=ab1c7bc451" />
+    </noscript>
+
+    <script src="/assets/js/header-min.js?v=0d09452115" async></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon/favicon-32x32.png?v=d06ceab0dd" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon/favicon-16x16.png?v=2664f5c356" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/images/favicon/favicon-96x96.png?v=1fac781b7c" />
+    <script src="/assets/js/navigation-min.js?v=3f50c7223a" defer></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/case-studies/couchletics" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://scottlabz.com/#organization",
+            "name": "Scott Labz, LLC",
+            "description": "How Scott Labz designed the Couchletics brand and built its custom online store, from catalog and checkout to order automation, live in 11 days.",
+            "url": "https://scottlabz.com/case-studies/couchletics",
+            "telephone": "+1-309-340-4306",
+            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "priceRange": "$$",
+            "slogan": "Measure. Build. Improve.",
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "McLean County, Illinois"
+            },
+            "sameAs": [
+              "https://github.com/scottlabz",
+              "https://www.linkedin.com/company/scottlabz",
+              "https://www.linkedin.com/in/scotttaylor369"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-309-340-4306",
+              "contactType": "Scott Labz"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://scottlabz.com/#scotttaylor",
+            "name": "Scott Taylor",
+            "jobTitle": "Founder",
+            "description": "Scott Taylor is the founder of Scott Labz, where he combines web development, analytics, automation, and digital strategy to help businesses create faster, smarter, and more effective digital experiences.",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "url": "https://scottlabz.com/case-studies/couchletics",
+            "email": "mailto:info@scottlabz.com",
+            "knowsAbout": [
+              "Brand Identity",
+              "Ecommerce Development",
+              "Order Automation",
+              "Ecommerce Analytics"
+            ],
+            "worksFor": {
+              "@id": "https://scottlabz.com/#organization"
+            },
+            "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
+          }
+        ]
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+
+    <meta property="og:site_name" content="Scott Labz" />
+
+    <meta
+      property="og:title"
+      content="Couchletics Case Study | Scott Labz" />
+
+    <meta
+      property="og:description"
+      content="How Scott Labz designed the Couchletics brand and built its custom online store, from catalog and checkout to order automation, live in 11 days." />
+
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/case-studies/couchletics" />
+
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/og-share.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Couchletics Case Study | Scott Labz" />
+    <meta name="twitter:description" content="How Scott Labz designed the Couchletics brand and built its custom online store, from catalog and checkout to order automation, live in 11 days." />
+    <meta name="twitter:image" content="https://scottlabz.com/images/og-share.png" />
+
+    <style>
+      /* Real-screenshot showcase, copied from the Hawkeye Fan Shop case
+         study (the two client pages with screenshot tours) - not a shared
+         main.css pattern. Colors and radii match .case-section/.security-table so
+         it reads as part of the same design language.
+
+         Each screenshot renders full-size in its own block instead of a
+         thumbnail grid. In place of the old click-to-enlarge lightbox
+         modal, numbered hotspot pins sit directly on top of the image at
+         real UI elements; clicking one fades in a small detail card next
+         to that exact pin (no overlay, nothing leaves the page flow -
+         see .hotspot-pin/.hotspot-popover and the script near the end of
+         <body>). Screenshots with nothing worth calling out (e.g. the
+         payment-icon row) skip hotspots entirely and just run the
+         lead-in paragraph underneath. */
+      .shot-tour {
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+        margin-top: 1.75rem;
+      }
+
+
+      /* width:fit-content (not the flex column's default full-width
+         stretch) so the frame hugs each screenshot at its own real
+         resolution instead of stretching every image - many of these
+         run narrower than the column - up to a shared width and
+         visibly softening them. max-width/margin keep it from
+         overflowing on narrow viewports and centered when it's
+         narrower than the column. */
+      .shot-frame {
+        border: 1px solid #000;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 auto;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .shot-frame:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+      }
+
+      .shot-chrome {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: #eef1f5;
+        padding: 8px 12px;
+        border-bottom: 1px solid #dde1e6;
+      }
+
+      .shot-chrome .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+
+      .shot-chrome .dot:nth-child(1) {
+        background: #ff5f57;
+      }
+
+      .shot-chrome .dot:nth-child(2) {
+        background: #febc2e;
+      }
+
+      .shot-chrome .dot:nth-child(3) {
+        background: #28c840;
+      }
+
+      .shot-chrome .url {
+        margin-left: 8px;
+        background: #fff;
+        border: 1px solid #dde1e6;
+        border-radius: 5px;
+        padding: 2px 10px;
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .shot-chrome .url img {
+        display: block;
+        height: 10px;
+        width: auto;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .shot-frame img {
+        display: block;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+      }
+
+      /* Styled as a callout attached to the frame it introduces - the
+         blue accent bar echoes .hotspot-pin's own color so the caption
+         and the screenshot it's captioning read as one unit, rather
+         than the plain paragraph blending into the section's body
+         copy above it. Since each one sits directly above its own
+         .shot-frame and directly below the previous one, this is the
+         only text in the immediate vicinity of every browser mockup
+         on the page. */
+      .shot-lead {
+        position: relative;
+        font-size: 1.1rem;
+        color: #33475b;
+        margin: 0 0 1rem;
+        padding: 0.75rem 1.1rem;
+        line-height: 1.65;
+        background: rgba(37, 99, 235, 0.06);
+        border-left: 3px solid #2563eb;
+        border-radius: 0 8px 8px 0;
+      }
+
+      /* The interactive image area. Positioned so hotspot pins (also
+         absolutely positioned, placed inline per-image via style="left:
+         %; top: %") anchor to the actual pixel they're calling out
+         regardless of how the image is scaled at a given viewport. */
+      .hotspot-media {
+        position: relative;
+        line-height: 0;
+      }
+
+      /* Caps tall images to a fixed viewing height with an internal
+         scrollbar, for cases where showing the full image at native
+         width would otherwise run for thousands of pixels. This wraps
+         .hotspot-media rather than constraining it directly - the pins
+         inside are positioned via percentages resolved against their
+         containing block's own size, so if the height cap were applied
+         to .hotspot-media itself, every "top: X%" would resolve against
+         600px instead of the image's real height and every pin below
+         the fold would land in the wrong place. Keeping .hotspot-media
+         at its natural full height and scrolling this outer wrapper
+         instead leaves that math untouched. */
+      .shot-scroll-cap {
+        max-height: 600px;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      /* main.css's generic button:hover/:active rules force color with
+         !important, which otherwise wins over any normal-specificity
+         rule here regardless of selector weight - color/background are
+         !important'd below to match and guarantee this component's own
+         states render correctly.
+
+         Blue (#2563eb), matching the reference number badge inside the
+         popover, so the pin and its own detail card read as the same
+         control. Flips to a deeper shade of the same blue once opened,
+         rather than jumping to an unrelated hue. */
+      .hotspot-pin {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #2563eb !important;
+        color: #fff !important;
+        border: 3px solid #fff;
+        font: 800 22px/1 Inter, system-ui, sans-serif;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5) !important;
+        z-index: 2;
+        padding: 0;
+        /* main.css's sitewide button reset sets overflow:hidden on
+           every <button> (for text-ellipsis truncation on normal site
+           buttons) - since this pin never overrode it, that rule was
+           silently clipping the sonar ring to this element's own 60px
+           box the instant it scaled past it, so the animation was
+           rendering but never visibly leaving the button. */
+        overflow: visible;
+        transition:
+          background 0.15s ease,
+          color 0.15s ease,
+          transform 0.15s ease;
+      }
+
+      /* Subtle sonar ping - one ring expanding a short distance from
+         the pin's own edge before fading, dialed back from the earlier
+         version's larger/double-ring effect per feedback that it read
+         as too much. Starting at inset:-3px (slightly larger than the
+         pin, not inset:0/exactly the same size) matters - the ring
+         sits behind the pin (z-index:-1), so if it started at the same
+         size as the opaque pin on top of it, the ring would be entirely
+         hidden underneath at the start of every cycle. */
+      .hotspot-pin::before {
+        content: "";
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        border: 3px solid rgba(37, 99, 235, 0.95);
+        z-index: -1;
+        pointer-events: none;
+        animation: hotspot-sonar 2s ease-out infinite;
+      }
+
+      /* The button's visible label is empty (see aria-label for its
+         accessible name) - this pseudo-element supplies the +/- glyph
+         instead, swapped purely by the aria-expanded state the toggle
+         script already maintains, no extra JS needed. */
+      .hotspot-pin::after {
+        content: "+";
+        line-height: 1;
+      }
+
+      .hotspot-pin[aria-expanded="true"]::after {
+        content: "\2212";
+      }
+
+      .hotspot-pin:hover,
+      .hotspot-pin:focus-visible,
+      .hotspot-pin:active {
+        background: #1d4ed8 !important;
+        color: #000 !important;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5) !important;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      .hotspot-pin[aria-expanded="true"] {
+        background: #1d4ed8 !important;
+        color: #000 !important;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5) !important;
+      }
+
+      .hotspot-pin[aria-expanded="true"]::before {
+        animation: none;
+        opacity: 0;
+      }
+
+      @keyframes hotspot-sonar {
+        0% {
+          transform: scale(1);
+          opacity: 0.9;
+        }
+        100% {
+          transform: scale(1.65);
+          opacity: 0;
+        }
+      }
+
+      /* Source content for the popover below - each pin's detail card
+         lives here in normal, crawlable markup but is never shown in
+         place. The toggle script reads a clicked pin's matching note
+         by id and copies it into the single shared .hotspot-popover,
+         which it positions next to that exact pin. Keeping the source
+         hidden this way (rather than deleting it) avoids having to
+         restructure all 72 of these per image. */
+      .hotspot-notes {
+        display: none;
+      }
+
+      /* Appended once to <body> by the toggle script, not nested inside
+         any .shot-frame - that's what lets it fade in next to whichever
+         pin was pressed without being clipped by the frame's rounded-
+         corner overflow:hidden, and without inheriting scroll/position
+         quirks from position:fixed. */
+      .hotspot-popover {
+        position: absolute;
+        z-index: 60;
+        display: flex;
+        gap: 0.9rem;
+        width: min(380px, calc(100vw - 24px));
+        background: #fff;
+        border: 2px solid #000;
+        border-radius: 12px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+        padding: 1.4rem 1.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(6px);
+        transition:
+          opacity 0.18s ease,
+          transform 0.18s ease;
+        pointer-events: none;
+      }
+
+      .hotspot-popover.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .hotspot-popover .hotspot-note-num {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #2563eb;
+        color: #fff;
+        font: 800 13px/32px Inter, system-ui, sans-serif;
+        text-align: center;
+      }
+
+      .hotspot-popover h4 {
+        margin: 0.2rem 0 0.65rem;
+        padding-bottom: 0.4rem;
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: #111;
+        border-bottom: 2px solid #2563eb;
+      }
+
+      .hotspot-popover p {
+        margin: 0 0 1rem;
+        font-size: 1rem;
+        line-height: 1.75;
+        color: #444;
+      }
+
+      .hotspot-popover p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Non-interactive shots (payment icon row, etc.) keep the same
+         frame treatment but skip hotspots entirely - plain image, lead
+         paragraph does the explaining. */
+      .shot-frame.plain img {
+        cursor: default;
+      }
+
+      /* main.css sizes this background strip at 20% of
+         .case-study-hero's own height, which was fine when that
+         element was just a short intro banner. On this page the hero
+         section wraps every case-section added below it, so its
+         height is the whole page - 20% of a 13,000px+ page ballooned
+         the strip into a multi-thousand-pixel box, forcing the
+         1980x1485 source photo to upscale well past its native
+         resolution (especially at Retina density) and look
+         pixelated. Capping it to one viewport height keeps it sized
+         like the short intro banner it's meant to be. */
+      .case-study-hero::before {
+        height: 100vh;
+        height: 100svh;
+      }
+    
+      /* Subheads that split What Was Built into its parts */
+      .case-section > h4 {
+        margin: 3rem 0 0.75rem;
+        color: #1e3a5f;
+      }
+      .case-section > h3 + p + h4,
+      .case-section > h3 + h4 {
+        margin-top: 1.75rem;
+      }
+</style>
+    <!-- Case Studies hub card data - read by scripts/generate_indexes.py -->
+    <meta name="cs-type" content="client" />
+    <meta name="cs-order" content="3" />
+    <meta name="cs-title" content="Couchletics" />
+    <meta name="cs-summary" content="How a sleepwear and lounge brand went from first sketch to a custom online store in 11 days, with its own brand, catalog, checkout and order automation." />
+    <meta name="cs-caption" content="Sports loungewear and game day gear for football fans" />
+    <meta name="cs-logo" content="images/couchletics-logo.png" />
+    <meta name="cs-logo-width" content="1188" />
+    <meta name="cs-logo-height" content="161" />
+    <meta name="cs-logo-alt" content="Couchletics logo, sports loungewear and game day gear for football fans" />
+    <meta name="cs-button-class" content="couchletics" />
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <scott-nav></scott-nav>
+
+    <div id="wrapper">
+      <main id="main-content">
+        <section
+          class="case-study-hero banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right"
+          style="--hero-bg: url(&quot;/images/couchletics-hero.jpg&quot;)">
+          <div class="content">
+            <div class="hero-box">
+              <p class="brand-mark">
+                <a href="/" style="border-bottom: none">
+                  <img
+                    src="/images/scottlabz-clear.webp?v=d34943c620"
+                    srcset="/images/scottlabz-clear-32w.webp?v=8d5d3e1b4b 32w, /images/scottlabz-clear-64w.webp?v=7b37132bec 64w, /images/scottlabz-clear-96w.webp?v=1b0fa7e3f5 96w, /images/scottlabz-clear.webp?v=d34943c620 130w"
+                    sizes="(max-width: 736px) 28px, 55px"
+                    width="130"
+                    height="170"
+                    alt="S"
+                    class="logo"
+                    style="margin-right: 0" />cott Labz
+                </a>
+              </p>
+
+              <h1 class="size-h3">Couchletics Case Study</h1>
+
+              <h2
+                class="case-study-headline"
+                style="
+                  font-size: 2.2rem;
+                  margin-top: 0.5rem;
+                  margin-bottom: 1.5rem;
+                ">
+                A Brand and a Custom Store, Live in 11 Days
+              </h2>
+
+              <p class="major" style="margin-bottom: 0">
+                Scott Labz designed the Couchletics brand and built its online
+                store from scratch: a premium sleepwear and lounge line with a
+                collegiate, game-day look, made to order and shipped without a
+                warehouse.
+              </p>
+            </div>
+
+            <div class="case-section">
+              <h3>Project Overview</h3>
+
+              <div class="table-wrapper">
+                <table class="security-table">
+                  <tbody>
+                    <tr>
+                      <td><strong>Project</strong></td>
+                      <td>Brand identity and a custom online store</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Organization</strong></td>
+                      <td>Couchletics, a sleepwear and lounge brand with a collegiate, game-day look and the tagline "Athletic Dept. of Rest"</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Timeline</strong></td>
+                      <td>Work started October 4, 2026. Live October 15, 2026</td>
+                    </tr>
+                    <tr>
+                      <td><strong>At launch</strong></td>
+                      <td>60 pieces and 11 bundled sets, 1,020 color and size options</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Services</strong></td>
+                      <td>Brand identity, ecommerce strategy, custom store development, product catalog and print files, payments and checkout, order automation, sales tax research and reporting, SEO, analytics, hosting and security, testing, and launch</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Live site</strong></td>
+                      <td><a href="https://couchletics.com" target="_blank" rel="noopener">couchletics.com</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="case-section">
+              <h3>The Challenge</h3>
+
+              <p>Couchletics needed to launch a premium brand quickly, without buying inventory or running a warehouse. The client asked for a store built on its own code, with full control, rather than a store on a hosted platform.</p>
+              <p style="margin: 0 0 0.9rem 0">Hosted store platforms do the basics well. The things that made this brand different would each have needed a paid add-on or a workaround there:</p>
+              <ul class="alt">
+                <li>Bundled sets, like a hoodie and sweatpants sold as one "uniform," that split into separate production orders behind the scenes</li>
+                <li>Seasonal pieces that appear and disappear on their own dates, with "last call" and holiday order-by messages that update daily</li>
+                <li>Live stock read straight from the production partner, so a size that runs out shows as sold out right away</li>
+                <li>A sports schedule feature, The Slate, built into the store</li>
+                <li>Sales tax reporting that follows the client's state rules exactly, where general tools fall short</li>
+              </ul>
+              <p>A custom build made every one of these work the way the brand needs, without add-on apps, on code the client owns.</p>
+            </div>
+
+            <div class="case-section">
+              <h3>What Was Built</h3>
+
+              <p>Scott Labz designed the brand and built the store from the ground up: the identity, the product line, the storefront, checkout, order automation, sales tax reporting, search and analytics, and the checks that cleared it for launch.</p>
+              <h4>Brand identity</h4>
+              <p>A complete logo system: a laced sofa icon, a wordmark with a football for the "O," a department crest, a varsity C, a seal and a set of stitched patches. Every product got a game-reference name, like The Letterman Hoodie, The Booster Club Crewneck and The Home Uniform, and the voice stays deadpan and athletic throughout.</p>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">The seal, the sofa icon and the wordmark carry one idea across the site, the packaging and the share images: the Athletic Department of Rest.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-couchletics.svg" width="96" height="14" alt="couchletics.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/couchletics-brand-760w.webp"
+                        srcset="/images/couchletics-brand-760w.webp 760w, /images/couchletics-brand-1200w.webp 1200w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="399"
+                        alt="Couchletics department seal beside the wordmark, whose O is a football, with the tagline Athletic Dept. of Rest"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 10%; top: 48%"
+                        data-target="hs-brand-seal"
+                        aria-expanded="false"
+                        aria-controls="hs-brand-seal"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 66%; top: 68%"
+                        data-target="hs-brand-wordmark"
+                        aria-expanded="false"
+                        aria-controls="hs-brand-wordmark"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-brand-seal">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>A department seal, not just a logo</h4>
+                          <p>The seal is one piece of a full system: a laced sofa icon, a department crest, a varsity C and a set of stitched patches, all dated to the brand's first season.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-brand-wordmark">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>A football for the O</h4>
+                          <p>The wordmark swaps the O for a football. The same game-day wit runs through every product name and line of copy.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="shot-lead">The homepage changes with the football calendar on its own: the header patch, the featured photos and the limited piece all follow the season.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-couchletics.svg" width="96" height="14" alt="couchletics.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/couchletics-home-760w.webp"
+                        srcset="/images/couchletics-home-760w.webp 760w, /images/couchletics-home-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="1019"
+                        alt="Couchletics homepage with a seasonal pumpkin patch in the header, a limited Pumpkin Patch crewneck banner, and featured lounge photos"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 80%; top: 4%"
+                        data-target="hs-home-patch"
+                        aria-expanded="false"
+                        aria-controls="hs-home-patch"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 45%; top: 11%"
+                        data-target="hs-home-ticker"
+                        aria-expanded="false"
+                        aria-controls="hs-home-ticker"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 11%; top: 20%"
+                        data-target="hs-home-series"
+                        aria-expanded="false"
+                        aria-controls="hs-home-series"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 42%; top: 38%"
+                        data-target="hs-home-hero"
+                        aria-expanded="false"
+                        aria-controls="hs-home-hero"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 79%; top: 30%"
+                        data-target="hs-home-set"
+                        aria-expanded="false"
+                        aria-controls="hs-home-set"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-home-patch">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>A header patch that follows the football year</h4>
+                          <p>The patch beside the logo is drawn in code and changes through the season on its own, from a training-camp whistle to a playoff trophy. In October it's a football pumpkin.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-home-ticker">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>The Slate, running across every page</h4>
+                          <p>A live strip of the day's college and pro kickoffs runs under the navigation on every page and links into The Slate, the store's own schedule and scores feature.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-home-series">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>A limited piece for each patch</h4>
+                          <p>Each in-season patch also gets a limited piece, The Patch Series, sold only during its season. This one comes down November 30.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-home-hero">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>Featured photos that change by season</h4>
+                          <p>The featured photos and banners swap on their own dates, so the homepage stays current without anyone editing it.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-home-set">
+                        <span class="hotspot-note-num">5</span>
+                        <div>
+                          <h4>Sets sold as one product</h4>
+                          <p>The Home Uniform sells a hoodie and sweatpants together. Behind the scenes, the set splits into a separate production order for each piece.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>The product line</h4>
+              <p>Production is print on demand through a production partner. Each piece is made after it's ordered, mostly in US facilities, and shipped straight to the customer, so the client holds no inventory. The whole range was set up in the partner's system through its API from a single product spec. The print and embroidery files are generated in code, and the colors are held to a restricted house palette so the line reads as one premium brand.</p>
+              <h4>The storefront</h4>
+              <p>A shop built around how people browse apparel, product pages that answer the questions that stop a purchase, and the same experience on a phone.</p>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">Shop All shows the full line with filters down the side. Every category and subcategory also has its own page.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-couchletics.svg" width="96" height="14" alt="couchletics.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/couchletics-shop-760w.webp"
+                        srcset="/images/couchletics-shop-760w.webp 760w, /images/couchletics-shop-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="742"
+                        alt="Couchletics Shop All page with 71 items, a filter column, and product cards showing colorways and size counts"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 31%; top: 12%"
+                        data-target="hs-shop-count"
+                        aria-expanded="false"
+                        aria-controls="hs-shop-count"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 20%; top: 23%"
+                        data-target="hs-shop-filters"
+                        aria-expanded="false"
+                        aria-controls="hs-shop-filters"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 36%; top: 51%"
+                        data-target="hs-shop-card"
+                        aria-expanded="false"
+                        aria-controls="hs-shop-card"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-shop-count">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>A page for every category</h4>
+                          <p>Beyond Shop All, each category and subcategory has a dedicated page, 26 shop pages in all, so a search for hoodies or pajamas lands on a page built for exactly that.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-shop-filters">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Filters that match how people shop</h4>
+                          <p>Shoppers narrow the line by gender, category, size, color, price, maker and collection. Unisex pieces show under both genders.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-shop-card">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Colors and sizes at a glance</h4>
+                          <p>Each card shows the piece's colorways and how many sizes it comes in before anyone opens the product.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="shot-lead">Further down the column: size, color family, price, maker and collection.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-couchletics.svg" width="96" height="14" alt="couchletics.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/couchletics-filters-240w.webp"
+                        srcset="/images/couchletics-filters-240w.webp 240w, /images/couchletics-filters-480w.webp 480w"
+                        sizes="240px"
+                        width="240"
+                        height="1228"
+                        alt="Couchletics shop filters for size, color family, price, maker and collection"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 70%; top: 3%"
+                        data-target="hs-filters-size"
+                        aria-expanded="false"
+                        aria-controls="hs-filters-size"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 70%; top: 17.5%"
+                        data-target="hs-filters-color"
+                        aria-expanded="false"
+                        aria-controls="hs-filters-color"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 70%; top: 58%"
+                        data-target="hs-filters-maker"
+                        aria-expanded="false"
+                        aria-controls="hs-filters-maker"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-filters-size">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>The full size run</h4>
+                          <p>The size filter covers the whole run, from 3XS to 6XL.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-filters-color">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Color families instead of swatch names</h4>
+                          <p>Colorway names roll up into eight color families, so a shopper looking for blue finds navy and every blue between.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-filters-maker">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Shop by the maker of the blank</h4>
+                          <p>Each piece is printed or embroidered on a blank from an established maker, and shoppers can filter by maker.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="shot-lead">Product pages answer fit, delivery and fabric questions before they turn into abandoned carts or support emails.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-couchletics.svg" width="96" height="14" alt="couchletics.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/couchletics-product-760w.webp"
+                        srcset="/images/couchletics-product-760w.webp 760w, /images/couchletics-product-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="698"
+                        alt="Couchletics product page for The Letterman Hoodie with photo gallery, colorway swatches, size buttons, delivery estimate and fabric details"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 54%; top: 52%"
+                        data-target="hs-product-zoom"
+                        aria-expanded="false"
+                        aria-controls="hs-product-zoom"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 88%; top: 37%"
+                        data-target="hs-product-swatches"
+                        aria-expanded="false"
+                        aria-controls="hs-product-swatches"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 66%; top: 46%"
+                        data-target="hs-product-sizes"
+                        aria-expanded="false"
+                        aria-controls="hs-product-sizes"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 88%; top: 62%"
+                        data-target="hs-product-gift"
+                        aria-expanded="false"
+                        aria-controls="hs-product-gift"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 88%; top: 71%"
+                        data-target="hs-product-delivery"
+                        aria-expanded="false"
+                        aria-controls="hs-product-delivery"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 85%; top: 83%"
+                        data-target="hs-product-details"
+                        aria-expanded="false"
+                        aria-controls="hs-product-details"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-product-zoom">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Model photos with zoom</h4>
+                          <p>Every piece has model photos with zoom, and the gallery follows the colorway picked.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-product-swatches">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Every colorway on one page</h4>
+                          <p>All of a piece's colors live on one page, drawn from the restricted house palette.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-product-sizes">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Live stock on every size</h4>
+                          <p>Sizes read stock straight from the production partner. A size that runs out shows as sold out right away, with an "Email me" button for a restock alert.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-product-gift">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>A gift card for anyone unsure of a size</h4>
+                          <p>Right under the button, shoppers who can't call a size get pointed to the gift card instead of guessing.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-product-delivery">
+                        <span class="hotspot-note-num">5</span>
+                        <div>
+                          <h4>A delivery estimate on every product</h4>
+                          <p>Each page shows an estimated delivery window, the free-shipping threshold and where the piece is designed.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-product-details">
+                        <span class="hotspot-note-num">6</span>
+                        <div>
+                          <h4>Fit, fabric, care and origin</h4>
+                          <p>A size chart, fit notes, fabric and care, and where each piece is made sit in the details below, which is what federal labeling rules ask of clothing sold online.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="shot-lead">Sets are one product with their own price, and each piece in the set keeps its own color and size choices.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-couchletics.svg" width="96" height="14" alt="couchletics.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/couchletics-set-760w.webp"
+                        srcset="/images/couchletics-set-760w.webp 760w, /images/couchletics-set-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="878"
+                        alt="The Home Uniform set page, with a separate color and size picker for the hoodie and for the sweatpants, and the savings over buying them separately"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 63%; top: 12%"
+                        data-target="hs-set-price"
+                        aria-expanded="false"
+                        aria-controls="hs-set-price"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 62%; top: 24%"
+                        data-target="hs-set-piece1"
+                        aria-expanded="false"
+                        aria-controls="hs-set-piece1"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 62%; top: 45%"
+                        data-target="hs-set-piece2"
+                        aria-expanded="false"
+                        aria-controls="hs-set-piece2"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-set-price">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Two pieces, one price</h4>
+                          <p>The Home Uniform sells the Letterman Hoodie and Sideline Sweatpants together for $165, with the savings shown against buying them separately.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-set-piece1">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Each piece picked on its own</h4>
+                          <p>Shoppers choose a color and size for each piece, matched or mixed, on one page.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-set-piece2">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Split into separate orders behind the scenes</h4>
+                          <p>The set is one line in the cart. Once it's paid for, it splits into a separate production order for each piece.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="shot-lead">The Draft Pick gift card covers the shopper who doesn't know a size.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-couchletics.svg" width="96" height="14" alt="couchletics.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/couchletics-gift-card-760w.webp"
+                        srcset="/images/couchletics-gift-card-760w.webp 760w, /images/couchletics-gift-card-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="594"
+                        alt="The Draft Pick gift card page with amounts from $25 to $200 and fields for the recipient&#x27;s name, email and a note"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 81%; top: 49%"
+                        data-target="hs-gift-card-amounts"
+                        aria-expanded="false"
+                        aria-controls="hs-gift-card-amounts"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 78%; top: 75%"
+                        data-target="hs-gift-card-recipient"
+                        aria-expanded="false"
+                        aria-controls="hs-gift-card-recipient"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-gift-card-amounts">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>$25 to $200, never expires</h4>
+                          <p>The gift card comes in six amounts from $25 to $200, with no fees and no expiration. Larger amounts are set up on request.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-gift-card-recipient">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Sent by email, with a note</h4>
+                          <p>The card reaches the recipient by email as a single-use code with the sender's note. Any balance left after an order is reissued as a new code.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="shot-lead">The same store on a phone. Every page was checked on phone and desktop before launch.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-couchletics.svg" width="96" height="14" alt="couchletics.com" draggable="false" /></div>
+                    </div>
+                    <div class="shot-scroll-cap">
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/couchletics-phone-390w.webp"
+                        srcset="/images/couchletics-phone-390w.webp 390w, /images/couchletics-phone-780w.webp 780w"
+                        sizes="390px"
+                        width="390"
+                        height="1640"
+                        alt="The Letterman Hoodie product page on a phone, with search, the seasonal patch and the cart in the header"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 67%; top: 2%"
+                        data-target="hs-phone-header"
+                        aria-expanded="false"
+                        aria-controls="hs-phone-header"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 50%; top: 26%"
+                        data-target="hs-phone-gallery"
+                        aria-expanded="false"
+                        aria-controls="hs-phone-gallery"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-phone-header">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Search and cart in reach</h4>
+                          <p>On a phone the header keeps search, the seasonal patch and the cart in reach, and the menu folds into one button.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-phone-gallery">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Controls sized for a thumb</h4>
+                          <p>The gallery arrows, swatches and size buttons are all large enough to tap without zooming, and the add-to-cart button runs full width.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>Checkout and payments</h4>
+              <p>A hosted checkout styled to the brand takes cards, digital wallets and a pay-later option. Sales tax is added automatically. Shipping starts at $8.95 and is free on orders of $125 or more. Card details only ever reach the payment processor, and the store's connection to it is limited to exactly the permissions it needs.</p>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">The cart opens as a drawer beside the product and nudges the order toward free shipping.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-couchletics.svg" width="96" height="14" alt="couchletics.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/couchletics-cart-440w.webp"
+                        srcset="/images/couchletics-cart-440w.webp 440w, /images/couchletics-cart-880w.webp 880w"
+                        sizes="440px"
+                        width="440"
+                        height="900"
+                        alt="Couchletics cart drawer with The Letterman Hoodie, suggested add-ons, and a bar showing $27 left to free shipping"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 75%; top: 17%"
+                        data-target="hs-cart-item"
+                        aria-expanded="false"
+                        aria-controls="hs-cart-item"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 70%; top: 31%"
+                        data-target="hs-cart-addons"
+                        aria-expanded="false"
+                        aria-controls="hs-cart-addons"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 50%; top: 84%"
+                        data-target="hs-cart-progress"
+                        aria-expanded="false"
+                        aria-controls="hs-cart-progress"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-cart-item">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>A cart that stays on the page</h4>
+                          <p>Adding a piece opens the cart as a drawer, with the chosen color and size and quantity controls, without leaving the product.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-cart-addons">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>One-tap add-ons toward free shipping</h4>
+                          <p>Small add-ons are suggested with one-tap Add buttons, and the cart points out which one takes the order to free shipping.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-cart-progress">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Free shipping, shown as a goal</h4>
+                          <p>Shipping is $8.95 and free at $125. The bar shows how far the order is from free shipping, and tax is added at checkout.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>Order automation</h4>
+              <p>When an order is paid, it goes to production automatically. Unusually large or higher-risk orders are held for a quick review first. Customers get an email for every step: the order confirmation, shipping with tracking, and a review request about 12 days after it ships. Shoppers who leave checkout, and agreed to hear from the brand, get one reminder email with a link that rebuilds their cart. Gift cards arrive by email as single-use codes, and any unspent balance is reissued as a new code.</p>
+              <h4>The Slate</h4>
+              <p>A department needs a schedule. The Slate shows live college and pro football schedules and scores, TV listings and game-day weather, all from official data sources, and links each time window back to something to wear.</p>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">The Slate lists every game for the chosen day, grouped into time windows like the afternoon slate and prime time.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-couchletics.svg" width="96" height="14" alt="couchletics.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/couchletics-slate-760w.webp"
+                        srcset="/images/couchletics-slate-760w.webp 760w, /images/couchletics-slate-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="992"
+                        alt="The Slate schedule page for October 15, 2026, listing college and pro football games by time window with TV listings and forecasts"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 79%; top: 28%"
+                        data-target="hs-slate-day"
+                        aria-expanded="false"
+                        aria-controls="hs-slate-day"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 45%; top: 35%"
+                        data-target="hs-slate-filters"
+                        aria-expanded="false"
+                        aria-controls="hs-slate-filters"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 95%; top: 41%"
+                        data-target="hs-slate-wear"
+                        aria-expanded="false"
+                        aria-controls="hs-slate-wear"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 95%; top: 47%"
+                        data-target="hs-slate-weather"
+                        aria-expanded="false"
+                        aria-controls="hs-slate-weather"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-slate-day">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Every game, every day</h4>
+                          <p>Every college and pro football game for the chosen day, from the major programs to Division III, with kickoff shown in the visitor's own time zone.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-slate-filters">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Narrow it to your games</h4>
+                          <p>Filter the day by level or conference, or search by name or state.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-slate-wear">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>What to wear for each window</h4>
+                          <p>Each time window suggests a piece for the game-time forecast, like The Home Uniform at 68 degrees, linking the schedule back to the store.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-slate-weather">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>Forecasts and where to watch</h4>
+                          <p>Each game shows the stadium, the forecast and the TV listing, all pulled from official data sources.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="shot-lead">On the homepage, Game Day HQ counts down to the next kickoff and opens The Slate.</p>
+                  <div class="shot-frame plain">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-couchletics.svg" width="96" height="14" alt="couchletics.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/couchletics-gameday-760w.webp"
+                        srcset="/images/couchletics-gameday-760w.webp 760w, /images/couchletics-gameday-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="249"
+                        alt="Game Day HQ on the Couchletics homepage, counting down to the next kickoff beside the next three games"
+                        loading="lazy" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>Sales tax and compliance</h4>
+              <p>The client's state sales tax rules were researched from primary sources, and a monthly report matches every order's address against the state's official rate file, which gives the client what they need to file. The store also follows the federal labeling rules for clothing (every clothing page says where the piece is made), anti-spam email law, payment-network rules, and browser privacy opt-out signals.</p>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">The footer says plainly what the brand is and isn't, and lists how shoppers can pay.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-couchletics.svg" width="96" height="14" alt="couchletics.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/couchletics-footer-760w.webp"
+                        srcset="/images/couchletics-footer-760w.webp 760w, /images/couchletics-footer-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="357"
+                        alt="Couchletics footer with the wordmark and seal, an independent-brand disclaimer, and accepted payment methods"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 69%; top: 82%"
+                        data-target="hs-footer-disclaimer"
+                        aria-expanded="false"
+                        aria-controls="hs-footer-disclaimer"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 83%; top: 70%"
+                        data-target="hs-footer-payments"
+                        aria-expanded="false"
+                        aria-controls="hs-footer-payments"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-footer-disclaimer">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Clear about what the brand isn't</h4>
+                          <p>The footer states that Couchletics is an independent brand, not affiliated with any league, school or the makers of its blanks.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-footer-payments">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Payment options shown up front</h4>
+                          <p>Accepted payment methods, including digital wallets and a pay-later option, are listed before a shopper reaches checkout.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>Search and analytics</h4>
+              <p>Every page carries structured data for search engines, and the store publishes a sitemap and a shopping feed covering every color and size. Each product has its own share image. Analytics tracks sales and product views without ever receiving a customer's name, email address or order number.</p>
+              <h4>Security, speed and quality</h4>
+              <p>The store runs on a global edge network, with HTTPS enforced, security headers on every page and rate limits on checkout and other sensitive actions. More than 50 automated tests guard pricing, shipping, tax codes, seasons and gift cards, and a 38-point launch check verifies pages, photos, checkout and payment methods against the live site.</p>
+            </div>
+
+            <div class="case-section">
+              <h3>The Results</h3>
+
+              <p>Couchletics launched on October 15, 2026, with the full line, checkout, order automation and tax reporting in place from day one.</p>
+              <ul class="alt">
+                <li>11 days from the first line of code to a live store, with the first real order placed and sent to production on launch day</li>
+                <li>60 pieces and 11 sets at launch, with 1,020 color and size options</li>
+                <li>All 112 pages checked on phone and desktop at launch, and all 38 launch checks passed</li>
+                <li>A page-quality audit of the live homepage at launch scored 98 for performance on desktop, 100 for accessibility and 100 for SEO</li>
+              </ul>
+            </div>
+
+            <div class="case-section">
+              <h3>Business Impact</h3>
+
+              <p>A new brand usually has to choose between launching fast on a hosted platform and building what makes it different. Couchletics didn't have to choose: the sets, seasonal drops, live stock, The Slate and the tax reporting all shipped in the first release, on code the client owns.</p>
+              <p style="margin-bottom: 0">
+                With no inventory to buy and production triggered by each paid
+                order, the store's costs follow its sales. Through
+                <a href="/web-digital">custom store development</a> and
+                <a href="/analytics-data">privacy-safe measurement</a>,
+                Couchletics starts its first season with a foundation it can
+                grow on.
+              </p>
+            </div>
+
+            <div class="case-section">
+              <h3>Explore More Case Studies</h3>
+              <ul class="alt" style="margin-top: 1rem">
+                <li><a href="/case-studies/hawkeye-fan-shop">Hawkeye Fan Shop</a></li>
+                <li><a href="/case-studies/the-black-and-gold-shop">The Black &amp; Gold Shop</a></li>
+              </ul>
+              <p style="margin-top: 1.5rem; margin-bottom: 0">
+                <a href="/case-studies">View all case studies →</a>
+              </p>
+            </div>
+
+            <div class="case-cta">
+              <h3>Start the Conversation</h3>
+
+              <p>
+                A store built around how a brand actually sells doesn't happen
+                by accident. It's built deliberately, from the first sketch to
+                the first order, so the store you're running is one you can
+                actually grow with.
+              </p>
+
+              <ul class="actions">
+                <li>
+                  <a href="/contact" class="button primary">
+                    Start a Conversation
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+      </main>
+      <script src="/assets/js/smooth-scroll.js?v=2418fdee53" defer></script>
+      <script src="/assets/js/main-min.js?v=f697f0f060" defer></script>
+      <script src="/assets/js/footer-min.js?v=b9743f675d" defer></script>
+      <script src="/assets/js/case-study-hotspots-min.js?v=b7d4aa3180" defer></script>
+
+      <scott-footer
+        description="How Scott Labz designed the Couchletics brand and built its custom online store, from catalog and checkout to order automation, live in 11 days.">
+      </scott-footer>
+    </div>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 {
-  "count": 9,
+  "count": 10,
   "notes": [
     {
       "slug": "hawkeye-fan-shop",
@@ -36,6 +36,24 @@
       "logo_alt": "The Black & Gold Shop logo, an official Iowa Hawkeyes retailer",
       "button_class": "blackgold",
       "button_text": "View Black & Gold Shop Case Study"
+    },
+    {
+      "slug": "couchletics",
+      "path": "couchletics",
+      "client": null,
+      "file": "couchletics.html",
+      "url": "https://scottlabz.com/case-studies/couchletics",
+      "type": "client",
+      "order": 3,
+      "title": "Couchletics",
+      "summary": "How a sleepwear and lounge brand went from first sketch to a custom online store in 11 days, with its own brand, catalog, checkout and order automation.",
+      "caption": "Sports loungewear and game day gear for football fans",
+      "logo": "images/couchletics-logo.png",
+      "logo_width": "1188",
+      "logo_height": "161",
+      "logo_alt": "Couchletics logo, sports loungewear and game day gear for football fans",
+      "button_class": "couchletics",
+      "button_text": "View Couchletics Case Study"
     },
     {
       "slug": "digital-analytics-implementation",

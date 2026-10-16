@@ -125,6 +125,11 @@
                   "@type": "ListItem",
                   "position": 2,
                   "url": "https://scottlabz.com/case-studies/the-black-and-gold-shop"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "url": "https://scottlabz.com/case-studies/couchletics"
                 }
               ]
             }
@@ -384,14 +389,22 @@
 
       /* Couchletics brand tokens from couchletics.com: their primary
          button blue (accent-700) with the deepest accent as the ring;
-         the card accent above is their main brand blue (accent). */
+         the card accent above is their main brand blue (accent). Hover
+         swaps the two, like the other client buttons. */
       .button.couchletics {
         background-color: #416180;
         box-shadow:
           inset 0 0 0 4px #1d2d3d,
           0 6px 14px rgba(0, 0, 0, 0.3);
         color: #ffffff !important;
-        cursor: default;
+      }
+
+      .button.couchletics:hover {
+        background-color: #1d2d3d;
+        box-shadow:
+          inset 0 0 0 4px #416180,
+          0 6px 14px rgba(0, 0, 0, 0.3);
+        color: #ffffff !important;
       }
     </style>
   </head>
@@ -474,6 +487,22 @@
                   <a href="case-studies/the-black-and-gold-shop" class="button wide blackgold" aria-label="View Black &amp; Gold Shop Case Study">View Case Study</a>
                 </div>
               </article>
+              <article class="cs-showcase-card is-couchletics">
+                <div class="cs-showcase-logo">
+                  <img
+                    src="images/couchletics-logo.png?v=c123595b6f"
+                    width="1188"
+                    height="161"
+                    alt="Couchletics logo, sports loungewear and game day gear for football fans"
+                    loading="lazy" />
+                </div>
+                <div class="cs-showcase-body">
+                  <h2 class="cs-showcase-name">Couchletics</h2>
+                  <p class="cs-showcase-caption">Sports loungewear and game day gear for football fans</p>
+                  <p class="cs-showcase-summary">How a sleepwear and lounge brand went from first sketch to a custom online store in 11 days, with its own brand, catalog, checkout and order automation.</p>
+                  <a href="case-studies/couchletics" class="button wide couchletics" aria-label="View Couchletics Case Study">View Case Study</a>
+                </div>
+              </article>
               <!-- CS-CLIENTS:END -->
 
               <!-- Hand-authored until the Kitchens case study page is
@@ -497,25 +526,6 @@
                 </div>
               </article>
 
-              <!-- Hand-authored until the Couchletics case study page is
-                   published, same as Kitchens above. -->
-              <article class="cs-showcase-card is-couchletics">
-                <div class="cs-showcase-logo">
-                  <img
-                    src="images/couchletics-logo.png?v=c123595b6f"
-                    width="1188"
-                    height="161"
-                    alt="Couchletics logo, sports loungewear and game day gear for football fans"
-                    loading="lazy" />
-                </div>
-                <div class="cs-showcase-body">
-                  <h2 class="cs-showcase-name">Couchletics</h2>
-                  <p class="cs-showcase-caption">Sports loungewear and game day gear for football fans</p>
-                  <p class="cs-showcase-summary">Oversized hoodies, fleece sweats, heavyweight tees, hats, and sherpa blankets from the Athletic Department of Rest, designed in the USA. The full case study is in progress.</p>
-                  <span class="button wide couchletics" aria-disabled="true" aria-describedby="couchletics-soon">View Case Study</span>
-                  <p class="cs-showcase-soon" id="couchletics-soon">Coming soon</p>
-                </div>
-              </article>
           </div>
 
           <section class="cs-cta" aria-label="Start a project">
