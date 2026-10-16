@@ -11,14 +11,21 @@ Instructions for AI coding agents working in this repo. Follow these exactly. Wh
 
 ## What runs automatically on push to main
 
-Do not do these by hand. CI does them and commits the result.
+Do not do these by hand. CI does them and commits the result. Cloudflare Pages deploys each push on its own (its Git integration, not a GitHub workflow).
 
-| Workflow | What it does |
-|---|---|
-| `.github/workflows/sitemap.yml` ("Generate Sitemap & Cache Bust") | Runs `scripts/generate_indexes.py`, `scripts/generate_sitemap.py`, `scripts/cache_bust.py`, auto-commits, then `scripts/indexnow_submit.py` |
-| `.github/workflows/audit.yml` ("Site Audit") | Runs `scripts/audit_site.py` and `scripts/check_redirect_stubs.py` |
-| `.github/workflows/purge-cache.yml` | Purges and warms the Cloudflare cache for content file types |
-| `.github/workflows/codeql.yml` | Code scanning |
+| Workflow | When | What it does |
+|---|---|---|
+| `.github/workflows/sitemap.yml` ("Generate Sitemap & Cache Bust") | Every push | Runs `scripts/generate_indexes.py`, `scripts/generate_sitemap.py`, `scripts/cache_bust.py`, auto-commits ("Auto-update sitemap.xml and asset cache-bust versions"), then `scripts/indexnow_submit.py` |
+| `.github/workflows/audit.yml` ("Site Audit") | Pushes that change `.html`, `.js`, or `sitemap.xml` | Runs `scripts/audit_site.py` and `scripts/check_redirect_stubs.py` |
+| `.github/workflows/purge-cache.yml` ("Purge Cache") | Pushes that change content file types | Purges the whole Cloudflare cache, then requests every sitemap URL and fails on any non-200 |
+| `.github/workflows/codeql.yml` ("CodeQL Advanced") | Every push and pull request, and weekly (Mondays 23:22 UTC) | Code scanning for JavaScript, Python, and the workflow files |
+| `.github/workflows/hsts-preload.yml` ("HSTS Preload Check") | Weekly (Mondays 12:30 UTC), not on push | Checks the live `Strict-Transport-Security` header still has `includeSubDomains` and `preload`, checks hstspreload.org eligibility, and submits the domain if it isn't listed yet; fails if it was rejected or lost eligibility |
+
+Site Audit, Purge Cache, and the HSTS check can also be run by hand from the repo's Actions tab.
+
+The bot's auto-commit is deployed by Cloudflare but doesn't trigger these workflows again (pushes made with the workflow token never do). So a push that adds or removes a page shows a failed Site Audit for the expected sitemap reason, and that red X stays on that commit; the next push's audit passes. Any other audit failure is real.
+
+The repo is public, so run results can be read without logging in: `https://api.github.com/repos/scottlabz/scottlabz/actions/runs?per_page=10` (name, commit, and `conclusion` for each run). Check it after a push alongside the live site.
 
 ## Never hand-edit generated content
 
