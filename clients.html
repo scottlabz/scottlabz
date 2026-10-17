@@ -188,6 +188,32 @@
         border-radius: 999px;
       }
 
+      /* Key under the filter bar; sample chips mirror .roster-chips li. */
+      .roster-key {
+        margin: 1rem 0 0;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        color: #475569;
+      }
+
+      .roster-key-chip {
+        display: inline-block;
+        padding: 0 0.55rem;
+        font-size: 0.78rem;
+        line-height: 1.5;
+        color: #0f172a;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 999px;
+      }
+
+      .roster-key-chip.is-partner {
+        color: #ffffff;
+        background: #15803d;
+        border-color: #15803d;
+        font-weight: 600;
+      }
+
       .roster-tools {
         margin: 0 0 1.75rem;
         padding: 0 0 1.25rem;
@@ -320,7 +346,7 @@
         <div class="roster-tools">
           <div class="roster-search" hidden>
             <label for="roster-q" class="visually-hidden">Search organizations</label>
-            <input type="search" id="roster-q" placeholder="Search 282 organizations" autocomplete="off" aria-describedby="roster-status" />
+            <input type="search" id="roster-q" placeholder="Search organizations" autocomplete="off" aria-describedby="roster-status" />
             <span id="roster-status" class="roster-status" aria-live="polite"></span>
           </div>
           <scott-filter-bar target="#roster" item-selector=".roster-chips li" all-label="All">
@@ -337,6 +363,7 @@
               ]
             </script>
           </scott-filter-bar>
+          <p class="roster-key">Names in <span class="roster-key-chip">gray</span> are past clients and projects. Names in <span class="roster-key-chip is-partner">color</span> are current partners.</p>
         </div>
 
         <div id="roster">

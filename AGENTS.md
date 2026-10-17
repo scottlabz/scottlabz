@@ -70,6 +70,7 @@ Category keys must already exist in `FN_CATEGORIES`, `INSIGHT_CATEGORIES`, or `C
 - `clients.html`, `bbb.html`, `404.html`, and `thank-you.html` use it too.
   - On `clients.html`, the roster sections, chip `<li>`s, filter JSON, and search box stay as they are, because `clients-roster.js` and `<scott-filter-bar>` depend on that markup.
   - Partner chips are `li.is-partner` with a `<small>Partner since YYYY</small>` after the name. They take their section's accent color; don't give one its own brand color (Scott, 2026-10-15). When a chip is added or removed, update that section's `roster-count` to match.
+  - The `.roster-key` line under the filter bar explains the chips: gray is past clients and projects, color is current partners. It sits outside `#roster`, and its sample chips are `span`s, so search and filtering never touch it. If the meaning of a chip style changes, update the key too.
   - `404.html` is served at any missing path, so its asset links must stay root-absolute (`/assets/...`).
   - `thank-you.html` keeps the `data-thanks-message` and `data-thanks-next` hooks that `thank-you.js` rewrites for grant applicants.
 - The nine Bloomington-Normal pages in `markets/` use it too.
