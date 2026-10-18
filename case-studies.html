@@ -247,6 +247,11 @@
         --brand: #5980a6;
       }
 
+      /* The tan of the beagle's ears in the Snoring Beagle logo. */
+      .cs-showcase-card.is-snoringbeagle {
+        --brand: #c0805a;
+      }
+
       /* Logos stay large: each shows at its file's own size, scaled
          down only when the panel is narrower (Hawkeye is near-square,
          the others are wide wordmarks, so a shared height would make
@@ -318,7 +323,10 @@
         margin: 0;
       }
 
+      /* Same width cap as .button (20rem, main.css), so the label
+         centers under the button instead of under the whole column. */
       .cs-showcase-soon {
+        max-width: 20rem;
         margin: 0.6rem 0 0;
         font-size: 0.75rem;
         font-weight: 600;
@@ -326,6 +334,20 @@
         text-align: center;
         text-transform: uppercase;
         color: #555555;
+      }
+
+      /* Stacked cards: the button (and its label) center in the card
+         like the logo above, instead of hugging the left edge. Kept
+         after the base rules above so their margin: 0 doesn't win.
+         width: 100% keeps auto margins from shrinking the button to
+         its text; the 20rem cap still applies. */
+      @media screen and (max-width: 860px) {
+        .cs-showcase-body .button,
+        .cs-showcase-soon {
+          width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
 
       /* Closing call to action after the cards: the page is where
@@ -380,6 +402,16 @@
 
       .button.kitchens {
         background-color: #007030;
+        box-shadow:
+          inset 0 0 0 4px #ffffff,
+          0 6px 14px rgba(0, 0, 0, 0.3);
+        color: #ffffff !important;
+        cursor: default;
+      }
+
+      /* A darker shade of the logo's tan, so white text stays readable. */
+      .button.snoringbeagle {
+        background-color: #7a4e33;
         box-shadow:
           inset 0 0 0 4px #ffffff,
           0 6px 14px rgba(0, 0, 0, 0.3);
@@ -523,6 +555,27 @@
                   <p class="cs-showcase-summary">A long-standing web development and analytics client. The full case study is in progress.</p>
                   <span class="button wide kitchens" aria-disabled="true" aria-describedby="kitchens-soon">View Case Study</span>
                   <p class="cs-showcase-soon" id="kitchens-soon">Coming soon</p>
+                </div>
+              </article>
+
+              <!-- Hand-authored until the Snoring Beagle case study page is
+                   published; then delete this card and give that page
+                   cs-* meta tags like the other client pages. -->
+              <article class="cs-showcase-card is-snoringbeagle">
+                <div class="cs-showcase-logo">
+                  <img
+                    src="images/snoringbeagle-logo.png"
+                    width="1028"
+                    height="506"
+                    alt="Snoring Beagle logo, a cartoon beagle snoring on its back above the Snoring Beagle wordmark"
+                    loading="lazy" />
+                </div>
+                <div class="cs-showcase-body">
+                  <h2 class="cs-showcase-name">Snoring Beagle</h2>
+                  <p class="cs-showcase-caption">Dog beds for every way a dog sleeps</p>
+                  <p class="cs-showcase-summary">A dog bed brand preparing to launch. The full case study is in progress.</p>
+                  <span class="button wide snoringbeagle" aria-disabled="true" aria-describedby="snoringbeagle-soon">View Case Study</span>
+                  <p class="cs-showcase-soon" id="snoringbeagle-soon">Coming soon</p>
                 </div>
               </article>
 
