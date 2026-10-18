@@ -43,7 +43,7 @@ class ScottNav extends HTMLElement {
       {
         href: "/services",
         label: "Services",
-        height: 15,
+        height: 20,
         color: "#2563eb",
         // These are standalone pages, not subpages under a /services/
         // directory, so they can't be caught by the section-path check
@@ -55,8 +55,10 @@ class ScottNav extends HTMLElement {
           "/industries",
         ],
       },
-      { href: "/case-studies", label: "Work", height: 20, color: "#ca8a04" },
-      { href: "/field-notes/", label: "Field Notes", height: 25, color: "#1e3a5f" },
+      // Field Notes left the menu on 2026-10-17 (Scott: keep the pages,
+      // stop presenting them as a section). The articles stay live and
+      // linked from the service pages, and the footer still lists them.
+      { href: "/case-studies", label: "Work", height: 25, color: "#ca8a04" },
       {
         href: "/about",
         label: "About",
