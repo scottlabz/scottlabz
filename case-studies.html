@@ -252,6 +252,16 @@
         --brand: #c0805a;
       }
 
+      /* The red of the lottery ball in The Lottery Matrix logo. */
+      .cs-showcase-card.is-lotterymatrix {
+        --brand: #a61c1f;
+      }
+
+      /* The orange of the wand's star in the Abracalytics logo. */
+      .cs-showcase-card.is-abracalytics {
+        --brand: #fc801d;
+      }
+
       /* Logos stay large: each shows at its file's own size, scaled
          down only when the panel is narrower (Hawkeye is near-square,
          the others are wide wordmarks, so a shared height would make
@@ -273,6 +283,14 @@
         width: auto;
         height: auto;
         max-width: 100%;
+      }
+
+      /* Abracalytics is a stacked mark, much taller than the wordmarks,
+         so at its file's own width it would make its card twice as tall.
+         Capped near the other logos' height; the file stays 858px wide
+         so it's sharp on high-density screens. */
+      .cs-showcase-card.is-abracalytics .cs-showcase-logo img {
+        width: 360px;
       }
 
       .cs-showcase-body {
@@ -412,6 +430,26 @@
       /* A darker shade of the logo's tan, so white text stays readable. */
       .button.snoringbeagle {
         background-color: #7a4e33;
+        box-shadow:
+          inset 0 0 0 4px #ffffff,
+          0 6px 14px rgba(0, 0, 0, 0.3);
+        color: #ffffff !important;
+        cursor: default;
+      }
+
+      /* The ball's shadow red, darker than the card accent. */
+      .button.lotterymatrix {
+        background-color: #7c181b;
+        box-shadow:
+          inset 0 0 0 4px #ffffff,
+          0 6px 14px rgba(0, 0, 0, 0.3);
+        color: #ffffff !important;
+        cursor: default;
+      }
+
+      /* The navy of the Abracalytics hat and wordmark. */
+      .button.abracalytics {
+        background-color: #1d2473;
         box-shadow:
           inset 0 0 0 4px #ffffff,
           0 6px 14px rgba(0, 0, 0, 0.3);
@@ -576,6 +614,48 @@
                   <p class="cs-showcase-summary">A dog bed brand preparing to launch. The full case study is in progress.</p>
                   <span class="button wide snoringbeagle" aria-disabled="true" aria-describedby="snoringbeagle-soon">View Case Study</span>
                   <p class="cs-showcase-soon" id="snoringbeagle-soon">Coming soon</p>
+                </div>
+              </article>
+
+              <!-- Hand-authored until The Lottery Matrix case study page is
+                   published; then delete this card and give that page
+                   cs-* meta tags like the other client pages. -->
+              <article class="cs-showcase-card is-lotterymatrix">
+                <div class="cs-showcase-logo">
+                  <img
+                    src="images/thelotterymatrix-logo.webp"
+                    width="500"
+                    height="207"
+                    alt="The Lottery Matrix logo, a red lottery ball numbered 13 beside the wordmark"
+                    loading="lazy" />
+                </div>
+                <div class="cs-showcase-body">
+                  <h2 class="cs-showcase-name">The Lottery Matrix</h2>
+                  <p class="cs-showcase-caption">Lottery site in development</p>
+                  <p class="cs-showcase-summary">A new site preparing to launch. The full case study is in progress.</p>
+                  <span class="button wide lotterymatrix" aria-disabled="true" aria-describedby="lotterymatrix-soon">View Case Study</span>
+                  <p class="cs-showcase-soon" id="lotterymatrix-soon">Coming soon</p>
+                </div>
+              </article>
+
+              <!-- Hand-authored until the Abracalytics case study page is
+                   published; then delete this card and give that page
+                   cs-* meta tags like the other client pages. -->
+              <article class="cs-showcase-card is-abracalytics">
+                <div class="cs-showcase-logo">
+                  <img
+                    src="images/abracalytics-logo.webp"
+                    width="858"
+                    height="636"
+                    alt="Abracalytics logo, a magic wand over a top hat holding a rising bar chart, above the wordmark"
+                    loading="lazy" />
+                </div>
+                <div class="cs-showcase-body">
+                  <h2 class="cs-showcase-name">Abracalytics</h2>
+                  <p class="cs-showcase-caption">Data, made magical</p>
+                  <p class="cs-showcase-summary">A data and analytics brand preparing to launch. The full case study is in progress.</p>
+                  <span class="button wide abracalytics" aria-disabled="true" aria-describedby="abracalytics-soon">View Case Study</span>
+                  <p class="cs-showcase-soon" id="abracalytics-soon">Coming soon</p>
                 </div>
               </article>
 
