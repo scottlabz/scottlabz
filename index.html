@@ -439,7 +439,13 @@
         color: #64748b;
       }
 
-      /* Trust strip: client logos in grayscale, color on hover. */
+      /* Trust strip: client logos in grayscale, color on hover. The logos
+         run in one row that scrolls on a loop at every width (desktop too,
+         since 2026-10-18). The list holds two copies, and moving it by half
+         its width brings the second copy exactly where the first started.
+         Spacing is padding, not gap, so both halves measure the same. The
+         track clips the row and fades its edges; hovering pauses it so a
+         logo can be looked at. */
       .hx-proof {
         border-top: 1px solid #e2e8f0;
         border-bottom: 1px solid #e2e8f0;
@@ -462,20 +468,30 @@
         text-transform: uppercase;
         color: #64748b;
       }
+      .hx-logos-track {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(to right, transparent, #000 2.5rem, #000 calc(100% - 2.5rem), transparent);
+        mask-image: linear-gradient(to right, transparent, #000 2.5rem, #000 calc(100% - 2.5rem), transparent);
+      }
       .hx-logos {
         display: flex;
-        flex: 1;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         align-items: center;
-        justify-content: space-between;
-        gap: 1.5rem 2.5rem;
+        width: max-content;
         margin: 0;
         padding: 0;
         list-style: none;
+        animation: hx-logo-scroll 40s linear infinite;
+      }
+      .hx-logos-track:hover .hx-logos {
+        animation-play-state: paused;
       }
       .hx-logos li {
+        flex: none;
         margin: 0;
-        padding: 0;
+        padding: 0 3.5rem 0 0;
       }
       .hx-logos img {
         display: block;
@@ -493,9 +509,6 @@
       }
       .hx-logos img.is-badge {
         height: 54px;
-      }
-      .hx-logos li.is-dup {
-        display: none;
       }
       @keyframes hx-logo-scroll {
         from {
@@ -727,33 +740,24 @@
         .hx-chip-b {
           left: 0;
         }
-        /* Phones: the logos run in one row that scrolls on a loop. The list
-           holds two copies, and moving it by half its width brings the
-           second copy exactly where the first started. Spacing is padding,
-           not gap, so both halves measure the same. */
+        /* Phones: the label sits above the scrolling row, the logos are
+           smaller, and the loop runs a little faster. */
         .hx-proof-inner {
-          overflow: hidden;
           padding: 1.5rem 1.25rem;
-          -webkit-mask-image: linear-gradient(to right, transparent, #000 1.25rem, #000 calc(100% - 1.25rem), transparent);
-          mask-image: linear-gradient(to right, transparent, #000 1.25rem, #000 calc(100% - 1.25rem), transparent);
         }
         .hx-proof-label {
           width: 100%;
         }
+        .hx-logos-track {
+          flex-basis: 100%;
+          -webkit-mask-image: linear-gradient(to right, transparent, #000 1.25rem, #000 calc(100% - 1.25rem), transparent);
+          mask-image: linear-gradient(to right, transparent, #000 1.25rem, #000 calc(100% - 1.25rem), transparent);
+        }
         .hx-logos {
-          flex: none;
-          flex-wrap: nowrap;
-          justify-content: flex-start;
-          gap: 0;
-          width: max-content;
-          animation: hx-logo-scroll 20s linear infinite;
+          animation-duration: 30s;
         }
         .hx-logos li {
-          flex: none;
           padding-right: 2.5rem;
-        }
-        .hx-logos li.is-dup {
-          display: block;
         }
         .hx-logos img {
           height: 26px;
@@ -787,17 +791,17 @@
           transition: none;
         }
       }
-      /* Phones with reduced motion: no scrolling strip, the logos wrap in
+      /* Reduced motion: no scrolling strip at any width. The logos wrap in
          place, one copy only. */
-      @media screen and (max-width: 736px) and (prefers-reduced-motion: reduce) {
-        .hx-proof-inner {
+      @media (prefers-reduced-motion: reduce) {
+        .hx-logos-track {
           -webkit-mask-image: none;
           mask-image: none;
         }
         .hx-logos {
-          flex: 1;
           flex-wrap: wrap;
-          gap: 1.25rem 1.75rem;
+          justify-content: center;
+          gap: 1.5rem 3rem;
           width: auto;
           animation: none;
         }
@@ -806,6 +810,12 @@
         }
         .hx-logos li.is-dup {
           display: none;
+        }
+      }
+      @media screen and (max-width: 736px) and (prefers-reduced-motion: reduce) {
+        .hx-logos {
+          justify-content: flex-start;
+          gap: 1.25rem 1.75rem;
         }
       }
 
@@ -1132,17 +1142,25 @@
         <section class="hx-proof" aria-label="Clients">
           <div class="hx-proof-inner">
             <p class="hx-proof-label">Trusted by</p>
-            <ul class="hx-logos">
-              <li><img src="images/logo-strip-hawkeyefanshop.webp?v=518a418344" width="200" height="96" alt="Hawkeye Fan Shop" class="is-badge" /></li>
-              <li><img src="images/logo-strip-bgs.webp?v=1594bb7efe" width="451" height="96" alt="The Black &amp; Gold Shop" /></li>
-              <li><img src="images/logo-strip-kitchens.webp?v=644d7abe72" width="444" height="96" alt="Kitchens" /></li>
-              <li><img src="images/logo-strip-couchletics.webp?v=90cf50784b" width="708" height="96" alt="Couchletics" /></li>
-              <!-- Second copy for the seamless phone scroll; hidden elsewhere and from screen readers. -->
-              <li class="is-dup" aria-hidden="true"><img src="images/logo-strip-hawkeyefanshop.webp?v=518a418344" width="200" height="96" alt="" class="is-badge" /></li>
-              <li class="is-dup" aria-hidden="true"><img src="images/logo-strip-bgs.webp?v=1594bb7efe" width="451" height="96" alt="" /></li>
-              <li class="is-dup" aria-hidden="true"><img src="images/logo-strip-kitchens.webp?v=644d7abe72" width="444" height="96" alt="" /></li>
-              <li class="is-dup" aria-hidden="true"><img src="images/logo-strip-couchletics.webp?v=90cf50784b" width="708" height="96" alt="" /></li>
-            </ul>
+            <div class="hx-logos-track">
+              <ul class="hx-logos">
+                <li><img src="images/logo-strip-hawkeyefanshop.webp?v=518a418344" width="200" height="96" alt="Hawkeye Fan Shop" class="is-badge" /></li>
+                <li><img src="images/logo-strip-bgs.webp?v=1594bb7efe" width="451" height="96" alt="The Black &amp; Gold Shop" /></li>
+                <li><img src="images/logo-strip-kitchens.webp?v=644d7abe72" width="444" height="96" alt="Kitchens" /></li>
+                <li><img src="images/logo-strip-couchletics.webp?v=90cf50784b" width="708" height="96" alt="Couchletics" /></li>
+                <li><img src="images/logo-strip-snoringbeagle.webp" width="535" height="96" alt="Snoring Beagle" /></li>
+                <li><img src="images/logo-strip-lotterymatrix.webp" width="232" height="96" alt="The Lottery Matrix" class="is-badge" /></li>
+                <li><img src="images/logo-strip-abracalytics.webp" width="389" height="96" alt="Abracalytics" /></li>
+                <!-- Second copy for the seamless loop; hidden from screen readers, and dropped under reduced motion. -->
+                <li class="is-dup" aria-hidden="true"><img src="images/logo-strip-hawkeyefanshop.webp?v=518a418344" width="200" height="96" alt="" class="is-badge" /></li>
+                <li class="is-dup" aria-hidden="true"><img src="images/logo-strip-bgs.webp?v=1594bb7efe" width="451" height="96" alt="" /></li>
+                <li class="is-dup" aria-hidden="true"><img src="images/logo-strip-kitchens.webp?v=644d7abe72" width="444" height="96" alt="" /></li>
+                <li class="is-dup" aria-hidden="true"><img src="images/logo-strip-couchletics.webp?v=90cf50784b" width="708" height="96" alt="" /></li>
+                <li class="is-dup" aria-hidden="true"><img src="images/logo-strip-snoringbeagle.webp" width="535" height="96" alt="" /></li>
+                <li class="is-dup" aria-hidden="true"><img src="images/logo-strip-lotterymatrix.webp" width="232" height="96" alt="" class="is-badge" /></li>
+                <li class="is-dup" aria-hidden="true"><img src="images/logo-strip-abracalytics.webp" width="389" height="96" alt="" /></li>
+              </ul>
+            </div>
           </div>
         </section>
 

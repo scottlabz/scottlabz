@@ -1,0 +1,107 @@
+/*
+ * Closing call-to-action band for pages that don't load solutions.css:
+ * /case-studies, the client case-study pages and their deep dives, and
+ * every Field Note and Insight.
+ *
+ * It's the same full-width navy band as .sx-cta (solutions.css) and
+ * .home-cta (index.html), so every page on the site ends the same way.
+ * Change the three together.
+ *
+ * Markup (heading level follows the page; h2 or h3 both work):
+ *   <section class="cta-band" aria-labelledby="...">
+ *     <h2 id="...">Heading</h2>
+ *     <p>One or two sentences.</p>
+ *     <ul class="actions special">
+ *       <li><a href="/contact" class="button big wide alt">Talk to Scott</a></li>
+ *     </ul>
+ *   </section>
+ */
+
+/* The negative side margins let the band break out of a centered column
+   (an article's main.service-content is 900px wide) and reach the window
+   edges. 100vw includes the scrollbar, so the band overhangs by half a
+   scrollbar on each side; #wrapper's overflow: hidden clips that, so no
+   sideways scroll appears. */
+.cta-band {
+  margin: 0 calc(50% - 50vw);
+  padding: 5rem 1.5rem;
+  text-align: center;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(76, 139, 245, 0.28), transparent 55%),
+    linear-gradient(180deg, #16294a 0%, #1e3a5f 100%);
+}
+
+/* Explicit sizes, not main.css's heading scale: an article's h3 is much
+   smaller than the solutions pages' h2, and the band should read the same
+   everywhere. */
+.cta-band h2,
+.cta-band h3 {
+  max-width: 40rem;
+  margin: 0 auto 1rem;
+  padding: 0;
+  border: 0;
+  font-size: 2.25rem;
+  font-weight: 300;
+  line-height: 1.375;
+  letter-spacing: -0.05em;
+  text-transform: none;
+  color: #ffffff;
+}
+
+.cta-band p {
+  max-width: 40rem;
+  margin: 0 auto 2.25rem;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.cta-band p a {
+  color: #ffffff;
+  border-bottom: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* main.css gives ul.actions a -1rem left margin that its items' 1rem left
+   padding cancels out; leave that pair alone so the button stays centered.
+   padding-left: 0 undoes the article column's list indent
+   (.service-content ul), which pushed the button off center. */
+.cta-band ul.actions {
+  justify-content: center;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+/* The band sits flush on the footer with no gap, like the homepage's.
+   Article pages put bottom space on main itself, which would show as a
+   white strip between the two, so drop it when the band is the last thing
+   in main. !important because most articles set that space in an inline
+   style on <main> (margin: 2rem auto, or 4rem), which a stylesheet can't
+   otherwise override; one Insight uses 64px of padding instead. */
+main:has(> .cta-band:last-child) {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.cta-band .button {
+  background-color: #ffffff;
+  box-shadow: none;
+  color: #1e3a5f !important;
+}
+
+.cta-band .button:hover,
+.cta-band .button:focus-visible {
+  background-color: #dbe7fb;
+}
+
+@media screen and (max-width: 736px) {
+  .cta-band {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .cta-band h2,
+  .cta-band h3 {
+    font-size: 2rem;
+  }
+}
