@@ -131,6 +131,11 @@
                   "@type": "ListItem",
                   "position": 3,
                   "url": "https://scottlabz.com/case-studies/couchletics"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "url": "https://scottlabz.com/case-studies/snoring-beagle"
                 }
               ]
             }
@@ -410,14 +415,23 @@
         cursor: default;
       }
 
-      /* A darker shade of the logo's tan, so white text stays readable. */
+      /* A darker shade of the logo's tan (white text stays readable),
+         ringed in a deeper brown. Hover goes black with the logo's tan
+         as the ring, the same pattern as Couchletics. */
       .button.snoringbeagle {
         background-color: #7a4e33;
         box-shadow:
-          inset 0 0 0 4px #ffffff,
+          inset 0 0 0 4px #4a2c1c,
           0 6px 14px rgba(0, 0, 0, 0.3);
         color: #ffffff !important;
-        cursor: default;
+      }
+
+      .button.snoringbeagle:hover {
+        background-color: #000000;
+        box-shadow:
+          inset 0 0 0 4px #c0805a,
+          0 6px 14px rgba(0, 0, 0, 0.3);
+        color: #ffffff !important;
       }
 
       /* The ball's shadow red, darker than the card accent. */
@@ -556,6 +570,22 @@
                   <a href="case-studies/couchletics" class="button wide couchletics" aria-label="View Couchletics Case Study">View Case Study</a>
                 </div>
               </article>
+              <article class="cs-showcase-card is-snoringbeagle">
+                <div class="cs-showcase-logo">
+                  <img
+                    src="images/snoringbeagle-logo.png?v=3a7eca13f6"
+                    width="1028"
+                    height="506"
+                    alt="Snoring Beagle logo, a snoring beagle above the wordmark"
+                    loading="lazy" />
+                </div>
+                <div class="cs-showcase-body">
+                  <h2 class="cs-showcase-name">Snoring Beagle</h2>
+                  <p class="cs-showcase-caption">Dog beds for dogs who take sleep seriously</p>
+                  <p class="cs-showcase-summary">How a dog bed store launched with its own brand and a custom store, with a bed finder, gift cards, shipping priced from carrier rates and orders shipped straight from the maker.</p>
+                  <a href="case-studies/snoring-beagle" class="button wide snoringbeagle" aria-label="View Snoring Beagle Case Study">View Case Study</a>
+                </div>
+              </article>
               <!-- CS-CLIENTS:END -->
 
               <!-- Hand-authored until the Kitchens case study page is
@@ -579,26 +609,6 @@
                 </div>
               </article>
 
-              <!-- Hand-authored until the Snoring Beagle case study page is
-                   published; then delete this card and give that page
-                   cs-* meta tags like the other client pages. -->
-              <article class="cs-showcase-card is-snoringbeagle">
-                <div class="cs-showcase-logo">
-                  <img
-                    src="images/snoringbeagle-logo.png?v=3a7eca13f6"
-                    width="1028"
-                    height="506"
-                    alt="Snoring Beagle logo, a cartoon beagle snoring on its back above the Snoring Beagle wordmark"
-                    loading="lazy" />
-                </div>
-                <div class="cs-showcase-body">
-                  <h2 class="cs-showcase-name">Snoring Beagle</h2>
-                  <p class="cs-showcase-caption">Dog beds for every way a dog sleeps</p>
-                  <p class="cs-showcase-summary">A dog bed brand preparing to launch. The full case study is in progress.</p>
-                  <span class="button wide snoringbeagle" aria-disabled="true" aria-describedby="snoringbeagle-soon">View Case Study</span>
-                  <p class="cs-showcase-soon" id="snoringbeagle-soon">Coming soon</p>
-                </div>
-              </article>
 
               <!-- Hand-authored until The Lottery Matrix case study page is
                    published; then delete this card and give that page

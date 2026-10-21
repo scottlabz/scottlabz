@@ -1,5 +1,5 @@
 {
-  "count": 10,
+  "count": 11,
   "notes": [
     {
       "slug": "hawkeye-fan-shop",
@@ -54,6 +54,24 @@
       "logo_alt": "Couchletics logo, sports loungewear and game day gear for football fans",
       "button_class": "couchletics",
       "button_text": "View Couchletics Case Study"
+    },
+    {
+      "slug": "snoring-beagle",
+      "path": "snoring-beagle",
+      "client": null,
+      "file": "snoring-beagle.html",
+      "url": "https://scottlabz.com/case-studies/snoring-beagle",
+      "type": "client",
+      "order": 4,
+      "title": "Snoring Beagle",
+      "summary": "How a dog bed store launched with its own brand and a custom store, with a bed finder, gift cards, shipping priced from carrier rates and orders shipped straight from the maker.",
+      "caption": "Dog beds for dogs who take sleep seriously",
+      "logo": "images/snoringbeagle-logo.png",
+      "logo_width": "1028",
+      "logo_height": "506",
+      "logo_alt": "Snoring Beagle logo, a snoring beagle above the wordmark",
+      "button_class": "snoringbeagle",
+      "button_text": "View Snoring Beagle Case Study"
     },
     {
       "slug": "digital-analytics-implementation",
