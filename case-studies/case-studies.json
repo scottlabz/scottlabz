@@ -1,5 +1,5 @@
 {
-  "count": 11,
+  "count": 12,
   "notes": [
     {
       "slug": "hawkeye-fan-shop",
@@ -38,13 +38,31 @@
       "button_text": "View Black & Gold Shop Case Study"
     },
     {
+      "slug": "kitchens",
+      "path": "kitchens",
+      "client": null,
+      "file": "kitchens.html",
+      "url": "https://scottlabz.com/case-studies/kitchens",
+      "type": "client",
+      "order": 3,
+      "title": "Kitchens",
+      "summary": "How a family-owned cookware store with two locations moved to one page that sends shoppers to the right store, with store details, coffee lists, recipes, sign-ups and every old link kept.",
+      "caption": "Family-owned cookware, cutlery, and gourmet foods retailer",
+      "logo": "images/kitchens.png",
+      "logo_width": "1000",
+      "logo_height": "216",
+      "logo_alt": "Kitchens logo, a family-owned cookware, cutlery, and gourmet foods retailer",
+      "button_class": "kitchens",
+      "button_text": "View Kitchens Case Study"
+    },
+    {
       "slug": "couchletics",
       "path": "couchletics",
       "client": null,
       "file": "couchletics.html",
       "url": "https://scottlabz.com/case-studies/couchletics",
       "type": "client",
-      "order": 3,
+      "order": 4,
       "title": "Couchletics",
       "summary": "How a sleepwear and lounge brand launched with its own identity and a custom store, with bundled sets, live stock, checkout and order automation built in.",
       "caption": "Sports loungewear and game day gear for football fans",
@@ -62,7 +80,7 @@
       "file": "snoring-beagle.html",
       "url": "https://scottlabz.com/case-studies/snoring-beagle",
       "type": "client",
-      "order": 4,
+      "order": 5,
       "title": "Snoring Beagle",
       "summary": "How a dog bed store launched with its own brand and a custom store, with a bed finder, gift cards, shipping priced from carrier rates and orders shipped straight from the maker.",
       "caption": "Dog beds for dogs who take sleep seriously",

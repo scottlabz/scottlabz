@@ -1,0 +1,1583 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <!-- Google Tag Manager -->
+    <script src="/assets/js/gtm.js?v=a142f1f758" async></script>
+    <!-- End Google Tag Manager -->
+
+    <title>Kitchens Website Case Study | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="How Scott Labz rebuilt the Kitchens website as one page for its two cookware stores, with store details, coffee lists, recipes, sign-ups and the old links kept." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="preload"
+      href="/assets/fonts/source-sans-pro-300.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin />
+    <link
+      rel="preload"
+      href="/assets/fonts/source-sans-pro-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin />
+    <link rel="stylesheet" href="/assets/css/main-min.css?v=82645360b3" />
+    <link rel="stylesheet" href="/assets/css/cta-band-min.css?v=6cca415f53" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript-min.css?v=ab1c7bc451" />
+    </noscript>
+
+    <script src="/assets/js/header-min.js?v=0d09452115" async></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon/favicon-32x32.png?v=d06ceab0dd" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon/favicon-16x16.png?v=2664f5c356" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/images/favicon/favicon-96x96.png?v=1fac781b7c" />
+    <script src="/assets/js/navigation-min.js?v=648d3a34f6" defer></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/case-studies/kitchens" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://scottlabz.com/#organization",
+            "name": "Scott Labz, LLC",
+            "description": "How Scott Labz rebuilt the Kitchens website as one page for its two cookware stores, with store details, coffee lists, recipes, sign-ups and the old links kept.",
+            "url": "https://scottlabz.com/case-studies/kitchens",
+            "telephone": "+1-309-340-4306",
+            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "priceRange": "$$",
+            "slogan": "Measure. Build. Improve.",
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "McLean County, Illinois"
+            },
+            "sameAs": [
+              "https://github.com/scottlabz",
+              "https://www.linkedin.com/company/scottlabz",
+              "https://www.linkedin.com/in/scotttaylor369"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-309-340-4306",
+              "contactType": "Scott Labz"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://scottlabz.com/#scotttaylor",
+            "name": "Scott Taylor",
+            "jobTitle": "Founder",
+            "description": "Scott Taylor is the founder of Scott Labz, where he combines web development, analytics, automation, and digital strategy to help businesses create faster, smarter, and more effective digital experiences.",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "url": "https://scottlabz.com/case-studies/kitchens",
+            "email": "mailto:info@scottlabz.com",
+            "knowsAbout": [
+              "Website Design",
+              "Website Development",
+              "Local Search",
+              "Website Migration"
+            ],
+            "worksFor": {
+              "@id": "https://scottlabz.com/#organization"
+            },
+            "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
+          }
+        ]
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+
+    <meta property="og:site_name" content="Scott Labz" />
+
+    <meta
+      property="og:title"
+      content="Kitchens Case Study | Scott Labz" />
+
+    <meta
+      property="og:description"
+      content="How Scott Labz rebuilt the Kitchens website as one page for its two cookware stores, with store details, coffee lists, recipes, sign-ups and the old links kept." />
+
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/case-studies/kitchens" />
+
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/og-share.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kitchens Case Study | Scott Labz" />
+    <meta name="twitter:description" content="How Scott Labz rebuilt the Kitchens website as one page for its two cookware stores, with store details, coffee lists, recipes, sign-ups and the old links kept." />
+    <meta name="twitter:image" content="https://scottlabz.com/images/og-share.png" />
+
+    <style>
+      /* Real-screenshot showcase, copied from the Hawkeye Fan Shop case
+         study (the two client pages with screenshot tours) - not a shared
+         main.css pattern. Colors and radii match .case-section/.security-table so
+         it reads as part of the same design language.
+
+         Each screenshot renders full-size in its own block instead of a
+         thumbnail grid. In place of the old click-to-enlarge lightbox
+         modal, numbered hotspot pins sit directly on top of the image at
+         real UI elements; clicking one fades in a small detail card next
+         to that exact pin (no overlay, nothing leaves the page flow -
+         see .hotspot-pin/.hotspot-popover and the script near the end of
+         <body>). Screenshots with nothing worth calling out (e.g. the
+         payment-icon row) skip hotspots entirely and just run the
+         lead-in paragraph underneath. */
+      .shot-tour {
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+        margin-top: 1.75rem;
+        /* Room before a bullet list or paragraph that follows the
+           screenshots; collapses into a following h4's top margin. */
+        margin-bottom: 2.5rem;
+      }
+
+
+      /* width:fit-content (not the flex column's default full-width
+         stretch) so the frame hugs each screenshot at its own real
+         resolution instead of stretching every image - many of these
+         run narrower than the column - up to a shared width and
+         visibly softening them. max-width/margin keep it from
+         overflowing on narrow viewports and centered when it's
+         narrower than the column. */
+      .shot-frame {
+        border: 1px solid #000;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 auto;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .shot-frame:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+      }
+
+      .shot-chrome {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: #eef1f5;
+        padding: 8px 12px;
+        border-bottom: 1px solid #dde1e6;
+      }
+
+      .shot-chrome .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+
+      .shot-chrome .dot:nth-child(1) {
+        background: #ff5f57;
+      }
+
+      .shot-chrome .dot:nth-child(2) {
+        background: #febc2e;
+      }
+
+      .shot-chrome .dot:nth-child(3) {
+        background: #28c840;
+      }
+
+      .shot-chrome .url {
+        margin-left: 8px;
+        background: #fff;
+        border: 1px solid #dde1e6;
+        border-radius: 5px;
+        padding: 2px 10px;
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .shot-chrome .url img {
+        display: block;
+        height: 10px;
+        width: auto;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .shot-frame img {
+        display: block;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+      }
+
+      /* Styled as a callout attached to the frame it introduces - the
+         blue accent bar echoes .hotspot-pin's own color so the caption
+         and the screenshot it's captioning read as one unit, rather
+         than the plain paragraph blending into the section's body
+         copy above it. Since each one sits directly above its own
+         .shot-frame and directly below the previous one, this is the
+         only text in the immediate vicinity of every browser mockup
+         on the page. */
+      .shot-lead {
+        position: relative;
+        font-size: 1.1rem;
+        color: #33475b;
+        margin: 0 0 1rem;
+        padding: 0.75rem 1.1rem;
+        line-height: 1.65;
+        background: rgba(37, 99, 235, 0.06);
+        border-left: 3px solid #2563eb;
+        border-radius: 0 8px 8px 0;
+      }
+
+      /* The interactive image area. Positioned so hotspot pins (also
+         absolutely positioned, placed inline per-image via style="left:
+         %; top: %") anchor to the actual pixel they're calling out
+         regardless of how the image is scaled at a given viewport. */
+      .hotspot-media {
+        position: relative;
+        line-height: 0;
+      }
+
+      /* Caps tall images to a fixed viewing height with an internal
+         scrollbar, for cases where showing the full image at native
+         width would otherwise run for thousands of pixels. This wraps
+         .hotspot-media rather than constraining it directly - the pins
+         inside are positioned via percentages resolved against their
+         containing block's own size, so if the height cap were applied
+         to .hotspot-media itself, every "top: X%" would resolve against
+         600px instead of the image's real height and every pin below
+         the fold would land in the wrong place. Keeping .hotspot-media
+         at its natural full height and scrolling this outer wrapper
+         instead leaves that math untouched. */
+      .shot-scroll-cap {
+        max-height: 600px;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      /* main.css's generic button:hover/:active rules force color with
+         !important, which otherwise wins over any normal-specificity
+         rule here regardless of selector weight - color/background are
+         !important'd below to match and guarantee this component's own
+         states render correctly.
+
+         Blue (#2563eb), matching the reference number badge inside the
+         popover, so the pin and its own detail card read as the same
+         control. Flips to a deeper shade of the same blue once opened,
+         rather than jumping to an unrelated hue. */
+      .hotspot-pin {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #2563eb !important;
+        color: #fff !important;
+        border: 3px solid #fff;
+        font: 800 22px/1 Inter, system-ui, sans-serif;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5) !important;
+        z-index: 2;
+        padding: 0;
+        /* main.css's sitewide button reset sets overflow:hidden on
+           every <button> (for text-ellipsis truncation on normal site
+           buttons) - since this pin never overrode it, that rule was
+           silently clipping the sonar ring to this element's own 60px
+           box the instant it scaled past it, so the animation was
+           rendering but never visibly leaving the button. */
+        overflow: visible;
+        transition:
+          background 0.15s ease,
+          color 0.15s ease,
+          transform 0.15s ease;
+      }
+
+      /* Subtle sonar ping - one ring expanding a short distance from
+         the pin's own edge before fading, dialed back from the earlier
+         version's larger/double-ring effect per feedback that it read
+         as too much. Starting at inset:-3px (slightly larger than the
+         pin, not inset:0/exactly the same size) matters - the ring
+         sits behind the pin (z-index:-1), so if it started at the same
+         size as the opaque pin on top of it, the ring would be entirely
+         hidden underneath at the start of every cycle. */
+      .hotspot-pin::before {
+        content: "";
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        border: 3px solid rgba(37, 99, 235, 0.95);
+        z-index: -1;
+        pointer-events: none;
+        animation: hotspot-sonar 2s ease-out infinite;
+      }
+
+      /* The button's visible label is empty (see aria-label for its
+         accessible name) - this pseudo-element supplies the +/- glyph
+         instead, swapped purely by the aria-expanded state the toggle
+         script already maintains, no extra JS needed. */
+      .hotspot-pin::after {
+        content: "+";
+        line-height: 1;
+      }
+
+      .hotspot-pin[aria-expanded="true"]::after {
+        content: "\2212";
+      }
+
+      .hotspot-pin:hover,
+      .hotspot-pin:focus-visible,
+      .hotspot-pin:active {
+        background: #1d4ed8 !important;
+        color: #000 !important;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5) !important;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      .hotspot-pin[aria-expanded="true"] {
+        background: #1d4ed8 !important;
+        color: #000 !important;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5) !important;
+      }
+
+      .hotspot-pin[aria-expanded="true"]::before {
+        animation: none;
+        opacity: 0;
+      }
+
+      @keyframes hotspot-sonar {
+        0% {
+          transform: scale(1);
+          opacity: 0.9;
+        }
+        100% {
+          transform: scale(1.65);
+          opacity: 0;
+        }
+      }
+
+      /* Source content for the popover below - each pin's detail card
+         lives here in normal, crawlable markup but is never shown in
+         place. The toggle script reads a clicked pin's matching note
+         by id and copies it into the single shared .hotspot-popover,
+         which it positions next to that exact pin. Keeping the source
+         hidden this way (rather than deleting it) avoids having to
+         restructure all 72 of these per image. */
+      .hotspot-notes {
+        display: none;
+      }
+
+      /* Appended once to <body> by the toggle script, not nested inside
+         any .shot-frame - that's what lets it fade in next to whichever
+         pin was pressed without being clipped by the frame's rounded-
+         corner overflow:hidden, and without inheriting scroll/position
+         quirks from position:fixed. */
+      .hotspot-popover {
+        position: absolute;
+        z-index: 60;
+        display: flex;
+        gap: 0.9rem;
+        width: min(380px, calc(100vw - 24px));
+        background: #fff;
+        border: 2px solid #000;
+        border-radius: 12px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+        padding: 1.4rem 1.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(6px);
+        transition:
+          opacity 0.18s ease,
+          transform 0.18s ease;
+        pointer-events: none;
+      }
+
+      .hotspot-popover.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .hotspot-popover .hotspot-note-num {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #2563eb;
+        color: #fff;
+        font: 800 13px/32px Inter, system-ui, sans-serif;
+        text-align: center;
+      }
+
+      .hotspot-popover h4 {
+        margin: 0.2rem 0 0.65rem;
+        padding-bottom: 0.4rem;
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: #111;
+        border-bottom: 2px solid #2563eb;
+      }
+
+      .hotspot-popover p {
+        margin: 0 0 1rem;
+        font-size: 1rem;
+        line-height: 1.75;
+        color: #444;
+      }
+
+      .hotspot-popover p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Non-interactive shots (payment icon row, etc.) keep the same
+         frame treatment but skip hotspots entirely - plain image, lead
+         paragraph does the explaining. */
+      .shot-frame.plain img {
+        cursor: default;
+      }
+
+      /* main.css sizes this background strip at 20% of
+         .case-study-hero's own height, which was fine when that
+         element was just a short intro banner. On this page the hero
+         section wraps every case-section added below it, so its
+         height is the whole page - 20% of a 13,000px+ page ballooned
+         the strip into a multi-thousand-pixel box, forcing the
+         1980x1485 source photo to upscale well past its native
+         resolution (especially at Retina density) and look
+         pixelated. Capping it to one viewport height keeps it sized
+         like the short intro banner it's meant to be. */
+      .case-study-hero::before {
+        height: 100vh;
+        height: 100svh;
+      }
+    
+      /* Subheads that split What Was Built into its parts */
+      /* main.css pads list items on top only, so each divider sat right
+         under the line of text above it; split the space evenly. */
+      .case-section ul.alt li {
+        padding: 0.75rem 0;
+      }
+      .case-section ul.alt li:first-child {
+        padding-top: 0;
+      }
+      .case-section ul.alt li:last-child {
+        padding-bottom: 0;
+      }
+      .case-section > h4 {
+        margin: 4.5rem 0 1rem;
+        color: #1e3a5f;
+      }
+      .case-section > h3 + p + h4,
+      .case-section > h3 + h4 {
+        margin-top: 2.5rem;
+      }
+      /* More room between the section cards (main.css: 2.5rem). */
+      .hero-box,
+      .case-section {
+        margin-bottom: 4rem;
+      }
+
+      /* A longer, eased fade from the storefront photo into the page.
+         The shared rule (main.css) fades in a straight line over the
+         last 40% only, which reads as a hard edge; this one starts at
+         25% and eases out, the same as the Snoring Beagle page. */
+      .case-study-hero::before {
+        -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 25%, rgba(0, 0, 0, 0.94) 36%, rgba(0, 0, 0, 0.8) 48%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.38) 72%, rgba(0, 0, 0, 0.18) 84%, rgba(0, 0, 0, 0.05) 94%, transparent 100%);
+        mask-image: linear-gradient(to bottom, #000 0%, #000 25%, rgba(0, 0, 0, 0.94) 36%, rgba(0, 0, 0, 0.8) 48%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.38) 72%, rgba(0, 0, 0, 0.18) 84%, rgba(0, 0, 0, 0.05) 94%, transparent 100%);
+      }
+</style>
+    <!-- Case Studies hub card data - read by scripts/generate_indexes.py -->
+        <meta name="cs-type" content="client" />
+    <meta name="cs-order" content="3" />
+    <meta name="cs-title" content="Kitchens" />
+    <meta name="cs-summary" content="How a family-owned cookware store with two locations moved to one page that sends shoppers to the right store, with store details, coffee lists, recipes, sign-ups and every old link kept." />
+    <meta name="cs-caption" content="Family-owned cookware, cutlery, and gourmet foods retailer" />
+    <meta name="cs-logo" content="images/kitchens.png" />
+    <meta name="cs-logo-width" content="1000" />
+    <meta name="cs-logo-height" content="216" />
+    <meta name="cs-logo-alt" content="Kitchens logo, a family-owned cookware, cutlery, and gourmet foods retailer" />
+    <meta name="cs-button-class" content="kitchens" />
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <scott-nav></scott-nav>
+
+    <div id="wrapper">
+      <main id="main-content">
+        <section
+          class="case-study-hero banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right"
+          style="--hero-bg: url(&quot;/images/case-studies-storefront-kitchens2.jpg&quot;)">
+          <div class="content">
+            <div class="hero-box">
+              <p class="brand-mark">
+                <a href="/" style="border-bottom: none">
+                  <img
+                    src="/images/scottlabz-clear.webp?v=d34943c620"
+                    srcset="/images/scottlabz-clear-32w.webp?v=8d5d3e1b4b 32w, /images/scottlabz-clear-64w.webp?v=7b37132bec 64w, /images/scottlabz-clear-96w.webp?v=1b0fa7e3f5 96w, /images/scottlabz-clear.webp?v=d34943c620 130w"
+                    sizes="(max-width: 736px) 28px, 55px"
+                    width="130"
+                    height="170"
+                    alt="S"
+                    class="logo"
+                    style="margin-right: 0" />cott Labz
+                </a>
+              </p>
+
+              <h1 class="size-h3">Kitchens Case Study</h1>
+
+              <h2
+                class="case-study-headline"
+                style="
+                  font-size: 2.2rem;
+                  margin-top: 0.5rem;
+                  margin-bottom: 1.5rem;
+                ">
+                One Page That Sends Shoppers to Two Stores
+              </h2>
+
+              <p class="major" style="margin-bottom: 0">
+                Scott Labz rebuilt the website for Kitchens, a family-owned
+                cookware store with locations in Iowa and Missouri, as a single
+                page built to bring shoppers through the door, tell the story
+                behind the shop and grow its mailing list.
+              </p>
+            </div>
+
+            <div class="case-section">
+              <h3>Project Overview</h3>
+
+              <div class="table-wrapper">
+                <table class="security-table">
+                  <tbody>
+                    <tr>
+                      <td><strong>Project</strong></td>
+                      <td>A one-page website for a specialty kitchenware and gourmet food retailer</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Organization</strong></td>
+                      <td>Kitchens, a family-owned store selling cookware, cutlery, gourmet foods and fresh coffee since 1992</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Locations</strong></td>
+                      <td>Northpark Mall in Davenport, Iowa, and Branson Landing in Branson, Missouri</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Client since</strong></td>
+                      <td>2016</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Timeline</strong></td>
+                      <td>Built September to October 2026. Live October 22, 2026</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Services</strong></td>
+                      <td>Design, development, store listings and search data, forms, analytics, accessibility, hosting, and the move from the old site</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Live site</strong></td>
+                      <td><a href="https://mykitchensshop.com" target="_blank" rel="noopener">mykitchensshop.com</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="case-section">
+              <h3>The Challenge</h3>
+
+              <p>Kitchens needed one page to do three jobs: send shoppers to its two stores, tell the story of a family-run shop that has served customers since 1992, and collect emails for its newsletter and promotions. It had to work as well on a phone as on a desktop, load quickly, and be simple for store staff to keep current.</p>
+              <p style="margin: 0 0 0.9rem 0">The old site made each of those harder:</p>
+              <ul class="alt">
+                <li>Store details were spread across separate pages for locations, brands, videos, recipes, the gallery, reviews, hiring and contact</li>
+                <li>Two stores in two states, each with its own hours, phone number, manager and coffee list</li>
+                <li>Old pages that customers' bookmarks and search results still pointed to</li>
+                <li>Both stores' email ran on the same domain, so the switch couldn't interrupt it</li>
+              </ul>
+              <p>A new site answered each one, built from the design and content the client supplied, with nothing copied from the old site.</p>
+            </div>
+
+            <div class="case-section">
+              <h3>What Was Built</h3>
+
+              <p>Scott Labz designed and built the site end to end: 23 rounds of design, the build, store listings for search, both forms, analytics, accessibility checks, and the switch from the old site.</p>
+              <h4>A page built around the store visit</h4>
+              <p>The design went through 23 versions, each saved so earlier directions could be compared or restored. It settled on one long page under a sticky header, with tabs that scroll to each section instead of slide-style transitions.</p>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">The page opens on staff in the store, with the way to both stores one tap away in the header and the hero.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-kitchens.svg" width="124" height="14" alt="mykitchensshop.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/kitchens-home-760w.webp"
+                        srcset="/images/kitchens-home-760w.webp 760w, /images/kitchens-home-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="449"
+                        alt="Kitchens homepage with the logo, section tabs and a Visit Us tag in the header, the headline Welcome to Kitchens over a photo of staff in the store, a Find a Store button and a green bar of three store benefits"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 60.3%; top: 6.2%"
+                        data-target="hs-home-tabs"
+                        aria-expanded="false"
+                        aria-controls="hs-home-tabs"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 91.9%; top: 11%"
+                        data-target="hs-home-visit"
+                        aria-expanded="false"
+                        aria-controls="hs-home-visit"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 53.5%; top: 36.8%"
+                        data-target="hs-home-headline"
+                        aria-expanded="false"
+                        aria-controls="hs-home-headline"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 22%; top: 64.6%"
+                        data-target="hs-home-cta"
+                        aria-expanded="false"
+                        aria-controls="hs-home-cta"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 33.3%; top: 92.3%"
+                        data-target="hs-home-benefits"
+                        aria-expanded="false"
+                        aria-controls="hs-home-benefits"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-home-tabs">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Tabs that follow the scroll</h4>
+                          <p>Each tab scrolls smoothly to its section, and the highlighted tab updates on its own as the visitor moves down the page.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-home-visit">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>A name tag that says Visit Us</h4>
+                          <p>The main call to action started as a ribbon and quilted-cloth treatment and was simplified to a name tag, taken from the staff name tags in the store photos. It flips from green to white on hover.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-home-headline">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Welcome to Kitchens</h4>
+                          <p>The hero leads with the store, its staff and its line about great prices, with "Since 1992 - Iowa - Missouri" above it.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-home-cta">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>Find a store</h4>
+                          <p>One button goes straight to the two locations.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-home-benefits">
+                        <span class="hotspot-note-num">5</span>
+                        <div>
+                          <h4>Three reasons to stop in</h4>
+                          <p>Complimentary coffee, shipping to your home and cutting-edge knives, with the text sized and centered to fill each block at every screen width.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="alt">
+                <li>Sections alternate white, beige and black so each reads as its own block, and the contact form and footer close in the brand's green</li>
+                <li>Square corners, thin hairline borders and a short green rule under each heading, with a serif for headings and a clean sans for body text</li>
+                <li>Every image, logo and recipe card is served from the site itself, so nothing breaks when another site changes</li>
+              </ul>
+              <h4>Two stores, each with what a shopper needs to visit</h4>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">Each store card has everything a shopper needs before the drive: where it is in the mall, how to call, when it's open and how others rate it.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-kitchens.svg" width="124" height="14" alt="mykitchensshop.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/kitchens-locations-760w.webp"
+                        srcset="/images/kitchens-locations-760w.webp 760w, /images/kitchens-locations-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="664"
+                        alt="Kitchens Store Locations section with cards for Northpark Mall in Davenport, Iowa and Branson Landing in Branson, Missouri, each with a store photo, a mall directory link, the address, phone, manager, hours and a map rating"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 41%; top: 51.7%"
+                        data-target="hs-locations-here"
+                        aria-expanded="false"
+                        aria-controls="hs-locations-here"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 38%; top: 64.5%"
+                        data-target="hs-locations-phone"
+                        aria-expanded="false"
+                        aria-controls="hs-locations-phone"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 30%; top: 70.5%"
+                        data-target="hs-locations-hours"
+                        aria-expanded="false"
+                        aria-controls="hs-locations-hours"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 86%; top: 81.5%"
+                        data-target="hs-locations-map"
+                        aria-expanded="false"
+                        aria-controls="hs-locations-map"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 75%; top: 86.3%"
+                        data-target="hs-locations-access"
+                        aria-expanded="false"
+                        aria-controls="hs-locations-access"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-locations-here">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>You are here</h4>
+                          <p>Each card links to the store's listing in its mall directory, marked with a "You are here" pin.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-locations-phone">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Address, phone and manager</h4>
+                          <p>Each phone number calls the store with one tap, with a larger tap area on phones.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-locations-hours">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Hours, with a note on holidays</h4>
+                          <p>Each store's own hours, and a note that holiday hours will vary.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-locations-map">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>A map link with the rating</h4>
+                          <p>Each card links to the store on the map, with its rating and number of reviews.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-locations-access">
+                        <span class="hotspot-note-num">5</span>
+                        <div>
+                          <h4>Wheelchair access</h4>
+                          <p>An icon marks each store's wheelchair access.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>Coffee lists for each store</h4>
+              <p>The coffee section was added after the design handoff, from the stores' own flavor lists. The two stores carry different flavors, and some of the same flavors from different vendors, so each store has its own tab.</p>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">Prices and shipping first, then each store's flavored, decaf and black coffees.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-kitchens.svg" width="124" height="14" alt="mykitchensshop.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/kitchens-coffee-760w.webp"
+                        srcset="/images/kitchens-coffee-760w.webp 760w, /images/kitchens-coffee-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="805"
+                        alt="Kitchens Coffee Flavors section with prices for coffee, decaf and shipping, Davenport and Branson tabs, and lists of flavored, decaf and black coffees"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 28%; top: 21.1%"
+                        data-target="hs-coffee-prices"
+                        aria-expanded="false"
+                        aria-controls="hs-coffee-prices"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 36%; top: 31.7%"
+                        data-target="hs-coffee-tabs"
+                        aria-expanded="false"
+                        aria-controls="hs-coffee-tabs"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 90%; top: 49.3%"
+                        data-target="hs-coffee-market"
+                        aria-expanded="false"
+                        aria-controls="hs-coffee-market"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 68%; top: 86%"
+                        data-target="hs-coffee-call"
+                        aria-expanded="false"
+                        aria-controls="hs-coffee-call"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-coffee-prices">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Prices and shipping up top</h4>
+                          <p>Coffee is $25.99 a pound and decaf $28.99, both marked subject to change, with $9.95 shipping for 5 lbs or less.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-coffee-tabs">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Davenport or Branson</h4>
+                          <p>Tabs switch between the two stores' lists by mouse or by keyboard, with the arrow keys, Home and End.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-coffee-market">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Market price</h4>
+                          <p>A flavor marked with an asterisk sells at market price.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-coffee-call">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>Call either store</h4>
+                          <p>Flavors change with the seasons, so the list closes with both stores' phone numbers.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="alt">
+                <li>Prices and flavors live in one data file, so a new price or a new flavor never touches the page itself</li>
+              </ul>
+              <h4>Brands, videos and the store's own recipes</h4>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">Twelve of the brands the stores carry.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-kitchens.svg" width="124" height="14" alt="mykitchensshop.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/kitchens-brands-760w.webp"
+                        srcset="/images/kitchens-brands-760w.webp 760w, /images/kitchens-brands-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="511"
+                        alt="Kitchens Brands We Carry section, a grid of twelve cookware and cutlery brand logos on black"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 33%; top: 12.2%"
+                        data-target="hs-brands-intro"
+                        aria-expanded="false"
+                        aria-controls="hs-brands-intro"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 65.7%; top: 45%"
+                        data-target="hs-brands-logos"
+                        aria-expanded="false"
+                        aria-controls="hs-brands-logos"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-brands-intro">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Cookware, cutlery, gourmet foods and coffee</h4>
+                          <p>The section says in one line what the stores carry.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-brands-logos">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>A grid that holds its place</h4>
+                          <p>Each logo's space is reserved before it loads, so the page doesn't shift. On phones the grid becomes a carousel that swipes.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="shot-lead">Cook-along videos and recipe cards, each opening in place without leaving the page.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-kitchens.svg" width="124" height="14" alt="mykitchensshop.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/kitchens-recipes-760w.webp"
+                        srcset="/images/kitchens-recipes-760w.webp 760w, /images/kitchens-recipes-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="771"
+                        alt="Kitchens Cook along with us section with three videos and a featured video player, above the Kitchens Recipes section with three recipe cards"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 32%; top: 28.2%"
+                        data-target="hs-recipes-videos"
+                        aria-expanded="false"
+                        aria-controls="hs-recipes-videos"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 88%; top: 14%"
+                        data-target="hs-recipes-player"
+                        aria-expanded="false"
+                        aria-controls="hs-recipes-player"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 29.5%; top: 84.2%"
+                        data-target="hs-recipes-card"
+                        aria-expanded="false"
+                        aria-controls="hs-recipes-card"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 86%; top: 95.5%"
+                        data-target="hs-recipes-sheet"
+                        aria-expanded="false"
+                        aria-controls="hs-recipes-sheet"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-recipes-videos">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Cook along with us</h4>
+                          <p>Three short videos show the tools in use. Each one plays in a pop-up player, without leaving the page.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-recipes-player">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Watch right here</h4>
+                          <p>The featured video opens in the same player.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-recipes-card">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Recipe cards</h4>
+                          <p>Three of the store's own recipes, each with its photo and a line about the dish.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-recipes-sheet">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>The full recipe</h4>
+                          <p>Each card opens its full recipe sheet in a viewer, and when it closes, the keyboard focus returns to the card that opened it.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>A gallery that opens full size</h4>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">Fourteen photos from inside the stores, each opening full size with its caption.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-kitchens.svg" width="124" height="14" alt="mykitchensshop.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/kitchens-lightbox-760w.webp"
+                        srcset="/images/kitchens-lightbox-760w.webp 760w, /images/kitchens-lightbox-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="534"
+                        alt="Kitchens gallery photo of a cookware wall shown full size over the page, with its caption, next and previous arrows and a close button"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 30%; top: 30%"
+                        data-target="hs-lightbox-photo"
+                        aria-expanded="false"
+                        aria-controls="hs-lightbox-photo"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 60%; top: 94.5%"
+                        data-target="hs-lightbox-caption"
+                        aria-expanded="false"
+                        aria-controls="hs-lightbox-caption"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 95%; top: 40%"
+                        data-target="hs-lightbox-next"
+                        aria-expanded="false"
+                        aria-controls="hs-lightbox-next"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 87%; top: 6%"
+                        data-target="hs-lightbox-close"
+                        aria-expanded="false"
+                        aria-controls="hs-lightbox-close"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-lightbox-photo">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Fourteen store photos</h4>
+                          <p>The gallery is a carousel of photos from both stores. Each one opens full size over the page.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-lightbox-caption">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>A caption on every photo</h4>
+                          <p>Each photo says what it shows.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-lightbox-next">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Next and previous</h4>
+                          <p>Arrows or the keyboard step through the photos without closing the viewer.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-lightbox-close">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>Back where you were</h4>
+                          <p>Closing the viewer returns the keyboard focus to the photo that opened it.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>Reviews from both stores</h4>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">Twelve customer reviews, each naming the store it's about.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-kitchens.svg" width="124" height="14" alt="mykitchensshop.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/kitchens-reviews-760w.webp"
+                        srcset="/images/kitchens-reviews-760w.webp 760w, /images/kitchens-reviews-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="521"
+                        alt="Kitchens What Customers Say section with customer reviews in cards, each with the reviewer's initial, name, store and star rating"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 70%; top: 11.5%"
+                        data-target="hs-reviews-via"
+                        aria-expanded="false"
+                        aria-controls="hs-reviews-via"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 27.5%; top: 29%"
+                        data-target="hs-reviews-store"
+                        aria-expanded="false"
+                        aria-controls="hs-reviews-store"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 57%; top: 30.5%"
+                        data-target="hs-reviews-stars"
+                        aria-expanded="false"
+                        aria-controls="hs-reviews-stars"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-reviews-via">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>In customers' own words</h4>
+                          <p>Twelve reviews from the stores' map listings, shown as written. On phones they become a carousel.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-reviews-store">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Davenport or Branson</h4>
+                          <p>Every review names the store it's about.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-reviews-stars">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>The rating each customer gave</h4>
+                          <p>Each review shows its own star rating.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>Hiring, the mailing list and a way to write in</h4>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">Hiring, the mailing list and the contact form close the page, before the footer.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-kitchens.svg" width="124" height="14" alt="mykitchensshop.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/kitchens-forms-760w.webp"
+                        srcset="/images/kitchens-forms-760w.webp 760w, /images/kitchens-forms-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="781"
+                        alt="Kitchens Employment, Subscribe and Contact sections, with a link to the nearest store, an email sign-up with Iowa and Missouri checkboxes, and a form for name, email and message"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 55%; top: 21.4%"
+                        data-target="hs-forms-hiring"
+                        aria-expanded="false"
+                        aria-controls="hs-forms-hiring"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 73%; top: 44.4%"
+                        data-target="hs-forms-stores"
+                        aria-expanded="false"
+                        aria-controls="hs-forms-stores"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 92%; top: 38.9%"
+                        data-target="hs-forms-thanks"
+                        aria-expanded="false"
+                        aria-controls="hs-forms-thanks"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 63%; top: 92.3%"
+                        data-target="hs-forms-send"
+                        aria-expanded="false"
+                        aria-controls="hs-forms-send"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-forms-hiring">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Hiring at both stores</h4>
+                          <p>Seasonal and permanent help, with a link to the nearest store.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-forms-stores">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>One list, two stores</h4>
+                          <p>Subscribers pick Iowa, Missouri or both, and each sign-up arrives as one email listing the stores chosen.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-forms-thanks">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>A thank you in place</h4>
+                          <p>While a form sends, its button says so, then thanks the visitor without leaving the page.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-forms-send">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>Nothing lost on a failed send</h4>
+                          <p>If a message can't be sent, an error appears, the visitor's text stays in the form and the button works again.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="alt">
+                <li>Each form checks what it needs before sending: at least one store for the mailing list, and a name, a valid email and a message for contact</li>
+                <li>A hidden field turns away simple spam bots</li>
+                <li>Both forms still submit without JavaScript</li>
+              </ul>
+              <h4>A footer that maps to the stores</h4>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">The footer closes in brand green, with each store's social and map links drawn as its state.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-kitchens.svg" width="124" height="14" alt="mykitchensshop.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/kitchens-footer-760w.webp"
+                        srcset="/images/kitchens-footer-760w.webp 760w, /images/kitchens-footer-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="291"
+                        alt="Kitchens green footer with the logo, links to every section, the copyright line and tagline, above Iowa and Missouri state outlines with social and map icons"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 24%; top: 12.9%"
+                        data-target="hs-footer-nav"
+                        aria-expanded="false"
+                        aria-controls="hs-footer-nav"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 36%; top: 30%"
+                        data-target="hs-footer-tagline"
+                        aria-expanded="false"
+                        aria-controls="hs-footer-tagline"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 32%; top: 78%"
+                        data-target="hs-footer-states"
+                        aria-expanded="false"
+                        aria-controls="hs-footer-states"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-footer-nav">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Every section, one more time</h4>
+                          <p>The footer links to every section of the page.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-footer-tagline">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>A copyright year that keeps itself current</h4>
+                          <p>The copyright line runs from 1992 to the current year, which updates on its own, with the store's tagline beneath it.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-footer-states">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Iowa and Missouri</h4>
+                          <p>Each store's links are drawn as the outline of its state, built from official border data and split in half: one half for the store's social page, the other for its map listing.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>Found by search, shared cleanly</h4>
+              <ul class="alt">
+                <li>Each store is described for search engines with its address, phone, map location, photo and opening hours, tied to the business as a whole</li>
+                <li>The star ratings shown on the page are left out of that data, since search engines don't allow a business to mark up ratings taken from another site</li>
+                <li>A title and description that name both store cities, short enough to show in full in search results</li>
+                <li>Share tags and a share image, so a link to the site previews with its photo</li>
+                <li>A sitemap and robots file, and the domain verified for search with its sitemap submitted</li>
+              </ul>
+              <h4>Analytics that count visits, calls and sign-ups</h4>
+              <ul class="alt">
+                <li>One page view per visit: tapping a tab doesn't count as another page</li>
+                <li>Phone taps are counted by store and by where on the page they happened</li>
+                <li>Sign-ups and messages are counted only when they send, and a scroll near the bottom is counted too</li>
+                <li>The 404 page records the address that was missed, to find broken links</li>
+              </ul>
+              <h4>The switch from the old site</h4>
+              <p>The new site replaced the old one on the same domain, with the store's email running on that domain throughout.</p>
+              <ul class="alt">
+                <li>Every page from the old site, and anything under it, redirects to its matching section, so existing links and search rankings carry over</li>
+                <li>The www address and plain http both redirect to the one secure address, and anything else missing gets a 404 page with links home and to the stores</li>
+                <li>Only the four records that pointed at the old server changed. The other 25, including every email record, were compared before and after the switch and matched exactly</li>
+                <li>A full backup of the domain's records was taken just before the switch, with a one-command rollback ready if it had been needed</li>
+                <li>Files that change with each build are cached by browsers for a year, while the page itself is always re-checked, so updates show at once</li>
+                <li>Each change to the site goes live on its own in one to two minutes</li>
+              </ul>
+              <h4>Accessible on any screen</h4>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">The same page on a phone. Every width from 320 to 1920 pixels was checked before launch.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-kitchens.svg" width="124" height="14" alt="mykitchensshop.com" draggable="false" /></div>
+                    </div>
+                    <div class="shot-scroll-cap">
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/kitchens-phone-390w.webp"
+                        srcset="/images/kitchens-phone-390w.webp 390w, /images/kitchens-phone-780w.webp 780w"
+                        sizes="390px"
+                        width="390"
+                        height="1700"
+                        alt="Kitchens homepage on a phone, with the logo and menu button, the headline Welcome to Kitchens, a Find a Store button, the three benefits stacked and the start of Our Story"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 86.9%; top: 2.2%"
+                        data-target="hs-phone-menu"
+                        aria-expanded="false"
+                        aria-controls="hs-phone-menu"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 78%; top: 16.9%"
+                        data-target="hs-phone-headline"
+                        aria-expanded="false"
+                        aria-controls="hs-phone-headline"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 80%; top: 35.7%"
+                        data-target="hs-phone-cta"
+                        aria-expanded="false"
+                        aria-controls="hs-phone-cta"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 50%; top: 51.2%"
+                        data-target="hs-phone-benefits"
+                        aria-expanded="false"
+                        aria-controls="hs-phone-benefits"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-phone-menu">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>One menu button</h4>
+                          <p>Below 1200 pixels wide the tabs fold into one menu button, and every link in it lands just under the header.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-phone-headline">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>The welcome still leads</h4>
+                          <p>The headline, the line about great prices and the Find a Store button all sit on the first screen.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-phone-cta">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Find a store</h4>
+                          <p>The button goes straight to the two locations.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-phone-benefits">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>Benefits stacked</h4>
+                          <p>The three benefits stack into full-width blocks, each sized to fill its space.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="alt">
+                <li>No sideways scrolling at any of seven widths checked, from 320 to 1920 pixels</li>
+                <li>Keyboard focus styles, reduced-motion support, and a label on every field, button and link</li>
+                <li>Text contrast raised to meet the WCAG AA standard, a landmark around the state links, and phone numbers given a 32 pixel tap area on phones</li>
+              </ul>
+            </div>
+
+            <div class="case-section">
+              <h3>The Results</h3>
+
+              <p>Kitchens went live on October 22, 2026, with its forms, analytics and redirects in place from the first visit.</p>
+              <ul class="alt">
+                <li>An automated accessibility scan found 0 violations on the home page and the 404 page</li>
+                <li>A page-quality audit of the live site scored 100 for accessibility, best practices and SEO, on both phone and desktop</li>
+                <li>The store listings in the search data passed a structured data validator with 0 errors and 0 warnings</li>
+                <li>The old site's pages redirect to their matching sections, and every email record matched before and after the switch</li>
+                <li>Every outside link was checked and matched to the right store, and all three videos are available</li>
+              </ul>
+            </div>
+
+            <div class="case-section">
+              <h3>Business Impact</h3>
+
+              <p>A store that has served customers since 1992 now has a site that does three jobs on one page: it gets shoppers to the right store, tells the story behind the shop, and grows the mailing list. The old site's links and search rankings carried over, and the store's email records were left exactly as they were.</p>
+              <p style="margin-bottom: 0">
+                Changing a price, an hour or a coffee flavor is now an edit to
+                one data file. Through <a href="/web-digital">website development</a>
+                and <a href="/analytics-data">measurement</a>, Kitchens can see
+                which store each phone call goes to, and how many sign-ups and
+                messages the page brings in.
+              </p>
+            </div>
+
+            <div class="case-section">
+              <h3>Explore More Case Studies</h3>
+              <ul class="alt" style="margin-top: 1rem">
+                <li><a href="/case-studies/hawkeye-fan-shop">Hawkeye Fan Shop</a></li>
+                <li><a href="/case-studies/the-black-and-gold-shop">The Black &amp; Gold Shop</a></li>
+                <li><a href="/case-studies/couchletics">Couchletics</a></li>
+                <li><a href="/case-studies/snoring-beagle">Snoring Beagle</a></li>
+              </ul>
+              <p style="margin-top: 1.5rem; margin-bottom: 0">
+                <a href="/case-studies">View all case studies →</a>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta-band" aria-labelledby="cta-title">
+          <h2 id="cta-title">Start the Conversation</h2>
+          <p>A website that brings shoppers to the store doesn't happen by accident. It's built deliberately, from the store hours to the last redirect, so the site you're running is one you can keep current.</p>
+          <ul class="actions special">
+            <li><a href="/contact" class="button big wide alt">Start a Conversation</a></li>
+          </ul>
+        </section>
+      </main>
+      <script src="/assets/js/smooth-scroll.js?v=2418fdee53" defer></script>
+      <script src="/assets/js/main-min.js?v=f697f0f060" defer></script>
+      <script src="/assets/js/footer-min.js?v=b9743f675d" defer></script>
+      <script src="/assets/js/case-study-hotspots-min.js?v=b7d4aa3180" defer></script>
+
+      <scott-footer
+        description="How Scott Labz rebuilt the Kitchens website as one page for its two cookware stores, with store details, coffee lists, recipes, sign-ups and the old links kept.">
+      </scott-footer>
+    </div>
+  </body>
+</html>

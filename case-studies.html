@@ -130,11 +130,16 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "url": "https://scottlabz.com/case-studies/couchletics"
+                  "url": "https://scottlabz.com/case-studies/kitchens"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
+                  "url": "https://scottlabz.com/case-studies/couchletics"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 5,
                   "url": "https://scottlabz.com/case-studies/snoring-beagle"
                 }
               ]
@@ -412,7 +417,16 @@
           inset 0 0 0 4px #ffffff,
           0 6px 14px rgba(0, 0, 0, 0.3);
         color: #ffffff !important;
-        cursor: default;
+      }
+
+      /* Flips to white with green text on hover, like the Visit Us
+         tag on mykitchensshop.com. */
+      .button.kitchens:hover {
+        background-color: #ffffff;
+        box-shadow:
+          inset 0 0 0 4px #007030,
+          0 6px 14px rgba(0, 0, 0, 0.3);
+        color: #007030 !important;
       }
 
       /* A darker shade of the logo's tan (white text stays readable),
@@ -554,6 +568,22 @@
                   <a href="case-studies/the-black-and-gold-shop" class="button wide blackgold" aria-label="View Black &amp; Gold Shop Case Study">View Case Study</a>
                 </div>
               </article>
+              <article class="cs-showcase-card is-kitchens">
+                <div class="cs-showcase-logo">
+                  <img
+                    src="images/kitchens.png?v=0120038784"
+                    width="1000"
+                    height="216"
+                    alt="Kitchens logo, a family-owned cookware, cutlery, and gourmet foods retailer"
+                    loading="lazy" />
+                </div>
+                <div class="cs-showcase-body">
+                  <h2 class="cs-showcase-name">Kitchens</h2>
+                  <p class="cs-showcase-caption">Family-owned cookware, cutlery, and gourmet foods retailer</p>
+                  <p class="cs-showcase-summary">How a family-owned cookware store with two locations moved to one page that sends shoppers to the right store, with store details, coffee lists, recipes, sign-ups and every old link kept.</p>
+                  <a href="case-studies/kitchens" class="button wide kitchens" aria-label="View Kitchens Case Study">View Case Study</a>
+                </div>
+              </article>
               <article class="cs-showcase-card is-couchletics">
                 <div class="cs-showcase-logo">
                   <img
@@ -587,28 +617,6 @@
                 </div>
               </article>
               <!-- CS-CLIENTS:END -->
-
-              <!-- Hand-authored until the Kitchens case study page is
-                   published; then delete this card and give that page
-                   cs-* meta tags like the other client pages. -->
-              <article class="cs-showcase-card is-kitchens">
-                <div class="cs-showcase-logo">
-                  <img
-                    src="images/kitchens.png?v=0120038784"
-                    width="1000"
-                    height="216"
-                    alt="Kitchens logo, a family-owned cookware, cutlery, and gourmet foods retailer"
-                    loading="lazy" />
-                </div>
-                <div class="cs-showcase-body">
-                  <h2 class="cs-showcase-name">Kitchens</h2>
-                  <p class="cs-showcase-caption">Family-owned cookware, cutlery, and gourmet foods retailer</p>
-                  <p class="cs-showcase-summary">A long-standing web development and analytics client. The full case study is in progress.</p>
-                  <span class="button wide kitchens" aria-disabled="true" aria-describedby="kitchens-soon">View Case Study</span>
-                  <p class="cs-showcase-soon" id="kitchens-soon">Coming soon</p>
-                </div>
-              </article>
-
 
               <!-- Hand-authored until The Lottery Matrix case study page is
                    published; then delete this card and give that page
