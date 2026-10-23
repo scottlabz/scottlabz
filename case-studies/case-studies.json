@@ -100,7 +100,7 @@
       "type": "client",
       "order": 6,
       "title": "The Lottery Matrix",
-      "summary": "How a 2015 side project came back as a live Powerball and Mega Millions statistics site, with official results back to 1997, updated after every drawing and measured against the real odds.",
+      "summary": "How a live Powerball and Mega Millions statistics site keeps itself current from official results back to 1997, with every number measured against the real odds.",
       "caption": "Lottery statistics, measured against chance",
       "logo": "images/thelotterymatrix-logo.webp",
       "logo_width": "500",
