@@ -47,6 +47,7 @@ Published writing is Field Notes (incident write-ups) and Insights (principles),
 - [Kitchens](https://scottlabz.com/case-studies/kitchens): A one-page website for a family-owned cookware store with two locations, with store details, coffee lists, recipes, sign-ups and the old site's links redirected
 - [Couchletics](https://scottlabz.com/case-studies/couchletics): Brand identity and a custom online store for a sleepwear and lounge brand
 - [Snoring Beagle](https://scottlabz.com/case-studies/snoring-beagle): A custom online store for a dog bed brand, with a bed finder, gift cards and shipping priced from carrier rates
+- [The Lottery Matrix](https://scottlabz.com/case-studies/the-lottery-matrix): A live Powerball and Mega Millions statistics site rebuilt from a 2015 side project, updated after every drawing from official results and measured against the real odds
 - [Measurement Strategy & Implementation](https://scottlabz.com/case-studies/hawkeye-fan-shop/digital-analytics-implementation): A ground-up measurement strategy and analytics build for reliable, validated tracking
 - [Connected Reporting](https://scottlabz.com/case-studies/hawkeye-fan-shop/analytics-dashboard-reporting): Store, gameday, and online systems connected into one reporting platform with stakeholder dashboards
 - [Custom Storefront & Infrastructure](https://scottlabz.com/case-studies/hawkeye-fan-shop/custom-web-application-development): A full ecommerce platform built from domain to storefront, with inventory in sync across every store

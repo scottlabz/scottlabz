@@ -1,5 +1,5 @@
 {
-  "count": 12,
+  "count": 13,
   "notes": [
     {
       "slug": "hawkeye-fan-shop",
@@ -90,6 +90,24 @@
       "logo_alt": "Snoring Beagle logo, a snoring beagle above the wordmark",
       "button_class": "snoringbeagle",
       "button_text": "View Snoring Beagle Case Study"
+    },
+    {
+      "slug": "the-lottery-matrix",
+      "path": "the-lottery-matrix",
+      "client": null,
+      "file": "the-lottery-matrix.html",
+      "url": "https://scottlabz.com/case-studies/the-lottery-matrix",
+      "type": "client",
+      "order": 6,
+      "title": "The Lottery Matrix",
+      "summary": "How a 2015 side project came back as a live Powerball and Mega Millions statistics site, with official results back to 1997, updated after every drawing and measured against the real odds.",
+      "caption": "Lottery statistics, measured against chance",
+      "logo": "images/thelotterymatrix-logo.webp",
+      "logo_width": "500",
+      "logo_height": "207",
+      "logo_alt": "The Lottery Matrix logo, a red lottery ball numbered 13 beside the wordmark",
+      "button_class": "lotterymatrix",
+      "button_text": "View The Lottery Matrix Case Study"
     },
     {
       "slug": "digital-analytics-implementation",

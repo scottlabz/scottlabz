@@ -1,0 +1,1534 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <!-- Google Tag Manager -->
+    <script src="/assets/js/gtm.js?v=a142f1f758" async></script>
+    <!-- End Google Tag Manager -->
+
+    <title>The Lottery Matrix Statistics Case Study | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="How Scott Labz rebuilt a 2015 side project as The Lottery Matrix, a live Powerball and Mega Millions statistics site that updates itself after every drawing." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="preload"
+      href="/assets/fonts/source-sans-pro-300.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin />
+    <link
+      rel="preload"
+      href="/assets/fonts/source-sans-pro-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin />
+    <link rel="stylesheet" href="/assets/css/main-min.css?v=82645360b3" />
+    <link rel="stylesheet" href="/assets/css/cta-band-min.css?v=6cca415f53" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript-min.css?v=ab1c7bc451" />
+    </noscript>
+
+    <script src="/assets/js/header-min.js?v=0d09452115" async></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon/favicon-32x32.png?v=d06ceab0dd" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon/favicon-16x16.png?v=2664f5c356" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/images/favicon/favicon-96x96.png?v=1fac781b7c" />
+    <script src="/assets/js/navigation-min.js?v=648d3a34f6" defer></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/case-studies/the-lottery-matrix" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://scottlabz.com/#organization",
+            "name": "Scott Labz, LLC",
+            "description": "How Scott Labz rebuilt a 2015 side project as The Lottery Matrix, a live Powerball and Mega Millions statistics site that updates itself after every drawing.",
+            "url": "https://scottlabz.com/case-studies/the-lottery-matrix",
+            "telephone": "+1-309-340-4306",
+            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "priceRange": "$$",
+            "slogan": "Measure. Build. Improve.",
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "McLean County, Illinois"
+            },
+            "sameAs": [
+              "https://github.com/scottlabz",
+              "https://www.linkedin.com/company/scottlabz",
+              "https://www.linkedin.com/in/scotttaylor369"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-309-340-4306",
+              "contactType": "Scott Labz"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://scottlabz.com/#scotttaylor",
+            "name": "Scott Taylor",
+            "jobTitle": "Founder",
+            "description": "Scott Taylor is the founder of Scott Labz, where he combines web development, analytics, automation, and digital strategy to help businesses create faster, smarter, and more effective digital experiences.",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "url": "https://scottlabz.com/case-studies/the-lottery-matrix",
+            "email": "mailto:info@scottlabz.com",
+            "knowsAbout": [
+              "Web Application Development",
+              "Data Automation",
+              "Statistical Analysis",
+              "Structured Data"
+            ],
+            "worksFor": {
+              "@id": "https://scottlabz.com/#organization"
+            },
+            "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
+          }
+        ]
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+
+    <meta property="og:site_name" content="Scott Labz" />
+
+    <meta
+      property="og:title"
+      content="The Lottery Matrix Case Study | Scott Labz" />
+
+    <meta
+      property="og:description"
+      content="How Scott Labz rebuilt a 2015 side project as The Lottery Matrix, a live Powerball and Mega Millions statistics site that updates itself after every drawing." />
+
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/case-studies/the-lottery-matrix" />
+
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/og-share.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Lottery Matrix Case Study | Scott Labz" />
+    <meta name="twitter:description" content="How Scott Labz rebuilt a 2015 side project as The Lottery Matrix, a live Powerball and Mega Millions statistics site that updates itself after every drawing." />
+    <meta name="twitter:image" content="https://scottlabz.com/images/og-share.png" />
+
+    <style>
+      /* Real-screenshot showcase, copied from the Hawkeye Fan Shop case
+         study (the two client pages with screenshot tours) - not a shared
+         main.css pattern. Colors and radii match .case-section/.security-table so
+         it reads as part of the same design language.
+
+         Each screenshot renders full-size in its own block instead of a
+         thumbnail grid. In place of the old click-to-enlarge lightbox
+         modal, numbered hotspot pins sit directly on top of the image at
+         real UI elements; clicking one fades in a small detail card next
+         to that exact pin (no overlay, nothing leaves the page flow -
+         see .hotspot-pin/.hotspot-popover and the script near the end of
+         <body>). Screenshots with nothing worth calling out (e.g. the
+         payment-icon row) skip hotspots entirely and just run the
+         lead-in paragraph underneath. */
+      .shot-tour {
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+        margin-top: 1.75rem;
+        /* Room before a bullet list or paragraph that follows the
+           screenshots; collapses into a following h4's top margin. */
+        margin-bottom: 2.5rem;
+      }
+
+
+      /* width:fit-content (not the flex column's default full-width
+         stretch) so the frame hugs each screenshot at its own real
+         resolution instead of stretching every image - many of these
+         run narrower than the column - up to a shared width and
+         visibly softening them. max-width/margin keep it from
+         overflowing on narrow viewports and centered when it's
+         narrower than the column. */
+      .shot-frame {
+        border: 1px solid #000;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 auto;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .shot-frame:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+      }
+
+      .shot-chrome {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: #eef1f5;
+        padding: 8px 12px;
+        border-bottom: 1px solid #dde1e6;
+      }
+
+      .shot-chrome .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+
+      .shot-chrome .dot:nth-child(1) {
+        background: #ff5f57;
+      }
+
+      .shot-chrome .dot:nth-child(2) {
+        background: #febc2e;
+      }
+
+      .shot-chrome .dot:nth-child(3) {
+        background: #28c840;
+      }
+
+      .shot-chrome .url {
+        margin-left: 8px;
+        background: #fff;
+        border: 1px solid #dde1e6;
+        border-radius: 5px;
+        padding: 2px 10px;
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .shot-chrome .url img {
+        display: block;
+        height: 10px;
+        width: auto;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .shot-frame img {
+        display: block;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+      }
+
+      /* Styled as a callout attached to the frame it introduces - the
+         blue accent bar echoes .hotspot-pin's own color so the caption
+         and the screenshot it's captioning read as one unit, rather
+         than the plain paragraph blending into the section's body
+         copy above it. Since each one sits directly above its own
+         .shot-frame and directly below the previous one, this is the
+         only text in the immediate vicinity of every browser mockup
+         on the page. */
+      .shot-lead {
+        position: relative;
+        font-size: 1.1rem;
+        color: #33475b;
+        margin: 0 0 1rem;
+        padding: 0.75rem 1.1rem;
+        line-height: 1.65;
+        background: rgba(37, 99, 235, 0.06);
+        border-left: 3px solid #2563eb;
+        border-radius: 0 8px 8px 0;
+      }
+
+      /* The interactive image area. Positioned so hotspot pins (also
+         absolutely positioned, placed inline per-image via style="left:
+         %; top: %") anchor to the actual pixel they're calling out
+         regardless of how the image is scaled at a given viewport. */
+      .hotspot-media {
+        position: relative;
+        line-height: 0;
+      }
+
+      /* Caps tall images to a fixed viewing height with an internal
+         scrollbar, for cases where showing the full image at native
+         width would otherwise run for thousands of pixels. This wraps
+         .hotspot-media rather than constraining it directly - the pins
+         inside are positioned via percentages resolved against their
+         containing block's own size, so if the height cap were applied
+         to .hotspot-media itself, every "top: X%" would resolve against
+         600px instead of the image's real height and every pin below
+         the fold would land in the wrong place. Keeping .hotspot-media
+         at its natural full height and scrolling this outer wrapper
+         instead leaves that math untouched. */
+      .shot-scroll-cap {
+        max-height: 600px;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      /* main.css's generic button:hover/:active rules force color with
+         !important, which otherwise wins over any normal-specificity
+         rule here regardless of selector weight - color/background are
+         !important'd below to match and guarantee this component's own
+         states render correctly.
+
+         Blue (#2563eb), matching the reference number badge inside the
+         popover, so the pin and its own detail card read as the same
+         control. Flips to a deeper shade of the same blue once opened,
+         rather than jumping to an unrelated hue. */
+      .hotspot-pin {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #2563eb !important;
+        color: #fff !important;
+        border: 3px solid #fff;
+        font: 800 22px/1 Inter, system-ui, sans-serif;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5) !important;
+        z-index: 2;
+        padding: 0;
+        /* main.css's sitewide button reset sets overflow:hidden on
+           every <button> (for text-ellipsis truncation on normal site
+           buttons) - since this pin never overrode it, that rule was
+           silently clipping the sonar ring to this element's own 60px
+           box the instant it scaled past it, so the animation was
+           rendering but never visibly leaving the button. */
+        overflow: visible;
+        transition:
+          background 0.15s ease,
+          color 0.15s ease,
+          transform 0.15s ease;
+      }
+
+      /* Subtle sonar ping - one ring expanding a short distance from
+         the pin's own edge before fading, dialed back from the earlier
+         version's larger/double-ring effect per feedback that it read
+         as too much. Starting at inset:-3px (slightly larger than the
+         pin, not inset:0/exactly the same size) matters - the ring
+         sits behind the pin (z-index:-1), so if it started at the same
+         size as the opaque pin on top of it, the ring would be entirely
+         hidden underneath at the start of every cycle. */
+      .hotspot-pin::before {
+        content: "";
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        border: 3px solid rgba(37, 99, 235, 0.95);
+        z-index: -1;
+        pointer-events: none;
+        animation: hotspot-sonar 2s ease-out infinite;
+      }
+
+      /* The button's visible label is empty (see aria-label for its
+         accessible name) - this pseudo-element supplies the +/- glyph
+         instead, swapped purely by the aria-expanded state the toggle
+         script already maintains, no extra JS needed. */
+      .hotspot-pin::after {
+        content: "+";
+        line-height: 1;
+      }
+
+      .hotspot-pin[aria-expanded="true"]::after {
+        content: "\2212";
+      }
+
+      .hotspot-pin:hover,
+      .hotspot-pin:focus-visible,
+      .hotspot-pin:active {
+        background: #1d4ed8 !important;
+        color: #000 !important;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5) !important;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      .hotspot-pin[aria-expanded="true"] {
+        background: #1d4ed8 !important;
+        color: #000 !important;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5) !important;
+      }
+
+      .hotspot-pin[aria-expanded="true"]::before {
+        animation: none;
+        opacity: 0;
+      }
+
+      @keyframes hotspot-sonar {
+        0% {
+          transform: scale(1);
+          opacity: 0.9;
+        }
+        100% {
+          transform: scale(1.65);
+          opacity: 0;
+        }
+      }
+
+      /* Source content for the popover below - each pin's detail card
+         lives here in normal, crawlable markup but is never shown in
+         place. The toggle script reads a clicked pin's matching note
+         by id and copies it into the single shared .hotspot-popover,
+         which it positions next to that exact pin. Keeping the source
+         hidden this way (rather than deleting it) avoids having to
+         restructure all 72 of these per image. */
+      .hotspot-notes {
+        display: none;
+      }
+
+      /* Appended once to <body> by the toggle script, not nested inside
+         any .shot-frame - that's what lets it fade in next to whichever
+         pin was pressed without being clipped by the frame's rounded-
+         corner overflow:hidden, and without inheriting scroll/position
+         quirks from position:fixed. */
+      .hotspot-popover {
+        position: absolute;
+        z-index: 60;
+        display: flex;
+        gap: 0.9rem;
+        width: min(380px, calc(100vw - 24px));
+        background: #fff;
+        border: 2px solid #000;
+        border-radius: 12px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+        padding: 1.4rem 1.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(6px);
+        transition:
+          opacity 0.18s ease,
+          transform 0.18s ease;
+        pointer-events: none;
+      }
+
+      .hotspot-popover.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .hotspot-popover .hotspot-note-num {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #2563eb;
+        color: #fff;
+        font: 800 13px/32px Inter, system-ui, sans-serif;
+        text-align: center;
+      }
+
+      .hotspot-popover h4 {
+        margin: 0.2rem 0 0.65rem;
+        padding-bottom: 0.4rem;
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: #111;
+        border-bottom: 2px solid #2563eb;
+      }
+
+      .hotspot-popover p {
+        margin: 0 0 1rem;
+        font-size: 1rem;
+        line-height: 1.75;
+        color: #444;
+      }
+
+      .hotspot-popover p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Non-interactive shots (payment icon row, etc.) keep the same
+         frame treatment but skip hotspots entirely - plain image, lead
+         paragraph does the explaining. */
+      .shot-frame.plain img {
+        cursor: default;
+      }
+
+      /* main.css sizes this background strip at 20% of
+         .case-study-hero's own height, which was fine when that
+         element was just a short intro banner. On this page the hero
+         section wraps every case-section added below it, so its
+         height is the whole page - 20% of a 13,000px+ page ballooned
+         the strip into a multi-thousand-pixel box, forcing the
+         1980x1485 source photo to upscale well past its native
+         resolution (especially at Retina density) and look
+         pixelated. Capping it to one viewport height keeps it sized
+         like the short intro banner it's meant to be. */
+      .case-study-hero::before {
+        height: 100vh;
+        height: 100svh;
+      }
+    
+      /* Subheads that split What Was Built into its parts */
+      /* main.css pads list items on top only, so each divider sat right
+         under the line of text above it; split the space evenly. */
+      .case-section ul.alt li {
+        padding: 0.75rem 0;
+      }
+      .case-section ul.alt li:first-child {
+        padding-top: 0;
+      }
+      .case-section ul.alt li:last-child {
+        padding-bottom: 0;
+      }
+      .case-section > h4 {
+        margin: 4.5rem 0 1rem;
+        color: #1e3a5f;
+      }
+      .case-section > h3 + p + h4,
+      .case-section > h3 + h4 {
+        margin-top: 2.5rem;
+      }
+      /* More room between the section cards (main.css: 2.5rem). */
+      .hero-box,
+      .case-section {
+        margin-bottom: 4rem;
+      }
+
+      /* A longer, eased fade from the header background into the page.
+         The shared rule (main.css) fades in a straight line over the
+         last 40% only, which reads as a hard edge; this one starts at
+         25% and eases out, the same as the Snoring Beagle page. */
+      .case-study-hero::before {
+        -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 25%, rgba(0, 0, 0, 0.94) 36%, rgba(0, 0, 0, 0.8) 48%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.38) 72%, rgba(0, 0, 0, 0.18) 84%, rgba(0, 0, 0, 0.05) 94%, transparent 100%);
+        mask-image: linear-gradient(to bottom, #000 0%, #000 25%, rgba(0, 0, 0, 0.94) 36%, rgba(0, 0, 0, 0.8) 48%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.38) 72%, rgba(0, 0, 0, 0.18) 84%, rgba(0, 0, 0, 0.05) 94%, transparent 100%);
+      }
+</style>
+    <!-- Case Studies hub card data - read by scripts/generate_indexes.py -->
+        <meta name="cs-type" content="client" />
+    <meta name="cs-order" content="6" />
+    <meta name="cs-title" content="The Lottery Matrix" />
+    <meta name="cs-summary" content="How a 2015 side project came back as a live Powerball and Mega Millions statistics site, with official results back to 1997, updated after every drawing and measured against the real odds." />
+    <meta name="cs-caption" content="Lottery statistics, measured against chance" />
+    <meta name="cs-logo" content="images/thelotterymatrix-logo.webp" />
+    <meta name="cs-logo-width" content="500" />
+    <meta name="cs-logo-height" content="207" />
+    <meta name="cs-logo-alt" content="The Lottery Matrix logo, a red lottery ball numbered 13 beside the wordmark" />
+    <meta name="cs-button-class" content="lotterymatrix" />
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <scott-nav></scott-nav>
+
+    <div id="wrapper">
+      <main id="main-content">
+        <section
+          class="case-study-hero banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right"
+          style="--hero-bg: url(&quot;/images/thelotterymatrix-hero.jpg&quot;)">
+          <div class="content">
+            <div class="hero-box">
+              <p class="brand-mark">
+                <a href="/" style="border-bottom: none">
+                  <img
+                    src="/images/scottlabz-clear.webp?v=d34943c620"
+                    srcset="/images/scottlabz-clear-32w.webp?v=8d5d3e1b4b 32w, /images/scottlabz-clear-64w.webp?v=7b37132bec 64w, /images/scottlabz-clear-96w.webp?v=1b0fa7e3f5 96w, /images/scottlabz-clear.webp?v=d34943c620 130w"
+                    sizes="(max-width: 736px) 28px, 55px"
+                    width="130"
+                    height="170"
+                    alt="S"
+                    class="logo"
+                    style="margin-right: 0" />cott Labz
+                </a>
+              </p>
+
+              <h1 class="size-h3">The Lottery Matrix Case Study</h1>
+
+              <h2
+                class="case-study-headline"
+                style="
+                  font-size: 2.2rem;
+                  margin-top: 0.5rem;
+                  margin-bottom: 1.5rem;
+                ">
+                Every Draw, Measured Against Chance
+              </h2>
+
+              <p class="major" style="margin-bottom: 0">
+                Scott Labz rebuilt a 2015 side project as The Lottery Matrix: a
+                statistics site for Powerball and Mega Millions that updates
+                itself after every drawing from official results, and shows
+                every number next to what pure chance would produce.
+              </p>
+            </div>
+
+            <div class="case-section">
+              <h3>Project Overview</h3>
+
+              <div class="table-wrapper">
+                <table class="security-table">
+                  <tbody>
+                    <tr>
+                      <td><strong>Project</strong></td>
+                      <td>A live lottery statistics site, rebuilt from a 2015 side project</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Organization</strong></td>
+                      <td>The Lottery Matrix, a Scott Labz project</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Timeline</strong></td>
+                      <td>Built October 13 to 23, 2026. Live October 23, 2026</td>
+                    </tr>
+                    <tr>
+                      <td><strong>At launch</strong></td>
+                      <td>Every Powerball draw since November 1997 (3,294) and every Mega Millions draw since December 2003 (2,388)</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Services</strong></td>
+                      <td>Code audit, data sourcing and verification, automated updates, interactive statistics, homepage, search data, accessibility, and legal pages</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Live site</strong></td>
+                      <td><a href="https://thelotterymatrix.com" target="_blank" rel="noopener">thelotterymatrix.com</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="case-section">
+              <h3>The Challenge</h3>
+
+              <p>In 2015 the Powerball Matrix was a small site that collected the winning numbers after every drawing and showed them in a grid: every number, broken down by the position it was drawn in. It went quiet around 2017. By 2026 its data source was gone, its history had stopped, and its code had been copied into more than a dozen near-identical pages.</p>
+              <p style="margin: 0 0 0.9rem 0">A read-through of the original code found the grid worth keeping, and a list of problems worth fixing:</p>
+              <ul class="alt">
+                <li>The results file the site depended on now returns a 404</li>
+                <li>The history stopped in November 2017, about nine years and more than 1,400 drawings behind</li>
+                <li>Powerball has changed its ball ranges five times since 1997, and the old counts mixed them together. Of 2,096 archived draws, only 225 were played under today's rules, so older numbers looked "hot" simply because they had existed longer</li>
+                <li>The headline count mixed white balls with the red Powerball, and a date filter compared dates as text, so it kept draws by month instead of by date</li>
+                <li>Fourteen page variants, from Wednesday-only to averages, were the same hundred lines with small edits</li>
+                <li>The original promised to find "a pattern in randomness," but every draw is independent</li>
+              </ul>
+              <p style="margin: 0 0 0.9rem 0">The rebuild had to be fun to explore without implying it could predict anything. Five decisions set the direction:</p>
+              <ul class="alt">
+                <li>Open to everyone and to search engines, with no accounts or sign-ups</li>
+                <li>No ads: the old offshore lottery affiliate ads would not come back</li>
+                <li>Powerball first, on a design that could take more games</li>
+                <li>Official results, fetched in code from a government source rather than a scraped copy</li>
+                <li>No social integrations and no contact forms</li>
+              </ul>
+            </div>
+
+            <div class="case-section">
+              <h3>What Was Built</h3>
+
+              <p>Scott Labz audited the original code, found and verified a new data source, and built the site from scratch: the data pipeline, one statistics engine for both games, the homepage, search data and the legal pages.</p>
+              <h4>A homepage with one card per game</h4>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">The homepage gives each game a card with its latest draw and a way into every view.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-thelotterymatrix.svg" width="136" height="14" alt="thelotterymatrix.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/thelotterymatrix-home-760w.webp"
+                        srcset="/images/thelotterymatrix-home-760w.webp 760w, /images/thelotterymatrix-home-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="534"
+                        alt="The Lottery Matrix homepage with the logo, the line Every draw, measured against chance, and cards for Powerball and Mega Millions showing each latest draw and links into the site"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 67.5%; top: 15.6%"
+                        data-target="hs-home-logo"
+                        aria-expanded="false"
+                        aria-controls="hs-home-logo"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 70%; top: 29.1%"
+                        data-target="hs-home-tagline"
+                        aria-expanded="false"
+                        aria-controls="hs-home-tagline"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 12.5%; top: 50.5%"
+                        data-target="hs-home-latest"
+                        aria-expanded="false"
+                        aria-controls="hs-home-latest"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 85%; top: 66.8%"
+                        data-target="hs-home-quick"
+                        aria-expanded="false"
+                        aria-controls="hs-home-quick"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 70%; top: 89.5%"
+                        data-target="hs-home-legal"
+                        aria-expanded="false"
+                        aria-controls="hs-home-legal"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-home-logo">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>The red 13 ball</h4>
+                          <p>The logo's red 13 ball is also the favicon, and the footer is the brand red.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-home-tagline">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Every draw, measured against chance</h4>
+                          <p>The line sets the promise: the site explores the history, and doesn't claim to predict the next draw.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-home-latest">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>The latest draw</h4>
+                          <p>Each card shows the latest draw, how many draws are tracked, and the next drawing, worked out in Eastern Time.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-home-quick">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>Straight to a view</h4>
+                          <p>Links go straight to the matrix, hot and cold numbers, every draw and patterns for each game.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-home-legal">
+                        <span class="hotspot-note-num">5</span>
+                        <div>
+                          <h4>Plain-language legal pages</h4>
+                          <p>An Accuracy Statement (official results always win, no predictions, not affiliated with any lottery, play responsibly) and a Privacy Policy that matches what the site collects.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>A source that keeps the order the balls were drawn</h4>
+              <p>The matrix only works if the white balls arrive in the order they were drawn. Results feeds usually sort them low to high, which throws that away. Of the official sources checked, one state lottery agency's results file keeps the drawn order and updates within minutes of each drawing.</p>
+              <ul class="alt">
+                <li>Before trusting it, the file was checked against the original archive: all 817 drawings they share matched, with zero mismatches</li>
+                <li>That joined the archive (1997 to 2010) and the official file (2010 on) into one continuous, verified Powerball history</li>
+                <li>For Mega Millions, the same agency has every drawing since December 2003, and only about 1% of rows come out already sorted, which is what random order produces</li>
+              </ul>
+              <h4>Counts compared within one set of rules</h4>
+              <p>Every game is split into rule eras: six for Powerball and five for Mega Millions. Each era's start date was checked against the data, and every era's ball numbers fit its rules exactly. Counts are only ever compared within one era, and the newest era is the default.</p>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">Each game's About tab lists its rule changes and where its numbers come from.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-thelotterymatrix.svg" width="136" height="14" alt="thelotterymatrix.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/thelotterymatrix-about-760w.webp"
+                        srcset="/images/thelotterymatrix-about-760w.webp 760w, /images/thelotterymatrix-about-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="575"
+                        alt="The Lottery Matrix About tab with a table of six Powerball rule eras, their ball ranges and draw counts, and a note on where the numbers come from"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 27%; top: 4.8%"
+                        data-target="hs-about-era"
+                        aria-expanded="false"
+                        aria-controls="hs-about-era"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 61%; top: 29.2%"
+                        data-target="hs-about-table"
+                        aria-expanded="false"
+                        aria-controls="hs-about-table"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 93%; top: 64.9%"
+                        data-target="hs-about-notes"
+                        aria-expanded="false"
+                        aria-controls="hs-about-notes"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 95.5%; top: 85%"
+                        data-target="hs-about-source"
+                        aria-expanded="false"
+                        aria-controls="hs-about-source"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-about-era">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>One set of rules at a time</h4>
+                          <p>The filter bar picks the era, and every count on the page follows it.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-about-table">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Six Powerball eras</h4>
+                          <p>Each era with its ball ranges and how many draws were played under it, from 515 in the first to 1,423 in today's.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-about-notes">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Draw days and multipliers</h4>
+                          <p>Notes on when Monday drawings began and when multipliers first appear, so a filtered view reads correctly.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-about-source">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>Where the numbers come from</h4>
+                          <p>Each game names its sources and how they were checked against each other.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>The matrix, measured against chance</h4>
+              <p>The original grid was worth keeping: how often each ball came out 1st, 2nd, 3rd, 4th or 5th, with the columns spelling the game's name. The rebuild colors every cell by its distance from chance, in standard deviations.</p>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">The Powerball matrix for today's rules: 1,423 draws, every ball by the position it was drawn in, under columns that spell P&middot;O&middot;W&middot;E&middot;R.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-thelotterymatrix.svg" width="136" height="14" alt="thelotterymatrix.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/thelotterymatrix-matrix-760w.webp"
+                        srcset="/images/thelotterymatrix-matrix-760w.webp 760w, /images/thelotterymatrix-matrix-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="867"
+                        alt="The Powerball Matrix tab with the latest draw, filters for rules, days and window, a color key from colder to hotter than chance, and a grid of white balls by draw position beside the Powerball counts"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 67%; top: 4.5%"
+                        data-target="hs-matrix-latest"
+                        aria-expanded="false"
+                        aria-controls="hs-matrix-latest"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 75.5%; top: 10.6%"
+                        data-target="hs-matrix-filters"
+                        aria-expanded="false"
+                        aria-controls="hs-matrix-filters"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 66%; top: 18.6%"
+                        data-target="hs-matrix-chance"
+                        aria-expanded="false"
+                        aria-controls="hs-matrix-chance"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 32%; top: 27.5%"
+                        data-target="hs-matrix-share"
+                        aria-expanded="false"
+                        aria-controls="hs-matrix-share"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 54%; top: 29.2%"
+                        data-target="hs-matrix-bonus"
+                        aria-expanded="false"
+                        aria-controls="hs-matrix-bonus"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 38%; top: 93.3%"
+                        data-target="hs-matrix-outlier"
+                        aria-expanded="false"
+                        aria-controls="hs-matrix-outlier"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-matrix-latest">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Latest draw and data check</h4>
+                          <p>The newest draw and when the data was last checked, at the top of every view.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-matrix-filters">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Filters saved in the link</h4>
+                          <p>Rule era, draw day and a recent window replace the old one-page-per-variant approach. Every view is saved in the link, so it can be bookmarked or shared.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-matrix-chance">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>How much color chance creates</h4>
+                          <p>Gray is ordinary noise, blue is colder than chance and red is hotter. Each view says what a fair machine would leave outside &plusmn;1&sigma; and &plusmn;2&sigma;, about 32% and 5%, and what this view shows: 35% and 5%.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-matrix-share">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>Counts or shares</h4>
+                          <p>Each cell can show its count or that ball's share of its own draws.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-matrix-bonus">
+                        <span class="hotspot-note-num">5</span>
+                        <div>
+                          <h4>The Powerball alongside</h4>
+                          <p>The red ball's own counts, and how many draws since each one last came up.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-matrix-outlier">
+                        <span class="hotspot-note-num">6</span>
+                        <div>
+                          <h4>An outlier, explained</h4>
+                          <p>Ball 23 has come out 4th 37 times against 20.6 expected (+3.6&sigma;). With 345 cells in the grid, chance produces about one cell that extreme, so the site shows it and explains why it isn't a signal.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="alt">
+                <li>Expected values are exact odds, not past averages, worked out from the math of drawing five balls without replacement</li>
+                <li>The color steps were checked for even lightness, and every value is printed, so color is never the only signal</li>
+              </ul>
+              <h4>Hot and cold numbers, in context</h4>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">Hot and cold numbers, each one next to what chance expects.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-thelotterymatrix.svg" width="136" height="14" alt="thelotterymatrix.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/thelotterymatrix-numbers-760w.webp"
+                        srcset="/images/thelotterymatrix-numbers-760w.webp 760w, /images/thelotterymatrix-numbers-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="470"
+                        alt="The Powerball Numbers tab with a frequency chart of white balls against the expected count and normal range, and a table of each ball's draws, distance from chance, hit rate and gaps"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 43.5%; top: 31.5%"
+                        data-target="hs-numbers-expected"
+                        aria-expanded="false"
+                        aria-controls="hs-numbers-expected"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 81.7%; top: 26%"
+                        data-target="hs-numbers-hot"
+                        aria-expanded="false"
+                        aria-controls="hs-numbers-hot"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 57%; top: 73.9%"
+                        data-target="hs-numbers-odds"
+                        aria-expanded="false"
+                        aria-controls="hs-numbers-odds"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 57%; top: 89.5%"
+                        data-target="hs-numbers-gaps"
+                        aria-expanded="false"
+                        aria-controls="hs-numbers-gaps"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-numbers-expected">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Expected, with its normal range</h4>
+                          <p>The line marks what chance expects, 103.1 draws per white ball under today's rules, and the band shows the normal &plusmn;2&sigma; range around it.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-numbers-hot">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Hot, and still ordinary</h4>
+                          <p>Balls past +2&sigma; show in red. Across 69 balls, chance alone puts a few there, and the page says streaks don't change the odds of the next draw.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-numbers-odds">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Every number against the odds</h4>
+                          <p>Each ball's draws, its distance from chance, and its hit rate next to the 1 in 13.8 that chance predicts.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-numbers-gaps">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>Since last and longest gap</h4>
+                          <p>How many draws since each number last came up, and its longest wait.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>Every draw since 1997</h4>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">The full history, 30 days at a time, with 13 and 21 highlighted.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-thelotterymatrix.svg" width="136" height="14" alt="thelotterymatrix.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/thelotterymatrix-draws-760w.webp"
+                        srcset="/images/thelotterymatrix-draws-760w.webp 760w, /images/thelotterymatrix-draws-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="451"
+                        alt="The Powerball Draws tab with 13 and 21 typed into the highlight box, a page of draws from September 23 to October 21, 2026 with the matches circled, and the sum, odd-even and low-high split for each draw"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 26%; top: 13.7%"
+                        data-target="hs-draws-highlight"
+                        aria-expanded="false"
+                        aria-controls="hs-draws-highlight"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 65%; top: 20.3%"
+                        data-target="hs-draws-pages"
+                        aria-expanded="false"
+                        aria-controls="hs-draws-pages"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 76%; top: 28.5%"
+                        data-target="hs-draws-split"
+                        aria-expanded="false"
+                        aria-controls="hs-draws-split"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 44.5%; top: 74.5%"
+                        data-target="hs-draws-match"
+                        aria-expanded="false"
+                        aria-controls="hs-draws-match"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-draws-highlight">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Highlight any numbers</h4>
+                          <p>Type numbers to circle them across the history, or show only the draws that include them. Here, 13 or 21 appears in 301 of 1,423 draws.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-draws-pages">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>30 days at a time</h4>
+                          <p>The history pages by 30 days, newest first, with jumps to either end.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-draws-split">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Each draw, broken down</h4>
+                          <p>The sum, odd-even and low-high split for every draw, with the Power Play multiplier.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-draws-match">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>Matches, circled</h4>
+                          <p>Highlighted numbers are circled wherever they appear, including the Powerball.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>Patterns, each against exact odds</h4>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">Patterns people look for, each one next to how often a fair machine produces it.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-thelotterymatrix.svg" width="136" height="14" alt="thelotterymatrix.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/thelotterymatrix-patterns-760w.webp"
+                        srcset="/images/thelotterymatrix-patterns-760w.webp 760w, /images/thelotterymatrix-patterns-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="802"
+                        alt="The Powerball Patterns tab with three randomness checks marked Consistent with chance, odd-even and low-high split tables, a chart of the sum of the five white balls, and a table of other patterns"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 50%; top: 24.5%"
+                        data-target="hs-patterns-random"
+                        aria-expanded="false"
+                        aria-controls="hs-patterns-random"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 40%; top: 27.4%"
+                        data-target="hs-patterns-splits"
+                        aria-expanded="false"
+                        aria-controls="hs-patterns-splits"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 60%; top: 55%"
+                        data-target="hs-patterns-sum"
+                        aria-expanded="false"
+                        aria-controls="hs-patterns-sum"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 68%; top: 83.6%"
+                        data-target="hs-patterns-other"
+                        aria-expanded="false"
+                        aria-controls="hs-patterns-other"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 68%; top: 95%"
+                        data-target="hs-patterns-paradox"
+                        aria-expanded="false"
+                        aria-controls="hs-patterns-paradox"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-patterns-random">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Is it random?</h4>
+                          <p>Three randomness checks, on the white balls, the draw-position matrix and the Powerball. All three come back consistent with chance.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-patterns-splits">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Odd-even and low-high</h4>
+                          <p>How often each split comes up, next to how often it should.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-patterns-sum">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>The sum of the five balls</h4>
+                          <p>Actual draws against the exact distribution of sums.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-patterns-other">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>Consecutive numbers and repeats</h4>
+                          <p>Pairs like 23 and 24, repeats from the previous draw, "birthday" picks of 31 and under, and the Powerball matching a white ball.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-patterns-paradox">
+                        <span class="hotspot-note-num">5</span>
+                        <div>
+                          <h4>The birthday paradox</h4>
+                          <p>No set of five white balls has come up twice yet, against an 8.6% chance of at least one by now.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="alt">
+                <li>The randomness checks are chi-square tests, corrected for drawing five balls without replacement</li>
+              </ul>
+              <h4>One engine, two games</h4>
+              <p>The original fourteen pages became one shared engine and a small settings file per game: ball names, draw days, rule eras and About text. Mega Millions reused all of it and added its own touches.</p>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">The Mega Millions matrix: same engine, with M&middot;O&middot;N&middot;E&middot;Y across the columns and a gold Mega Ball.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-thelotterymatrix.svg" width="136" height="14" alt="thelotterymatrix.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/thelotterymatrix-mm-760w.webp"
+                        srcset="/images/thelotterymatrix-mm-760w.webp 760w, /images/thelotterymatrix-mm-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="528"
+                        alt="The Mega Millions Matrix tab with a gold Mega Ball in the latest draw, the rules filter set to April 2025 to now, and the grid of white balls under columns spelling MONEY beside the Mega Ball counts"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 68%; top: 5%"
+                        data-target="hs-mm-gold"
+                        aria-expanded="false"
+                        aria-controls="hs-mm-gold"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 41%; top: 7.5%"
+                        data-target="hs-mm-switch"
+                        aria-expanded="false"
+                        aria-controls="hs-mm-switch"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 73%; top: 17.4%"
+                        data-target="hs-mm-eras"
+                        aria-expanded="false"
+                        aria-controls="hs-mm-eras"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 66%; top: 30.7%"
+                        data-target="hs-mm-small"
+                        aria-expanded="false"
+                        aria-controls="hs-mm-small"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 60%; top: 47%"
+                        data-target="hs-mm-mega"
+                        aria-expanded="false"
+                        aria-controls="hs-mm-mega"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-mm-gold">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>The gold Mega Ball</h4>
+                          <p>Mega Millions keeps its own colors: the Mega Ball is gold.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-mm-switch">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Switch games in one tap</h4>
+                          <p>Each game page links to the other.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-mm-eras">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Five Mega Millions eras</h4>
+                          <p>The newest started in April 2025, and it's the default view.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-mm-small">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>Small numbers, said plainly</h4>
+                          <p>With 161 draws under the newest rules, chance expects 2.3 per cell, and the page says so.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-mm-mega">
+                        <span class="hotspot-note-num">5</span>
+                        <div>
+                          <h4>Mega Ball 1 to 24</h4>
+                          <p>The Mega Ball's own counts, for its current range.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="alt">
+                <li>Adding a game means filling in a settings file, adding a data source and a homepage card</li>
+              </ul>
+              <h4>Updates itself after every drawing</h4>
+              <ul class="alt">
+                <li>A scheduled job runs the morning after each Powerball drawing (Monday, Wednesday and Saturday) and each Mega Millions drawing (Tuesday and Friday), plus a daily safety pass</li>
+                <li>Every incoming row is checked: a valid date, five different white balls within that era's range, and a bonus ball and multiplier within bounds</li>
+                <li>A short or failed download never overwrites the last good copy, and unchanged data costs one request and no write</li>
+                <li>The whole Powerball history since 1997 downloads as about 33 KB compressed, and every statistic is worked out in the browser</li>
+                <li>Plain HTML, CSS and JavaScript, with no build step, no framework and no dependencies</li>
+              </ul>
+              <h4>Found by search</h4>
+              <ul class="alt">
+                <li>Search-friendly titles and descriptions, canonical addresses, a sitemap and robots file, and the www address redirected to the bare domain</li>
+                <li>Structured data for the site, each page and its breadcrumbs, each game as a web application, and each draw history as a dataset, which makes it eligible for dataset search</li>
+              </ul>
+              <h4>Tested in a real browser, on any screen</h4>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">The Powerball matrix on a phone, with the whole grid still on screen.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-thelotterymatrix.svg" width="136" height="14" alt="thelotterymatrix.com" draggable="false" /></div>
+                    </div>
+                    <div class="shot-scroll-cap">
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/thelotterymatrix-phone-390w.webp"
+                        srcset="/images/thelotterymatrix-phone-390w.webp 390w, /images/thelotterymatrix-phone-780w.webp 780w"
+                        sizes="390px"
+                        width="390"
+                        height="1700"
+                        alt="The Powerball Matrix on a phone, with the game switch, the latest draw, stacked filters, scrolling tabs, the color key and the grid of white balls by draw position"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 91%; top: 4.7%"
+                        data-target="hs-phone-switch"
+                        aria-expanded="false"
+                        aria-controls="hs-phone-switch"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 77%; top: 8.2%"
+                        data-target="hs-phone-latest"
+                        aria-expanded="false"
+                        aria-controls="hs-phone-latest"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 92%; top: 13.9%"
+                        data-target="hs-phone-filters"
+                        aria-expanded="false"
+                        aria-controls="hs-phone-filters"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 90%; top: 22.5%"
+                        data-target="hs-phone-tabs"
+                        aria-expanded="false"
+                        aria-controls="hs-phone-tabs"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 90%; top: 44.5%"
+                        data-target="hs-phone-grid"
+                        aria-expanded="false"
+                        aria-controls="hs-phone-grid"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-phone-switch">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Both games in reach</h4>
+                          <p>The game switch sits under the title.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-phone-latest">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Latest draw first</h4>
+                          <p>The newest draw and the data check stay at the top.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-phone-filters">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>Filters that stack</h4>
+                          <p>The filters go full width, and tapping one no longer zooms the page in.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-phone-tabs">
+                        <span class="hotspot-note-num">4</span>
+                        <div>
+                          <h4>Tabs that scroll</h4>
+                          <p>The five tabs scroll sideways when they don't fit.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-phone-grid">
+                        <span class="hotspot-note-num">5</span>
+                        <div>
+                          <h4>The whole grid, sized for a phone</h4>
+                          <p>All five draw positions stay on screen.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="alt">
+                <li>Every tab, filter, sort, toggle, pager and tooltip was driven in a real browser at desktop and phone widths, on the local build and the live site</li>
+                <li>Fixed before launch: back and forward didn't update the view, dropdowns lost keyboard focus after each change, phones zoomed in when a dropdown was tapped, and a render bug blanked the Draws table</li>
+                <li>Every chart has a table version, so nothing depends on hovering, and contrast was checked for each heat step</li>
+              </ul>
+            </div>
+
+            <div class="case-section">
+              <h3>The Results</h3>
+
+              <p>The Lottery Matrix went live on October 23, 2026, with both games updating on their own after every drawing.</p>
+              <ul class="alt">
+                <li>Every Powerball draw since November 1997 across six verified rule eras, and every Mega Millions draw since December 2003 across five, where the old site had stopped in November 2017</li>
+                <li>The key figures were recounted in a separate script straight from the raw official files, and every one matched the live pages</li>
+                <li>All three Powerball randomness checks come back consistent with chance</li>
+                <li>Fourteen copied pages replaced by one engine and a settings file per game</li>
+                <li>A page-quality audit of the live homepage scored 99 for performance on desktop, and 100 for best practices and SEO on phone and desktop</li>
+                <li>No ads, where the old site ran offshore lottery affiliate ads</li>
+              </ul>
+            </div>
+
+            <div class="case-section">
+              <h3>Business Impact</h3>
+
+              <p>A side project that had been dark for nine years is back as something it never was: a site that keeps itself current from official results and is plain about what the numbers mean. Every statistic sits next to what chance would produce, so the site is fun to explore without suggesting it can predict a draw.</p>
+              <p style="margin-bottom: 0">
+                Built on one engine, the next game is a settings file, a data
+                source and a homepage card away. Through
+                <a href="/web-digital">web application development</a> and
+                <a href="/analytics-data">data work</a>, it follows the same
+                habits as client projects: check the source before trusting it,
+                recount the numbers independently, and test in a real browser.
+              </p>
+            </div>
+
+            <div class="case-section">
+              <h3>Explore More Case Studies</h3>
+              <ul class="alt" style="margin-top: 1rem">
+                <li><a href="/case-studies/hawkeye-fan-shop">Hawkeye Fan Shop</a></li>
+                <li><a href="/case-studies/the-black-and-gold-shop">The Black &amp; Gold Shop</a></li>
+                <li><a href="/case-studies/kitchens">Kitchens</a></li>
+                <li><a href="/case-studies/couchletics">Couchletics</a></li>
+                <li><a href="/case-studies/snoring-beagle">Snoring Beagle</a></li>
+              </ul>
+              <p style="margin-top: 1.5rem; margin-bottom: 0">
+                <a href="/case-studies">View all case studies →</a>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta-band" aria-labelledby="cta-title">
+          <h2 id="cta-title">Start the Conversation</h2>
+          <p>Numbers people can trust don't happen by accident. They're built deliberately, from the source checks to the last recount, so the data you show is data you can stand behind.</p>
+          <ul class="actions special">
+            <li><a href="/contact" class="button big wide alt">Start a Conversation</a></li>
+          </ul>
+        </section>
+      </main>
+      <script src="/assets/js/smooth-scroll.js?v=2418fdee53" defer></script>
+      <script src="/assets/js/main-min.js?v=f697f0f060" defer></script>
+      <script src="/assets/js/footer-min.js?v=b9743f675d" defer></script>
+      <script src="/assets/js/case-study-hotspots-min.js?v=b7d4aa3180" defer></script>
+
+      <scott-footer
+        description="How Scott Labz rebuilt a 2015 side project as The Lottery Matrix, a live Powerball and Mega Millions statistics site that updates itself after every drawing.">
+      </scott-footer>
+    </div>
+  </body>
+</html>
