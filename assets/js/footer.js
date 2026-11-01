@@ -260,7 +260,7 @@ class ScottFooter extends HTMLElement {
 
             <p style="font-size: 0.85rem; opacity: 0.7; margin: 0 0 1.25rem;">
               <a href="/security-trust" style="color: inherit; text-decoration: underline;">Security &amp; Trust</a>
-              <span style="margin: 0 0.5rem; opacity: 0.5;">&middot;</span>
+              <span style="margin: 0 0.5rem; opacity: 0.5;">-</span>
               <a href="/legal" style="color: inherit; text-decoration: underline;">Legal &amp; Policies</a>
             </p>
 

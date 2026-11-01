@@ -1,6 +1,6 @@
       const cases = [
         {
-          title: "#001 · The Doubled Purchase Pixel",
+          title: "#001 - The Doubled Purchase Pixel",
           badge: "MEASUREMENT / DUPLICATE CONVERSIONS",
           story:
             "A campaign's reported return on ad spend looks unbelievably strong, roughly twice what the order data in the commerce platform supports.",
@@ -19,7 +19,7 @@
           cat: "Measurement / Duplicate Conversions",
         },
         {
-          title: "#002 · The Late Import",
+          title: "#002 - The Late Import",
           badge: "ATTRIBUTION / OFFLINE CONVERSION LAG",
           story:
             "A campaign that closed leads over the phone shows almost no attributed conversions in the ad platform, despite a healthy sales pipeline.",
@@ -38,7 +38,7 @@
           cat: "Attribution / Offline Conversion Lag",
         },
         {
-          title: "#003 · The Self-Competing Campaigns",
+          title: "#003 - The Self-Competing Campaigns",
           badge: "TARGETING / AUDIENCE OVERLAP",
           story:
             "Two campaigns aimed at similar audiences show rising costs for both, with each one seemingly bidding against the other for the same people.",
@@ -57,7 +57,7 @@
           cat: "Targeting / Audience Overlap",
         },
         {
-          title: "#004 · The Diluted Match",
+          title: "#004 - The Diluted Match",
           badge: "SEARCH / MATCH TYPE",
           story:
             "A tightly targeted search campaign starts showing for loosely related terms, and cost per acquisition climbs even as click volume grows.",
@@ -76,7 +76,7 @@
           cat: "Search / Match Type",
         },
         {
-          title: "#005 · The Same Face",
+          title: "#005 - The Same Face",
           badge: "DELIVERY / FREQUENCY CAPPING",
           story:
             "A retargeting campaign generates complaints from customers who say they see the exact same ad dozens of times a day.",
@@ -95,7 +95,7 @@
           cat: "Delivery / Frequency Capping",
         },
         {
-          title: "#006 · The Mismatched Window",
+          title: "#006 - The Mismatched Window",
           badge: "ATTRIBUTION / WINDOW MISMATCH",
           story:
             "The ad platform reports significantly more conversions than the internal reporting system for the identical campaign and date range.",
@@ -114,7 +114,7 @@
           cat: "Attribution / Window Mismatch",
         },
         {
-          title: "#007 · The Cannibalized Brand Term",
+          title: "#007 - The Cannibalized Brand Term",
           badge: "SEARCH / NEGATIVE KEYWORDS",
           story:
             "Spend on branded search terms rises steadily even though brand awareness campaigns haven't changed, and cost per branded click climbs unexpectedly.",
@@ -133,7 +133,7 @@
           cat: "Search / Negative Keywords",
         },
         {
-          title: "#008 · The Stuck Rotation",
+          title: "#008 - The Stuck Rotation",
           badge: "CREATIVE / ROTATION OPTIMIZATION",
           story:
             'A campaign with five creative variants has been showing the same underperforming ad almost exclusively for weeks, despite an "optimize for performance" setting.',
@@ -152,7 +152,7 @@
           cat: "Creative / Rotation Optimization",
         },
         {
-          title: "#009 · The Midday Exhaustion",
+          title: "#009 - The Midday Exhaustion",
           badge: "BUDGET / PACING",
           story:
             "A campaign consistently runs out of budget by early afternoon, missing the evening hours when the audience is historically most likely to convert.",
@@ -171,7 +171,7 @@
           cat: "Budget / Pacing",
         },
         {
-          title: "#010 · The Overwritten Tag",
+          title: "#010 - The Overwritten Tag",
           badge: "ATTRIBUTION / AUTO-TAGGING CONFLICT",
           story:
             "Campaign-level performance reporting shows healthy click volume, but the corresponding landing page analytics show almost no attributed sessions from that source.",
@@ -190,7 +190,7 @@
           cat: "Attribution / Auto-tagging Conflict",
         },
         {
-          title: "#011 · The Stale Seed",
+          title: "#011 - The Stale Seed",
           badge: "AUDIENCES / LOOKALIKE SEED DATA",
           story:
             "A lookalike audience built to find new customers similar to top buyers instead performs close to a cold, untargeted audience.",
@@ -209,7 +209,7 @@
           cat: "Audiences / Lookalike Seed Data",
         },
         {
-          title: "#012 · The Overshoot",
+          title: "#012 - The Overshoot",
           badge: "TARGETING / GEOTARGETING UNITS",
           story:
             "A local campaign meant to target a single metro area is spending a large share of budget on clicks from hundreds of miles away.",
@@ -228,7 +228,7 @@
           cat: "Targeting / Geotargeting Units",
         },
         {
-          title: "#013 · The Wrong Clock, Again",
+          title: "#013 - The Wrong Clock, Again",
           badge: "SCHEDULING / DAYPARTING TIMEZONE",
           story:
             "A campaign scheduled to run only during business hours is instead showing ads and spending budget overnight.",
@@ -247,7 +247,7 @@
           cat: "Scheduling / Dayparting Timezone",
         },
         {
-          title: "#014 · The Merged Budget",
+          title: "#014 - The Merged Budget",
           badge: "ACCOUNT STRUCTURE / BUDGET SHARING",
           story:
             "After combining several campaigns under one umbrella for easier management, one previously well-performing product line sees its budget consistently absorbed by a louder, lower-margin campaign.",
@@ -266,7 +266,7 @@
           cat: "Account Structure / Budget Sharing",
         },
         {
-          title: "#015 · The Phantom Clicks",
+          title: "#015 - The Phantom Clicks",
           badge: "TRAFFIC QUALITY / CLICK FRAUD",
           story:
             "Click volume on a display campaign spikes dramatically overnight with no corresponding increase in site engagement, leads, or sales.",
@@ -285,7 +285,7 @@
           cat: "Traffic Quality / Click Fraud",
         },
         {
-          title: "#016 · The Broken Customization",
+          title: "#016 - The Broken Customization",
           badge: "CREATIVE / DYNAMIC PARAMETERS",
           story:
             "A dynamic product ad campaign starts sending everyone to the same generic landing page instead of the specific product each ad features.",
@@ -304,7 +304,7 @@
           cat: "Creative / Dynamic Parameters",
         },
         {
-          title: "#017 · The Double-Counted Customer",
+          title: "#017 - The Double-Counted Customer",
           badge: "ATTRIBUTION / CROSS-DEVICE",
           story:
             "Reported new customer counts from a campaign exceed the actual number of new accounts created in the same period.",
@@ -323,7 +323,7 @@
           cat: "Attribution / Cross-device",
         },
         {
-          title: "#018 · The Wrong Goal",
+          title: "#018 - The Wrong Goal",
           badge: "BIDDING / OPTIMIZATION GOAL",
           story:
             "An automated bidding strategy successfully hits its target cost per action, but revenue from the campaign has been declining the whole time.",
@@ -342,7 +342,7 @@
           cat: "Bidding / Optimization Goal",
         },
         {
-          title: "#019 · The Currency Confusion",
+          title: "#019 - The Currency Confusion",
           badge: "REPORTING / CURRENCY MISMATCH",
           story:
             "A weekly performance dashboard shows return on ad spend numbers that don't reconcile with the ad platform's own reporting for the identical campaign.",
@@ -361,7 +361,7 @@
           cat: "Reporting / Currency Mismatch",
         },
         {
-          title: "#020 · The Quiet Disapproval",
+          title: "#020 - The Quiet Disapproval",
           badge: "DELIVERY / AD DISAPPROVAL ALERTS",
           story:
             "A campaign's delivery drops to near zero mid-flight, and nobody notices for several days because the account still shows as active.",
@@ -380,7 +380,7 @@
           cat: "Delivery / Ad Disapproval Alerts",
         },
         {
-          title: "#021 · The Wasted Reach",
+          title: "#021 - The Wasted Reach",
           badge: "AUDIENCES / RETARGETING EXCLUSIONS",
           story:
             "A retargeting campaign continues showing ads to people well after they've already completed a purchase, driving up frequency and cost with no upside.",
@@ -399,7 +399,7 @@
           cat: "Audiences / Retargeting Exclusions",
         },
         {
-          title: "#022 · The Ghost Product",
+          title: "#022 - The Ghost Product",
           badge: "FEEDS / SYNC RELIABILITY",
           story:
             "Shopping ads continue to promote a product line that was fully discontinued weeks earlier, generating clicks that lead to a dead product page.",
@@ -418,7 +418,7 @@
           cat: "Feeds / Sync Reliability",
         },
         {
-          title: "#023 · The Organic Illusion",
+          title: "#023 - The Organic Illusion",
           badge: "MEASUREMENT / INCREMENTALITY",
           story:
             "A channel that reports a strong volume of conversions shows almost no measurable drop in total conversions when its budget is paused entirely for a test period.",
@@ -437,7 +437,7 @@
           cat: "Measurement / Incrementality",
         },
         {
-          title: "#024 · The Shifted Credit",
+          title: "#024 - The Shifted Credit",
           badge: "ATTRIBUTION / MODEL CHANGE",
           story:
             "Following an unannounced change to how credit is assigned across marketing touchpoints, one channel's reported performance drops sharply while another's rises, with no change in actual campaign activity.",
@@ -456,7 +456,7 @@
           cat: "Attribution / Model Change",
         },
         {
-          title: "#025 · The Wrong Period",
+          title: "#025 - The Wrong Period",
           badge: "REPORTING / FISCAL PERIOD MISMATCH",
           story:
             "A quarterly performance review shows an unusually high cost per acquisition, but the underlying campaigns performed normally throughout the period in question.",
@@ -475,7 +475,7 @@
           cat: "Reporting / Fiscal Period Mismatch",
         },
         {
-          title: "#026 · The Skewed Split",
+          title: "#026 - The Skewed Split",
           badge: "CREATIVE / TEST OVERRIDE",
           story:
             "A planned even split between two ad creatives ends up delivering one variant to the vast majority of the audience almost immediately.",
@@ -494,7 +494,7 @@
           cat: "Creative / Test Override",
         },
         {
-          title: "#027 · The Undercounted Signal",
+          title: "#027 - The Undercounted Signal",
           badge: "MEASUREMENT / CONSENT MODE",
           story:
             "Reported ad-driven conversions drop noticeably after a consent update, even though checkout volume and revenue stay flat.",
@@ -513,7 +513,7 @@
           cat: "Measurement / Consent Mode",
         },
         {
-          title: "#028 · The Broken Grouping",
+          title: "#028 - The Broken Grouping",
           badge: "REPORTING / NAMING CONVENTION",
           story:
             'An automated reporting dashboard that groups campaigns by category starts showing several active campaigns as "uncategorized," breaking the summary view.',
@@ -532,7 +532,7 @@
           cat: "Reporting / Naming Convention",
         },
         {
-          title: "#029 · The Returning Opt-Out",
+          title: "#029 - The Returning Opt-Out",
           badge: "AUDIENCES / EXCLUSION LIST EXPIRATION",
           story:
             "A group of customers who explicitly opted out of retargeting months ago start seeing ads again, generating complaints.",
@@ -551,7 +551,7 @@
           cat: "Audiences / Exclusion List Expiration",
         },
         {
-          title: "#030 · The Noisy Target",
+          title: "#030 - The Noisy Target",
           badge: "BIDDING / TARGET CALIBRATION",
           story:
             "An automated bidding strategy set a cost-per-acquisition target based on a single unusually strong week, and performance has struggled to hit that target ever since.",
@@ -570,7 +570,7 @@
           cat: "Bidding / Target Calibration",
         },
         {
-          title: "#031 · The Throttled Delivery",
+          title: "#031 - The Throttled Delivery",
           badge: "BUDGET / ACCOUNT-LEVEL CAPS",
           story:
             "A campaign with an adequate campaign-level budget still underdelivers consistently, capped well below what its budget should allow.",
@@ -589,7 +589,7 @@
           cat: "Budget / Account-level Caps",
         },
         {
-          title: "#032 · The Missing Alert",
+          title: "#032 - The Missing Alert",
           badge: "ACCOUNT STRUCTURE / CROSS-ACCOUNT VISIBILITY",
           story:
             "A campaign under a separate sub-account quietly overspends its monthly allocation by a wide margin before anyone in the main account notices.",
