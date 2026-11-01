@@ -1,5 +1,5 @@
 {
-  "count": 13,
+  "count": 14,
   "notes": [
     {
       "slug": "hawkeye-fan-shop",
@@ -108,6 +108,24 @@
       "logo_alt": "The Lottery Matrix logo, a red lottery ball numbered 13 beside the wordmark",
       "button_class": "lotterymatrix",
       "button_text": "View The Lottery Matrix Case Study"
+    },
+    {
+      "slug": "abracalytics",
+      "path": "abracalytics",
+      "client": null,
+      "file": "abracalytics.html",
+      "url": "https://scottlabz.com/case-studies/abracalytics",
+      "type": "client",
+      "order": 7,
+      "title": "Abracalytics",
+      "summary": "How an enterprise analytics consultancy got a site built around how enterprise buyers judge a vendor: fast, secure, measured and focused on one clear pitch.",
+      "caption": "Enterprise analytics, without the smoke and mirrors",
+      "logo": "images/abracalytics-logo.webp",
+      "logo_width": "858",
+      "logo_height": "636",
+      "logo_alt": "Abracalytics logo, a magic wand over a top hat holding a rising bar chart, above the wordmark",
+      "button_class": "abracalytics",
+      "button_text": "View Abracalytics Case Study"
     },
     {
       "slug": "digital-analytics-implementation",

@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <!-- Google Tag Manager -->
+    <script src="/assets/js/gtm.js?v=a142f1f758" async></script>
+    <!-- End Google Tag Manager -->
+
+    <title>Abracalytics Website Case Study | Scott Labz</title>
+
+    <meta
+      name="description"
+      content="How Scott Labz built abracalytics.com for an enterprise analytics consultancy, designed around how enterprise buyers judge a vendor." />
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="preload"
+      href="/assets/fonts/source-sans-pro-300.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin />
+    <link
+      rel="preload"
+      href="/assets/fonts/source-sans-pro-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin />
+    <link rel="stylesheet" href="/assets/css/main-min.css?v=82645360b3" />
+    <link rel="stylesheet" href="/assets/css/cta-band-min.css?v=6cca415f53" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript-min.css?v=ab1c7bc451" />
+    </noscript>
+
+    <script src="/assets/js/header-min.js?v=0d09452115" async></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon/favicon-32x32.png?v=d06ceab0dd" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon/favicon-16x16.png?v=2664f5c356" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/images/favicon/favicon-96x96.png?v=1fac781b7c" />
+    <script src="/assets/js/navigation-min.js?v=648d3a34f6" defer></script>
+
+    <link
+      rel="canonical"
+      href="https://scottlabz.com/case-studies/abracalytics" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://scottlabz.com/#organization",
+            "name": "Scott Labz, LLC",
+            "description": "How Scott Labz built abracalytics.com for an enterprise analytics consultancy, designed around how enterprise buyers judge a vendor.",
+            "url": "https://scottlabz.com/case-studies/abracalytics",
+            "telephone": "+1-309-340-4306",
+            "logo": "https://scottlabz.com/images/scottlabz-clear.png",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "priceRange": "$$",
+            "slogan": "Measure. Build. Improve.",
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "McLean County, Illinois"
+            },
+            "sameAs": [
+              "https://github.com/scottlabz",
+              "https://www.linkedin.com/company/scottlabz",
+              "https://www.linkedin.com/in/scotttaylor369"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-309-340-4306",
+              "contactType": "Scott Labz"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://scottlabz.com/#scotttaylor",
+            "name": "Scott Taylor",
+            "jobTitle": "Founder",
+            "description": "Scott Taylor is the founder of Scott Labz, where he combines web development, analytics, automation, and digital strategy to help businesses create faster, smarter, and more effective digital experiences.",
+            "image": "https://scottlabz.com/images/scottlabz-clear.png",
+            "url": "https://scottlabz.com/case-studies/abracalytics",
+            "email": "mailto:info@scottlabz.com",
+            "knowsAbout": [
+              "Website Design",
+              "Website Development",
+              "Brand Asset Production",
+              "Web Analytics"
+            ],
+            "worksFor": {
+              "@id": "https://scottlabz.com/#organization"
+            },
+            "sameAs": ["https://www.linkedin.com/in/scotttaylor369"]
+          }
+        ]
+      }
+    </script>
+
+    <meta property="og:type" content="article" />
+
+    <meta property="og:site_name" content="Scott Labz" />
+
+    <meta
+      property="og:title"
+      content="Abracalytics Case Study | Scott Labz" />
+
+    <meta
+      property="og:description"
+      content="How Scott Labz built abracalytics.com for an enterprise analytics consultancy, designed around how enterprise buyers judge a vendor." />
+
+    <meta
+      property="og:url"
+      content="https://scottlabz.com/case-studies/abracalytics" />
+
+    <meta
+      property="og:image"
+      content="https://scottlabz.com/images/og-share.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Abracalytics Case Study | Scott Labz" />
+    <meta name="twitter:description" content="How Scott Labz built abracalytics.com for an enterprise analytics consultancy, designed around how enterprise buyers judge a vendor." />
+    <meta name="twitter:image" content="https://scottlabz.com/images/og-share.png" />
+
+    <style>
+      /* Real-screenshot showcase, copied from the Hawkeye Fan Shop case
+         study (the two client pages with screenshot tours) - not a shared
+         main.css pattern. Colors and radii match .case-section/.security-table so
+         it reads as part of the same design language.
+
+         Each screenshot renders full-size in its own block instead of a
+         thumbnail grid. In place of the old click-to-enlarge lightbox
+         modal, numbered hotspot pins sit directly on top of the image at
+         real UI elements; clicking one fades in a small detail card next
+         to that exact pin (no overlay, nothing leaves the page flow -
+         see .hotspot-pin/.hotspot-popover and the script near the end of
+         <body>). Screenshots with nothing worth calling out (e.g. the
+         payment-icon row) skip hotspots entirely and just run the
+         lead-in paragraph underneath. */
+      .shot-tour {
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+        margin-top: 1.75rem;
+        /* Room before a bullet list or paragraph that follows the
+           screenshots; collapses into a following h4's top margin. */
+        margin-bottom: 2.5rem;
+      }
+
+
+      /* width:fit-content (not the flex column's default full-width
+         stretch) so the frame hugs each screenshot at its own real
+         resolution instead of stretching every image - many of these
+         run narrower than the column - up to a shared width and
+         visibly softening them. max-width/margin keep it from
+         overflowing on narrow viewports and centered when it's
+         narrower than the column. */
+      .shot-frame {
+        border: 1px solid #000;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 auto;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .shot-frame:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+      }
+
+      .shot-chrome {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: #eef1f5;
+        padding: 8px 12px;
+        border-bottom: 1px solid #dde1e6;
+      }
+
+      .shot-chrome .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+
+      .shot-chrome .dot:nth-child(1) {
+        background: #ff5f57;
+      }
+
+      .shot-chrome .dot:nth-child(2) {
+        background: #febc2e;
+      }
+
+      .shot-chrome .dot:nth-child(3) {
+        background: #28c840;
+      }
+
+      .shot-chrome .url {
+        margin-left: 8px;
+        background: #fff;
+        border: 1px solid #dde1e6;
+        border-radius: 5px;
+        padding: 2px 10px;
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .shot-chrome .url img {
+        display: block;
+        height: 10px;
+        width: auto;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .shot-frame img {
+        display: block;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+      }
+
+      /* Styled as a callout attached to the frame it introduces - the
+         blue accent bar echoes .hotspot-pin's own color so the caption
+         and the screenshot it's captioning read as one unit, rather
+         than the plain paragraph blending into the section's body
+         copy above it. Since each one sits directly above its own
+         .shot-frame and directly below the previous one, this is the
+         only text in the immediate vicinity of every browser mockup
+         on the page. */
+      .shot-lead {
+        position: relative;
+        font-size: 1.1rem;
+        color: #33475b;
+        margin: 0 0 1rem;
+        padding: 0.75rem 1.1rem;
+        line-height: 1.65;
+        background: rgba(37, 99, 235, 0.06);
+        border-left: 3px solid #2563eb;
+        border-radius: 0 8px 8px 0;
+      }
+
+      /* The interactive image area. Positioned so hotspot pins (also
+         absolutely positioned, placed inline per-image via style="left:
+         %; top: %") anchor to the actual pixel they're calling out
+         regardless of how the image is scaled at a given viewport. */
+      .hotspot-media {
+        position: relative;
+        line-height: 0;
+      }
+
+      /* Caps tall images to a fixed viewing height with an internal
+         scrollbar, for cases where showing the full image at native
+         width would otherwise run for thousands of pixels. This wraps
+         .hotspot-media rather than constraining it directly - the pins
+         inside are positioned via percentages resolved against their
+         containing block's own size, so if the height cap were applied
+         to .hotspot-media itself, every "top: X%" would resolve against
+         600px instead of the image's real height and every pin below
+         the fold would land in the wrong place. Keeping .hotspot-media
+         at its natural full height and scrolling this outer wrapper
+         instead leaves that math untouched. */
+      .shot-scroll-cap {
+        max-height: 600px;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      /* main.css's generic button:hover/:active rules force color with
+         !important, which otherwise wins over any normal-specificity
+         rule here regardless of selector weight - color/background are
+         !important'd below to match and guarantee this component's own
+         states render correctly.
+
+         Blue (#2563eb), matching the reference number badge inside the
+         popover, so the pin and its own detail card read as the same
+         control. Flips to a deeper shade of the same blue once opened,
+         rather than jumping to an unrelated hue. */
+      .hotspot-pin {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #2563eb !important;
+        color: #fff !important;
+        border: 3px solid #fff;
+        font: 800 22px/1 Inter, system-ui, sans-serif;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5) !important;
+        z-index: 2;
+        padding: 0;
+        /* main.css's sitewide button reset sets overflow:hidden on
+           every <button> (for text-ellipsis truncation on normal site
+           buttons) - since this pin never overrode it, that rule was
+           silently clipping the sonar ring to this element's own 60px
+           box the instant it scaled past it, so the animation was
+           rendering but never visibly leaving the button. */
+        overflow: visible;
+        transition:
+          background 0.15s ease,
+          color 0.15s ease,
+          transform 0.15s ease;
+      }
+
+      /* Subtle sonar ping - one ring expanding a short distance from
+         the pin's own edge before fading, dialed back from the earlier
+         version's larger/double-ring effect per feedback that it read
+         as too much. Starting at inset:-3px (slightly larger than the
+         pin, not inset:0/exactly the same size) matters - the ring
+         sits behind the pin (z-index:-1), so if it started at the same
+         size as the opaque pin on top of it, the ring would be entirely
+         hidden underneath at the start of every cycle. */
+      .hotspot-pin::before {
+        content: "";
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        border: 3px solid rgba(37, 99, 235, 0.95);
+        z-index: -1;
+        pointer-events: none;
+        animation: hotspot-sonar 2s ease-out infinite;
+      }
+
+      /* The button's visible label is empty (see aria-label for its
+         accessible name) - this pseudo-element supplies the +/- glyph
+         instead, swapped purely by the aria-expanded state the toggle
+         script already maintains, no extra JS needed. */
+      .hotspot-pin::after {
+        content: "+";
+        line-height: 1;
+      }
+
+      .hotspot-pin[aria-expanded="true"]::after {
+        content: "\2212";
+      }
+
+      .hotspot-pin:hover,
+      .hotspot-pin:focus-visible,
+      .hotspot-pin:active {
+        background: #1d4ed8 !important;
+        color: #000 !important;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5) !important;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      .hotspot-pin[aria-expanded="true"] {
+        background: #1d4ed8 !important;
+        color: #000 !important;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5) !important;
+      }
+
+      .hotspot-pin[aria-expanded="true"]::before {
+        animation: none;
+        opacity: 0;
+      }
+
+      @keyframes hotspot-sonar {
+        0% {
+          transform: scale(1);
+          opacity: 0.9;
+        }
+        100% {
+          transform: scale(1.65);
+          opacity: 0;
+        }
+      }
+
+      /* Source content for the popover below - each pin's detail card
+         lives here in normal, crawlable markup but is never shown in
+         place. The toggle script reads a clicked pin's matching note
+         by id and copies it into the single shared .hotspot-popover,
+         which it positions next to that exact pin. Keeping the source
+         hidden this way (rather than deleting it) avoids having to
+         restructure all 72 of these per image. */
+      .hotspot-notes {
+        display: none;
+      }
+
+      /* Appended once to <body> by the toggle script, not nested inside
+         any .shot-frame - that's what lets it fade in next to whichever
+         pin was pressed without being clipped by the frame's rounded-
+         corner overflow:hidden, and without inheriting scroll/position
+         quirks from position:fixed. */
+      .hotspot-popover {
+        position: absolute;
+        z-index: 60;
+        display: flex;
+        gap: 0.9rem;
+        width: min(380px, calc(100vw - 24px));
+        background: #fff;
+        border: 2px solid #000;
+        border-radius: 12px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+        padding: 1.4rem 1.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(6px);
+        transition:
+          opacity 0.18s ease,
+          transform 0.18s ease;
+        pointer-events: none;
+      }
+
+      .hotspot-popover.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .hotspot-popover .hotspot-note-num {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #2563eb;
+        color: #fff;
+        font: 800 13px/32px Inter, system-ui, sans-serif;
+        text-align: center;
+      }
+
+      .hotspot-popover h4 {
+        margin: 0.2rem 0 0.65rem;
+        padding-bottom: 0.4rem;
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: #111;
+        border-bottom: 2px solid #2563eb;
+      }
+
+      .hotspot-popover p {
+        margin: 0 0 1rem;
+        font-size: 1rem;
+        line-height: 1.75;
+        color: #444;
+      }
+
+      .hotspot-popover p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Non-interactive shots (payment icon row, etc.) keep the same
+         frame treatment but skip hotspots entirely - plain image, lead
+         paragraph does the explaining. */
+      .shot-frame.plain img {
+        cursor: default;
+      }
+
+      /* main.css sizes this background strip at 20% of
+         .case-study-hero's own height, which was fine when that
+         element was just a short intro banner. On this page the hero
+         section wraps every case-section added below it, so its
+         height is the whole page - 20% of a 13,000px+ page ballooned
+         the strip into a multi-thousand-pixel box, forcing the
+         1980x1485 source photo to upscale well past its native
+         resolution (especially at Retina density) and look
+         pixelated. Capping it to one viewport height keeps it sized
+         like the short intro banner it's meant to be. */
+      .case-study-hero::before {
+        height: 100vh;
+        height: 100svh;
+      }
+    
+      /* Subheads that split What Was Built into its parts */
+      /* main.css pads list items on top only, so each divider sat right
+         under the line of text above it; split the space evenly. */
+      .case-section ul.alt li {
+        padding: 0.75rem 0;
+      }
+      .case-section ul.alt li:first-child {
+        padding-top: 0;
+      }
+      .case-section ul.alt li:last-child {
+        padding-bottom: 0;
+      }
+      .case-section > h4 {
+        margin: 4.5rem 0 1rem;
+        color: #1e3a5f;
+      }
+      .case-section > h3 + p + h4,
+      .case-section > h3 + h4 {
+        margin-top: 2.5rem;
+      }
+      /* More room between the section cards (main.css: 2.5rem). */
+      .hero-box,
+      .case-section {
+        margin-bottom: 4rem;
+      }
+
+      /* A longer, eased fade from the header background into the page.
+         The shared rule (main.css) fades in a straight line over the
+         last 40% only, which reads as a hard edge; this one starts at
+         25% and eases out, the same as the Snoring Beagle page. */
+      .case-study-hero::before {
+        -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 25%, rgba(0, 0, 0, 0.94) 36%, rgba(0, 0, 0, 0.8) 48%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.38) 72%, rgba(0, 0, 0, 0.18) 84%, rgba(0, 0, 0, 0.05) 94%, transparent 100%);
+        mask-image: linear-gradient(to bottom, #000 0%, #000 25%, rgba(0, 0, 0, 0.94) 36%, rgba(0, 0, 0, 0.8) 48%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.38) 72%, rgba(0, 0, 0, 0.18) 84%, rgba(0, 0, 0, 0.05) 94%, transparent 100%);
+      }
+</style>
+    <!-- Case Studies hub card data - read by scripts/generate_indexes.py -->
+        <meta name="cs-type" content="client" />
+    <meta name="cs-order" content="7" />
+    <meta name="cs-title" content="Abracalytics" />
+    <meta name="cs-summary" content="How an enterprise analytics consultancy got a site built around how enterprise buyers judge a vendor: fast, secure, measured and focused on one clear pitch." />
+    <meta name="cs-caption" content="Enterprise analytics, without the smoke and mirrors" />
+    <meta name="cs-logo" content="images/abracalytics-logo.webp" />
+    <meta name="cs-logo-width" content="858" />
+    <meta name="cs-logo-height" content="636" />
+    <meta name="cs-logo-alt" content="Abracalytics logo, a magic wand over a top hat holding a rising bar chart, above the wordmark" />
+    <meta name="cs-button-class" content="abracalytics" />
+  </head>
+
+  <body class="is-preload">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TTDLMNPL"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <scott-nav></scott-nav>
+
+    <div id="wrapper">
+      <main id="main-content">
+        <section
+          class="case-study-hero banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right"
+          style="--hero-bg: url(&quot;/images/abracalytics-hero.jpg&quot;)">
+          <div class="content">
+            <div class="hero-box">
+              <p class="brand-mark">
+                <a href="/" style="border-bottom: none">
+                  <img
+                    src="/images/scottlabz-clear.webp?v=d34943c620"
+                    srcset="/images/scottlabz-clear-32w.webp?v=8d5d3e1b4b 32w, /images/scottlabz-clear-64w.webp?v=7b37132bec 64w, /images/scottlabz-clear-96w.webp?v=1b0fa7e3f5 96w, /images/scottlabz-clear.webp?v=d34943c620 130w"
+                    sizes="(max-width: 736px) 28px, 55px"
+                    width="130"
+                    height="170"
+                    alt="S"
+                    class="logo"
+                    style="margin-right: 0" />cott Labz
+                </a>
+              </p>
+
+              <h1 class="size-h3">Abracalytics Case Study</h1>
+
+              <h2
+                class="case-study-headline"
+                style="
+                  font-size: 2.2rem;
+                  margin-top: 0.5rem;
+                  margin-bottom: 1.5rem;
+                ">
+                An Enterprise Site, No Smoke and Mirrors
+              </h2>
+
+              <p class="major" style="margin-bottom: 0">
+                Abracalytics is an enterprise analytics consultancy. Scott Labz
+                built its website around how enterprise buyers judge a vendor:
+                fast, secure, measured from the first visit, and focused on one
+                clear pitch.
+              </p>
+            </div>
+
+            <div class="case-section">
+              <h3>Project Overview</h3>
+
+              <div class="table-wrapper">
+                <table class="security-table">
+                  <tbody>
+                    <tr>
+                      <td><strong>Project</strong></td>
+                      <td>A website and analytics for a new analytics consultancy</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Organization</strong></td>
+                      <td>Abracalytics, an enterprise analytics consultancy</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Services</strong></td>
+                      <td>Hosting and domain setup, brand assets, web design and build, analytics, and enterprise repositioning</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Live site</strong></td>
+                      <td><a href="https://abracalytics.com" target="_blank" rel="noopener">abracalytics.com</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="case-section">
+              <h3>The Challenge</h3>
+
+              <p>Enterprise buyers judge a consultancy before they ever talk to it. Abracalytics needed a site that made a serious first impression: credible to large organizations, clear about what it does, and short enough to read in a minute.</p>
+              <p>It also had to keep the brand's playful side, its magic theme and mascot, without undercutting the enterprise pitch.</p>
+            </div>
+
+            <div class="case-section">
+              <h3>What Was Built</h3>
+
+              <p>Scott Labz set up the hosting and domain, produced the brand assets, designed and built the site, added analytics, and redesigned it for enterprise buyers.</p>
+              <h4>An enterprise first impression</h4>
+              <p>The homepage opens on a confident, dark hero that says who Abracalytics serves and what it promises, with a clear next step for buyers who are ready to talk.</p>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">The redesigned hero, in deep navy with the logo's colors.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-abracalytics.svg" width="112" height="14" alt="abracalytics.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/abracalytics-hero-760w.webp"
+                        srcset="/images/abracalytics-hero-760w.webp 760w, /images/abracalytics-hero-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="524"
+                        alt="Abracalytics homepage hero on deep navy with a label, the headline, two buttons, a row of platform names and the logo in white"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 58%; top: 45%"
+                        data-target="hs-hero-headline"
+                        aria-expanded="false"
+                        aria-controls="hs-hero-headline"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 44%; top: 71.3%"
+                        data-target="hs-hero-actions"
+                        aria-expanded="false"
+                        aria-controls="hs-hero-actions"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 75.8%; top: 78%"
+                        data-target="hs-hero-logo"
+                        aria-expanded="false"
+                        aria-controls="hs-hero-logo"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-hero-headline">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Without the smoke and mirrors</h4>
+                          <p>A nod to the magic theme that still reads as a serious promise to enterprise buyers.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-hero-actions">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Clear next steps</h4>
+                          <p>Start a conversation, or see the framework first.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-hero-logo">
+                        <span class="hotspot-note-num">3</span>
+                        <div>
+                          <h4>A logo for dark backgrounds</h4>
+                          <p>The logo was recolored to stand out on deep navy, without redrawing it.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>A framework, not a product list</h4>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">Validate, Understand, Test: one improvement cycle, in the logo's three colors.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-abracalytics.svg" width="112" height="14" alt="abracalytics.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/abracalytics-framework-760w.webp"
+                        srcset="/images/abracalytics-framework-760w.webp 760w, /images/abracalytics-framework-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="502"
+                        alt="Abracalytics framework section with the headline Validate. Understand. Test. above three numbered cards"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 54%; top: 20.5%"
+                        data-target="hs-framework-cycle"
+                        aria-expanded="false"
+                        aria-controls="hs-framework-cycle"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 88%; top: 38%"
+                        data-target="hs-framework-colors"
+                        aria-expanded="false"
+                        aria-controls="hs-framework-colors"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-framework-cycle">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Validate. Understand. Test.</h4>
+                          <p>The services are presented as one continuous improvement cycle.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-framework-colors">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>Colors from the logo</h4>
+                          <p>Each step takes its color from one of the logo's three bars.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>Written for enterprise buyers</h4>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">Three ways to engage, then one call to action.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-abracalytics.svg" width="112" height="14" alt="abracalytics.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/abracalytics-engage-760w.webp"
+                        srcset="/images/abracalytics-engage-760w.webp 760w, /images/abracalytics-engage-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="441"
+                        alt="Abracalytics engagements section with three columns of engagement types, above a navy call to action with an email button"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 64.7%; top: 42.5%"
+                        data-target="hs-engage-engagements"
+                        aria-expanded="false"
+                        aria-controls="hs-engage-engagements"
+                        aria-label="View detail">
+                      </button>
+                      <button
+                        class="hotspot-pin"
+                        style="left: 69.5%; top: 79.4%"
+                        data-target="hs-engage-cta"
+                        aria-expanded="false"
+                        aria-controls="hs-engage-cta"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-engage-engagements">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Engagement types</h4>
+                          <p>New builds, audits and ongoing optimization, written for enterprise teams.</p>
+                        </div>
+                      </div>
+                      <div class="hotspot-note" id="hs-engage-cta">
+                        <span class="hotspot-note-num">2</span>
+                        <div>
+                          <h4>One call to action</h4>
+                          <p>The page closes on a single way to get in touch.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>The mascot kept its place</h4>
+              <div class="shot-tour">
+                <div>
+                  <p class="shot-lead">The playful side, in a small card near the bottom.</p>
+                  <div class="shot-frame">
+                    <div class="shot-chrome">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="url"><img src="/images/url-abracalytics.svg" width="112" height="14" alt="abracalytics.com" draggable="false" /></div>
+                    </div>
+                    <div class="hotspot-media">
+                      <img
+                        src="/images/abracalytics-kids-760w.webp"
+                        srcset="/images/abracalytics-kids-760w.webp 760w, /images/abracalytics-kids-1520w.webp 1520w"
+                        sizes="(max-width: 860px) calc(100vw - 5rem), 760px"
+                        width="760"
+                        height="244"
+                        alt="Abracalytics for Kids card with the bunny mascot in a top hat, above the footer"
+                        loading="lazy" />
+                      <button
+                        class="hotspot-pin"
+                        style="left: 77.5%; top: 38.8%"
+                        data-target="hs-kids-kids"
+                        aria-expanded="false"
+                        aria-controls="hs-kids-kids"
+                        aria-label="View detail">
+                      </button>
+                    </div>
+                    <div class="hotspot-notes">
+                      <div class="hotspot-note" id="hs-kids-kids">
+                        <span class="hotspot-note-num">1</span>
+                        <div>
+                          <h4>Abracalytics for Kids</h4>
+                          <p>An in-progress children's book and online class that teach data and analytics.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4>Built to perform</h4>
+              <ul class="alt">
+                <li>A fast, secure site, served from a global network</li>
+                <li>Brand assets prepared for the web, from browser icons to share images</li>
+                <li>Analytics on every page from the first visit</li>
+                <li>Checked on desktop and phone before each release</li>
+              </ul>
+            </div>
+
+            <div class="case-section">
+              <h3>The Results</h3>
+
+              <ul class="alt">
+                <li>A live, secure site on the domain the same day the work started</li>
+                <li>Measured from the first visit</li>
+                <li>Repositioned for enterprise buyers on one short, focused page</li>
+              </ul>
+            </div>
+
+            <div class="case-section">
+              <h3>Business Impact</h3>
+
+              <p style="margin-bottom: 0">
+                Abracalytics now has a site that looks the part for enterprise
+                buyers and makes its case in a minute. Built through
+                <a href="/web-digital">website development</a> and
+                <a href="/analytics-data">measurement</a>, it's ready to grow
+                as the consultancy adds credentials and new offerings.
+              </p>
+            </div>
+
+            <div class="case-section">
+              <h3>Explore More Case Studies</h3>
+              <ul class="alt" style="margin-top: 1rem">
+                <li><a href="/case-studies/hawkeye-fan-shop">Hawkeye Fan Shop</a></li>
+                <li><a href="/case-studies/the-black-and-gold-shop">The Black &amp; Gold Shop</a></li>
+                <li><a href="/case-studies/kitchens">Kitchens</a></li>
+                <li><a href="/case-studies/couchletics">Couchletics</a></li>
+                <li><a href="/case-studies/snoring-beagle">Snoring Beagle</a></li>
+                <li><a href="/case-studies/the-lottery-matrix">The Lottery Matrix</a></li>
+              </ul>
+              <p style="margin-top: 1.5rem; margin-bottom: 0">
+                <a href="/case-studies">View all case studies →</a>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta-band" aria-labelledby="cta-title">
+          <h2 id="cta-title">Start the Conversation</h2>
+          <p>A first impression for enterprise buyers doesn't happen by accident. It's built deliberately, so the site you're running is one your buyers take seriously.</p>
+          <ul class="actions special">
+            <li><a href="/contact" class="button big wide alt">Start a Conversation</a></li>
+          </ul>
+        </section>
+      </main>
+      <script src="/assets/js/smooth-scroll.js?v=2418fdee53" defer></script>
+      <script src="/assets/js/main-min.js?v=f697f0f060" defer></script>
+      <script src="/assets/js/footer-min.js?v=b9743f675d" defer></script>
+      <script src="/assets/js/case-study-hotspots-min.js?v=b7d4aa3180" defer></script>
+
+      <scott-footer
+        description="How Scott Labz built abracalytics.com for an enterprise analytics consultancy, designed around how enterprise buyers judge a vendor.">
+      </scott-footer>
+    </div>
+  </body>
+</html>

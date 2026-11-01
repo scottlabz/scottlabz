@@ -146,6 +146,11 @@
                   "@type": "ListItem",
                   "position": 6,
                   "url": "https://scottlabz.com/case-studies/the-lottery-matrix"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 7,
+                  "url": "https://scottlabz.com/case-studies/abracalytics"
                 }
               ]
             }
@@ -472,14 +477,23 @@
         color: #ffffff !important;
       }
 
-      /* The navy of the Abracalytics hat and wordmark. */
       .button.abracalytics {
+        background-color: #6b3fd0;
+        box-shadow:
+          inset 0 0 0 4px #ffffff,
+          0 6px 14px rgba(0, 0, 0, 0.3);
+        color: #ffffff !important;
+      }
+
+      /* At rest the logo's middle-bar purple (the card accent); hover
+         flips to the navy of the hat and wordmark. Both keep the white
+         ring. */
+      .button.abracalytics:hover {
         background-color: #1d2473;
         box-shadow:
           inset 0 0 0 4px #ffffff,
           0 6px 14px rgba(0, 0, 0, 0.3);
         color: #ffffff !important;
-        cursor: default;
       }
 
       /* Couchletics brand tokens from couchletics.com: their primary
@@ -646,11 +660,6 @@
                   <a href="case-studies/the-lottery-matrix" class="button wide lotterymatrix" aria-label="View The Lottery Matrix Case Study">View Case Study</a>
                 </div>
               </article>
-              <!-- CS-CLIENTS:END -->
-
-              <!-- Hand-authored until the Abracalytics case study page is
-                   published; then delete this card and give that page
-                   cs-* meta tags like the other client pages. -->
               <article class="cs-showcase-card is-abracalytics">
                 <div class="cs-showcase-logo">
                   <img
@@ -662,12 +671,13 @@
                 </div>
                 <div class="cs-showcase-body">
                   <h2 class="cs-showcase-name">Abracalytics</h2>
-                  <p class="cs-showcase-caption">Data, made magical</p>
-                  <p class="cs-showcase-summary">An enterprise data and analytics company preparing to launch. The full case study is in progress.</p>
-                  <span class="button wide abracalytics" aria-disabled="true" aria-describedby="abracalytics-soon">View Case Study</span>
-                  <p class="cs-showcase-soon" id="abracalytics-soon">Coming soon</p>
+                  <p class="cs-showcase-caption">Enterprise analytics, without the smoke and mirrors</p>
+                  <p class="cs-showcase-summary">How an enterprise analytics consultancy got a site built around how enterprise buyers judge a vendor: fast, secure, measured and focused on one clear pitch.</p>
+                  <a href="case-studies/abracalytics" class="button wide abracalytics" aria-label="View Abracalytics Case Study">View Case Study</a>
                 </div>
               </article>
+              <!-- CS-CLIENTS:END -->
+
 
           </div>
         </section>
