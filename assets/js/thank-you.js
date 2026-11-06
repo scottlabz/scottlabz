@@ -6,16 +6,28 @@
  * apart), and applicants get grant-specific next steps instead of the
  * contact form's "I'll get back to you within one business day".
  * The year is filled in by website-grant.js, which loads after this.
+ * The dog shelter landing page's form adds ?form=dog-shelter. Its message
+ * doesn't link back, because nothing on the site links to that page.
  *
  * External file because the site's CSP only allows a fixed set of
  * inline-script hashes.
  */
 (function () {
   var form = new URLSearchParams(window.location.search).get("form");
-  if (form !== "website-grant") return;
-
   var message = document.querySelector("[data-thanks-message]");
   var next = document.querySelector("[data-thanks-next]");
+
+  if (form === "dog-shelter") {
+    if (message) {
+      message.textContent =
+        "Your shelter's application is in. Every application is read, and " +
+        "selected shelters are contacted directly.";
+    }
+    return;
+  }
+
+  if (form !== "website-grant") return;
+
   if (message) {
     message.innerHTML =
       "Your Website Grant application is in. Applications are reviewed " +

@@ -263,9 +263,10 @@ def check_orphan_pages(html_files: list[Path], js_files: list[Path], sitemap_url
 
     orphans = sorted(
         p
-        # landing.html is a standalone ad-landing page reached only via
-        # external traffic - never expected to have an inbound link.
-        for p in sitemap_relpaths - linked_pages - {"index.html", "landing.html"}
+        # landing.html and free-websites-for-dog-shelters.html are standalone
+        # landing pages reached only via external traffic - never expected to
+        # have an inbound link.
+        for p in sitemap_relpaths - linked_pages - {"index.html", "landing.html", "free-websites-for-dog-shelters.html"}
         if p not in EXCLUDE_FROM_SITEMAP_AND_ORPHAN_CHECKS
         and not is_redirect_stub(REPO_ROOT / p)
     )

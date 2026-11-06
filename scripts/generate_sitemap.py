@@ -43,6 +43,7 @@ MAIN_PAGES = {
     "case-studies.html": ("0.8", "monthly"),
     "legal.html": ("0.5", "monthly"),
     "landing.html": ("0.4", "monthly"),
+    "free-websites-for-dog-shelters.html": ("0.4", "monthly"),
 }
 
 DEFAULT = ("0.3", "yearly")
